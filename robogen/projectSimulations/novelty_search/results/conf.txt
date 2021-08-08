@@ -1,0 +1,46 @@
+#Simulator Config File - Base environment: flat ground, max friction
+
+scenario=racing
+
+#how much real time each iteration of the simulator represents
+timeStep=0.005
+
+#nTimeSteps or simulationTime – these options specify the length of the simulation in terms of the number of time steps or number of seconds respectively (use one or the other). We use the former here.
+nTimeSteps = 10000
+
+#Actuation frequency of the controller in Hz. Inverse of actuationFrequency must be a multiple of timeStep.
+actuationFrequency=25
+
+#Terrain
+terrainType=flat
+terrainLength=40
+terrainWidth=40
+terrainFriction=1.0
+
+#Physics
+gravity=-9.81
+
+#Resources config file
+#resourcesConfigFile=resourcesDifficultEnv.txt
+
+#starting positions and orientations defined
+startPositionConfigFile=startposconfig.txt
+
+#Noise
+sensorNoiseLevel=0.0
+motorNoiseLevel=0.0
+
+#Constraint Handling
+capAcceleration=false
+# uncomment the following to prevent 'jittery behaviors'
+#maxDirectionShiftsPerSecond=16
+disallowObstacleCollisions=false
+obstacleOverlapPolicy=removeObstacles
+
+#Gathering zone coordinates. The specified position will be the position of the center of the gathering zone. Set it to span half the environment.
+gatheringZonePosition=0,16,0
+
+#Gathering zone size.
+gatheringZoneSize=20,8,0.0005
+swarmSize=1
+

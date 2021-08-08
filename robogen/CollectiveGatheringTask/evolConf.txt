@@ -1,0 +1,24 @@
+evolutionMode=brain
+mu=100
+lambda=100
+replacement=plus
+numGenerations=200
+selection=deterministic-tournament
+tournamentSize=2
+referenceRobotFile=simpleRobot.txt
+evolutionaryAlgorithm=HyperNEAT
+pBrainMutate=.34
+brainSigma=.7
+brainBounds=-3:3
+periodSigma=0.2
+periodBounds=0.2:2.0
+phaseOffsetSigma=0.4
+phaseOffsetBounds=-1:1
+amplitudeSigma=0.2
+amplitudeBounds=0:1
+pBrainCrossover=0.32
+pAddHiddenNeuron=0.0 #0.05 - but can't have pBrainCrossover > 0
+pOscillatorNeuron=0.0
+simulatorConfFile=conf.txt
+socket=127.0.0.1:8000
+

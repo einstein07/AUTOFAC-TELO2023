@@ -1,0 +1,13 @@
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/rebuild_cache.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/edit_cache.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-evolver.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/cmake-clean.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-server.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/setup-js.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-file-viewer.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/proto.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen_autogen.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-evolver_autogen.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-server_autogen.dir
+/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-file-viewer_autogen.dir
