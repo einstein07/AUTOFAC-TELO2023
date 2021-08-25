@@ -100,8 +100,9 @@ namespace robogen {
 
 BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size, float density, 
-                    int pushingRobots) : size_(size), isCollected_(false), 
-                        pushingRobots_(pushingRobots), stickyFace_(Face::NONE) {
+                    int pushingRobots, int& resourceId) : odeWorld_(odeWorld),
+                    odeSpace_(odeSpace), size_(size), isCollected_(false),
+                    pushingRobots_(pushingRobots), stickyFace_(Face::NONE) {
 
 
     // since resource is not fixed, create body
@@ -117,7 +118,14 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     // the position on non-stationary bodies
     dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
     
-    jointGroup_ = dJointGroupCreate (0);
+    jointGroup_ = dJointGroupCreate(0);
+    value_ = 100 / pushingRobots_;
+
+    data_.objectId = resourceId;
+    resourceId++;
+    data_.isResource = true;
+    data_.isRobot = !data_.isResource;
+    dGeomSetData (boxGeom_, (void*)&data_);
 }
 
 BoxResource::~BoxResource() {
@@ -273,7 +281,7 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
    
     /** Check the face that the robot is attempting to attach to,only permit
      * the robot to attach to the sticky face
-    **/
+     */
     Face attachFace = getFaceClosestToPointLocal(robotPositionLocal);
     if (stickyFace_ != Face::NONE && stickyFace_ != attachFace) {
         return false;
@@ -381,7 +389,10 @@ bool BoxResource::getClosestAnchorPoint(osg::Vec3 position, int& index){
 }
 
 void BoxResource::createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint){
-    dJointID joint = dJointCreateBall (odeWorld_, jointGroup_);
+	std::cout << "Inside create ball joint" << std::endl;
+
+	dJointID joint = dJointCreateBall (odeWorld_, jointGroup_);
+
     std::cout << "-*-*-*-*-*-*-*-*-*-*- attaching " << 
             robot->getCoreComponent()->getRoot()->getBody()
                 << " " << box_ << std::endl;
