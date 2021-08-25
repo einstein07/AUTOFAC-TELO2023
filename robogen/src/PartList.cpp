@@ -64,6 +64,10 @@ std::map<char, std::string> initPartTypeMap(const std::map<char, std::string>
 #ifdef IR_SENSORS_ENABLED
 	partTypeMap['D'] = PART_TYPE_IR_SENSOR;
 #endif
+	// SM added
+#ifdef COLOR_SENSORS_ENABLED
+	partTypeMap['O'] = PART_TYPE_COLOR_SENSOR;
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeMap['T'] = PART_TYPE_TOUCH_SENSOR;
 #endif
@@ -101,6 +105,10 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 #endif
 #ifdef IR_SENSORS_ENABLED
 	partTypeArityMap[PART_TYPE_IR_SENSOR] = 0;
+#endif
+	// SM added
+#ifdef COLOR_SENSORS_ENABLED
+	partTypeArityMap[PART_TYPE_COLOR_SENSOR] = 0;
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeArityMap[PART_TYPE_TOUCH_SENSOR] = 0;
@@ -228,6 +236,14 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 		std::vector<std::string> sensors;
 		sensors.push_back(PART_TYPE_IR_SENSOR);
 		partTypeSensorsMap[PART_TYPE_IR_SENSOR] = sensors;
+	}
+#endif
+	// SM Added
+#ifdef COLOR_SENSORS_ENABLED
+	{
+		std::vector<std::string> sensors;
+		sensors.push_back(PART_TYPE_COLOR_SENSOR);
+		partTypeSensorsMap[PART_TYPE_COLOR_SENSOR] = sensors;
 	}
 #endif
 #ifdef TOUCH_SENSORS_ENABLED

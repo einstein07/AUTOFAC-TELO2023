@@ -40,6 +40,7 @@
 #define ENFORCE_PLANAR
 
 #define IR_SENSORS_ENABLED
+#define COLOR_SENSORS_ENABLED
 #ifndef IR_SENSORS_ENABLED
 	#define TOUCH_SENSORS_ENABLED
 #endif
@@ -80,6 +81,12 @@ namespace robogen {
 #ifdef IR_SENSORS_ENABLED
 	#define PART_TYPE_IR_SENSOR			"IrSensor"
 	#define SENSOR_TYPE_IR_SENSOR_ELEMENT	"IrSensor"
+#endif
+
+#ifdef COLOR_SENSORS_ENABLED
+	// SM added
+	#define PART_TYPE_COLOR_SENSOR			"ColorSensor"
+	#define SENSOR_TYPE_COLOR_SENSOR_ELEMENT	"ColorSensor"
 #endif
 
 #ifdef TOUCH_SENSORS_ENABLED
