@@ -76,6 +76,7 @@ CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robog
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -85,6 +86,7 @@ CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robog
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -97,6 +99,7 @@ CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robog
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -106,6 +109,8 @@ CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robog
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -260,6 +265,7 @@ CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -269,6 +275,7 @@ CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -281,6 +288,7 @@ CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -290,6 +298,8 @@ CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/arduino/ArduinoNNCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -354,6 +364,7 @@ CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -363,6 +374,7 @@ CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -375,6 +387,7 @@ CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -384,6 +397,8 @@ CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/config/ConfigurationReader.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -472,6 +487,7 @@ CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documen
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -481,6 +497,7 @@ CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documen
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -493,6 +510,7 @@ CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documen
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -502,6 +520,8 @@ CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documen
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/BodyVerifier.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -596,6 +616,7 @@ CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -605,6 +626,7 @@ CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -617,6 +639,7 @@ CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -626,6 +649,8 @@ CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/EvolverLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -746,6 +771,7 @@ CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Ma
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -755,6 +781,7 @@ CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Ma
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -767,6 +794,7 @@ CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Ma
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -776,6 +804,8 @@ CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Ma
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/Mutator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -869,6 +899,7 @@ CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -878,6 +909,7 @@ CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -890,6 +922,7 @@ CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -899,6 +932,8 @@ CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/Population.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -995,6 +1030,7 @@ CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -1004,6 +1040,7 @@ CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -1016,6 +1053,7 @@ CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -1025,6 +1063,8 @@ CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/neat/NeatContainer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -1120,6 +1160,7 @@ CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o:
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -1129,6 +1170,7 @@ CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o:
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -1141,6 +1183,7 @@ CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o:
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -1150,6 +1193,8 @@ CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o:
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/engine/selectors/DeterministicTournament.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -1353,6 +1398,7 @@ CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -1362,6 +1408,7 @@ CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -1374,6 +1421,7 @@ CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -1383,6 +1431,8 @@ CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/evolution/representation/RobotRepresentation.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -1969,6 +2019,57 @@ CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o: /usr/lo
 CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o: /usr/local/include/ode/version.h
 CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o: robogen.pb.h
 
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/ObstaclesConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/RobogenConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPosition.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPositionConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/TerrainConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Joint.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Model.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PerceptiveComponent.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PositionObservable.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.cpp
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Sensor.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/collision.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/collision_space.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/collision_trimesh.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/common.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/compatibility.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/contact.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/error.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/export-dif.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/mass.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/matrix.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/memory.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/misc.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/objects.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/ode.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odeconfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odecpp.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odecpp_collision.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odeinit.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odemath.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/odemath_legacy.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/precision.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/rotation.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/threading.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/threading_impl.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/timer.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /usr/local/include/ode/version.h
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: robogen.pb.h
+
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.h
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
@@ -2118,6 +2219,56 @@ CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: /usr/
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: /usr/local/include/ode/timer.h
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: /usr/local/include/ode/version.h
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: robogen.pb.h
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/ObstaclesConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/RobogenConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPosition.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPositionConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/TerrainConfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Joint.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Model.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PerceptiveComponent.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PositionObservable.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.cpp
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Sensor.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/collision.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/collision_space.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/collision_trimesh.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/common.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/compatibility.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/contact.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/error.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/export-dif.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/mass.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/matrix.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/memory.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/misc.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/objects.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/ode.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odeconfig.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odecpp.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odecpp_collision.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odeinit.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odemath.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/odemath_legacy.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/precision.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/rotation.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/threading.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/threading_impl.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/timer.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /usr/local/include/ode/version.h
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: robogen.pb.h
 
 CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
 CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
@@ -2304,6 +2455,7 @@ CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -2315,6 +2467,7 @@ CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -2327,6 +2480,7 @@ CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -2336,6 +2490,8 @@ CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -2402,6 +2558,7 @@ CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -2413,6 +2570,7 @@ CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxResource.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -2425,6 +2583,7 @@ CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -2434,6 +2593,8 @@ CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/M
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -2500,6 +2661,7 @@ CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -2512,6 +2674,7 @@ CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/GatheringZone.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -2524,6 +2687,7 @@ CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -2533,6 +2697,8 @@ CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -2597,6 +2763,54 @@ CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o: /usr/local/include/ode/t
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o: /usr/local/include/ode/timer.h
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o: /usr/local/include/ode/version.h
 
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/ObstaclesConfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/RobogenConfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPosition.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPositionConfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/TerrainConfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Joint.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PositionObservable.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.cpp
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Sensor.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/collision.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/collision_space.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/collision_trimesh.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/common.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/compatibility.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/contact.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/error.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/export-dif.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/mass.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/matrix.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/memory.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/misc.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/objects.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/ode.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odeconfig.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odecpp.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odecpp_collision.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odeinit.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odemath.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/odemath_legacy.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/precision.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/rotation.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/threading.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/threading_impl.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/timer.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /usr/local/include/ode/version.h
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: robogen.pb.h
+
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Models.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/RenderModels.h
@@ -2626,6 +2840,7 @@ CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Mas
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -2635,6 +2850,7 @@ CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Mas
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.cpp
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
@@ -2648,6 +2864,7 @@ CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Mas
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -2657,6 +2874,8 @@ CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Mas
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -2770,6 +2989,41 @@ CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: /usr/local/include/ode/t
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: /usr/local/include/ode/timer.h
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: /usr/local/include/ode/version.h
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: robogen.pb.h
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Joint.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.cpp
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Sensor.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/collision.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/collision_space.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/collision_trimesh.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/common.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/compatibility.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/contact.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/error.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/export-dif.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/mass.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/matrix.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/memory.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/misc.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/objects.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/ode.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odeconfig.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odecpp.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odecpp_collision.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odeinit.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odemath.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/odemath_legacy.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/precision.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/rotation.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/threading.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/threading_impl.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/timer.h
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /usr/local/include/ode/version.h
 
 CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
 CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
@@ -2946,6 +3200,7 @@ CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -2955,6 +3210,7 @@ CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -2969,6 +3225,7 @@ CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -2978,6 +3235,8 @@ CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3074,6 +3333,7 @@ CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3083,6 +3343,7 @@ CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3097,6 +3358,7 @@ CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3106,6 +3368,8 @@ CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3203,6 +3467,7 @@ CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3212,6 +3477,7 @@ CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3228,6 +3494,7 @@ CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3237,6 +3504,8 @@ CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3299,6 +3568,7 @@ CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3308,6 +3578,7 @@ CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3323,6 +3594,7 @@ CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3332,6 +3604,8 @@ CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3394,6 +3668,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3403,6 +3678,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3418,6 +3694,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3427,6 +3704,8 @@ CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3489,6 +3768,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3498,6 +3778,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3513,6 +3794,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.cpp
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3522,6 +3804,8 @@ CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3584,6 +3868,7 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3593,6 +3878,7 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3609,6 +3895,7 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.cpp
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3618,6 +3905,8 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/D
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3651,6 +3940,106 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /usr/local/inc
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /usr/local/include/ode/version.h
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: robogen.pb.h
 
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Models.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/RenderModels.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/LightSourcesConfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/ObstaclesConfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/RobogenConfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPosition.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/StartPositionConfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/config/TerrainConfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/evolution/representation/NeuralNetworkRepresentation.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/evolution/representation/NeuronRepresentation.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/evolution/representation/PartRepresentation.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/AbstractBody.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/ActuatedComponent.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Joint.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/Model.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PerceptiveComponent.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PositionObservable.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/CardanModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/HingeModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/ParametricBrickModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/PassiveWheelModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveCardanModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveHingeModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/TouchSensorModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/Motor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/RotationMotor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Sensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/TouchSensor.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/Mesh.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/RenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/BodyCallback.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveCardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveHingeRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.cpp
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/LightSensorRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ParametricBrickRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/PassiveWheelRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/RobogenUtils.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/collision.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/collision_space.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/collision_trimesh.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/common.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/compatibility.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/contact.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/error.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/export-dif.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/mass.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/matrix.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/memory.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/misc.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/objects.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/ode.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odeconfig.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odecpp.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odecpp_collision.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odeinit.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odemath.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/odemath_legacy.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/precision.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/rotation.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/threading.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/threading_impl.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/timer.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /usr/local/include/ode/version.h
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: robogen.pb.h
+
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Models.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/RenderModels.h
@@ -3680,6 +4069,7 @@ CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/r
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3689,6 +4079,7 @@ CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/r
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3703,6 +4094,7 @@ CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/r
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.cpp
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
@@ -3713,6 +4105,8 @@ CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/r
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3775,6 +4169,7 @@ CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Do
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3784,6 +4179,7 @@ CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Do
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3798,6 +4194,7 @@ CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Do
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.cpp
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
@@ -3808,6 +4205,8 @@ CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Do
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3870,6 +4269,7 @@ CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3879,6 +4279,7 @@ CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3893,6 +4294,7 @@ CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.cpp
@@ -3903,6 +4305,8 @@ CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -3965,6 +4369,7 @@ CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -3974,6 +4379,7 @@ CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -3988,6 +4394,7 @@ CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -3998,6 +4405,8 @@ CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -4098,6 +4507,7 @@ CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -4107,6 +4517,7 @@ CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -4121,6 +4532,7 @@ CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -4131,6 +4543,8 @@ CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/ro
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -4193,6 +4607,7 @@ CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -4202,6 +4617,7 @@ CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -4216,6 +4632,7 @@ CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -4226,6 +4643,8 @@ CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -4288,6 +4707,7 @@ CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -4297,6 +4717,7 @@ CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -4311,6 +4732,7 @@ CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -4321,6 +4743,8 @@ CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/roo
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.cpp
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -5070,6 +5494,7 @@ CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/A
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/PositionObservable.h
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/SimpleBody.h
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
+CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxResource.h
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -5301,6 +5726,7 @@ CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -5311,6 +5737,7 @@ CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -5323,6 +5750,7 @@ CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -5332,6 +5760,8 @@ CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -5615,6 +6045,7 @@ CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -5624,6 +6055,7 @@ CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -5636,6 +6068,7 @@ CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -5645,6 +6078,8 @@ CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -5770,6 +6205,7 @@ CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/A
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -5779,6 +6215,7 @@ CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/A
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -5791,6 +6228,7 @@ CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/A
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -5800,6 +6238,8 @@ CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/A
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -5977,6 +6417,7 @@ CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -5987,6 +6428,7 @@ CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -5999,6 +6441,7 @@ CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -6008,6 +6451,8 @@ CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -6075,6 +6520,7 @@ CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoF
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -6085,6 +6531,7 @@ CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoF
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -6097,6 +6544,7 @@ CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoF
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -6106,6 +6554,8 @@ CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoF
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h
@@ -6177,6 +6627,7 @@ CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -6187,6 +6638,7 @@ CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -6199,6 +6651,7 @@ CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -6208,6 +6661,8 @@ CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h

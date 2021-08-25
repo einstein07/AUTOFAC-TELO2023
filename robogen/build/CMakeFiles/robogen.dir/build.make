@@ -1073,9 +1073,33 @@ CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o.provides
 CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o.provides.build: CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o
 
 
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: CMakeFiles/robogen.dir/flags.make
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.cpp
+
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.cpp > CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.i
+
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.cpp -o CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.s
+
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.requires
+
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.provides: CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.provides.build
+.PHONY : CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.provides
+
+CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.provides.build: CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o
+
+
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.cpp
 
 CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.i: cmake_force
@@ -1099,7 +1123,7 @@ CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o.prov
 
 CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.cpp
 
 CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.i: cmake_force
@@ -1123,7 +1147,7 @@ CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o.provides.
 
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.cpp
 
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.i: cmake_force
@@ -1145,9 +1169,33 @@ CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o.provid
 CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o.provides.build: CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o
 
 
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: CMakeFiles/robogen.dir/flags.make
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.cpp
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.cpp > CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.i
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LowResCameraSensorModel.cpp -o CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.s
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.requires
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.provides: CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.provides.build
+.PHONY : CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.provides
+
+CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.provides.build: CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o
+
+
 CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/TouchSensorModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/TouchSensorModel.cpp
 
 CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.i: cmake_force
@@ -1171,7 +1219,7 @@ CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o.provid
 
 CMakeFiles/robogen.dir/model/motors/Motor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/motors/Motor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/Motor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/robogen.dir/model/motors/Motor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/robogen.dir/model/motors/Motor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/motors/Motor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/Motor.cpp
 
 CMakeFiles/robogen.dir/model/motors/Motor.cpp.i: cmake_force
@@ -1195,7 +1243,7 @@ CMakeFiles/robogen.dir/model/motors/Motor.cpp.o.provides.build: CMakeFiles/robog
 
 CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/RotationMotor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/RotationMotor.cpp
 
 CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.i: cmake_force
@@ -1219,7 +1267,7 @@ CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.cpp
 
 CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.i: cmake_force
@@ -1243,7 +1291,7 @@ CMakeFiles/robogen.dir/model/motors/ServoMotor.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxObstacle.cpp
 
 CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.i: cmake_force
@@ -1267,7 +1315,7 @@ CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxResource.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/BoxResource.cpp
 
 CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.i: cmake_force
@@ -1291,7 +1339,7 @@ CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/GatheringZone.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/GatheringZone.cpp
 
 CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.i: cmake_force
@@ -1315,7 +1363,7 @@ CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.cpp
 
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.i: cmake_force
@@ -1337,9 +1385,33 @@ CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o.provides: CMakeFiles/robo
 CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o.provides.build: CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o
 
 
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.cpp
+
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.cpp > CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.i
+
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.cpp -o CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.s
+
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.requires:
+
+.PHONY : CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.requires
+
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.provides: CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.provides.build
+.PHONY : CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.provides
+
+CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.provides.build: CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o
+
+
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.cpp
 
 CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.i: cmake_force
@@ -1363,7 +1435,7 @@ CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.cpp
 
 CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.i: cmake_force
@@ -1387,7 +1459,7 @@ CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o.provides.build: CMakeFiles/r
 
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.cpp
 
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.i: cmake_force
@@ -1409,9 +1481,33 @@ CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o.provides: CMakeFiles/robo
 CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o.provides.build: CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o
 
 
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.cpp
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.cpp > CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.i
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LowResCameraSensor.cpp -o CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.s
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.requires:
+
+.PHONY : CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.requires
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.provides: CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.provides.build
+.PHONY : CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.provides
+
+CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.provides.build: CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o
+
+
 CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/TouchSensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/TouchSensor.cpp
 
 CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.i: cmake_force
@@ -1435,7 +1531,7 @@ CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o.provides.build: CMakeFile
 
 CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/printing/BodyCompiler.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/printing/BodyCompiler.cpp
 
 CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.i: cmake_force
@@ -1459,7 +1555,7 @@ CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o.provides.build: CMakeFiles/ro
 
 CMakeFiles/robogen.dir/render/Mesh.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/Mesh.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/Mesh.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/robogen.dir/render/Mesh.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/robogen.dir/render/Mesh.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/Mesh.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/Mesh.cpp
 
 CMakeFiles/robogen.dir/render/Mesh.cpp.i: cmake_force
@@ -1483,7 +1579,7 @@ CMakeFiles/robogen.dir/render/Mesh.cpp.o.provides.build: CMakeFiles/robogen.dir/
 
 CMakeFiles/robogen.dir/render/RenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/RenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/RenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/robogen.dir/render/RenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/robogen.dir/render/RenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/RenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/RenderModel.cpp
 
 CMakeFiles/robogen.dir/render/RenderModel.cpp.i: cmake_force
@@ -1507,7 +1603,7 @@ CMakeFiles/robogen.dir/render/RenderModel.cpp.o.provides.build: CMakeFiles/robog
 
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/ActiveCardanCrossCallback.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/ActiveCardanCrossCallback.cpp
 
 CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.i: cmake_force
@@ -1531,7 +1627,7 @@ CMakeFiles/robogen.dir/render/callback/ActiveCardanCrossCallback.cpp.o.provides.
 
 CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/BodyCallback.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/BodyCallback.cpp
 
 CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.i: cmake_force
@@ -1555,7 +1651,7 @@ CMakeFiles/robogen.dir/render/callback/BodyCallback.cpp.o.provides.build: CMakeF
 
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/CardanCrossCallback.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/CardanCrossCallback.cpp
 
 CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.i: cmake_force
@@ -1579,7 +1675,7 @@ CMakeFiles/robogen.dir/render/callback/CardanCrossCallback.cpp.o.provides.build:
 
 CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/PositionObservableCallback.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/callback/PositionObservableCallback.cpp
 
 CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.i: cmake_force
@@ -1603,7 +1699,7 @@ CMakeFiles/robogen.dir/render/callback/PositionObservableCallback.cpp.o.provides
 
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveCardanRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveCardanRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.i: cmake_force
@@ -1627,7 +1723,7 @@ CMakeFiles/robogen.dir/render/components/ActiveCardanRenderModel.cpp.o.provides.
 
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveHingeRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveHingeRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.i: cmake_force
@@ -1651,7 +1747,7 @@ CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.i: cmake_force
@@ -1675,7 +1771,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.i: cmake_force
@@ -1699,7 +1795,7 @@ CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o.provides.bu
 
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.i: cmake_force
@@ -1721,9 +1817,33 @@ CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o.provides: CMake
 CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o.provides.build: CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o
 
 
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.cpp
+
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.cpp > CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.i
+
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.cpp -o CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.s
+
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.requires:
+
+.PHONY : CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.requires
+
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.provides: CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.requires
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.provides.build
+.PHONY : CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.provides
+
+CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.provides.build: CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o
+
+
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.i: cmake_force
@@ -1747,7 +1867,7 @@ CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o.provides
 
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.i: cmake_force
@@ -1771,7 +1891,7 @@ CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o.provides.build: 
 
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.i: cmake_force
@@ -1795,7 +1915,7 @@ CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o.provides.buil
 
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/LightSensorRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/LightSensorRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.i: cmake_force
@@ -1819,7 +1939,7 @@ CMakeFiles/robogen.dir/render/components/LightSensorRenderModel.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ParametricBrickRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ParametricBrickRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.i: cmake_force
@@ -1843,7 +1963,7 @@ CMakeFiles/robogen.dir/render/components/ParametricBrickRenderModel.cpp.o.provid
 
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/PassiveWheelRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/PassiveWheelRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.i: cmake_force
@@ -1867,7 +1987,7 @@ CMakeFiles/robogen.dir/render/components/PassiveWheelRenderModel.cpp.o.provides.
 
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.i: cmake_force
@@ -1891,7 +2011,7 @@ CMakeFiles/robogen.dir/render/components/RotateJointRenderModel.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.cpp
 
 CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.i: cmake_force
@@ -1915,7 +2035,7 @@ CMakeFiles/robogen.dir/render/components/TouchSensorRenderModel.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.cpp
 
 CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.i: cmake_force
@@ -1939,7 +2059,7 @@ CMakeFiles/robogen.dir/render/objects/BoxObstacleRender.cpp.o.provides.build: CM
 
 CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.cpp
 
 CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.i: cmake_force
@@ -1963,7 +2083,7 @@ CMakeFiles/robogen.dir/render/objects/BoxResourceRender.cpp.o.provides.build: CM
 
 CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.cpp
 
 CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.i: cmake_force
@@ -1987,7 +2107,7 @@ CMakeFiles/robogen.dir/render/objects/GatheringZoneRender.cpp.o.provides.build: 
 
 CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.cpp
 
 CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.i: cmake_force
@@ -2011,7 +2131,7 @@ CMakeFiles/robogen.dir/render/objects/LightSourceRender.cpp.o.provides.build: CM
 
 CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.cpp
 
 CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.i: cmake_force
@@ -2035,7 +2155,7 @@ CMakeFiles/robogen.dir/render/objects/TerrainRender.cpp.o.provides.build: CMakeF
 
 CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/ChasingScenario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/ChasingScenario.cpp
 
 CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.i: cmake_force
@@ -2059,7 +2179,7 @@ CMakeFiles/robogen.dir/scenario/ChasingScenario.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/robogen.dir/scenario/Environment.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/Environment.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/robogen.dir/scenario/Environment.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/robogen.dir/scenario/Environment.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/Environment.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.cpp
 
 CMakeFiles/robogen.dir/scenario/Environment.cpp.i: cmake_force
@@ -2083,7 +2203,7 @@ CMakeFiles/robogen.dir/scenario/Environment.cpp.o.provides.build: CMakeFiles/rob
 
 CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/JSScenario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/JSScenario.cpp
 
 CMakeFiles/robogen.dir/scenario/JSScenario.cpp.i: cmake_force
@@ -2107,7 +2227,7 @@ CMakeFiles/robogen.dir/scenario/JSScenario.cpp.o.provides.build: CMakeFiles/robo
 
 CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/QScriptScenario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/QScriptScenario.cpp
 
 CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.i: cmake_force
@@ -2131,7 +2251,7 @@ CMakeFiles/robogen.dir/scenario/QScriptScenario.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/RacingScenario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/RacingScenario.cpp
 
 CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.i: cmake_force
@@ -2155,7 +2275,7 @@ CMakeFiles/robogen.dir/scenario/RacingScenario.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Scenario.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/robogen.dir/scenario/Scenario.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/robogen.dir/scenario/Scenario.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/Scenario.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Scenario.cpp
 
 CMakeFiles/robogen.dir/scenario/Scenario.cpp.i: cmake_force
@@ -2179,7 +2299,7 @@ CMakeFiles/robogen.dir/scenario/Scenario.cpp.o.provides.build: CMakeFiles/roboge
 
 CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/ScenarioFactory.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/ScenarioFactory.cpp
 
 CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.i: cmake_force
@@ -2203,7 +2323,7 @@ CMakeFiles/robogen.dir/scenario/ScenarioFactory.cpp.o.provides.build: CMakeFiles
 
 CMakeFiles/robogen.dir/scenario/Terrain.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scenario/Terrain.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/robogen.dir/scenario/Terrain.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/robogen.dir/scenario/Terrain.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scenario/Terrain.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Terrain.cpp
 
 CMakeFiles/robogen.dir/scenario/Terrain.cpp.i: cmake_force
@@ -2227,7 +2347,7 @@ CMakeFiles/robogen.dir/scenario/Terrain.cpp.o.provides.build: CMakeFiles/robogen
 
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scripting/QBindings.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/robogen.dir/scripting/QBindings.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/robogen.dir/scripting/QBindings.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/scripting/QBindings.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/scripting/QBindings.cpp
 
 CMakeFiles/robogen.dir/scripting/QBindings.cpp.i: cmake_force
@@ -2251,7 +2371,7 @@ CMakeFiles/robogen.dir/scripting/QBindings.cpp.o.provides.build: CMakeFiles/robo
 
 CMakeFiles/robogen.dir/utils/JSUtils.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/JSUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/JSUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/robogen.dir/utils/JSUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/robogen.dir/utils/JSUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/JSUtils.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/JSUtils.cpp
 
 CMakeFiles/robogen.dir/utils/JSUtils.cpp.i: cmake_force
@@ -2275,7 +2395,7 @@ CMakeFiles/robogen.dir/utils/JSUtils.cpp.o.provides.build: CMakeFiles/robogen.di
 
 CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/QScriptUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/QScriptUtils.cpp
 
 CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.i: cmake_force
@@ -2299,7 +2419,7 @@ CMakeFiles/robogen.dir/utils/QScriptUtils.cpp.o.provides.build: CMakeFiles/robog
 
 CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/RobogenCollision.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/RobogenCollision.cpp
 
 CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.i: cmake_force
@@ -2323,7 +2443,7 @@ CMakeFiles/robogen.dir/utils/RobogenCollision.cpp.o.provides.build: CMakeFiles/r
 
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/RobogenUtils.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/RobogenUtils.cpp
 
 CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.i: cmake_force
@@ -2347,7 +2467,7 @@ CMakeFiles/robogen.dir/utils/RobogenUtils.cpp.o.provides.build: CMakeFiles/robog
 
 CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/json2pb/json2pb.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/json2pb/json2pb.cpp
 
 CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.i: cmake_force
@@ -2371,7 +2491,7 @@ CMakeFiles/robogen.dir/utils/json2pb/json2pb.cpp.o.provides.build: CMakeFiles/ro
 
 CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/FakeJSSocket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/FakeJSSocket.cpp
 
 CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.i: cmake_force
@@ -2395,7 +2515,7 @@ CMakeFiles/robogen.dir/utils/network/FakeJSSocket.cpp.o.provides.build: CMakeFil
 
 CMakeFiles/robogen.dir/utils/network/Socket.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/network/Socket.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/Socket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/robogen.dir/utils/network/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/robogen.dir/utils/network/Socket.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/network/Socket.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/Socket.cpp
 
 CMakeFiles/robogen.dir/utils/network/Socket.cpp.i: cmake_force
@@ -2419,7 +2539,7 @@ CMakeFiles/robogen.dir/utils/network/Socket.cpp.o.provides.build: CMakeFiles/rob
 
 CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/SocketIOConnectionListener.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/SocketIOConnectionListener.cpp
 
 CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.i: cmake_force
@@ -2443,7 +2563,7 @@ CMakeFiles/robogen.dir/utils/network/SocketIOConnectionListener.cpp.o.provides.b
 
 CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/TcpSocket.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/utils/network/TcpSocket.cpp
 
 CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.i: cmake_force
@@ -2467,7 +2587,7 @@ CMakeFiles/robogen.dir/utils/network/TcpSocket.cpp.o.provides.build: CMakeFiles/
 
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/FileViewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/FileViewer.cpp
 
 CMakeFiles/robogen.dir/viewer/FileViewer.cpp.i: cmake_force
@@ -2491,7 +2611,7 @@ CMakeFiles/robogen.dir/viewer/FileViewer.cpp.o.provides.build: CMakeFiles/roboge
 
 CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/FileViewerLog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/FileViewerLog.cpp
 
 CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.i: cmake_force
@@ -2515,7 +2635,7 @@ CMakeFiles/robogen.dir/viewer/FileViewerLog.cpp.o.provides.build: CMakeFiles/rob
 
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/JSViewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/JSViewer.cpp
 
 CMakeFiles/robogen.dir/viewer/JSViewer.cpp.i: cmake_force
@@ -2539,7 +2659,7 @@ CMakeFiles/robogen.dir/viewer/JSViewer.cpp.o.provides.build: CMakeFiles/robogen.
 
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/Viewer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/robogen.dir/viewer/Viewer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/robogen.dir/viewer/Viewer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/viewer/Viewer.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/Viewer.cpp
 
 CMakeFiles/robogen.dir/viewer/Viewer.cpp.i: cmake_force
@@ -2563,7 +2683,7 @@ CMakeFiles/robogen.dir/viewer/Viewer.cpp.o.provides.build: CMakeFiles/robogen.di
 
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/WebGLLogger.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/viewer/WebGLLogger.cpp
 
 CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.i: cmake_force
@@ -2587,7 +2707,7 @@ CMakeFiles/robogen.dir/viewer/WebGLLogger.cpp.o.provides.build: CMakeFiles/robog
 
 CMakeFiles/robogen.dir/Robot.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/Robot.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/robogen.dir/Robot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/robogen.dir/Robot.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/Robot.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/Robot.cpp
 
 CMakeFiles/robogen.dir/Robot.cpp.i: cmake_force
@@ -2611,7 +2731,7 @@ CMakeFiles/robogen.dir/Robot.cpp.o.provides.build: CMakeFiles/robogen.dir/Robot.
 
 CMakeFiles/robogen.dir/Robogen.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/Robogen.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/robogen.dir/Robogen.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/robogen.dir/Robogen.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/Robogen.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/Robogen.cpp
 
 CMakeFiles/robogen.dir/Robogen.cpp.i: cmake_force
@@ -2635,7 +2755,7 @@ CMakeFiles/robogen.dir/Robogen.cpp.o.provides.build: CMakeFiles/robogen.dir/Robo
 
 CMakeFiles/robogen.dir/PartList.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/PartList.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/robogen.dir/PartList.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/robogen.dir/PartList.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/PartList.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/PartList.cpp
 
 CMakeFiles/robogen.dir/PartList.cpp.i: cmake_force
@@ -2659,7 +2779,7 @@ CMakeFiles/robogen.dir/PartList.cpp.o.provides.build: CMakeFiles/robogen.dir/Par
 
 CMakeFiles/robogen.dir/Simulator.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/Simulator.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/Simulator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/robogen.dir/Simulator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/robogen.dir/Simulator.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/Simulator.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/src/Simulator.cpp
 
 CMakeFiles/robogen.dir/Simulator.cpp.i: cmake_force
@@ -2683,7 +2803,7 @@ CMakeFiles/robogen.dir/Simulator.cpp.o.provides.build: CMakeFiles/robogen.dir/Si
 
 CMakeFiles/robogen.dir/robogen.pb.cc.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/robogen.pb.cc.o: robogen.pb.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/robogen.dir/robogen.pb.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/robogen.dir/robogen.pb.cc.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/robogen.pb.cc.o -c /home/root07/Documents/Masters/AutoFac/robogen/build/robogen.pb.cc
 
 CMakeFiles/robogen.dir/robogen.pb.cc.i: cmake_force
@@ -2707,7 +2827,7 @@ CMakeFiles/robogen.dir/robogen.pb.cc.o.provides.build: CMakeFiles/robogen.dir/ro
 
 CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o: CMakeFiles/robogen.dir/flags.make
 CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o: robogen_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o -c /home/root07/Documents/Masters/AutoFac/robogen/build/robogen_autogen/mocs_compilation.cpp
 
 CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.i: cmake_force
@@ -2773,9 +2893,11 @@ robogen_OBJECTS = \
 "CMakeFiles/robogen.dir/model/components/actuated/ActiveWheelModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/actuated/ActiveWhegModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o" \
+"CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o" \
+"CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o" \
 "CMakeFiles/robogen.dir/model/motors/Motor.cpp.o" \
 "CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o" \
@@ -2784,9 +2906,11 @@ robogen_OBJECTS = \
 "CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o" \
 "CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o" \
 "CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o" \
+"CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o" \
 "CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o" \
 "CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o" \
 "CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o" \
+"CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o" \
 "CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o" \
 "CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o" \
 "CMakeFiles/robogen.dir/render/Mesh.cpp.o" \
@@ -2800,6 +2924,7 @@ robogen_OBJECTS = \
 "CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o" \
 "CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o" \
 "CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o" \
+"CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o" \
 "CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o" \
 "CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o" \
 "CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o" \
@@ -2888,9 +3013,11 @@ librobogen.a: CMakeFiles/robogen.dir/model/components/actuated/ActiveHingeModel.
 librobogen.a: CMakeFiles/robogen.dir/model/components/actuated/ActiveWheelModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/actuated/ActiveWhegModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o
+librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o
+librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/motors/Motor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o
@@ -2899,9 +3026,11 @@ librobogen.a: CMakeFiles/robogen.dir/model/objects/BoxObstacle.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o
+librobogen.a: CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o
+librobogen.a: CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/Mesh.cpp.o
@@ -2915,6 +3044,7 @@ librobogen.a: CMakeFiles/robogen.dir/render/components/ActiveHingeRenderModel.cp
 librobogen.a: CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o
+librobogen.a: CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o
@@ -2959,7 +3089,7 @@ librobogen.a: CMakeFiles/robogen.dir/robogen.pb.cc.o
 librobogen.a: CMakeFiles/robogen.dir/robogen_autogen/mocs_compilation.cpp.o
 librobogen.a: CMakeFiles/robogen.dir/build.make
 librobogen.a: CMakeFiles/robogen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Linking CXX static library librobogen.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Linking CXX static library librobogen.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/robogen.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robogen.dir/link.txt --verbose=$(VERBOSE)
 
@@ -3010,9 +3140,11 @@ CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/actuate
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/actuated/ActiveWheelModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/actuated/ActiveWhegModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.o.requires
+CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/CoreComponentModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/IrSensorModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.o.requires
+CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/components/perceptive/TouchSensorModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/motors/Motor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/motors/RotationMotor.cpp.o.requires
@@ -3021,9 +3153,11 @@ CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/objects/BoxObstacl
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/objects/BoxResource.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/objects/GatheringZone.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/objects/LightSource.cpp.o.requires
+CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/ImuSensor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/IrSensor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.o.requires
+CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/model/sensors/TouchSensor.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/printing/BodyCompiler.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/Mesh.cpp.o.requires
@@ -3037,6 +3171,7 @@ CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/Active
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/ActiveWheelRenderModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/ActiveWhegRenderModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.o.requires
+CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/CoreComponentRenderModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/HingeRenderModel.cpp.o.requires
 CMakeFiles/robogen.dir/requires: CMakeFiles/robogen.dir/render/components/IrSensorRenderModel.cpp.o.requires

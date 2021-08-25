@@ -85,8 +85,14 @@ render/components/LightSensorRenderModel.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/LightSensorRenderModel.h
 render/components/IrSensorRenderModel.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
+render/components/ColorSensorRenderModel.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 render/objects/BoxObstacleRender.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+render/objects/BoxResourceRender.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+render/objects/GatheringZoneRender.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 render/objects/LightSourceRender.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 render/objects/TerrainRender.h
@@ -566,6 +572,14 @@ model/ActuatedComponent.h
 model/ActuatedComponent.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/model/ActuatedComponent.h
 
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
+boost/shared_ptr.hpp
+-
+model/PerceptiveComponent.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/model/PerceptiveComponent.h
+model/sensors/ColorSensor.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/model/sensors/ColorSensor.h
+
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 model/PerceptiveComponent.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/model/PerceptiveComponent.h
@@ -631,6 +645,26 @@ Robogen.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
 model/PositionObservable.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/model/PositionObservable.h
+
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
+boost/shared_ptr.hpp
+-
+vector
+-
+string
+-
+Robogen.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/Robogen.h
+model/sensors/Sensor.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/model/sensors/Sensor.h
+model/SimpleBody.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/model/SimpleBody.h
+SensorGroup.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/SensorGroup.h
+IrSensor.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
+scenario/Environment.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/scenario/Environment.h
 
 /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 osg/Quat
@@ -740,6 +774,12 @@ model/components/CardanModel.h
 render/RenderModel.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/render/RenderModel.h
 
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
+model/components/perceptive/ColorSensorModel.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/components/model/components/perceptive/ColorSensorModel.h
+render/RenderModel.h
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/components/render/RenderModel.h
+
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 model/components/perceptive/CoreComponentModel.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/model/components/perceptive/CoreComponentModel.h
@@ -789,6 +829,18 @@ render/RenderModel.h
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/render/RenderModel.h
 
 /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+boost/shared_ptr.hpp
+-
+osg/PositionAttitudeTransform
+-
+
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+boost/shared_ptr.hpp
+-
+osg/PositionAttitudeTransform
+-
+
+/home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 boost/shared_ptr.hpp
 -
 osg/PositionAttitudeTransform

@@ -100,7 +100,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None(CMAKE_CXX_FLAGS or
 // CMAKE_C_FLAGS used) Debug Release RelWithDebInfo MinSizeRel.
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -397,52 +397,8 @@ SOCKET_IO_CLIENT_LIBRARY:FILEPATH=SOCKET_IO_CLIENT_LIBRARY-NOTFOUND
 //Path to a library.
 SOCKET_IO_CLIENT_TLS_LIBRARY:FILEPATH=SOCKET_IO_CLIENT_TLS_LIBRARY-NOTFOUND
 
-//CPU architecture to optimize for. Using an incorrect setting
-// here can result in crashes of the resulting binary because of
-// invalid instructions used.
-//\nSetting the value to "auto" will try to optimize for the architecture
-// where cmake is called.
-//\nOther supported values are: "generic", "core", "merom" (65nm
-// Core2), "penryn" (45nm Core2), "nehalem", "westmere", "sandy-bridge",
-// "atom", "k8", "k8-sse3", "barcelona", "istanbul", "magny-cours",
-// "bulldozer", "interlagos".
-TARGET_ARCHITECTURE:STRING=auto
-
 //Build the project in javascript
 TARGET_JS:BOOL=OFF
-
-//Use AVX. This will double some of the vector sizes relative to
-// SSE.
-USE_AVX:BOOL=FALSE
-
-//Use FMA4.
-USE_FMA4:BOOL=FALSE
-
-//Use SSE2. If SSE2 instructions are not enabled the SSE implementation
-// will be disabled.
-USE_SSE2:BOOL=TRUE
-
-//Use SSE3. If SSE3 instructions are not enabled they will be emulated.
-USE_SSE3:BOOL=TRUE
-
-//Use SSE4.1. If SSE4.1 instructions are not enabled they will
-// be emulated.
-USE_SSE4_1:BOOL=FALSE
-
-//Use SSE4.2. If SSE4.2 instructions are not enabled they will
-// be emulated.
-USE_SSE4_2:BOOL=FALSE
-
-//Use SSE4a. If SSE4a instructions are not enabled they will be
-// emulated.
-USE_SSE4a:BOOL=FALSE
-
-//Use SSSE3. If SSSE3 instructions are not enabled they will be
-// emulated.
-USE_SSSE3:BOOL=TRUE
-
-//Use XOP.
-USE_XOP:BOOL=FALSE
 
 //Path to a file.
 ZLIB_INCLUDE_DIR:PATH=/usr/include
@@ -452,8 +408,6 @@ ZLIB_LIBRARY_DEBUG:FILEPATH=ZLIB_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
 ZLIB_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libz.so
-
-_last_target_arch:STRING=auto
 
 //Dependencies for the target
 robogen_LIB_DEPENDS:STATIC=general;/usr/local/lib/libode.a;general;/usr/lib/x86_64-linux-gnu/libosg.so;general;/usr/lib/x86_64-linux-gnu/libosgViewer.so;general;/usr/lib/x86_64-linux-gnu/libosgDB.so;general;/usr/lib/x86_64-linux-gnu/libosgGA.so;general;/usr/lib/x86_64-linux-gnu/libosgUtil.so;general;/usr/lib/x86_64-linux-gnu/libosgTerrain.so;general;/usr/lib/x86_64-linux-gnu/libOpenThreads.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_graph.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_program_options.so;general;/usr/lib/x86_64-linux-gnu/libboost_regex.so;general;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;general;/usr/lib/x86_64-linux-gnu/libboost_timer.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_serialization.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;general;/usr/lib/x86_64-linux-gnu/libprotobuf.so;general;-lpthread;general;/usr/lib/x86_64-linux-gnu/libpng.so;general;/usr/lib/x86_64-linux-gnu/libz.so;general;/usr/lib/x86_64-linux-gnu/libjansson.so;general;Qt5::Core;general;Qt5::Script;
@@ -710,20 +664,6 @@ Protobuf_PROTOC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 Protobuf_PROTOC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SOCKET_IO_CLIENT_INCLUDE_DIRS
 SOCKET_IO_CLIENT_INCLUDE_DIRS-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_AVX
-USE_AVX-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSE2
-USE_SSE2-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSE3
-USE_SSE3-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSE4_1
-USE_SSE4_1-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSE4_2
-USE_SSE4_2-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSE4a
-USE_SSE4a-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: USE_SSSE3
-USE_SSSE3-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_INCLUDE_DIR
 ZLIB_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ZLIB_LIBRARY_DEBUG
@@ -742,50 +682,4 @@ _Boost_LIBRARY_DIR_RELEASE_LAST:INTERNAL=/usr/lib/x86_64-linux-gnu
 _Boost_NAMESPACE_LAST:INTERNAL=boost
 //Last used Boost_USE_MULTITHREADED value.
 _Boost_USE_MULTITHREADED_LAST:INTERNAL=TRUE
-//ADVANCED property for variable: _last_target_arch
-_last_target_arch-ADVANCED:INTERNAL=1
-//Test check_c_compiler_flag_-march_core2
-check_c_compiler_flag_-march_core2:INTERNAL=1
-//Test check_c_compiler_flag_-march_merom
-check_c_compiler_flag_-march_merom:INTERNAL=
-//Test check_c_compiler_flag_-mno-avx
-check_c_compiler_flag_-mno-avx:INTERNAL=1
-//Test check_c_compiler_flag_-mno-fma4
-check_c_compiler_flag_-mno-fma4:INTERNAL=1
-//Test check_c_compiler_flag_-mno-sse4.1
-check_c_compiler_flag_-mno-sse4.1:INTERNAL=1
-//Test check_c_compiler_flag_-mno-sse4.2
-check_c_compiler_flag_-mno-sse4.2:INTERNAL=1
-//Test check_c_compiler_flag_-mno-sse4a
-check_c_compiler_flag_-mno-sse4a:INTERNAL=1
-//Test check_c_compiler_flag_-mno-xop
-check_c_compiler_flag_-mno-xop:INTERNAL=1
-//Test check_c_compiler_flag_-msse2
-check_c_compiler_flag_-msse2:INTERNAL=1
-//Test check_c_compiler_flag_-msse3
-check_c_compiler_flag_-msse3:INTERNAL=1
-//Test check_c_compiler_flag_-mssse3
-check_c_compiler_flag_-mssse3:INTERNAL=1
-//Test check_cxx_compiler_flag_-march_core2
-check_cxx_compiler_flag_-march_core2:INTERNAL=1
-//Test check_cxx_compiler_flag_-march_merom
-check_cxx_compiler_flag_-march_merom:INTERNAL=
-//Test check_cxx_compiler_flag_-mno-avx
-check_cxx_compiler_flag_-mno-avx:INTERNAL=1
-//Test check_cxx_compiler_flag_-mno-fma4
-check_cxx_compiler_flag_-mno-fma4:INTERNAL=1
-//Test check_cxx_compiler_flag_-mno-sse4.1
-check_cxx_compiler_flag_-mno-sse4.1:INTERNAL=1
-//Test check_cxx_compiler_flag_-mno-sse4.2
-check_cxx_compiler_flag_-mno-sse4.2:INTERNAL=1
-//Test check_cxx_compiler_flag_-mno-sse4a
-check_cxx_compiler_flag_-mno-sse4a:INTERNAL=1
-//Test check_cxx_compiler_flag_-mno-xop
-check_cxx_compiler_flag_-mno-xop:INTERNAL=1
-//Test check_cxx_compiler_flag_-msse2
-check_cxx_compiler_flag_-msse2:INTERNAL=1
-//Test check_cxx_compiler_flag_-msse3
-check_cxx_compiler_flag_-msse3:INTERNAL=1
-//Test check_cxx_compiler_flag_-mssse3
-check_cxx_compiler_flag_-mssse3:INTERNAL=1
 

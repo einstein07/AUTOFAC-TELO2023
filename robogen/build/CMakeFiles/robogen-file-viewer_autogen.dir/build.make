@@ -55,7 +55,7 @@ include CMakeFiles/robogen-file-viewer_autogen.dir/progress.make
 
 CMakeFiles/robogen-file-viewer_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target robogen-file-viewer"
-	/usr/bin/cmake -E cmake_autogen /home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-file-viewer_autogen.dir Release
+	/usr/bin/cmake -E cmake_autogen /home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-file-viewer_autogen.dir ""
 
 robogen-file-viewer_autogen: CMakeFiles/robogen-file-viewer_autogen
 robogen-file-viewer_autogen: CMakeFiles/robogen-file-viewer_autogen.dir/build.make

@@ -1549,6 +1549,33 @@ model/components/actuated/RotateJointModel.cpp.s:
 	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/actuated/RotateJointModel.cpp.s
 .PHONY : model/components/actuated/RotateJointModel.cpp.s
 
+model/components/perceptive/ColorSensorModel.o: model/components/perceptive/ColorSensorModel.cpp.o
+
+.PHONY : model/components/perceptive/ColorSensorModel.o
+
+# target to build an object file
+model/components/perceptive/ColorSensorModel.cpp.o:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.o
+.PHONY : model/components/perceptive/ColorSensorModel.cpp.o
+
+model/components/perceptive/ColorSensorModel.i: model/components/perceptive/ColorSensorModel.cpp.i
+
+.PHONY : model/components/perceptive/ColorSensorModel.i
+
+# target to preprocess a source file
+model/components/perceptive/ColorSensorModel.cpp.i:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.i
+.PHONY : model/components/perceptive/ColorSensorModel.cpp.i
+
+model/components/perceptive/ColorSensorModel.s: model/components/perceptive/ColorSensorModel.cpp.s
+
+.PHONY : model/components/perceptive/ColorSensorModel.s
+
+# target to generate assembly for a file
+model/components/perceptive/ColorSensorModel.cpp.s:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/ColorSensorModel.cpp.s
+.PHONY : model/components/perceptive/ColorSensorModel.cpp.s
+
 model/components/perceptive/CoreComponentModel.o: model/components/perceptive/CoreComponentModel.cpp.o
 
 .PHONY : model/components/perceptive/CoreComponentModel.o
@@ -1629,6 +1656,33 @@ model/components/perceptive/LightSensorModel.s: model/components/perceptive/Ligh
 model/components/perceptive/LightSensorModel.cpp.s:
 	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/LightSensorModel.cpp.s
 .PHONY : model/components/perceptive/LightSensorModel.cpp.s
+
+model/components/perceptive/LowResCameraSensorModel.o: model/components/perceptive/LowResCameraSensorModel.cpp.o
+
+.PHONY : model/components/perceptive/LowResCameraSensorModel.o
+
+# target to build an object file
+model/components/perceptive/LowResCameraSensorModel.cpp.o:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.o
+.PHONY : model/components/perceptive/LowResCameraSensorModel.cpp.o
+
+model/components/perceptive/LowResCameraSensorModel.i: model/components/perceptive/LowResCameraSensorModel.cpp.i
+
+.PHONY : model/components/perceptive/LowResCameraSensorModel.i
+
+# target to preprocess a source file
+model/components/perceptive/LowResCameraSensorModel.cpp.i:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.i
+.PHONY : model/components/perceptive/LowResCameraSensorModel.cpp.i
+
+model/components/perceptive/LowResCameraSensorModel.s: model/components/perceptive/LowResCameraSensorModel.cpp.s
+
+.PHONY : model/components/perceptive/LowResCameraSensorModel.s
+
+# target to generate assembly for a file
+model/components/perceptive/LowResCameraSensorModel.cpp.s:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/components/perceptive/LowResCameraSensorModel.cpp.s
+.PHONY : model/components/perceptive/LowResCameraSensorModel.cpp.s
 
 model/components/perceptive/TouchSensorModel.o: model/components/perceptive/TouchSensorModel.cpp.o
 
@@ -1846,6 +1900,33 @@ model/objects/LightSource.cpp.s:
 	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/objects/LightSource.cpp.s
 .PHONY : model/objects/LightSource.cpp.s
 
+model/sensors/ColorSensor.o: model/sensors/ColorSensor.cpp.o
+
+.PHONY : model/sensors/ColorSensor.o
+
+# target to build an object file
+model/sensors/ColorSensor.cpp.o:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.o
+.PHONY : model/sensors/ColorSensor.cpp.o
+
+model/sensors/ColorSensor.i: model/sensors/ColorSensor.cpp.i
+
+.PHONY : model/sensors/ColorSensor.i
+
+# target to preprocess a source file
+model/sensors/ColorSensor.cpp.i:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.i
+.PHONY : model/sensors/ColorSensor.cpp.i
+
+model/sensors/ColorSensor.s: model/sensors/ColorSensor.cpp.s
+
+.PHONY : model/sensors/ColorSensor.s
+
+# target to generate assembly for a file
+model/sensors/ColorSensor.cpp.s:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/ColorSensor.cpp.s
+.PHONY : model/sensors/ColorSensor.cpp.s
+
 model/sensors/ImuSensor.o: model/sensors/ImuSensor.cpp.o
 
 .PHONY : model/sensors/ImuSensor.o
@@ -1926,6 +2007,33 @@ model/sensors/LightSensor.s: model/sensors/LightSensor.cpp.s
 model/sensors/LightSensor.cpp.s:
 	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/LightSensor.cpp.s
 .PHONY : model/sensors/LightSensor.cpp.s
+
+model/sensors/LowResCameraSensor.o: model/sensors/LowResCameraSensor.cpp.o
+
+.PHONY : model/sensors/LowResCameraSensor.o
+
+# target to build an object file
+model/sensors/LowResCameraSensor.cpp.o:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.o
+.PHONY : model/sensors/LowResCameraSensor.cpp.o
+
+model/sensors/LowResCameraSensor.i: model/sensors/LowResCameraSensor.cpp.i
+
+.PHONY : model/sensors/LowResCameraSensor.i
+
+# target to preprocess a source file
+model/sensors/LowResCameraSensor.cpp.i:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.i
+.PHONY : model/sensors/LowResCameraSensor.cpp.i
+
+model/sensors/LowResCameraSensor.s: model/sensors/LowResCameraSensor.cpp.s
+
+.PHONY : model/sensors/LowResCameraSensor.s
+
+# target to generate assembly for a file
+model/sensors/LowResCameraSensor.cpp.s:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/model/sensors/LowResCameraSensor.cpp.s
+.PHONY : model/sensors/LowResCameraSensor.cpp.s
 
 model/sensors/TouchSensor.o: model/sensors/TouchSensor.cpp.o
 
@@ -2277,6 +2385,33 @@ render/components/CardanRenderModel.s: render/components/CardanRenderModel.cpp.s
 render/components/CardanRenderModel.cpp.s:
 	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/render/components/CardanRenderModel.cpp.s
 .PHONY : render/components/CardanRenderModel.cpp.s
+
+render/components/ColorSensorRenderModel.o: render/components/ColorSensorRenderModel.cpp.o
+
+.PHONY : render/components/ColorSensorRenderModel.o
+
+# target to build an object file
+render/components/ColorSensorRenderModel.cpp.o:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.o
+.PHONY : render/components/ColorSensorRenderModel.cpp.o
+
+render/components/ColorSensorRenderModel.i: render/components/ColorSensorRenderModel.cpp.i
+
+.PHONY : render/components/ColorSensorRenderModel.i
+
+# target to preprocess a source file
+render/components/ColorSensorRenderModel.cpp.i:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.i
+.PHONY : render/components/ColorSensorRenderModel.cpp.i
+
+render/components/ColorSensorRenderModel.s: render/components/ColorSensorRenderModel.cpp.s
+
+.PHONY : render/components/ColorSensorRenderModel.s
+
+# target to generate assembly for a file
+render/components/ColorSensorRenderModel.cpp.s:
+	$(MAKE) -f CMakeFiles/robogen.dir/build.make CMakeFiles/robogen.dir/render/components/ColorSensorRenderModel.cpp.s
+.PHONY : render/components/ColorSensorRenderModel.cpp.s
 
 render/components/CoreComponentRenderModel.o: render/components/CoreComponentRenderModel.cpp.o
 
@@ -3551,6 +3686,9 @@ help:
 	@echo "... model/components/actuated/RotateJointModel.o"
 	@echo "... model/components/actuated/RotateJointModel.i"
 	@echo "... model/components/actuated/RotateJointModel.s"
+	@echo "... model/components/perceptive/ColorSensorModel.o"
+	@echo "... model/components/perceptive/ColorSensorModel.i"
+	@echo "... model/components/perceptive/ColorSensorModel.s"
 	@echo "... model/components/perceptive/CoreComponentModel.o"
 	@echo "... model/components/perceptive/CoreComponentModel.i"
 	@echo "... model/components/perceptive/CoreComponentModel.s"
@@ -3560,6 +3698,9 @@ help:
 	@echo "... model/components/perceptive/LightSensorModel.o"
 	@echo "... model/components/perceptive/LightSensorModel.i"
 	@echo "... model/components/perceptive/LightSensorModel.s"
+	@echo "... model/components/perceptive/LowResCameraSensorModel.o"
+	@echo "... model/components/perceptive/LowResCameraSensorModel.i"
+	@echo "... model/components/perceptive/LowResCameraSensorModel.s"
 	@echo "... model/components/perceptive/TouchSensorModel.o"
 	@echo "... model/components/perceptive/TouchSensorModel.i"
 	@echo "... model/components/perceptive/TouchSensorModel.s"
@@ -3584,6 +3725,9 @@ help:
 	@echo "... model/objects/LightSource.o"
 	@echo "... model/objects/LightSource.i"
 	@echo "... model/objects/LightSource.s"
+	@echo "... model/sensors/ColorSensor.o"
+	@echo "... model/sensors/ColorSensor.i"
+	@echo "... model/sensors/ColorSensor.s"
 	@echo "... model/sensors/ImuSensor.o"
 	@echo "... model/sensors/ImuSensor.i"
 	@echo "... model/sensors/ImuSensor.s"
@@ -3593,6 +3737,9 @@ help:
 	@echo "... model/sensors/LightSensor.o"
 	@echo "... model/sensors/LightSensor.i"
 	@echo "... model/sensors/LightSensor.s"
+	@echo "... model/sensors/LowResCameraSensor.o"
+	@echo "... model/sensors/LowResCameraSensor.i"
+	@echo "... model/sensors/LowResCameraSensor.s"
 	@echo "... model/sensors/TouchSensor.o"
 	@echo "... model/sensors/TouchSensor.i"
 	@echo "... model/sensors/TouchSensor.s"
@@ -3632,6 +3779,9 @@ help:
 	@echo "... render/components/CardanRenderModel.o"
 	@echo "... render/components/CardanRenderModel.i"
 	@echo "... render/components/CardanRenderModel.s"
+	@echo "... render/components/ColorSensorRenderModel.o"
+	@echo "... render/components/ColorSensorRenderModel.i"
+	@echo "... render/components/ColorSensorRenderModel.s"
 	@echo "... render/components/CoreComponentRenderModel.o"
 	@echo "... render/components/CoreComponentRenderModel.i"
 	@echo "... render/components/CoreComponentRenderModel.s"

@@ -58,6 +58,7 @@ CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWheelModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/ActiveWhegModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/actuated/RotateJointModel.h
+CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/ColorSensorModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/CoreComponentModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/IrSensorModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/components/perceptive/LightSensorModel.h
@@ -67,6 +68,7 @@ CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/motors/ServoMotor.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/LightSource.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/objects/Obstacle.h
+CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ColorSensor.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/ImuSensor.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/IrSensor.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/model/sensors/LightSensor.h
@@ -79,6 +81,7 @@ CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWheelRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ActiveWhegRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CardanRenderModel.h
+CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/ColorSensorRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/CoreComponentRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/HingeRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/IrSensorRenderModel.h
@@ -88,6 +91,8 @@ CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/Aut
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/RotateJointRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/components/TouchSensorRenderModel.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxObstacleRender.h
+CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/BoxResourceRender.h
+CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/GatheringZoneRender.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/LightSourceRender.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/render/objects/TerrainRender.h
 CMakeFiles/robogen-evolver.dir/Evolver.cpp.o: /home/root07/Documents/Masters/AutoFac/robogen/src/scenario/Environment.h

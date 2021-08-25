@@ -55,7 +55,7 @@ include CMakeFiles/robogen-server_autogen.dir/progress.make
 
 CMakeFiles/robogen-server_autogen:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC for target robogen-server"
-	/usr/bin/cmake -E cmake_autogen /home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-server_autogen.dir Release
+	/usr/bin/cmake -E cmake_autogen /home/root07/Documents/Masters/AutoFac/robogen/build/CMakeFiles/robogen-server_autogen.dir ""
 
 robogen-server_autogen: CMakeFiles/robogen-server_autogen
 robogen-server_autogen: CMakeFiles/robogen-server_autogen.dir/build.make
