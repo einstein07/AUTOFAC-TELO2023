@@ -307,10 +307,15 @@ private:
 	// store the composite bodies formed by replacing fixed joints
 	std::vector<boost::shared_ptr<CompositeBody> > composites_;
         
-        /**
+	/**
 	 * SM - to indicate when this robot is bound to a resource
 	 */
-        bool isBoundToResource_;
+	bool isBoundToResource_;
+
+	/**
+	 * Object information used by sensor to identify the nature of this object
+	 */
+	ObjectData data_;
 };
 
 }

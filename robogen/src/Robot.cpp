@@ -123,6 +123,32 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 		return false;
 	}
 
+	//----------------------------------------------------------------------------------------
+	// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
+	//----------------------------------------------------------------------------------------
+
+	data_.objectId = getId();
+	data_.isRobot = true;
+	data_.isResource = false;
+
+	std::vector<boost::shared_ptr<SimpleBody> > bodies;
+	for (unsigned int i = 0; i < this->bodyParts_.size(); ++i) {
+		std::vector<boost::shared_ptr<SimpleBody> > tempBodies =
+				this->bodyParts_[i]->getBodies();
+		bodies.insert(bodies.begin(), tempBodies.begin(), tempBodies.end());
+	}
+
+	for (unsigned int i = 0; i < bodies.size(); ++i) {
+
+		dGeomID curBodyGeom = dBodyGetFirstGeom(bodies[i]->getBody());
+
+		while(curBodyGeom) {
+			dGeomSetData (curBodyGeom, (void*)&data_);
+			curBodyGeom = dBodyGetNextGeom(curBodyGeom);
+		}
+	}
+
+	//-----------------------------------------------------------------------------------------
 	return true;
 }
 
