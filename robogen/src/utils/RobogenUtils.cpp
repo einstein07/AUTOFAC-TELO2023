@@ -348,6 +348,12 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 
 		model.reset(new IrSensorModel(odeWorld, odeSpace, id));
 #endif
+	// SM added
+#ifdef COLOR_SENSORS_ENABLED
+	} else if (bodyPart.type().compare(PART_TYPE_COLOR_SENSOR) == 0) {
+
+		model.reset(new ColorSensorModel(odeWorld, odeSpace, id));
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	} else if (bodyPart.type().compare(PART_TYPE_TOUCH_SENSOR) == 0) {
 
@@ -439,6 +445,14 @@ boost::shared_ptr<RenderModel> RobogenUtils::createRenderModel(
 		return boost::shared_ptr<IrSensorRenderModel>(
 				new IrSensorRenderModel(
 						boost::dynamic_pointer_cast<IrSensorModel>(model)));
+#endif
+	// SM added
+#ifdef COLOR_SENSORS_ENABLED
+	} else if (boost::dynamic_pointer_cast<ColorSensorModel>(model)) {
+
+		return boost::shared_ptr<ColorSensorRenderModel>(
+				new ColorSensorRenderModel(
+						boost::dynamic_pointer_cast<ColorSensorModel>(model)));
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	} else if (boost::dynamic_pointer_cast<TouchSensorModel>(model)) {
@@ -534,6 +548,12 @@ std::string RobogenUtils::getPartType(boost::shared_ptr<Model> model) {
 	} else if (boost::dynamic_pointer_cast<IrSensorModel>(model)) {
 
 		return PART_TYPE_IR_SENSOR;
+#endif
+	// SM added
+#ifdef COLOR_SENSORS_ENABLED
+	} else if (boost::dynamic_pointer_cast<ColorSensorModel>(model)) {
+
+		return PART_TYPE_COLOR_SENSOR;
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	} else if (boost::dynamic_pointer_cast<TouchSensorModel>(model)) {
@@ -732,6 +752,13 @@ ModelMeshMap initModelMeshMap() {
 			static_cast<unsigned int>(IrSensorModel::B_SENSOR_BASE_ID))] =
 			"IrSensor.stl";
 #endif
+	// SM Added
+#ifdef COLOR_SENSORS_ENABLED
+	// Color Sensor
+	modelMeshMap[std::make_pair(&typeid(ColorSensorModel),
+			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
+			"ColorSensor.stl";
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	// Touch Sensor
 	modelMeshMap[std::make_pair(&typeid(TouchSensorModel),
@@ -846,6 +873,23 @@ RelativePositionMap initRelativePositionMap() {
 			fromOde(
 					osg::Vec3(
 							(IrSensorModel::SENSOR_PLATFORM_THICKNESS) / 2,
+							0, 0));
+#endif
+
+	// SM Added
+#ifdef COLOR_SENSORS_ENABLED
+	//Color Sensor
+
+	// x = 0 is midpoint of base, so  -SENSOR_BASE_THICKNESS/2 is edge of base
+	// and frame is (SENSOR_BASE_THICKNESS + SENSOR_PLATFORM_THICKNESS) long
+	// so (SENSOR_BASE_THICKNESS + SENSOR_PLATFORM_THICKNESS)/2
+	//    - SENSOR_BASE_THICKNESS/2 =
+	//    (SENSOR_PLATFORM_THICKNESS)/2
+	relativePositionMap[std::make_pair(&typeid(ColorSensorModel),
+			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
+			fromOde(
+					osg::Vec3(
+							(ColorSensorModel::SENSOR_PLATFORM_THICKNESS) / 2,
 							0, 0));
 #endif
 #ifdef TOUCH_SENSORS_ENABLED

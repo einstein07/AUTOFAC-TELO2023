@@ -42,6 +42,7 @@
 #include "render/components/TouchSensorRenderModel.h"
 #include "render/components/LightSensorRenderModel.h"
 #include "render/components/IrSensorRenderModel.h"
+#include "render/components/ColorSensorRenderModel.h"
 #include "render/objects/BoxObstacleRender.h"
 #include "render/objects/BoxResourceRender.h"
 #include "render/objects/GatheringZoneRender.h"
