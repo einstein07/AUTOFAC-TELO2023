@@ -41,7 +41,15 @@
 #define inGrams(x) ((x)/1000.0)
 
 namespace robogen {
-
+//---------------------------------------------
+//SM Added - useful data for sensing mechanism
+//---------------------------------------------
+struct ObjectData {
+	int objectId;
+	bool isRobot;
+	bool isResource;
+};
+//---------------------------------------------
 float fromOde(float x);
 double fromOde(double x);
 osg::Vec3 fromOde(osg::Vec3 x);
