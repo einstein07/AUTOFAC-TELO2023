@@ -1,4 +1,6 @@
-# The Environment and Body-Brain Complexity
+# Robot Factories for Tailor-made Robots
+
+This project is part of an ongoing thesis that investigates novel artificial life methodologies for demonstrating various swarm robotic systems as autonomous and adaptive collective behaviour systems. The research goal is to produce in situ robot factories that automate the automated design and production of self-replicating robot populations capable of exhibiting a broad range of collective behaviors. Potential collective construction manifestations include construction of novel, customized and dynamic functional structures (equipment) that contributes to task discovery, fitness function shaping and thus overall mission accomplishment -- for example, automated decentralized collective construction by cooperating robots, built on-the-fly given site-specific environmental conditions and constraints.
 
 This project makes use of and extends the open source [Robogen](https://github.com/lis-epfl/robogen) platform for the simulated co-evolution of robot bodies and brains.  
 The folder 'robogen' contains all the code used to run the experiments for this project and should be run on Linux.  
@@ -14,54 +16,3 @@ cd to the robogen/build directory
 cmake -DCMAKE_BUILD_TYPE=Release -G"Unix Makefiles" ../src/
 make -j3
 ```
-## Usage Instructions
-Navigate to the robogen/build directory.  
-First you need to run the server:  
-`./robogen-server portNumber`  
-Secondly, start the evolution on the same port as the server:  
-`./robogen-evolver <randomSeed, INT> <outputDirectory,String> <evolutionConfigurationFile, String> [--save-all] [--complexity-cost] ` 
-The optional --save-all tag will save each individual of the population for each generation to the outputDirectory.  
-The --complexity-cost tag was used to run evolutions with a simulation time penalty based on the complexity of the individual being evaluated.  
-
-All of the evolution configuration files used for this project can be found in robogen/projectSimulations/  
-The evolution configurations for novelty search are found in robogen/projectSimulations/novelty_search/  
-The novelty search experiments were conducted by running two scripts found in robogen/build: `./novelty_search.sh` and `./novelty_search_complexity_cost.sh`  
-Likewise, the evolution configurations for objective-based search are found in robogen/projectSimulations/objective_search/  
-The objective search experiments were conducted by running two scripts found in robogen/build: `./objective_based.sh` and `objective_based_complexity_cost.sh`  
-
-To use robogen-file-viewer on windows:
-Navigate to the robogen-windows/run directory
-`./robogen-file-viewer <robot.json or .txt file> <scenarioConfiguration .txt file>`
-
-## Example Usage
-Example for running an evolution using objective-based search and the first simulation environment. (the --complexity-cost argument could optionally be added)  
-```
-./robogen-server 8000  
-./robogen-evolver 1 results/ ../projectSimulations/objective_based/evolConf0.txt --save-all  
-```
-  
-To test run both objective search and novelty search with and without an imposed cost on complexity for populations of 10 for 5 generations:  
-simply run `./testRun.sh` in robogen/build  
-The output of these runs can be found in testRunResults/  
-  
-Example usage of robogen-file-viewer on Windows:  
-`./robogen-file-viewer ../examples/simpleRobot.txt ../projectSimulations/objective_based/sim_configs/conf0.txt`  
-
-## Evolutionary algorithm class structure overview
-![Evolutionary algorithm class structure overview](https://github.com/BrookeSte/EVOBAB/blob/master/ClassUseDiagram.png)
-
-## Demo Videos
-The videos show examples of performant robots evolved over 100 generations in: 
-- flat environment, 
-- environment with evenly spaced regular obstacles, 
-- environment with irregularly spaced obstacles of differing heights and 
-- tilted environment
-for both the objective-based and novelty search approaches to evolution. 
-(better quality videos are in the "demo-videos" folder although gifs are played here)
-
-#### Objective based video:
-![RobotsEvolvedUsingObjectiveBasedSearch](https://user-images.githubusercontent.com/28669464/112896645-f0ade600-90de-11eb-899d-6ca91a19e7cd.gif)
-
-#### Novelty search video:
-![RobotsEvolvedUsingNoveltySearch](https://user-images.githubusercontent.com/28669464/112896674-f6a3c700-90de-11eb-8507-2dfae8747ad6.gif)
-
