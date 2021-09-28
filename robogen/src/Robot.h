@@ -193,6 +193,11 @@ public:
 	float endPosX_;
 	float endPosY_;
 
+	/**
+	 * SM added - set and get robot state
+	 */
+	 void setAlive( bool value ) { isAlive_ = value; }
+	 bool isAlive() { return isAlive_; }
 private:
 
 	/**
@@ -313,9 +318,15 @@ private:
 	bool isBoundToResource_;
 
 	/**
-	 * Object information used by sensor to identify the nature of this object
+	 * SM - Object information used by sensor to identify the nature of this object
 	 */
 	ObjectData data_;
+
+	/**
+	 * SM - robot behavior is executed *only* if robot is alive. (default is: alive)
+	 */
+    bool isAlive_;
+
 };
 
 }

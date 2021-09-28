@@ -66,7 +66,7 @@ std::map<char, std::string> initPartTypeMap(const std::map<char, std::string>
 #endif
 	// SM added
 #ifdef COLOR_SENSORS_ENABLED
-	partTypeMap['O'] = PART_TYPE_COLOR_SENSOR;
+	partTypeMap['Z'] = PART_TYPE_COLOR_SENSOR;
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeMap['T'] = PART_TYPE_TOUCH_SENSOR;
@@ -85,7 +85,8 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 	partTypeArityMap[PART_TYPE_ACTIVE_WHEG] = 0;
 #endif
 #ifdef ENFORCE_PLANAR
-	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = 4;
+	/** SM MODIFIED*/
+	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = /**4*/5;
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT_NO_IMU] = 4;
 	partTypeArityMap[PART_TYPE_FIXED_BRICK] = 3;
 #else
@@ -141,6 +142,9 @@ std::map<std::string, unsigned int> initPartTypeParamCountMap() {
 #endif
 #ifdef IR_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_IR_SENSOR] = 0;
+#endif
+#ifdef COLOR_SENSORS_ENABLED
+	partTypeParamCountMap[PART_TYPE_COLOR_SENSOR] = 0;
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_TOUCH_SENSOR] = 0;
@@ -242,7 +246,14 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 #ifdef COLOR_SENSORS_ENABLED
 	{
 		std::vector<std::string> sensors;
-		sensors.push_back(PART_TYPE_COLOR_SENSOR);
+		// Return the distance to the detected object
+		sensors.push_back("Distance");
+		// Returns 1 if the detected object is a robot, otherwise 0
+		sensors.push_back("isRobot");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResource");
+		// Size specified by number of robots required to push resource
+		sensors.push_back("resourceSize");
 		partTypeSensorsMap[PART_TYPE_COLOR_SENSOR] = sensors;
 	}
 #endif

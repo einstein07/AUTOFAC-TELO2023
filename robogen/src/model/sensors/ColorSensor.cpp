@@ -31,19 +31,19 @@ ColorSensor::ColorSensor(dSpaceID odeSpace,
 
 	//Distance to detected object
 	sensors_.push_back(
-				boost::shared_ptr<IrSensorElement>(new IrSensorElement(baseLabel,
+				boost::shared_ptr<Sensor>(new IrSensorElement(baseLabel,
 						IrSensorElement::IR)));
 	//Sense if object is a robot
 	sensors_.push_back(
-			boost::shared_ptr<ColorSensorElement>(new ColorSensorElement(baseLabel,
+			boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
 					ColorSensorElement::ROBOT)));
 	//Sense if object is a resource
 	sensors_.push_back(
-			boost::shared_ptr<ColorSensorElement>(new ColorSensorElement(baseLabel,
+			boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
 					ColorSensorElement::RESOURCE)));
 	//Sense size of resource
 	sensors_.push_back(
-			boost::shared_ptr<ColorSensorElement>(new ColorSensorElement(baseLabel,
+			boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
 					ColorSensorElement::RESOURCESIZE)));
 }
 
