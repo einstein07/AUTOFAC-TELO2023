@@ -55,6 +55,9 @@ message Robot {
   required float complexity = 4;
   required float complexityCost = 5;
 }
+message RobotSwarm {
+  required int32 size=1;
+}
 
 message Obstacle {
   required float x = 1;
@@ -127,6 +130,7 @@ message SimulatorConf {
   required float gatheringZoneSizeZ = 30;
   repeated Resource resources = 31;
   required int32 swarmSize = 32;
+  required string mode = 33;
 }
 
 message EvaluationRequest {
