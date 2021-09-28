@@ -94,6 +94,13 @@ boost::shared_ptr<Joint> RobogenUtils::connect(boost::shared_ptr<Model> a,
 		} else if (slotB == CoreComponentModel::BACK_FACE_SLOT) {
 			a->setParentOrientation(modulo((b->getOrientationToRoot() + 3), 4));
 		}
+		/**
+		 * SM ADDED
+		 * NOT SURE ABOUT THIS CODE
+		 */
+		else if (slotB == CoreComponentModel::BOTTOM_FACE_SLOT) {
+			a->setParentOrientation(b->getOrientationToRoot());
+		}
 
 		//} else if (boost::dynamic_pointer_cast<ParametricBrickModel>(b)) {
 		//	a->setParentOrientation(modulo((b->getOrientationToRoot() + 1), 4));
@@ -480,6 +487,13 @@ std::string RobogenUtils::getSensorType(boost::shared_ptr<Sensor> sensor) {
 #ifdef IR_SENSORS_ENABLED
 	} else if (boost::dynamic_pointer_cast<IrSensorElement>(sensor)) {
 		return SENSOR_TYPE_IR_SENSOR_ELEMENT;
+#endif
+	// ======================
+	// ****SM Added****
+	// ======================
+#ifdef COLOR_SENSORS_ENABLED
+	} else if (boost::dynamic_pointer_cast<ColorSensorElement>(sensor)) {
+		return SENSOR_TYPE_COLOR_SENSOR_ELEMENT;
 #endif
 
 #ifdef TOUCH_SENSORS_ENABLED
@@ -1005,6 +1019,15 @@ RelativeAttitudeMap initRelativeAttitudeMap() {
 	// IR Sensor
 	relativeAttitudeMap[std::make_pair(&typeid(IrSensorModel),
 			static_cast<unsigned int>(IrSensorModel::B_SENSOR_BASE_ID))] =
+			osg::Quat(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
+#endif
+	// ======================
+	// ****SM Added****
+	// ======================
+#ifdef COLOR_SENSORS_ENABLED
+	// COLOR Sensor
+	relativeAttitudeMap[std::make_pair(&typeid(ColorSensorModel),
+			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
 			osg::Quat(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
 #endif
 #ifdef TOUCH_SENSORS_ENABLED

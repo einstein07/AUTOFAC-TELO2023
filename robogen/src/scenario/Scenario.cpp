@@ -391,6 +391,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
 		robogenConfig_->getResourcesConfig();
 
 	// Instance the boxes above the maximum terrain height
+	int resourceId = 0;
 	const std::vector<osg::Vec3>& resourceCoordinates = resources->getCoordinates();
 	const std::vector<osg::Vec3>& resourceSizes = resources->getSizes();
 	const std::vector<float>& densities = resources->getDensities();
@@ -407,7 +408,8 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
                                                             resourceCoordinates[i],
                                                             resourceSizes[i], 
                                                             densities[i], 
-                                                            pushingRobots[i]
+                                                            pushingRobots[i],
+															resourceId
                                                             )
                                                         );
 		double rMinX, rMaxX, rMinY, rMaxY, rMinZ, rMaxZ;

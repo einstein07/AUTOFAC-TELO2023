@@ -183,7 +183,6 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
 	// model, in which case we can ignore.
 	// TODO can we make this more efficient?
 
-
         if (dGeomIsSpace (o1) || dGeomIsSpace (o2)) {  
             // colliding a space with something :
             dSpaceCollide2 (o1, o2, data, odeCollisionCallback);  
@@ -192,14 +191,17 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
                 dSpaceCollide ((dSpaceID)o1, data, odeCollisionCallback);
             if (dGeomIsSpace (o2))
                 dSpaceCollide ((dSpaceID)o2, data, odeCollisionCallback); 
-        } else { 
+        }
+
+        else {
             // colliding two non-space geoms, so generate contact
             // points between o1 and o2
             dBodyID b1 = dGeomGetBody(o1);
             dBodyID b2 = dGeomGetBody(o2);
             if (collisionData->ignoreCollision(o1, o2) ) {
-		return;
+            	return;
             }
+
             dContact contact[MAX_CONTACTS];
             for (int i = 0; i < MAX_CONTACTS; i++) {
                 contact[i].surface.slip1 = 0.01;
@@ -214,14 +216,16 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
                 contact[i].surface.soft_erp = 0.96;
                 contact[i].surface.soft_cfm = 0.01;
             }
-
-            int collisionCounts = dCollide(o1, o2, MAX_CONTACTS, &contact[0].geom,
-		sizeof(dContact));
+            int collisionCounts = dCollide(
+            								o1,
+											o2,
+											MAX_CONTACTS,
+											&contact[0].geom,
+            								sizeof(dContact));
 
             if (collisionCounts > 0) {
                 collisionData->testObstacleCollisons(o1, o2);
             }
-
 
             for (int i = 0; i < collisionCounts; i++) {
                 dJointID c = dJointCreateContact(odeWorld, odeContactGroup,
