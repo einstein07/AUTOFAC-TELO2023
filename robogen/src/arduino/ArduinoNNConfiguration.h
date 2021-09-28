@@ -35,8 +35,8 @@
 #include <string>
 
 #define MAX_DIGITAL_PINS 12
-#define MAX_ANALOG_PINS 4
-#define MAX_PWM_PINS 4
+#define MAX_ANALOG_PINS /**4*/12
+#define MAX_PWM_PINS /**4*/12
 
 
 namespace robogen {
