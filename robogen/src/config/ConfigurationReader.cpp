@@ -36,6 +36,8 @@
 #include <boost/math/special_functions/round.hpp>
 #include <boost/algorithm/string.hpp>
 #include <osg/Vec3>
+#include <boost/filesystem.hpp>
+
 
 #include "config/ConfigurationReader.h"
 #include "config/ObstaclesConfig.h"
@@ -47,6 +49,8 @@
 #include "config/GatheringZoneConfig.h"
 #include "config/ResourcesConfig.h"
 #include "utils/RobogenUtils.h"
+#include "EDQD/Parameters.h"
+
 
 #define DEFAULT_LIGHT_SOURCE_HEIGHT (0.1)
 #define DEFAULT_OBSTACLE_DENSITY (0.)
@@ -107,6 +111,8 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 								"Resources configuration file")
 			("lightSourcesConfigFile", boost::program_options::value<std::string>(),
 					"Light sources configuration file")
+			("EDQDParamsFile", boost::program_options::value<std::string>(),
+					"File for EDQD specific params")
 			("actuationFrequency",boost::program_options::value<int>(),
 					"Actuation Frequency (Hz)")
 			("sensorNoiseLevel",boost::program_options::value<float>(),
@@ -169,9 +175,12 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 					"The size of the gathering zone: x-length, y-length, z-length "
 					"(comma separated).\n")
 			("swarmSize",
-						boost::program_options::value<int>(),
-						"Number of robots in the swarm. Set to 1 by default.")
-		;
+					boost::program_options::value<int>(),
+					"Number of robots in the swarm. Set to 1 by default.\n")
+			("mode",
+					boost::program_options::value<std::string>(),
+					" Simulation mode: embodied or normal. Set to normal mode by default.")
+			;
 
 	if (fileName == "help") {
 		desc.print(std::cout);
@@ -529,6 +538,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 	if(vm.count("swarmSize")) {
 		swarmSize = vm["swarmSize"].as<int>();
 	}
+
 	// SM added - Read gathering zone position configuration
 	osg::Vec3 zonePosition(-1000, -1000, -1000);
 	if(vm.count("gatheringZonePosition")) {
@@ -565,6 +575,50 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 		}
 	}
 
+	/**
+	 * *****SM Added*****
+	 * Reads in EDQD parameters
+	 */
+	std::string mode = "";
+	/**
+	 * File for EDQD parameters
+	 */
+	std::string EDQDParamsFile;
+	/**
+	 * EDQD parameters
+	 */
+	EDQD::Parameters EDQDParams;
+
+
+
+	if((!vm.count("mode")) || (vm["mode"].as<std::string>() == "normal")) {
+		mode = "normal";
+	}
+	else if(vm["mode"].as<std::string>() == "embodied") {
+		mode = "embodied";
+
+		if((!vm.count("EDQDParamsFile"))){
+
+		}
+		else{
+			makeAbsolute(EDQDParamsFile, filePath);
+
+			if (EDQDParams.Load(EDQDParamsFile.c_str()) < 0) {
+				std::cerr << "Problem parsing EDQDParams file." <<
+						std::endl;
+				return boost::shared_ptr<RobogenConfig>();
+			}
+		}
+
+	}
+	else{
+		std::cerr << "Invalid value: '" <<
+						vm["mode"].as<std::string>() <<
+						"' given for 'Simulation Mode'" << std::endl;
+		return boost::shared_ptr<RobogenConfig>();
+	}
+
+
 	boost::shared_ptr<GatheringZoneConfig> gatheringZone;
 	gatheringZone.reset(new GatheringZoneConfig(zonePosition, zoneSize));
 
@@ -577,7 +631,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 					motorNoiseLevel, capAcceleration, maxLinearAcceleration,
 					maxAngularAcceleration, maxDirectionShiftsPerSecond,
 					gravity, disallowObstacleCollisions, obstacleOverlapPolicy,
-					gatheringZone, swarmSize, complexityCost));
+					gatheringZone, swarmSize, mode, complexityCost));
 
 }
 
@@ -924,6 +978,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
                                                 ));
 	//SM added - decode swarm size
 	int swarmSize = simulatorConf.swarmsize();
+	std::string mode = simulatorConf.mode();
 	// Decode simulator configuration
 	std::string scenario = simulatorConf.scenario();
 
@@ -955,7 +1010,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 							  simulatorConf.gravityz()),
 					simulatorConf.disallowobstaclecollisions(),
 					simulatorConf.obstacleoverlappolicy(),
-					gatheringZone, swarmSize));
+					gatheringZone, swarmSize, mode));
 
 }
 

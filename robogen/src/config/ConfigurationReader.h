@@ -31,7 +31,6 @@
 #include <boost/shared_ptr.hpp>
 #include <string>
 #include "robogen.pb.h"
-
 namespace robogen {
 
 class ObstaclesConfig;
@@ -90,11 +89,11 @@ private:
 
 	static boost::shared_ptr<LightSourcesConfig> parseLightSourcesFile(const std::string& fileName);
         
-        /**
-         * SM added - Reads the configuration file for resources
-         * The file contains on each line the coordinates and sizes of the resources, separated by a tab (\t)
-         */
-        static boost::shared_ptr<ResourcesConfig> parseResourcesFile(const std::string& fileName);
+	/**
+	 * SM added - Reads the configuration file for resources
+	 * The file contains on each line the coordinates and sizes of the resources, separated by a tab (\t)
+	 */
+	static boost::shared_ptr<ResourcesConfig> parseResourcesFile(const std::string& fileName);
 };
 
 }
