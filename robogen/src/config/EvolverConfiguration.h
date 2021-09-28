@@ -36,6 +36,7 @@
 #include <stdexcept>
 #include "evolution/neat/Parameters.h"
 
+
 namespace robogen {
 
 /**
@@ -61,7 +62,7 @@ typedef struct EvolverConfiguration {
 	 * Modes of evolution
 	 */
 	enum EvolutionModes {
-		BRAIN_EVOLVER, FULL_EVOLVER
+		BRAIN_EVOLVER, FULL_EVOLVER, EMBODIED
 	};
 
 	/**
@@ -69,7 +70,7 @@ typedef struct EvolverConfiguration {
 	 * TODO add other possibilities (e.g. CMA-ES)
 	 */
 	enum EvolutionaryAlgorithms {
-		BASIC, HYPER_NEAT
+		BASIC, HYPER_NEAT, EDQD
 	};
 
 

@@ -154,7 +154,7 @@ bool EvolverConfiguration::init(std::string configFileName) {
 				"Type of replacement strategy: comma or plus")
 		("evolutionMode",
 				boost::program_options::value<std::string>()->required(),
-				"Mode of evolution: brain or full")
+				"Mode of evolution: brain, full or embodied")
 		("useBrainSeed",
 				boost::program_options::value<bool>(&useBrainSeed),
 				"Set true to continue evolving from provided brain instead of "\
@@ -165,6 +165,9 @@ bool EvolverConfiguration::init(std::string configFileName) {
 		("neatParamsFile",
 				boost::program_options::value<std::string>(&neatParamsFile),
 				"File for NEAT/HyperNEAT specific params")
+		/**("EDQDParamsFile",
+				boost::program_options::value<std::string>(&EDQDParamsFile),
+				"File for EDQD specific params")*/
 		("pBrainMutate", boost::program_options::value<double>
 				(&pBrainMutate)->required(),
 				"Probability of mutation for any single brain "\
@@ -243,6 +246,25 @@ bool EvolverConfiguration::init(std::string configFileName) {
 		("bodyParamSigma", boost::program_options::value<double>(
 				&bodyParamSigma),
 				"Sigma of body param mutation (all params in [0,1])")
+		/*("EDQDMutationOperator",
+				boost::program_options::value<unsigned int>(&EDQDMutationOperator),
+				"0: uniform, 1: gaussian/normal distribution")
+		("EDQDNbOfDimensions",
+				boost::program_options::value<unsigned int>(&EDQDNbOfDimensions),
+				"Defines the number of dimensions of a map")
+		("EDQDNbOfIntervals",
+				boost::program_options::value<unsigned int>(&EDQDNbOfIntervals),
+				"Defines the number of intervals per dimension of a map")
+		("EDQDFitEpsilon",
+				boost::program_options::value<double>(&EDQDFitEpsilon),
+				"Used to decide whether the difference in fitness between newly found elite"
+				" and one occupying cell large enough to discard the cell occupant in the map")
+		("EDQDNotListeningStateDelay",
+				boost::program_options::value<unsigned int>(&EDQDNotListeningStateDelay),
+				"-1: infinite ; 0: no delay ; >0: delay")
+		("EDQDListeningStateDelay",
+				boost::program_options::value<unsigned int>(&EDQDListeningStateDelay),
+				"-1: infinite ; 0: no delay ; >0: delay (ignored if gNotListeningStateDelay=-1)")*/
 		;
 	// generate body operator probability options from contraptions in header
 	for (unsigned i=0; i<NUM_BODY_OPERATORS; ++i){
@@ -312,6 +334,14 @@ bool EvolverConfiguration::init(std::string configFileName) {
 	else if (vm["evolutionMode"].as<std::string>() == "full"){
 		evolutionMode = FULL_EVOLVER;
 	}
+	else if (vm["evolutionMode"].as<std::string>() == "embodied"){
+			evolutionMode = EMBODIED;
+			if (referenceRobotFile.compare("") == 0) {
+				std::cerr << "evolutionMode is \"embodied\" but no referenceRobotFile"
+						<< " was provided" << std::endl;
+				return false;
+			}
+		}
 	else {
 		std::cerr << "Specified evolution mode \"" <<
 				vm["evolutionMode"].as<std::string>() <<
