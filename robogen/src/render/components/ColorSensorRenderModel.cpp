@@ -32,7 +32,6 @@ bool ColorSensorRenderModel::initRenderModel() {
 	bool meshLoadingA  = this->partA_->loadMesh(
 				RobogenUtils::getMeshFile(this->getModel(),
 						ColorSensorModel::B_SENSOR_BASE_ID));
-
 	if (!meshLoadingA) {
 		std::cerr << "[ColorSensorRenderModel] Error loading model"
 				<< std::endl;
@@ -46,15 +45,13 @@ bool ColorSensorRenderModel::initRenderModel() {
 	// PART A
 	osg::ref_ptr<osg::PositionAttitudeTransform> partA =
 			this->partA_->getMesh();
-
-	partA_->setColor(osg::Vec4(1, 0, 0, 0.5));
+	partA_->setColor(osg::Vec4(0, 0, 1, 0.5));
 
 	partA->setPosition(RobogenUtils::getRelativePosition(this->getModel(),
 						ColorSensorModel::B_SENSOR_BASE_ID));
 
 	partA->setAttitude(RobogenUtils::getRelativeAttitude(this->getModel(),
 						ColorSensorModel::B_SENSOR_BASE_ID));
-
 
 	osg::ref_ptr<osg::PositionAttitudeTransform> patPartA(
 			new osg::PositionAttitudeTransform());
