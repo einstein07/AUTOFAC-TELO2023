@@ -291,7 +291,6 @@ bool Viewer::configureScene(std::vector<std::vector<boost::shared_ptr<Model> > >
 	if (gatheringzone){
 		boost::shared_ptr<GatheringZoneRender> gatheringZoneRender(
 				new GatheringZoneRender(gatheringzone));
-		std::cout << "Created new gathering zone render" << std::endl;
 		this->root->addChild(gatheringZoneRender->getRootNode());
 	}
 

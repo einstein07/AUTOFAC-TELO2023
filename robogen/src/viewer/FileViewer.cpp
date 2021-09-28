@@ -440,7 +440,6 @@ int main(int argc, char *argv[]) {
 	// ---------------------------------------
 	robogenMessage::Robot robotMessage;
 	std::string robotFileString(argv[1]);
-
 	if(!RobotRepresentation::createRobotMessageFromFile(robotMessage,
 			robotFileString)) {
 		exitRobogen(EXIT_FAILURE);
@@ -483,7 +482,6 @@ int main(int argc, char *argv[]) {
 				speed, recording, recordFrequency,
 				recordDirectoryName);
 	}
-
 	unsigned int simulationResult = runSimulations(scenario, configuration,
 			robotMessage, viewer, rng, true, log);
 
