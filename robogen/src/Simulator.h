@@ -87,7 +87,10 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		boost::random::mt19937 &rng,
 		bool onlyOnce, boost::shared_ptr<FileViewerLog> log);
 
-
+/**
+ * SM added
+ */
+extern unsigned int iterations;
 
 }
 
