@@ -73,7 +73,7 @@ public:
 			osg::Vec3 gravity, bool disallowObstacleCollisions,
 			unsigned int obstacleOverlapPolicy,
             boost::shared_ptr<GatheringZoneConfig> gatheringZone,
-			int swarmSize, bool complexityCost=false) :
+			int swarmSize, std::string mode, bool complexityCost=false) :
 				scenario_(scenario), scenarioFile_(scenarioFile),
 				timeSteps_(timeSteps),
 				timeStepLength_(timeStepLength),
@@ -95,8 +95,8 @@ public:
 				gravity_(gravity),
 				disallowObstacleCollisions_(disallowObstacleCollisions),
 				obstacleOverlapPolicy_(obstacleOverlapPolicy), 
-				complexityCost_(complexityCost), 
-                                gatheringZone_(gatheringZone), swarmSize_(swarmSize) {
+				gatheringZone_(gatheringZone), swarmSize_(swarmSize),
+				mode_(mode), complexityCost_(complexityCost) {
 
 		simulationTime_ = timeSteps * timeStepLength;
 
@@ -314,6 +314,13 @@ public:
 	}
         
 	/**
+	 * SM added
+	 * @return the swarm size
+	 */
+	std::string getMode(){
+		return mode_;
+	}
+	/**
 	 * Convert configuration into configuration message.
 	 */
 	robogenMessage::SimulatorConf serialize() const{
@@ -484,6 +491,13 @@ private:
 	 * SM added - Swarm size
 	 */
 	int swarmSize_;
+
+	/**
+	 * SM Added
+	 * Simulation mode
+	 */
+	std::string mode_;
+
 };
 
 }
