@@ -118,6 +118,14 @@ osg::Vec3 CoreComponentModel::getSlotAxis(unsigned int i) {
 		axis.set(0, 1, 0);
 
 	}
+	/**
+	 * SM ADDED
+	 */
+	else if (i == BOTTOM_FACE_SLOT) {
+
+		// Bottom face
+		axis.set(0, 0, -1);
+	}
 #ifndef ENFORCE_PLANAR
 	else if (i == TOP_FACE_SLOT) {
 
@@ -165,6 +173,14 @@ osg::Vec3 CoreComponentModel::getSlotOrientation(unsigned int i) {
 		// Back face
 		tangent.set(0, 0, 1);
 
+	}
+	/**
+	 * SM ADDED
+	 */
+	else if (i == BOTTOM_FACE_SLOT) {
+
+		// Bottom face
+		tangent.set(1, 0, 0);
 	}
 #ifndef ENFORCE_PLANAR
 	else if (i == TOP_FACE_SLOT) {
