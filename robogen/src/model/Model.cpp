@@ -36,8 +36,16 @@
 
 namespace robogen {
 
-Model::Model(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
+/**
+ * SM Added - changed the definition of the constructor below, hence commented out.
+ */
+/**Model::Model(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
 		odeWorld_(odeWorld), odeSpace_(odeSpace), id_(id),
+		orientationToParentSlot_(0), orientationToRoot_(0) {
+}*/
+
+Model::Model(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace, std::string id) :
+		odeWorld_(odeWorld), odeSpace_(odeSpace), robotSpace_(robotSpace), id_(id),
 		orientationToParentSlot_(0), orientationToRoot_(0) {
 }
 
@@ -53,8 +61,16 @@ dWorldID Model::getPhysicsWorld() {
 	return this->odeWorld_;
 }
 
-dSpaceID Model::getCollisionSpace() {
+/**dSpaceID Model::getCollisionSpace() {
 	return this->odeSpace_;
+}*/
+
+dSpaceID Model::getODECollisionSpace() {
+	return this->odeSpace_;
+}
+
+dSpaceID Model::getRobotCollisionSpace() {
+	return this->robotSpace_;
 }
 
 osg::Vec3 Model::getRootPosition() {
@@ -183,8 +199,15 @@ boost::shared_ptr<SimpleBody> Model::addBox(float mass,
 
 	dMass massOde;
 	dMassSetBoxTotal(&massOde, mass, lengthX, lengthY, lengthZ);
-	dxGeom* g = dCreateBox(this->getCollisionSpace(), lengthX, lengthY,
+
+	/**
+	 * SM replaced with getRobotSpace
+	 */
+	/**dxGeom* g = dCreateBox(this->getCollisionSpace(), lengthX, lengthY,
+							lengthZ);*/
+	dxGeom* g = dCreateBox(this->getRobotCollisionSpace(), lengthX, lengthY,
 							lengthZ);
+
 	boost::shared_ptr<SimpleBody> body(new SimpleBody(shared_from_this(),
 			massOde, g, pos));
 	this->addBody(body, label);
@@ -197,7 +220,12 @@ boost::shared_ptr<SimpleBody> Model::addCylinder(float mass,
 
 	dMass massOde;
 	dMassSetCylinderTotal(&massOde, mass, direction, radius, height);
-	dxGeom* g = dCreateCylinder(this->getCollisionSpace(), radius, height);
+	/**
+	 * SM replaced with getRobotSpace
+	 */
+	/**dxGeom* g = dCreateCylinder(this->getCollisionSpace(), radius, height);*/
+	dxGeom* g = dCreateCylinder(this->getRobotCollisionSpace(), radius, height);
+
 	osg::Quat rotateCylinder;
 	if (direction == 1) {
 		rotateCylinder.makeRotate(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
@@ -218,7 +246,11 @@ boost::shared_ptr<SimpleBody> Model::addCapsule(float mass,
 
 	dMass massOde;
 	dMassSetCapsuleTotal(&massOde, mass, direction, radius, height);
-	dxGeom* g = dCreateCapsule(this->getCollisionSpace(), radius, height);
+	/**
+	 * SM replaced with getRobotSpace
+	 */
+	/**dxGeom* g = dCreateCapsule(this->getCollisionSpace(), radius, height);*/
+	dxGeom* g = dCreateCapsule(this->getRobotCollisionSpace(), radius, height);
 
 	osg::Quat rotateCapsule;
 

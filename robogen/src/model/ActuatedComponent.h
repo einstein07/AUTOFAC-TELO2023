@@ -42,11 +42,14 @@ class ActuatedComponent : public Model {
 public:
 
 	/**
+	 * SM Changed constructor signature to accommodate per robot collision spaces
 	 * Constructor
 	 * @see Model
 	 */
-	ActuatedComponent(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
-		Model(odeWorld, odeSpace, id) {}
+	/**ActuatedComponent(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
+		Model(odeWorld, odeSpace, id) {}*/
+	ActuatedComponent(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace , std::string id) :
+			Model(odeWorld, odeSpace, robotSpace, id) {}
 
 	/**
 	 * Destructor

@@ -48,9 +48,12 @@ class Model : public boost::enable_shared_from_this<Model> {
 public:
 
 	/**
+	 * SM Modified Signature - each robot has its own collision space,
+	 * Constructor takes both an individual robot's space and the whole world space now.
 	 * Constructor
 	 */
-	Model(dWorldID odeWorld, dSpaceID odeSpace, std::string id);
+	/**Model(dWorldID odeWorld, dSpaceID odeSpace,std::string id);*/
+	Model(dWorldID odeWorld, dSpaceID odeSpace,  dSpaceID robotSpace, std::string id);
 
 	/**
 	 * Destructor
@@ -137,9 +140,22 @@ public:
 	dWorldID getPhysicsWorld();
 
 	/**
+	 * SM Added
+	 * @return the robot collision space
+	 */
+	dSpaceID getODECollisionSpace();
+
+
+	/**
+	 * SM Added
+	 * @return the robot collision space
+	 */
+	dSpaceID getRobotCollisionSpace();
+
+	/**
 	 * @return the collision space
 	 */
-	dSpaceID getCollisionSpace();
+	/**dSpaceID getCollisionSpace();*/
 
 	/**
 	 * @return the specified body
@@ -287,6 +303,11 @@ private:
 	 * ODE collision space
 	 */
 	dSpaceID odeSpace_;
+
+	/**
+	 * SM added - Robot collision space
+	 */
+	dSpaceID robotSpace_;
 
 	/**
 	 * User-defined identifier of the part
