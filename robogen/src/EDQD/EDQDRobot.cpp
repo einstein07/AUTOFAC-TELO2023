@@ -19,11 +19,11 @@ namespace robogen{
 	}
 	bool EDQDRobot::initialise(
 						dWorldID odeWorld,
-						dSpaceID odeSpace,
+						dSpaceID odeSpace, dSpaceID robotSpace,
 						boost::shared_ptr<RobogenConfig> configuration,
 						const robogenMessage::Robot& robotSpec){
 
-		bool status = this->init(odeWorld, odeSpace, robotSpec);
+		bool status = this->init(odeWorld, odeSpace, robotSpace, robotSpec);
 
 		this->configuration = configuration;
 
@@ -191,12 +191,33 @@ namespace robogen{
 		float networkOutputs[MAX_OUTPUT_NEURONS];
 
 		// Update Sensors
-		for (unsigned int i = 0; i < getBodyParts().size(); ++i) {
+		/**for (unsigned int i = 0; i < getBodyParts().size(); ++i) {
 			if (boost::dynamic_pointer_cast<PerceptiveComponent>(getBodyParts()[i])) {
 				boost::dynamic_pointer_cast<PerceptiveComponent>(getBodyParts()[i])->
 						updateSensors(env);
 			}
+		}*/
+
+		double minDistanceToObject = 0;
+		ColorSensorElement::Type objectType;
+		int objectId;
+		for (unsigned int  i = 0; i < getSensors().size(); ++i){
+			double distanceToObject = getSensors()[i]->read();
+			/**if (distanceToObject < minDistanceToObject){
+				minDistanceToObject = distanceToObject;*/
+				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])) {
+					objectType = boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->
+							getType();
+					/**if (objectType == ColorSensorElement::RESOURCE){
+
+					}*/
+					//std::cout << "Distance to object: " << distanceToObject << ". Type: " << objectType << std::endl;
+				}
+
+			//}
 		}
+
+
 
 		if(((count_ - 1) % configuration->getActuationPeriod()) == 0) {
 			// Feed neural network

@@ -144,7 +144,7 @@ class EDQDRobot : public Robot{
 
 	    bool initialise(
 							dWorldID odeWorld,
-							dSpaceID odeSpace,
+							dSpaceID odeSpace, dSpaceID robotSpace,
 							boost::shared_ptr<RobogenConfig> configuration,
 							const robogenMessage::Robot& robotSpec
 						);
