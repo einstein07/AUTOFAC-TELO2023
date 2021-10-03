@@ -63,9 +63,9 @@ public :
 
 private :
 	boost::shared_ptr<Scenario> scenario_;
-	//std::map<dGeomID, boost::shared_ptr<Model> > geomModelMap_;
+	std::map<dGeomID, boost::shared_ptr<Model> > geomModelMap_;
         //SM added
-        std::vector<std::map<dGeomID, boost::shared_ptr<Model> > > geomModelMap_;
+        //std::vector<std::map<dGeomID, boost::shared_ptr<Model> > > geomModelMap_;
 	bool hasObstacleCollisions_;
 
 };

@@ -64,20 +64,42 @@ CollisionData::CollisionData(boost::shared_ptr<Scenario> scenario) :
 		scenario_(scenario), hasObstacleCollisions_(false) {
 
     for(size_t i = 0; i < scenario->getRobots().size(); ++i){
-	for (size_t j=0; j<scenario->getRobot(i)->getBodyParts().size(); ++j) {
-		boost::shared_ptr<Model> model =
-				scenario->getRobot(i)->getBodyParts()[j];
-		std::map<dGeomID, boost::shared_ptr<Model> > geomap;
-		for(size_t k = 0; k < model->getBodies().size(); ++k) {
-			geomap[model->getBodies()[k]->getGeom()]
-                                = model;
+		for (size_t j=0; j<scenario->getRobot(i)->getBodyParts().size(); ++j) {
+			/**boost::shared_ptr<Model> model =
+					scenario->getRobot(i)->getBodyParts()[j];
+			std::map<dGeomID, boost::shared_ptr<Model> > geomap;
+			for(size_t k = 0; k < model->getBodies().size(); ++k) {
+				geomap[model->getBodies()[k]->getGeom()]
+									= model;
+			}
+			geomModelMap_.push_back(geomap);*/
+
+			boost::shared_ptr<Model> model =
+						scenario->getRobot(i)->getBodyParts()[j];
+			for(size_t k=0; k<model->getBodies().size(); ++k) {
+				if (geomModelMap_.count(model->getBodies()[k]->getGeom())){
+					std::cout << "Already exists!" << std::endl;
+				}
+				else{
+					geomModelMap_[model->getBodies()[k]->getGeom()] = model;
+				}
+
+			}
 		}
-		geomModelMap_.push_back(geomap);
-	}
+		//std::cout << "Done initializing model map for one robot. Size of model map for the one robot: "<< geomModelMap_.size() << std::endl;
     }
+    //std::cout << "Done initializing CollisionData constructor. Final size of model map: "<< geomModelMap_.size() << std::endl;
 }
 
 bool CollisionData::ignoreCollision(dGeomID o1, dGeomID o2) {
+
+	if (geomModelMap_.count(o1) == 0 || geomModelMap_.count(o2) == 0 )
+		return false;
+	return ( geomModelMap_[o1] == geomModelMap_[o2]);
+
+}
+
+/**bool CollisionData::ignoreCollision(dGeomID o1, dGeomID o2) {
 
 //	if (geomModelMap_.count(o1) == 0 || geomModelMap_.count(o2) == 0 )
 //		return false;
@@ -93,85 +115,100 @@ bool CollisionData::ignoreCollision(dGeomID o1, dGeomID o2) {
         }
     }
     return inModelMap;
-}
+}*/
 
 bool CollisionData::isPartOfBody(dGeomID o1) {
-    //return geomModelMap_.count(o1);
-    int count;
+    return geomModelMap_.count(o1);
+    /**int count;
     for(size_t i  = 0; i < geomModelMap_.size(); ++i){
         count = geomModelMap_[i].count(o1);
     }
-    return count;
+    return count;*/
 }
 
 void CollisionData::testObstacleCollisons(dGeomID o1, dGeomID o2) {
-    for(size_t i  = 0; i < geomModelMap_.size(); ++i){
+    /**for(size_t i  = 0; i < geomModelMap_.size(); ++i){
         if (	(isPartOfBody(o1) && dGeomGetClass(o2) == dBoxClass)
 			||
 			(isPartOfBody(o2) && dGeomGetClass(o1) == dBoxClass)) {
 		//std::cout << "colliding with obstacle!!!" << std::endl;
 		hasObstacleCollisions_ = true;
 	}
-    }
+    }*/
+	if (	(isPartOfBody(o1) && dGeomGetClass(o2) == dBoxClass)
+			||
+			(isPartOfBody(o2) && dGeomGetClass(o1) == dBoxClass)) {
+		//std::cout << "colliding with obstacle!!!" << std::endl;
+		hasObstacleCollisions_ = true;
+	}
 }
 
 
-//void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
-//
-//	CollisionData *collisionData = static_cast<CollisionData*>(data);
-//
-//	// Since we are now using complex bodies, just because two bodies
-//	// are connected with a joint does not mean we should ignore their
-//	// collision.  Instead we need to use the ignoreCollision method define
-//	// above, which will check if the two geoms are part of the same
-//	// model, in which case we can ignore.
-//	// TODO can we make this more efficient?
-//
-//
-//	dBodyID b1 = dGeomGetBody(o1);
-//	dBodyID b2 = dGeomGetBody(o2);
-//	//if (b1 && b2 && dAreConnectedExcluding (b1,b2,dJointTypeContact)) {
-//	if (collisionData->ignoreCollision(o1, o2) ) {
-//		//collisionData->numCulled++;
-//		return;
-//	}
-//
-//
-//	dContact contact[MAX_CONTACTS];
-//	for (int i = 0; i < MAX_CONTACTS; i++) {
-//		contact[i].surface.slip1 = 0.01;
-//		contact[i].surface.slip2 = 0.01;
-//		contact[i].surface.mode = dContactSoftERP |
-//					dContactSoftCFM |
-//					dContactApprox1 |
-//					dContactSlip1 | dContactSlip2;
-//		// TODO use different value for self collisions and/or obstacles?
-//		contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig(
-//									)->getTerrainConfig()->getFriction();
-//		contact[i].surface.soft_erp = 0.96;
-//		contact[i].surface.soft_cfm = 0.01;
-//
-//
-//
-//	}
-//
-//	int collisionCounts = dCollide(o1, o2, MAX_CONTACTS, &contact[0].geom,
-//		sizeof(dContact));
-//
-//	if (collisionCounts > 0) {
-//		collisionData->testObstacleCollisons(o1, o2);
-//	}
-//
-//
-//	for (int i = 0; i < collisionCounts; i++) {
-//
-//		dJointID c = dJointCreateContact(odeWorld, odeContactGroup,
-//				contact + i);
-//		dJointAttach(c, b1, b2);
-//
-//
-//	}
-//}
+/**void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
+	//std::cout << "*****odeCollisionCallback - Begins*****" << std::endl;
+	CollisionData *collisionData = static_cast<CollisionData*>(data);
+
+	// Since we are now using complex bodies, just because two bodies
+	// are connected with a joint does not mean we should ignore their
+	// collision.  Instead we need to use the ignoreCollision method define
+	// above, which will check if the two geoms are part of the same
+	// model, in which case we can ignore.
+	// TODO can we make this more efficient?
+
+	//std::cout << "*****odeCollisionCallback - get body ids for both geoms: "<< o1<<" "<< o2 <<" *****" << std::endl;
+	dBodyID b1 = dGeomGetBody(o1);
+	dBodyID b2 = dGeomGetBody(o2);
+	//std::cout << "*****odeCollisionCallback - done getting body ids for "<< o1<<" "<< o2 <<" *****" << std::endl;
+	//if (b1 && b2 && dAreConnectedExcluding (b1,b2,dJointTypeContact)) {
+	if (collisionData->ignoreCollision(o1, o2) ) {
+		//collisionData->numCulled++;
+		return;
+	}
+
+
+	dContact contact[MAX_CONTACTS];
+	for (int i = 0; i < MAX_CONTACTS; i++) {
+		contact[i].surface.slip1 = 0.01;
+		contact[i].surface.slip2 = 0.01;
+		contact[i].surface.mode = dContactSoftERP |
+					dContactSoftCFM |
+					dContactApprox1 |
+					dContactSlip1 | dContactSlip2;
+		// TODO use different value for self collisions and/or obstacles?
+		contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig(
+									)->getTerrainConfig()->getFriction();
+		contact[i].surface.soft_erp = 0.96;
+		contact[i].surface.soft_cfm = 0.01;
+
+
+
+	}
+	//std::cout << "*****odeCollisionCallback - colliding geoms: "<< o1<<" and "<< o2 <<" *****" << std::endl;
+	int collisionCounts = dCollide(o1, o2, MAX_CONTACTS, &contact[0].geom,
+		sizeof(dContact));
+	//std::cout << "*****odeCollisionCallback - done colliding geoms "<< o1<<" and "<< o2 <<" *****" << std::endl;
+
+	if (collisionCounts > 0) {
+		collisionData->testObstacleCollisons(o1, o2);
+	}
+
+
+	//std::cout << "*****odeCollisionCallback - creating contact joints for geaoms "<< o1<<" and "<< o2 <<" *****" << std::endl;
+	for (int i = 0; i < collisionCounts; i++) {
+
+		dJointID c = dJointCreateContact(odeWorld, odeContactGroup,
+				contact + i);
+		dJointAttach(c, b1, b2);
+
+
+	}
+	//std::cout << "*****odeCollisionCallback - done creating contact joints for geaoms "<< o1<<" and "<< o2 <<" *****" << std::endl;
+	//std::cout << "*****odeCollisionCallback - Ends*****" << std::endl;
+}*/
+/**
+ * Commenting this out for now because it is not working with the sensors.
+ * TODO: Come back later and revise this code, and perhaps try make it work with the sensors?
+ */
 void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
 
 	CollisionData *collisionData = static_cast<CollisionData*>(data);
