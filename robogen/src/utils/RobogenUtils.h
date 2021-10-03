@@ -66,9 +66,16 @@ public:
 			boost::shared_ptr<Model> b, unsigned int slotB,
 			dJointGroupID connectionJointGroup, dWorldID odeWorld);
 
+
 	static boost::shared_ptr<Model> createModel(
 			const robogenMessage::BodyPart& bodyPart, dWorldID odeWorld,
 			dSpaceID odeSpace);
+	/**
+	 * SM Added
+	 */
+	static boost::shared_ptr<Model> createModel(
+				const robogenMessage::BodyPart& bodyPart, dWorldID odeWorld,
+				dSpaceID odeSpace, dSpaceID robotSpace);
 
 	static boost::shared_ptr<RenderModel> createRenderModel(
 			boost::shared_ptr<Model> model);
