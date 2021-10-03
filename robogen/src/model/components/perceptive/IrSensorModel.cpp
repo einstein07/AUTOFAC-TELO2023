@@ -45,6 +45,10 @@ IrSensorModel::IrSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
 		std::string id) :
 		PerceptiveComponent(odeWorld, odeSpace, id) {
 }
+IrSensorModel::IrSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+		dSpaceID robotSpace,std::string id) :
+		PerceptiveComponent(odeWorld, odeSpace, robotSpace, id) {
+}
 
 IrSensorModel::~IrSensorModel() {
 
@@ -66,8 +70,13 @@ bool IrSensorModel::initModel() {
 
 	this->fixBodies(sensorRoot_, platform);
 
-	this->sensor_.reset(new IrSensor(this->getCollisionSpace(),
-			this->getBodies(), this->getId()));
+	/**
+	 * SM - changed to accommodate per robot spaces
+	 */
+	/**this->sensor_.reset(new IrSensor(this->getCollisionSpace(),
+			this->getBodies(), this->getId()));*/
+	this->sensor_.reset(new IrSensor(this->getODECollisionSpace(),
+				this->getBodies(), this->getId()));
 
 	return true;
 

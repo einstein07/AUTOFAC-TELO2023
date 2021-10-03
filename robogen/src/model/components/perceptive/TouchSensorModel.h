@@ -56,7 +56,12 @@ public:
 	static const unsigned int B_SENSOR_LEFT = 1;
 	static const unsigned int B_SENSOR_RIGHT = 2;
 
-	TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id);
+	/**
+	 * SM - changed constructor signature to accommodate per robot spaces
+	 */
+	/**TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id);*/
+	TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+			dSpaceID robotSpace, std::string id);
 
 	virtual ~TouchSensorModel();
 

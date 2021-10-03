@@ -36,7 +36,8 @@ public:
 	static const unsigned int B_SENSOR_BASE_ID = 0;
 	static const unsigned int B_SENSOR_PLATFORM_ID = 1;
 
-	LowResCameraSensorModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id);
+	LowResCameraSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+			dSpaceID robotSpace, std::string id);
 
 	virtual ~LowResCameraSensorModel();
 

@@ -28,6 +28,11 @@ ColorSensorModel::ColorSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
 		PerceptiveComponent(odeWorld, odeSpace, id) {
 }
 
+ColorSensorModel::ColorSensorModel(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace,
+		std::string id) :
+		PerceptiveComponent(odeWorld, odeSpace, robotSpace, id) {
+}
+
 ColorSensorModel::~ColorSensorModel() {
 
 }
@@ -48,7 +53,7 @@ bool ColorSensorModel::initModel() {
 
 	this->fixBodies(sensorRoot_, platform);
 
-	this->sensor_.reset(new ColorSensor(this->getCollisionSpace(),
+	this->sensor_.reset(new ColorSensor(this->getODECollisionSpace(),
 			this->getBodies(), this->getId()));
 
 	return true;

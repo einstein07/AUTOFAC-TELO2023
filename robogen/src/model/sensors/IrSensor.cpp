@@ -124,14 +124,14 @@ void IrSensor::update(const osg::Vec3& position, const osg::Quat& attitude) {
 	if(data.isColliding &&
 			(data.collisionPoint - position_).length() < SENSOR_RANGE) {
 		distance = (data.collisionPoint - position_).length();
-
+		//std::cout << "Collision: " << data.isColliding << ". Distance to object: " << distance << std::endl;
 		//std::cout << "pos: " << position_.x() << " " << position_.y() <<  " " << position_.z() << std::endl;
 		//std::cout << "ray: " << rayVector.x() << " " << rayVector.y() <<  " " << rayVector.z() << std::endl;
 		//std::cout << "collision: " << data.collisionPoint.x() << " " << data.collisionPoint.y() <<  " " << data.collisionPoint.z() << std::endl;
 
 	}
 
-	//std::cout << distance << std::endl;
+	//std::cout << "Collision: " << data.isColliding << ". Distance to object: " << distance << std::endl;
 
 	dGeomDestroy(ray);
 	// want 0 when nothing is seen

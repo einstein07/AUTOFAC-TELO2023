@@ -98,6 +98,12 @@ private:
 	dSpaceID odeSpace_;
 
 	/**
+	 *
+	 * Per Robot collision space
+	 */
+	//dSpaceID robotSpace_;
+
+	/**
 	 * Position of the Color sensor
 	 */
 	osg::Vec3 position_;

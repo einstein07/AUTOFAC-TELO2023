@@ -53,7 +53,11 @@ public:
 	static const unsigned int B_SENSOR_BASE_ID = 0;
 	static const unsigned int B_SENSOR_PLATFORM_ID = 1;
 
+	/**
+	 * SM changed constructor signature to accommodate per robot spaces
+	 */
 	IrSensorModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id);
+	IrSensorModel(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace, std::string id);
 
 	virtual ~IrSensorModel();
 

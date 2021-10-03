@@ -28,6 +28,8 @@ ColorSensor::ColorSensor(dSpaceID odeSpace,
 		}
 	}
 	raySpace_ = dHashSpaceCreate(0);
+	// set space sublevel
+	dSpaceSetSublevel (raySpace_, 2);
 
 	//Distance to detected object
 	sensors_.push_back(
@@ -60,7 +62,7 @@ struct RayTrace {
 	ObjectData *objData;
 };
 
-void ColorSensor::collisionCallback(void *data, dGeomID o1, dGeomID o2){
+/**void ColorSensor::collisionCallback(void *data, dGeomID o1, dGeomID o2){
 	RayTrace *r = (RayTrace*) data;
 	// ignore what needs ignoring
 	if (std::find(r->ignoreGeoms.begin(),r->ignoreGeoms.end(),
@@ -77,17 +79,64 @@ void ColorSensor::collisionCallback(void *data, dGeomID o1, dGeomID o2){
 				contact.geom.pos[1],
 				contact.geom.pos[2]);
 		r->isColliding = true;
-		std::cout << "Getting pointer to geom data" << std::endl;
+		//std::cout << "Getting pointer to geom data" << std::endl;
 		r->objData = (ObjectData*)dGeomGetData(o1);
 		if(r->objData == NULL){
-			std::cout << "**Geom o1** is not either one of the objects of interest." << std::endl;
-			std::cout << "**Geom o2** is an object of interest." << std::endl;
+			//std::cout << "**Geom o1** is not either one of the objects of interest." << std::endl;
+			//std::cout << "**Geom o2** is an object of interest." << std::endl;
 			r->objData = (ObjectData*)dGeomGetData(o2);
 		}
-		if(r->objData != NULL){
-			std::cout << "Managed to get a valid pointer." <<std::endl;
-		}
+		//if(r->objData != NULL){
+		//	std::cout << "Managed to get a valid pointer." <<std::endl;
+		//}
 	}
+}*/
+
+void ColorSensor::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
+
+	RayTrace *r = (RayTrace*) data;
+
+
+	if (dGeomIsSpace (o1) || dGeomIsSpace (o2)) {
+		/**if (dGeomIsSpace (o1))
+			std::cout <<"Space ID: " << o2 << ". Total number of geoms in O1: " << dSpaceGetNumGeoms((dSpaceID)o1)
+				<< std::endl;
+		if (dGeomIsSpace (o2))
+			std::cout << "Space ID: " << o2 << ". Total number of geoms in O2: " << dSpaceGetNumGeoms((dSpaceID)o2)
+						<< std::endl;*/
+		//std::cout << "Colliding a space with something" << std::endl;
+		// colliding a space with something :
+		dSpaceCollide2 (o1, o2, data, collisionCallback);
+	}
+	else{
+		// ignore what needs ignoring
+		if (std::find(r->ignoreGeoms.begin(),r->ignoreGeoms.end(),
+				o1) != r->ignoreGeoms.end() ||
+				std::find(r->ignoreGeoms.begin(),r->ignoreGeoms.end(),
+						o2) != r->ignoreGeoms.end()){
+			//std::cout << "Ignoring what needs to be ignored." << std::endl;
+			return;
+		}
+
+		// if colliding get collision point
+		dContact contact;
+
+		if (dCollide(o1,o2,1,&contact.geom,sizeof(contact))) {
+			r->collisionPoint =  osg::Vec3(contact.geom.pos[0],
+					contact.geom.pos[1],
+					contact.geom.pos[2]);
+			r->isColliding = true;
+			//std::cout << "Getting pointer to geom data" << std::endl;
+			r->objData = (ObjectData*)dGeomGetData(o1);
+			if(r->objData == NULL){
+				//std::cout << "**Geom o1** is not either one of the objects of interest." << std::endl;
+				//std::cout << "**Geom o2** is an object of interest." << std::endl;
+				r->objData = (ObjectData*)dGeomGetData(o2);
+			}
+		}
+
+	}
+
 }
 
 void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, boost::shared_ptr<Environment>& env) {

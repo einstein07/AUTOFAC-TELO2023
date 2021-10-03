@@ -57,8 +57,15 @@ public:
 	static const unsigned int B_SENSOR_PLATFORM_ID = 1;
 	static const unsigned int B_SENSOR_CYLINDER_ID = 2;
 
+
 	LightSensorModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id,
 			bool internalSensor);
+	/**
+	 * SM - changed to accommodate per robot spaces
+	 */
+	LightSensorModel(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace,
+			std::string id, bool internalSensor);
+
 
 	virtual ~LightSensorModel();
 

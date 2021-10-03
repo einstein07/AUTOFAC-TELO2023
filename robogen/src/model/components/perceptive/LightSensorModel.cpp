@@ -41,8 +41,13 @@ const float LightSensorModel::SENSOR_CYLINDER_RADIUS = inMm(4);
 const float LightSensorModel::SENSOR_DISPLACEMENT = inMm(6);
 
 LightSensorModel::LightSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
-		std::string id,	bool internalSensor) :
+		std::string id, bool internalSensor) :
 		PerceptiveComponent(odeWorld, odeSpace, id),
+		internalSensor_(internalSensor) {
+}
+LightSensorModel::LightSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+		dSpaceID robotSpace, std::string id, bool internalSensor) :
+		PerceptiveComponent(odeWorld, odeSpace, robotSpace, id),
 		internalSensor_(internalSensor) {
 }
 
@@ -74,8 +79,13 @@ bool LightSensorModel::initModel() {
 
 	this->fixBodies(platform, cylinder);
 
-	this->sensor_.reset(new LightSensor(this->getCollisionSpace(),
-			this->getBodies(), this->getId()));
+	/**
+	 * SM - changed to accommodate per robot spaces
+	 */
+	/**this->sensor_.reset(new LightSensor(this->getCollisionSpace(),
+			this->getBodies(), this->getId()));*/
+	this->sensor_.reset(new LightSensor(this->getODECollisionSpace(),
+				this->getBodies(), this->getId()));
 
 	return true;
 

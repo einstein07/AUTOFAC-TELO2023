@@ -24,8 +24,8 @@ const float LowResCameraSensorModel::SENSOR_PLATFORM_THICKNESS = inMm(5.5);
 const float LowResCameraSensorModel::SENSOR_DISPLACEMENT = inMm(6);
 
 LowResCameraSensorModel::LowResCameraSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
-		std::string id) :
-		PerceptiveComponent(odeWorld, odeSpace, id) {
+		dSpaceID robotSpace, std::string id) :
+		PerceptiveComponent(odeWorld, odeSpace, robotSpace, id) {
 }
 
 LowResCameraSensorModel::~LowResCameraSensorModel() {
@@ -48,7 +48,7 @@ bool LowResCameraSensorModel::initModel() {
 
 	this->fixBodies(sensorRoot_, platform);
 
-	this->sensor_.reset(new LowResCameraSensor(this->getCollisionSpace(),
+	this->sensor_.reset(new LowResCameraSensor(this->getODECollisionSpace(),
 			this->getBodies(), this->getId()));
 
 	return true;

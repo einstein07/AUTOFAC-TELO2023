@@ -39,9 +39,17 @@ const float TouchSensorModel::SENSOR_WIDTH = inMm(16.0); // Of each left/right s
 const float TouchSensorModel::SENSOR_HEIGHT = inMm(16);
 const float TouchSensorModel::SENSOR_SEPARATION = inMm(1.0);
 
-TouchSensorModel::TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+/**
+ * SM - changed constructor signature to accommodate per robot spaces
+ */
+/**TouchSensorModel::TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
 		std::string id) :
 		PerceptiveComponent(odeWorld, odeSpace, id) {
+
+}*/
+TouchSensorModel::TouchSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
+		dSpaceID robotSpace, std::string id) :
+		PerceptiveComponent(odeWorld, odeSpace, robotSpace, id) {
 
 }
 
@@ -71,11 +79,20 @@ bool TouchSensorModel::initModel() {
 			SENSOR_WIDTH, SENSOR_HEIGHT, B_SENSOR_RIGHT);
 
 
-	this->sensorLeft_.reset(
+	/**
+	 * SM - changed code blocks below to accommodate per robot spaces
+	 */
+	/**this->sensorLeft_.reset(
 			new TouchSensor(this->getCollisionSpace(), leftSensor,
+					this->getId() + "-left"));*/
+	this->sensorLeft_.reset(
+			new TouchSensor(this->getODECollisionSpace(), leftSensor,
 					this->getId() + "-left"));
-	this->sensorRight_.reset(
+	/**this->sensorRight_.reset(
 			new TouchSensor(this->getCollisionSpace(), rightSensor,
+					this->getId() + "-right"));*/
+	this->sensorRight_.reset(
+			new TouchSensor(this->getODECollisionSpace(), rightSensor,
 					this->getId() + "-right"));
 
 	// Connect everything
