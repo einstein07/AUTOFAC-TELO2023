@@ -36,14 +36,18 @@
 
 namespace robogen {
 
+
+Model::Model(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
+		odeWorld_(odeWorld), odeSpace_(odeSpace), id_(id),
+		orientationToParentSlot_(0), orientationToRoot_(0) {
+	/**
+	 * SM Added - ode space the same as robot space
+	 */
+	robotSpace_ = odeSpace;
+}
 /**
  * SM Added - changed the definition of the constructor below, hence commented out.
  */
-/**Model::Model(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
-		odeWorld_(odeWorld), odeSpace_(odeSpace), id_(id),
-		orientationToParentSlot_(0), orientationToRoot_(0) {
-}*/
-
 Model::Model(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace, std::string id) :
 		odeWorld_(odeWorld), odeSpace_(odeSpace), robotSpace_(robotSpace), id_(id),
 		orientationToParentSlot_(0), orientationToRoot_(0) {

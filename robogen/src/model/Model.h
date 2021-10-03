@@ -48,11 +48,13 @@ class Model : public boost::enable_shared_from_this<Model> {
 public:
 
 	/**
-	 * SM Modified Signature - each robot has its own collision space,
-	 * Constructor takes both an individual robot's space and the whole world space now.
 	 * Constructor
 	 */
-	/**Model(dWorldID odeWorld, dSpaceID odeSpace,std::string id);*/
+	Model(dWorldID odeWorld, dSpaceID odeSpace,std::string id);
+	/**
+	 * SM Modified Signature - each robot has its own collision space,
+	 * Constructor takes both an individual robot's space and the whole world space now.
+	 */
 	Model(dWorldID odeWorld, dSpaceID odeSpace,  dSpaceID robotSpace, std::string id);
 
 	/**
