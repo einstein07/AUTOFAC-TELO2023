@@ -99,6 +99,11 @@ class GatheringZone : public PositionObservable {
          * A set of the resources gathered thus far
          */
         std::set<boost::shared_ptr<BoxResource> > containedResources_;
+
+        /**
+		 * Object information used by sensor to identify the nature of this object
+		 */
+		ObjectData data_;
     };
 
 }

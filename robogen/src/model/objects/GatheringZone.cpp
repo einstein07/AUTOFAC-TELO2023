@@ -16,6 +16,13 @@ GatheringZone::GatheringZone(dWorldID odeWorld, dSpaceID odeSpace,
     boxGeom_ = dCreateBox(odeSpace, size.x(), size.y(), size.z());
     dGeomSetBody(boxGeom_, box_);
     dGeomSetPosition(boxGeom_, pos.x(), pos.y(), pos.z());
+
+    data_.objectId = 1/**areaId*/; //TODO: set this to be more flexible
+	/**areaId++;*/
+	data_.isResource = false;
+	data_.isRobot = false;
+	data_.isTargetArea = true;
+	dGeomSetData (boxGeom_, (void*)&data_);
 }
 
 GatheringZone::~GatheringZone() {
