@@ -67,6 +67,17 @@ BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
 		dGeomSetQuaternion(boxGeom_, quatOde);
 
 	}
+	//----------------------------------------------------------------------------------------
+	// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
+	//----------------------------------------------------------------------------------------
+	data_.objectId = 0;// Placeholder id - TODO: will we require a unique ide in future
+	data_.isRobot = false;
+	data_.isResource = false;
+	data_.isTargetArea = false;
+	data_.isWall = true;
+	dGeomSetData (boxGeom_, (void*)&data_);
+
+	//-----------------------------------------------------------------------------------------
 }
 
 BoxObstacle::~BoxObstacle() {

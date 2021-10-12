@@ -92,6 +92,10 @@ private:
 	 * The box size
 	 */
 	osg::Vec3 size_;
+	/**
+	 * Object information used by sensor to identify the nature of this object
+	 */
+	ObjectData data_;
 
 };
 
