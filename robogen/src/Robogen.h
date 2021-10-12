@@ -48,6 +48,8 @@ struct ObjectData {
 	int objectId;
 	bool isRobot;
 	bool isResource;
+	bool isTargetArea;
+	bool isWall;
 };
 //---------------------------------------------
 float fromOde(float x);
