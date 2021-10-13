@@ -82,8 +82,17 @@ public:
 	 * @param robotSpec
 	 */
 	bool init(dWorldID odeWorld, dSpaceID odeSpace,
-			const robogenMessage::Robot& robotSpec,
-			bool printInfo=false, bool printInitErrors=true);
+				const robogenMessage::Robot& robotSpec,
+				bool printInfo=false, bool printInitErrors=true);
+	/**
+	 * SM Modified - to allow constructor initialization with two
+	 * collision spaces - one for the whole word and the other
+	 * specific to this robot
+	 */
+
+	bool init(dWorldID odeWorld, dSpaceID odeSpace,
+			dSpaceID robotSpace, int& nbAlive, const robogenMessage::Robot& robotSpec,
+				bool printInfo=false, bool printInitErrors=true);
 
 	/**
 	 * Destructor
@@ -163,20 +172,30 @@ public:
 	 */
 	void optimizePhysics();
         
-        /**
+	/**
 	 * SM - returns the status of this robot vis-a-vis resources
-         * @return returns the status of this robot with regard to
-         * resources in the environment
+	 * @return returns the status of this robot with regard to
+	 * resources in the environment
 	 */
-        const bool isBoundToResource();
+	const bool isBoundToResource();
         
-        /**
+	/**
 	 * SM - sets the status of this robot vis-a-vis resources in the environment
-         * @param isBoundToResource sets the status of this robot with regard to
-         * resources in the environment
+	 * @param isBoundToResource sets the status of this robot with regard to
+	 * resources in the environment
 	 */
-        void setBoundToResource(bool isBoundToResource);
-        
+	void setBoundToResource(bool isBoundToResource);
+
+	/***
+	 * Sets the id of the resource bound to this robot
+	 */
+	void setBoundResourceId(int resourceId){resourceId_ = resourceId;}
+
+	/**
+	 * Gets the id of the resource this robot is bound to
+	 */
+	int getBoundResourceId(){return resourceId_;}
+
 	/**
 	 * CH - Brain-body complexity of robot
 	 */
@@ -228,6 +247,12 @@ private:
 	 * ODE collision space
 	 */
 	dSpaceID odeSpace_;
+
+	/**
+	 * SM Added
+	 * Per robot collision space
+	 */
+	dSpaceID robotSpace_;
 
 	/**
 	 * Robot body parts
@@ -316,6 +341,11 @@ private:
 	 * SM - to indicate when this robot is bound to a resource
 	 */
 	bool isBoundToResource_;
+
+	/**
+	 * SM Added - to indicate the id of the resource currently attached to
+	 */
+	int resourceId_;
 
 	/**
 	 * SM - Object information used by sensor to identify the nature of this object

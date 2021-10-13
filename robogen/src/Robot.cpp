@@ -93,13 +93,21 @@ Robot::Robot() :
 bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 		const robogenMessage::Robot& robotSpec,
 		bool printInfo, bool printInitErrors) {
+	//std::cout << "****ROBOT-INIT****" <<std::endl;
 	odeWorld_ = odeWorld;
 	odeSpace_ = odeSpace;
+	/**
+	 * SM Added
+	 */
+	//robotSpace_ = NULL;
 	robotMessage_ = &robotSpec;
 	printInfo_ = printInfo;
 	printInitErrors_ = printInitErrors;
-
+	//std::cout << "****ROBOT-INIT - Done.****" <<std::endl;
+	//std::cout << "****ROBOT-INIT - Creating group joints****" <<std::endl;
 	connectionJointGroup_ = dJointGroupCreate(0);
+	//std::cout << "****ROBOT-INIT - Done.****" <<std::endl;
+	//std::cout << "****ROBOT-INIT - Getting id, complexity and  robot specs from robot mesg****" <<std::endl;
 	this->id_ = robotSpec.id();
 	// CH - added this to get the complexity and complexity cost flag from the serialized robot
 	complexity_ = robotSpec.complexity();
@@ -107,6 +115,8 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 	
 	const robogenMessage::Body& body = robotSpec.body();
 	const robogenMessage::Brain& brain = robotSpec.brain();
+	//std::cout << "****ROBOT-INIT - Done****" <<std::endl;
+	//std::cout << "****ROBOT-INIT - Decoding body. . .****" <<std::endl;
 	if (!this->decodeBody(body)) {
 		if (printInitErrors_) {
 			std::cerr << "Cannot decode the body of the robot."
@@ -114,7 +124,9 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 		}
 		return false;
 	}
+	//std::cout << "****ROBOT-INIT - Done****" <<std::endl;
 	// decode brain needs to come after decode body, as IO reordering
+	//std::cout << "****ROBOT-INIT - decoding brain****" <<std::endl;
 	if (!this->decodeBrain(brain)) {
 		if (printInitErrors_) {
 			std::cerr << "Cannot decode the brain of the robot."
@@ -122,14 +134,15 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 		}
 		return false;
 	}
-
+	//std::cout << "****ROBOT-INIT - Done.****" <<std::endl;
 	//----------------------------------------------------------------------------------------
 	// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
 	//----------------------------------------------------------------------------------------
-
-	data_.objectId = getId();
+	//std::cout << "Robot ID: "<< getId() << std::endl;
+	/**data_.objectId = getId();
 	data_.isRobot = true;
 	data_.isResource = false;
+	data_.isTargetArea = false;
 
 	std::vector<boost::shared_ptr<SimpleBody> > bodies;
 	for (unsigned int i = 0; i < this->bodyParts_.size(); ++i) {
@@ -149,7 +162,54 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 	}
 
 	//-----------------------------------------------------------------------------------------
-	return true;
+	*/return true;
+}
+bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
+		dSpaceID robotSpace, int& nbAlive, const robogenMessage::Robot& robotSpec,
+		bool printInfo, bool printInitErrors) {
+	robotSpace_ = robotSpace;
+	bool initResult = init( 	odeWorld,
+								odeSpace,
+								robotSpec,
+								printInfo,
+								printInitErrors
+							);
+	if ( initResult ){
+
+
+		id_ = nbAlive;
+		//		data_.objectId = id_;
+		//----------------------------------------------------------------------------------------
+		// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
+		//----------------------------------------------------------------------------------------
+		//std::cout << "Robot ID: "<< getId() << std::endl;
+		data_.objectId = getId();
+		data_.isRobot = true;
+		data_.isResource = false;
+		data_.isTargetArea = false;
+
+		std::vector<boost::shared_ptr<SimpleBody> > bodies;
+		for (unsigned int i = 0; i < this->bodyParts_.size(); ++i) {
+			std::vector<boost::shared_ptr<SimpleBody> > tempBodies =
+					this->bodyParts_[i]->getBodies();
+			bodies.insert(bodies.begin(), tempBodies.begin(), tempBodies.end());
+		}
+
+		for (unsigned int i = 0; i < bodies.size(); ++i) {
+
+			dGeomID curBodyGeom = dBodyGetFirstGeom(bodies[i]->getBody());
+
+			while(curBodyGeom) {
+				dGeomSetData (curBodyGeom, (void*)&data_);
+				curBodyGeom = dBodyGetNextGeom(curBodyGeom);
+			}
+		}
+
+		//-----------------------------------------------------------------------------------------
+
+		nbAlive++;
+	}
+	return initResult;
 }
 
 Robot::~Robot() {
@@ -179,7 +239,7 @@ boost::shared_ptr<Model> Robot::getCoreComponent() {
 }
 
 bool Robot::decodeBody(const robogenMessage::Body& robotBody) {
-
+	//std::cout << "****DECODE BODY - BEGIN****" <<std::endl;
 	float x = 0;
 	float y = 0;
 	float z = 200;
@@ -191,8 +251,29 @@ bool Robot::decodeBody(const robogenMessage::Body& robotBody) {
 	for (int i = 0; i < robotBody.part_size(); ++i) {
 
 		const robogenMessage::BodyPart& bodyPart = robotBody.part(i);
-		boost::shared_ptr<Model> model = RobogenUtils::createModel(bodyPart,
-				odeWorld_, odeSpace_);
+		boost::shared_ptr<Model> model;
+		if (robotSpace_ == NULL){
+			//std::cout << "****DECODE BODY - Robot space null ****" <<std::endl;
+			// get part id
+			const std::string &id = bodyPart.id();
+			//std::cout << "****DECODE BODY - Creating body: "<< id << " ****" <<std::endl;
+			model = RobogenUtils::createModel(	bodyPart,
+												odeWorld_,
+												odeSpace_
+												);
+		}
+		else{
+			//std::cout << "****DECODE BODY - Robot space NOT null ****" <<std::endl;
+			// get part id
+			const std::string &id = bodyPart.id();
+			//std::cout << "----------------------------------------------------" << std::endl;
+			//std::cout << "****DECODE BODY - Creating body: "<< id << " ****" <<std::endl;
+			model = RobogenUtils::createModel(	bodyPart,
+												odeWorld_,
+												odeSpace_,
+												robotSpace_
+												);
+		}
 
 		if (model == NULL) {
 			if (printInitErrors_) {
@@ -201,9 +282,12 @@ bool Robot::decodeBody(const robogenMessage::Body& robotBody) {
 			}
 			return false;
 		}
-
+		//std::cout << "****DECODE BODY - Init model ****" <<std::endl;
 		model->initModel();
+		//std::cout << "****DECODE BODY - DONE****" <<std::endl;
+		//std::cout << "****DECODE BODY - Set position ****" <<std::endl;
 		model->setRootPosition(osg::Vec3(x, y, z));
+		//std::cout << "****DECODE BODY - Done****" <<std::endl;
 		bodyParts_.push_back(model);
 		bodyPartsMap_.insert(std::pair<std::string, int>(bodyPart.id(), i));
 
@@ -268,7 +352,7 @@ bool Robot::decodeBody(const robogenMessage::Body& robotBody) {
 
 		x += spacing;
 		y += spacing;
-
+		//std::cout << "--------------------BODY PART DOCODING DONE-------------------"<<std::endl;
 	}
 
 	if (numAnalogPins > MAX_ANALOG_PINS) {
@@ -354,7 +438,7 @@ bool Robot::decodeBody(const robogenMessage::Body& robotBody) {
 		std::cout << "Sensors: " << sensors_.size() << ", motors: "
 			<< motors_.size() << std::endl;
 	}
-
+	//std::cout << "****DECODE BODY - DONE****" <<std::endl;
 	return true;
 
 }
@@ -923,6 +1007,20 @@ void Robot::getAABB(double& minX, double& maxX, double& minY, double& maxY,
 }
 
 boost::shared_ptr<Model> Robot::getBodyPart(std::string id) {
+
+	std::cout << "***GET BODY PART***" <<std::endl;
+	std::map<std::string, unsigned int>::iterator bodyPartId =
+			bodyPartsMap_.find(id);
+
+	if (bodyPartId == bodyPartsMap_.end()) {
+		std::cout << "ID not found!!!" << std::endl;
+		//std::cout << "Will return: "<< bodyPartId->first << " with index: " << bodyPartId->second << " in the bodyparts vector."<<std::endl;
+	}
+	else{
+		std::cout << "ID found!!!" << std::endl;
+		std::cout << "Will return: "<< bodyPartId->first << " with index: " << bodyPartId->second << " in the bodyparts vector."<<std::endl;
+	}
+
 	return bodyParts_[bodyPartsMap_[id]];
 }
 
