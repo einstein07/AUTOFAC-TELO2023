@@ -86,7 +86,7 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 #endif
 #ifdef ENFORCE_PLANAR
 	/** SM MODIFIED*/
-	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = /**4*/5;
+	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = /**4*/6;
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT_NO_IMU] = 4;
 	partTypeArityMap[PART_TYPE_FIXED_BRICK] = 3;
 #else
@@ -254,6 +254,11 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 		sensors.push_back("isResource");
 		// Size specified by number of robots required to push resource
 		sensors.push_back("resourceSize");
+		// Returns 1 if the detected object is the target area, otherwise 0
+		sensors.push_back("targetArea");
+		// Returns 1 if the detected object is a wall in the environment, otherwise 0
+		sensors.push_back("wall");
+
 		partTypeSensorsMap[PART_TYPE_COLOR_SENSOR] = sensors;
 	}
 #endif
