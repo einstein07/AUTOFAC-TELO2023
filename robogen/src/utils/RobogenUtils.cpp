@@ -283,14 +283,14 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 					<< std::endl;
 			return boost::shared_ptr<Model>();
 		}
-		std::cout << "Attempting to create parametric joint" << std::endl;
+
 		model.reset(
 				new ParametricBrickModel(odeWorld, odeSpace, id,
 						bodyPart.evolvableparam(0).paramvalue(),
 						bodyPart.evolvableparam(1).paramvalue(),
 						bodyPart.evolvableparam(2).paramvalue()));
-		std::cout << "done" << std::endl;
-#ifdef ALLOW_ROTATIONAL_COMPONENTS
+
+		#ifdef ALLOW_ROTATIONAL_COMPONENTS
 	} else if (bodyPart.type().compare(PART_TYPE_ROTATOR) == 0) {
 
 		model.reset(new RotateJointModel(odeWorld, odeSpace, id));
@@ -374,13 +374,12 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 		model.reset(new LightSensorModel(odeWorld, odeSpace, id, false));
 
 	}
-	std::cout << "Setting orientation to parent slot. . ." << std::endl;
+
 	// set orientation at slot to parent
 	if (!model->setOrientationToParentSlot(bodyPart.orientation())) {
 		std::cout << "Problem when setting orientation to parent slot of " << id
 				<< std::endl;
 	}
-	std::cout << "Done." << std::endl;
 
 	return model;
 
