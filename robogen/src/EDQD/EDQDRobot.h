@@ -15,12 +15,14 @@
 #include "model/components/perceptive/ColorSensorModel.h"
 #include "config/EvolverConfiguration.h"
 #include "evolution/engine/Mutator.h"
+#include "Heuristic.h"
 #include "Simulator.h"
 #include <map>
 #include "Robot.h"
 #include "EDQDMap.h"
 #include "Util.h"
-
+#include "PickUpHeuristic.h"
+#include "CollisionAvoidanceHeuristic.h"
 namespace robogen {
 class EDQDMap;
 //================================================================================================
@@ -134,6 +136,13 @@ class EDQDRobot : public Robot{
 		 */
 		std::map<int,int> resourceCounters_;
 
+		/**
+		 * Behavioral heuristics
+		 */
+		osg::Vec2d targetArea_;
+		boost::shared_ptr<PickUpHeuristic> pheuristic_;
+		boost::shared_ptr<CollisionAvoidanceHeuristic> cheuristic_;
+
 	public:
 		//========================================================================================
 		// Methods
@@ -144,9 +153,9 @@ class EDQDRobot : public Robot{
 
 	    bool initialise(
 							dWorldID odeWorld,
-							dSpaceID odeSpace, dSpaceID robotSpace,
+							dSpaceID odeSpace, dSpaceID robotSpace, int& nbALive,
 							boost::shared_ptr<RobogenConfig> configuration,
-							const robogenMessage::Robot& robotSpec
+							const robogenMessage::Robot& robotSpec, boost::shared_ptr<Scenario> scenario
 						);
 
 

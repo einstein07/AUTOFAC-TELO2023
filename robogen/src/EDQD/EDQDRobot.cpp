@@ -19,11 +19,11 @@ namespace robogen{
 	}
 	bool EDQDRobot::initialise(
 						dWorldID odeWorld,
-						dSpaceID odeSpace, dSpaceID robotSpace,
+						dSpaceID odeSpace, dSpaceID robotSpace, int& nbALive,
 						boost::shared_ptr<RobogenConfig> configuration,
-						const robogenMessage::Robot& robotSpec){
+						const robogenMessage::Robot& robotSpec, boost::shared_ptr<Scenario> scenario){
 
-		bool status = this->init(odeWorld, odeSpace, robotSpace, robotSpec);
+		bool status = this->init(odeWorld, odeSpace, robotSpace, nbALive, robotSpec);
 
 		this->configuration = configuration;
 
@@ -65,10 +65,19 @@ namespace robogen{
 		currentCellId_ = 0;
 		step_ = configuration->getTimeStepLength();
 		count_ = 0;
+
+		scenario_ = scenario;
 		//reset();
 		resetFitness();
-
+		// debug
+		fitness_ = 10;
 		setAlive(true);
+		targetArea_ = osg::Vec2d(0, 16);
+		/**
+		 * Initialize behavioral heuristics
+		 */
+		pheuristic_.reset(new PickUpHeuristic(boost::shared_ptr<Robot>(this), targetArea_));
+		cheuristic_.reset(new CollisionAvoidanceHeuristic(boost::shared_ptr<Robot>(this)));
 		return status;
 	}
 
@@ -198,47 +207,78 @@ namespace robogen{
 			}
 		}*/
 
-		double minDistanceToObject = 0;
-		ColorSensorElement::Type objectType;
+
+		/**double minDistanceToObject = 0;
+		ColorSensorElement::Type colorType;
+		IrSensorElement::Type IRtype;
 		int objectId;
 		for (unsigned int  i = 0; i < getSensors().size(); ++i){
 			double distanceToObject = getSensors()[i]->read();
 			/**if (distanceToObject < minDistanceToObject){
 				minDistanceToObject = distanceToObject;*/
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])) {
-					objectType = boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->
+				/**if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])) {
+					colorType = boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->
 							getType();
-					/**if (objectType == ColorSensorElement::RESOURCE){
-
-					}*/
-					//std::cout << "Distance to object: " << distanceToObject << ". Type: " << objectType << std::endl;
+					if (colorType == ColorSensorElement::ROBOT){
+						std::cout << "Distance to object: " << distanceToObject << ". Type: robot" << std::endl;
+					}
+					else if (colorType == ColorSensorElement::RESOURCE){
+						std::cout << "Distance to object: " << distanceToObject << ". Type: resource" << std::endl;
+					}
+					else if (colorType == ColorSensorElement::RESOURCESIZE){
+						std::cout << "Distance to object: " << distanceToObject << ". Type: resource size" << std::endl;
+					}
+				}
+				else if (boost::dynamic_pointer_cast< IrSensorElement>(getSensors()[i])) {
+					IRtype = boost::dynamic_pointer_cast< IrSensorElement>(getSensors()[i])->
+							getType();
+					if (IRtype == IrSensorElement::IR){
+						std::cout << "Distance to object: " << distanceToObject << ". Type: IR Sensor" << std::endl;
+					}
 				}
 
 			//}
+		}*/
+		//std::cout << "Stepping heuristic." << std::endl;
+		osg::Vec2d signal = /**osg::Vec2d(-1000, -1000);*/ cheuristic_->step(env, scenario_);
+		//std::cout << "Done." << std::endl;
+		if (signal.x() != -1000 || signal.y() != -1000) {
+			//std::cout << "Collision Heuristic active." << std::endl;
+			networkOutputs[0] = signal.x();
+			networkOutputs[1] = signal.y();
 		}
-
-
-
-		if(((count_ - 1) % configuration->getActuationPeriod()) == 0) {
-			// Feed neural network
-			for (unsigned int i = 0; i < getSensors().size(); ++i) {
-				networkInput[i] = getSensors()[i]->read();
-				// Add sensor noise: Gaussian with std dev of
-				// sensorNoiseLevel * actualValue
-				if (configuration->getSensorNoiseLevel() > 0.0) {
-					networkInput[i] += (/**normalDistribution(rng)*/randgaussian() *
-					configuration->getSensorNoiseLevel() *
-					networkInput[i]);
-				}
+		else{
+			signal = pheuristic_->step(env, scenario_);
+			if (signal.x() != -1000 || signal.y() != -1000) {
+				//std::cout << "Pick up Heuristic active." << std::endl;
+				networkOutputs[0] = signal.x();
+				networkOutputs[1] = signal.y();
 			}
+		}
+		if(((count_ - 1) % configuration->getActuationPeriod()) == 0) {
 
-			::feed(getBrain().get(), &networkInput[0]);
+			if (signal.x() == -1000 || signal.y() == -1000){
 
-			// Step the neural network
-			::step(getBrain().get(), elapsedEvaluationTime);
+				// Feed neural network
+				for (unsigned int i = 0; i < getSensors().size(); ++i) {
+					networkInput[i] = getSensors()[i]->read();
+					// Add sensor noise: Gaussian with std dev of
+					// sensorNoiseLevel * actualValue
+					if (configuration->getSensorNoiseLevel() > 0.0) {
+						networkInput[i] += (/**normalDistribution(rng)*/randgaussian() *
+						configuration->getSensorNoiseLevel() *
+						networkInput[i]);
+					}
+				}
 
-			// Fetch the neural network ouputs
-			::fetch(getBrain().get(), &networkOutputs[0]);
+				::feed(getBrain().get(), &networkInput[0]);
+
+				// Step the neural network
+				::step(getBrain().get(), elapsedEvaluationTime);
+
+				// Fetch the neural network ouputs
+				::fetch(getBrain().get(), &networkOutputs[0]);
+			}
 
 			// Send control to motors
 			for (unsigned int i = 0; i < getMotors().size(); ++i) {
@@ -259,7 +299,8 @@ namespace robogen{
 													networkOutputs[i],
 													step_ * configuration->getActuationPeriod()
 												);
-					/**std::cout << "Desired velocity: " << networkOutputs[i] << ". Step size: "
+					std::string id = getMotors()[i]->getId().first;
+					/**std::cout << id <<": Desired velocity: " << networkOutputs[i] << ". Step size: "
 							<< step_ * configuration->getActuationPeriod()
 							<< std::endl;*/
 				} else if (boost::dynamic_pointer_cast<ServoMotor>(getMotors()[i])) {
@@ -306,20 +347,22 @@ namespace robogen{
 			 * add needs to happen before new genome is loaded to ensure the map has an entry.
 			 * moved to agent observer in previous work - why???
 			 */
-			std::cout << "EMBODIED-STEP-EVOLUTION - Number of transmitted genomes: "<< nbGenomeTransmission_ << std::endl;
+			/**std::cout << "EMBODIED-STEP-EVOLUTION - Robot ID: " << getId() << ". Number of transmitted genomes: "<< nbGenomeTransmission_
+					<< ". Adding to Map. . . "
+					<< std::endl;*/
 	    	map_->add(getId(),
 	    			this,
 	    			currentGenome_,
 					currentSigma_
 					);
-	    	//std::cout << "EMBODIED-STEP-EVOLUTION: done." << std::endl;
-	    	//std::cout << "EMBODIED-STEP-EVOLUTION: loading new genome. . ." << std::endl;
+	    	//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". Done adding to Map." << std::endl;
+	    	//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". loading new genome. . ." << std::endl;
 	    	loadNewGenome();
-	    	//std::cout << "EMBODIED-STEP-EVOLUTION: done." << std::endl;
+	    	//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". Done loading new genome." << std::endl;
 	        nbGenomeTransmission_ = 0;
-	        //std::cout << "EMBODIED-STEP-EVOLUTION: resetting fitness. . ." << std::endl;
+	        //std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". resetting fitness. . ." << std::endl;
 	        resetFitness();
-	        //std::cout << "EMBODIED-STEP-EVOLUTION: done." << std::endl;
+	        //std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". Done resetting fitness." << std::endl;
 	    }
 	    else{
 	        /* broadcasting genome : robot broadcasts its genome to all neighbors
@@ -409,13 +452,24 @@ namespace robogen{
 	    std::map<int, EDQDMap* >::iterator it = mapList_.begin();
 	    while ( it != mapList_.end() ) {
 	    	it->second->mergeInto(*mergedMap_);
+	    	std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+	    			<< getId()
+	    			<<" :: receivedMap: " << (*it->second).getNumFilledCells() << std::endl << (*it->second) << std::endl;
+
 	    	it ++;
 	    }
 	    behav_index_t index;
+	    std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+					<< getId()
+					<< ". do-while loop starts. . . "
+					<<std::endl;
 		do {
 			index = mergedMap_->getRandomIndex();
 		} while ( mergedMap_->get(index)->genome.size() == 0 );
-
+		std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+					<< getId()
+					<< ". do-while loop ends. . . "
+					<<std::endl;
 	    currentGenome_ = mergedMap_->get(index)->genome;
 	    currentSigma_ = mergedMap_->get(index)->sigma;
 	    birthdate_ = robogen::iterations;
@@ -582,48 +636,61 @@ namespace robogen{
 	void EDQDRobot::broadcastMap(){
 	    // TODO: From previous work: limiting genome transmission is sensitive to sensor order. (but: assume ok)
 
-	    for( int i = 0 ; i < getSensors().size()
+	    if ( isAlive()
 	    	&&( EDQD::Parameters::limitGenomeTransmission == false
 			|| ( EDQD::Parameters::limitGenomeTransmission == true
-			&& nbGenomeTransmission_ < EDQD::Parameters::maxNbGenomeTransmission ) ); i++){
+			&& nbGenomeTransmission_ < EDQD::Parameters::maxNbGenomeTransmission ))){
 
-	    	if (boost::dynamic_pointer_cast<ColorSensor>(getSensors()[i])) {
-	    		int objectType = boost::dynamic_pointer_cast<ColorSensorElement>(getSensors()[i])
-	                    		->getType();
-
-				// sensor ray bumped into a robot : communication is possible
-				if ( objectType == ColorSensorElement::Type::ROBOT ){
-
-					int targetIndex = boost::dynamic_pointer_cast<ColorSensorElement>(getSensors()[i])
-											->getObjectId();; // convert image registering index into robot id.
-
-					//boost::shared_ptr<EDQDRobot> targetRobot = static_cast<EDQDRobot>(scenario_->getRobot(targetIndex));
+	    	for ( unsigned int i = 0 ; i < getSensors().size(); ++i){
 
 
-					if (boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))){
-						if ( boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->isListening() ){
+				if (boost::dynamic_pointer_cast<IrSensorElement>(getSensors()[i])) {
+					if (boost::dynamic_pointer_cast<IrSensorElement>(getSensors()[i])->read() > 0.0){
+						double dist = boost::dynamic_pointer_cast<IrSensorElement>(getSensors()[i])->read();
+						//std::cout << "Object detected at " << dist << "away." << std::endl;
+					}
+				}
+				ColorSensorElement::Type colorType;
+				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])) {
+					if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->read()){
+						colorType = boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->
+																	getType();
 
-							bool success = false;
-							// other agent stores a genome from my map
-							success = boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->storeMap(
-															map_,
-															getId()
-															);
-							if ( success == true ){
-								// count unique transmissions (ie. nb of different genomes stored).
-								nbGenomeTransmission_++;
+						// sensor ray bumped into a robot : communication is possible
+						if ( colorType == ColorSensorElement::Type::ROBOT ){
+
+							int targetIndex = boost::dynamic_pointer_cast<ColorSensorElement>(getSensors()[i])
+													->getObjectId(); // convert image registering index into robot id.
+							//std::cout << "Robot with id: " << targetIndex << " has been detected by robot: " << getId() << std::endl;
+							//boost::shared_ptr<EDQDRobot> targetRobot = static_cast<EDQDRobot>(scenario_->getRobot(targetIndex));
+
+
+							if (boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))){
+								if ( boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->isListening() ){
+
+									bool success = false;
+									// other agent stores a genome from my map
+									success = boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->storeMap(
+																	map_,
+																	getId()
+																	);
+									if ( success == true ){
+										// count unique transmissions (ie. nb of different genomes stored).
+										nbGenomeTransmission_++;
+										//std::cout << "Map broadcasted successfully!" << std::endl;
+									}
+									nbComTx_++;
+								}
 							}
-							nbComTx_++;
+							else{
+								std::cerr 	<< "Error from robot " << getId() << " : the observer of robot " << targetIndex
+											<< " is not compatible." << std::endl;
+								//exit(-1);
+							}
 						}
 					}
-					else{
-						std::cerr 	<< "Error from robot " << getId() << " : the observer of robot " << targetIndex
-									<< " is not compatible." << std::endl;
-						exit(-1);
-					}
-
 				}
-			}
+	    	}
 		}
 	}
 
@@ -638,15 +705,22 @@ namespace robogen{
 	}
 
 	void EDQDRobot::loadNewGenome(){
-
+		//std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". BEGIN." << std::endl;
 		if (isAlive()){
 
 	        if ( mapList_.size() > 0 ){
-
+	        	/**std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". alive with map size of: "
+	        			<< mapList_.size()
+						<< ". Peforming selection. . . "
+						<< std::endl;*/
 	            performSelection();
+	            /**std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing selection."
+	            		<< " Performing variation. . ."
+	            		<< std::endl;*/
 	            performVariation();
+	            //std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing variation. Clearing reservoir. . ." << std::endl;
 	            clearReservoir();
-
+	            //std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done clearing reservoir." << std::endl;
 	            setAlive(true);
 
 	            osg::Vec3 currPos = getCoreComponent()->getRootPosition();
@@ -662,8 +736,13 @@ namespace robogen{
 	        }
 	        else{
 	        	if ( isAlive() == true){
-
+	        		/**std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Alive with map size: "
+	        				<< mapList_.size() << ". Resetting. . ."
+							<< std::endl;*/
 	        		reset();
+	        		/***std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done resetting."
+	        				<< " Setting alive to false. . ."
+	        				<< std::endl;*/
 	        		setAlive(false);
 
 	        		// ie. -1 (infinite,dead) or >0 (temporary,mute)
@@ -684,6 +763,7 @@ namespace robogen{
 						}
 
 					}
+	        		//std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done setting robot alve state to FALSE" << std::endl;
 	        	}
 	        }
 	    }
