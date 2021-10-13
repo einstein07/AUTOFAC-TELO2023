@@ -124,7 +124,8 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     data_.objectId = resourceId;
     resourceId++;
     data_.isResource = true;
-    data_.isRobot = !data_.isResource;
+    data_.isRobot = false;
+    data_.isTargetArea = false;
     dGeomSetData (boxGeom_, (void*)&data_);
 }
 
@@ -291,19 +292,20 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     if (!getClosestAnchorPointLocal(robotPositionLocal, closestAnchorIndex)) {
         return false; // Should not happen but apparently can...
     }
-    // Check robot is not unreasonably far away
-//    if (robotPositionLocal.sub(closestAnchor.getPosition()).length()
-//            > robot.getRadius() * 2.5) {
-//        return false;
-//    }
 
-    createBallJoint(robot, anchorPoints_[closestAnchorIndex]->getPosition());
+    //std::cout << "Anchor point: ("<< anchor.x() << ", "<< anchor.y() << ", " << anchor.z() << std::endl;
+    if (createBallJoint(robot, anchorPoints_[closestAnchorIndex]->getPosition())){
+        // Mark the anchor as taken and the robot as bound to a resource.
+        anchorPoints_[closestAnchorIndex]->markTaken();
+        robot->setBoundToResource(true);
 
-    // Mark the anchor as taken and the robot as bound to a resource.
-    anchorPoints_[closestAnchorIndex]->markTaken();
-    robot->setBoundToResource(true);
+        return true;
+    }
+    else{
+    	return false;
+    }
 
-    return true;
+
     
 }
 osg::Vec3 BoxResource::getLocalPoint(osg::Vec3 globalPoint){
@@ -388,21 +390,43 @@ bool BoxResource::getClosestAnchorPoint(osg::Vec3 position, int& index){
     return getClosestAnchorPointLocal(getLocalPoint(position), index);
 }
 
-void BoxResource::createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint){
+bool BoxResource::createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint){
 	std::cout << "Inside create ball joint" << std::endl;
+	boost::shared_ptr<Model> robotBody = robot -> getBodyPart("S8");
+	osg::Vec3d bodypos = robotBody->getRootPosition();
 
-	dJointID joint = dJointCreateBall (odeWorld_, jointGroup_);
+	// Check robot is not unreasonably far away
+	if (distance(bodypos, anchorPoint) > 0.17) {
 
-    std::cout << "-*-*-*-*-*-*-*-*-*-*- attaching " << 
-            robot->getCoreComponent()->getRoot()->getBody()
-                << " " << box_ << std::endl;
+		std::cout << "Distance to object: "<< distance(bodypos, anchorPoint) << "Far to attach" << std::endl;
+		return false;
+	}
+
+
+	/**dJointID joint = dJointCreateBall (odeWorld_, jointGroup_);*/
+	dJointID joint = dJointCreateFixed (odeWorld_, jointGroup_);
+    /**std::cout << "-*-*-*-*-*-*-*-*-*-*- attaching " <<
+            /**robot->getCoreComponent()->getRoot()->getBody()*/
+    		/**->getRoot()->getBody()
+                << " " << box_ << std::endl;*/
     dJointAttach (
                     joint, 
-                    robot->getCoreComponent()->getRoot()->getBody(), 
+                    /**robot->getCoreComponent()->getRoot()->getBody(),*/
+					robotBody->getRoot()->getBody(),
                     box_
                 );
-    dJointSetBallAnchor(joint, anchorPoint[0], anchorPoint[1], anchorPoint[2]);
+    /**dJointSetBallAnchor(joint, anchorPoint[0], anchorPoint[1], anchorPoint[2]);*/
+    dJointSetFixed (joint);
     joints_.insert(std::pair<boost::shared_ptr<Robot>, dJointID>(robot, joint));
+    return true;
 }
+
+double BoxResource::distance (osg::Vec3d a, osg::Vec3d b){
+	double distance = sqrt(pow(a.x() - b.x(), 2)
+						+ pow(a.y() - b.y(), 2)
+						+ pow(a.z() - b.z(), 2));
+	return distance;
+}
+
 
 }/*Close namespace brace*/

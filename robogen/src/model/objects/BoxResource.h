@@ -134,6 +134,7 @@ class BoxResource : public PositionObservable {
 		 * available.
 		 */
 		bool getClosestAnchorPoint(osg::Vec3 position, int& index);
+		double distance (osg::Vec3d a, osg::Vec3d b);
                 
     private:
         
@@ -170,7 +171,7 @@ class BoxResource : public PositionObservable {
          * @param robot the robot that is attaching to this resource
          * @param anchorPoint the anchor point of the ball joint that is to be created
          */
-        void createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint);
+        bool createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint);
         
         /**
          * ODE physics world
