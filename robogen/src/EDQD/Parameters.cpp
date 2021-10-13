@@ -25,7 +25,7 @@ namespace EDQD{
 	// how long a controller will be evaluated on a robot
 	unsigned int Parameters::evaluationTime = 20000;
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 804000;
+	unsigned int Parameters::maxIterations = 8004000;
 
 	bool Parameters::synchronization = true;
 
