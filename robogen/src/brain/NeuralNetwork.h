@@ -29,7 +29,7 @@
 #ifndef ROBOGEN_NEURAL_NETWORK_H_
 #define ROBOGEN_NEURAL_NETWORK_H_
 
-#define MAX_INPUT_NEURONS /**20*/50 //SM modified
+#define MAX_INPUT_NEURONS /**20*/60 //SM modified
 #define MAX_OUTPUT_NEURONS 8
 
 /*
