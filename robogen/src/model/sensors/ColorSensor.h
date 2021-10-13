@@ -31,12 +31,17 @@ public:
 	enum Type {
 		ROBOT,
 		RESOURCE,
-		RESOURCESIZE
+		RESOURCESIZE,
+		TARGETAREA,
+		WALL
 	};
 
 	inline ColorSensorElement(std::string baseLabel, Type type) :
-			Sensor(baseLabel + ((type == ROBOT) ?  "-Robot" :
-										"-Resource")),
+			Sensor(baseLabel + (
+								(type == ROBOT) ?  "-Robot" :
+								(type == RESOURCE)? "-Resource" :
+								(type == RESOURCESIZE)? "-ResourceSize" :
+								(type == TARGETAREA)? "-TargetArea": "Wall")),
 			baseLabel_(baseLabel), type_(type), objectId_(-1) {
 	}
 
