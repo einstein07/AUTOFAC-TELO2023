@@ -235,7 +235,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 	bool motorBurntOut = false;
 
 	if (configuration->getMode() == "embodied"){
-		std::cout<<"EMBODIED" <<std::endl;
+		std::cout<<"*****EMBODIED*****" <<std::endl;
 		// ======================================================================================================
 		// Configure Simulator
 		// ======================================================================================================
@@ -257,8 +257,11 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		dWorldSetAutoDisableFlag(odeWorld, 1);
 
 		// Create collision world
-		dSpaceID odeSpace = dSimpleSpaceCreate(0);
-
+		//std::cout << "*****EMBODIED***** - Create ode space . . ." << std::endl;
+		dSpaceID odeSpace = /**dSimpleSpaceCreate(0)*/dHashSpaceCreate(0);
+		//Set space sublevel
+		dSpaceSetSublevel (odeSpace, 2);
+		//std::cout << "*****EMBODIED***** - Done. Space ID: " << odeSpace << std::endl;
 		// Create contact group
 		odeContactGroup = dJointGroupCreate(0);
 		/**
@@ -275,21 +278,29 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			//std::cout<<"EMBODIED - Create and initialize multiple robots" <<std::endl;
 			std::vector<boost::shared_ptr<Robot> > robots;
 			//create a collision space for each robot
-			std::vector<dSpaceID> robots_odeSpaces;
+			/**
+			 * Reverting back to factory settings - i.e. have all robots added to main odeSpace
+			 * TODO: Come back and think about necessary changes for collisions efficiency sake
+			 */
+			std::vector<dSpaceID> perRobotSpaces;
 			for (unsigned int i = 0; i < configuration->getSwarmSize(); ++i) {
 				robots.push_back(
 							boost::shared_ptr<Robot>(new EDQDRobot));
-				robots_odeSpaces.push_back(dSimpleSpaceCreate(0));
-				//std::cout<<"EMBODIED - initialising. . ." <<std::endl;
-				if (!(boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->initialise(odeWorld, robots_odeSpaces[i], configuration, robotMessage))) {
+				std::cout<<"*****EMBODIED***** - create collision space for robot" << (i+1) << ". . ." <<std::endl;
+				perRobotSpaces.push_back(dHashSpaceCreate(odeSpace));
+				dSpaceSetSublevel (perRobotSpaces[i], 1);
+				std::cout << "*****EMBODIED***** - Done. Space ID: " << perRobotSpaces[i] << std::endl;
+				//std::cout<<"*****EMBODIED***** - initialising. . ." <<std::endl;
+				if (!(boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->initialise(odeWorld, odeSpace, perRobotSpaces[i], nbAlive_, configuration, robotMessage, scenario))) {
 					std::cout << "Problems decoding robot "<<(i+1)<<". Quit."
 							<< std::endl;
 					return SIMULATION_FAILURE;
 				}
-				//std::cout<<"EMBODIED - done" <<std::endl;
-				nbAlive_++;
+
 				//Add robot space to top level space
-				dSpaceAdd (odeSpace, (dGeomID)robots_odeSpaces[i]);
+				//dSpaceAdd (odeSpace, (dGeomID)perRobotSpaces[i]);
+				//std::cout<<"Robot id: " << robots[i] ->getId() <<std::endl;
+				//nbAlive_++;
 			}
 					//SM tampered/added
 			std::cout << "Evaluating robot team " << robots[0]->getId()
@@ -347,7 +358,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			// =======================================
 			// Initialize scenario
 			// =======================================
-			if (!scenario->init(odeWorld, odeSpace, robots)) {
+			dSpaceID envObjectsSpace = dHashSpaceCreate(odeSpace);
+			dSpaceSetSublevel (envObjectsSpace, 1);
+			if (!scenario->init(odeWorld, /**odeSpace*/envObjectsSpace, robots)) {
 				std::cout << "Cannot initialize scenario with swarm. Quit."
 						<< std::endl;
 				return SIMULATION_FAILURE;
@@ -383,8 +396,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				return SIMULATION_FAILURE;
 			}
 
-
-
+			std::cout << "Space ID: " << perRobotSpaces[0] <<". Total number of geoms in 1st robot space: " << dSpaceGetNumGeoms(perRobotSpaces[0]) << std::endl;
+			std::cout << "Space ID: " << envObjectsSpace <<". Total number of geoms in environment space: " << dSpaceGetNumGeoms(envObjectsSpace) << std::endl;
+			std::cout << "Space ID: " << odeSpace <<". Total number of geoms in odeSpace: " << dSpaceGetNumGeoms(odeSpace) << std::endl;
 			//setup vectors for keeping velocities
 			int len = configuration->getSwarmSize();
 			dReal previousLinVel[len][3];
@@ -399,6 +413,8 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 
 			boost::shared_ptr<CollisionData> collisionData( new CollisionData(scenario) );
 			double step = configuration->getTimeStepLength();
+			osg::Vec3d gZone = env->getGatheringZone()->getPosition();
+			std::cout << "Gathering zone position (" << gZone.x() << ", " << gZone.y() << ")" << std::endl;
 			//std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
 			while ( (!constraintViolated) && (iterations < EDQD::Parameters::maxIterations) && (!(visualize && viewer->done())) ){
 				if(visualize) {
@@ -453,6 +469,17 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 											t,
 											boost::ref(queueMutex)));
 				}
+				// Update Sensors
+				for (unsigned int i = 0; i < robots.size(); i++) {
+					for (unsigned int j = 0; j < robots_bodyParts[i].size(); ++j) {
+						if (boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])) {
+							//std::cout << "Updating sensor for robot "<< (i+1) << std::endl;
+							boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])->
+									updateSensors(env);
+						}
+					}
+				}
+				//std::cout << "Done with sensors" << std::endl;
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
 				//std::cout << "Done. Iteration: " << iterations << std::endl;
@@ -511,6 +538,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			// wrap all this in block so things get cleaned up before shutting down
 			// ode
 			{
+				int nbAlive_ = 0;
 				// =======================================
 				// Generate Robot
 				// =======================================
@@ -533,7 +561,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					robots.push_back(
 								boost::shared_ptr<Robot>(new Robot));
 					robots_odeSpaces.push_back(dSimpleSpaceCreate(0));
-					if (!robots[i]->init(odeWorld, robots_odeSpaces[i], robotMessage)) {
+					if (!robots[i]->init(odeWorld, odeSpace, robots_odeSpaces[i], nbAlive_, robotMessage)) {
 						std::cout << "Problems decoding robot "<<(i+1)<<". Quit."
 								<< std::endl;
 						return SIMULATION_FAILURE;
