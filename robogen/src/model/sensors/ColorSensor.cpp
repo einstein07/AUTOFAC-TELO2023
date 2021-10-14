@@ -16,7 +16,7 @@
 
 namespace robogen {
 
-const float ColorSensor::SENSOR_RANGE = 0.255;
+const float ColorSensor::SENSOR_RANGE = /*0.255*/1;
 
 ColorSensor::ColorSensor(dSpaceID odeSpace,
 		std::vector<boost::shared_ptr<SimpleBody> > sensorBodies,
