@@ -62,9 +62,9 @@ namespace robogen{
 								int targetIndex = boost::dynamic_pointer_cast<ColorSensorElement>(robot_->getSensors()[i+1])
 																				->getObjectId();
 								pos = scenario->getRobot(targetIndex)->getCoreComponent()->getRootPosition();
-								std::cout << "Robot ID: "
+								/**std::cout << "Robot ID: "
 										<< targetIndex
-										<< ". Current position: " <<pos.x() << ", " << pos.y() <<std::endl;
+										<< ". Current position: " <<pos.x() << ", " << pos.y() <<std::endl;*/
 								float randomValue = float(randint()%100) / 100.0; // in [0,1]
 								pos = osg::Vec3d(
 												 pos.x() * -(1+randomValue),
@@ -80,26 +80,34 @@ namespace robogen{
 									pos.y() = pos.y() - (2 * distance);
 								else
 									pos.y() = pos.y() + (2 * distance);
-								std::cout << "Robot ID: "
+								/**std::cout << "Robot ID: "
 											<< robot_-> getId()
-											<< ". Drive to position to avoid colliding: " <<pos.x() << ", " << pos.y() <<std::endl;
+											<< ". Drive to position to avoid colliding: " <<pos.x() << ", " << pos.y() <<std::endl;*/
 								minDistance = distance;
 							}
 						}
 						// If it is a wall, avoid a collision
-						if (boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+5])) {
-							if ( boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+5])->
+						if (boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+4])) {
+							if ( boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+4])->
 									read()){
-								std::cout << "COLLISION POSSIBLE WITH WALL" << std::endl;
+								//std::cout << "COLLISION POSSIBLE WITH WALL" << std::endl;
 								float randomValue = float(randint()%100) / 100.0; // in [0,1]
 								pos = robot_->getCoreComponent()->getRootPosition();
-								std::cout << "Current position: " <<pos.x() << ", " << pos.y() <<std::endl;
+								//std::cout << "Current position: " <<pos.x() << ", " << pos.y() <<std::endl;
 								pos = osg::Vec3d(
-												/*(*/ pos.x() /*+ distance )*/ * -(2+randomValue),
-												/*(*/ pos.y() /**+ distance )*/ * -(2+randomValue),
+												 pos.x() * -(1+randomValue),
+												 pos.y() * -(1+randomValue),
 												0
 												);
-								std::cout << "Drive to position: " <<pos.x() << ", " << pos.y() <<std::endl;
+								if(signbit(pos.x()))
+									pos.x() = pos.x() - (2 * distance);
+								else
+									pos.x() = pos.x() + (2 * distance);
+								if(signbit(pos.y()))
+									pos.y() = pos.y() - (2 * distance);
+								else
+									pos.y() = pos.y() + (2 * distance);
+								//std::cout << "Drive to position: " <<pos.x() << ", " << pos.y() <<std::endl;
 								minDistance = distance;
 							}
 						}
@@ -115,6 +123,7 @@ namespace robogen{
 
 			return Heuristic::driveToTargetPosition(osg::Vec2d(pos.x(), pos.y()));
 		}
+//			return Heuristic::driveToTargetPosition(osg::Vec2d(-4, 0));
 	}
 }
 
