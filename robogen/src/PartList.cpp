@@ -68,6 +68,10 @@ std::map<char, std::string> initPartTypeMap(const std::map<char, std::string>
 #ifdef COLOR_SENSORS_ENABLED
 	partTypeMap['Z'] = PART_TYPE_COLOR_SENSOR;
 #endif
+	// SM added
+#ifdef TARGET_AREA_DETECTOR_ENABLED
+	partTypeMap['A'] = PART_TYPE_TARGET_AREA_DETECTOR;
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeMap['T'] = PART_TYPE_TOUCH_SENSOR;
 #endif
@@ -111,6 +115,10 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 #ifdef COLOR_SENSORS_ENABLED
 	partTypeArityMap[PART_TYPE_COLOR_SENSOR] = 0;
 #endif
+	// SM added
+#ifdef TARGET_AREA_DETECTOR_ENABLED
+	partTypeArityMap[PART_TYPE_TARGET_AREA_DETECTOR] = 0;
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeArityMap[PART_TYPE_TOUCH_SENSOR] = 0;
 #endif
@@ -143,8 +151,13 @@ std::map<std::string, unsigned int> initPartTypeParamCountMap() {
 #ifdef IR_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_IR_SENSOR] = 0;
 #endif
+	// SM added
 #ifdef COLOR_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_COLOR_SENSOR] = 0;
+#endif
+	// SM added
+#ifdef TARGET_AREA_DETECTOR_ENABLED
+	partTypeParamCountMap[PART_TYPE_TARGET_AREA_DETECTOR] = 0;
 #endif
 #ifdef TOUCH_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_TOUCH_SENSOR] = 0;
@@ -255,11 +268,20 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 		// Size specified by number of robots required to push resource
 		sensors.push_back("resourceSize");
 		// Returns 1 if the detected object is the target area, otherwise 0
-		sensors.push_back("targetArea");
+		//sensors.push_back("targetArea");
 		// Returns 1 if the detected object is a wall in the environment, otherwise 0
 		sensors.push_back("wall");
 
 		partTypeSensorsMap[PART_TYPE_COLOR_SENSOR] = sensors;
+	}
+#endif
+	// SM Added
+#ifdef TARGET_AREA_DETECTOR_ENABLED
+	{
+		std::vector<std::string> sensors;
+		// Returns 1 if the detected object is the target area, otherwise 0
+		sensors.push_back("targetArea");
+		partTypeSensorsMap[PART_TYPE_TARGET_AREA_DETECTOR] = sensors;
 	}
 #endif
 #ifdef TOUCH_SENSORS_ENABLED

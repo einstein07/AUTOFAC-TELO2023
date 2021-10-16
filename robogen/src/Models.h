@@ -36,6 +36,7 @@
 #include "model/sensors/LightSensor.h"
 #include "model/sensors/TouchSensor.h"
 #include "model/sensors/IrSensor.h"
+#include "model/sensors/TargetAreaDetector.h"
 
 #include "model/components/actuated/ActiveCardanModel.h"
 #include "model/components/actuated/ActiveHingeModel.h"
@@ -51,5 +52,6 @@
 #include "model/components/perceptive/LightSensorModel.h"
 #include "model/components/perceptive/TouchSensorModel.h"
 #include "model/components/perceptive/IrSensorModel.h"
+#include "model/components/perceptive/TargetAreaDetectorModel.h"
 
 #endif /* ROBOGEN_MODELS_H_ */

@@ -41,6 +41,7 @@
 
 #define IR_SENSORS_ENABLED
 #define COLOR_SENSORS_ENABLED
+#define TARGET_AREA_DETECTOR_ENABLED
 #ifndef IR_SENSORS_ENABLED
 	#define TOUCH_SENSORS_ENABLED
 #endif
@@ -89,6 +90,11 @@ namespace robogen {
 	#define SENSOR_TYPE_COLOR_SENSOR_ELEMENT	"ColorSensor"
 #endif
 
+#ifdef TARGET_AREA_DETECTOR_ENABLED
+	// SM added
+	#define PART_TYPE_TARGET_AREA_DETECTOR			"TargetAreaDetector"
+	#define SENSOR_TYPE_TARGET_AREA_DETECTOR_ELEMENT	"TargetAreaDetector"
+#endif
 #ifdef TOUCH_SENSORS_ENABLED
 	#define PART_TYPE_TOUCH_SENSOR 		"TouchSensor"
 	#define SENSOR_TYPE_TOUCH_SENSOR 		"TouchSensor"
