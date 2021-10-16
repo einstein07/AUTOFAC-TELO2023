@@ -48,9 +48,9 @@ ColorSensor::ColorSensor(dSpaceID odeSpace,
 			boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
 					ColorSensorElement::RESOURCESIZE)));
 	//Sense if object is the target area
-		sensors_.push_back(
+	/**	sensors_.push_back(
 			boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
-					ColorSensorElement::TARGETAREA)));
+					ColorSensorElement::TARGETAREA)));*/
 	//Sense if object is a WALL
 			sensors_.push_back(
 				boost::shared_ptr<Sensor>(new ColorSensorElement(baseLabel,
@@ -197,9 +197,9 @@ void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, b
 		else if (data.objData->isResource){
 			value = ColorSensorElement::Type::RESOURCE;
 		}
-		else if (data.objData->isTargetArea){
+		/**else if (data.objData->isTargetArea){
 			value = ColorSensorElement::Type::TARGETAREA;
-		}
+		}*/
 		else if (data.objData->isWall){
 			value = ColorSensorElement::Type::WALL;
 		}
@@ -215,8 +215,22 @@ void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, b
 		sensors_[2]->updateValue(0.0);
 		sensors_[3]->updateValue(0.0);
 		sensors_[4]->updateValue(0.0);
-		sensors_[5] -> updateValue(0.0);
+		//sensors_[5] -> updateValue(0.0);
 	}
+
+	// Robot detected
+	else if ( value == ColorSensorElement::ROBOT ){
+		sensors_[1] -> updateValue(1.0);
+		sensors_[2] -> updateValue(0.0);
+		sensors_[3] -> updateValue(0.0);
+		sensors_[4] -> updateValue(0.0);
+		//sensors_[5] -> updateValue(0.0);
+		/**
+		 * Update robot object id
+		 */
+		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[1])->updateObjectId(data.objData->objectId);
+	}
+
 	// Resource detected
 	else if ( value == ColorSensorElement::RESOURCE ){
 		sensors_[1] -> updateValue(0.0);
@@ -240,7 +254,7 @@ void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, b
 
 		sensors_[4] -> updateValue(0.0);
 
-		sensors_[5] -> updateValue(0.0);
+		//sensors_[5] -> updateValue(0.0);
 		/**
 		 * Update resource object id - both sensors will have to point to the same
 		 * resource object id to ensure correctness of sensor object detection
@@ -249,39 +263,24 @@ void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, b
 		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[3])->updateObjectId(data.objData->objectId);
 
 	}
+
 	// Target area is detected
-	else if ( value == ColorSensorElement::TARGETAREA ){
+	/**else if ( value == ColorSensorElement::TARGETAREA ){
 		//std::cout << "TARGET AREA DETECTED" << std::endl;
 		sensors_[1]->updateValue(0.0);
 		sensors_[2]->updateValue(0.0);
 		sensors_[3]->updateValue(0.0);
 		sensors_[4] -> updateValue(1.0);
 		sensors_[5] -> updateValue(0.0);
-	}
-	// Robot detected
-	else if ( value == ColorSensorElement::ROBOT ){
-		sensors_[1] -> updateValue(1.0);
-		sensors_[2] -> updateValue(0.0);
-		sensors_[3] -> updateValue(0.0);
-		sensors_[4] -> updateValue(0.0);
-		sensors_[5] -> updateValue(0.0);
-		/**
-		 * Update robot object id
-		 */
-		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[1])->updateObjectId(data.objData->objectId);
-	}
+	}*/
+
 	// Wall detected
 	else if ( value == ColorSensorElement::WALL ){
 		sensors_[1] -> updateValue(0.0);
 		sensors_[2] -> updateValue(0.0);
 		sensors_[3] -> updateValue(0.0);
-		sensors_[4] -> updateValue(0.0);
-		sensors_[5] -> updateValue(1.0);
-
-		/**
-		 * Update robot object id
-		 */
-		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[1])->updateObjectId(data.objData->objectId);
+		sensors_[4] -> updateValue(1.0);
+		//sensors_[5] -> updateValue(1.0);
 	}
 
 }

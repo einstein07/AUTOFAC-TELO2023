@@ -32,7 +32,7 @@ public:
 		ROBOT,
 		RESOURCE,
 		RESOURCESIZE,
-		TARGETAREA,
+		//TARGETAREA,
 		WALL
 	};
 
@@ -40,8 +40,8 @@ public:
 			Sensor(baseLabel + (
 								(type == ROBOT) ?  "-Robot" :
 								(type == RESOURCE)? "-Resource" :
-								(type == RESOURCESIZE)? "-ResourceSize" :
-								(type == TARGETAREA)? "-TargetArea": "Wall")),
+								(type == RESOURCESIZE)? "-ResourceSize" : "Wall"
+								/**(type == TARGETAREA)? "-TargetArea": "Wall"*/)),
 			baseLabel_(baseLabel), type_(type), objectId_(-1) {
 	}
 
