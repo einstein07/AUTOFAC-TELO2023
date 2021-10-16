@@ -15,6 +15,7 @@
 #include "scenario/Scenario.h"
 #include "model/sensors/IrSensor.h"
 #include "model/sensors/ColorSensor.h"
+#include "model/sensors/TargetAreaDetector.h"
 
 namespace robogen{
 //class EDQDRobot;

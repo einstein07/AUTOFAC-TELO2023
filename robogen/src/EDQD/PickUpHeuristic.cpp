@@ -40,28 +40,28 @@ namespace robogen{
 		double size = 0.0;
 		if (robot_->isBoundToResource()){
 			for (unsigned int  i = 0; i < robot_->getSensors().size(); ++i){
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])) {
-					colorType = boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
-																getType();
+				if (boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])) {
+					/**colorType = boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
+																getType();*/
 					/**std::cout << "It is a color sensor element. Value: "
 							<< boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
 							read()
 							<< ". Type: "
 							<< colorType
 							<< std::endl;*/
-					if ( boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
+					if ( boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])->
 											read()){
-						colorType = boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
-												getType();
+						/**colorType = boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i])->
+												getType();*/
 						//std::cout << "Sensor number: "<< i << "is of type: " << colorType << std::endl;
-						if (colorType == ColorSensorElement::TARGETAREA){
+						//if (colorType == ColorSensorElement::TARGETAREA){
 							std::cout << "Target area detected." << std::endl;
 							if (robot_->isBoundToResource()){
 								boost::shared_ptr<BoxResource> resource = env->getResources()[robot_->getBoundResourceId()];
 								resource->setCollected(true);
 							}
 							return osg::Vec2d(-1000, -1000);
-						}
+						//}
 					}
 				}
 			}
