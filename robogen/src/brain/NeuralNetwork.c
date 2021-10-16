@@ -151,3 +151,14 @@ void fetch(const NeuralNetwork* network, float *output) {
 		output[i] = network->state[i];
 	}
 }
+void setWeights(NeuralNetwork* network, const float *weights){
+	/**
+	 * Lazy approach to get number of weights
+	 * TODO: Change it to something more efficient
+	 */
+	int nbWeights = (MAX_INPUT_NEURONS + MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)
+	    	             * (MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS);
+	for (unsigned int i = 0; i < nbWeights; ++i) {
+		network->weight[i] = weights[i];
+	}
+}

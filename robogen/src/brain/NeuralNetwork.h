@@ -174,5 +174,11 @@ void step(NeuralNetwork* network, float time);
  */
 void fetch(const NeuralNetwork* network, float *output);
 
+/**
+ * SM Added: Set the weights of the neural network with new/updated values
+ * @param network the neural network
+ * @param weights the weight values, must be an array
+ */
+void setWeights(NeuralNetwork* network, const float *weights);
 
 #endif /* ROBOGEN_NEURAL_NETWORK_H_ */
