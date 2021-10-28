@@ -1,6 +1,6 @@
 #Simulator Config File - Base environment: flat ground, max friction
 
-scenario=collectivegathering.js
+scenario=racing
 
 #how much real time each iteration of the simulator represents
 timeStep=0.005
@@ -21,10 +21,13 @@ terrainFriction=1.0
 gravity=-9.81
 
 #Resources config file
-resourcesConfigFile=resourcesDifficultEnv.txt
+#resourcesConfigFile=ConfigSimple.txt
+
+#Obstacles config file
+obstaclesConfigFile=envWalls.txt
 
 #starting positions and orientations defined
-startPositionConfigFile=startposconfig.txt
+startPositionConfigFile=configStart.txt
 
 #Noise
 sensorNoiseLevel=0.0
@@ -35,11 +38,13 @@ capAcceleration=false
 # uncomment the following to prevent 'jittery behaviors'
 #maxDirectionShiftsPerSecond=16
 disallowObstacleCollisions=false
-obstacleOverlapPolicy='removeObstacles'
+obstacleOverlapPolicy=removeObstacles
 
-#Gathering zone coordinates. The specified position will be the position of the center of the gathering zone. Set it to span half the environment.
+mode=embodied
+
+#Gathering zone coordinates. The specified position will be the position of the center of the gathering zone.
 gatheringZonePosition=0,16,0
 
 #Gathering zone size.
-gatheringZoneSize=20,8,0
-
+gatheringZoneSize=20,8,0.001
+swarmSize=1

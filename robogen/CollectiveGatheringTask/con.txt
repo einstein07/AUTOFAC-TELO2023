@@ -1,0 +1,25 @@
+scenario=racing
+timeStep=0.005
+simulationTime=8.0
+actuationFrequency=25
+terrainType=flat
+terrainLength=10
+terrainWidth=10
+terrainFriction=1.0
+# Start positions config file
+startPositionConfigFile=configStart.txt
+# Obstacles config file
+obstaclesConfigFile=conWall.txt
+#Resources config file
+#resourcesConfigFile=conSimpleEnv0_1.txt
+sensorNoiseLevel=0.0
+motorNoiseLevel=0.0
+capAcceleration=false
+mode=embodied
+swarmSize=5
+#Gathering zone coordinates. The specified position will be the position of the center of the gathering zone.
+gatheringZonePosition=0,-4.25,0.00001
+#Gathering zone size.
+gatheringZoneSize=5,1.5,0.00001
+# uncomment the following to prevent 'jittery behaviors'
+#maxDirectionShiftsPerSecond=16
