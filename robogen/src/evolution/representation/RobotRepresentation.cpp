@@ -1126,29 +1126,23 @@ bool RobotRepresentation::createRobotMessageFromFile(robogenMessage::Robot
 
 	} else if (boost::filesystem::path(robotFileString
 			).extension().string().compare(".txt") == 0) {
-		std::cout << "Initializing robot rep from file . . ." << std::endl;
 		RobotRepresentation robot;
 		if (!robot.init(robotFileString)) {
 			std::cerr << "Failed interpreting robot text file!" << std::endl;
 			return false;
 		}
-		std::cout << "Done." <<std::endl;
 #ifdef VERIFY_ON_LOAD_TXT
 		int errorCode;
-		std::cout << "Verifying body. . ." << std::endl;
 		std::vector<std::pair<std::string, std::string> > affectedBodyParts;
 		if (!BodyVerifier::verify(robot, errorCode,
 						affectedBodyParts, true)) {
 			std::cerr << std::endl
 				<< "*************** Body does not verify!! *****************"
 				<< std::endl << std::endl;
-			std::cout << "Done" << std::endl;
 			return false;
 		}
 #endif
-		std::cout << "Serializing message. . . "<< std::endl;
 		robotMessage = robot.serialize();
-		std::cout << "Done." <<std::endl;
 	} else if (boost::filesystem::path(robotFileString
 				).extension().string().compare(".json") == 0) {
 		std::ifstream robotFile(robotFileString.c_str(),
