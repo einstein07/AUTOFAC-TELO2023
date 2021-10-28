@@ -51,6 +51,11 @@ public:
 
 	Environment(dWorldID odeWorld, dSpaceID odeSpace,
 			boost::shared_ptr<RobogenConfig> robogenConfig);
+	/**
+	 * SM ADDED
+	 */
+	Environment(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
+				boost::shared_ptr<RobogenConfig> robogenConfig);
 
 	bool init();
 
@@ -127,6 +132,10 @@ private:
 	 * ODE collision space
 	 */
 	dSpaceID odeSpace_;
+	/**
+	 * ODE collision space
+	 */
+	dSpaceID areaSpace_;
 
 	/**
 	 * Robogen config

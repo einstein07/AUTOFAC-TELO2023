@@ -33,10 +33,23 @@ namespace robogen {
 
 Environment::Environment(dWorldID odeWorld, dSpaceID odeSpace,
 		boost::shared_ptr<RobogenConfig> robogenConfig) :
-				odeWorld_(odeWorld), odeSpace_(odeSpace),
+				odeWorld_(odeWorld), odeSpace_(odeSpace), areaSpace_(odeSpace),
 				robogenConfig_(robogenConfig),
 				timeElapsed_(0),
 				ambientLight_(DEFAULT_AMBIENT_LIGHT) {
+}
+
+/**
+ * SM ADDED
+ */
+Environment::Environment(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
+				boost::shared_ptr<RobogenConfig> robogenConfig):
+				Environment(
+							odeWorld,
+							odeSpace,
+							robogenConfig
+						){
+	areaSpace_ = areaSpace;
 }
 
 Environment::~Environment() {
@@ -70,13 +83,22 @@ bool Environment::init() {
 		}
 	}
 #endif
+	/**
+	 * SM -Added
+	 */
 	//setup gathering zone
+	/**std::cout 	<< "ODE SPACE: "
+				<< odeSpace_
+				<< " AREA APSACE: "
+				<< areaSpace_
+				<<std::endl;*/
 	boost::shared_ptr<GatheringZoneConfig> gatheringZoneConfig =
 				robogenConfig_->getGatheringZoneConfig();
 	gatheringZone_ = boost::shared_ptr<GatheringZone>(
 			new GatheringZone(
 					odeWorld_,
-					odeSpace_,
+					//odeSpace_,
+					areaSpace_,
 					gatheringZoneConfig->getPosition(),
 					gatheringZoneConfig->getSize()
 													));
