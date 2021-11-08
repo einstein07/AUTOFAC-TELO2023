@@ -368,6 +368,7 @@ bool Mutator::mutateBrain(boost::shared_ptr<RobotRepresentation>& robot) {
 	return mutated;
 }
 
+
 bool Mutator::crossover(boost::shared_ptr<RobotRepresentation>& a,
 		boost::shared_ptr<RobotRepresentation>& b) {
 

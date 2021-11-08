@@ -78,6 +78,11 @@ public:
 	void growBodyRandomly(boost::shared_ptr<RobotRepresentation>& robot);
 	void randomizeBrain(boost::shared_ptr<RobotRepresentation>& robot);
 
+	/**
+	 * SM - Perform variation
+	 */
+	/**bool EDQDperformVariation(std::vector<double>& weights, float& sigma = conf_->brainWeightSigma);*/
+
 private:
 
 	/**
@@ -108,6 +113,7 @@ private:
 	 * Mutation operators
 	 */
 	bool mutateBrain(boost::shared_ptr<RobotRepresentation>& robot);
+
 	/**
 	 * CH - Mates the CPPNs of two parents and assigns the result to their offspring
 	 * @return true if crossover was successful
