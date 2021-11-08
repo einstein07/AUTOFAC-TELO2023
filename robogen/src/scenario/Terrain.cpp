@@ -57,8 +57,13 @@ bool Terrain::initFlat(float width, float depth) {
 		dGeomHeightfieldDataDestroy(this->heightField_);
 	}
 
-	dCreatePlane(odeSpace_, 0.0, 0.0, 1.0, 0.0);
-
+	/**
+	 * SM added - debug
+	 */
+	dGeomID tID = dCreatePlane(odeSpace_, 0.0, 0.0, 1.0, 0.0);
+	/**std::cout 	<< "Terrain ID: "
+				<< tID
+				<< std::endl;*/
 	heightFieldWidth_ = width;
 	heightFieldDepth_ = depth;
 	type_ = TerrainConfig::FLAT;

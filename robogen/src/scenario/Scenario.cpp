@@ -247,15 +247,13 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
 * @param robot-swarm
 * @return true if the scenario was initialized successfully, false otherwise
 */
-bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
+bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                std::vector<boost::shared_ptr<Robot> > robots){
         environment_ = boost::shared_ptr<Environment>(new
-			Environment(odeWorld, odeSpace, robogenConfig_));
-
+			Environment(odeWorld, odeSpace, areaSpace, robogenConfig_));
 	if(!environment_->init()) {
 		return false;
 	}
-
 	stopSimulationNow_ = false;
         
         /**---------------------------------------------------------------------
@@ -447,7 +445,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
 										rMaxZ <= robots_position[j][5])) {
 					inRangeZ = true;
 			}
-			if ((inRangeX && inRangeY && inRangeZ)) {
+			/**if ((inRangeX && inRangeY && inRangeZ)) {
 				std::cout << "Attempting to pick a resource" <<std::endl;
 				if (resource->pickup(robots[j])) {
 					//can be picked up, so undo the overlap
@@ -455,7 +453,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
 					inRangeY = false;
 					inRangeZ = false;
 				}
-			}
+			}*/
 		}
 
 		// Do not insert resources in the robot range

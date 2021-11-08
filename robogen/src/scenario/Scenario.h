@@ -72,15 +72,15 @@ public:
 	 */
 	virtual bool init(dWorldID odeWorld, dSpaceID odeSpace,
 			boost::shared_ptr<Robot> robot);
-        /**
+	/**
 	 * SM added: Initializes a scenario with multiple robots
 	 *
 	 * @param odeWorld
 	 * @param odeSpace
 	 * @param robot-swarm
 	 */
-	virtual bool init(dWorldID odeWorld, dSpaceID odeSpace,
-			std::vector<boost::shared_ptr<Robot> > robots);
+	virtual bool init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
+						std::vector<boost::shared_ptr<Robot> > robots);
 
 	/**
 	 * Clears unused scenario (so that robot can be freed - joints need to be
@@ -88,21 +88,21 @@ public:
 	 * and avoids memory leaks over multiple starting positions.
 	 */
 	void prune();
-        //SM added
-        void pruneswarm();
+	//SM added
+	void pruneswarm();
 
 	/**
 	 * @return the robot
 	 */
 	boost::shared_ptr<Robot> getRobot();
         
-        /**
+	/**
 	 * @return the robot
 	 */
 	boost::shared_ptr<Robot> getRobot(int robotId);
         
-        /**
-         * SM added
+	/**
+	 * SM added
 	 * @return the robots
 	 */
 	std::vector<boost::shared_ptr<Robot> > getRobots();
@@ -191,12 +191,12 @@ public:
 		stopSimulationNow_ = true;
 	}
         
-        /**
-         * SM added
-         * @return true if resources were removed, false otherwise
-         */
-        inline bool wereResourcesRemoved() {
-		return resourcesRemoved_;
+	/**
+	 * SM added
+	 * @return true if resources were removed, false otherwise
+	 */
+	inline bool wereResourcesRemoved() {
+	return resourcesRemoved_;
 	}
 private:
 
@@ -223,11 +223,11 @@ private:
 	bool obstaclesRemoved_;
 
 	bool stopSimulationNow_;
-        //----------------------------------------------------------------------
-        //SM added: swarm specific attributes
-        //----------------------------------------------------------------------
-        
-        /**
+	//----------------------------------------------------------------------
+	//SM added: swarm specific attributes
+	//----------------------------------------------------------------------
+
+	/**
 	 * Robots
 	 */
 	std::vector<boost::shared_ptr<Robot> > robots_;
