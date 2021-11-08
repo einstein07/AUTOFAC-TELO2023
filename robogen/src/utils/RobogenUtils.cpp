@@ -98,9 +98,9 @@ boost::shared_ptr<Joint> RobogenUtils::connect(boost::shared_ptr<Model> a,
 		 * SM ADDED
 		 * NOT SURE ABOUT THIS CODE
 		 */
-		else if (slotB == CoreComponentModel::BOTTOM_FACE_SLOT) {
-			a->setParentOrientation(b->getOrientationToRoot());
-		}
+		//else if (slotB == CoreComponentModel::BOTTOM_FACE_SLOT) {
+		//	a->setParentOrientation(b->getOrientationToRoot());
+		//}
 
 		//} else if (boost::dynamic_pointer_cast<ParametricBrickModel>(b)) {
 		//	a->setParentOrientation(modulo((b->getOrientationToRoot() + 1), 4));
@@ -412,6 +412,9 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 	}
 	else if (boost::dynamic_pointer_cast<ColorSensorModel>(model)) {
 		model.reset(new ColorSensorModel(odeWorld, odeSpace, robotSpace, id));
+	}
+	else if (boost::dynamic_pointer_cast<TargetAreaDetectorModel>(model)) {
+		model.reset(new TargetAreaDetectorModel(odeWorld, odeSpace, robotSpace, id));
 	}
 	else if (boost::dynamic_pointer_cast<LightSensorModel>(model)) {
 		model.reset(new LightSensorModel(odeWorld, odeSpace, robotSpace, id, false));
@@ -839,7 +842,7 @@ ModelMeshMap initModelMeshMap() {
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	// Target area detector
 	modelMeshMap[std::make_pair(&typeid(TargetAreaDetectorModel),
-			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
+			static_cast<unsigned int>(TargetAreaDetectorModel::B_SENSOR_BASE_ID))] =
 			"TargetAreaDetector.stl";
 #endif
 #ifdef TOUCH_SENSORS_ENABLED

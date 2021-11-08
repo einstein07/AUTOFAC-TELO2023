@@ -279,6 +279,7 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	{
 		std::vector<std::string> sensors;
+		//sensors.push_back("distance");
 		// Returns 1 if the detected object is the target area, otherwise 0
 		sensors.push_back("targetArea");
 		partTypeSensorsMap[PART_TYPE_TARGET_AREA_DETECTOR] = sensors;
