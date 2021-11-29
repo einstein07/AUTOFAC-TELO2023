@@ -92,7 +92,7 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 	/** SM MODIFIED*/
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = /**4*/6;
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT_NO_IMU] = 4;
-	partTypeArityMap[PART_TYPE_FIXED_BRICK] = 3;
+	partTypeArityMap[PART_TYPE_FIXED_BRICK] = /**3*/5;
 #else
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT] = 6;
 	partTypeArityMap[PART_TYPE_CORE_COMPONENT_NO_IMU] = 6;
