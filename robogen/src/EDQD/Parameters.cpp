@@ -50,6 +50,8 @@ namespace EDQD{
 
 	bool Parameters::onlyKeepMapsForGeneration = true;
 
+	int Parameters::maxTimeResourceBound = 5000;
+
 	Parameters::Parameters(){
 	}
 	Parameters::~Parameters(){}

@@ -21,8 +21,8 @@
 #include "Robot.h"
 #include "EDQDMap.h"
 #include "Util.h"
-#include "PickUpHeuristic.h"
-#include "CollisionAvoidanceHeuristic.h"
+//#include "PickUpHeuristic.h"
+//#include "CollisionAvoidanceHeuristic.h"
 namespace robogen {
 class EDQDMap;
 //================================================================================================
@@ -50,9 +50,9 @@ class EDQDRobot : public Robot{
 		void mutateSigmaValue();
 
 		void mapGenotypeToPhenotype();
-		void performSelection();
+		bool performSelection();
 		void performVariation();
-		void selectRandomGenomeFromMergedMap();
+		bool selectRandomGenomeFromMergedMap();
 		void resetFitness();
 
 	    unsigned int computeRequiredNumberOfWeights();
@@ -79,6 +79,7 @@ class EDQDRobot : public Robot{
 		double fitness_;
 		double step_;
 		int count_;
+		int timeResourceBound_;
 		// map
 		EDQDMap* map_;
 		EDQDMap* mergedMap_;
@@ -140,8 +141,7 @@ class EDQDRobot : public Robot{
 		 * Behavioral heuristics
 		 */
 		osg::Vec2d targetArea_;
-		boost::shared_ptr<PickUpHeuristic> pheuristic_;
-		boost::shared_ptr<CollisionAvoidanceHeuristic> cheuristic_;
+
 
 	public:
 		//========================================================================================
@@ -162,7 +162,7 @@ class EDQDRobot : public Robot{
 	    void broadcastMap();
 	    void updateFitness();
 	    void step(
-	    			boost::shared_ptr<Environment> env,
+	    			/**boost::shared_ptr<Environment> env,*/
 					/**boost::shared_ptr<RobogenConfig> configuration,*/
 					/**boost::random::mt19937 &rng,*/
 					/**int count,*/
@@ -200,10 +200,13 @@ class EDQDRobot : public Robot{
 		}
 
 		void resetResourceCounter() {
-			// Only 3 types of resources in the environment right now (sizes 1, 2 & 3)
-			for (int i = 1; i <= 3 ; i++)
+			/**
+			 * Only 3 types of resources in the environment right now (sizes 1, 2 & 3)
+			 * Simple environment - i.e. 1 & 2 pushing robots per resource only
+			 */
+			for (int i = 1; i <= 2 ; i++)
 			{
-				resourceCounters_[i] = 0;
+				resourceCounters_[i] = /**randint()%100;//*/0;
 			}
 		}
 
@@ -230,6 +233,10 @@ class EDQDRobot : public Robot{
 		float getCurrentSigma() const {
 			return currentSigma_;
 		}
+
+		int getTimeResourceBound(){return timeResourceBound_;}
+		void incTimeResourceBound(){timeResourceBound_++;}
+		void resetTimeResourceBound(){timeResourceBound_ = 0;}
 
 		void reset();
 };

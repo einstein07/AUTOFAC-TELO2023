@@ -18,21 +18,25 @@
 #include "model/sensors/TargetAreaDetector.h"
 
 namespace robogen{
-
+class AnchorPoint;
 class PickUpPositioningHeuristic : public Heuristic {
 	public:
 		PickUpPositioningHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~PickUpPositioningHeuristic();
 
 		virtual osg::Vec2d step();
-		osg::Vec2d nextStep(BoxResource resource);
-		osg::Vec2d calculateTargetPoint(BoxResource resource);
-
+		osg::Vec3d nextStep(boost::shared_ptr<BoxResource> resource);
+		osg::Vec3d calculateTargetPoint(boost::shared_ptr<BoxResource> resource);
+		void setResource(boost::shared_ptr<BoxResource> resource);
+		bool ACTIVE = false;
 
 	private:
 		boost::shared_ptr<Environment> env;
 		osg::Vec3d targetAreaPosition_;
+		osg::Vec3d targetPoint;
+		boost::shared_ptr<BoxResource> resource_;
 		bool ENABLE_PICKUP_POSITIONING = false;
+
 };
 }
 

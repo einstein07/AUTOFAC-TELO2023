@@ -14,9 +14,10 @@
 #include "Obstacle.h"
 #include "Robogen.h"
 #include "Robot.h"
+#include "model/objects/AnchorPoint.h"
 
 namespace robogen {
-    class AnchorPoint;
+//    class AnchorPoint;
 /**
  * A simple resource object made of a box of specified size
  */
@@ -24,9 +25,7 @@ class BoxResource : public PositionObservable {
 
     public:
         
-        enum Face {
-            NONE, LEFT, RIGHT, BACK, FRONT
-        };
+
 
 		/**
 		 * Initializes a resource object
@@ -107,6 +106,11 @@ class BoxResource : public PositionObservable {
 		void setCollected(bool isCollected);
 
 		/**
+		 * Break all existing joints with the pushing robots.
+		 */
+		void dropOff();
+
+		/**
 		 * @return the value of the resource
 		 */
 		const double getValue();
@@ -126,6 +130,14 @@ class BoxResource : public PositionObservable {
 		 */
 		bool pickup(boost::shared_ptr<Robot> robot);
 
+
+		/**
+		 * @return all the anchor points of this resource
+		 */
+		std::vector<boost::shared_ptr<AnchorPoint> > getAnchorPoints(){
+			return anchorPoints_;
+		}
+
 		/**
 		 * @param a position in world coordinates
 		 * @param index the index of the closest available anchor point (in world
@@ -134,7 +146,29 @@ class BoxResource : public PositionObservable {
 		 * available.
 		 */
 		bool getClosestAnchorPoint(osg::Vec3 position, int& index);
+
+		boost::shared_ptr<AnchorPoint> getClosestAnchorPoint(osg::Vec3 position);
+
+		/**
+		 * @param point a position in global coordinates
+		 * @return the face of the resource that is closest to the provided point.
+		 */
+		Face getFaceClosestToPoint(osg::Vec3 point);
+		/**
+		 * @param globalPoint point in global coordinates
+		 * @return the supplied global point in local coordinates, i.e. relative
+		 * to the resource
+		 */
+		osg::Vec3 getLocalPoint(osg::Vec3 globalPoint);
+
+		/**
+		 * @return the global position
+		 */
+		osg::Vec3 getLocalPointToOut(osg::Vec3d localPoint);
+
 		double distance (osg::Vec3d a, osg::Vec3d b);
+
+		int getId(){return id;}
                 
     private:
         
@@ -151,12 +185,6 @@ class BoxResource : public PositionObservable {
          */
         Face getFaceClosestToPointLocal(osg::Vec3 localPoint);
         
-        /**
-         * @param globalPoint point in global coordinates
-         * @return the supplied global point in local coordinates, i.e. relative
-         * to the resource
-         */
-        osg::Vec3 getLocalPoint(osg::Vec3 globalPoint);
         
         /**
          * Get the closest anchor point to a position in world space
@@ -183,6 +211,8 @@ class BoxResource : public PositionObservable {
          */
         dSpaceID odeSpace_;
         
+        dMass massOde;
+
         /**
          * The box
          */
@@ -234,6 +264,7 @@ class BoxResource : public PositionObservable {
          * Object information used by sensor to identify the nature of this object
          */
         ObjectData data_;
+        int id;
 };
 
 }

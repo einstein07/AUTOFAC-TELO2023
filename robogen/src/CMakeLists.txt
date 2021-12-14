@@ -157,6 +157,7 @@ if(TARGET_JS) ############################## JS VERSION #####################
 		evolution/neat/*.cpp
 		evolution/representation/*.cpp
 		evolution/representation/parts/*.cpp
+		EDQD/*.cpp
 		config/*.cpp
 		model/*.cpp
 		printing/*.cpp
@@ -309,6 +310,7 @@ else() ############################## C++ VERSION #####################
 		brain/*.c
 		config/*.cpp
 		evolution/*.cpp
+		EDQD/*.cpp
 		model/*.cpp
 		printing/*.cpp
 		render/*.cpp

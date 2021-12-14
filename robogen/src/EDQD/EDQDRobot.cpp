@@ -57,6 +57,9 @@ namespace robogen{
 
 		nbGenomeTransmission_ = 0;
 
+		osg::Vec3 currPos = getCoreComponent()->getRootPosition();
+		Xinit_ = currPos.x();
+		Yinit_ = currPos.y();
 		dSumTravelled_ = 0.0;
 		dMaxTravelled_ = 0.0;
 		dPotMaxTravelled_ = 0.0;
@@ -65,19 +68,20 @@ namespace robogen{
 		currentCellId_ = 0;
 		step_ = configuration->getTimeStepLength();
 		count_ = 0;
+		timeResourceBound_ = 0;
 
 		scenario_ = scenario;
-		//reset();
+		reset();
 		resetFitness();
 		// debug
-		fitness_ = 10;
+		//fitness_ = 1;
 		setAlive(true);
-		targetArea_ = osg::Vec2d(0, 16);
+		targetArea_ = osg::Vec2d(0,-4.25);
 		/**
 		 * Initialize behavioral heuristics
 		 */
-		pheuristic_.reset(new PickUpHeuristic(boost::shared_ptr<Robot>(this), targetArea_));
-		cheuristic_.reset(new CollisionAvoidanceHeuristic(boost::shared_ptr<Robot>(this)));
+		//pheuristic_.reset(new PickUpHeuristic(boost::shared_ptr<Robot>(this), targetArea_));
+		//cheuristic_.reset(new CollisionAvoidanceHeuristic(boost::shared_ptr<Robot>(this)));
 		return status;
 	}
 
@@ -95,12 +99,13 @@ namespace robogen{
 	 * is done in roborobo's main loop)
 	 */
 	void EDQDRobot::step(
-							boost::shared_ptr<Environment> env,
+							//boost::shared_ptr<Environment> env,
 							/**boost::shared_ptr<RobogenConfig> configuration,*/
 							/**boost::random::mt19937 &rng,*/
 							/**int count,*/
 							/**double step,*/
 							double elapsedEvaluationTime){
+		//osg::Vec3d gZone = env->getGatheringZone()->getPosition();
 
 		iteration_++;
 		count_++;
@@ -111,14 +116,14 @@ namespace robogen{
 	    // step controller
 	    if ( isAlive() ){
 	    	//std::cout << "*****STEPPING CONTROLLER*****" << std::endl;
-	    	stepController(
-	    					env,
+	    	//stepController(
+	    	//				env,
 							/**configuration,*/
 							/**rng,*/
 							/**count,*/
 							/**step,*/
-							elapsedEvaluationTime
-	    					);
+			//				elapsedEvaluationTime
+	    	//				);
 	    	/**std::cout << "*****DONE*****" << std::endl;
 	    	std::cout << "*****UPDATING FITNESS*****" << std::endl;*/
 	        updateFitness();
@@ -240,7 +245,7 @@ namespace robogen{
 			//}
 		}*/
 		//std::cout << "Stepping heuristic." << std::endl;
-		osg::Vec2d signal = /**osg::Vec2d(-1000, -1000);*/ cheuristic_->step(env, scenario_);
+		osg::Vec2d signal = osg::Vec2d(-1000, -1000);// cheuristic_->step(env, scenario_);
 		//std::cout << "Done." << std::endl;
 		if (signal.x() != -1000 || signal.y() != -1000) {
 			//std::cout << "Collision Heuristic active." << std::endl;
@@ -248,7 +253,7 @@ namespace robogen{
 			networkOutputs[1] = signal.y();
 		}
 		else{
-			signal = pheuristic_->step(env, scenario_);
+			//signal = pheuristic_->step(env, scenario_);
 			if (signal.x() != -1000 || signal.y() != -1000) {
 				//std::cout << "Pick up Heuristic active." << std::endl;
 				networkOutputs[0] = signal.x();
@@ -347,9 +352,15 @@ namespace robogen{
 			 * add needs to happen before new genome is loaded to ensure the map has an entry.
 			 * moved to agent observer in previous work - why???
 			 */
-			/**std::cout << "EMBODIED-STEP-EVOLUTION - Robot ID: " << getId() << ". Number of transmitted genomes: "<< nbGenomeTransmission_
-					<< ". Adding to Map. . . "
-					<< std::endl;*/
+			//std::cout << "EMBODIED-STEP-EVOLUTION - Robot ID: "
+			//		<< getId()
+					//<< ". Number of transmitted genomes: "
+					//<< nbGenomeTransmission_
+					//<< ". Map list size: "
+					//<< mapList_.size()
+					//<< " Current genome size: "
+					//<< currentGenome_.size()
+			//		<< std::endl;
 	    	map_->add(getId(),
 	    			this,
 	    			currentGenome_,
@@ -362,7 +373,7 @@ namespace robogen{
 	        nbGenomeTransmission_ = 0;
 	        //std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". resetting fitness. . ." << std::endl;
 	        resetFitness();
-	        //std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". Done resetting fitness." << std::endl;
+	        //std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << getId() << ". Done stepping evolution." << std::endl;
 	    }
 	    else{
 	        /* broadcasting genome : robot broadcasts its genome to all neighbors
@@ -394,8 +405,12 @@ namespace robogen{
 	        mapGenotypeToPhenotype();
 	        //std::cout << "EMBODIED-STEP-EVOLUTION: done." << std::endl;
 	        //std::cout << "EMBODIED-STEP-EVOLUTION: setting nw genotype status. . . " << std::endl;
+	        ::setWeights(getBrain().get(), weights_);
 	        setNewGenomeStatus(false);
-	        //std::cout << "EMBODIED-STEP-EVOLUTION: done." << std::endl;
+	        /**std::cout 	<< "EMBODIED-STEP-EVOLUTION: Robot ID: "
+	        			<< getId()
+						<< " New weights set."
+						<< std::endl;*/
 	    }
 	}
 
@@ -446,30 +461,38 @@ namespace robogen{
 	/**
 	 * If called, assume genomeList.size() > 0
 	 */
-	void EDQDRobot::selectRandomGenomeFromMergedMap()
-	{
+	bool EDQDRobot::selectRandomGenomeFromMergedMap(){
 
 	    std::map<int, EDQDMap* >::iterator it = mapList_.begin();
 	    while ( it != mapList_.end() ) {
 	    	it->second->mergeInto(*mergedMap_);
-	    	std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+	    	/**std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
 	    			<< getId()
-	    			<<" :: receivedMap: " << (*it->second).getNumFilledCells() << std::endl << (*it->second) << std::endl;
+	    			<<" :: receivedMap: " << (*it->second).getNumFilledCells() << std::endl << (*it->second) << std::endl;*/
 
 	    	it ++;
 	    }
 	    behav_index_t index;
-	    std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+	    /**std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
 					<< getId()
 					<< ". do-while loop starts. . . "
-					<<std::endl;
+					<<std::endl;*/
+	    int tries = 0;
 		do {
 			index = mergedMap_->getRandomIndex();
+			if (tries > 100) {
+				std::cout 	<< "\nRobot ID - "
+							<< getId()
+							<< ": Failed to select genome from merged map. Robot will be disabled."
+							<< std::endl;
+				return false;
+			}
+			tries++;
 		} while ( mergedMap_->get(index)->genome.size() == 0 );
-		std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
+		/**std::cout << "[SelectRandomGenomeFromMergedMap] Robot id: "
 					<< getId()
 					<< ". do-while loop ends. . . "
-					<<std::endl;
+					<<std::endl;*/
 	    currentGenome_ = mergedMap_->get(index)->genome;
 	    currentSigma_ = mergedMap_->get(index)->sigma;
 	    birthdate_ = robogen::iterations;
@@ -477,6 +500,7 @@ namespace robogen{
 	    ancestor_ = mergedMap_->get(index)->id;
 
 	    setNewGenomeStatus(true);
+	    return true;
 	}
 
 	/**
@@ -487,13 +511,15 @@ namespace robogen{
 	 * Fitness is optional (default: 0)
 	 */
 	bool EDQDRobot::storeMap(EDQDMap* map, int senderId){
-	    if ( !isListening_ )
-	    {
+	    if ( !isListening_ ){
 	    	// current agent is not listening: do nothing.
+	    	/**std::cout << "ROBOT-"
+					<< getId()
+					<< " not listening right now."
+					<< std::endl;*/
 	    	return false;
 	    }
-	    else
-	    {
+	    else{
 	        nbComRx_++;
 	        std::map<int, EDQDMap* >::const_iterator it = mapList_.find(senderId);
 	        /**
@@ -501,13 +527,24 @@ namespace robogen{
 	         * Exact means: same robot, same generation.
 	         * Then: update fitness value (the rest in unchanged) - however, fitness is not really updated, why???
 	         */
-	        if ( it != mapList_.end() )
-	        {
+	        if ( it != mapList_.end() ){
+	        	/**std::cout << "ROBOT-"
+	        			<< getId()
+						<< ": sender-"
+						<< senderId
+						<< " already stored in map list."
+						<< std::endl;*/
 	            return false;
 	        }
-	        else
-	        {
+	        else{
 	        	mapList_[senderId] = map;
+	        	std::cout << "*" <<std::flush;
+	        	/**std::cout << "ROBOT-"
+						<< getId()
+						<< ": sender-"
+						<< senderId
+						<< " map stored successfully in map list."
+						<< std::endl;*/
 	            return true;
 	        }
 	    }
@@ -697,11 +734,14 @@ namespace robogen{
 	/**
 	 * Called only if at least 1 genome was stored.
 	 */
-	void EDQDRobot::performSelection(){
+	bool EDQDRobot::performSelection(){
 		// Include Local Map For Selection Merge
 		mapList_[getId()] = map_;
-		selectRandomGenomeFromMergedMap();
-		mergedMap_->mergeInto(*map_);
+		if (selectRandomGenomeFromMergedMap()){
+			mergedMap_->mergeInto(*map_);
+			return true;
+		}
+		return false;
 	}
 
 	void EDQDRobot::loadNewGenome(){
@@ -713,16 +753,21 @@ namespace robogen{
 	        			<< mapList_.size()
 						<< ". Peforming selection. . . "
 						<< std::endl;*/
-	            performSelection();
-	            /**std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing selection."
-	            		<< " Performing variation. . ."
-	            		<< std::endl;*/
-	            performVariation();
-	            //std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing variation. Clearing reservoir. . ." << std::endl;
-	            clearReservoir();
-	            //std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done clearing reservoir." << std::endl;
-	            setAlive(true);
+	            if (performSelection()){
 
+
+					/**std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing selection."
+							<< " Performing variation. . ."
+							<< std::endl;*/
+					performVariation();
+					//std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done performing variation. Clearing reservoir. . ." << std::endl;
+					clearReservoir();
+					//std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done clearing reservoir." << std::endl;
+					setAlive(true);
+	        	}
+	            else{
+	            	setAlive(false);
+	            }
 	            osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 				Xinit_ = currPos.x();
 				Yinit_ = currPos.y();
@@ -740,9 +785,9 @@ namespace robogen{
 	        				<< mapList_.size() << ". Resetting. . ."
 							<< std::endl;*/
 	        		reset();
-	        		/***std::cout << "EMBODIED-LOAD NEW GENOME: Robot ID: " << getId() << ". Done resetting."
-	        				<< " Setting alive to false. . ."
-	        				<< std::endl;*/
+	        		std::cout << "\nRobot ID - " << getId()
+	        				<< ": Received map list empty, will be disabled."
+	        				<< std::endl;
 	        		setAlive(false);
 
 	        		// ie. -1 (infinite,dead) or >0 (temporary,mute)
@@ -790,10 +835,16 @@ namespace robogen{
 	 */
 	void EDQDRobot::updateFitness(){
 		double sum = 0.00;
-		for (auto &rc : resourceCounters_)
+		std::map<int, int>::iterator it = resourceCounters_.begin();
+		for (; it != resourceCounters_.end(); ++it)
 		{
 			// The value of each resource is 100/number-of-pushing-robots
-			sum += 100 * rc.second / rc.first;
+			/**std::cout 		<< "rc.first: "
+					 	 	 << it->first
+							 << " rc.second: "
+							 << it->second
+							 <<std::endl;*/
+			sum += 100 * it->second / it->first;
 		}
 		fitness_ = sum;
 	}
@@ -805,7 +856,7 @@ namespace robogen{
 		return currentCellId_;
 	}
 
-    void EDQDRobot::setWeights(){
+    /**void EDQDRobot::setWeights(){
     	//neuralNetwork_.reset(new NeuralNetwork);
     	::initNetwork(
     				getBrain().get(),
@@ -816,6 +867,6 @@ namespace robogen{
 					&params_[0],
 					&types_[0]
 					);
-    }
+    }*/
 
 }

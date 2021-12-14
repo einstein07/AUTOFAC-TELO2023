@@ -45,7 +45,8 @@ class TargetAreaDetector : public SensorGroup {
 
 public:
 
-	static const float DETECTOR_RANGE;
+	//static const float DETECTOR_RANGE;
+	//static dGeomID RAY_GEOM;
 
 	/**
 	 * Initializes a target area detector

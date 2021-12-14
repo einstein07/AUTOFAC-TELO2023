@@ -11,6 +11,8 @@
 #define ROBOGEN_BOX_RESOURCE_RENDER_MODEL_H_
 
 #include <boost/shared_ptr.hpp>
+
+#include <osg/Node>
 #include <osg/PositionAttitudeTransform>
 
 namespace robogen {
@@ -25,11 +27,36 @@ public:
 
 	virtual ~BoxResourceRender();
 
+	bool initRenderModel();
+
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
+
+	void showDebugView();
+
+	void attachAxis(osg::Transform* transform);
+
+	bool isDebugActive();
+
+	void setDebugActive(bool debugActive);
+
 
 private:
 
+	/**
+	 * The root Position Attitude Transform defines the relative position of
+	 * the component with respect to the parent component
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> rootNode_;
+
+	/**
+	 * Resource object model
+	 */
+	boost::shared_ptr<BoxResource> resource_;
+
+	/**
+	 * Debug mode
+	 */
+	bool debugActive_;
 
 
 };

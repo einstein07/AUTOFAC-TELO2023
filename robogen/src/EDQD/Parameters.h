@@ -82,7 +82,7 @@ namespace EDQD{
 		 * Defines the number of intervals per dimension of a map
 		 * NB: needs to be set at compile time
 		 */
-		static const int nbOfIntervals = 15;
+		static const int nbOfIntervals = /*15*/2;
 
 		/**
 		 * Used to decide whether to discard or keep an elite in the map
@@ -123,6 +123,12 @@ namespace EDQD{
 		 * Keep maps for only one generation
 		 */
 		static bool onlyKeepMapsForGeneration;
+
+		/**
+		 * Maximum time a robot can stay attached to a resource before eventually
+		 * getting forced to drop it off for other robots to pick it up.
+		 */
+		static int maxTimeResourceBound;
 
 		// =========================================================================================
 		// Constructors

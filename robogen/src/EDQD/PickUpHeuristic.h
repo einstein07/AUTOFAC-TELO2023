@@ -16,18 +16,20 @@
 #include "model/sensors/IrSensor.h"
 #include "model/sensors/ColorSensor.h"
 #include "model/sensors/TargetAreaDetector.h"
-
+#include "EDQD/PickUpPositioningHeuristic.h"
 namespace robogen{
 //class EDQDRobot;
 class PickUpHeuristic : public Heuristic {
 	public:
-		PickUpHeuristic(boost::shared_ptr<Robot> robot, osg::Vec2d targetAreaPosition);
+		PickUpHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~PickUpHeuristic();
-		virtual osg::Vec2d step(boost::shared_ptr<Environment>& env, boost::shared_ptr<Scenario> scenario);
+		virtual osg::Vec2d step();
 
 	private:
-		osg::Vec2d targetAreaPosition_;
+		boost::shared_ptr<Environment> env;
+		osg::Vec3d targetAreaPosition_;
 		bool ENABLE_PICKUP_POSITIONING = false;
+		boost::shared_ptr<PickUpPositioningHeuristic> heuristicpp_;
 };
 }
 

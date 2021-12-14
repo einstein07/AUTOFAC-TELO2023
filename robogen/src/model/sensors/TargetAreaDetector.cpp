@@ -16,7 +16,8 @@
 
 namespace robogen {
 
-const float TargetAreaDetector::DETECTOR_RANGE = 0.255;
+//const float TargetAreaDetector::DETECTOR_RANGE = /**0.255*/1;
+//dGeomID TargetAreaDetector::RAY_GEOM = 0;
 
 TargetAreaDetector::TargetAreaDetector(dSpaceID odeSpace,
 		std::vector<boost::shared_ptr<SimpleBody> > sensorBodies,
@@ -30,6 +31,11 @@ TargetAreaDetector::TargetAreaDetector(dSpaceID odeSpace,
 	raySpace_ = dHashSpaceCreate(0);
 	// set space sublevel
 	dSpaceSetSublevel (raySpace_, 2);
+
+	//Distance to detected object
+	/**sensors_.push_back(
+			boost::shared_ptr<Sensor>(new IrSensorElement(baseLabel,
+					IrSensorElement::IR)));*/
 
 	//Sense if the detected object is the target area
 		sensors_.push_back(
@@ -84,13 +90,27 @@ void TargetAreaDetector::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 					contact.geom.pos[1],
 					contact.geom.pos[2]);
 			r->isColliding = true;
-			//std::cout << "Getting pointer to geom data" << std::endl;
-			r->objData = (ObjectData*)dGeomGetData(o1);
-			if(r->objData == NULL){
-				//std::cout << "**Geom o1** is not either one of the objects of interest." << std::endl;
-				//std::cout << "**Geom o2** is an object of interest." << std::endl;
-				r->objData = (ObjectData*)dGeomGetData(o2);
-			}
+			//std::cout << "Getting pointer to geom data. . ." << std::endl;
+
+			//if ( o1 != RAY_GEOM){
+				r->objData = (ObjectData*)dGeomGetData(o1);
+				if(r->objData == NULL){
+					/**std::cout 	<< "**Geom o1** "
+								<<  o1
+								<< " is not either one of the objects of interest." << std::endl;
+				}*/
+			//}
+			//if ( o2 != RAY_GEOM){
+					r->objData = (ObjectData*)dGeomGetData(o2);
+				/**if (r->objData == NULL){
+					std::cout 	<< "**Geom o2** "
+								<< o2
+								<< " is ALSO NOT an object of interest."
+								<< std::endl;*/
+				}
+			//}
+
+
 		}
 
 	}
@@ -104,7 +124,11 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 	osg::Vec3 rayVector = attitude_ *  osg::Vec3(1,0,0);
 
 	// create ray
-	dGeomID ray = dCreateRay(raySpace_, DETECTOR_RANGE);
+	dGeomID ray = dCreateRay(raySpace_, /**DETECTOR_RANGE*/0.255);
+	/*TargetAreaDetector::RAY_GEOM = dCreateRay(raySpace_, DETECTOR_RANGE);
+	std::cout 	<< "RAY GEOM -ID "
+				<< RAY_GEOM
+				<<std::endl;*/
 	// position ray
 	dGeomRaySet(ray, position_.x(), position_.y(), position_.z(),
 			rayVector.x(), rayVector.y(), rayVector.z());
@@ -124,18 +148,27 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 
 	float value = 0.0;
 
+	//std::cout << "Target area-UPATE. isColliding: " << data.isColliding << std::endl;
+
+	//float distance = /**SENSOR_RANGE*/ 0.0;
 	// ray should be capped at SENSOR_RANGE, but just to make sure we don't
 	// allow bigger values here
-	if( data.isColliding &&
-			((data.collisionPoint - position_).length() < DETECTOR_RANGE) &&
-				(data.objData != NULL)) {
+	/**if(data.isColliding &&
+			(data.collisionPoint - position_).length() < DETECTOR_RANGE) {
+		distance = (data.collisionPoint - position_).length();
 
-		if (data.objData->isTargetArea){
+		//std::cout << "pos: " << position_.x() << " " << position_.y() <<  " " << position_.z() << std::endl;
+		//std::cout << "ray: " << rayVector.x() << " " << rayVector.y() <<  " " << rayVector.z() << std::endl;
+		std::cout << "Distance to object: " << distance << std::endl;
+
+	}*/
+
+	if (data.isColliding && data.objData != NULL ){
+		//std::cout << "Data not null" << std::endl;
+		if ( data.objData->isTargetArea ){
 			value = 1.0;
+			//std::cout << "TARGET AREA" << std::endl;
 		}
-		std::cout << "Target area-pos: " << position_.x() << " " << position_.y() <<  " " << position_.z() << std::endl;
-		std::cout << "Target area-ray: " << rayVector.x() << " " << rayVector.y() <<  " " << rayVector.z() << std::endl;
-		std::cout << "Target area-collision: " << data.collisionPoint.x() << " " << data.collisionPoint.y() <<  " " << data.collisionPoint.z() << std::endl;
 
 	}
 

@@ -7,96 +7,7 @@
  */
 #include "model/objects/BoxResource.h"
 #include "utils/RobogenUtils.h"
-
 namespace robogen {
-    class AnchorPoint{
-
-        public:
-
-            /**
-             * Initializes an anchor point
-             * @param position position local to the resource 
-             */
-            AnchorPoint(dBodyID bodyId, osg::Vec3 localPosition, 
-                    BoxResource::Face face): box_(bodyId), localPosition_(localPosition),
-                        face_(face), taken_(false){
-            }
-            AnchorPoint(){}
-            /**
-             * Mark this point as taken
-             */
-            void markTaken() {
-                if (!taken_)
-                    taken_ = true;
-                else
-                    std::cerr<<"Attachment point is already taken!"<<std::endl;
-
-            }
-
-            /**
-             * Destructor
-             */
-            ~AnchorPoint(){}
-
-            /**
-             * @return the local position
-             */
-            const osg::Vec3 getLocalPosition() {
-                return localPosition_;
-            }
-
-            /**
-             * @return the global position
-             */
-            osg::Vec3 getPosition() {
-                dVector3 result;
-                dBodyGetRelPointPos (
-                                box_, 
-                                localPosition_.x(), 
-                                localPosition_.y(), 
-                                localPosition_.z(), 
-                                result
-                            );
-
-                return osg::Vec3(result[0], result[1], result[2]);
-            }
-
-            /**
-             * @return the box face
-             */
-            const BoxResource::Face getFace() {
-                return face_;
-            }
-
-            /**
-             * @return whether this point is taken - true - or not - false.
-             */
-            const bool isTaken() {
-                return taken_;
-            }
-
-        private:
-
-            /**
-            * The box
-            */
-           dBodyID box_;
-            /**
-             * Local position
-             */
-            osg::Vec3 localPosition_;
-
-            /**
-             * Status of the anchor point
-             */
-            bool taken_;
-
-            /**
-             * Which face of the cube
-             */
-            BoxResource::Face face_;
-
-};
 
 BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size, float density, 
@@ -107,7 +18,7 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
 
     // since resource is not fixed, create body
     box_ = dBodyCreate(odeWorld);
-    dMass massOde;
+
     dMassSetBox(&massOde, density, size.x(), size.y(), size.z());
     dBodySetMass(box_, &massOde);
     boxGeom_ = dCreateBox(odeSpace, size.x(), size.y(), size.z());
@@ -120,7 +31,7 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     
     jointGroup_ = dJointGroupCreate(0);
     value_ = 100 / pushingRobots_;
-
+    id = resourceId;
     data_.objectId = resourceId;
     resourceId++;
     data_.isResource = true;
@@ -141,13 +52,13 @@ BoxResource::~BoxResource() {
 bool BoxResource::initAnchorPoints(){
     float halfWidth = (float) size_.x() / 2;
     float halfLength = (float) size_.y() / 2;
-    float halfHeight = (float) size_.z() / 2;
+    float height = 0.0f;
     float widthSpacing = (float) size_.x() / pushingRobots_;
     float lengthSpacing = (float) size_.y() / pushingRobots_;
     
     for (unsigned int i = 0; i < pushingRobots_; ++i){
         float x, y, z;
-        if (stickyFace_ == Face::FRONT){
+        /**if (stickyFace_ == Face::FRONT){
             x = halfWidth;
             y = -halfLength + lengthSpacing * (i + 0.5);
         }else if (stickyFace_ == Face::BACK){
@@ -158,11 +69,23 @@ bool BoxResource::initAnchorPoints(){
             y = -halfLength;
         }else if (stickyFace_ == Face::RIGHT){ //Right face
             x = -halfWidth + widthSpacing * (i + 0.5);
-            y = halfLength;
+            y = halfLength;*/
+        if (stickyFace_ == Face::LEFT) {
+			x = -halfWidth;
+			y = -halfLength + lengthSpacing * (i + 0.5f);
+		} else if (stickyFace_ == Face::RIGHT) {
+			x = halfWidth;
+			y = -halfLength + lengthSpacing * (i + 0.5f);
+		} else if (stickyFace_ == Face::BACK) {
+			x = -halfWidth + widthSpacing * (i + 0.5f);
+			y = halfLength;
+		} else if (stickyFace_ == Face::FRONT) {
+			x = -halfWidth + widthSpacing * (i + 0.5f);
+			y = -halfLength;
         }else{
             return false;
         }
-        z = halfHeight;
+        z = height;
         anchorPoints_.push_back(
                boost::shared_ptr<AnchorPoint>(new AnchorPoint
                        (
@@ -185,7 +108,7 @@ void BoxResource::remove() {
         dBodyDestroy(box_);
 }
 
-const BoxResource::Face BoxResource::getStickyFace(){
+const /**BoxResource::*/Face BoxResource::getStickyFace(){
     return stickyFace_;
 }
 const osg::Vec3 BoxResource::getPosition() {
@@ -230,28 +153,31 @@ void BoxResource::setCollected(bool isCollected){
     if (isCollected_ == isCollected) {
         return;
     }
-    /* 
-     * Sticky side could be unset if resource "bumped" into target area without 
-     * robots creating joints with it
-    */
-    if (isCollected && stickyFace_ != Face::NONE) {
-        
-        std::map<boost::shared_ptr<Robot>, dJointID>::iterator it = joints_.begin();
-        for (; it != joints_.end(); ++it){
-            it->first->setBoundToResource(false);
-        }
-        // Break all the joints
-        dJointGroupEmpty(jointGroup_);
-        joints_.clear();
-
-        // Reset the anchor points
-        anchorPoints_.clear();
-
-        // Reset the sticky side
-        stickyFace_ = Face::NONE;
-    }
+    dropOff();
 
     isCollected_ = isCollected;
+}
+void BoxResource::dropOff(){
+	/*
+	 * Sticky side could be unset if resource "bumped" into target area without
+	 * robots creating joints with it
+	*/
+	if (stickyFace_ != Face::NONE) {
+
+		std::map<boost::shared_ptr<Robot>, dJointID>::iterator it = joints_.begin();
+		for (; it != joints_.end(); ++it){
+			it->first->setBoundToResource(false);
+		}
+		// Break all the joints
+		dJointGroupEmpty(jointGroup_);
+		joints_.clear();
+
+		// Reset the anchor points
+		anchorPoints_.clear();
+
+		// Reset the sticky side
+		stickyFace_ = Face::NONE;
+	}
 }
 int BoxResource::getNumberPushingRobots(){
     return joints_.size();  
@@ -277,11 +203,21 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     if(joints_.count(robot) != 0){
         return false;
     }
-    osg::Vec3 robotPosition = robot->getCoreComponent()->getRootPosition();
-    osg::Vec3 robotPositionLocal = getLocalPoint(robotPosition); 
+
+    osg::Vec3 robotPositionLocal = getLocalPoint(robot->getCoreComponent()->getRootPosition());
    
     /** Check the face that the robot is attempting to attach to,only permit
      * the robot to attach to the sticky face
+     */
+    /********************
+     * Want to make sure the sticky face is re-determined everytime a robot comes into close proximity
+     * to the resource, but this can only work for instances where there won't be cooperation needed
+     */
+    if (getNumberPushingRobots() == 0){
+    	stickyFace_ = Face::NONE;
+    }
+    /************************
+     *
      */
     Face attachFace = getFaceClosestToPointLocal(robotPositionLocal);
     if (stickyFace_ != Face::NONE && stickyFace_ != attachFace) {
@@ -293,17 +229,90 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
         return false; // Should not happen but apparently can...
     }
 
-    //std::cout << "Anchor point: ("<< anchor.x() << ", "<< anchor.y() << ", " << anchor.z() << std::endl;
-    if (createBallJoint(robot, anchorPoints_[closestAnchorIndex]->getPosition())){
-        // Mark the anchor as taken and the robot as bound to a resource.
-        anchorPoints_[closestAnchorIndex]->markTaken();
-        robot->setBoundToResource(true);
+    boost::shared_ptr<AnchorPoint> anchor = anchorPoints_[closestAnchorIndex];
+    osg::Vec3d anchorPoint = anchor->getPosition();
+    double deltaX = 0.08;
+    double deltaY = 0.08;
+    /**std::cout 	<< "Robot ID - "
+				<< robot -> getId()
+				<< ": Box position: ( "
+    			<< getPosition().x()
+				<< ", "<< getPosition().y()
+				<< ", " << getPosition().z()
+				<< " )"
+				<< std::endl;
+	std::cout 	<< "Robot ID - "
+				<< robot -> getId()
+				<< ": Anchor point: ( "
+				<< anchorPoint.x()
+				<< ", "<< anchorPoint.y()
+				<< ", " << anchorPoint.z()
+				<< " )"
+				<< std::endl;
+	std::cout 	<< "Robot ID - "
+				<< robot -> getId()
+				<< ": Robot position: ( "
+				<< robot->getCoreComponent()->getRootPosition().x()
+				<< ", "<< robot->getCoreComponent()->getRootPosition().y()
+				<< ", " << robot->getCoreComponent()->getRootPosition().z()
+				<< " )"
+				<< std::endl;*/
+    if ( (abs( anchorPoint.x() - robot->getCoreComponent()->getSlotPosition(2).x() ) < deltaX)
+    		&& (abs( anchorPoint.y() - robot->getCoreComponent()->getSlotPosition(2).y() ) < deltaY) ){
 
-        return true;
+
+
+    	if (createBallJoint(robot, anchorPoints_[closestAnchorIndex]->getPosition())){
+			// Mark the anchor as taken and the robot as bound to a resource.
+			anchorPoints_[closestAnchorIndex]->markTaken();
+			robot->setBoundToResource(true);
+
+			dVector3 result;
+
+			const dReal* pos = dBodyGetPosition(box_);
+
+			dBodyGetPosRelPoint (
+										robot -> getCoreComponent() -> getRoot() -> getBody(),
+										pos[0],
+										pos[1],
+										pos[2],
+										result
+									);
+
+			osg::Vec3d robotLocalPos = getLocalPoint(robot->getCoreComponent()->getRootPosition());
+			/**std::cout 	<< "Resource position: ("
+						<< pos[0] << ", " << pos[1] << ", " << pos[2]
+						<< "). Robot ID - "
+						<< robot -> getId()
+						<< " position relative to box resource: ("
+						<< robotLocalPos.x() << ", " << robotLocalPos.y() << ", " << robotLocalPos.z() << ")."
+						<< " Robot position : "
+						<< robot->getCoreComponent()->getRootPosition().x() << ", " << robot->getCoreComponent()->getRootPosition().y() << ", " << robot->getCoreComponent()->getRootPosition().z() << ")"
+						<< " Box position relative to robot: ("
+						<< result[0] << ", " << result[1] << ", " << result[2] << ")"
+						<< std::endl;*/
+
+			return true;
+		}
+		else{
+			/*std::cout 	<< "Robot ID - "
+						<< robot -> getId()
+						<< ": could not attach to resource."
+						<< std::endl;*/
+			return false;
+		}
     }
     else{
+    	/**std::cout 	<< "robot-anchor point X difference "
+    					<< abs( anchorPoint.x() - robot->getCoreComponent()->getRootPosition().x() )
+    					<< " robot-anchor point Y difference "
+    					<< abs( anchorPoint.y() - robot->getCoreComponent()->getRootPosition().y() )
+    					<< std::endl;*/
     	return false;
     }
+
+
+
 
 
     
@@ -319,34 +328,51 @@ osg::Vec3 BoxResource::getLocalPoint(osg::Vec3 globalPoint){
                     );
     return osg::Vec3(localPoint[0], localPoint[1], localPoint[2]);
 }
+osg::Vec3 BoxResource::getLocalPointToOut(osg::Vec3d localPoint){
 
-BoxResource::Face BoxResource::getFaceClosestToPointLocal(osg::Vec3 localPoint){
+	dVector3 result;
+	dBodyGetRelPointPos (
+					box_,
+					localPoint.x(),
+					localPoint.y(),
+					localPoint.z(),
+					result
+				);
+
+	return osg::Vec3(result[0], result[1], result[2]);
+
+}
+/*BoxResource::*/Face BoxResource::getFaceClosestToPoint(osg::Vec3 point){
+	return getFaceClosestToPointLocal(getLocalPoint(point));
+}
+
+/**BoxResource::*/Face BoxResource::getFaceClosestToPointLocal(osg::Vec3 localPoint){
     float halfWidth = (float) size_.x() / 2;
     float halfLength = (float) size_.y() / 2;
-    BoxResource::Face face;
+    /**BoxResource::*/Face face;
     if (localPoint.y() > -halfLength && localPoint.y() < halfLength){
         if (localPoint.x() > 0){
-            face = Face::FRONT;
+            face = /**Face::FRONT*/ Face::RIGHT;
         }else{
-            face = Face::BACK;
+            face = /**Face::BACK*/ Face::LEFT;
         }
     }else if (localPoint.x() > -halfWidth && localPoint.x() < halfWidth){
         if(localPoint.y() > 0){
-            face = Face::RIGHT;
+            face = /**Face::RIGHT*/ Face::BACK;
         }else{
-            face = Face::LEFT;
+            face = /**Face::LEFT*/ Face::FRONT;
         }
     }else if (std::abs(localPoint.x()) - halfWidth > std::abs(localPoint.y()) - halfLength){
         if (localPoint.x() > 0) {
-            face = Face::FRONT;
+            face = /**Face::FRONT*/ Face::RIGHT;
         } else {
-            face = Face::BACK;
+            face = /**Face::BACK*/ Face::LEFT;
         }
     } else {
         if (localPoint.y() > 0) {
-            face = Face::RIGHT;
+            face = /**Face::RIGHT*/ Face::BACK;
         } else {
-            face = Face::LEFT;
+            face = /**Face::LEFT*/ Face::FRONT;
         }
     }
     return face;
@@ -389,18 +415,35 @@ bool BoxResource::getClosestAnchorPointLocal(osg::Vec3 localPoint, int& index) {
 bool BoxResource::getClosestAnchorPoint(osg::Vec3 position, int& index){
     return getClosestAnchorPointLocal(getLocalPoint(position), index);
 }
+boost::shared_ptr<AnchorPoint> BoxResource::getClosestAnchorPoint(osg::Vec3 position){
+	int index = -1000;
+	if (getClosestAnchorPoint(position, index)){
+		return anchorPoints_[index];
+	}
+	else{
+		return NULL;
+	}
+}
 
 bool BoxResource::createBallJoint(boost::shared_ptr<Robot> robot, osg::Vec3 anchorPoint){
-	std::cout << "Inside create ball joint" << std::endl;
-	boost::shared_ptr<Model> robotBody = robot -> getBodyPart("S8");
-	osg::Vec3d bodypos = robotBody->getRootPosition();
+	//std::cout << "Inside create ball joint" << std::endl;
+	boost::shared_ptr<Model> robotBody = robot -> getBodyPart("Core");
+	/**std::cout  	<< "The ID of the returned body: "
+				<< robotBody->getId()
+				<< std:: endl;*/
+	//osg::Vec3d bodypos = robotBody->getRootPosition();
 
 	// Check robot is not unreasonably far away
-	if (distance(bodypos, anchorPoint) > 0.17) {
+	/**if (distance(robotBody->getRootPosition(), anchorPoint) > 0.17) {
 
-		std::cout << "Distance to object: "<< distance(bodypos, anchorPoint) << "Far to attach" << std::endl;
+		std::cout << "Distance to object: "<< distance(robotBody->getRootPosition(), anchorPoint) << " Far to attach" << std::endl;
 		return false;
 	}
+	else{
+		std::cout 	<< "Can attach to resource, distance less than 0.17: "
+					<< distance(robotBody->getRootPosition(), anchorPoint)
+					<< std::endl;
+	}*/
 
 
 	/**dJointID joint = dJointCreateBall (odeWorld_, jointGroup_);*/

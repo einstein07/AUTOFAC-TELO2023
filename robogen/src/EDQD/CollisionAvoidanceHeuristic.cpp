@@ -12,15 +12,16 @@
 #include <math.h>
 namespace robogen{
 
-	CollisionAvoidanceHeuristic::CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot):Heuristic(robot){
+	CollisionAvoidanceHeuristic::CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario):
+			Heuristic(robot, scenario){
 		setPriority(2);
 	}
 
 	CollisionAvoidanceHeuristic::~CollisionAvoidanceHeuristic(){}
 
-	osg::Vec2d CollisionAvoidanceHeuristic::step(boost::shared_ptr<Environment>& env, boost::shared_ptr<Scenario> scenario){
+	osg::Vec2d CollisionAvoidanceHeuristic::step(){
 		osg::Vec3d pos = osg::Vec3d(-10000, -10000, -10000);
-		double minDistance = 0.3;
+		double minDistance = 0.8;
 		for( unsigned int i = 0 ; i < robot_->getSensors().size(); ++i ){
 			ColorSensorElement::Type colorType;
 			double distance = 0;
@@ -61,11 +62,11 @@ namespace robogen{
 
 								int targetIndex = boost::dynamic_pointer_cast<ColorSensorElement>(robot_->getSensors()[i+1])
 																				->getObjectId();
-								pos = scenario->getRobot(targetIndex)->getCoreComponent()->getRootPosition();
-								/**std::cout << "Robot ID: "
+								pos = scenario_->getRobot(targetIndex)->getCoreComponent()->getRootPosition();
+								/**std::cout << "Robot ID - "
 										<< targetIndex
-										<< ". Current position: " <<pos.x() << ", " << pos.y() <<std::endl;*/
-								float randomValue = float(randint()%100) / 100.0; // in [0,1]
+										<< ": Current position: " <<pos.x() << ", " << pos.y() <<std::endl;*/
+								/**float randomValue = float(randint()%100) / 100.0; // in [0,1]
 								pos = osg::Vec3d(
 												 pos.x() * -(1+randomValue),
 												 pos.y() * -(1+randomValue),
@@ -73,16 +74,23 @@ namespace robogen{
 												);
 
 								if(signbit(pos.x()))
-									pos.x() = pos.x() - (2 * distance);
+									pos.x() = pos.x() - (10 * distance);
 								else
-									pos.x() = pos.x() + (2 * distance);
+									pos.x() = pos.x() + (10 * distance);
 								if(signbit(pos.y()))
-									pos.y() = pos.y() - (2 * distance);
+									pos.y() = pos.y() - (10 * distance);
 								else
-									pos.y() = pos.y() + (2 * distance);
-								/**std::cout << "Robot ID: "
+									pos.y() = pos.y() + (10 * distance);*/
+
+								osg::Vec3d localPos = getLocalPoint(pos);
+								pos = getGlobalPoint(osg::Vec3d(-10 * localPos.x(), -10 * localPos.y(), -10 * localPos.z()));
+								/**std::cout << "Robot ID - "
 											<< robot_-> getId()
-											<< ". Drive to position to avoid colliding: " <<pos.x() << ", " << pos.y() <<std::endl;*/
+											<< ": Current position: ("
+											<< robot_ -> getCoreComponent()->getRootPosition().x() << ", " << robot_ -> getCoreComponent()->getRootPosition().y() << ")"
+											<< " Drive to position to avoid colliding: (" <<pos.x() << ", " << pos.y() <<")"
+											<< "Distance to detected robot: " << distance
+											<<std::endl;*/
 								minDistance = distance;
 							}
 						}
@@ -113,6 +121,17 @@ namespace robogen{
 						}
 
 					}
+				}
+			}
+			else if (boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])) {
+
+				if ( boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])->
+										read()){
+						osg::Vec3d area = scenario_ -> getEnvironment() -> getGatheringZone() -> getPosition();
+						if ( !robot_->isBoundToResource() ){
+							return Heuristic::driveToTargetPosition(osg::Vec2d(-area.x(), -area.y()));
+						}
+
 				}
 			}
 		}

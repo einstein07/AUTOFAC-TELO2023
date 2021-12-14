@@ -78,7 +78,11 @@ class GatheringZone : public PositionObservable {
          */
         bool addResource(boost::shared_ptr<BoxResource> resource);
         
-    private:
+	private:
+		/**
+		 * Area space to ensure this object can be detected by sensors
+		 */
+        //dSpaceID areaSpace_;
 
         /**
          * The box

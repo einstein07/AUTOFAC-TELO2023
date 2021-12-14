@@ -10,7 +10,8 @@
 #include "Heuristic.h"
 
 namespace robogen{
-	Heuristic::Heuristic(boost::shared_ptr<Robot> robot): robot_(robot), priority_(0){}
+	Heuristic::Heuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario):
+			robot_(robot), scenario_(scenario), priority_(0){}
 	Heuristic::~Heuristic(){}
 
 	/**
@@ -51,7 +52,7 @@ namespace robogen{
 		//std::cout << "Robot calculated local position: (" << robbotCalcLocalPos.x() << ", " << robbotCalcLocalPos.y() << ", " << robbotCalcLocalPos.z() <<")." << std::endl;
 		//std::cout << "Robot retrieved local position: (" << retrievedLocalPos.x() << ", " << retrievedLocalPos.y() << ", " << retrievedLocalPos.z() <<")." << std::endl;*/
 		//std::cout << "Target area in global coordinates: (" << targetPosition.x() << ", " << targetPosition.y() << ")" << std::endl;
-		//std::cout << "Target area in local coordinates: (" << calcLocalPos.x() << ", " << calcLocalPos.y() << ")" << std::endl;
+		///std::cout << "Target area in local coordinates: (" << calcLocalPos.x() << ", " << calcLocalPos.y() << ")" << std::endl;
 		//std::cout << "Angle to target area: " << targetAngle * 180 / M_PI << " degrees" << std::endl;
 		if(std::abs(targetAngle) > M_PI){
 			if(signbit(targetAngle))
@@ -76,7 +77,7 @@ namespace robogen{
 		} else {
 			if (targetAngle < -Heuristic::HALF_PI) {
 				// Third
-				left = 1;//-1;
+				left = -1;
 				right = -(targetAngle + Heuristic::HALF_PI) / Heuristic::HALF_PI;
 				//std::cout << "Third quadrant. Left: " << left << ", Right: " << right << std::endl;
 			} else {
@@ -102,6 +103,27 @@ namespace robogen{
 	                        localPoint
 	                    );
 	    return osg::Vec3(localPoint[0], localPoint[1], localPoint[2]);
+	}
+	osg::Vec3d Heuristic::getGlobalPoint(osg::Vec3d localPoint){
+		dVector3 result;
+		dBodyID dRobotID = robot_->getCoreComponent()->getRoot()->getBody();
+		dBodyGetRelPointPos (
+				dRobotID,
+						localPoint.x(),
+						localPoint.y(),
+						localPoint.z(),
+						result
+					);
+
+		return osg::Vec3d(result[0], result[1], result[2]);
+
+	}
+
+	double Heuristic::distance (osg::Vec3d a, osg::Vec3d b){
+		double distance = sqrt(pow(a.x() - b.x(), 2)
+							+ pow(a.y() - b.y(), 2)
+							+ pow(a.z() - b.z(), 2));
+		return distance;
 	}
 }
 

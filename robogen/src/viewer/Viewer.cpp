@@ -327,6 +327,13 @@ bool Viewer::configureScene(std::vector<std::vector<boost::shared_ptr<Model> > >
 		}
 		boost::shared_ptr<BoxResourceRender> resourceRender(
 				new BoxResourceRender(boxResource));
+		resourceRender->setDebugActive(this->debugActive);
+		if (!resourceRender->initRenderModel()) {
+				std::cout
+				<< "Cannot initialize a render model for one of the resources. "
+				<< std::endl;
+				return false;
+		}
 		this->root->addChild(resourceRender->getRootNode());
 	}
 

@@ -11,18 +11,23 @@ namespace robogen {
 
 GatheringZone::GatheringZone(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size) : size_(size) {
+	/**areaSpace_ = dHashSpaceCreate(odeSpace);
+	dSpaceSetSublevel (areaSpace_, 2);*/
     // make body 0
     box_ = 0;
     boxGeom_ = dCreateBox(odeSpace, size.x(), size.y(), size.z());
     dGeomSetBody(boxGeom_, box_);
     dGeomSetPosition(boxGeom_, pos.x(), pos.y(), pos.z());
 
-    data_.objectId = 1/**areaId*/; //TODO: set this to be more flexible
-	/**areaId++;*/
-	data_.isResource = false;
+    data_.objectId = 0;// Placeholder id - TODO: will we require a unique ide in future
 	data_.isRobot = false;
+	data_.isResource = false;
 	data_.isTargetArea = true;
+	data_.isWall = false;
 	dGeomSetData (boxGeom_, (void*)&data_);
+	/**std::cout 	<< "Gathering zone geom id: "
+				<< boxGeom_
+				<< std::endl;*/
 }
 
 GatheringZone::~GatheringZone() {

@@ -21,9 +21,9 @@ namespace robogen{
 //class EDQDRobot;
 class CollisionAvoidanceHeuristic : public Heuristic{
 	public:
-		CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot);
+		CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~CollisionAvoidanceHeuristic();
-		virtual osg::Vec2d step(boost::shared_ptr<Environment>& env, boost::shared_ptr<Scenario> scenario);
+		virtual osg::Vec2d step();
 };
 }
 

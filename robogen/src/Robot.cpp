@@ -185,6 +185,7 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 		//std::cout << "Robot ID: "<< getId() << std::endl;
 		data_.objectId = getId();
 		data_.isRobot = true;
+		data_.isWall = false;
 		data_.isResource = false;
 		data_.isTargetArea = false;
 
@@ -1008,18 +1009,18 @@ void Robot::getAABB(double& minX, double& maxX, double& minY, double& maxY,
 
 boost::shared_ptr<Model> Robot::getBodyPart(std::string id) {
 
-	std::cout << "***GET BODY PART***" <<std::endl;
+	//std::cout << "***GET BODY PART***" <<std::endl;
 	std::map<std::string, unsigned int>::iterator bodyPartId =
 			bodyPartsMap_.find(id);
 
-	if (bodyPartId == bodyPartsMap_.end()) {
+	/**if (bodyPartId == bodyPartsMap_.end()) {
 		std::cout << "ID not found!!!" << std::endl;
 		//std::cout << "Will return: "<< bodyPartId->first << " with index: " << bodyPartId->second << " in the bodyparts vector."<<std::endl;
 	}
 	else{
 		std::cout << "ID found!!!" << std::endl;
 		std::cout << "Will return: "<< bodyPartId->first << " with index: " << bodyPartId->second << " in the bodyparts vector."<<std::endl;
-	}
+	}*/
 
 	return bodyParts_[bodyPartsMap_[id]];
 }
