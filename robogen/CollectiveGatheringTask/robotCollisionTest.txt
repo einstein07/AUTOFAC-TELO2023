@@ -19,6 +19,7 @@
 			1 PassiveWheel Wheel3 0 0.04
 			2 PassiveWheel Wheel4 0 0.04
 	4 TargetAreaDetector S9 0
+	5 ParametricJoint J6 0 0.04 0 0
 
 
 

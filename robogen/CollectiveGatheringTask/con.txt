@@ -11,12 +11,12 @@ startPositionConfigFile=configStart.txt
 # Obstacles config file
 obstaclesConfigFile=conWall.txt
 #Resources config file
-#resourcesConfigFile=conSimpleEnv0_1.txt
+resourcesConfigFile=box.txt
 sensorNoiseLevel=0.0
 motorNoiseLevel=0.0
 capAcceleration=false
 mode=embodied
-swarmSize=5
+swarmSize=10
 #Gathering zone coordinates. The specified position will be the position of the center of the gathering zone.
 gatheringZonePosition=0,-4.25,0.00001
 #Gathering zone size.
