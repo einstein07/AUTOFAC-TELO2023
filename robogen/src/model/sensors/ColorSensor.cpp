@@ -239,14 +239,26 @@ void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, b
 		//--------------------------------------------------------
 		double size = 0.0;
 
-		boost::shared_ptr<BoxResource> resource = env->getResources()[data.objData->objectId];
-		int numRobotsAttached = resource->getNumberPushingRobots() + 1; //plus this robot
-		int numRobotsRequired = resource->getSize();
-		//std::cout << "Number of robots attached to this resource: " << resource->getNumberPushingRobots() << std::endl;
-		//std::cout << "Number of robots required to push this resource: " << resource->getSize() << std::endl;
-		if ((numRobotsAttached < numRobotsRequired) || (numRobotsAttached == numRobotsRequired)){
-			//std::cout << "WITHIN" << std::endl;
-			size = ((double)numRobotsAttached / (double)numRobotsRequired);
+		int objectId = data.objData->objectId;
+		if ( objectId < 0 || objectId >= env->getResources().size() ){
+			std::cout << "[COLOR SENSOR] - Box resource with object id: ** " << objectId << " could **NOT** be retrieved by robot: " << std::endl;
+
+		}
+		else{
+			boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
+			// Should not happen
+			if (resource != NULL){
+				int numRobotsAttached = resource->getNumberPushingRobots() + 1; //plus this robot
+				int numRobotsRequired = resource->getSize();
+				//std::cout << "Number of robots attached to this resource: " << resource->getNumberPushingRobots() << std::endl;
+				//std::cout << "Number of robots required to push this resource: " << resource->getSize() << std::endl;
+				if ((numRobotsAttached < numRobotsRequired) || (numRobotsAttached == numRobotsRequired)){
+					//std::cout << "WITHIN" << std::endl;
+					assert(numRobotsRequired != 0);
+					size = ((double)numRobotsAttached / (double)numRobotsRequired);
+				}
+			}
+
 		}
 
 		//--------------------------------------------------------
