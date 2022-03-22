@@ -398,12 +398,14 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	resourcesRemoved_ = false;
 
 	overlapMaxZ = 0;//minZ;
+	std::cout << "Total number of resources from config file: " << resourceCoordinates.size() << std::endl;
 	for (unsigned int i = 0; i < resourceCoordinates.size(); ++i) {
 		boost::shared_ptr<BoxResource> resource(
                                                 new BoxResource(
                                                             odeWorld, 
+                                                            //perResourceSpace[i],
                                                             odeSpace,
-                                                            resourceCoordinates[i],
+															resourceCoordinates[i],
                                                             resourceSizes[i], 
                                                             densities[i], 
                                                             pushingRobots[i],
@@ -464,6 +466,8 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                     //position to place it at
                     resource->remove();
                     resourcesRemoved_ = true;
+                    std::cout << "Box resource " << i << " removed" << std::endl;
+                    resourceId--;
                     
 		}
 
