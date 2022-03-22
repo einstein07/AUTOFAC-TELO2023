@@ -14,18 +14,18 @@ namespace EDQD{
 	//============================================================================================
 	// Parameters class implementation
 	//============================================================================================
-	double Parameters::sigmaMin = 0.0;
+	double Parameters::sigmaMin = 0.001; // From EDQD-GECCO2018
 	// maximal value of sigma
-	double Parameters::sigmaMax = 0.0;
-	int Parameters::weightRange = 800;
-	double Parameters::pMutation = 0.0;
-	double Parameters::updateSigmaStep = 0.0;
+	double Parameters::sigmaMax = 0.5; // From EDQD-GECCO2018
+	int Parameters::weightRange = 800; // From EDQD-GECCO2018 [-400, +400]
+	double Parameters::pMutation = 0.0; // From EDQD-GECCO2018
+	double Parameters::updateSigmaStep = 0.35; // From EDQD-GECCO2018
 	// reference value of sigma
-	double Parameters::sigmaRef = 0.0;
+	double Parameters::sigmaRef = 0.1; // From EDQD-GECCO2018
 	// how long a controller will be evaluated on a robot
-	unsigned int Parameters::evaluationTime = 20000;
+	unsigned int Parameters::evaluationTime = 5000;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 8004000;
+	unsigned int Parameters::maxIterations = 500000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
@@ -42,7 +42,7 @@ namespace EDQD{
 	int Parameters::notListeningStateDelay = 0;
 	// -1: infinite ; 0: no delay ; >0: delay (ignored if gNotListeningStateDelay=-1)
 	int Parameters::listeningStateDelay = -1;
-	// 0: uniform, 1: gaussian
+	// # 0: uniform, 1: gaussian with evolved sigma, 2: gaussian with fixed sigma
 	int Parameters::mutationOperator = 1;
 
 	// 0.01 is just some random value
