@@ -27,17 +27,8 @@ public:
 
 	virtual ~BoxResourceRender();
 
-	bool initRenderModel();
-
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
-	void showDebugView();
-
-	void attachAxis(osg::Transform* transform);
-
-	bool isDebugActive();
-
-	void setDebugActive(bool debugActive);
 
 
 private:
@@ -47,17 +38,6 @@ private:
 	 * the component with respect to the parent component
 	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> rootNode_;
-
-	/**
-	 * Resource object model
-	 */
-	boost::shared_ptr<BoxResource> resource_;
-
-	/**
-	 * Debug mode
-	 */
-	bool debugActive_;
-
 
 };
 
