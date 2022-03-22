@@ -50,7 +50,6 @@ namespace robogen{
 			if ( dim2 < 0.0 ) { dim2 = 0; }
 			if ( dim2 > EDQD::Parameters::nbOfIntervals - 1 ) { dim2 = (double) EDQD::Parameters::nbOfIntervals - 0.5; }
 		}
-	//	std::cout << _dim1 << " " << _dim2 << " "  << (long int)_dim1 << " " << (long int)_dim2 << std::endl; // DEBUG
 		if (pos) {
 			(*pos)[0] = dim1;
 			(*pos)[1] = dim2;
@@ -68,15 +67,13 @@ namespace robogen{
 	bool EDQDMap::add( int id, EDQDRobot* robot, std::vector<double> genome, float sigma ) {
 
 		std::vector<double>* pos = new std::vector<double>(2);
-		//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << id << " computing index. . ." << std::endl;
 		behav_index_t index = computeIndex(
 										(*robot).getResourceCounters(),
 										(*robot).getMaxTravelled(),
 										(*robot).getPotMaxTravelled(),
 										pos
 										);
-		//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << id << ". Done computing index." << std::endl;
-		//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << id << " checking if there is an occupant at specified index. . ." << std::endl;
+
 		if (map_(index).fitness == -1
 			|| (robot->getFitness() - map_(index).fitness) > EDQD::Parameters::fitEpsilon
 			|| (fabs(robot->getFitness() - map_(index).fitness) <= EDQD::Parameters::fitEpsilon
@@ -95,10 +92,8 @@ namespace robogen{
 			map_(index).pos = (*pos);
 
 			setMapHasEntry(true);
-			//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << id << ". Entry added in computed index." << std::endl;
 			return true;
 		}
-		//std::cout << "EMBODIED-STEP-EVOLUTION: Robot ID: " << id << ". Entry could NOT be added to computed index." << std::endl;
 		return false;
 	}
 
