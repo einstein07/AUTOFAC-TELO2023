@@ -102,18 +102,21 @@ bool BoxResource::initAnchorPoints(){
 
 void BoxResource::remove() {
 	dGeomDestroy(boxGeom_);
+	if (box_ != 0) {
         for(int i=0; i< dBodyGetNumJoints(box_); i++) {
             dJointDestroy(dBodyGetJoint(box_, i));
         }
         dBodyDestroy(box_);
+	}
 }
 
-const /**BoxResource::*/Face BoxResource::getStickyFace(){
-    return stickyFace_;
-}
 const osg::Vec3 BoxResource::getPosition() {
-    const dReal* pos = dBodyGetPosition(box_);
-    return osg::Vec3(pos[0], pos[1], pos[2]);
+	if (box_!= 0) {
+		const dReal* pos = dBodyGetPosition(box_);
+		return osg::Vec3(pos[0], pos[1], pos[2]);
+	}
+	const dReal* pos = dGeomGetPosition(boxGeom_);
+	return osg::Vec3(pos[0], pos[1], pos[2]);
 }
 
 const osg::Quat BoxResource::getAttitude() {
@@ -121,6 +124,10 @@ const osg::Quat BoxResource::getAttitude() {
     dGeomGetQuaternion(boxGeom_, boxQuat);
     return osg::Quat(boxQuat[1], boxQuat[2], boxQuat[3], boxQuat[0]);
 
+}
+
+Face BoxResource::getStickyFace(){
+    return stickyFace_;
 }
 
 const osg::Vec3 BoxResource::getGeomSize() {
@@ -140,13 +147,13 @@ void BoxResource::getAABB(double& minX, double& maxX, double& minY,
 	maxZ = aabb[5];
 }
 
-const int BoxResource::getSize() {
+int BoxResource::getSize() {
     return pushingRobots_;
 }
-const bool BoxResource::isCollected(){
+bool BoxResource::isCollected(){
     return isCollected_;
 }
-const double BoxResource::getValue(){
+double BoxResource::getValue(){
     return value_;
 }
 void BoxResource::setCollected(bool isCollected){
@@ -179,9 +186,11 @@ void BoxResource::dropOff(){
 		stickyFace_ = Face::NONE;
 	}
 }
+
 int BoxResource::getNumberPushingRobots(){
     return joints_.size();  
 }
+
 std::set<boost::shared_ptr<Robot> > BoxResource::getPushingRobots(){
     std::set<boost::shared_ptr<Robot> > pushingRobots;
     std::map<boost::shared_ptr<Robot>, dJointID>::iterator it = joints_.begin();
@@ -190,12 +199,15 @@ std::set<boost::shared_ptr<Robot> > BoxResource::getPushingRobots(){
     }
     return pushingRobots;
 }
+
 bool BoxResource::pushedByMaxRobots(){
     return getNumberPushingRobots() >= pushingRobots_;
 }
+
 bool BoxResource::canBePickedup(){
     return !isCollected_ && !pushedByMaxRobots();
 }
+
 bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     if(!canBePickedup()){
         return false;
@@ -230,93 +242,34 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     }
 
     boost::shared_ptr<AnchorPoint> anchor = anchorPoints_[closestAnchorIndex];
-    osg::Vec3d anchorPoint = anchor->getPosition();
-    double deltaX = 0.08;
-    double deltaY = 0.08;
-    /**std::cout 	<< "Robot ID - "
-				<< robot -> getId()
-				<< ": Box position: ( "
-    			<< getPosition().x()
-				<< ", "<< getPosition().y()
-				<< ", " << getPosition().z()
-				<< " )"
-				<< std::endl;
-	std::cout 	<< "Robot ID - "
-				<< robot -> getId()
-				<< ": Anchor point: ( "
-				<< anchorPoint.x()
-				<< ", "<< anchorPoint.y()
-				<< ", " << anchorPoint.z()
-				<< " )"
-				<< std::endl;
-	std::cout 	<< "Robot ID - "
-				<< robot -> getId()
-				<< ": Robot position: ( "
-				<< robot->getCoreComponent()->getRootPosition().x()
-				<< ", "<< robot->getCoreComponent()->getRootPosition().y()
-				<< ", " << robot->getCoreComponent()->getRootPosition().z()
-				<< " )"
-				<< std::endl;*/
-    if ( (abs( anchorPoint.x() - robot->getCoreComponent()->getSlotPosition(2).x() ) < deltaX)
-    		&& (abs( anchorPoint.y() - robot->getCoreComponent()->getSlotPosition(2).y() ) < deltaY) ){
+    if (anchor != NULL){
+    	osg::Vec3d anchorPoint = anchor->getPosition();
+		double deltaX = 0.08;
+		double deltaY = 0.08;
+		if ( (abs( anchorPoint.x() - robot->getCoreComponent()->getSlotPosition(2).x() ) < deltaX)
+				&& (abs( anchorPoint.y() - robot->getCoreComponent()->getSlotPosition(2).y() ) < deltaY) ){
 
-
-
-    	if (createBallJoint(robot, anchorPoints_[closestAnchorIndex]->getPosition())){
-			// Mark the anchor as taken and the robot as bound to a resource.
-			anchorPoints_[closestAnchorIndex]->markTaken();
-			robot->setBoundToResource(true);
-
-			dVector3 result;
-
-			const dReal* pos = dBodyGetPosition(box_);
-
-			dBodyGetPosRelPoint (
+			if (createBallJoint(robot, anchor -> getPosition())){
+				// Mark the anchor as taken and the robot as bound to a resource.
+				anchor -> markTaken();
+				robot -> setBoundToResource(true);
+				dVector3 result;
+				const dReal* pos = dBodyGetPosition(box_);
+				dBodyGetPosRelPoint (
 										robot -> getCoreComponent() -> getRoot() -> getBody(),
 										pos[0],
 										pos[1],
 										pos[2],
 										result
-									);
-
-			osg::Vec3d robotLocalPos = getLocalPoint(robot->getCoreComponent()->getRootPosition());
-			/**std::cout 	<< "Resource position: ("
-						<< pos[0] << ", " << pos[1] << ", " << pos[2]
-						<< "). Robot ID - "
-						<< robot -> getId()
-						<< " position relative to box resource: ("
-						<< robotLocalPos.x() << ", " << robotLocalPos.y() << ", " << robotLocalPos.z() << ")."
-						<< " Robot position : "
-						<< robot->getCoreComponent()->getRootPosition().x() << ", " << robot->getCoreComponent()->getRootPosition().y() << ", " << robot->getCoreComponent()->getRootPosition().z() << ")"
-						<< " Box position relative to robot: ("
-						<< result[0] << ", " << result[1] << ", " << result[2] << ")"
-						<< std::endl;*/
-
-			return true;
-		}
-		else{
-			/*std::cout 	<< "Robot ID - "
-						<< robot -> getId()
-						<< ": could not attach to resource."
-						<< std::endl;*/
-			return false;
+										);
+				osg::Vec3d robotLocalPos = getLocalPoint( robot -> getCoreComponent() -> getRootPosition() );
+				return true;
+			}
 		}
     }
-    else{
-    	/**std::cout 	<< "robot-anchor point X difference "
-    					<< abs( anchorPoint.x() - robot->getCoreComponent()->getRootPosition().x() )
-    					<< " robot-anchor point Y difference "
-    					<< abs( anchorPoint.y() - robot->getCoreComponent()->getRootPosition().y() )
-    					<< std::endl;*/
-    	return false;
-    }
-
-
-
-
-
-    
+    return false;
 }
+
 osg::Vec3 BoxResource::getLocalPoint(osg::Vec3 globalPoint){
     dVector3 localPoint;
     dBodyGetPosRelPoint (
