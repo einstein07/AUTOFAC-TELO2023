@@ -183,7 +183,7 @@ class EDQDRobot : public Robot{
 
 	    bool isListening() { return isListening_; }
 
-	    void incResourceCounter(int group) {
+	    void incResourceCounter(const int group) {
 	    	resourceCounters_[group]++;
 		}
 
