@@ -38,7 +38,8 @@
 #include "EDQD/DropOffHeuristic.h"
 #include "EDQD/CollisionAvoidanceHeuristic.h"
 //#define DEBUG_MASSES
-
+//#define DEBUG_SIM_LOOP
+//#define DEBUG_ROBOT_LOOP
 // ODE World
 extern dWorldID odeWorld;
 
@@ -213,28 +214,28 @@ void stepEmbodied(
 	/****************************************
 	 */
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
-		if (boost::dynamic_pointer_cast<EDQDRobot>(robot)->isAlive()){
-			//std::cout << "Stepping heuristic." << std::endl;
+#ifdef DEBUG_ROBOT_LOOP
+			std::cout << "***Robot" << robot -> getId() << " Stepping heuristic." << std::endl;
+#endif
 			heuristicD -> step();
 			osg::Vec2d signal = /**osg::Vec2d(-1000, -1000);*/ heuristicC->step();
-			//std::cout << "Done." << std::endl;
 			if (signal.x() != -1000 || signal.y() != -1000) {
-				//std::cout << "Collision Heuristic active." << std::endl;
 				networkOutputs[0] = signal.x();
 				networkOutputs[1] = signal.y();
 			}
 			else{
 				signal = heuristicP->step();
 				if (signal.x() != -1000 || signal.y() != -1000) {
-					//std::cout << "Pick up Heuristic active." << std::endl;
 					networkOutputs[0] = signal.x();
 					networkOutputs[1] = signal.y();
 				}
 			}
+#ifdef DEBUG_ROBOT_LOOP
+			std::cout << "***Robot" << robot -> getId() << " heuristic done. Stepping ANN" << std::endl;
+#endif
 			if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
 
 				if (signal.x() == -1000 || signal.y() == -1000){
-					//std::cout << "Neither heuristic active." << std::endl;
 					// Feed neural network
 					for (unsigned int i = 0; i < robot->getSensors().size(); ++i) {
 						networkInput[i] = robot->getSensors()[i]->read();
@@ -255,7 +256,9 @@ void stepEmbodied(
 					// Fetch the neural network ouputs
 					::fetch(robot->getBrain().get(), &networkOutputs[0]);
 				}
-
+#ifdef DEBUG_ROBOT_LOOP
+				std::cout << "***Robot" << robot -> getId() << " Stepping ANN done. Stepping motors" << std::endl;
+#endif
 				// Send control to motors
 				for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
 
@@ -276,51 +279,29 @@ void stepEmbodied(
 														atp.step * configuration->getActuationPeriod()
 													);
 						std::string id = robot->getMotors()[i]->getId().first;
-						/**std::cout << id <<": Desired velocity: " << networkOutputs[i] << ". Step size: "
-								<< step_ * configuration->getActuationPeriod()
-								<< std::endl;*/
 					} else if (boost::dynamic_pointer_cast<ServoMotor>(robot->getMotors()[i])) {
 						boost::dynamic_pointer_cast<ServoMotor>(robot->getMotors()[i])
 								->setDesiredPosition(
 														networkOutputs[i],
 														atp.step * configuration->getActuationPeriod()
 													);
-						/**std::cout << "Desired position: " << networkOutputs[i] << ". Step size: "
-								<< step_ * configuration->getActuationPeriod()
-								<< std::endl;*/
 					}
 
 				}
 
 				for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
-					robot->getMotors()[i]->step(atp.step) ; //* configuration->getActuationPeriod() );
-					// TODO find a cleaner way to do this
-					// for now will reuse accel cap infrastructure
-					/**if (getMotors()[i]->isBurntOut()) {
-							std::cout << "Motor burnt out, will terminate now "
-											<< std::endl;
-
-					}*/
+					robot->getMotors()[i]->step(atp.step) ;
 				}
 			}
-		}
+#ifdef DEBUG_ROBOT_LOOP
+			std::cout << "***Robot" << robot -> getId() << " Stepping motors done. EDQD step" << std::endl;
+#endif
+			boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(atp.t);
+#ifdef DEBUG_ROBOT_LOOP
+			std::cout << "***Robot" << robot -> getId() << " EDQD step done." << std::endl;
+#endif
+
 	}
-
-	/****************************************
-	 */
-
-
-
-	boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(
-														//scene,
-														/**configuration,*/
-														/**rng,*/
-														/**count,*/
-														/**step,*/
-														atp.t
-														);
-	//std::cout << "************************STEP DONE - THREAD********************************" << std::endl;
-
 }
 
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
@@ -367,7 +348,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 
 		// Create collision world
 		//std::cout << "*****EMBODIED***** - Create ode space . . ." << std::endl;
-		dSpaceID odeSpace = /**dSimpleSpaceCreate(0)*/dHashSpaceCreate(0);
+		dSpaceID odeSpace = /**dSimpleSpaceCreate(0);*/dHashSpaceCreate(0);
 		//Set space sublevel
 		dSpaceSetSublevel (odeSpace, 2);
 		//std::cout << "*****EMBODIED***** - Done. Space ID: " << odeSpace << std::endl;
@@ -468,6 +449,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			// =======================================
 			// Initialize scenario
 			// =======================================
+
 			dSpaceID envObjectsSpace = dHashSpaceCreate(odeSpace);
 			dSpaceSetSublevel (envObjectsSpace, 1);
 			dSpaceID areaSpace = dHashSpaceCreate(odeSpace);
@@ -539,7 +521,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			double step = configuration->getTimeStepLength();
 			osg::Vec3d gZone = env->getGatheringZone()->getPosition();
 			std::cout << "Gathering zone position (" << gZone.x() << ", " << gZone.y() << ")" << std::endl;
-			//std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
+			std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
 			while ( (!constraintViolated) && (iterations < EDQD::Parameters::maxIterations) && (!(visualize && viewer->done())) ){
 				if(visualize) {
 					if(!viewer->frame(t, count)) {
@@ -559,31 +541,37 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				/*if ((count++) % 500 == 0) {
 					std::cout << "." << std::flush;
 				}*/
-				//std::cout << "MAIN LOOP - Calling SpaceCollide . . ." << std::endl;
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "MAIN LOOP - Calling SpaceCollide . . ." << std::endl;
+#endif
 				// Collision detection
 				dSpaceCollide(odeSpace, collisionData.get(), odeCollisionCallback);
-				//std::cout << "Done" << std::endl;
-				// Step the world by one timestep
-				//std::cout << "MAIN LOOP - Calling WorldStep . . ." << std::endl;
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "MAIN LOOP - Done Calling SpaceCollide. Step world." << std::endl;
+#endif
 				dWorldStep(odeWorld, step);
-				//std::cout << "Done." << std::endl;
-				// Empty contact groups used for collisions handling
-				//std::cout << "MAIN LOOP - Calling SpaceCollide . . ." << std::endl;
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "MAIN LOOP - Done stepping world. Empty joint group." << std::endl;
+#endif
 				dJointGroupEmpty(odeContactGroup);
-				//std::cout << "Done." << std::endl;
-				//std::cout << "MAIN LOOP - Checking if constraints were violated . . ." << std::endl;
+
 				if (configuration->isDisallowObstacleCollisions() && collisionData->hasObstacleCollisions()) {
 					constraintViolated = true;
 					break;
 				}
-				//std::cout << "Done." << std::endl;
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "Done emptying joint group." << std::endl;
+#endif
 				// Update each robot's sensors in the threads but, update environment first - elapsed time since last call
 				env->setTimeElapsed(step);
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
 					std::cout << "\nLifetime ended: replace genome (if possible)" << std::endl;
 				}
 				// 1. Prepare thread structure
-				//std::cout << "MAIN LOOP - Preparing threads . . ." << std::endl;
+				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "MAIN LOOP - Preparing threads . . ." << std::endl;
+#endif
 				boost::thread_group actions;
 				boost::mutex queueMutex;
 				// 2. Launch threads
@@ -593,35 +581,50 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					p.step = step;
 					p.t = t;
 					p.count = count;
-					actions.add_thread(
-									new boost::thread(
-											stepEmbodied,
-											boost::ref(robots[i]),
-											boost::ref(swarmHeuristicC_	[i]),
-											boost::ref(swarmHeuristicP_[i]),
-											boost::ref(swarmHeuristicD_[i]),
-											boost::ref(scenario),
-											boost::ref(configuration),
-											boost::ref(p),
-											boost::ref(queueMutex)));
-
-
-
+					if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])){
+						if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->isAlive()){
+							actions.add_thread(
+											new boost::thread(
+													stepEmbodied,
+													boost::ref(robots[i]),
+													boost::ref(swarmHeuristicC_	[i]),
+													boost::ref(swarmHeuristicP_[i]),
+													boost::ref(swarmHeuristicD_[i]),
+													boost::ref(scenario),
+													boost::ref(configuration),
+													boost::ref(p),
+													boost::ref(queueMutex)));
+						}
+					}
 				}
+
+				// 3. Join threads. Individuals are now evaluated.
+				//actions.join_all();
 				// Update Sensors
+				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "Updating sensors" << std::endl;
+#endif
 				for (unsigned int i = 0; i < robots.size(); i++) {
 					for (unsigned int j = 0; j < robots_bodyParts[i].size(); ++j) {
 						if (boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])) {
-							//std::cout << "Updating sensor for robot "<< (i+1) << std::endl;
+
 							boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])->
 									updateSensors(env);
 						}
 					}
 				}
-				//std::cout << "Done with sensors" << std::endl;
+				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "Done with sensors" << std::endl;
+#endif
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
-				//std::cout << "Done. Iteration: " << iterations << std::endl;
+#ifdef DEBUG_SIM_LOOP
+				std::cout << "Robot action loop complete" << std::endl;
+#endif
+				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
+				std::cout << "Done. Replace life iteration: " << iterations << std::endl;
 				t += step;
 				iterations++;
 
@@ -871,6 +874,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					return SIMULATION_FAILURE;
 				}*/
 
+				std::vector<dSpaceID> perResourceSpaces;
 				if (!scenario->init(odeWorld, odeSpace, odeSpace, robots)) {
 					std::cout << "Cannot initialize scenario with swarm. Quit."
 							<< std::endl;
