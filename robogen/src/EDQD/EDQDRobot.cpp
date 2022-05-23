@@ -25,6 +25,25 @@ namespace robogen{
 
 		bool status = this->init(odeWorld, odeSpace, robotSpace, nbALive, robotSpec);
 
+
+		logFilename = "logs/robot_"+ std::to_string(getId()) +"_datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
+
+		robotLogFile.open(logFilename.c_str());
+
+
+		if(!robotLogFile) {
+			std::cout << "[error] Cannot open log file " << std::endl;
+			exit (-1);
+		}
+
+		logger = new Logger();
+		logger->setLoggerFile(robotLogFile);
+
+
+		/*std::string sLog = std::string("");
+		sLog += "***********ROBOT [initialise] "+ getId()+ " initialized successfully.********\n" ;*/
+
+
 		this->configuration = configuration;
 
 		map_ = new EDQDMap();
@@ -77,6 +96,13 @@ namespace robogen{
 		//fitness_ = 1;
 		setAlive(true);
 		targetArea_ = osg::Vec2d(0,-4.25);
+		/**sLog += "Ancestor: " + ancestor_ + "\n"
+				"isListening: " + isListening_ + "\n"
+				"Starting position: (" + Xinit_+ ", " + Yinit_ +").\n"
+				"Fitness: " + getFitness() + "\n"
+				"*****************************************************\n";
+		logger->write(sLog);
+		logger->flush();*/
 		/**
 		 * Initialize behavioral heuristics
 		 */
@@ -115,7 +141,7 @@ namespace robogen{
 #ifdef DEBUG_EDQD
 	    	std::cout << "*****Robot ID: " << getId() << " UPDATING FITNESS*****" << std::endl;
 #endif
-	        updateFitness();
+	        //updateFitness();
 #ifdef DEBUG_EDQD
 	        std::cout << "*****Robot ID: " << getId() << " DONE UPDATING FITNESS*****" << std::endl;
 #endif
@@ -150,6 +176,18 @@ namespace robogen{
 					listeningDelay_ = EDQD::Parameters::listeningStateDelay;
 					if ( listeningDelay_ > 0 || listeningDelay_ == -1 ){
 						isListening_ = true;
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
+								"::" + std::to_string(birthdate_) + ",status,listening\n";
+						logger->write(sLog);
+						logger->flush();
+					}
+					else{
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
+						logger->write(sLog);
+						logger->flush();
 					}
 				}
 			}
@@ -159,11 +197,21 @@ namespace robogen{
 					listeningDelay_--;
 					if ( listeningDelay_ == 0 ){
 						isListening_ = false;
+
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
+						logger->write(sLog);
+						logger->flush();
+
 						// agent will not be able to be active anymore
 						notListeningDelay_ = -1;
+
 						// destroy then create a new NN
-						//reset();
+						reset();
+
 						setAlive(false);
+
 					}
 				}
 			}
@@ -171,6 +219,10 @@ namespace robogen{
 			std::cout << "*****Robot ID: " << getId() <<" DONE DISABLING ROBOT*****" << std::endl;
 #endif
 	    }
+	    /**std::string sLog = std::string("");
+		sLog += "[Step] - done\n"; // never listen again.
+		logger->write(sLog);
+		logger->flush();*/
 
 	}
 
@@ -241,11 +293,11 @@ namespace robogen{
 #ifdef DEBUG_EDQD
 	    	std::cout<< "*****Robot ID: "<< getId()<< " Mapping genotype to phenotype*****" << std::endl;
 #endif
-	    	mapGenotypeToPhenotype();
+	    	//mapGenotypeToPhenotype();
 #ifdef DEBUG_EDQD
 	        std::cout<< "*****Robot ID: "<< getId()	<< " Done mapping genotype to phenotype*****" << std::endl;
 #endif
-	        ::setWeights(getBrain().get(), weights_);
+	        //::setWeights(getBrain().get(), weights_);
 	        setNewGenomeStatus(false);
 #ifdef DEBUG_EDQD
 	        std::cout << "*****Robot ID: " << getId() << " New weights set *****" << std::endl;
@@ -309,7 +361,7 @@ namespace robogen{
 	/**
 	 * If called, assume genomeList.size() > 0
 	 */
-	bool EDQDRobot::selectRandomGenomeFromMergedMap(){
+	void EDQDRobot::selectRandomGenomeFromMergedMap(){
 
 	    std::map<int, EDQDMap* >::iterator it = mapList_.begin();
 	    while ( it != mapList_.end() ) {
@@ -317,26 +369,26 @@ namespace robogen{
 	    	it ++;
 	    }
 	    behav_index_t index;
-	    int tries = 0;
+	    //int tries = 0;
 		do {
 			index = mergedMap_->getRandomIndex();
-			if (tries > 100) {
+			/*if (tries > 100) {
 #ifdef DEBUG_EDQD
 				std::cout 	<< "*****Robot ID: " << getId() << " Failed to select genome from merged map. Robot will be disabled*****" << std::endl;
 #endif
 				return false;
-			}
-			tries++;
-		} while ( mergedMap_->get(index)->genome.size() == 0 );
+			}*/
+			//tries++;
+		} while ( mergedMap_->get(index)->genome_.size() == 0 );
 
-	    currentGenome_ = mergedMap_->get(index)->genome;
-	    currentSigma_ = mergedMap_->get(index)->sigma;
+	    currentGenome_ = mergedMap_->get(index)->genome_;
+	    currentSigma_ = mergedMap_->get(index)->sigma_;
 	    birthdate_ = robogen::iterations;
 
-	    ancestor_ = mergedMap_->get(index)->id;
+	    ancestor_ = mergedMap_->get(index)->id_;
 
 	    setNewGenomeStatus(true);
-	    return true;
+	    //return true;
 	}
 
 	/**
@@ -365,7 +417,7 @@ namespace robogen{
 	        }
 	        else{
 	        	mapList_[senderId] = map;
-	        	std::cout << "*" <<std::flush;
+	        	//std::cout << "*" <<std::flush;
 	            return true;
 	        }
 	    }
@@ -432,17 +484,30 @@ namespace robogen{
 
 
 	void EDQDRobot::clearReservoir(){
-
+		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing sigmalist. . .*****"
+		//																			<< std::endl;
 		sigmaList_.clear();
+		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing fitness values list. . .*****"
+		//																			<< std::endl;
 		fitnessValuesList_.clear();
 
 		// always clear _mapList, as results have been merged.
+		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing map list. . .*****"
+		//																			<< std::endl;
 		mapList_.clear();
+		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: done clearing map list.*****"
+		//																			<< std::endl;
 
 		if ( EDQD::Parameters::onlyKeepMapsForGeneration||robogen::iterations == 0 ){
 			if (mergedMap_){
+				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: deleting. . .*****"
+				//															<< std::endl;
 				delete mergedMap_;
+				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: deleted.*****"
+				//																			<< std::endl;
 				mergedMap_ = new EDQDMap();
+				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: leaving. . .*****"
+				//																			<< std::endl;
 			}
 		}
 	}
@@ -460,11 +525,11 @@ namespace robogen{
 		}
 
 		setNewGenomeStatus(true);
-		std::cout 	<< "*****Robot ID: " << getId() << " Reset: Clearing reservoir. . .*****"
-															<< std::endl;
+		//std::cout 	<< "*****Robot ID: " << getId() << " Reset: Clearing reservoir. . .*****"
+		//													<< std::endl;
 		clearReservoir(); // will contain the genomes received from other robots
-		std::cout 	<< "*****Robot ID: " << getId() << " Reset: Done Clearing reservoir. . .*****"
-															<< std::endl;
+		//std::cout 	<< "*****Robot ID: " << getId() << " Reset: Done Clearing reservoir. . .*****"
+		//													<< std::endl;
 		// Now copy the current genome from the neural network
 		/*memcpy(
 					currentGenome_,
@@ -558,14 +623,27 @@ namespace robogen{
 	/**
 	 * Called only if at least 1 genome was stored.
 	 */
-	bool EDQDRobot::performSelection(){
+	void EDQDRobot::performSelection(){
 		// Include Local Map For Selection Merge
 		mapList_[getId()] = map_;
-		if (selectRandomGenomeFromMergedMap()){
+		//if (selectRandomGenomeFromMergedMap()){
+			selectRandomGenomeFromMergedMap();
 			mergedMap_->mergeInto(*map_);
-			return true;
-		}
-		return false;
+			// Logging: track descendance
+			std::string sLog = std::string("");
+			sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+					"::" + std::to_string(birthdate_) + ", descendsFrom, " + std::to_string(ancestor_.first) +
+					"::" + std::to_string(ancestor_.second) + "\n";
+			logger->write(sLog);
+			logger->flush();
+			//return true;
+		//}
+		// Logging: track descendance
+		/**std::string sLog = std::string("");
+		sLog += "[Perform selection - could not be performed]\n";
+		logger->write(sLog);
+		logger->flush();
+		return false;*/
 	}
 
 	void EDQDRobot::loadNewGenome(){
@@ -573,12 +651,13 @@ namespace robogen{
 		std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: BEGIN*****" << std::endl;
 #endif
 		if (isAlive()){
-
+			logCurrentState();
 	        if ( mapList_.size() > 0 ){
 #ifdef DEBUG_EDQD
 	        	std::cout << "******Robot ID: " << getId() << " Peforming selection. . . *****" << std::endl;
 #endif
-	            if (performSelection()){
+	            //if (performSelection()){
+	        		performSelection();
 #ifdef DEBUG_EDQD
 					std::cout 	<< "*****Robot ID: " << getId() << "EMBODIED-LOAD NEW GENOME: Done performing selection."
 								<< " Performing variation. . .*****" << std::endl;
@@ -588,19 +667,24 @@ namespace robogen{
 					std::cout 	<< "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME:  Done performing variation. Clearing reservoir. . .*****"
 								<< std::endl;
 #endif
-					std::cout 	<< "*****Robot ID: " << getId() << " Load new genome: Clearing reservoir. . .*****"
-													<< std::endl;
+					//std::cout 	<< "*****Robot ID: " << getId() << " Load new genome: Clearing reservoir. . .*****"
+					//								<< std::endl;
 					clearReservoir();
-					std::cout 	<< "*****Robot ID: " << getId() << " Load new genome: Done Clearing reservoir. . .*****"
-																		<< std::endl;
+					//std::cout 	<< "*****Robot ID: " << getId() << " Load new genome: Done Clearing reservoir. . .*****"
+					//													<< std::endl;
 #ifdef DEBUG_EDQD
 					std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: Done clearing reservoir*****" << std::endl;
 #endif
 					setAlive(true);
-	        	}
-	            else{
+
+					std::string sLog = std::string("");
+					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, active\n";
+					logger->write(sLog);
+					logger->flush();
+	        	//}
+	            /**else{
 	            	setAlive(false);
-	            }
+	            }*/
 	            osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 				Xinit_ = currPos.x();
 				Yinit_ = currPos.y();
@@ -611,12 +695,39 @@ namespace robogen{
 				nbComTx_ = 0;
 				nbComRx_ = 0;
 				currentCellId_ = 0;
+
+				if ( isAlive() ){
+					// Logging: full genome
+					std::string sLog = std::string("");
+					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+							"::" + std::to_string(birthdate_) + ", genome, ";
+
+					/*
+					 // write genome (takes a lot of disk space)
+					 for(unsigned int i=0; i<_genome.size(); i++)
+					 {
+					 sLog += std::to_string(_genome[i]) + ",";
+					 //gLogFile << std::fixed << std::showpoint << _wm->_genome[i] << " ";
+					 }
+					 */
+					sLog += "(...)"; // do not write genome
+
+					sLog += "\n";
+					logger->write(sLog);
+					logger->flush();
+				}
 	        }
 	        else{
 	        	if ( isAlive() == true){
 #ifdef DEBUG_EDQD
 	        		std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: Resetting. . .*****" << std::endl;
 #endif
+	        		// Logging: "no genome"
+					std::string sLog = std::string("");
+					sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
+							"::" + std::to_string(birthdate_) + ", genome, n/a.\n";
+					logger->write(sLog);
+					logger->flush();
 	        		reset();
 
 	        		setAlive(false);
@@ -629,6 +740,10 @@ namespace robogen{
 						notListeningDelay_ = EDQD::Parameters::notListeningStateDelay;
 						listeningDelay_ = EDQD::Parameters::listeningStateDelay;
 
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
+						logger->write(sLog);
+						logger->flush();
 					}
 	        		else{
 
@@ -636,14 +751,45 @@ namespace robogen{
 
 						if (listeningDelay_ > 0 || listeningDelay_ == -1 ){
 							isListening_ = true;
+							std::string sLog = std::string("");
+							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, listening\n";
+							logger->write(sLog);
+							logger->flush();
+						}
+						else{
+							std::string sLog = std::string("");
+							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
+							logger->write(sLog);
+							logger->flush();
 						}
 
 					}
-	        		std::cout << "\n*****Robot ID: " << getId() << " Received map list empty, will be disabled*****" << std::endl;
 	        	}
 	        }
 	    }
 	}
+
+	void EDQDRobot::logCurrentState(){
+	    // Logging
+	    std::string sLog = "Iteration: " + std::to_string(robogen::iterations) + ", Robot Id: " + std::to_string(getId()) + ", Birthdate: " + std::to_string(birthdate_) +
+	    ", age, " + std::to_string(robogen::iterations-birthdate_) +
+
+	    ", rxMapListSize, " + std::to_string(mapList_.size()) +
+	    ", rxGenomesListSize ," + std::to_string(genomesList_.size()) +
+	    ", sigma, " + std::to_string(currentSigma_) +
+	    ", x_init, " + std::to_string(Xinit_) +
+	    ", y_init, " + std::to_string(Yinit_) +
+	    ", x_current, " + std::to_string( getCoreComponent()->getRootPosition().x()) +
+	    ", y_current, " + std::to_string( getCoreComponent()->getRootPosition().y()) +
+	    ", dist, " + std::to_string( getEuclideanDistance( Xinit_, Yinit_, getCoreComponent()->getRootPosition().x(),getCoreComponent()->getRootPosition().y() ) ) +
+	    ", maxDist, " + std::to_string( dMaxTravelled_ ) +
+	    ", fitnessValue, " + std::to_string(getFitness()) +
+	    "\n";
+	    logger->write(sLog);
+	    logger->flush();
+	}
+
+
 
 	/**
 	 * @return fitness The fitness of the robot
@@ -670,7 +816,11 @@ namespace robogen{
 		for (; it != resourceCounters_.end(); ++it)
 		{
 			// The value of each resource is 100/number-of-pushing-robots
-			sum += 100 * it->second / it->first;
+			/**
+			 * Changed this to just 100 - since all resources are pushed by one robot now
+			 * JUst different colors
+			 */
+			sum += 100 * it->second;// / it->first;
 		}
 		fitness_ = sum;
 	}

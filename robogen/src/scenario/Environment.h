@@ -90,8 +90,11 @@ public:
 		obstacles_.push_back(obstacle);
 	}
 
+	dGeomID getTerrainID() {
+		return terrain_ -> getGeom();
+	}
 	boost::shared_ptr<Terrain> getTerrain() {
-		return terrain_;
+		return terrain_ ;
 	}
 
 	std::vector<boost::shared_ptr<Obstacle> > getObstacles() {
@@ -110,7 +113,7 @@ public:
 	 * SM added
 	 * @return all resources in the environment
 	 */
-	std::vector<boost::shared_ptr<BoxResource> >& getResources() {
+	std::vector<boost::shared_ptr<BoxResource> > getResources() {
 		return resources_;
 	}
         

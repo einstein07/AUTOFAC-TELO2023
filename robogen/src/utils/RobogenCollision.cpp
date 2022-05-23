@@ -63,6 +63,13 @@ const int MAX_CONTACTS = 32; // maximum number of contact points per body
 CollisionData::CollisionData(boost::shared_ptr<Scenario> scenario) :
 		scenario_(scenario), hasObstacleCollisions_(false) {
 
+	if (terrainModelMap_.count(scenario_-> getTerrainID())){
+						std::cout << "Already exists!" << std::endl;
+	}
+	else{
+		terrainModelMap_[scenario_-> getTerrainID()] = scenario_->  getTerrainID();
+	}
+
     for(size_t i = 0; i < scenario->getRobots().size(); ++i){
 		for (size_t j=0; j<scenario->getRobot(i)->getBodyParts().size(); ++j) {
 			/**boost::shared_ptr<Model> model =
@@ -124,6 +131,9 @@ bool CollisionData::isPartOfBody(dGeomID o1) {
         count = geomModelMap_[i].count(o1);
     }
     return count;*/
+}
+bool CollisionData::isTerrain(dGeomID o1) {
+    return terrainModelMap_.count(o1);
 }
 
 void CollisionData::testObstacleCollisons(dGeomID o1, dGeomID o2) {
@@ -248,8 +258,12 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
                                         dContactApprox1 |
                                         dContactSlip1 | dContactSlip2;
                 // TODO use different value for self collisions and/or obstacles?
-                contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig(
-                                                                        )->getTerrainConfig()->getFriction();
+                if ((dGeomGetClass(o2) == dBoxClass && collisionData->isTerrain(o1)) || (dGeomGetClass(o1) == dBoxClass && collisionData->isTerrain(o2))) {
+                	contact[i].surface.mu = 0.02;
+                }else{
+                	contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig()->getTerrainConfig()->getFriction();
+                }
+
                 contact[i].surface.soft_erp = 0.96;
                 contact[i].surface.soft_cfm = 0.01;
             }
@@ -260,9 +274,9 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
 											&contact[0].geom,
             								sizeof(dContact));
 
-            if (collisionCounts > 0) {
+            /**if (collisionCounts > 0) {
                 collisionData->testObstacleCollisons(o1, o2);
-            }
+            }*/
 
             for (int i = 0; i < collisionCounts; i++) {
                 dJointID c = dJointCreateContact(odeWorld, odeContactGroup,

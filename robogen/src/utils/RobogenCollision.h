@@ -33,7 +33,6 @@
 #include <boost/shared_ptr.hpp>
 #include "scenario/Scenario.h"
 #include "model/Model.h"
-
 #include <map>
 
 namespace robogen {
@@ -54,6 +53,8 @@ public :
 
 	bool isPartOfBody(dGeomID o1);
 
+	bool isTerrain(dGeomID o1);
+
 	inline bool hasObstacleCollisions() {
 		return hasObstacleCollisions_;
 	}
@@ -64,8 +65,8 @@ public :
 private :
 	boost::shared_ptr<Scenario> scenario_;
 	std::map<dGeomID, boost::shared_ptr<Model> > geomModelMap_;
-        //SM added
-        //std::vector<std::map<dGeomID, boost::shared_ptr<Model> > > geomModelMap_;
+	//SM added
+	std::map< dGeomID, dGeomID> terrainModelMap_;
 	bool hasObstacleCollisions_;
 
 };

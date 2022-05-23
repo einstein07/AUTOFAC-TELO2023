@@ -827,14 +827,14 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 		return boost::shared_ptr<ResourcesConfig>();
 	}
     
-	// x y z xLength yLength zLength density pushingRobots
+	// x y z xLength yLength zLength density resource-type: 1 - red, 2 - green,  3 - blue, 4 - yellow, 5 - brown
 	static const boost::regex resourceRegex(
 			getMatchNFloatPattern(8));
 
 	std::vector<osg::Vec3> coordinates;
 	std::vector<osg::Vec3> sizes;
 	std::vector<float> densities;
-	std::vector<int> pushingRobots;
+	std::vector<int> types;
 
 	std::string line;
 	int lineNum = 0;
@@ -842,7 +842,7 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 		lineNum++;
 		boost::cmatch match;
 		float x, y, z, xSize, ySize, zSize, density;
-                int pushingBots;
+		int type;
 		if(boost::regex_match(line.c_str(), match, resourceRegex)){
 				x = std::atof(match[1].str().c_str());
 				y = std::atof(match[2].str().c_str());
@@ -851,7 +851,7 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 				ySize = std::atof(match[5].str().c_str());
 				zSize = std::atof(match[6].str().c_str());
 				density = std::atof(match[7].str().c_str());
-                                pushingBots = std::atoi(match[8].str().c_str());
+				type = std::atoi(match[8].str().c_str());
                 } else {
                         std::cerr << "Error parsing line " << lineNum <<
                                         " of resources file: '" << fileName << "'"
@@ -862,12 +862,12 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 		coordinates.push_back(osg::Vec3(x, y, z));
 		sizes.push_back(osg::Vec3(xSize, ySize, zSize));
 		densities.push_back(density);
-		pushingRobots.push_back(pushingBots);
+		types.push_back(type);
 	}
 
 	return boost::shared_ptr<ResourcesConfig>(
 			new ResourcesConfig(coordinates, sizes, densities,
-					pushingRobots));
+					types));
 }
 boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 		const robogenMessage::SimulatorConf& simulatorConf) {
@@ -909,7 +909,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 		resourcesCoord.push_back(osg::Vec3(r.x(), r.y(), r.z()));
 		resourcesSize.push_back(osg::Vec3(r.xsize(), r.ysize(), r.zsize()));
 		resourcesDensity.push_back(r.density());
-		resourcesPushingRobots.push_back(r.pushingrobots());
+		resourcesPushingRobots.push_back(r.type());
 
 	}
 	boost::shared_ptr<ResourcesConfig> resources(

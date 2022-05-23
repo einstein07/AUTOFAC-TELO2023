@@ -11,9 +11,9 @@ namespace robogen {
 
 BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size, float density, 
-                    int pushingRobots, int& resourceId) : odeWorld_(odeWorld),
+                    int type, int& resourceId) : odeWorld_(odeWorld),
                     odeSpace_(odeSpace), size_(size), isCollected_(false),
-                    pushingRobots_(pushingRobots), stickyFace_(Face::NONE) {
+                    type_(type), stickyFace_(Face::NONE) {
 
 
     // since resource is not fixed, create body
@@ -30,7 +30,8 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
     
     jointGroup_ = dJointGroupCreate(0);
-    value_ = 100 / pushingRobots_;
+    value_ = 100;
+    pushingRobots_ = 1;
     id = resourceId;
     data_.objectId = resourceId;
     resourceId++;
@@ -169,7 +170,7 @@ void BoxResource::dropOff(){
 	 * Sticky side could be unset if resource "bumped" into target area without
 	 * robots creating joints with it
 	*/
-	if (stickyFace_ != Face::NONE) {
+	//if (stickyFace_ != Face::NONE) {
 
 		std::map<boost::shared_ptr<Robot>, dJointID>::iterator it = joints_.begin();
 		for (; it != joints_.end(); ++it){
@@ -180,15 +181,19 @@ void BoxResource::dropOff(){
 		joints_.clear();
 
 		// Reset the anchor points
-		anchorPoints_.clear();
+		//anchorPoints_.clear();
 
 		// Reset the sticky side
-		stickyFace_ = Face::NONE;
-	}
+		//stickyFace_ = Face::NONE;
+	//}
 }
 
 int BoxResource::getNumberPushingRobots(){
     return joints_.size();  
+}
+
+int BoxResource::getType(){
+    return type_;
 }
 
 std::set<boost::shared_ptr<Robot> > BoxResource::getPushingRobots(){
@@ -207,7 +212,32 @@ bool BoxResource::pushedByMaxRobots(){
 bool BoxResource::canBePickedup(){
     return !isCollected_ && !pushedByMaxRobots();
 }
-
+bool BoxResource::attachRobot(boost::shared_ptr<Robot> robot){
+	if(getNumberPushingRobots() != 0){
+		return false;
+	}
+	else if(joints_.count(robot) != 0){
+		return false;
+	}
+	else{
+		boost::shared_ptr<Model> robotBody = robot -> getBodyPart("Core");
+		if (robotBody != NULL && (distance(robotBody->getRootPosition(), getPosition()) <= 0.08) ){
+			dJointID joint = dJointCreateFixed (odeWorld_, jointGroup_);
+			dJointAttach (
+							joint,
+							robotBody->getRoot()->getBody(),
+							box_
+						);
+			dJointSetFixed (joint);
+			joints_.insert(std::pair<boost::shared_ptr<Robot>, dJointID>(robot, joint));
+			robot -> setBoundToResource(true);
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
 bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     if(!canBePickedup()){
         return false;

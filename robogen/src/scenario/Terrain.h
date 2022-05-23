@@ -109,6 +109,12 @@ public:
 	void getBB(double& minX, double& maxX, double& minY, double& maxY,
 			double& minZ, double& maxZ);
 
+	/**
+	 * SM Added
+	 */
+	inline const dGeomID& getGeom() {
+		return tID;
+	}
 private:
 
 	/**
@@ -147,6 +153,11 @@ private:
 	 * The ODE geometry associated with the terrain
 	 */
 	dGeomID odeGeometry_;
+
+	/**
+	 * SM Added
+	 */
+	dGeomID tID;
 
 };
 

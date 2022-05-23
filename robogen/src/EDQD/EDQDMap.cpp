@@ -27,16 +27,16 @@ namespace robogen{
 
 	EDQDMap::~EDQDMap() {
 		for(size_t i = 0; i < map_.num_elements(); i++){
-			map_.data()[i].genome.clear();
-			map_.data()[i].pos.clear();
+			map_.data()[i].genome_.clear();
+			map_.data()[i].pos_.clear();
 		}
 	}
 
 	behav_index_t EDQDMap::computeIndex(const std::map<int, int>& oc, double distance, double maxDistance, std::vector<double>* pos) {
 		double dim1 = 0.5, dim2 = 0.0;
 		//Simple environment - i.e. 1 & 2 pushing robots per resource only
-		int oc0 = oc.at(1),
-			oc1 = oc.at(2);
+		int oc0 = oc.at(1);
+		int	oc1 = oc.at(2);
 
 		if ( oc.at(2) > 0.0 ) {
 			dim1 = oc0 / ((double)(oc0 + oc1));
@@ -74,22 +74,22 @@ namespace robogen{
 										pos
 										);
 
-		if (map_(index).fitness == -1
-			|| (robot->getFitness() - map_(index).fitness) > EDQD::Parameters::fitEpsilon
-			|| (fabs(robot->getFitness() - map_(index).fitness) <= EDQD::Parameters::fitEpsilon
-					&& _dist_center((*pos)) < _dist_center(map_(index).pos))
+		if (map_(index).fitness_ == -1
+			|| (robot->getFitness() - map_(index).fitness_) > EDQD::Parameters::fitEpsilon
+			|| (fabs(robot->getFitness() - map_(index).fitness_) <= EDQD::Parameters::fitEpsilon
+					&& _dist_center((*pos)) < _dist_center(map_(index).pos_))
 		) {
-			if (map_(index).fitness == -1) {
+			if (map_(index).fitness_ == -1) {
 				num_filled_cells_++;
 			}
 
-			map_(index).fitness = robot->getFitness();
-			map_(index).genome.clear();
-			map_(index).genome = genome;
-			map_(index).id = std::make_pair(id,robot->getBirthdate());
-			map_(index).sigma = sigma;
-			map_(index).pos.clear();
-			map_(index).pos = (*pos);
+			map_(index).fitness_ = robot->getFitness();
+			map_(index).genome_.clear();
+			map_(index).genome_ = genome;
+			map_(index).id_ = std::make_pair(id,robot->getBirthdate());
+			map_(index).sigma_ = sigma;
+			map_(index).pos_.clear();
+			map_(index).pos_ = (*pos);
 
 			setMapHasEntry(true);
 			return true;
@@ -100,7 +100,7 @@ namespace robogen{
 	bool EDQDMap::mergeInto(EDQDMap &m) {
 		bool result = false;
 		for (size_t i = 0; i < this->map_.num_elements(); i ++) {
-			if ( m.getMap().data()[i].fitness == -1 ||
+			if ( m.getMap().data()[i].fitness_ == -1 ||
 					m.getMap().data()[i] < this->map_.data()[i] )
 			{
 				m.getMap().data()[i] = this->map_.data()[i];
@@ -145,13 +145,13 @@ namespace robogen{
 					index[dim] = (offset / m.strides()[dim] % m.shape()[dim] +  m.index_bases()[dim]);
 				}
 
-				assert(m(index).fitness == (i)->fitness);
+				assert(m(index).fitness_ == (i)->fitness_);
 
 				ofs << prefix << offset << ",";
 				for (size_t dim = 0; dim < behav_dim; ++dim) {
 					ofs << index[dim] / (float)m.shape()[dim] << ",";
 				}
-				ofs << m(index).fitness;
+				ofs << m(index).fitness_;
 				ofs << std::endl;
 			}
 			++offset;

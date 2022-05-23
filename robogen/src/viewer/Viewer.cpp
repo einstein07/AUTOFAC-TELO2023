@@ -313,28 +313,25 @@ bool Viewer::configureScene(std::vector<std::vector<boost::shared_ptr<Model> > >
 		this->root->addChild(obstacleRender->getRootNode());
 	}
 	// Resources render model
+
 	const std::vector<boost::shared_ptr<BoxResource> >& resources =
-			scenario->getEnvironment()->getResources();
+				scenario->getEnvironment()->getResources();
 	for (unsigned int i = 0; i < resources.size(); ++i) {
 		boost::shared_ptr<BoxResource> boxResource =
-												boost::dynamic_pointer_cast<
-												BoxResource>(resources[i]);
+										boost::dynamic_pointer_cast<
+										BoxResource>(resources[i]);
 
 
 		if(!boxResource) {
 			std::cerr << "Invalid resource!!" << std::endl;
 			return false;
 		}
+
 		boost::shared_ptr<BoxResourceRender> resourceRender(
 				new BoxResourceRender(boxResource));
-		resourceRender->setDebugActive(this->debugActive);
-		if (!resourceRender->initRenderModel()) {
-				std::cout
-				<< "Cannot initialize a render model for one of the resources. "
-				<< std::endl;
-				return false;
-		}
 		this->root->addChild(resourceRender->getRootNode());
+
+
 	}
 
 	// Light sources render model

@@ -31,7 +31,7 @@ namespace robogen{
 		}
 
 
-		double minDistanceToObject = 1/*0.05*/;
+		double minDistanceToObject = 0.8;
 		int objectId = -1;
 		double size = 0.0;
 
@@ -50,29 +50,30 @@ namespace robogen{
 
 					if ( boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])->
 											read()){
-
+							std::cout << "Bound to resource: Inside target area" <<std::endl;
 							osg::Vec3d area = osg::Vec3d(targetAreaPosition_.x(), targetAreaPosition_.y(), 0);
 							if (robot_->isBoundToResource() && abs((distance(robot_->getCoreComponent()->getRootPosition(), area)) < 0.5) ){
-
+								std::cout << "Bound to resource: Dropping resource" <<std::endl;
 								resource -> setCollected(true);
+								std::cout << "Bound to resource: resource set to collected" <<std::endl;
 
 								if (boost::dynamic_pointer_cast<EDQDRobot>(robot_)){
-
+									std::cout << "Bound to resource: incrementing resource counter" <<std::endl;
 									boost::dynamic_pointer_cast<EDQDRobot>(robot_)->incResourceCounter( resource->getSize() );
 
-									env->getGatheringZone()->addResource( resource );
+									if (env->getGatheringZone()->addResource( resource )){
+										std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
+													<< boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> getTimeResourceBound()
+													<< std::endl;
+										boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
+										// Resource dropped, now wonder around looking for a new resource
+										return osg::Vec2d(-1000, -1000);
 
-
-									std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
-												<< boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> getTimeResourceBound()
-												<< std::endl;
-									boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
-
+									}
 
 								}
 							}
-							// Resource dropped, now wonder around looking for a new resource
-							return osg::Vec2d(-1000, -1000);
+
 
 					}
 				}
@@ -139,7 +140,7 @@ namespace robogen{
 			else{
 				boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
 
-				if (resource->pickup(robot_)){
+				if (resource->attachRobot(robot_)){
 					robot_ -> setBoundResourceId(objectId);
 					return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
 				}

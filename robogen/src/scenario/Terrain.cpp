@@ -60,7 +60,7 @@ bool Terrain::initFlat(float width, float depth) {
 	/**
 	 * SM added - debug
 	 */
-	dGeomID tID = dCreatePlane(odeSpace_, 0.0, 0.0, 1.0, 0.0);
+	tID = dCreatePlane(odeSpace_, 0.0, 0.0, 1.0, 0.0);
 	/**std::cout 	<< "Terrain ID: "
 				<< tID
 				<< std::endl;*/

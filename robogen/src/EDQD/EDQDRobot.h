@@ -50,9 +50,10 @@ class EDQDRobot : public Robot{
 		void mutateSigmaValue();
 
 		void mapGenotypeToPhenotype();
-		bool performSelection();
+		void performSelection();
 		void performVariation();
-		bool selectRandomGenomeFromMergedMap();
+		void selectRandomGenomeFromMergedMap();
+		void logCurrentState();
 		void resetFitness();
 
 	    unsigned int computeRequiredNumberOfWeights();
@@ -142,6 +143,13 @@ class EDQDRobot : public Robot{
 		 */
 		osg::Vec2d targetArea_;
 
+		/**
+		 *
+		 * LOGGING Purposes
+		 */
+		Logger *logger;
+		std::ofstream robotLogFile;
+		std::string logFilename;
 
 	public:
 		//========================================================================================
@@ -184,7 +192,11 @@ class EDQDRobot : public Robot{
 	    bool isListening() { return isListening_; }
 
 	    void incResourceCounter(const int group) {
-	    	resourceCounters_[group]++;
+	    	if (resourceCounters_[group] == -1 ){
+	    		resourceCounters_[group] = 1;
+	    	}else{
+	    		resourceCounters_[group] = resourceCounters_[group] + 1;
+	    	}
 		}
 
 	    void resetPotMaxTravelled();
@@ -204,9 +216,8 @@ class EDQDRobot : public Robot{
 			 * Only 3 types of resources in the environment right now (sizes 1, 2 & 3)
 			 * Simple environment - i.e. 1 & 2 pushing robots per resource only
 			 */
-			for (int i = 1; i <= 2 ; i++)
-			{
-				resourceCounters_[i] = /**randint()%100;//*/0;
+			for (int i = 1; i <= 5 ; i++){
+				resourceCounters_[i] = -1; /**randint()%100;//*///0;
 			}
 		}
 

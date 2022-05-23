@@ -1,5 +1,5 @@
 /*
- * @(#) ResourceObject.h   1.0   July 14, 2021
+ * @(#) BoxResource.h   1.0   July 14, 2021
  *
  * Sindiso Mkhatshwa (mkhsin035@myuct.ac.za)
  *
@@ -11,7 +11,7 @@
 #include <osg/Quat>
 #include <osg/Vec3>
 #include <cmath>
-#include "Obstacle.h"
+#include "Resource.h"
 #include "Robogen.h"
 #include "Robot.h"
 #include "model/objects/AnchorPoint.h"
@@ -21,7 +21,7 @@ namespace robogen {
 /**
  * A simple resource object made of a box of specified size
  */
-class BoxResource : public PositionObservable {
+class BoxResource : public Resource {
 
     public:
         
@@ -31,7 +31,7 @@ class BoxResource : public PositionObservable {
 		 * Initializes a resource object
 		 */
 		BoxResource(dWorldID odeWorld, dSpaceID odeSpace, const osg::Vec3& pos,
-				const osg::Vec3& size, float density, int pushingRobots, int& resourceId);
+				const osg::Vec3& size, float density, int type, int& resourceId);
 
 		/**
 		 * Remove from world
@@ -64,12 +64,12 @@ class BoxResource : public PositionObservable {
 		 * @return the size of the resource (based on how many robots are
 		 * required to push it)
 		 */
-		const int getSize();
+		int getSize();
 
 		/**
 		 * @return the face that robots can currently attach to.
 		 */
-		const Face getStickyFace();
+		Face getStickyFace();
 
 		/**
 		 * @return the number of robots currently pushing/attached to this
@@ -77,6 +77,11 @@ class BoxResource : public PositionObservable {
 		 */
 		int getNumberPushingRobots();
 
+		/**
+		 * @return the type of this
+		 * resource.
+		 */
+		int getType();
 		/**
 		 * @return the robots currently pushing/attached to this
 		 * resource.
@@ -95,7 +100,7 @@ class BoxResource : public PositionObservable {
 		 * @return true if the resource has been marked as collected, i.e. it has
 		 * passed into the gathering zone
 		 */
-		const bool isCollected();
+		bool isCollected();
 
 		/**
 		 * Mark this object as collected. i.e. mark it as being in the target area.
@@ -113,7 +118,7 @@ class BoxResource : public PositionObservable {
 		/**
 		 * @return the value of the resource
 		 */
-		const double getValue();
+		double getValue();
 
 		/**
 		 * Check whether this resource can be picked up
@@ -130,7 +135,7 @@ class BoxResource : public PositionObservable {
 		 */
 		bool pickup(boost::shared_ptr<Robot> robot);
 
-
+		bool attachRobot(boost::shared_ptr<Robot> robot);
 		/**
 		 * @return all the anchor points of this resource
 		 */
@@ -244,6 +249,10 @@ class BoxResource : public PositionObservable {
          * The number of robots required to push the resource
          */
         int pushingRobots_;
+        /**
+		 * The type of the resource
+		 */
+		int type_;
         
         /**
          * The value of this resource 

@@ -117,6 +117,10 @@ public:
 	 */
 	boost::shared_ptr<Environment> getEnvironment();
 
+	/**
+	 * @return the environment
+	 */
+	dGeomID getTerrainID();
 
 	inline bool wereObstaclesRemoved() {
 		return obstaclesRemoved_;
@@ -226,7 +230,7 @@ private:
 	//----------------------------------------------------------------------
 	//SM added: swarm specific attributes
 	//----------------------------------------------------------------------
-
+	dGeomID terrain_;
 	/**
 	 * Robots
 	 */

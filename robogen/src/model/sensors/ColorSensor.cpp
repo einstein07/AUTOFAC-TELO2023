@@ -147,157 +147,161 @@ void ColorSensor::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 
 }
 
-void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, boost::shared_ptr<Environment>& env) {
-	this->position_ = position;
-	this->attitude_ = attitude;
+	void ColorSensor::update(const osg::Vec3& position, const osg::Quat& attitude, boost::shared_ptr<Environment>& env) {
+		//std::cout << "UPDATE: Starting update. . ." << std::endl;
+		this->position_ = position;
+		this->attitude_ = attitude;
 
-	osg::Vec3 rayVector = attitude_ *  osg::Vec3(1,0,0);
+		osg::Vec3 rayVector = attitude_ *  osg::Vec3(1,0,0);
+		//std::cout << "UPDATE: Create Ray. . ." << std::endl;
+		// create ray
+		dGeomID ray = dCreateRay(raySpace_, SENSOR_RANGE);
+		//std::cout << "UPDATE: Ray created. Positioning ray. . ." << std::endl;
+		// position ray
+		dGeomRaySet(ray, position_.x(), position_.y(), position_.z(),
+				rayVector.x(), rayVector.y(), rayVector.z());
+		//std::cout << "UPDATE: Done." << std::endl;
+		//*******************************************
+		// prepare collision data structure
+		//*******************************************
+		RayTrace data;
 
-	// create ray
-	dGeomID ray = dCreateRay(raySpace_, SENSOR_RANGE);
-	// position ray
-	dGeomRaySet(ray, position_.x(), position_.y(), position_.z(),
-			rayVector.x(), rayVector.y(), rayVector.z());
+		// ignore sensor bodies
+		data.ignoreGeoms.insert(data.ignoreGeoms.end(),
+						sensorGeoms_.begin(), sensorGeoms_.end());
 
-	// prepare collision data structure
-	RayTrace data;
+		data.isColliding = false;
+		data.objData = 0;
+		//std::cout << "UPDATE: Performing collision. . ." << std::endl;
+		// perform collision
+		dSpaceCollide2((dGeomID)raySpace_, (dGeomID)odeSpace_, (void*)&data,
+						ColorSensor::collisionCallback);
+		//std::cout << "UPDATE: Done." << std::endl;
+		float distance = /**SENSOR_RANGE*/ 0.0;
 
-	// ignore sensor bodies
-	data.ignoreGeoms.insert(data.ignoreGeoms.end(),
-					sensorGeoms_.begin(), sensorGeoms_.end());
-
-	data.isColliding = false;
-
-	// perform collision
-	dSpaceCollide2((dGeomID)raySpace_, (dGeomID)odeSpace_, (void*)&data,
-					ColorSensor::collisionCallback);
-
-	float distance = /**SENSOR_RANGE*/ 0.0;
-
-	// ray should be capped at SENSOR_RANGE, but just to make sure we don't
-	// allow bigger values here
-	if(data.isColliding &&
-			(data.collisionPoint - position_).length() < SENSOR_RANGE) {
-		distance = (data.collisionPoint - position_).length();
-
-		//std::cout << "pos: " << position_.x() << " " << position_.y() <<  " " << position_.z() << std::endl;
-		//std::cout << "ray: " << rayVector.x() << " " << rayVector.y() <<  " " << rayVector.z() << std::endl;
-		//std::cout << "collision: " << data.collisionPoint.x() << " " << data.collisionPoint.y() <<  " " << data.collisionPoint.z() << std::endl;
-
-	}
-
-	int value = -1;
-
-	// ray should be capped at SENSOR_RANGE, but just to make sure we don't
-	// allow bigger values here
-	if(data.isColliding && data.objData != NULL) {
-		if (data.objData->isRobot){
-			value = ColorSensorElement::Type::ROBOT;
-		}
-		else if (data.objData->isResource){
-			value = ColorSensorElement::Type::RESOURCE;
-		}
-		/**else if (data.objData->isTargetArea){
-			value = ColorSensorElement::Type::TARGETAREA;
-		}*/
-		else if (data.objData->isWall){
-			value = ColorSensorElement::Type::WALL;
+		// ray should be capped at SENSOR_RANGE, but just to make sure we don't
+		// allow bigger values here
+		if(data.isColliding &&
+				(data.collisionPoint - position_).length() < SENSOR_RANGE) {
+			distance = (data.collisionPoint - position_).length();
 		}
 
-	}
+		int value = -1;
 
-	dGeomDestroy(ray);
-	// want 0 when nothing is seen
-	sensors_[0]->updateValue( /**1.0 - (distance / SENSOR_RANGE)*/ distance );
-	//Either nothing was detected or the detected object is not a robot nor a resorce
-	if (value == -1){
-		sensors_[1]->updateValue(0.0);
-		sensors_[2]->updateValue(0.0);
-		sensors_[3]->updateValue(0.0);
-		sensors_[4]->updateValue(0.0);
-		//sensors_[5] -> updateValue(0.0);
-	}
-
-	// Robot detected
-	else if ( value == ColorSensorElement::ROBOT ){
-		sensors_[1] -> updateValue(1.0);
-		sensors_[2] -> updateValue(0.0);
-		sensors_[3] -> updateValue(0.0);
-		sensors_[4] -> updateValue(0.0);
-		//sensors_[5] -> updateValue(0.0);
-		/**
-		 * Update robot object id
-		 */
-		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[1])->updateObjectId(data.objData->objectId);
-	}
-
-	// Resource detected
-	else if ( value == ColorSensorElement::RESOURCE ){
-		sensors_[1] -> updateValue(0.0);
-		sensors_[2] -> updateValue(1.0);
-
-		//--------------------------------------------------------
-		double size = 0.0;
-
-		int objectId = data.objData->objectId;
-		if ( objectId < 0 || objectId >= env->getResources().size() ){
-			std::cout << "[COLOR SENSOR] - Box resource with object id: ** " << objectId << " could **NOT** be retrieved by robot: " << std::endl;
-
+		// ray should be capped at SENSOR_RANGE, but just to make sure we don't
+		// allow bigger values here
+		if(data.isColliding && data.objData != 0) {
+			//std::cout << "Colliding and data present." << std::endl;
+			if (data.objData->isRobot){
+				value = ColorSensorElement::Type::ROBOT;
+			}
+			else if (data.objData->isResource){
+				value = ColorSensorElement::Type::RESOURCE;
+			}
+			/**else if (data.objData->isTargetArea){
+				value = ColorSensorElement::Type::TARGETAREA;
+			}*/
+			else if (data.objData->isWall){
+				value = ColorSensorElement::Type::WALL;
+			}
 		}
-		else{
-			boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
-			// Should not happen
-			if (resource != NULL){
-				int numRobotsAttached = resource->getNumberPushingRobots() + 1; //plus this robot
-				int numRobotsRequired = resource->getSize();
-				//std::cout << "Number of robots attached to this resource: " << resource->getNumberPushingRobots() << std::endl;
-				//std::cout << "Number of robots required to push this resource: " << resource->getSize() << std::endl;
-				if ((numRobotsAttached < numRobotsRequired) || (numRobotsAttached == numRobotsRequired)){
-					//std::cout << "WITHIN" << std::endl;
-					assert(numRobotsRequired != 0);
-					size = ((double)numRobotsAttached / (double)numRobotsRequired);
+		//std::cout << "UPDATE: Destroying ray. . ." << std::endl;
+		dGeomDestroy(ray);
+		//std::cout << "UPDATE: Done." << std::endl;
+		// want 0 when nothing is seen
+		sensors_[0]->updateValue( /**1.0 - (distance / SENSOR_RANGE)*/ distance );
+		//Either nothing was detected or the detected object is not a robot nor a resorce
+		if (value == -1){
+			sensors_[1]->updateValue(0.0);
+			sensors_[2]->updateValue(0.0);
+			sensors_[3]->updateValue(0.0);
+			sensors_[4]->updateValue(0.0);
+			//sensors_[5] -> updateValue(0.0);
+		}
+
+		// Robot detected
+		else if ( value == ColorSensorElement::ROBOT ){
+			//std::cout << "Updating robot sensor element. . ." << std::endl;
+			sensors_[1] -> updateValue(1.0);
+			sensors_[2] -> updateValue(0.0);
+			sensors_[3] -> updateValue(0.0);
+			sensors_[4] -> updateValue(0.0);
+			//sensors_[5] -> updateValue(0.0);
+			/**
+			 * Update robot object id
+			 */
+			boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[1])->updateObjectId(data.objData->objectId);
+			//std::cout << "Done updating robot sensor element." << std::endl;
+		}
+
+		// Resource detected
+		else if ( value == ColorSensorElement::RESOURCE ){
+			//std::cout << "Updating resource sensor element. . ." << std::endl;
+			sensors_[1] -> updateValue(0.0);
+			sensors_[2] -> updateValue(1.0);
+
+			//--------------------------------------------------------
+			double size = 0.0;
+
+			int objectId = data.objData->objectId;
+			if ( objectId < 0 || objectId >= env->getResources().size() ){
+				std::cout << "[COLOR SENSOR] - Box resource with object id: ** " << objectId << " could **NOT** be retrieved by robot: " << std::endl;
+
+			}
+			else{
+				boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
+				// Should not happen
+				if (resource != NULL){
+					int numRobotsAttached = resource->getNumberPushingRobots() + 1; //plus this robot
+					int numRobotsRequired = resource->getSize();
+					//std::cout << "Number of robots attached to this resource: " << resource->getNumberPushingRobots() << std::endl;
+					//std::cout << "Number of robots required to push this resource: " << resource->getSize() << std::endl;
+					if ((numRobotsAttached < numRobotsRequired) || (numRobotsAttached == numRobotsRequired)){
+						//std::cout << "WITHIN" << std::endl;
+						assert(numRobotsRequired != 0);
+						size = ((double)numRobotsAttached / (double)numRobotsRequired);
+					}
 				}
+
 			}
 
+			//--------------------------------------------------------
+			sensors_[3] -> updateValue(size);
+
+			sensors_[4] -> updateValue(0.0);
+
+			//sensors_[5] -> updateValue(0.0);
+			/**
+			 * Update resource object id - both sensors will have to point to the same
+			 * resource object id to ensure correctness of sensor object detection
+			 */
+			boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[2])->updateObjectId(data.objData->objectId);
+			boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[3])->updateObjectId(data.objData->objectId);
+			//std::cout << "Done updating resource sensor element." << std::endl;
 		}
 
-		//--------------------------------------------------------
-		sensors_[3] -> updateValue(size);
+		// Target area is detected
+		/**else if ( value == ColorSensorElement::TARGETAREA ){
+			//std::cout << "TARGET AREA DETECTED" << std::endl;
+			sensors_[1]->updateValue(0.0);
+			sensors_[2]->updateValue(0.0);
+			sensors_[3]->updateValue(0.0);
+			sensors_[4] -> updateValue(1.0);
+			sensors_[5] -> updateValue(0.0);
+		}*/
 
-		sensors_[4] -> updateValue(0.0);
-
-		//sensors_[5] -> updateValue(0.0);
-		/**
-		 * Update resource object id - both sensors will have to point to the same
-		 * resource object id to ensure correctness of sensor object detection
-		 */
-		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[2])->updateObjectId(data.objData->objectId);
-		boost::dynamic_pointer_cast<ColorSensorElement>(sensors_[3])->updateObjectId(data.objData->objectId);
-
+		// Wall detected
+		else if ( value == ColorSensorElement::WALL ){
+			//std::cout << "Updating wall sensor element. . ." << std::endl;
+			sensors_[1] -> updateValue(0.0);
+			sensors_[2] -> updateValue(0.0);
+			sensors_[3] -> updateValue(0.0);
+			sensors_[4] -> updateValue(1.0);
+			//sensors_[5] -> updateValue(1.0);
+			//std::cout << "Done updating wall sensor element." << std::endl;
+		}
+		//std::cout << "UPDATE: Update done." << std::endl;
 	}
-
-	// Target area is detected
-	/**else if ( value == ColorSensorElement::TARGETAREA ){
-		//std::cout << "TARGET AREA DETECTED" << std::endl;
-		sensors_[1]->updateValue(0.0);
-		sensors_[2]->updateValue(0.0);
-		sensors_[3]->updateValue(0.0);
-		sensors_[4] -> updateValue(1.0);
-		sensors_[5] -> updateValue(0.0);
-	}*/
-
-	// Wall detected
-	else if ( value == ColorSensorElement::WALL ){
-		sensors_[1] -> updateValue(0.0);
-		sensors_[2] -> updateValue(0.0);
-		sensors_[3] -> updateValue(0.0);
-		sensors_[4] -> updateValue(1.0);
-		//sensors_[5] -> updateValue(1.0);
-	}
-
-}
-
-
 }
 
 

@@ -32,7 +32,27 @@ BoxResourceRender::BoxResourceRender(boost::shared_ptr<BoxResource> resource){
 
 	osg::ref_ptr<osg::ShapeDrawable> boxDrawable(
 			new osg::ShapeDrawable(box.get()));
-	boxDrawable->setColor(osg::Vec4(0, 1, 0, 1));
+	if(resource -> getType() == 1){
+		// Red
+		boxDrawable->setColor(osg::Vec4(1, 0, 0, 1));
+	}
+	else if (resource -> getType() == 2){
+		// Green
+		boxDrawable->setColor(osg::Vec4(0, 1, 0, 1));
+	}
+	else if (resource -> getType() == 3){
+		// Blue
+		boxDrawable->setColor(osg::Vec4(0, 0, 1, 1));
+	}
+	else if (resource -> getType() == 4){
+		// Yellow
+		boxDrawable->setColor(osg::Vec4(1, 1, 0, 1));
+	}
+	else {
+		// Brown
+		boxDrawable->setColor(osg::Vec4(0.59, 0.29, 0, 1));
+	}
+
 	osg::ref_ptr<osg::Geode> geode(new osg::Geode());
 	geode->addDrawable(boxDrawable.get());
 	rootNode_->addChild(geode);

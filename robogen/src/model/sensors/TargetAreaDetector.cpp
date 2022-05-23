@@ -141,7 +141,7 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 					sensorGeoms_.begin(), sensorGeoms_.end());
 
 	data.isColliding = false;
-
+	data.objData = 0;
 	// perform collision
 	dSpaceCollide2((dGeomID)raySpace_, (dGeomID)odeSpace_, (void*)&data,
 			TargetAreaDetector::collisionCallback);
@@ -163,7 +163,7 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 
 	}*/
 
-	if (data.isColliding && data.objData != NULL ){
+	if (data.isColliding && data.objData != 0 ){
 		//std::cout << "Data not null" << std::endl;
 		if ( data.objData->isTargetArea ){
 			value = 1.0;

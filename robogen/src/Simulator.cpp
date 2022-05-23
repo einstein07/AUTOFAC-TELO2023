@@ -33,6 +33,8 @@
 #include "viewer/WebGLLogger.h"
 #include <boost/thread.hpp>
 #include <boost/thread/mutex.hpp>
+#include <time.h> //for benchmarking purposes
+#include "EDQD/Util.h"
 #include "EDQD/EDQDRobot.h"
 #include "EDQD/PickUpHeuristic.h"
 #include "EDQD/DropOffHeuristic.h"
@@ -45,10 +47,113 @@ extern dWorldID odeWorld;
 
 // Container for collisions
 extern dJointGroupID odeContactGroup;
+std::string gCurrentBuildInfo = "Robot logging testing";
+long int gVersion  = 20220518;
+std::string gLogCommentText  = "(under development)"; //
+std::string gStartTime = getCurrentTimeAsReadableString();
+time_t gStartTimeRawFormat = time(0);
+std::string gStopTime;
+time_t gStopTimeRawFormat = time(0);
+
+std::string gCompileTime = __TIME__;
+std::string gCompileDate = __DATE__;
+
+//filenames
+
+std::ofstream gLogFile;
+Logger *gLogger = NULL;
+
+bool gVerbose_commandlineargument =             false; // set to true if given as command line argument (priority over properties file)
+bool gLogDirectoryname_commandlineargument =    false; // set to true only if given as command line argument (priority over properties file)
+bool gBatchMode_commandlineargument = false; // set to true only if given as command line argument (priority over properties file)
+std::string gLogDirectoryname =                 "logs";
+std::string gLogFilename =						/**"datalog.txt";*/ "datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
+std::string gLogFullFilename =                  ""; // cf. the initLog method
+
 
 namespace robogen{
 
 unsigned int iterations = 0;
+
+
+void initLogging()
+{
+	// test log directory.
+
+    /*
+
+    // notes, 2014-09-02: unfortunatly, boost::filesystem is not a header-only boost library...
+    // http://www.boost.org/doc/libs/1_53_0/more/getting_started/windows.html#header-only-libraries
+
+    boost::filesystem::path dir (gLogDirectoryname);
+    try
+    {
+		if (boost::filesystem::exists(dir))
+	    {
+			if (boost::filesystem::is_regular_file(dir))
+			{
+	        	std::cout << "[ERROR] directory for logging \"" << dir << "\" already exists, but is a regular file!\n";
+				exit (-1);
+			}
+			else
+				if (!boost::filesystem::is_directory(dir))
+				{
+					// directory does not exist. Create it.
+                    std::cout << "[INFO] directory for logging \"" << dir << "\" did not exist. Creating new directory.\n";
+					boost::filesystem::create_directories(dir);
+				}
+	    }
+	    else
+		{
+			// directory does not exist. Create it.
+            std::cout << "[INFO] directory for logging \"" << dir << "\" did not exist. Creating new directory.\n";
+			boost::filesystem::create_directories(dir);
+		}
+	}
+	catch (const boost::filesystem::filesystem_error& ex)
+	{
+		std::cout << ex.what() << std::endl;
+		exit (-1);
+	}
+
+    */
+
+
+    // init log file
+
+    gLogFullFilename = gLogDirectoryname + "/" + gLogFilename;
+
+	gLogFile.open(gLogFullFilename.c_str());//, std::ofstream::out | std::ofstream::app);
+
+	if(!gLogFile) {
+		std::cout << "[CRITICAL] Cannot open log file " << gLogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	gLogFile << "# =-=-=-=-=-=-=-=-=-=-=" << std::endl;
+	gLogFile << "# LOG DATA " << std::endl;
+	gLogFile << "# =-=-=-=-=-=-=-=-=-=-=" << std::endl;
+	gLogFile << "#" << std::endl;
+	gLogFile << "# =-= Official version tag    : " << gVersion << std::endl;
+	gLogFile << "# =-= Current build name      : " << gCurrentBuildInfo << std::endl;
+	gLogFile << "# =-= Compilation version tag : " << gCompileDate << " - " << gCompileTime << std::endl;
+	gLogFile << "#" << std::endl;
+	gLogFile << "# Loaded time stamp           : " << gStartTime << std::endl;
+    gLogFile << "# process ID                  : " << getpidAsReadableString() << std::endl;
+	gLogFile << "#" << std::endl;
+
+	//gLogFile << "# log comment      : " << gLogCommentText << std::endl;
+
+    gLogger = Logger::make_DefaultLogger(); // it is recommended (though not forced) to use gLogger instead of gLogFile.
+}
+
+
+void stopLogging()
+{
+	gLogFile.close();
+}
+
+
 /**
  * Thread function assigned to a robot
  * @param indiQueue queue of Individuals to be evaluated
@@ -329,6 +434,11 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		// ======================================================================================================
 		// Configure Simulator
 		// ======================================================================================================
+		clock_t start = clock();
+		// * Initialize log file(s)
+
+		initLogging();
+
 
 		// =======================================
 		// Simulator initialization
@@ -360,7 +470,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		 */
 		{
 
-			// Number of robots that are stil actve
+			// Number of robots that are active - used to set each robot's unique ID
 			int nbAlive_ = 0;
 			// =======================================
 			// Create and initialize multiple robots
@@ -565,7 +675,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				// Update each robot's sensors in the threads but, update environment first - elapsed time since last call
 				env->setTimeElapsed(step);
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
-					std::cout << "\nLifetime ended: replace genome (if possible)" << std::endl;
+					std::cout << "******************************************************\n"
+							"Lifetime ended: replace genome (if possible)\n"
+							     "******************************************************" << std::endl;
 				}
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
@@ -598,23 +710,28 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					}
 				}
 
-				// 3. Join threads. Individuals are now evaluated.
+				// 3. Join threads. Individuals are now evaluated. - put here for debugging purposes
 				//actions.join_all();
 				// Update Sensors
-				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
+				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
+				//	std::cout << "Robot loop done." << std::endl;
+				//}
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Updating sensors" << std::endl;
 #endif
 				for (unsigned int i = 0; i < robots.size(); i++) {
-					for (unsigned int j = 0; j < robots_bodyParts[i].size(); ++j) {
-						if (boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])) {
+					if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])){
+						if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->isAlive()){
+							for (unsigned int j = 0; j < robots_bodyParts[i].size(); ++j) {
+								if (boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])) {
 
-							boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])->
-									updateSensors(env);
+									boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])->
+											updateSensors(env);
+								}
+							}
 						}
 					}
 				}
-				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Done with sensors" << std::endl;
 #endif
@@ -624,7 +741,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				std::cout << "Robot action loop complete" << std::endl;
 #endif
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
-				std::cout << "Done. Replace life iteration: " << iterations << std::endl;
+				std::cout << "**********************************************\n"
+						"Done. Replace life iteration: " << iterations << "\n"
+							 "***********************************************" <<std::endl;
 				t += step;
 				iterations++;
 
@@ -654,6 +773,55 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		/**if(constraintViolated || onlyOnce) {
 			break;
 		}*/
+		clock_t end = clock();
+		double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
+		std::cout << "Time taken "<<time_spent <<std::endl;
+
+		// * clean up and quit
+
+	    gStopTime = getCurrentTimeAsReadableString();
+	    gStopTimeRawFormat = time(0);
+
+	    time_t elapsed = int(gStopTimeRawFormat - gStartTimeRawFormat);
+	    int seconds = (int)elapsed;
+	    int minutes = seconds/60;
+	    seconds = seconds - ( minutes * 60 );
+	    int hours = minutes/60;
+	    minutes = minutes - (hours * 60 );
+	    int days = hours/24;
+	    hours = hours - (days*24);
+
+	    gLogFile << "# Started: " << gStartTime << std::endl;
+	    gLogFile << "# Stopped: " << gStopTime << std::endl;
+	    gLogFile << "# Elapsed: ";
+	    if ( days > 0 )
+	        gLogFile << days << " day(s), ";
+	    if ( hours > 0 )
+	        gLogFile << hours << " hour(s), ";
+	    if ( minutes > 0 )
+	        gLogFile << minutes << " minutes(s), ";
+	    gLogFile <<  seconds << " second";
+	    if ( seconds > 1 )
+	        gLogFile << "s";
+	    gLogFile << "." << std::endl;
+
+
+		stopLogging();
+
+	    std::cout << std::endl;
+	    std::cout << "[timestamp::start] " << gStartTime << std::endl;
+	    std::cout << "[timestamp::stop ] " << gStopTime << std::endl;
+	    std::cout << "[Chronometer] ";
+	    if ( days > 0 )
+	        std::cout << days << " day(s), ";
+	    if ( hours > 0 )
+	        std::cout << hours << " hour(s), ";
+	    if ( minutes > 0 )
+	        std::cout << minutes << " minutes(s), ";
+	    std::cout << seconds << " second";
+	    if ( seconds > 1 )
+	        std::cout << "s";
+	    std::cout << "." << std::endl << std::endl;
 	}
 	else{
 

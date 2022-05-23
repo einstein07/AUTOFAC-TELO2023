@@ -31,9 +31,9 @@ public:
 	ResourcesConfig(const std::vector<osg::Vec3>& coordinates,
 			const std::vector<osg::Vec3>& sizes,
 			const std::vector<float> &densities,
-			const std::vector<int>& pushingRobots) :
+			const std::vector<int>& types) :
 			coordinates_(coordinates), sizes_(sizes), densities_(densities),
-			pushingRobots_(pushingRobots) {
+			types_(types) {
 
 	}
 
@@ -65,11 +65,11 @@ public:
 		return densities_;
 	}
 
-        /**
-	 * @return the number of robots required to push the resources 
+	/**
+	 * @return the types of the resources
 	 */
-	const std::vector<int>& getNumberOfPushingRobots() const{
-		return pushingRobots_;
+	const std::vector<int>& getTypes() const{
+		return types_;
 	}
         
 	/**
@@ -79,7 +79,7 @@ public:
 		for (unsigned int i=0; i<coordinates_.size(); ++i){
 			robogenMessage::Resource *curr = message.add_resources();
 			curr->set_density(densities_[i]);
-                        curr->set_pushingrobots(pushingRobots_[i]);
+                        curr->set_type(types_[i]);
 			curr->set_x(coordinates_[i].x());
 			curr->set_y(coordinates_[i].y());
 			curr->set_z(coordinates_[i].z());
@@ -107,9 +107,9 @@ private:
 	std::vector<float> densities_;
 
 	/**
-	 * Number of robots required to push the resource
+	 * resource-type: 1 - red, 2 - green,  3 - blue, 4 - yellow, 5 - brown
 	 */
-	std::vector<int> pushingRobots_;
+	std::vector<int> types_;
 };
 
 }

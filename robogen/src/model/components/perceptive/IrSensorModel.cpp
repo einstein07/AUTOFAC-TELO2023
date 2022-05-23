@@ -157,7 +157,7 @@ void IrSensorModel::getSensors(
 }
 
 void IrSensorModel::updateSensors(boost::shared_ptr<Environment>& env) {
-
+	//std::cout << "Updating IR sensor. . ." << std::endl;
 	// Axis
 	osg::Quat quat = this->sensorRoot_->getAttitude();
 
@@ -165,6 +165,7 @@ void IrSensorModel::updateSensors(boost::shared_ptr<Environment>& env) {
 	osg::Vec3 axis(1, 0, 0);
 	osg::Vec3 sensorPos = curPos + quat * axis * SENSOR_DISPLACEMENT;
 	this->sensor_->update(sensorPos, this->sensorRoot_->getAttitude());
+	//std::cout << "Done updating IR sensor." << std::endl;
 }
 
 }

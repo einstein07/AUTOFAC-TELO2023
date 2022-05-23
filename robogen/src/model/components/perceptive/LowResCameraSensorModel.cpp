@@ -131,7 +131,7 @@ void LowResCameraSensorModel::getSensors(
 }
 
 void LowResCameraSensorModel::updateSensors(boost::shared_ptr<Environment>& env) {
-
+	std::cout << "Updating low res camera sensor. . ." << std::endl;
 	// Axis
 	osg::Quat quat = this->sensorRoot_->getAttitude();
 
@@ -150,6 +150,8 @@ void LowResCameraSensorModel::updateSensors(boost::shared_ptr<Environment>& env)
 
 	}
 	this->sensor_->updateValue(value);
+	std::cout << "Done updating low res camera sensor." << std::endl;
+
 }
 
 }

@@ -254,6 +254,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	if(!environment_->init()) {
 		return false;
 	}
+	terrain_ = environment_ -> getTerrainID();
 	stopSimulationNow_ = false;
         
         /**---------------------------------------------------------------------
@@ -393,7 +394,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	const std::vector<osg::Vec3>& resourceCoordinates = resources->getCoordinates();
 	const std::vector<osg::Vec3>& resourceSizes = resources->getSizes();
 	const std::vector<float>& densities = resources->getDensities();
-	const std::vector<int>& pushingRobots = resources->getNumberOfPushingRobots();
+	const std::vector<int>& types = resources->getTypes();
 
 	resourcesRemoved_ = false;
 
@@ -408,7 +409,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 															resourceCoordinates[i],
                                                             resourceSizes[i], 
                                                             densities[i], 
-                                                            pushingRobots[i],
+                                                            types[i],
 															resourceId
                                                             )
                                                         );
@@ -601,6 +602,10 @@ void Scenario::setStartingPosition(int id) {
 
 boost::shared_ptr<Environment> Scenario::getEnvironment() {
 	return environment_;
+}
+
+dGeomID Scenario::getTerrainID() {
+	return terrain_;
 }
 
 

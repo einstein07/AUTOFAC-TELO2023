@@ -94,7 +94,7 @@ message Resource {
   required float ySize = 5;
   required float zSize = 6;
   required float density = 7;
-  required float pushingRobots = 8;
+  required float type = 8;
 }
 
 message SimulatorConf {

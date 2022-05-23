@@ -37,57 +37,57 @@ struct Elite {
 		Elite(){}
 
 		Elite(Elite* o) {
-			this->fitness = o->fitness;
-			this->genome.clear();
-			this->genome = o->genome;
-			this->id = o->id;
-			this->sigma = o->sigma;
-			this->pos.clear();
-			this->pos = o->pos;
+			fitness_ = o->fitness_;
+			genome_.clear();
+			genome_ = o->genome_;
+			id_ = o->id_;
+			sigma_ = o->sigma_;
+			pos_.clear();
+			pos_ = o->pos_;
 		}
 
 		Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos) {
-			this->fitness = fitness;
-			this->genome.clear();
-			this->genome = genome;
-			this->id = id;
-			this->sigma = sigma;
-			this->pos.clear();
-			this->pos = pos;
+			fitness_ = fitness;
+			genome_.clear();
+			genome_ = genome;
+			id_ = id;
+			sigma_ = sigma;
+			pos_.clear();
+			pos_ = pos;
 		}
 
 		inline bool operator< (const Elite& rhs){
-			return this->fitness < rhs.fitness ||
-					( this->fitness == rhs.fitness && _dist_center(this->pos) > _dist_center(rhs.pos) ) ;
+			return this->fitness_ < rhs.fitness_ ||
+					( fitness_ == rhs.fitness_ && _dist_center(pos_) > _dist_center(rhs.pos_) ) ;
 		}
 		inline bool operator> (const Elite& rhs){
-			return rhs.fitness < this->fitness ||
-					( this->fitness == rhs.fitness && _dist_center(rhs.pos) > _dist_center(this->pos) );
+			return rhs.fitness_ < fitness_ ||
+					( fitness_ == rhs.fitness_ && _dist_center(rhs.pos_) > _dist_center( pos_) );
 		}
 		inline bool operator<=(const Elite& rhs){
-			return !(rhs.fitness < this->fitness ||
-					( this->fitness == rhs.fitness && _dist_center(rhs.pos) > _dist_center(this->pos) ));
+			return !(rhs.fitness_ < fitness_ ||
+					( fitness_ == rhs.fitness_ && _dist_center(rhs.pos_) > _dist_center( pos_) ));
 		}
 		inline bool operator>=(const Elite& rhs){
-			return !(this->fitness < rhs.fitness ||
-					( this->fitness == rhs.fitness && _dist_center(this->pos) > _dist_center(rhs.pos) ));
+			return !( fitness_ < rhs.fitness_ ||
+					( fitness_ == rhs.fitness_ && _dist_center( pos_) > _dist_center(rhs.pos_) ));
 		}
 		/**
 		 * Write Elite object to standard output stream
 		 */
 		inline friend std::ostream& operator<<(std::ostream& os, const Elite& obj){
-			os << obj.fitness;
+			os << obj.fitness_;
 			return os;
 		};
 
 		template <class Archive>
 		void serialize(Archive& ar, const unsigned int version) {
-			ar& BOOST_SERIALIZATION_NVP(fitness);
-			ar& BOOST_SERIALIZATION_NVP(genome);
-			ar& BOOST_SERIALIZATION_NVP(id);
-			ar& BOOST_SERIALIZATION_NVP(sigma);
-			ar& BOOST_SERIALIZATION_NVP(pos);
-			ar& BOOST_SERIALIZATION_NVP(counter);
+			ar& BOOST_SERIALIZATION_NVP(fitness_);
+			ar& BOOST_SERIALIZATION_NVP(genome_);
+			ar& BOOST_SERIALIZATION_NVP(id_);
+			ar& BOOST_SERIALIZATION_NVP(sigma_);
+			ar& BOOST_SERIALIZATION_NVP(pos_);
+			ar& BOOST_SERIALIZATION_NVP(counter_);
 		}
 
 		/**
@@ -104,17 +104,17 @@ struct Elite {
 		}
 
 		void incCounter() {
-			this->counter++;
+			counter_++;
 		}
 		//=======================================================================================
 		// Members
 		//=======================================================================================
-		double fitness = -1.0;
-		std::vector<double> genome;
-		std::pair<int, int> id;
-		float sigma = EDQD::Parameters::sigmaRef;
-		std::vector<double> pos;
-		int counter = 0;
+		double fitness_ = -1.0;
+		std::vector<double> genome_;
+		std::pair<int, int> id_;
+		float sigma_ = EDQD::Parameters::sigmaRef;
+		std::vector<double> pos_;
+		int counter_ = 0;
 
 };
 
@@ -259,7 +259,7 @@ class EDQDMap {
 		void updateNumFilledCells() {
 			num_filled_cells_ = 0;
 			for (size_t i = 0; i < map_.num_elements(); i++) {
-				if (map_.data()[i].fitness > -1.0) {
+				if (map_.data()[i].fitness_ > -1.0) {
 					num_filled_cells_++;
 					setMapHasEntry(true);
 				}

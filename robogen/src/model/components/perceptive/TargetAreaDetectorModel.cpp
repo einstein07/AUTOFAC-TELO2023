@@ -135,7 +135,7 @@ void TargetAreaDetectorModel::getSensors(
 }
 
 void TargetAreaDetectorModel::updateSensors(boost::shared_ptr<Environment>& env) {
-
+	//std::cout << "Updating target area detector sensor. . ." << std::endl;
 	// Axis
 	osg::Quat quat = this->sensorRoot_->getAttitude();
 
@@ -143,6 +143,7 @@ void TargetAreaDetectorModel::updateSensors(boost::shared_ptr<Environment>& env)
 	osg::Vec3 axis(1, 0, 0);
 	osg::Vec3 sensorPos = curPos + quat * axis * SENSOR_DISPLACEMENT;
 	this->sensor_->update(sensorPos, this->sensorRoot_->getAttitude(), env);
+	//std::cout << "Done updating target area detector sensor." << std::endl;
 }
 
 }
