@@ -9,6 +9,8 @@
  */
 
 #include "EDQD/Parameters.h"
+std::ofstream gLitelogFile;
+Logger *gLiteLogger = NULL;
 namespace EDQD{
 
 	//============================================================================================
@@ -17,15 +19,18 @@ namespace EDQD{
 	double Parameters::sigmaMin = 0.001; // From EDQD-GECCO2018
 	// maximal value of sigma
 	double Parameters::sigmaMax = 0.5; // From EDQD-GECCO2018
+	int Parameters::nbHiddenLayers = 1;
+	int Parameters::nbNeuronsPerHiddenLayer = 20;
 	int Parameters::weightRange = 800; // From EDQD-GECCO2018 [-400, +400]
+	int Parameters::nbOfPhysicalObjectGroups = 5; // 5 resource types in this work
 	double Parameters::pMutation = 0.0; // From EDQD-GECCO2018
 	double Parameters::updateSigmaStep = 0.35; // From EDQD-GECCO2018
 	// reference value of sigma
 	double Parameters::sigmaRef = 0.1; // From EDQD-GECCO2018
 	// how long a controller will be evaluated on a robot
-	unsigned int Parameters::evaluationTime = 3200;//800; // From EDQD-GECCO2018*/
+	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 80000;//804000;// 40000; // From EDQD-GECCO2018*/
+	unsigned int Parameters::maxIterations = 100000;//804000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
@@ -36,12 +41,14 @@ namespace EDQD{
 	double Parameters::fitEpsilon = 1.0;
 	// default: arbitrarily set to 65535 as in previous work.
 	int Parameters::maxNbGenomeTransmission = 65535;
+	int Parameters::controllerType = 1;
 	// default: do not limit.
 	bool Parameters::limitGenomeTransmission = false;
 	// -1: infinite ; 0: no delay ; >0: delay
 	int Parameters::notListeningStateDelay = 0;
 	// -1: infinite ; 0: no delay ; >0: delay (ignored if gNotListeningStateDelay=-1)
 	int Parameters::listeningStateDelay = -1;
+	double Parameters::individualMutationRate = 1.0;
 	// # 0: uniform, 1: gaussian with evolved sigma, 2: gaussian with fixed sigma
 	int Parameters::mutationOperator = 1;
 
@@ -50,7 +57,15 @@ namespace EDQD{
 
 	bool Parameters::onlyKeepMapsForGeneration = true;
 
-	int Parameters::maxTimeResourceBound = 3200;//1000;
+	int Parameters::maxTimeResourceBound = 8000;//1000;
+
+	std::ofstream Parameters::gEOGLogFile;
+	Logger* Parameters::gEOGLogger = NULL;
+
+	std::ofstream Parameters::gMapsLogFile;
+	Logger* Parameters::gMapsLogger = NULL;
+
+
 
 	Parameters::Parameters(){
 	}

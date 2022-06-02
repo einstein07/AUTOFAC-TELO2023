@@ -10,8 +10,11 @@
 
 #ifndef EDQD_PARAMETERS_H_
 #define EDQD_PARAMETERS_H_
+#include "Logger.h"
 #include <fstream>
 
+extern std::ofstream gLitelogFile;
+extern Logger *gLiteLogger;
 namespace EDQD{
 	//=============================================================================================
 	// Embodied Evolution Parameters
@@ -33,11 +36,15 @@ namespace EDQD{
 		 */
 		static double sigmaMax;
 
+		static int nbHiddenLayers; // default: 1
+		static int nbNeuronsPerHiddenLayer; // default: 5
 		/**
 		 * Bounds of brain weights
 		 * Default this to 800 (i.e. weights are in [-400,+400] as done in previous work)
 		 */
 		static int weightRange;
+		static int nbOfPhysicalObjectGroups;
+
 
 		/**
 		 * Step used in the drecrease or increas of the value of sigma
@@ -82,12 +89,17 @@ namespace EDQD{
 		 * Defines the number of intervals per dimension of a map
 		 * NB: needs to be set at compile time
 		 */
-		static const int nbOfIntervals = /*15*/5;
+		static const int nbOfIntervals = 5;//2;///*15*/5;
 
 		/**
 		 * Used to decide whether to discard or keep an elite in the map
 		 */
 		static double fitEpsilon;
+
+		/**
+		 * Controller type (0: MLP, 1: Perceptron, 2: Elman)
+		 */
+		static int controllerType;
 
 		/**
 		 * Max. nb of genome transmission per individual per lifetime.
@@ -109,6 +121,8 @@ namespace EDQD{
 		 */
 		static int listeningStateDelay;
 
+		static double individualMutationRate;
+
 		/**
 		 * 0: uniform, 1: gaussian/normal distribution
 		 */
@@ -129,6 +143,12 @@ namespace EDQD{
 		 * getting forced to drop it off for other robots to pick it up.
 		 */
 		static int maxTimeResourceBound;
+
+		static std::ofstream gEOGLogFile;
+		static Logger* gEOGLogger;
+
+		static std::ofstream gMapsLogFile;
+		static Logger* gMapsLogger;
 
 		// =========================================================================================
 		// Constructors

@@ -43,6 +43,7 @@
 #include "render/components/LightSensorRenderModel.h"
 #include "render/components/IrSensorRenderModel.h"
 #include "render/components/ColorSensorRenderModel.h"
+#include "render/components/SensorMorphologyRenderModel.h"
 #include "render/components/TargetAreaDetectorRenderModel.h"
 #include "render/objects/BoxObstacleRender.h"
 #include "render/objects/BoxResourceRender.h"

@@ -1,5 +1,5 @@
 /*
- * @(#) LowResCameraSensorModel.h   1.0   Aug 19, 2021
+ * @(#) SensorMorphologyModel.h   1.0   Jun 01, 2022
  *
  * Sindiso Mkhatshwa (mkhsin035@myuct.ac.za)
  *
@@ -8,17 +8,17 @@
  * @(#) $Id$
  */
 
-#ifndef ROBOGEN_LOW_RES_CAMERA_SENSOR_MODEL_H_
-#define ROBOGEN_LOW_RES_CAMERA_SENSOR_MODEL_H_
+#ifndef ROBOGEN_SENSOR_MORPHOLOGY_MODEL_H_
+#define ROBOGEN_SENSOR_MORPHOLOGY_MODEL_H_
 
 
 #include <boost/shared_ptr.hpp>
 #include "model/PerceptiveComponent.h"
-#include "model/sensors/LowResCameraSensor.h"
+#include "model/sensors/SensorMorphology.h"
 
 namespace robogen {
 
-class LowResCameraSensorModel: public PerceptiveComponent {
+class SensorMorphologyModel: public PerceptiveComponent {
 
 public:
 
@@ -35,11 +35,10 @@ public:
 
 	static const unsigned int B_SENSOR_BASE_ID = 0;
 	static const unsigned int B_SENSOR_PLATFORM_ID = 1;
+	SensorMorphologyModel(dWorldID odeWorld, dSpaceID odeSpace, std::string id);
+	SensorMorphologyModel(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace, std::string id);
 
-	LowResCameraSensorModel(dWorldID odeWorld, dSpaceID odeSpace,
-			dSpaceID robotSpace, std::string id);
-
-	virtual ~LowResCameraSensorModel();
+	virtual ~SensorMorphologyModel();
 
 	virtual bool initModel();
 
@@ -61,7 +60,7 @@ private:
 
 	boost::shared_ptr<SimpleBody> sensorRoot_;
 
-	boost::shared_ptr<LowResCameraSensor> sensor_;
+	boost::shared_ptr<SensorMorphology> sensor_;
 
 };
 
@@ -69,4 +68,4 @@ private:
 
 
 
-#endif /* ROBOGEN_LOW_RES_CAMERA_SENSOR_MODEL_H_ */
+#endif /* ROBOGEN_COLOR_SENSOR_MODEL_H_ */

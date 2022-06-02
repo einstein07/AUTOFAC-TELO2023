@@ -11,8 +11,10 @@
 #ifndef EDQDROBOT_H_
 #define EDQDROBOT_H_
 
+#include <EDQD/contrib/neuralnetworks/NeuralNetwork.h>
 #include "evolution/representation/RobotRepresentation.h"
 #include "model/components/perceptive/ColorSensorModel.h"
+#include "model/sensors/SensorMorphology.h"
 #include "config/EvolverConfiguration.h"
 #include "evolution/engine/Mutator.h"
 #include "Heuristic.h"
@@ -21,6 +23,7 @@
 #include "Robot.h"
 #include "EDQDMap.h"
 #include "Util.h"
+
 //#include "PickUpHeuristic.h"
 //#include "CollisionAvoidanceHeuristic.h"
 namespace robogen {
@@ -61,7 +64,8 @@ class EDQDRobot : public Robot{
 		//========================================================================================
 		// Members
 		//========================================================================================
-
+	    //TODO: Find clever way for this
+	    bool isNull;
 		boost::random::normal_distribution<float> normalDistribution;
 		boost::random::uniform_01<float> uniformDistribution;
 		boost::shared_ptr<RobogenConfig> configuration;
@@ -105,19 +109,47 @@ class EDQDRobot : public Robot{
 		/**
 		 * ANN
 		 */
+		/**************************************************/
+		// ANN
 		double minValue_;
 		double maxValue_;
-		float weights_[maxGenomeSize];
 		unsigned int nbInputs_;
 		unsigned int nbOutputs_;
-		unsigned int nbHidden_;
+		unsigned int nbHiddenLayers_;
 
-		float params_[MAX_PARAMS * (MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
-		unsigned int types_[(MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 
 
 
 		std::vector<unsigned int>* nbNeuronsPerHiddenLayer_;
+
+		std::vector<double> parameters_;
+		std::string nnType_;
+		std::vector<int> nbHiddenNeuronsPerLayer_;
+		std::vector<int> nbBiasNeuronsPerLayer_;
+		Neural::NeuralNetwork* nn;
+
+		void createNN();
+
+		std::vector<double> getInputs();
+		std::vector<double> getSensorInputs();
+		void setIOcontrollerSize();
+
+		void initController(); // called by resetRobot
+		void stepController();
+		/***************************************************/
+		//double minValue_;
+		//double maxValue_;
+		//float weights_[maxGenomeSize];
+		//unsigned int nbInputs_;
+		//unsigned int nbOutputs_;
+		//unsigned int nbHidden_;
+
+		//float params_[MAX_PARAMS * (MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
+		//unsigned int types_[(MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
+
+
+
+		//std::vector<unsigned int>* nbNeuronsPerHiddenLayer_;
 
 		// logging purpose
 		double Xinit_;
@@ -152,6 +184,7 @@ class EDQDRobot : public Robot{
 		std::string logFilename;
 
 	public:
+		double motorOutputs[2];
 		//========================================================================================
 		// Methods
 		//========================================================================================
@@ -192,11 +225,11 @@ class EDQDRobot : public Robot{
 	    bool isListening() { return isListening_; }
 
 	    void incResourceCounter(const int group) {
-	    	if (resourceCounters_[group] == -1 ){
+	    	/*if (resourceCounters_[group] == -1 ){
 	    		resourceCounters_[group] = 1;
-	    	}else{
-	    		resourceCounters_[group] = resourceCounters_[group] + 1;
-	    	}
+	    	}else{*/
+			resourceCounters_[group]++;
+	    	//}
 		}
 
 	    void resetPotMaxTravelled();
@@ -217,7 +250,7 @@ class EDQDRobot : public Robot{
 			 * Simple environment - i.e. 1 & 2 pushing robots per resource only
 			 */
 			for (int i = 1; i <= 5 ; i++){
-				resourceCounters_[i] = -1; /**randint()%100;//*///0;
+				resourceCounters_[i] = 0; /**randint()%100;//*///0;
 			}
 		}
 
@@ -250,6 +283,8 @@ class EDQDRobot : public Robot{
 		void resetTimeResourceBound(){timeResourceBound_ = 0;}
 
 		void reset();
+
+		void writeEOGEntry(Logger* lm);
 };
 
 }//namespace robogen

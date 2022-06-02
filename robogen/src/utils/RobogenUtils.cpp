@@ -839,6 +839,13 @@ ModelMeshMap initModelMeshMap() {
 			"ColorSensor.stl";
 #endif
 	// SM Added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	// Color Sensor
+	modelMeshMap[std::make_pair(&typeid(SensorMorphologyModel),
+			static_cast<unsigned int>(SensorMorphologyModel::B_SENSOR_BASE_ID))] =
+			"ColorSensor.stl";
+#endif
+	// SM Added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	// Target area detector
 	modelMeshMap[std::make_pair(&typeid(TargetAreaDetectorModel),
@@ -1113,6 +1120,12 @@ RelativeAttitudeMap initRelativeAttitudeMap() {
 	// ======================
 	// ****SM Added****
 	// ======================
+#ifdef COLOR_SENSORS_ENABLED
+	// COLOR Sensor
+	relativeAttitudeMap[std::make_pair(&typeid(ColorSensorModel),
+			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
+			osg::Quat(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
+#endif
 #ifdef COLOR_SENSORS_ENABLED
 	// COLOR Sensor
 	relativeAttitudeMap[std::make_pair(&typeid(ColorSensorModel),

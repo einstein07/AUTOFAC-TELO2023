@@ -221,7 +221,7 @@ bool BoxResource::attachRobot(boost::shared_ptr<Robot> robot){
 	}
 	else{
 		boost::shared_ptr<Model> robotBody = robot -> getBodyPart("Core");
-		if (robotBody != NULL && (distance(robotBody->getRootPosition(), getPosition()) <= 0.08) ){
+		if (robotBody != NULL && (distance(robotBody->getRootPosition(), getPosition()) <= 0.1/**0.08*/) ){
 			dJointID joint = dJointCreateFixed (odeWorld_, jointGroup_);
 			dJointAttach (
 							joint,

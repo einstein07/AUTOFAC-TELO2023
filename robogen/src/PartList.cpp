@@ -276,6 +276,30 @@ std::map<std::string, std::vector<std::string> > initPartTypeSensorsMap() {
 	}
 #endif
 	// SM Added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	{
+		std::vector<std::string> sensors;
+		// Return the distance to the detected object
+		sensors.push_back("Distance");
+		// Returns 1 if the detected object is a robot, otherwise 0
+		sensors.push_back("isRobot");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResourceT1");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResourceT2");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResourceT3");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResourceT4");
+		// Returns 1 if the detected object is a resource, otherwise 0
+		sensors.push_back("isResourceT5");
+		// Returns 1 if the detected object is a wall in the environment, otherwise 0
+		sensors.push_back("wall");
+
+		partTypeSensorsMap[PART_TYPE_SENSOR_MORPHOLOGY] = sensors;
+	}
+#endif
+	// SM Added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	{
 		std::vector<std::string> sensors;

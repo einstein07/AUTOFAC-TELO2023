@@ -36,6 +36,7 @@
 #include <time.h> //for benchmarking purposes
 #include "EDQD/Util.h"
 #include "EDQD/EDQDRobot.h"
+#include "EDQD/Parameters.h"
 #include "EDQD/PickUpHeuristic.h"
 #include "EDQD/DropOffHeuristic.h"
 #include "EDQD/CollisionAvoidanceHeuristic.h"
@@ -70,7 +71,8 @@ std::string gLogDirectoryname =                 "logs";
 std::string gLogFilename =						/**"datalog.txt";*/ "datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
 std::string gLogFullFilename =                  ""; // cf. the initLog method
 
-
+// Number of robots that are active - used to set each robot's unique ID
+int gNbOfRobots = 0;
 namespace robogen{
 
 unsigned int iterations = 0;
@@ -145,12 +147,80 @@ void initLogging()
 	//gLogFile << "# log comment      : " << gLogCommentText << std::endl;
 
     gLogger = Logger::make_DefaultLogger(); // it is recommended (though not forced) to use gLogger instead of gLogFile.
+
+    // ==== create specific "lite" logger file
+
+	std::string litelogFullFilename = gLogDirectoryname + "/lite_" + gLogFilename;
+	gLitelogFile.open(litelogFullFilename.c_str());
+
+	if(!gLitelogFile) {
+		std::cout << "[CRITICAL] Cannot open \"lite\" log file " << litelogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	gLiteLogger = new Logger();
+	gLiteLogger->setLoggerFile(gLitelogFile);
+	gLiteLogger->write("# lite logger\n");
+	gLiteLogger->write("# generation,iteration,populationSize,minFitness,maxFitness,avgFitness");
+	for (int i = 0; i < EDQD::Parameters::nbOfPhysicalObjectGroups; i++ ) {
+		gLiteLogger->write(",t" + std::to_string(i));
+	}
+	gLiteLogger->flush();
+
+
+	// ==== create specific "eog" logger file
+
+	std::string eogLogFullFilename = gLogDirectoryname + "/eog_"
+			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
+	EDQD::Parameters::gEOGLogFile.open(eogLogFullFilename.c_str());
+
+	if(!EDQD::Parameters::gEOGLogFile) {
+		std::cout << "[CRITICAL] Cannot open \"eog\" log file " << eogLogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	EDQD::Parameters::gEOGLogger = new Logger();
+	EDQD::Parameters::gEOGLogger->setLoggerFile(EDQD::Parameters::gEOGLogFile);
+	EDQD::Parameters::gEOGLogger->write("generation,iteration,robot,birthday,ancestor_id,ancestor_birthday,cell_id,age,sigma,maps,genomes,fitness,cells_in_map,dist_max,dist_pot_max,dist_total,com_rx,com_tx");
+	for (int i = 1; i <= EDQD::Parameters::nbOfPhysicalObjectGroups; i++) {
+		EDQD::Parameters::gEOGLogger->write(std::string(",obj_group" + std::to_string(i)));
+	}
+	EDQD::Parameters::gEOGLogger->write(std::string("\n"));
+	EDQD::Parameters::gEOGLogger->flush();
+
+
+	// ==== create specific "maps" logger file
+
+	std::string mapsLogFullFilename = gLogDirectoryname + "/maps_"
+			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
+	EDQD::Parameters::gMapsLogFile.open(mapsLogFullFilename.c_str());
+
+	if(!EDQD::Parameters::gMapsLogFile) {
+		std::cout << "[CRITICAL] Cannot open \"maps\" log file " << mapsLogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	EDQD::Parameters::gMapsLogger = new Logger();
+	EDQD::Parameters::gMapsLogger->setLoggerFile(EDQD::Parameters::gMapsLogFile);
+	EDQD::Parameters::gMapsLogger->write("generation,map_index");
+
+	std::vector<std::string> _behav_dim_names = {"token_ratio","explore_dist"};
+	for (int i = 0; i < EDQD::Parameters::nbOfDimensions; i++) {
+		EDQD::Parameters::gMapsLogger->write(std::string("," + _behav_dim_names[i]));
+	}
+	EDQD::Parameters::gMapsLogger->write(",min_fitness,max_fitness,mean_fitness,median_fitness,sd,se,var,n,ancestors");
+	EDQD::Parameters::gMapsLogger->write(std::string("\n"));
+	EDQD::Parameters::gMapsLogger->flush();
+
 }
 
 
-void stopLogging()
-{
+void stopLogging(){
 	gLogFile.close();
+
+	gLitelogFile.close();
+	EDQD::Parameters::gEOGLogFile.close();
+	EDQD::Parameters::gMapsLogFile.close();
 }
 
 
@@ -313,7 +383,7 @@ void stepEmbodied(
 
 
 
-	float networkInput[MAX_INPUT_NEURONS];
+
 	float networkOutputs[MAX_OUTPUT_NEURONS];
 
 	/****************************************
@@ -341,25 +411,8 @@ void stepEmbodied(
 			if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
 
 				if (signal.x() == -1000 || signal.y() == -1000){
-					// Feed neural network
-					for (unsigned int i = 0; i < robot->getSensors().size(); ++i) {
-						networkInput[i] = robot->getSensors()[i]->read();
-						// Add sensor noise: Gaussian with std dev of
-						// sensorNoiseLevel * actualValue
-						if (configuration->getSensorNoiseLevel() > 0.0) {
-							networkInput[i] += (/**normalDistribution(rng)*/randgaussian() *
-							configuration->getSensorNoiseLevel() *
-							networkInput[i]);
-						}
-					}
-
-					::feed(robot->getBrain().get(), &networkInput[0]);
-
-					// Step the neural network
-					::step(robot->getBrain().get(), atp.t);
-
-					// Fetch the neural network ouputs
-					::fetch(robot->getBrain().get(), &networkOutputs[0]);
+					networkOutputs[0] = boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs[0];
+					networkOutputs[1] = boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs[1];
 				}
 #ifdef DEBUG_ROBOT_LOOP
 				std::cout << "***Robot" << robot -> getId() << " Stepping ANN done. Stepping motors" << std::endl;
@@ -367,26 +420,9 @@ void stepEmbodied(
 				// Send control to motors
 				for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
 
-					// Add motor noise:
-					// uniform in range +/- motorNoiseLevel * actualValue
-					if(configuration->getMotorNoiseLevel() > 0.0) {
-						networkOutputs[i] += (
-									((/**uniformDistribution(rng)*/ random() *
-									2.0 *
-									configuration->getMotorNoiseLevel())
-									- configuration->getMotorNoiseLevel())
-									* networkOutputs[i]);
-					}
 					if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[i])) {
 						boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[i])
 								->setDesiredVelocity(
-														networkOutputs[i],
-														atp.step * configuration->getActuationPeriod()
-													);
-						std::string id = robot->getMotors()[i]->getId().first;
-					} else if (boost::dynamic_pointer_cast<ServoMotor>(robot->getMotors()[i])) {
-						boost::dynamic_pointer_cast<ServoMotor>(robot->getMotors()[i])
-								->setDesiredPosition(
 														networkOutputs[i],
 														atp.step * configuration->getActuationPeriod()
 													);
@@ -408,6 +444,203 @@ void stepEmbodied(
 
 	}
 }
+
+void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots ){
+    // * monitoring: count number of active agents.
+    int generation = iterations / EDQD::Parameters::evaluationTime;
+
+    int activeCount = 0;
+    double sumOfFitnesses = 0;
+    double minFitness = DBL_MAX;
+    double maxFitness = -DBL_MAX;
+
+    int sumOfToken = 0;
+    std::map<int,int> tokens;
+//    double tokenRatio = 0.0;
+
+    std::vector<EDQDMap> maps(gNbOfRobots);
+
+    for ( int i = 1; i <= EDQD::Parameters::nbOfPhysicalObjectGroups; i++ ){
+		tokens[i] = 0;
+	}
+
+
+    for ( int i = 0 ; i != gNbOfRobots ; i++ ) {
+        //EDQDRobot *ctl = static_cast<EDQDRobot*>(robots[i]);
+        boost::shared_ptr<EDQDRobot> ctl = boost::static_pointer_cast<EDQDRobot>(robots[i]);
+        if ( ctl->isAlive() == true ) {
+            activeCount++;
+            sumOfFitnesses += ctl->getFitness() ;
+            if ( ctl->getFitness() < minFitness )
+                minFitness = ctl->getFitness();
+            if ( ctl->getFitness() > maxFitness )
+                maxFitness = ctl->getFitness();
+        }
+
+        for ( auto &oc : ctl->getResourceCounters() ) {
+        	tokens[oc.first] += oc.second;
+        	sumOfToken += oc.second;
+        }
+
+		ctl->updateCellId();
+
+        ctl->writeEOGEntry(EDQD::Parameters::gEOGLogger);
+
+        maps.push_back( *(ctl->getMap()) );
+
+//        std::string __map =
+//        		EDQD::mapToString(
+//        				ctl->getMap()->getMap(),
+//						std::string(
+//								std::to_string(generation) + "," +
+//								std::to_string(ctl->getWorldModel()->getId()) + ","
+//								));
+//		EDQDSharedData::gMapsLogManager->write(__map);
+    }
+    EDQD::Parameters::gEOGLogger->flush();
+//    EDQDSharedData::gMapsLogManager->flush();
+
+
+    if (maps.size() > 0) {
+		std::vector<double> fit;
+		std::map<std::pair<int,int>,int> ancestors;
+		double f = 0.0;
+		int sum = 0;
+		int min_fit = 0;
+		int max_fit = 0;
+		double mean_fit = 0;
+		int median_fit = 0;
+		double se = 0.0;
+		double sd = 0.0;
+		double var = 0.0;
+		int N = 0;
+
+		behav_index_t _index;
+
+		size_t behav_dim = EDQD::Parameters::nbOfDimensions;
+	//	size_t behav_interval = EDQDSharedData::gEDQDNbOfIntervals;
+		size_t num_elements = maps.begin()->getMap().num_elements();
+	//	EDQDMap* last;
+
+		for(size_t c = 0; c < num_elements; c++ ) {
+			// initialise
+			sum = 0;
+			fit.clear();
+			ancestors.clear();
+			f = 0.0;
+			min_fit = 0;
+			max_fit = 0;
+			mean_fit = 0;
+			median_fit = 0;
+			se = 0.0;
+			sd = 0.0;
+			var = 0.0;
+			N = 0;
+
+
+			// iterate through maps
+			for (std::vector<EDQDMap>::iterator m = maps.begin(); m != maps.end(); m++ ) {
+				f = m->getMap().data()[c].fitness_;
+				if (f >= 0) {
+					N++;
+					fit.push_back(f);
+					if (f < min_fit) min_fit = f;
+					if (f > max_fit) max_fit = f;
+	//				last = &(*m);
+					//will add new entry to map if ancestor is not yet in
+					// => size of ancestors is used as approximation for number of unique genomes
+					ancestors[m->getMap().data()[c].id_];
+				}
+			}
+
+			// calculate values
+			if (N > 0) {
+				size_t n = fit.size() / 2;
+				nth_element(fit.begin(), fit.begin()+n, fit.end());
+				if (fit.size() % 2 == 0) {
+					nth_element(fit.begin(), fit.begin()+n-1, fit.end());
+					median_fit = (fit[n-1] + fit[n]) / 2;
+				} else {
+					median_fit = fit[n];
+				}
+				mean_fit = sum / (double)N;
+				for( int i = 0; i < N; i++ ) {
+				  var += (fit[i] - mean_fit) * (fit[i] - mean_fit);
+				}
+				var /= N;
+				sd = sqrt(var);
+				se = sd / sqrt(N);
+			}
+
+			// get index values
+			for (size_t dim = 0; dim < behav_dim; dim++ ) {
+			  _index[dim] = (c / maps.begin()->getMap().strides()[dim] % maps.begin()->getMap().shape()[dim] +  maps.begin()->getMap().index_bases()[dim]);
+			}
+
+			// output
+			std::string ofs = std::to_string(generation) + ","
+					+ std::to_string(c) + ",";
+			for (size_t dim = 0; dim < behav_dim; ++dim) {
+				ofs += std::to_string(_index[dim] / (float)maps.begin()->getMap().shape()[dim]) + ",";
+			}
+			ofs += std::to_string(min_fit) + "," + std::to_string(max_fit) + ","
+					+ std::to_string(mean_fit) + "," + std::to_string(median_fit) + ","
+					+ std::to_string(sd) + "," + std::to_string(se) + ","
+					+ std::to_string(var) + "," + std::to_string(N);
+			ofs += "," + std::to_string(ancestors.size());
+			ofs += "\n";
+
+			EDQD::Parameters::gMapsLogger->write(std::string(ofs));
+			ofs.clear();
+			ofs = "";
+		}
+		EDQD::Parameters::gMapsLogger->flush();
+
+
+    }
+
+    if ( /**gVerbose && */localVerbose ) {
+        std::cout << "[ gen:" << (iterations/EDQD::Parameters::evaluationTime)
+					<< "\tit:" << iterations
+					<< "\tpop:" << activeCount
+					<< "\tminFitness:" << minFitness
+					<< "\tmaxFitness:" << maxFitness
+					<< "\tavgFitness:" << sumOfFitnesses/activeCount;
+
+        for (auto &t : tokens ) {
+        	std::cout << "\tt" << t.first << ": " << t.second << "(" << (double)t.second / sumOfToken << ")";
+        }
+
+        std::cout << " ]\n";
+    }
+
+    // display lightweight logs for easy-parsing
+    std::string sLitelog =
+        "log:"
+        + std::to_string(iterations/EDQD::Parameters::evaluationTime)
+        + ","
+        + std::to_string(iterations)
+        + ","
+        + std::to_string(activeCount)
+        + ","
+        + std::to_string(minFitness)
+        + ","
+        + std::to_string(maxFitness)
+        + ","
+        + std::to_string(sumOfFitnesses/activeCount);
+    for (auto &t : tokens ) {
+		sLitelog += "," + t.second;
+	}
+    gLiteLogger->write(sLitelog);
+    gLiteLogger->flush();  // flush internal buffer to file
+    gLitelogFile << std::endl; // flush file output (+ "\n")
+
+    // Logging, population-level: alive
+    std::string sLog = std::string("") + std::to_string(iterations) + ",pop,alive," + std::to_string(activeCount) + "\n";
+    gLogger->write(sLog);
+    gLogger->flush();
+}
+
 
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		boost::shared_ptr<RobogenConfig> configuration,
@@ -470,8 +703,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		 */
 		{
 
-			// Number of robots that are active - used to set each robot's unique ID
-			int nbAlive_ = 0;
+
 			// =======================================
 			// Create and initialize multiple robots
 			// =======================================
@@ -491,7 +723,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				dSpaceSetSublevel (perRobotSpaces[i], 1);
 				//std::cout << "*****EMBODIED***** - Done. Space ID: " << perRobotSpaces[i] << std::endl;
 				//std::cout<<"*****EMBODIED***** - initialising. . ." <<std::endl;
-				if (!(boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->initialise(odeWorld, odeSpace, perRobotSpaces[i], nbAlive_, configuration, robotMessage, scenario))) {
+				if (!(boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->initialise(odeWorld, odeSpace, perRobotSpaces[i], gNbOfRobots, configuration, robotMessage, scenario))) {
 					std::cout << "Problems decoding robot "<<(i+1)<<". Quit."
 							<< std::endl;
 					return SIMULATION_FAILURE;
@@ -630,8 +862,8 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			boost::shared_ptr<CollisionData> collisionData( new CollisionData(scenario) );
 			double step = configuration->getTimeStepLength();
 			osg::Vec3d gZone = env->getGatheringZone()->getPosition();
-			std::cout << "Gathering zone position (" << gZone.x() << ", " << gZone.y() << ")" << std::endl;
-			std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
+			//std::cout << "Gathering zone position (" << gZone.x() << ", " << gZone.y() << ")" << std::endl;
+			//std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
 			while ( (!constraintViolated) && (iterations < EDQD::Parameters::maxIterations) && (!(visualize && viewer->done())) ){
 				if(visualize) {
 					if(!viewer->frame(t, count)) {
@@ -737,6 +969,10 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 #endif
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
+				if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 )
+				    {
+				        monitorPopulation(true, robots);
+				    }
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Robot action loop complete" << std::endl;
 #endif

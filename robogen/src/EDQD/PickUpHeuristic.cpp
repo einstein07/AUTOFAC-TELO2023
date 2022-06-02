@@ -50,16 +50,15 @@ namespace robogen{
 
 					if ( boost::dynamic_pointer_cast<TargetAreaDetectorElement>(robot_->getSensors()[i])->
 											read()){
-							std::cout << "Bound to resource: Inside target area" <<std::endl;
-							osg::Vec3d area = osg::Vec3d(targetAreaPosition_.x(), targetAreaPosition_.y(), 0);
-							if (robot_->isBoundToResource() && abs((distance(robot_->getCoreComponent()->getRootPosition(), area)) < 0.5) ){
+							osg::Vec3d area = osg::Vec3d(-1000, targetAreaPosition_.y(), 0);
+							if (robot_->isBoundToResource() && abs((distance(robot_->getCoreComponent()->getRootPosition(), osg::Vec3d(robot_->getCoreComponent()->getRootPosition().x(), targetAreaPosition_.y(), 0))) < 0.5) ){
 								std::cout << "Bound to resource: Dropping resource" <<std::endl;
 								resource -> setCollected(true);
 								std::cout << "Bound to resource: resource set to collected" <<std::endl;
 
 								if (boost::dynamic_pointer_cast<EDQDRobot>(robot_)){
 									std::cout << "Bound to resource: incrementing resource counter" <<std::endl;
-									boost::dynamic_pointer_cast<EDQDRobot>(robot_)->incResourceCounter( resource->getSize() );
+									boost::dynamic_pointer_cast<EDQDRobot>(robot_)->incResourceCounter( resource->getType() );
 
 									if (env->getGatheringZone()->addResource( resource )){
 										std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
@@ -78,7 +77,7 @@ namespace robogen{
 					}
 				}
 			}
-			return Heuristic::driveToTargetPosition(osg::Vec2d(/**targetPos.x()*/targetAreaPosition_.x(), targetAreaPosition_.y()/**targetPos.y()*/));
+			return Heuristic::driveToTargetPosition(osg::Vec2d(robot_->getCoreComponent()->getRootPosition().x(), targetAreaPosition_.y()));
 			/**
 			 * Code commented out below only relevant when robots are cooperating
 			 */

@@ -21,7 +21,7 @@ namespace robogen{
 
 	osg::Vec2d CollisionAvoidanceHeuristic::step(){
 		osg::Vec3d pos = osg::Vec3d(-10000, -10000, -10000);
-		double minDistance = 0.8;
+		double minDistance = 0.2;//0.8
 		for( unsigned int i = 0 ; i < robot_->getSensors().size(); ++i ){
 			ColorSensorElement::Type colorType;
 			double distance = 0;
