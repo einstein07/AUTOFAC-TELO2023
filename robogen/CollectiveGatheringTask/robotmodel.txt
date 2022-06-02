@@ -27,4 +27,4 @@
 
 
 LeftWheel 0 -1000
-RightWheel 0 500
+RightWheel 0 1000

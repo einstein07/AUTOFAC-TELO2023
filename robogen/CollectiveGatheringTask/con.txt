@@ -1,25 +1,34 @@
 scenario=racing
 timeStep=0.005
 simulationTime=8.0
-actuationFrequency=25
+actuationFrequency=5
 terrainType=flat
 terrainLength=10
 terrainWidth=10
-terrainFriction=1.0
+terrainFriction=1
+#Physics
+gravity=-9.81
 # Start positions config file
-startPositionConfigFile=configStart.txt
+startPositionConfigFile=robotStartPositions.txt
 # Obstacles config file
-obstaclesConfigFile=conWall.txt
+obstaclesConfigFile=compact_env.txt
+
+#obstaclesConfigFile=conWall.txt
+disallowObstacleCollisions=false
+obstacleOverlapPolicy=removeObstacles
+
 #Resources config file
-resourcesConfigFile=box.txt
+resourcesConfigFile=boxes1.txt
 sensorNoiseLevel=0.0
 motorNoiseLevel=0.0
 capAcceleration=false
 mode=embodied
-swarmSize=10
+swarmSize=20
 #Gathering zone coordinates. The specified position will be the position of the center of the gathering zone.
-gatheringZonePosition=0,-4.25,0.00001
+#gatheringZonePosition=0,-4.25,0.00001
+gatheringZonePosition=0,-2.75,0.00001
 #Gathering zone size.
-gatheringZoneSize=5,1.5,0.00001
+gatheringZoneSize=10,1.5,0.00001
+#gatheringZoneSize=5,1,0.00001
 # uncomment the following to prevent 'jittery behaviors'
 #maxDirectionShiftsPerSecond=16

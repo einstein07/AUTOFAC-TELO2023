@@ -1,0 +1,34 @@
+0 CoreComponent Core 0
+	0 FixedBrick HeadLeft 0
+		1 ParametricJoint J52 0 0.02 -45 0
+			0 ColorSensor S29 0
+		0 FixedBrick HeadLeft1 0
+			0 ActiveWheel LeftWheel 0 0.04				
+	1 FixedBrick HeadRight 0
+		2 ParametricJoint J50 0 0.02 45 0
+			0 ColorSensor S30 0
+		0 FixedBrick HeadRight1 0
+			0 ActiveWheel RightWheel 0 0.04
+	2 FixedBrick Tail1 1
+		0 FixedBrick Tail2 1
+			0 ColorSensor S10 0
+			1 FixedBrick Tail3 0
+				2 ParametricJoint J4 0 0.02 45 0
+					0 ColorSensor S2 0
+				0 FixedBrick Wheel3Head 0
+					0 PassiveWheel Wheel3 0 0.04
+				4 ParametricJoint J10 0 0.02 0 0
+			2 FixedBrick Tail4 0
+				1 ParametricJoint J5 0 0.02 -45 0
+					0 ColorSensor S3 0
+				0 FixedBrick Wheel4Head 0
+					0 PassiveWheel Wheel4 0 0.04
+				4 ParametricJoint J11 0 0.02 0 0
+		4 ParametricJoint J8 0 0.02 0 0
+	3 ColorSensor S8 0
+	4 TargetAreaDetector S9 0
+
+
+
+LeftWheel 0 -100
+RightWheel 0 100
