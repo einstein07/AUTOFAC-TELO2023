@@ -47,12 +47,12 @@ namespace EDQD{
 
 
 		/**
-		 * Step used in the drecrease or increas of the value of sigma
+		 * Step used in the decrease or increase of the value of sigma
 		 */
 		static double updateSigmaStep;
 
 		/**
-		 * Step used in the drecrease or increas of the value of sigma
+		 * Step used in the decrease or increase of the value of sigma
 		 */
 		static double sigmaRef;
 
@@ -60,6 +60,16 @@ namespace EDQD{
 		 * Probability of transmitting the current genome mutated with sigma ref
 		 */
 		static double pMutation;
+
+		/**
+		 * Probability of mutating sensor state
+		 */
+		static double pMutateSensorState;
+
+		/**
+		 * Switch sensor on/off
+		 */
+		static double sensorState;
 
 		/**
 		 * Theoretical duration of a generation (ie. maximum time a controller
@@ -89,7 +99,7 @@ namespace EDQD{
 		 * Defines the number of intervals per dimension of a map
 		 * NB: needs to be set at compile time
 		 */
-		static const int nbOfIntervals = 5;//2;///*15*/5;
+		static const int nbOfIntervals = 2;//2;///*15*/5;
 
 		/**
 		 * Used to decide whether to discard or keep an elite in the map

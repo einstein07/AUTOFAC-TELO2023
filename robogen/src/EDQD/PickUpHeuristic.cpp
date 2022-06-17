@@ -31,9 +31,13 @@ namespace robogen{
 		}
 
 
-		double minDistanceToObject = 0.8;
+		double minDistanceToObject = 0.2;
 		int objectId = -1;
-		double size = 0.0;
+		double type = 0.0;
+		int t1 = 0;int t2 = 0;int t3 = 0;int t4 = 0;int t5 = 0;
+		int idT1 = -1;int idT2 = -1;int idT3 = -1;int idT4 = -1;int idT5 = -1;
+
+		//return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
 
 		/**
 		 * If this agent is already attached to a resource,
@@ -42,7 +46,7 @@ namespace robogen{
 
 		if (robot_->isBoundToResource()){
 
-			objectId = robot_->getBoundResourceId();
+			/**objectId = robot_->getBoundResourceId();
 			boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
 
 			for (unsigned int  i = 0; i < robot_->getSensors().size(); ++i){
@@ -76,8 +80,19 @@ namespace robogen{
 
 					}
 				}
+			}*/
+
+			boost::shared_ptr<BoxResource> resource = env->getResources()[robot_ -> getBoundResourceId()];
+			if(resource -> pushedByMaxRobots()){
+				//resource -> setMovable();
+				//std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
+				return Heuristic::driveToTargetPosition(osg::Vec2d(robot_->getCoreComponent()->getRootPosition().x(), targetAreaPosition_.y()));
 			}
-			return Heuristic::driveToTargetPosition(osg::Vec2d(robot_->getCoreComponent()->getRootPosition().x(), targetAreaPosition_.y()));
+			else{
+				//resource -> setFixed();
+				//std::cout<< "Waiting for help" << std::endl;
+				return osg::Vec2d(0.25, 0.25);
+			}
 			/**
 			 * Code commented out below only relevant when robots are cooperating
 			 */
@@ -111,14 +126,45 @@ namespace robogen{
 					distance = boost::dynamic_pointer_cast< IrSensorElement>(robot_->getSensors()[i])->
 							read();
 
-					if (distance < minDistanceToObject){
-						if (boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+2])) {
-							if ( boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+2])->
-									read()){
-								objectId = boost::dynamic_pointer_cast< ColorSensorElement>
-									(robot_->getSensors()[i+3])->getObjectId();
-								size = boost::dynamic_pointer_cast< ColorSensorElement>(robot_->getSensors()[i+3])->
-										read();
+					if (distance <= minDistanceToObject){
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET1])) {
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET1])->read()
+									&& boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET1])->isActive()){
+								idT1 = boost::dynamic_pointer_cast< SensorElement>
+									(robot_->getSensors()[i + SensorElement::RESOURCET1])->getObjectId();
+								t1 = 1;
+							}
+						}
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2])) {
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2])->read()
+									&& boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2])->isActive()){
+								idT2 = boost::dynamic_pointer_cast< SensorElement>
+									(robot_->getSensors()[i + SensorElement::RESOURCET2])->getObjectId();
+								t2 = 1;
+							}
+						}
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3])) {
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3])->read()
+									&& boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3])->isActive()){
+								idT3 = boost::dynamic_pointer_cast< SensorElement>
+									(robot_->getSensors()[i + SensorElement::RESOURCET3])->getObjectId();
+								t3 = 1;
+							}
+						}
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4])) {
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4])->read()
+									&& boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4])->isActive()){
+								idT4 = boost::dynamic_pointer_cast< SensorElement>
+									(robot_->getSensors()[i + SensorElement::RESOURCET4])->getObjectId();
+								t4 = 1;
+							}
+						}
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])) {
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])->read()
+									&& boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])->isActive()){
+								idT5 = boost::dynamic_pointer_cast< SensorElement>
+									(robot_->getSensors()[i + SensorElement::RESOURCET5])->getObjectId();
+								t5 = 1;
 							}
 						}
 
@@ -130,19 +176,54 @@ namespace robogen{
 			 * If the detected resource has the maximum number of required robots attached to it - i.e. size == 0
 			 * or the obtained resource id is invalid then keep wandering the environment
 			 */
-			if ( objectId < 0 || size == 0.0 || objectId > env->getResources().size() ){
+			if ( t1 == t2 == t3 == t4 == t5 == 0 ){
 				return osg::Vec2d(-1000, -1000);
 			}
 			/**
 			 * Resource detected and there is space for attachment
 			 */
 			else{
-				boost::shared_ptr<BoxResource> resource = env->getResources()[objectId];
-
-				if (resource->attachRobot(robot_)){
-					robot_ -> setBoundResourceId(objectId);
-					return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
+				std::vector < boost::shared_ptr<BoxResource> > avResources;
+				if (idT1 != -1 && idT1 < env->getResources().size()){
+					avResources.push_back(env->getResources()[idT1]);
 				}
+				if (idT2 != -1 && idT2 < env->getResources().size()){
+					avResources.push_back(env->getResources()[idT2]);
+				}
+				if (idT3 != -1 && idT3 < env->getResources().size()){
+					avResources.push_back(env->getResources()[idT3]);
+				}
+				if (idT4 != -1 && idT4 < env->getResources().size()){
+					avResources.push_back(env->getResources()[idT4]);
+				}
+				if (idT5 != -1 && idT5 < env->getResources().size()){
+					avResources.push_back(env->getResources()[idT5]);
+				}
+				if(!avResources.empty()){
+					boost::shared_ptr<BoxResource> resource = avResources[0];
+					double minDistance = distance(resource -> getPosition(), robot_ -> getBodyPart("Core") -> getRootPosition());
+					for (boost::shared_ptr<BoxResource> r : avResources){
+						double d = distance(r -> getPosition(), robot_ -> getBodyPart("Core") -> getRootPosition());
+						if (minDistance > d){
+							minDistance = d;
+							resource = r;
+						}
+					}
+					if (resource->pickup(robot_)){
+						robot_ -> setBoundResourceId(resource -> getId());
+						//return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
+
+						if(resource -> pushedByMaxRobots()){
+							//resource -> setMovable();
+							//std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
+							return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
+						}
+						else{
+							//resource -> setFixed();
+							return osg::Vec2d(0.25, 0.25);
+						}
+
+					}
 					/**
 					 * This code is only relevant for when robots are cooperating
 					 */
@@ -154,17 +235,21 @@ namespace robogen{
 					//}
 
 
-				else if (ENABLE_PICKUP_POSITIONING ){
-					std::cout << "resource could not be collected ";
-					if (resource -> isCollected()){
-						std::cout << "because it has been collected." <<std::endl;
-						return osg::Vec2d(-1000, -1000);
+					else if (ENABLE_PICKUP_POSITIONING ){
+						std::cout << "resource could not be collected ";
+						if (resource -> isCollected()){
+							std::cout << "because it has been collected." <<std::endl;
+							return osg::Vec2d(-1000, -1000);
 
+						}
+						else{
+							heuristicpp_ -> setResource(resource);
+
+							return heuristicpp_ -> step();
+						}
 					}
 					else{
-						heuristicpp_ -> setResource(resource);
-
-						return heuristicpp_ -> step();
+						return osg::Vec2d(-1000, -1000);
 					}
 				}
 				else{

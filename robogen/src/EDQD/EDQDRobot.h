@@ -184,7 +184,7 @@ class EDQDRobot : public Robot{
 		std::string logFilename;
 
 	public:
-		double motorOutputs[2];
+		osg::Vec2d motorOutputs;
 		//========================================================================================
 		// Methods
 		//========================================================================================
@@ -231,6 +231,7 @@ class EDQDRobot : public Robot{
 			resourceCounters_[group]++;
 	    	//}
 		}
+	    void decResourceCounter(const int group) {resourceCounters_[group]++;}
 
 	    void resetPotMaxTravelled();
 

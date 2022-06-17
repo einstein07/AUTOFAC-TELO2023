@@ -29,6 +29,9 @@ namespace robogen{
 						> EDQD::Parameters::maxTimeResourceBound){
 					boost::shared_ptr<BoxResource> resource = env->getResources()[robot_->getBoundResourceId()];
 					resource -> dropOff();
+					boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
+					return Heuristic::driveToTargetPosition(osg::Vec2d(-resource -> getPosition().x(), -resource -> getPosition().y()));
+					std::cout << "Drop-off heuristic active for resource type - " << resource -> getType() << std::endl;
 				}
 				else{
 					boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> incTimeResourceBound();

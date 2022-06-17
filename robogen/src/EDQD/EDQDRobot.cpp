@@ -69,8 +69,7 @@ namespace robogen{
 		minValue_ = -1.0;
 		maxValue_ = 1.0;
 
-		motorOutputs[0] = 0;
-		motorOutputs[1] = 0;
+		motorOutputs = osg::Vec2d(0, 0);
 		// behaviour
 		iteration_ = 0;
 		birthdate_ = 0;
@@ -307,6 +306,12 @@ namespace robogen{
 		}
 
 		//std::cout << "Inputs size: " << inputs.size() << std::endl;
+		for (int i = 0; i < inputs.size(); i++){
+			std::cout << inputs[i] <<" " ;
+			if (i % 10 == 0){
+				std::cout << "\n";
+			}
+		}
 		return inputs;
 	}
 
@@ -355,6 +360,9 @@ namespace robogen{
 							inputs.push_back( 0 );
 						}
 					}
+					else{ // not active
+						inputs.push_back( 0 );
+					}
 
 				}
 				if (boost::dynamic_pointer_cast<SensorElement>(getSensors()[i + SensorElement::RESOURCET2])) {
@@ -367,6 +375,9 @@ namespace robogen{
 						else{ // This is not a type 2 resource
 							inputs.push_back( 0 );
 						}
+					}
+					else{ // not active
+						inputs.push_back( 0 );
 					}
 
 				}
@@ -381,6 +392,9 @@ namespace robogen{
 							inputs.push_back( 0 );
 						}
 					}
+					else{ // not active
+							inputs.push_back( 0 );
+						}
 
 				}
 				if (boost::dynamic_pointer_cast<SensorElement>(getSensors()[i + SensorElement::RESOURCET4])) {
@@ -394,6 +408,9 @@ namespace robogen{
 							inputs.push_back( 0 );
 						}
 					}
+					else{ // not active
+						inputs.push_back( 0 );
+					}
 
 				}
 				if (boost::dynamic_pointer_cast<SensorElement>(getSensors()[i + SensorElement::RESOURCET5])) {
@@ -406,6 +423,9 @@ namespace robogen{
 						else{ // This is not a type 5 resource
 							inputs.push_back( 0 );
 						}
+					}
+					else{ // not active
+						inputs.push_back( 0 );
 					}
 
 				}
@@ -428,7 +448,12 @@ namespace robogen{
 			}
 		}
 		inputs.push_back(floor_sensor);
-		std::cout << "Inputs size: " << inputs.size() << std::endl;
+		/*for (int i = 0; i < inputs.size(); i++){
+		std::cout << inputs[i] <<" " ;
+		if (i % 10 == 0){
+			std::cout << "\n";
+		}
+		}*/
 		return inputs;
 	}
 	void EDQDRobot::stepController(){
@@ -437,18 +462,21 @@ namespace robogen{
 
 	    nn->setWeights(parameters_); // set-up NN
 	//    nn.set_all_weights(_parameters);
-	    std::vector<double> inputs = getInputs(); // Build list of inputs (check properties file for extended/non-extended input values
+	    std::vector<double> inputs = getSensorInputs(); // Build list of inputs (check properties file for extended/non-extended input values
 
 	    nn->setInputs(inputs);
 
 	    nn->step();
 
-	    std::vector<double> outputs = nn->readOut();
+	    //std::vector<double> outputs = nn->readOut();
 
-	    // std::cout << "[DEBUG] Neural Network :" << nn->toString() << " of size=" << nn->getRequiredNumberOfWeights() << std::endl;
+	    //std::cout << "[DEBUG] Neural Network :" << nn->toString() << " of size=" << nn->getRequiredNumberOfWeights() << std::endl;
+	    //std::cout << "[DEBUG] Neural Network Output 1: " << motorOutputs[0] << " Output 2: " << motorOutputs[1] << std::endl;
 
-	   motorOutputs[0] = outputs[0];
-	   motorOutputs[1] = outputs[1];
+	   motorOutputs.set(nn->readOut()[0], nn->readOut()[1]);
+	   /**motorOutputs[0] = outputs[0];
+	   motorOutputs[1] = outputs[1];*/
+	   //std::cout << "[DEBUG] Neural Network Output 1: " << motorOutputs[0] << " Output 2: " << motorOutputs[1] << std::endl;
 	}
 
 	void EDQDRobot::createNN(){
@@ -503,24 +531,14 @@ namespace robogen{
 			 * add needs to happen before new genome is loaded to ensure the map has an entry.
 			 * moved to agent observer in previous work - why???
 			 */
-#ifdef DEBUG_STEP_EV
-			std::cout<< "*****Robot ID: "<< getId() << " Adding genome to map*****" << std::endl;
-#endif
-	    	if (map_->add(getId(), this, currentGenome_, currentSigma_ )){
-#ifdef DEBUG_STEP_EV
-	    		std::cout<< "*****Robot ID: "<< getId() << " Genome added to map. Loading new genome*****"<< std::endl;
-#endif
-
-	    		std::string sLog = std::string("");
+			if (map_->add(getId(), this, currentGenome_, currentSigma_ )){
+				std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 						"::" + std::to_string(birthdate_) + ", genome added to map\n";
 				logger->write(sLog);
 				logger->flush();
 	    	}
 	    	else{
-#ifdef DEBUG_STEP_EV
-	    		std::cout<< "*****Robot ID: "<< getId() << " Genome NOT added to map. Loading new genome*****"<< std::endl;
-#endif
 	    		std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 						"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
@@ -529,10 +547,7 @@ namespace robogen{
 	    	}
 
 	    	loadNewGenome();
-#ifdef DEBUG_STEP_EV
-	    	std::cout<< "*****Robot ID: "<< getId() << " Done loading new genome. Resetting fitness*****" << std::endl;
-#endif
-	        nbGenomeTransmission_ = 0;
+	    	nbGenomeTransmission_ = 0;
 	        resetFitness();
 #ifdef DEBUG_STEP_EV
 	        std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
@@ -643,12 +658,12 @@ namespace robogen{
 	    if (mergedMap_->getNumFilledCells() > 0){
 			do {
 				index = mergedMap_->getRandomIndex();
-				if (tries > 99)
+				/**if (tries > 99)
 					break;
-				tries++;
+				tries++;*/
 				std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( mergedMap_->get(index)->genome_.size() == 0 );
-			if (tries < 100){
+			//if (tries < 100){
 				currentGenome_ = mergedMap_->get(index)->genome_;
 				currentSigma_ = mergedMap_->get(index)->sigma_;
 				birthdate_ = robogen::iterations;
@@ -656,7 +671,7 @@ namespace robogen{
 				ancestor_ = mergedMap_->get(index)->id_;
 
 				setNewGenomeStatus(true);
-			}
+			//}
 	    }
 	    //return true;
 	}
@@ -756,7 +771,7 @@ namespace robogen{
 		// wrt inputs
 
 		//TODO: Calculate this dynamically
-		nbInputs_ = 64;
+		nbInputs_ = 70;
 
 		// wrt outputs
 
@@ -855,42 +870,37 @@ namespace robogen{
 	    	for ( unsigned int i = 0 ; i < getSensors().size(); ++i){
 
 				ColorSensorElement::Type colorType;
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])) {
-					if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->read()){
-						colorType = boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i])->
-																	getType();
+				if (boost::dynamic_pointer_cast< IrSensorElement>(getSensors()[i])) {
+					if (boost::dynamic_pointer_cast< SensorElement>(getSensors()[i + SensorElement::ROBOT])->read()){
 
-						// sensor ray bumped into a robot : communication is possible
-						if ( colorType == ColorSensorElement::Type::ROBOT ){
+					// sensor ray bumped into a robot : communication is possible
 
-							int targetIndex = boost::dynamic_pointer_cast<ColorSensorElement>(getSensors()[i])
-													->getObjectId(); // convert image registering index into robot id.
+					int targetIndex = boost::dynamic_pointer_cast<SensorElement>(getSensors()[i + SensorElement::ROBOT])
+											->getObjectId(); // convert image registering index into robot id.
 
-							if ( targetIndex >= 0 && targetIndex < scenario_ -> getRobots().size()){
-								if (boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))){
-									if ( boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->isListening() ){
+					if ( targetIndex >= 0 && targetIndex < scenario_ -> getRobots().size()){
+						if (boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))){
+							if ( boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->isListening() ){
 
-										bool success = false;
-										// other agent stores a genome from my map
-										success = boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->storeMap(
-																		map_,
-																		getId()
-																		);
-										if ( success == true ){
-											// count unique transmissions (ie. nb of different genomes stored).
-											nbGenomeTransmission_++;
-											//std::cout << "Map broadcasted successfully!" << std::endl;
-										}
-										nbComTx_++;
-									}
+								bool success = false;
+								// other agent stores a genome from my map
+								success = boost::dynamic_pointer_cast<EDQDRobot>(scenario_->getRobot(targetIndex))->storeMap(
+																map_,
+																getId()
+																);
+								if ( success == true ){
+									// count unique transmissions (ie. nb of different genomes stored).
+									nbGenomeTransmission_++;
+									//std::cout << "Map broadcasted successfully!" << std::endl;
 								}
-								else{
-									std::cerr 	<< "Error from robot " << getId() << " : the observer of robot " << targetIndex
-												<< " is not compatible." << std::endl;
-								}
+								nbComTx_++;
 							}
-
 						}
+						else{
+							std::cerr 	<< "Error from robot " << getId() << " : the observer of robot " << targetIndex
+										<< " is not compatible." << std::endl;
+						}
+					}
 					}
 				}
 	    	}
@@ -927,30 +937,13 @@ namespace robogen{
 	}
 
 	void EDQDRobot::loadNewGenome(){
-#ifdef DEBUG_STEP_EV
-		std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: BEGIN*****" << std::endl;
-#endif
 		if (isAlive()){
 			logCurrentState();
 	        if ( mapList_.size() > 0 ){
-#ifdef DEBUG_STEP_EV
-	        	std::cout << "******Robot ID: " << getId() << "Map list size: "<< mapList_.size()<<". Peforming selection. . . *****" << std::endl;
-#endif
-				performSelection();
-#ifdef DEBUG_STEP_EV
-				std::cout 	<< "*****Robot ID: " << getId() << "EMBODIED-LOAD NEW GENOME: Done performing selection."
-							<< " Performing variation. . .*****" << std::endl;
-#endif
-				performVariation();
-#ifdef DEBUG_STEP_EV
-				std::cout 	<< "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME:  Done performing variation. Clearing reservoir. . .*****"
-							<< std::endl;
-#endif
-				clearReservoir();
-#ifdef DEBUG_STEP_EV
-				std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: Done clearing reservoir*****" << std::endl;
-#endif
-				setAlive(true);
+	        	performSelection();
+	        	performVariation();
+	        	clearReservoir();
+	        	setAlive(true);
 
 				std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, active\n";
@@ -991,9 +984,6 @@ namespace robogen{
 	        }
 	        else{
 	        	if ( isAlive() == true){
-#ifdef DEBUG_STEP_EV
-	        		std::cout << "*****Robot ID: " << getId() << " EMBODIED-LOAD NEW GENOME: Map list empty.*****" << std::endl;
-#endif
 	        		// Logging: "no genome"
 					std::string sLog = std::string("");
 					sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
@@ -1006,7 +996,7 @@ namespace robogen{
 	        		setAlive(false);
 
 	        		// ie. -1 (infinite,dead) or >0 (temporary,mute)
-	        		if ( EDQD::Parameters::listeningStateDelay != 0 ){
+	        		if ( EDQD::Parameters::notListeningStateDelay != 0 ){
 
 						isListening_ = false;
 

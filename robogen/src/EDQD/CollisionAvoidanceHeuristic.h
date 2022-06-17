@@ -14,7 +14,8 @@
 #include "Heuristic.h"
 #include "scenario/Scenario.h"
 #include "Util.h"
-#include "model/components/perceptive/ColorSensorModel.h"
+#include "model/components/perceptive/SensorMorphologyModel.h"
+#include "model/components/perceptive/TargetAreaDetectorModel.h"
 
 
 namespace robogen{

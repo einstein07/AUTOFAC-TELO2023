@@ -20,6 +20,7 @@
 #include <sys/time.h>
 #include <boost/multi_array.hpp>
 #include <boost/lexical_cast.hpp>
+#include "Robogen.h"
 #include "Logger.h"
 
 /************************************************************************
@@ -56,6 +57,7 @@ extern Logger *gLogger;
  * than old classic rand()"
  * The same is used here in order to ensure that the algorithm is not any less efficient
  */
+extern int gRandomSeed;				// random seed. Default value (="-1") means time based.
 
 extern std::random_device rnd;
 extern std::minstd_rand randint; // randint() returns an int with value drawn uniformly in [0,max)
@@ -65,6 +67,8 @@ extern std::normal_distribution<> disNormal;
 
 #define random() disRandom(engine) // uniform in [0,1), return double
 #define randgaussian() disNormal(engine) // normal distribution mean=0 and stddev=1 (use: mean+rand*stddev)
+
+
 
 // return current time in a string, with readable format - e.g. 20100526-10h12m08s
 // check: http://www.cplusplus.com/reference/clibrary/ctime/strftime/
@@ -81,5 +85,7 @@ inline double getEuclideanDistance(double x1, double y1, double x2, double y2)
 {
 	return sqrt( ( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 ) );
 }
+bool isOverlap(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double oMinX, double oMaxX, double oMinY, double oMaxY, double oMinZ, double oMaxZ);
+double distance (osg::Vec3d a, osg::Vec3d b);
 
 #endif /* EDQD_UTIL_H_ */

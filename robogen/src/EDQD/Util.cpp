@@ -67,3 +67,35 @@ std::string convertToString( int __value )
 
 	return s;
 }
+bool isOverlap(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double oMinX, double oMaxX, double oMinY, double oMaxY, double oMinZ, double oMaxZ){
+	bool isOverlapping = false;
+
+	bool inRangeX = false;
+	if ((oMinX <= minX && oMaxX >= maxX) || (oMinX >= minX && oMinX <= maxX)
+			|| (oMaxX >= minX && oMaxX <= maxX)) {
+		inRangeX = true;
+	}
+
+	bool inRangeY = false;
+	if ((oMinY <= minY && oMaxY >= maxY) || (oMinY >= minY && oMinY <= maxY)
+			|| (oMaxY >= minY && oMaxY <= maxY)) {
+		inRangeY = true;
+	}
+
+	bool inRangeZ = false;
+	if ((oMinZ <= minZ && oMaxZ >= maxZ) || (oMinZ >= minZ && oMinZ <= maxZ)
+			|| (oMaxZ >= minZ && oMaxZ <= maxZ)) {
+		inRangeZ = true;
+	}
+
+	if (inRangeX && inRangeY /*|| inRangeZ*/){
+		isOverlapping = true;
+	}
+	return isOverlapping;
+}
+double distance (osg::Vec3d a, osg::Vec3d b){
+	double distance = sqrt(pow(a.x() - b.x(), 2)
+						+ pow(a.y() - b.y(), 2)
+						+ pow(a.z() - b.z(), 2));
+	return distance;
+}
