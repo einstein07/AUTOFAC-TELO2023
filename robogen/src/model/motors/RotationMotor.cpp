@@ -35,8 +35,8 @@ namespace robogen {
 const float RotationMotor::DEFAULT_MAX_FORCE_ROTATIONAL = 4 * 9.81 / 100;
 
 // 60 rpm converted to rad/s
-const float RotationMotor::MIN_VELOCITY = -2 * M_PI;
-const float RotationMotor::MAX_VELOCITY = 2 * M_PI;
+const float RotationMotor::MIN_VELOCITY = -8 * M_PI;
+const float RotationMotor::MAX_VELOCITY = 8 * M_PI;
 
 
 RotationMotor::RotationMotor(ioPair id, boost::shared_ptr<Joint> joint,
@@ -59,6 +59,7 @@ void RotationMotor::setDesiredVelocity(float velocity, float stepSize) {
 	}
 
 	desiredVelocity_ = MIN_VELOCITY + velocity * (MAX_VELOCITY - MIN_VELOCITY);
+	//std::cout << "desired velocity: "<< desiredVelocity_ <<std::endl;
 	if(maxDirectionShiftsPerSecond_ != -1)
 		testBurnout(stepSize);
 

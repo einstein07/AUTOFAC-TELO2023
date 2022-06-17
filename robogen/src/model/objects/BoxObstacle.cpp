@@ -79,6 +79,56 @@ BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
 
 	//-----------------------------------------------------------------------------------------
 }
+BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
+		const osg::Vec3& pos, const osg::Vec3& size, float density,
+		const osg::Vec3& rotationAxis, float rotationAngle, int &obstacleId) :
+		size_(size) {
+
+
+	if (density >= RobogenUtils::EPSILON_2){
+		// if not fixed, create body
+		box_ = dBodyCreate(odeWorld);
+		dMass massOde;
+		dMassSetBox(&massOde, density, size.x(), size.y(), size.z());
+		dBodySetMass(box_, &massOde);
+	} else{
+		// otherwise make body 0
+		box_ = 0;
+
+	}
+	boxGeom_ = dCreateBox(odeSpace, size.x(), size.y(), size.z());
+	dGeomSetBody(boxGeom_, box_);
+	dGeomSetPosition(boxGeom_, pos.x(), pos.y(), pos.z());
+	// for some reason body/geom position do not get tied together as they
+	// should, so we set the body position as well, and use it when getting
+	// the position on non-stationary bodies
+	if (box_ != 0)
+		dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
+
+	if (rotationAngle >= RobogenUtils::EPSILON_2){
+		osg::Quat rotation;
+		rotation.makeRotate(osg::DegreesToRadians(rotationAngle),rotationAxis);
+		dQuaternion quatOde;
+		quatOde[0] = rotation.w();
+		quatOde[1] = rotation.x();
+		quatOde[2] = rotation.y();
+		quatOde[3] = rotation.z();
+		dGeomSetQuaternion(boxGeom_, quatOde);
+
+	}
+	//----------------------------------------------------------------------------------------
+	// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
+	//----------------------------------------------------------------------------------------
+	data_.objectId = obstacleId;
+	obstacleId++;
+	data_.isRobot = false;
+	data_.isResource = false;
+	data_.isTargetArea = false;
+	data_.isWall = true;
+	dGeomSetData (boxGeom_, (void*)&data_);
+
+	//-----------------------------------------------------------------------------------------
+}
 
 BoxObstacle::~BoxObstacle() {
 }

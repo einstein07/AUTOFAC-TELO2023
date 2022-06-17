@@ -13,6 +13,9 @@
 #include "model/PositionObservable.h"
 #include "BoxResource.h"
 #include "Robogen.h"
+#include "EDQD/Util.h"
+
+
 
 namespace robogen {
 
@@ -66,6 +69,9 @@ class GatheringZone : public PositionObservable {
                     double& maxZ
                 );
         
+        void step(std::vector<boost::shared_ptr<Robot> > robots, std::vector<boost::shared_ptr<BoxResource>> resources);
+
+
         /**
          * @return the number of resources gathered thus far
          */
@@ -74,10 +80,20 @@ class GatheringZone : public PositionObservable {
         /**
          * @param BoxResource the resource that is being added to the gathering
          * zone
-         * @return true if the resource has been added successfully
          */
-        bool addResource(boost::shared_ptr<BoxResource> resource);
-        
+        void addResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource);
+        /**
+		 * @param BoxResource the resource that is being removed from the gathering
+		 * zone
+		 */
+        void removeResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource);
+		/**
+		 * Finds robots close to the resource that can be blamed for pushing the resource
+		 * in/out of the gathering zone
+		 */
+		std::set<boost::shared_ptr<Robot> > findRobotsNearResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource>);
+
+
 	private:
 		/**
 		 * Area space to ensure this object can be detected by sensors
@@ -108,6 +124,8 @@ class GatheringZone : public PositionObservable {
 		 * Object information used by sensor to identify the nature of this object
 		 */
 		ObjectData data_;
+		double BLAME_BOX_EXPANSION_RATE;
+		int BLAME_BOX_TRIES;
     };
 
 }

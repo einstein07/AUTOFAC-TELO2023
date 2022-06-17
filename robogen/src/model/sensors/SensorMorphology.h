@@ -47,23 +47,23 @@ public:
 								(type == RESOURCET2)? "-Resource-Type-2" :
 								(type == RESOURCET3)? "-Resource-Type-3" :
 								(type == RESOURCET4)? "-Resource-Type-4" :
-								(type == RESOURCET5)? "-Resource-Type-5" : "Wall"
+								(type == RESOURCET5)? "-Resource-Type-5" : "-Wall"
 								)),
-			baseLabel_(baseLabel), type_(type), objectId_(-1), isActive_(true) {
+			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0) {
 	}
 
 	inline Type getType() { return type_; }
 	inline const std::string &getBaseLabel() { return baseLabel_; }
 	inline int getObjectId() { return objectId_; }
 	inline void updateObjectId(int objectId) { objectId_ = objectId; }
-	inline bool isActive(){return isActive_;}
-	inline void activate(){isActive_ = true;}
-	inline void deactivate(){isActive_ = false;}
+	inline bool isActive(){return (value_ < 0.5);}
+	inline double getValue(){return value_;}
+	inline void setValue(double value){value_ = (value <= 1)? ((value >= 0)? value: 0) : 1;}
 private:
 	std::string baseLabel_;
 	Type type_;
 	int objectId_;
-	bool isActive_;
+	double value_;
 };
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------

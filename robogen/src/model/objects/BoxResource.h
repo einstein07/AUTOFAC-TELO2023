@@ -66,6 +66,8 @@ class BoxResource : public Resource {
 		 */
 		int getSize();
 
+		dMass getMass();
+
 		/**
 		 * @return the face that robots can currently attach to.
 		 */
@@ -171,9 +173,12 @@ class BoxResource : public Resource {
 		 */
 		osg::Vec3 getLocalPointToOut(osg::Vec3d localPoint);
 
-		double distance (osg::Vec3d a, osg::Vec3d b);
+		//double distance (osg::Vec3d a, osg::Vec3d b);
 
 		int getId(){return id;}
+
+		void setFixed();
+		void setMovable();
                 
     private:
         
@@ -198,7 +203,7 @@ class BoxResource : public Resource {
          * @return true if there is an anchor point nearby that has not been 
          * taken yet, or false if unavailable
          */
-        bool getClosestAnchorPointLocal(osg::Vec3 localPoint, int& index);
+        bool getClosestAnchorPointLocal(osg::Vec3d localPoint, int& index);
         
         /**
          * @param robot the robot that is attaching to this resource
@@ -223,6 +228,8 @@ class BoxResource : public Resource {
          */
         dBodyID box_;
 
+        dBodyID box_2;
+
         /**
          * The box
          */
@@ -240,6 +247,8 @@ class BoxResource : public Resource {
          */
         osg::Vec3 size_;
         
+        float density_;
+
         /**
          * Status of the resource
          */

@@ -31,7 +31,7 @@ class AnchorPoint{
          * Initializes an anchor point
          * @param position position local to the resource
          */
-        AnchorPoint(dBodyID bodyId, osg::Vec3 localPosition,
+        AnchorPoint(dBodyID bodyId, osg::Vec3d localPosition,
                 /**BoxResource::*/Face face);
         AnchorPoint();
         /**

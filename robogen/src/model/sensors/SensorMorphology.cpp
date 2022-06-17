@@ -21,6 +21,7 @@ const float SensorMorphology::SENSOR_RANGE = /*0.255*/1;
 SensorMorphology::SensorMorphology(dSpaceID odeSpace,
 		std::vector<boost::shared_ptr<SimpleBody> > sensorBodies,
 		std::string baseLabel): odeSpace_(odeSpace), lastReadOutput_(0){
+
 	for(unsigned int i=0; i<sensorBodies.size(); i++){
 		for (dGeomID g=dBodyGetFirstGeom(sensorBodies[i]->getBody()); g
 				; g=dBodyGetNextGeom(g)){
@@ -116,8 +117,8 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 	void SensorMorphology::update(const osg::Vec3& position, const osg::Quat& attitude, boost::shared_ptr<Environment>& env) {
 		this->position_ = position;
 		this->attitude_ = attitude;
-
 		osg::Vec3 rayVector = attitude_ *  osg::Vec3(1,0,0);
+
 		// create ray
 		dGeomID ray = dCreateRay(raySpace_, SENSOR_RANGE);
 		// position ray
@@ -137,6 +138,7 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 		// perform collision
 		dSpaceCollide2((dGeomID)raySpace_, (dGeomID)odeSpace_, (void*)&data,
 				SensorMorphology::collisionCallback);
+
 		float distance = /**SENSOR_RANGE*/ 0.0;
 
 		// ray should be capped at SENSOR_RANGE, but just to make sure we don't
@@ -195,9 +197,6 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 
 		// Resource detected
 		else if ( value == SensorElement::RESOURCET1 ){
-			sensors_[1] -> updateValue(0.0);
-			sensors_[2] -> updateValue(1.0);
-
 			sensors_[SensorElement::ROBOT]->updateValue(0.0);
 			sensors_[SensorElement::RESOURCET1]->updateValue(0.0);
 			sensors_[SensorElement::RESOURCET2]->updateValue(0.0);
@@ -262,6 +261,7 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 			sensors_[SensorElement::RESOURCET4]->updateValue(0.0);
 			sensors_[SensorElement::RESOURCET5]->updateValue(0.0);
 			sensors_[SensorElement::WALL]->updateValue(1.0);
+			boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::WALL])->updateObjectId(data.objData->objectId);
 
 		}
 	}

@@ -21,7 +21,7 @@
 #include "AnchorPoint.h"
 namespace robogen{
 
-		AnchorPoint::AnchorPoint(dBodyID bodyId, osg::Vec3 localPosition,
+		AnchorPoint::AnchorPoint(dBodyID bodyId, osg::Vec3d localPosition,
                 /**BoxResource::*/Face face): box_(bodyId), localPosition_(localPosition),
                     face_(face), taken_(false){
         }

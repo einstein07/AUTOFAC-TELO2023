@@ -50,6 +50,12 @@ public:
 			const osg::Vec3& rotationAxis, float rotationAngle);
 
 	/**
+	 * SM ADDED
+	 */
+	BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace, const osg::Vec3& pos,
+			const osg::Vec3& size, float density,
+			const osg::Vec3& rotationAxis, float rotationAngle, int& obstacleId);
+	/**
 	 * Remove from world
 	 */
 	virtual void remove();

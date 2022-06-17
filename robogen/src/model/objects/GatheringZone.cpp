@@ -6,6 +6,7 @@
  */
 #include "model/objects/GatheringZone.h"
 #include "utils/RobogenUtils.h"
+#include "EDQD/EDQDRobot.h"
 
 namespace robogen {
 
@@ -25,6 +26,8 @@ GatheringZone::GatheringZone(dWorldID odeWorld, dSpaceID odeSpace,
 	data_.isTargetArea = true;
 	data_.isWall = false;
 	dGeomSetData (boxGeom_, (void*)&data_);
+	BLAME_BOX_EXPANSION_RATE = 1.5;
+	BLAME_BOX_TRIES = 5;
 	/**std::cout 	<< "Gathering zone geom id: "
 				<< boxGeom_
 				<< std::endl;*/
@@ -63,23 +66,134 @@ void GatheringZone::getAABB(double& minX, double& maxX, double& minY,
     minZ = aabb[4];
     maxZ = aabb[5];
 }
-
+void GatheringZone::step(std::vector<boost::shared_ptr<Robot> > robots, std::vector<boost::shared_ptr<BoxResource>> resources){
+	// Gathering zone aabb
+	double minX, maxX, minY, maxY, minZ, maxZ;
+	getAABB(minX, maxX, minY, maxY, minZ, maxZ);
+	for (auto resource : resources){
+		// resource aabb
+		double oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ;
+		resource->getAABB(oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ);
+		if ( isOverlap(minX, maxX, minY, maxY, minZ, maxZ, oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ) ){
+			addResource(robots, resource);
+		}
+		else{
+			if (containedResources_.count(resource)){ //Resource was added but is no longer within GZ
+				removeResource(robots, resource);
+			}
+		}
+	}
+	//std::cout << "Number of contained resources: " << containedResources_.size() << std::endl;
+}
 int GatheringZone::getNumberOfContainedResources() {
     return containedResources_.size();
 }
 
 //TODO: Complete function logic
-bool GatheringZone::addResource(boost::shared_ptr<BoxResource> resource){
-    std::pair<std::set<boost::shared_ptr<BoxResource> >::iterator, bool> insertStatus;
-    insertStatus = containedResources_.insert(resource);
-    if (insertStatus.second) {
-        // Mark resource as collected (this breaks the joints)
-        resource->setCollected(true);
-        return true;
-    }else{
-        return false;
-    }
+void GatheringZone::addResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource){
+	if ( resource -> getNumberPushingRobots() ){
+		if (abs((distance(osg::Vec3d(resource -> getPosition().x(), resource -> getPosition().y(), 0), osg::Vec3d(resource ->getPosition().x(), getPosition().y(), 0))) < 0.5)){
+			std::cout << "Resource attached to robot and within req distance." << std::endl;
+			std::pair<std::set<boost::shared_ptr<BoxResource> >::iterator, bool> insertStatus;
+			insertStatus = containedResources_.insert(resource);
+			if (insertStatus.second) {
+				std::set<boost::shared_ptr<Robot> > pushingRobots = resource -> getPushingRobots();
+				if (pushingRobots.empty()){ // Robot might have just dropped off resource due to drop off heuristic
+					std::cout << "Pushing robots empty!" <<std::endl;
+					pushingRobots = findRobotsNearResource(robots, resource);
+				}
+				if (!pushingRobots.empty()){
+					for (auto robot : pushingRobots ){
+						std::cout << "Adding resource: incrementing resource counter" <<std::endl;
+						boost::dynamic_pointer_cast<EDQDRobot>(robot) -> incResourceCounter(resource -> getType());
+						std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
+									<<boost::dynamic_pointer_cast<EDQDRobot>(robot)-> getTimeResourceBound() << std::endl;
+						boost::dynamic_pointer_cast<EDQDRobot>(robot) -> resetTimeResourceBound();
+
+					}
+				}
+
+			}
+			// Mark resource as collected (this breaks the joints)
+			resource->setCollected(true);
+		}
+	}
+	else if (!resource -> getNumberPushingRobots()){
+		std::pair<std::set<boost::shared_ptr<BoxResource> >::iterator, bool> insertStatus;
+		insertStatus = containedResources_.insert(resource);
+		if (insertStatus.second) {
+			std::set<boost::shared_ptr<Robot> > pushingRobots = findRobotsNearResource(robots, resource);
+
+			if (!pushingRobots.empty()){
+				for (auto robot : pushingRobots ){
+					boost::dynamic_pointer_cast<EDQDRobot>(robot) -> incResourceCounter(resource -> getType());
+					boost::dynamic_pointer_cast<EDQDRobot>(robot) -> resetTimeResourceBound();
+					std::cout << "Adding resource type - " << resource -> getType() << std::endl;
+
+				}
+			}
+			// Mark resource as collected (this breaks the joints)
+			resource->setCollected(true);
+
+		}
+	}
     
 }
+
+void GatheringZone::removeResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource){
+	if (containedResources_.erase(resource)){
+		resource -> setCollected(false);
+		std::set<boost::shared_ptr<Robot> > pushingRobots = findRobotsNearResource(robots, resource);
+		if (!pushingRobots.empty()){
+			for (auto robot : pushingRobots) {
+				boost::dynamic_pointer_cast<EDQDRobot>(robot) -> decResourceCounter(resource -> getType());
+			}
+		}
+	}
+}
+
+
+std::set<boost::shared_ptr<Robot> > GatheringZone::findRobotsNearResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource){
+	std::set<boost::shared_ptr<Robot> > robots_;
+
+	// Robot aabb
+	double minX, maxX, minY, maxY, minZ, maxZ;
+	// resource aabb
+	double oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ;
+	resource->getAABB(oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ);
+	for (unsigned int i = 0; i < robots.size(); i++){
+		robots[i]->getAABB(minX, maxX, minY, maxY, minZ, maxZ);
+
+		if ( isOverlap(minX, maxX, minY, maxY, minZ, maxZ, oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ) ){
+			robots_.insert(robots[i]);
+		}
+	}
+
+	if (!robots_.empty()){
+		return robots_;
+	}
+
+	for (unsigned int i = 0; i < BLAME_BOX_TRIES; i++) {
+		oMinX = oMinX * BLAME_BOX_EXPANSION_RATE;
+		oMaxX = oMaxX * BLAME_BOX_EXPANSION_RATE;
+		oMinY = oMinY * BLAME_BOX_EXPANSION_RATE;
+		oMaxY = oMaxY * BLAME_BOX_EXPANSION_RATE;
+		oMinZ = oMinZ * BLAME_BOX_EXPANSION_RATE;
+		oMaxZ = oMaxZ * BLAME_BOX_EXPANSION_RATE;
+		for (unsigned int j = 0; j < robots.size(); j++){
+			robots[j]->getAABB(minX, maxX, minY, maxY, minZ, maxZ);
+
+			if ( isOverlap(minX, maxX, minY, maxY, minZ, maxZ, oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ) ){
+				robots_.insert(robots[j]);
+			}
+		}
+
+		if (!robots.empty()) {
+			break;
+		}
+	}
+	return robots_;
+}
+
 
 }

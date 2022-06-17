@@ -29,7 +29,7 @@ class TargetAreaDetectorElement : public Sensor {
 public:
 
 	inline TargetAreaDetectorElement(std::string baseLabel) :
-			Sensor(baseLabel), baseLabel_(baseLabel), objectId_(-1) {
+			Sensor(baseLabel + "-Target-Area-Detector"), baseLabel_(baseLabel), objectId_(-1) {
 	}
 
 	inline const std::string &getBaseLabel() { return baseLabel_; }
