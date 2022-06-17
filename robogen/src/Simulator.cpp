@@ -71,6 +71,8 @@ std::string gLogDirectoryname =                 "logs";
 std::string gLogFilename =						/**"datalog.txt";*/ "datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
 std::string gLogFullFilename =                  ""; // cf. the initLog method
 
+int gRandomSeed = -1; // (default value should be "-1" => time-based random seed)
+
 // Number of robots that are active - used to set each robot's unique ID
 int gNbOfRobots = 0;
 namespace robogen{
@@ -389,59 +391,48 @@ void stepEmbodied(
 	/****************************************
 	 */
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
-#ifdef DEBUG_ROBOT_LOOP
-			std::cout << "***Robot" << robot -> getId() << " Stepping heuristic." << std::endl;
-#endif
+
 			heuristicD -> step();
-			osg::Vec2d signal = /**osg::Vec2d(-1000, -1000);*/ heuristicC->step();
-			if (signal.x() != -1000 || signal.y() != -1000) {
-				networkOutputs[0] = signal.x();
-				networkOutputs[1] = signal.y();
-			}
-			else{
+			osg::Vec2d signal = heuristicC->step();
+			if (signal.x() == -1000 || signal.y() == -1000) {
 				signal = heuristicP->step();
-				if (signal.x() != -1000 || signal.y() != -1000) {
-					networkOutputs[0] = signal.x();
-					networkOutputs[1] = signal.y();
-				}
 			}
-#ifdef DEBUG_ROBOT_LOOP
-			std::cout << "***Robot" << robot -> getId() << " heuristic done. Stepping ANN" << std::endl;
-#endif
-			if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
+
+			//if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
 
 				if (signal.x() == -1000 || signal.y() == -1000){
-					networkOutputs[0] = boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs[0];
-					networkOutputs[1] = boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs[1];
+					signal.set(
+							boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.x(),
+							boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.y()
+							);
 				}
-#ifdef DEBUG_ROBOT_LOOP
-				std::cout << "***Robot" << robot -> getId() << " Stepping ANN done. Stepping motors" << std::endl;
-#endif
+
 				// Send control to motors
-				for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
-
-					if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[i])) {
-						boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[i])
-								->setDesiredVelocity(
-														networkOutputs[i],
-														atp.step * configuration->getActuationPeriod()
-													);
-					}
-
+				if (robot -> isBoundToResource()){
+					//std::cout << "Bound to resource - sending control to motors: "<< signal.x() << " "<<signal.y() <<std::endl;
 				}
+				if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
+					//std::cout << "sending control to motors: "<< signal.x() << " "<<signal.y() <<std::endl;
 
-				for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
-					robot->getMotors()[i]->step(atp.step) ;
+					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
+							->setDesiredVelocity(
+													(signal.x()),
+													atp.step * configuration->getActuationPeriod()
+												);
+					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
+							->setDesiredVelocity(
+													(signal.y()),
+													atp.step * configuration->getActuationPeriod()
+												);
 				}
+			//}
+			for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
+				robot->getMotors()[i]->step(atp.step) ;
 			}
-#ifdef DEBUG_ROBOT_LOOP
-			std::cout << "***Robot" << robot -> getId() << " Stepping motors done. EDQD step" << std::endl;
-#endif
 			boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(atp.t);
-#ifdef DEBUG_ROBOT_LOOP
-			std::cout << "***Robot" << robot -> getId() << " EDQD step done." << std::endl;
-#endif
-
+	}
+	else{
+		std::cout << "Stepping embodied with a robot that is not EDQD" <<std::endl;
 	}
 }
 
@@ -906,6 +897,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 #endif
 				// Update each robot's sensors in the threads but, update environment first - elapsed time since last call
 				env->setTimeElapsed(step);
+
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
 					std::cout << "******************************************************\n"
 							"Lifetime ended: replace genome (if possible)\n"
@@ -919,6 +911,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				boost::thread_group actions;
 				boost::mutex queueMutex;
 				// 2. Launch threads
+				//if (iterations == 0){
 				for (unsigned int i = 0; i < robots.size(); i++) {
 
 					actionThreadParams p;
@@ -941,7 +934,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 						}
 					}
 				}
+				//}
 
+				env -> stepGatheringZone(robots);
 				// 3. Join threads. Individuals are now evaluated. - put here for debugging purposes
 				//actions.join_all();
 				// Update Sensors
@@ -982,6 +977,10 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 							 "***********************************************" <<std::endl;
 				t += step;
 				iterations++;
+				/**if ( (iterations == EDQD::Parameters::maxIterations)){
+					actions.join_all();
+				}*/
+
 
 			}
 
@@ -990,6 +989,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 						<< std::endl;
 				return SIMULATION_FAILURE;
 			}
+
 
 		}
 		//std::cout << "OUTSIDE MAIN LOOP - finalizing simulation . . ." << std::endl;

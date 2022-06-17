@@ -69,6 +69,10 @@ std::map<char, std::string> initPartTypeMap(const std::map<char, std::string>
 	partTypeMap['Z'] = PART_TYPE_COLOR_SENSOR;
 #endif
 	// SM added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	partTypeMap['Y'] = PART_TYPE_SENSOR_MORPHOLOGY;
+#endif
+	// SM added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	partTypeMap['A'] = PART_TYPE_TARGET_AREA_DETECTOR;
 #endif
@@ -115,6 +119,9 @@ std::map<std::string, unsigned int> initPartTypeArityMap() {
 #ifdef COLOR_SENSORS_ENABLED
 	partTypeArityMap[PART_TYPE_COLOR_SENSOR] = 0;
 #endif
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	partTypeArityMap[PART_TYPE_SENSOR_MORPHOLOGY] = 0;
+#endif
 	// SM added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	partTypeArityMap[PART_TYPE_TARGET_AREA_DETECTOR] = 0;
@@ -154,6 +161,10 @@ std::map<std::string, unsigned int> initPartTypeParamCountMap() {
 	// SM added
 #ifdef COLOR_SENSORS_ENABLED
 	partTypeParamCountMap[PART_TYPE_COLOR_SENSOR] = 0;
+#endif
+	// SM Added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	partTypeParamCountMap[PART_TYPE_SENSOR_MORPHOLOGY] = 0;
 #endif
 	// SM added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
