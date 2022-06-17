@@ -8,7 +8,7 @@
  * @(#) $Id$
  */
 #include "MutatePerturbSensorState.h"
-#include "SensorMorphology.h"
+#include "model/sensors/SensorMorphology.h"
 
 namespace robogen{
 	MutatePerturbSensorState::MutatePerturbSensorState(double sigma):sigma_(sigma){}
