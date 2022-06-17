@@ -434,7 +434,6 @@ int main(int argc, char *argv[]) {
 	boost::random::mt19937 rng;
 	if (seed != -1)
 		rng.seed(seed);
-	//std::cout << "Create robot message from textfile. . . " << std::endl;
 	// ---------------------------------------
 	// Robot decoding
 	// ---------------------------------------
@@ -444,7 +443,6 @@ int main(int argc, char *argv[]) {
 			robotFileString)) {
 		exitRobogen(EXIT_FAILURE);
 	}
-	//std::cout << "Done." << std::endl;
 	// ---------------------------------------
 	// Setup environment
 	// ---------------------------------------

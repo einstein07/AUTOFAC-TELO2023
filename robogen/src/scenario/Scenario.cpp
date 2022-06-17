@@ -320,6 +320,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 			robogenConfig_->getObstaclesConfig();
 
 	// Instance the boxes above the maximum terrain height
+    int obstacleId = 0;
 	const std::vector<osg::Vec3>& obstacleCoordinates = obstacles->getCoordinates();
 	const std::vector<osg::Vec3>& obstacleSizes = obstacles->getSizes();
 	const std::vector<float>& d = obstacles->getDensities();
@@ -334,7 +335,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 									new BoxObstacle(odeWorld, odeSpace,
 											obstacleCoordinates[i],
 											obstacleSizes[i], d[i], rotationAxis[i],
-											rotationAngles[i]));
+											rotationAngles[i], obstacleId));
 		double oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ;
 		obstacle->getAABB(oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ);
                 // Do not insert the obstacle if it is in the robot range
@@ -473,6 +474,9 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 		}
 
 	}//end of resources loop
+	if (environment_ -> getResources().size() >= 1){
+		std::cout << "The mass of resource 1 is: " << std::to_string(environment_ -> getResources()[0] -> getMass().mass) << std::endl;
+	}
         
         //---------------------------------------------------------------------- 
         //Setup light sources

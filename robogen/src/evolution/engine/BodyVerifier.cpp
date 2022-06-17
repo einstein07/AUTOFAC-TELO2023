@@ -71,7 +71,6 @@ bool BodyVerifier::verify(const RobotRepresentation &robotRep, int &errorCode,
 	dWorldSetGravity(odeWorld, 0, 0, 0);
 	dSpaceID odeSpace = dHashSpaceCreate(0);
 
-
 #ifdef VISUAL_DEBUG
 	// Initialize OSG
 	osgViewer::Viewer viewer;

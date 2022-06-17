@@ -111,6 +111,12 @@ public:
 
 	/**
 	 * SM added
+	 * step the gathering zone
+	 */
+	void stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots);
+
+	/**
+	 * SM added
 	 * @return all resources in the environment
 	 */
 	std::vector<boost::shared_ptr<BoxResource> > getResources() {

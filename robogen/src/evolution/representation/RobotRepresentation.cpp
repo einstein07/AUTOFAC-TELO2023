@@ -1141,8 +1141,10 @@ bool RobotRepresentation::createRobotMessageFromFile(robogenMessage::Robot
 				<< std::endl << std::endl;
 			return false;
 		}
+
 #endif
 		robotMessage = robot.serialize();
+
 	} else if (boost::filesystem::path(robotFileString
 				).extension().string().compare(".json") == 0) {
 		std::ifstream robotFile(robotFileString.c_str(),
