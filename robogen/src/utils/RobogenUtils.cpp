@@ -365,6 +365,13 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 
 #endif
 	// SM added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	} else if (bodyPart.type().compare(PART_TYPE_SENSOR_MORPHOLOGY) == 0) {
+
+		model.reset(new SensorMorphologyModel(odeWorld, odeSpace, id));
+
+#endif
+	// SM added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	} else if (bodyPart.type().compare(PART_TYPE_TARGET_AREA_DETECTOR) == 0) {
 
@@ -413,6 +420,9 @@ boost::shared_ptr<Model> RobogenUtils::createModel(
 	else if (boost::dynamic_pointer_cast<ColorSensorModel>(model)) {
 		model.reset(new ColorSensorModel(odeWorld, odeSpace, robotSpace, id));
 	}
+	else if (boost::dynamic_pointer_cast<SensorMorphologyModel>(model)) {
+			model.reset(new SensorMorphologyModel(odeWorld, odeSpace, robotSpace, id));
+		}
 	else if (boost::dynamic_pointer_cast<TargetAreaDetectorModel>(model)) {
 		model.reset(new TargetAreaDetectorModel(odeWorld, odeSpace, robotSpace, id));
 	}
@@ -504,6 +514,15 @@ boost::shared_ptr<RenderModel> RobogenUtils::createRenderModel(
 #endif
 
 	// SM added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	} else if (boost::dynamic_pointer_cast<SensorMorphologyModel>(model)) {
+
+		return boost::shared_ptr<SensorMorphologyRenderModel>(
+				new SensorMorphologyRenderModel(
+						boost::dynamic_pointer_cast<SensorMorphologyModel>(model)));
+#endif
+
+	// SM added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
 	} else if (boost::dynamic_pointer_cast<TargetAreaDetectorModel>(model)) {
 
@@ -544,6 +563,14 @@ std::string RobogenUtils::getSensorType(boost::shared_ptr<Sensor> sensor) {
 #ifdef COLOR_SENSORS_ENABLED
 	} else if (boost::dynamic_pointer_cast<ColorSensorElement>(sensor)) {
 		return SENSOR_TYPE_COLOR_SENSOR_ELEMENT;
+#endif
+
+	// ======================
+	// ****SM Added****
+	// ======================
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+} else if (boost::dynamic_pointer_cast<ColorSensorElement>(sensor)) {
+	return SENSOR_TYPE_MORPHOLODY_SENSOR_ELEMENT;
 #endif
 
 	// ======================
@@ -626,6 +653,12 @@ std::string RobogenUtils::getPartType(boost::shared_ptr<Model> model) {
 	} else if (boost::dynamic_pointer_cast<ColorSensorModel>(model)) {
 
 		return PART_TYPE_COLOR_SENSOR;
+#endif
+	// SM added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	} else if (boost::dynamic_pointer_cast<SensorMorphologyModel>(model)) {
+
+		return PART_TYPE_SENSOR_MORPHOLOGY;
 #endif
 
 	// SM added
@@ -985,6 +1018,22 @@ RelativePositionMap initRelativePositionMap() {
 							(ColorSensorModel::SENSOR_PLATFORM_THICKNESS) / 2,
 							0, 0));
 #endif
+	// SM Added
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	//Sensor Morphology
+
+	// x = 0 is midpoint of base, so  -SENSOR_BASE_THICKNESS/2 is edge of base
+	// and frame is (SENSOR_BASE_THICKNESS + SENSOR_PLATFORM_THICKNESS) long
+	// so (SENSOR_BASE_THICKNESS + SENSOR_PLATFORM_THICKNESS)/2
+	//    - SENSOR_BASE_THICKNESS/2 =
+	//    (SENSOR_PLATFORM_THICKNESS)/2
+	relativePositionMap[std::make_pair(&typeid(SensorMorphologyModel),
+			static_cast<unsigned int>(SensorMorphologyModel::B_SENSOR_BASE_ID))] =
+			fromOde(
+					osg::Vec3(
+							(SensorMorphologyModel::SENSOR_PLATFORM_THICKNESS) / 2,
+							0, 0));
+#endif
 
 	// SM Added
 #ifdef TARGET_AREA_DETECTOR_ENABLED
@@ -1126,10 +1175,13 @@ RelativeAttitudeMap initRelativeAttitudeMap() {
 			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
 			osg::Quat(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
 #endif
-#ifdef COLOR_SENSORS_ENABLED
-	// COLOR Sensor
-	relativeAttitudeMap[std::make_pair(&typeid(ColorSensorModel),
-			static_cast<unsigned int>(ColorSensorModel::B_SENSOR_BASE_ID))] =
+	// ======================
+	// ****SM Added****
+	// ======================
+#ifdef SENSOR_MORPHOLOGY_ENABLED
+	// Sensor Morphology
+	relativeAttitudeMap[std::make_pair(&typeid(SensorMorphologyModel),
+			static_cast<unsigned int>(SensorMorphologyModel::B_SENSOR_BASE_ID))] =
 			osg::Quat(osg::inDegrees(90.0), osg::Vec3(0, 1, 0));
 #endif
 	// ======================
