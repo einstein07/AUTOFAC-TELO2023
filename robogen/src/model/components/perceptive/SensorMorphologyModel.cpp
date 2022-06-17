@@ -135,7 +135,7 @@ void SensorMorphologyModel::getSensors(
 }
 
 void SensorMorphologyModel::updateSensors(boost::shared_ptr<Environment>& env) {
-	//std::cout << "Updating color sensor. . ." << std::endl;
+	//std::cout << "Updating sensor morphology. . ." << std::endl;
 	// Axis
 	osg::Quat quat = this->sensorRoot_->getAttitude();
 
@@ -143,7 +143,7 @@ void SensorMorphologyModel::updateSensors(boost::shared_ptr<Environment>& env) {
 	osg::Vec3 axis(1, 0, 0);
 	osg::Vec3 sensorPos = curPos + quat * axis * SENSOR_DISPLACEMENT;
 	this->sensor_->update(sensorPos, this->sensorRoot_->getAttitude(), env);
-	//std::cout << "Done updating color sensor." << std::endl;
+	//std::cout << "Done updating sensor morphology." << std::endl;
 }
 
 }
