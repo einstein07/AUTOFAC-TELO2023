@@ -23,12 +23,12 @@ sensorNoiseLevel=0.0
 motorNoiseLevel=0.0
 capAcceleration=false
 mode=embodied
-swarmSize=20
+swarmSize=100
 #Gathering zone coordinates. The specified position will be the position of the center of the gathering zone.
-#gatheringZonePosition=0,-4.25,0.00001
+#gatheringZonePosition=0,-7.25,0.00001
 gatheringZonePosition=0,-2.75,0.00001
 #Gathering zone size.
 gatheringZoneSize=10,1.5,0.00001
-#gatheringZoneSize=5,1,0.00001
+#gatheringZoneSize=16,1,0.00001
 # uncomment the following to prevent 'jittery behaviors'
 #maxDirectionShiftsPerSecond=16
