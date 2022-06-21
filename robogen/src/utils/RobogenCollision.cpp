@@ -43,7 +43,7 @@ extern dJointGroupID odeContactGroup;
 
 namespace robogen {
 
-const int MAX_CONTACTS = 1;//32; // maximum number of contact points per body
+const int MAX_CONTACTS = 3;//32; // maximum number of contact points per body
 
 
 //CollisionData::CollisionData(boost::shared_ptr<Scenario> scenario) :
@@ -248,6 +248,7 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
             if (collisionData->ignoreCollision(o1, o2) ) {
             	return;
             }
+            //ObjectData *objData;
 
             dContact contact[MAX_CONTACTS];
             for (int i = 0; i < MAX_CONTACTS; i++) {
@@ -258,12 +259,12 @@ void odeCollisionCallback(void *data, dGeomID o1, dGeomID o2) {
                                         dContactApprox1 |
                                         dContactSlip1 | dContactSlip2;
                 // TODO use different value for self collisions and/or obstacles?
-                if ((dGeomGetClass(o2) == dBoxClass && collisionData->isTerrain(o1)) || (dGeomGetClass(o1) == dBoxClass && collisionData->isTerrain(o2))) {
+                /**if ((dGeomGetClass(o2) == dBoxClass && collisionData->isTerrain(o1)) || (dGeomGetClass(o1) == dBoxClass && collisionData->isTerrain(o2))) {
                 	contact[i].surface.mu = 0.02;
                 }else{
                 	contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig()->getTerrainConfig()->getFriction();
-                }
-
+                }*/
+                contact[i].surface.mu = collisionData->getScenario()->getRobogenConfig()->getTerrainConfig()->getFriction();
                 contact[i].surface.soft_erp = 0.96;
                 contact[i].surface.soft_cfm = 0.01;
             }
