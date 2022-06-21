@@ -58,7 +58,7 @@ public:
 	inline void updateObjectId(int objectId) { objectId_ = objectId; }
 	inline bool isActive(){return (value_ < 0.5);}
 	inline double getValue(){return value_;}
-	inline void setValue(double value){value_ = (value <= 1)? ((value >= 0)? value: 0) : 1;}
+	inline void setValue(double value){value_ = value;}
 private:
 	std::string baseLabel_;
 	Type type_;
