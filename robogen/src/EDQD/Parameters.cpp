@@ -24,6 +24,9 @@ namespace EDQD{
 	int Parameters::weightRange = 800; // From EDQD-GECCO2018 [-400, +400]
 	int Parameters::nbOfPhysicalObjectGroups = 5; // 5 resource types in this work
 	double Parameters::pMutation = 0.0; // From EDQD-GECCO2018
+
+	double Parameters::pMutateSensorState = 0.07;
+
 	double Parameters::updateSigmaStep = 0.35; // From EDQD-GECCO2018
 	// reference value of sigma
 	double Parameters::sigmaRef = 0.1; // From EDQD-GECCO2018

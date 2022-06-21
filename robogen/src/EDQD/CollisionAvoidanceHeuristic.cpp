@@ -21,7 +21,7 @@ namespace robogen{
 
 	osg::Vec2d CollisionAvoidanceHeuristic::step(){
 		osg::Vec3d pos = osg::Vec3d(-10000, -10000, -10000);
-		double minDistance = 0.2;//0.2;//0.8
+		double minDistance = 0.2;//0.35;//0.2;//0.8
 		osg::Vec3d area = scenario_ -> getEnvironment() -> getGatheringZone() -> getPosition();
 		if (robot_ -> isBoundToResource()){
 			int rId = robot_->getBoundResourceId();

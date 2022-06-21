@@ -16,10 +16,13 @@ namespace robogen{
 class MutatePerturbSensorState{
 private:
 	double sigma_;
+	double _minValue;
+	double _maxValue;
 public:
 	MutatePerturbSensorState(double sigma);
 	~MutatePerturbSensorState();
 	void mutateSensorGroup(std::vector< boost::shared_ptr<Robot> > robots);
+	double normaliseValue(double newValue);
 };
 }
 #endif /*EDQD_MUTATEPERTURBSENSORSTATE_H_ */

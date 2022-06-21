@@ -85,13 +85,13 @@ namespace robogen{
 			boost::shared_ptr<BoxResource> resource = env->getResources()[robot_ -> getBoundResourceId()];
 			if(resource -> pushedByMaxRobots()){
 				//resource -> setMovable();
-				//std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
+				std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
 				return Heuristic::driveToTargetPosition(osg::Vec2d(robot_->getCoreComponent()->getRootPosition().x(), targetAreaPosition_.y()));
 			}
 			else{
 				//resource -> setFixed();
-				//std::cout<< "Waiting for help" << std::endl;
-				return osg::Vec2d(0.25, 0.25);
+				std::cout<< "Waiting for help" << std::endl;
+				return osg::Vec2d(0.5, 0.5);
 			}
 			/**
 			 * Code commented out below only relevant when robots are cooperating
@@ -220,7 +220,7 @@ namespace robogen{
 						}
 						else{
 							//resource -> setFixed();
-							return osg::Vec2d(0.25, 0.25);
+							return osg::Vec2d(0.5, 0.5);
 						}
 
 					}

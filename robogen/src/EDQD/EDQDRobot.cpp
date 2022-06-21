@@ -134,47 +134,15 @@ namespace robogen{
 
 		iteration_++;
 		count_++;
-#ifdef DEBUG_EDQD
-		std::cout << "*****Robot ID: " << getId() << " STEPPING EVOLUTION*****" << std::endl;
-#endif
-	    // step evolution
+		// step evolution
 	    stepEvolution();
-#ifdef DEBUG_EDQD
-	    std::cout << "*****Robot ID: " << getId() << " DONE STEPPING EVOLUTION*****" << std::endl;
-#endif
 	    // update fitness
 	    if ( isAlive() ){
-#ifdef DEBUG_STEP
-	    	std::cout << "*****Robot ID: " << getId() << " STEPPING CONTROLLER*****" << std::endl;
-#endif
 	    	stepController();
-#ifdef DEBUG_STEP
-	    	std::cout << "*****Robot ID: " << getId() << " DONE STEPPING CONTROLLER*****" << std::endl;
-#endif
-#ifdef DEBUG_STEP
-	    	std::cout << "*****Robot ID: " << getId() << " UPDATING FITNESS*****" << std::endl;
-#endif
-	        updateFitness();
-#ifdef DEBUG_STEP
-	        std::cout << "*****Robot ID: " << getId() << " DONE UPDATING FITNESS*****" << std::endl;
-#endif
+	    	updateFitness();
 	    }
 
 	    else{
-#ifdef DEBUG_STEP
-	    	std::cout << "*****Robot ID: " << getId() <<" NOT ALIVE - setting motors to 0 . . .*****" <<std::endl;
-#endif
-	    	// Set motors to zero (0.00)
-			for (unsigned int i = 0; i < getMotors().size(); ++i) {
-
-				if (boost::dynamic_pointer_cast<RotationMotor>(getMotors()[i])) {
-					boost::dynamic_pointer_cast<RotationMotor>(getMotors()[i])
-							->setDesiredVelocity(
-													0.00,
-													step_ * configuration->getActuationPeriod()
-												);
-				}
-			}
 			assert ( notListeningDelay_ >= -1 ); // -1 means infinity
 			if ( notListeningDelay_ > 0 ){
 				notListeningDelay_--;
