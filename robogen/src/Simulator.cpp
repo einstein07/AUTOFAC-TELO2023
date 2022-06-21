@@ -39,6 +39,7 @@
 #include "EDQD/Parameters.h"
 #include "EDQD/PickUpHeuristic.h"
 #include "EDQD/DropOffHeuristic.h"
+#include "EDQD/MutatePerturbSensorState.h"
 #include "EDQD/CollisionAvoidanceHeuristic.h"
 //#define DEBUG_MASSES
 //#define DEBUG_SIM_LOOP
@@ -391,51 +392,64 @@ void stepEmbodied(
 	/****************************************
 	 */
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
-
+		if (robot -> isAlive()){
 			heuristicD -> step();
 			osg::Vec2d signal = heuristicC->step();
 			if (signal.x() == -1000 || signal.y() == -1000) {
 				signal = heuristicP->step();
 			}
-
-			//if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
-
-				if (signal.x() == -1000 || signal.y() == -1000){
-					signal.set(
-							boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.x(),
-							boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.y()
-							);
-				}
-
-				// Send control to motors
-				if (robot -> isBoundToResource()){
-					//std::cout << "Bound to resource - sending control to motors: "<< signal.x() << " "<<signal.y() <<std::endl;
-				}
-				if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
-					//std::cout << "sending control to motors: "<< signal.x() << " "<<signal.y() <<std::endl;
-
-					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
-							->setDesiredVelocity(
-													(signal.x()),
-													atp.step * configuration->getActuationPeriod()
-												);
-					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
-							->setDesiredVelocity(
-													(signal.y()),
-													atp.step * configuration->getActuationPeriod()
-												);
-				}
-			//}
-			for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
-				robot->getMotors()[i]->step(atp.step) ;
+			if (signal.x() == -1000 || signal.y() == -1000){
+				signal.set(
+						boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.x(),
+						boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.y()
+						);
 			}
-			boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(atp.t);
+
+			if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
+
+				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
+						->setDesiredVelocity(
+												(signal.x()),
+												atp.step * configuration->getActuationPeriod()
+											);
+				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
+						->setDesiredVelocity(
+												(signal.y()),
+												atp.step * configuration->getActuationPeriod()
+											);
+			}
+		}
+		else{
+			if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
+
+				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
+						->setDesiredVelocity(
+												0.5,
+												atp.step * configuration->getActuationPeriod()
+											);
+				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
+						->setDesiredVelocity(
+												0.5,
+												atp.step * configuration->getActuationPeriod()
+											);
+			}
+		}
+		for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
+			robot->getMotors()[i]->step(atp.step) ;
+		}
+		boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(atp.t);
 	}
 	else{
 		std::cout << "Stepping embodied with a robot that is not EDQD" <<std::endl;
 	}
 }
-
+void stepGatheringZone(
+					std::vector<boost::shared_ptr<Robot>>& robots,
+					boost::shared_ptr<Environment>& env,
+					boost::mutex& queueMutex
+				){
+	env -> stepGatheringZone(robots);
+}
 void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots ){
     // * monitoring: count number of active agents.
     int generation = iterations / EDQD::Parameters::evaluationTime;
@@ -658,7 +672,6 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		// ======================================================================================================
 		// Configure Simulator
 		// ======================================================================================================
-		clock_t start = clock();
 		// * Initialize log file(s)
 
 		initLogging();
@@ -806,13 +819,17 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			// Setup environment
 			// =======================================
 			boost::shared_ptr<Environment> env = scenario->getEnvironment();
-
+			//========================================
+			//Set up sensor mutator
+			//========================================
+			boost::shared_ptr<MutatePerturbSensorState> sensorStateMutator = boost::shared_ptr<MutatePerturbSensorState>(new MutatePerturbSensorState(EDQD::Parameters::sigmaRef));
 			// =======================================
 			// SET UP HEURISTICS
 			// =======================================
 			std::vector<boost::shared_ptr<PickUpHeuristic>> swarmHeuristicP_;
 			std::vector<boost::shared_ptr<CollisionAvoidanceHeuristic>> swarmHeuristicC_;
 			std::vector<boost::shared_ptr<DropOffHeuristic>> swarmHeuristicD_;
+
 			for (unsigned int i = 0; i < robots.size(); ++i){
 				swarmHeuristicP_.push_back(boost::shared_ptr<PickUpHeuristic>(new PickUpHeuristic(robots[i], scenario)));
 				swarmHeuristicC_.push_back(boost::shared_ptr<CollisionAvoidanceHeuristic>(new CollisionAvoidanceHeuristic(robots[i], scenario)));
@@ -882,7 +899,8 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "MAIN LOOP - Done Calling SpaceCollide. Step world." << std::endl;
 #endif
-				dWorldStep(odeWorld, step);
+				//dWorldStep(odeWorld, step);
+				dWorldQuickStep(odeWorld, step);
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "MAIN LOOP - Done stepping world. Empty joint group." << std::endl;
 #endif
@@ -902,6 +920,12 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					std::cout << "******************************************************\n"
 							"Lifetime ended: replace genome (if possible)\n"
 							     "******************************************************" << std::endl;
+					float dice = float(randint()%100) / 100.0;
+					std::cout << "Dice value: "<< dice << std::endl;
+					if ( dice <= EDQD::Parameters::pMutateSensorState )
+					{
+						sensorStateMutator -> mutateSensorGroup(robots);
+					}
 				}
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
@@ -911,7 +935,14 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				boost::thread_group actions;
 				boost::mutex queueMutex;
 				// 2. Launch threads
-				//if (iterations == 0){
+				actions.add_thread(
+									new boost::thread(
+													 stepGatheringZone,
+													 boost::ref(robots),
+													 boost::ref(env),
+													 boost::ref(queueMutex)
+													)
+									);
 				for (unsigned int i = 0; i < robots.size(); i++) {
 
 					actionThreadParams p;
@@ -919,7 +950,6 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					p.t = t;
 					p.count = count;
 					if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])){
-						if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->isAlive()){
 							actions.add_thread(
 											new boost::thread(
 													stepEmbodied,
@@ -931,18 +961,12 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 													boost::ref(configuration),
 													boost::ref(p),
 													boost::ref(queueMutex)));
-						}
 					}
 				}
-				//}
 
-				env -> stepGatheringZone(robots);
+				//env -> stepGatheringZone(robots);
 				// 3. Join threads. Individuals are now evaluated. - put here for debugging purposes
-				//actions.join_all();
 				// Update Sensors
-				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
-				//	std::cout << "Robot loop done." << std::endl;
-				//}
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Updating sensors" << std::endl;
 #endif
@@ -951,7 +975,6 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 						if (boost::dynamic_pointer_cast<EDQDRobot>(robots[i])->isAlive()){
 							for (unsigned int j = 0; j < robots_bodyParts[i].size(); ++j) {
 								if (boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])) {
-
 									boost::dynamic_pointer_cast<PerceptiveComponent>(robots_bodyParts[i][j])->
 											updateSensors(env);
 								}
@@ -964,10 +987,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 #endif
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
-				if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 )
-				    {
+				if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
 				        monitorPopulation(true, robots);
-				    }
+				}
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Robot action loop complete" << std::endl;
 #endif
@@ -1009,9 +1031,6 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		/**if(constraintViolated || onlyOnce) {
 			break;
 		}*/
-		clock_t end = clock();
-		double time_spent = (double)(end - start) / CLOCKS_PER_SEC;
-		std::cout << "Time taken "<<time_spent <<std::endl;
 
 		// * clean up and quit
 
