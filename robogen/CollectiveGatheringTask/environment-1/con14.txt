@@ -9,13 +9,13 @@ terrainFriction=1
 #Physics
 gravity=-9.81
 # Start positions config file
-startPositionConfigFile=
+startPositionConfigFile=robots-environment-1-run-14.txt
 # Obstacles config file
 obstaclesConfigFile=enclosure.txt
 disallowObstacleCollisions=false
 obstacleOverlapPolicy=removeObstacles
 #Resources config file
-resourcesConfigFile=
+resourcesConfigFile=resources-environment-1-run-14.txt
 sensorNoiseLevel=0.0
 motorNoiseLevel=0.0
 capAcceleration=false
