@@ -44,6 +44,7 @@
 //#define DEBUG_MASSES
 //#define DEBUG_SIM_LOOP
 //#define DEBUG_ROBOT_LOOP
+//#define EVOLVE_SENSORS
 // ODE World
 extern dWorldID odeWorld;
 
@@ -393,31 +394,65 @@ void stepEmbodied(
 	 */
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
 		if (robot -> isAlive()){
+			//std::cout << "Robot " << robot ->getId() <<" stepping drop-off" << std::endl;
 			heuristicD -> step();
-			osg::Vec2d signal = heuristicC->step();
+			//std::cout << "Stepping drop-off Done" << std::endl;
+			osg::Vec2d signal;
+			/*if (robot -> getId() == 10)
+				signal = osg::Vec2d(0.5, 0.5);
+			else*/
+				signal = osg::Vec2d(-1000, -1000);
+			if (heuristicC -> isStaticObject() && heuristicC -> getCounter() > 0){
+				signal =  heuristicC -> driveToTargetPosition( heuristicC -> getSignal());
+				heuristicC -> decrement();
+				//std::cout << "Robot " << robot -> getId() << "Avoiding static object - current counter value: " << heuristicC -> getCounter() << std::endl;
+			}
 			if (signal.x() == -1000 || signal.y() == -1000) {
+				signal = heuristicC->step();
+				/**if (signal.x() != -1000){
+					std::cout << "Robot " << robot -> getId() << " collision active" <<std::endl;
+				}*/
+			}
+
+			if (signal.x() == -1000 || signal.y() == -1000) {
+				/**if (robot -> getId() == 1){
+					signal = heuristicC ->driveToTargetPosition( osg::Vec2d(0.5, 5));
+				}
+				else{
+
+					signal = heuristicC ->driveToTargetPosition( osg::Vec2d(0, -5));
+
+				}*/
 				signal = heuristicP->step();
+				/**if (signal.x() != -1000){
+					std::cout << "Robot " << robot -> getId() << " pick-up active" <<std::endl;
+				}*/
 			}
 			if (signal.x() == -1000 || signal.y() == -1000){
 				signal.set(
 						boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.x(),
 						boost::dynamic_pointer_cast<EDQDRobot>(robot)-> motorOutputs.y()
 						);
+				/**if (signal.x() != -1000){
+					std::cout << "Robot " << robot -> getId() << " ann active" <<std::endl;
+				}*/
 			}
+			//if(((atp.count - 1) % configuration->getActuationPeriod()) == 0) {
 
-			if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
+				if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
 
-				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
-						->setDesiredVelocity(
-												(signal.x()),
-												atp.step * configuration->getActuationPeriod()
-											);
-				boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
-						->setDesiredVelocity(
-												(signal.y()),
-												atp.step * configuration->getActuationPeriod()
-											);
-			}
+					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])
+							->setDesiredVelocity(
+													(signal.x()),
+													atp.step * configuration->getActuationPeriod()
+												);
+					boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[1])
+							->setDesiredVelocity(
+													(signal.y()),
+													atp.step * configuration->getActuationPeriod()
+												);
+				}
+			//}
 		}
 		else{
 			if (boost::dynamic_pointer_cast<RotationMotor>(robot->getMotors()[0])) {
@@ -646,6 +681,18 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
     gLogger->flush();
 }
 
+void exchangeMapsWithinPopulation( std::vector<boost::shared_ptr<Robot> > robots ){
+	for (unsigned int i = 0; i < robots.size(); ++i){
+		for (unsigned int j = 0; j < robots.size(); ++j){
+			if (i != j){
+				boost::dynamic_pointer_cast<EDQDRobot>(robots[j])->storeMap(
+									boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getMap(),
+									boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getId()
+									);
+			}
+		}
+	}
+}
 
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		boost::shared_ptr<RobogenConfig> configuration,
@@ -920,12 +967,15 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					std::cout << "******************************************************\n"
 							"Lifetime ended: replace genome (if possible)\n"
 							     "******************************************************" << std::endl;
+					exchangeMapsWithinPopulation(robots);
+#ifdef EVOLVE_SENSORS
 					float dice = float(randint()%100) / 100.0;
 					std::cout << "Dice value: "<< dice << std::endl;
 					if ( dice <= EDQD::Parameters::pMutateSensorState )
 					{
 						sensorStateMutator -> mutateSensorGroup(robots);
 					}
+#endif
 				}
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
