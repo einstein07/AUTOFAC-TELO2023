@@ -432,8 +432,13 @@ int main(int argc, char *argv[]) {
 	}
 
 	boost::random::mt19937 rng;
-	if (seed != -1)
+	if (seed != -1){
 		rng.seed(seed);
+		// * Initialize Random seed -- loaded, or initialized, in loadProperties(...)
+
+		engine.seed(seed);
+		randint.seed(seed);
+	}
 	// ---------------------------------------
 	// Robot decoding
 	// ---------------------------------------

@@ -311,6 +311,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                 robots_position[i][4], //minZ
                 robots_position[i][5]  //maxZ
             );
+
         }
         /**---------------------------------------------------------------------
          * Setup obstacles
@@ -461,9 +462,9 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 		}
 
 		// Do not insert resources in the robot range
-		if (!(inRangeX && inRangeY && inRangeZ)) {
+		//if (!(inRangeX && inRangeY && inRangeZ)) {
 			environment_->addResource(resource);
-		} else {
+		/**} else {
                     //TODO: Before removing the resource, try find a random
                     //position to place it at
                     resource->remove();
@@ -471,11 +472,15 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                     std::cout << "Box resource " << i << " removed" << std::endl;
                     resourceId--;
                     
-		}
+		}*/
 
 	}//end of resources loop
-	if (environment_ -> getResources().size() >= 1){
+	if (environment_ -> getResources().size() >= 50){
 		std::cout << "The mass of resource 1 is: " << std::to_string(environment_ -> getResources()[0] -> getMass().mass) << std::endl;
+		std::cout << "The mass of resource 2 is: " << std::to_string(environment_ -> getResources()[10] -> getMass().mass) << std::endl;
+		std::cout << "The mass of resource 3 is: " << std::to_string(environment_ -> getResources()[20] -> getMass().mass) << std::endl;
+		std::cout << "The mass of resource 4 is: " << std::to_string(environment_ -> getResources()[30] -> getMass().mass) << std::endl;
+		std::cout << "The mass of resource 5 is: " << std::to_string(environment_ -> getResources()[40] -> getMass().mass) << std::endl;
 	}
         
         //---------------------------------------------------------------------- 
