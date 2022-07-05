@@ -139,7 +139,7 @@ namespace robogen{
 	    // update fitness
 	    if ( isAlive() ){
 	    	stepController();
-	    	updateFitness();
+	    	//updateFitness();
 	    }
 
 	    else{
@@ -530,9 +530,11 @@ namespace robogen{
 	         * already at the next generation depending on the update ordering (should be avoided).
 	         */
 
-	        if ( isAlive() /*&& gRadioNetwork*/ ){
-	            broadcastMap();
-	        }
+	    	// We now exchange maps with all agents within the population
+	    	// That is, environment pressure is not applied.
+	        //if ( isAlive() /*&& gRadioNetwork*/ ){
+	        //    broadcastMap();
+	        //}
 
 	        osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 	        int tmpMaxDistance = sqrt(pow(currPos.x() - Xinit_,2) + pow(currPos.y() - Yinit_, 2));
@@ -629,7 +631,7 @@ namespace robogen{
 				/**if (tries > 99)
 					break;
 				tries++;*/
-				std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
+				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( mergedMap_->get(index)->genome_.size() == 0 );
 			//if (tries < 100){
 				currentGenome_ = mergedMap_->get(index)->genome_;
@@ -1067,6 +1069,7 @@ namespace robogen{
 	void EDQDRobot::resetFitness()
 	{
 		fitness_ = 0;
+		pickUpPosition = osg::Vec3d(targetArea_.x(), targetArea_.y(), 0);
 		resetResourceCounter();
 	}
 
@@ -1074,18 +1077,23 @@ namespace robogen{
 	 * Updates the fitness of the robot based on the number of resources that have been collected.
 	 */
 	void EDQDRobot::updateFitness(){
-		double sum = 0.00;
-		std::map<int, int>::iterator it = resourceCounters_.begin();
-		for (; it != resourceCounters_.end(); ++it)
-		{
+		//double sum = 0.00;
+		//std::map<int, int>::iterator it = resourceCounters_.begin();
+		//for (; it != resourceCounters_.end(); ++it)
+		//{
 			// The value of each resource is 100/number-of-pushing-robots
 			/**
 			 * Changed this to just 100 - since all resources are pushed by one robot now
 			 * JUst different colors
 			 */
-			sum += 100 * it->second;// / it->first;
-		}
-		fitness_ = sum;
+		//	sum += 100 * it->second;// / it->first;
+		//}
+	}
+	void EDQDRobot::updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value){
+		fitness_ += (100*value/pushingRobots) * (distance(dropOffPosition, pickUpPosition)/(scenario_ ->getEnvironment() -> getTerrain() -> getWidth() - (scenario_ ->getEnvironment() -> getGatheringZone() -> getSize().y()/2)));
+	}
+	void EDQDRobot::updateFitness(int pushingRobots, double value){
+		fitness_ += (100*value/pushingRobots) * (1/10);
 	}
 
 	int EDQDRobot::updateCellId() {

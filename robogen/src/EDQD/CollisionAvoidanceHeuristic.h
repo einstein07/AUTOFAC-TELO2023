@@ -21,10 +21,22 @@
 namespace robogen{
 //class EDQDRobot;
 class CollisionAvoidanceHeuristic : public Heuristic{
+	private:
+		bool staticObject;
+		int avoidCounter;
+		osg::Vec2d signal;
 	public:
 		CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~CollisionAvoidanceHeuristic();
 		virtual osg::Vec2d step();
+		osg::Vec2d stepStatic();
+		void decrement();
+		inline bool isStaticObject(){return staticObject;}
+		inline void setStaticObject(bool value){staticObject = value;}
+
+		inline void resetCounter(int value){avoidCounter = value;}
+		inline int getCounter(){return avoidCounter;}
+		inline osg::Vec2d getSignal(){return signal;}
 };
 }
 

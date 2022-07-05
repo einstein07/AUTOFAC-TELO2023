@@ -34,13 +34,24 @@ namespace robogen{
 
 	behav_index_t EDQDMap::computeIndex(const std::map<int, int>& oc, double distance, double maxDistance, std::vector<double>* pos) {
 		double dim1 = 0.5, dim2 = 0.0;
-		//Simple environment - i.e. 1 & 2 pushing robots per resource only
-		int oc0 = oc.at(1);
-		int	oc1 = oc.at(2);
+		int oc1 = oc.at(1);
+		int	oc2 = oc.at(2);
+		int oc3 = oc.at(3);
+		int	oc4 = oc.at(4);
+		int oc5 = oc.at(5);
 
-		if ( oc.at(2) > 0.0 ) {
-			dim1 = oc0 / ((double)(oc0 + oc1));
-		} else if ( oc.at(1) > 0.0 ) {
+		if ( oc.at(5) > 0.0 ) {
+			dim1 = ( oc1 + oc2 + oc3 + oc4 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		} else if ( oc.at(4) > 0.0 ) {
+			dim1 = ( oc1 + oc2 + oc3 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( oc.at(3) > 0.0 ) {
+			dim1 = ( oc1 + oc2 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( oc.at(2) > 0.0 ) {
+			dim1 =  oc1  / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( oc.at(1) > 0.0 ) {
 			dim1 = 1.0;
 		}
 		dim1 *= ((double) EDQD::Parameters::nbOfIntervals - 0.5);
@@ -50,6 +61,8 @@ namespace robogen{
 			if ( dim2 < 0.0 ) { dim2 = 0; }
 			if ( dim2 > EDQD::Parameters::nbOfIntervals - 1 ) { dim2 = (double) EDQD::Parameters::nbOfIntervals - 0.5; }
 		}
+		//std::cout << dim1 << " " << dim2 << " "  << (long int)dim1 << " " << (long int)dim2 << std::endl; // DEBUG
+
 		if (pos) {
 			(*pos)[0] = dim1;
 			(*pos)[1] = dim2;

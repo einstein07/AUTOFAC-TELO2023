@@ -28,7 +28,7 @@ class PickUpHeuristic : public Heuristic {
 	private:
 		boost::shared_ptr<Environment> env;
 		osg::Vec3d targetAreaPosition_;
-		bool ENABLE_PICKUP_POSITIONING = false;
+		bool ENABLE_PICKUP_POSITIONING = true;
 		boost::shared_ptr<PickUpPositioningHeuristic> heuristicpp_;
 };
 }

@@ -42,7 +42,7 @@ class EDQDRobot : public Robot{
 		bool getNewGenomeStatus() { return isNewGenome_; }
 		void setNewGenomeStatus( bool status ) { isNewGenome_ = status; }
 		bool storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map);
-		bool storeMap(EDQDMap* map, int senderId);
+
 		/**
 		 * clear genomesList, sigmaList, fitnessesList and birthdayList
 		 */
@@ -174,6 +174,7 @@ class EDQDRobot : public Robot{
 		 * Behavioral heuristics
 		 */
 		osg::Vec2d targetArea_;
+		osg::Vec3d pickUpPosition;
 
 		/**
 		 *
@@ -199,9 +200,12 @@ class EDQDRobot : public Robot{
 							const robogenMessage::Robot& robotSpec, boost::shared_ptr<Scenario> scenario
 						);
 
-
+	    bool storeMap(EDQDMap* map, int senderId);
 	    void broadcastMap();
 	    void updateFitness();
+	    void updateFitness(int pushingRobots, double value);
+	    void updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value);
+
 	    void step(
 	    			/**boost::shared_ptr<Environment> env,*/
 					/**boost::shared_ptr<RobogenConfig> configuration,*/
@@ -220,7 +224,7 @@ class EDQDRobot : public Robot{
 							double elapsedEvaluationTime
 							);
 	    void setWeights();
-
+	    void setPickUpPosition(osg::Vec3d position){pickUpPosition = position;}
 
 	    bool isListening() { return isListening_; }
 
@@ -229,6 +233,7 @@ class EDQDRobot : public Robot{
 	    		resourceCounters_[group] = 1;
 	    	}else{*/
 			resourceCounters_[group]++;
+			//std::cout << "Current count: " << resourceCounters_[group] << std::endl;
 	    	//}
 		}
 	    void decResourceCounter(const int group) {resourceCounters_[group]++;}
@@ -247,8 +252,7 @@ class EDQDRobot : public Robot{
 
 		void resetResourceCounter() {
 			/**
-			 * Only 3 types of resources in the environment right now (sizes 1, 2 & 3)
-			 * Simple environment - i.e. 1 & 2 pushing robots per resource only
+			 * 5 types of resources in the environment right now (sizes 1, 2, 3, 4, 5)
 			 */
 			for (int i = 1; i <= 5 ; i++){
 				resourceCounters_[i] = 0; /**randint()%100;//*///0;

@@ -25,7 +25,7 @@ namespace EDQD{
 	int Parameters::nbOfPhysicalObjectGroups = 5; // 5 resource types in this work
 	double Parameters::pMutation = 0.0; // From EDQD-GECCO2018
 
-	double Parameters::pMutateSensorState = 0.07;
+	double Parameters::pMutateSensorState = 0.34;
 
 	double Parameters::updateSigmaStep = 0.35; // From EDQD-GECCO2018
 	// reference value of sigma
@@ -33,7 +33,7 @@ namespace EDQD{
 	// how long a controller will be evaluated on a robot
 	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 100000;//804000;// 40000; // From EDQD-GECCO2018*/
+	unsigned int Parameters::maxIterations = 400000;//804000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
