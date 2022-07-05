@@ -40,6 +40,11 @@ class AnchorPoint{
         void markTaken();
 
         /**
+		 * Mark this point as not taken
+		 */
+		void markNotTaken();
+
+        /**
          * Destructor
          */
         ~AnchorPoint();

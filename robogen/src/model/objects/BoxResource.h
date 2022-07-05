@@ -147,13 +147,8 @@ class BoxResource : public Resource {
 
 		/**
 		 * @param a position in world coordinates
-		 * @param index the index of the closest available anchor point (in world
-		 * coordinates)
-		 * @return true is there is an anchor point nearby, false if none is
-		 * available.
+		 * @return an anchor point nearby, a null pointer if none is available.
 		 */
-		bool getClosestAnchorPoint(osg::Vec3 position, int& index);
-
 		boost::shared_ptr<AnchorPoint> getClosestAnchorPoint(osg::Vec3 position);
 
 		/**
@@ -187,8 +182,10 @@ class BoxResource : public Resource {
          * @return true if the anchor points on the given resource face are
          * initialized successfully, false otherwise
          */
-        bool initAnchorPoints();
+        void initAnchorPoints();
         
+        std::vector< boost::shared_ptr<AnchorPoint> > getAnchorPointsForFace(Face face);
+
         /**
          * @param localPoint a position in local coordinates
          * @return the face of the resource that is closest to the provided point.
@@ -203,7 +200,7 @@ class BoxResource : public Resource {
          * @return true if there is an anchor point nearby that has not been 
          * taken yet, or false if unavailable
          */
-        bool getClosestAnchorPointLocal(osg::Vec3d localPoint, int& index);
+        boost::shared_ptr<AnchorPoint> getClosestAnchorPointLocal(osg::Vec3d localPoint);
         
         /**
          * @param robot the robot that is attaching to this resource
@@ -273,6 +270,11 @@ class BoxResource : public Resource {
          */
         std::vector<boost::shared_ptr<AnchorPoint> > anchorPoints_;
         
+        std::vector<boost::shared_ptr<AnchorPoint> > leftAnchorPoints_;
+        std::vector<boost::shared_ptr<AnchorPoint> > rightAnchorPoints_;
+        std::vector<boost::shared_ptr<AnchorPoint> > backAnchorPoints_;
+        std::vector<boost::shared_ptr<AnchorPoint> > frontAnchorPoints_;
+
         /**
          * Pending joints, and fixed joints
          */

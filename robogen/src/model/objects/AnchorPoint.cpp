@@ -34,6 +34,10 @@ namespace robogen{
                 std::cerr<<"Attachment point is already taken!"<<std::endl;
 
         }
+        void AnchorPoint::markNotTaken() {
+			if (taken_)
+				taken_ = false;
+		}
 
         AnchorPoint::~AnchorPoint(){}
 

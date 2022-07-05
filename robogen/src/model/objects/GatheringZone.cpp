@@ -71,6 +71,9 @@ void GatheringZone::step(std::vector<boost::shared_ptr<Robot> > robots, std::vec
 	double minX, maxX, minY, maxY, minZ, maxZ;
 	getAABB(minX, maxX, minY, maxY, minZ, maxZ);
 	for (auto resource : resources){
+		if (resource -> getType() == 2 ){
+			//std::cout << "Resource type - 2 currently pushed by: " << resource -> getPushingRobots().size() <<std::endl;
+		}
 		// resource aabb
 		double oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ;
 		resource->getAABB(oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ);
@@ -93,21 +96,22 @@ int GatheringZone::getNumberOfContainedResources() {
 void GatheringZone::addResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource> resource){
 	if ( resource -> getNumberPushingRobots() ){
 		if (abs((distance(osg::Vec3d(resource -> getPosition().x(), resource -> getPosition().y(), 0), osg::Vec3d(resource ->getPosition().x(), getPosition().y(), 0))) < 0.5)){
-			std::cout << "Resource attached to robot and within req distance." << std::endl;
+			//std::cout << "Resource attached to robot and within req distance." << std::endl;
 			std::pair<std::set<boost::shared_ptr<BoxResource> >::iterator, bool> insertStatus;
 			insertStatus = containedResources_.insert(resource);
 			if (insertStatus.second) {
 				std::set<boost::shared_ptr<Robot> > pushingRobots = resource -> getPushingRobots();
 				if (pushingRobots.empty()){ // Robot might have just dropped off resource due to drop off heuristic
-					std::cout << "Pushing robots empty!" <<std::endl;
+					//std::cout << "Pushing robots empty!" <<std::endl;
 					pushingRobots = findRobotsNearResource(robots, resource);
 				}
 				if (!pushingRobots.empty()){
 					for (auto robot : pushingRobots ){
-						std::cout << "Adding resource: incrementing resource counter" <<std::endl;
+						//std::cout << "Adding resource: incrementing resource counter" <<std::endl;
+						boost::dynamic_pointer_cast<EDQDRobot>(robot) -> updateFitness(getPosition(),resource -> getSize(), resource -> getValue());
 						boost::dynamic_pointer_cast<EDQDRobot>(robot) -> incResourceCounter(resource -> getType());
-						std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
-									<<boost::dynamic_pointer_cast<EDQDRobot>(robot)-> getTimeResourceBound() << std::endl;
+						//std::cout 	<< "Resource added to gathering zone. Time bound to resource: "
+						//			<<boost::dynamic_pointer_cast<EDQDRobot>(robot)-> getTimeResourceBound() << std::endl;
 						boost::dynamic_pointer_cast<EDQDRobot>(robot) -> resetTimeResourceBound();
 
 					}
@@ -127,8 +131,9 @@ void GatheringZone::addResource(std::vector<boost::shared_ptr<Robot> > robots, b
 			if (!pushingRobots.empty()){
 				for (auto robot : pushingRobots ){
 					boost::dynamic_pointer_cast<EDQDRobot>(robot) -> incResourceCounter(resource -> getType());
+					boost::dynamic_pointer_cast<EDQDRobot>(robot) -> updateFitness(resource -> getSize(), resource -> getValue());
 					boost::dynamic_pointer_cast<EDQDRobot>(robot) -> resetTimeResourceBound();
-					std::cout << "Adding resource type - " << resource -> getType() << std::endl;
+					//std::cout << "Adding resource type - " << resource -> getType() << std::endl;
 
 				}
 			}

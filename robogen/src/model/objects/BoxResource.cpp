@@ -32,7 +32,7 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
     
     jointGroup_ = dJointGroupCreate(0);
-    value_ = 100;
+    value_ = type;
     pushingRobots_ = type;
     id = resourceId;
     data_.objectId = resourceId;
@@ -41,6 +41,13 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     data_.isRobot = false;
     data_.isTargetArea = false;
     dGeomSetData (boxGeom_, (void*)&data_);
+
+    leftAnchorPoints_.reserve(pushingRobots_);
+    rightAnchorPoints_.reserve(pushingRobots_);
+    frontAnchorPoints_.reserve(pushingRobots_);
+    backAnchorPoints_.reserve(pushingRobots_);
+    initAnchorPoints();
+
 }
 void BoxResource::setFixed(){
 	//dMassSetBox(&massOde, 0, getGeomSize().x(), getGeomSize().y(), getGeomSize().z());
@@ -66,57 +73,79 @@ BoxResource::~BoxResource() {
 //TODO: Determine z anchor point --- possibly use center of mass of robot root component
 //TODO: Consider having one anchor points container. Initialize this container
 //once the sticky face has been determined
-bool BoxResource::initAnchorPoints(){
+void BoxResource::initAnchorPoints(){
     float halfWidth = (float) size_.x() / 2;
     float halfLength = (float) size_.y() / 2;
     float height = 0.0f;
     float widthSpacing = (float) size_.x() / pushingRobots_;
     float lengthSpacing = (float) size_.y() / pushingRobots_;
     
-    for (unsigned int i = 0; i < pushingRobots_; ++i){
-        float x, y, z;
-        /**if (stickyFace_ == Face::FRONT){
-            x = halfWidth;
-            y = -halfLength + lengthSpacing * (i + 0.5);
-        }else if (stickyFace_ == Face::BACK){
-            x = -halfWidth;
-            y = -halfLength + lengthSpacing * (i + 0.5);
-        }else if (stickyFace_ == Face::LEFT){
-            x = -halfWidth + widthSpacing * (i + 0.5);
-            y = -halfLength;
-        }else if (stickyFace_ == Face::RIGHT){ //Right face
-            x = -halfWidth + widthSpacing * (i + 0.5);
-            y = halfLength;*/
-        if (stickyFace_ == Face::LEFT) {
-			x = -halfWidth;
-			y = -halfLength + lengthSpacing * (i + 0.5f);
-		} else if (stickyFace_ == Face::RIGHT) {
-			x = halfWidth;
-			y = -halfLength + lengthSpacing * (i + 0.5f);
-		} else if (stickyFace_ == Face::BACK) {
-			x = -halfWidth + widthSpacing * (i + 0.5f);
-			y = halfLength;
-		} else if (stickyFace_ == Face::FRONT) {
-			x = -halfWidth + widthSpacing * (i + 0.5f);
-			y = -halfLength;
-        }else{
-            return false;
-        }
-        z = height;
-        anchorPoints_.push_back(
-               boost::shared_ptr<AnchorPoint>(new AnchorPoint
-                       (
-                           box_, 
-                           osg::Vec3d(x, y, z),
-                           stickyFace_
-                       )
-               )
-           );
+    for (unsigned int face = 1; face <= 4; face++){
+    	for (unsigned int i = 0; i < pushingRobots_; ++i){
+    	        float x, y, z;
+    	        if (face == Face::LEFT) {
+    				x = -halfWidth;
+    				y = -halfLength + lengthSpacing * (i + 0.5f);
+    				leftAnchorPoints_.push_back( boost::shared_ptr<AnchorPoint>(new AnchorPoint
+										   (
+											   box_,
+											   osg::Vec3d(x, y, height),
+											   Face::LEFT
+										   )
+									   )
+    						);
+    			} else if (face == Face::RIGHT) {
+    				x = halfWidth;
+    				y = -halfLength + lengthSpacing * (i + 0.5f);
+    				rightAnchorPoints_.push_back( boost::shared_ptr<AnchorPoint>(new AnchorPoint
+										   (
+											   box_,
+											   osg::Vec3d(x, y, height),
+											   Face::RIGHT
+										   )
+					   	   	   	   	   )
+    						);
+    			} else if (face == Face::BACK) {
+    				x = -halfWidth + widthSpacing * (i + 0.5f);
+    				y = halfLength;
+    				backAnchorPoints_.push_back( boost::shared_ptr<AnchorPoint>(new AnchorPoint
+										   (
+											   box_,
+											   osg::Vec3d(x, y, height),
+											   Face::BACK
+										   )
+									   )
+    						);
+    			} else if (face == Face::FRONT) {
+    				x = -halfWidth + widthSpacing * (i + 0.5f);
+    				y = -halfLength;
+    				frontAnchorPoints_.push_back( boost::shared_ptr<AnchorPoint>(new AnchorPoint
+										   (
+											   box_,
+											   osg::Vec3d(x, y, height),
+											   Face::FRONT
+										   )
+									   )
+    						);
+    	        }
+    	    }
     }
-    return true;
-    
 }
-
+std::vector< boost::shared_ptr<AnchorPoint> > BoxResource::getAnchorPointsForFace(Face face){
+	switch(face){
+		case LEFT:
+			return leftAnchorPoints_;
+		case RIGHT:
+			return rightAnchorPoints_;
+		case FRONT:
+			return frontAnchorPoints_;
+		case BACK:
+			return backAnchorPoints_;
+		default:{
+			std::vector< boost::shared_ptr<AnchorPoint> > empty;
+			return empty;}
+	}
+}
 void BoxResource::remove() {
 	dGeomDestroy(boxGeom_);
 	if (box_ != 0) {
@@ -189,7 +218,7 @@ void BoxResource::dropOff(){
 	 * Sticky side could be unset if resource "bumped" into target area without
 	 * robots creating joints with it
 	*/
-	//if (stickyFace_ != Face::NONE) {
+	if (stickyFace_ != Face::NONE) {
 
 		std::map<boost::shared_ptr<Robot>, dJointID>::iterator it = joints_.begin();
 		for (; it != joints_.end(); ++it){
@@ -200,11 +229,13 @@ void BoxResource::dropOff(){
 		joints_.clear();
 
 		// Reset the anchor points
-		anchorPoints_.clear();
-
+		std::vector<boost::shared_ptr<AnchorPoint>> anchorPoints = getAnchorPointsForFace(stickyFace_);
+		for (boost::shared_ptr<AnchorPoint> anchorPoint: anchorPoints){
+			anchorPoint -> markNotTaken();
+		}
 		// Reset the sticky side
 		stickyFace_ = Face::NONE;
-	//}
+	}
 }
 
 int BoxResource::getNumberPushingRobots(){
@@ -276,52 +307,74 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
      * Want to make sure the sticky face is re-determined everytime a robot comes into close proximity
      * to the resource, but this can only work for instances where there won't be cooperation needed
      */
-    if (getNumberPushingRobots() == 0){
+    /*if (getNumberPushingRobots() == 0){
     	stickyFace_ = Face::NONE;
-    }
+    }*/
     /************************
      *
      */
     Face attachFace = getFaceClosestToPointLocal(robotPositionLocal);
     if (stickyFace_ != Face::NONE && stickyFace_ != attachFace) {
-    	std::cout << "Sticky face not NONE and NOT equal to attach-face - cannot be picked up. ACTIVE FACE: " << stickyFace_ << std::endl;
+    	//std::cout << "Sticky face not NONE and NOT equal to attach-face - cannot be picked up. ACTIVE FACE: " << stickyFace_ << std::endl;
         return false;
     }
-    int closestAnchorIndex;
     
-    if (!getClosestAnchorPointLocal(robotPositionLocal, closestAnchorIndex)) {
-        return false; // Should not happen but apparently can...
-    }
-
-    boost::shared_ptr<AnchorPoint> anchor = anchorPoints_[closestAnchorIndex];
-    if (anchor != NULL){
-    	osg::Vec3d anchorPoint = anchor->getPosition();
-    	boost::shared_ptr<Model> robotBody = robot -> getBodyPart("Core");
-		if (robotBody != NULL && pushingRobots_ == 1 && (distance(robotBody->getRootPosition(), anchorPoint) > 0.085) ){
-			return false;
-		}
-		if (robotBody != NULL && pushingRobots_ > 1 && (distance(robotBody->getRootPosition(), anchorPoint) > 0.1) ){
-			std::cout << "Distance to anchor point: " << distance(robotBody->getRootPosition(), anchorPoint) << std::endl;
-			return false;
-		}
-		/*if ( (abs( anchorPoint.x() - robot->getCoreComponent()->getSlotPosition(2).x() ) < deltaX)
-				&& (abs( anchorPoint.y() - robot->getCoreComponent()->getSlotPosition(2).y() ) < deltaY) ){*/
-			setMovable();
-			dJointID joint = dJointCreateFixed (odeWorld_, jointGroup_);
-			dJointAttach (
-							joint,
-							robotBody->getRoot()->getBody(),
-							box_
-						);
-			dJointSetFixed (joint);
-			joints_.insert(std::pair<boost::shared_ptr<Robot>, dJointID>(robot, joint));
-			robot -> setBoundToResource(true);
-			return true;
-    }
-    else{
-    	std::cout << "Anchor point null" << std::endl;
+    boost::shared_ptr<AnchorPoint> closestAnchorPoint = getClosestAnchorPointLocal(robotPositionLocal);
+    if (closestAnchorPoint == NULL){
+    	//std::cout << "Anchor point null" <<std::endl;
     	return false;
     }
+
+    	osg::Vec3d anchorPoint = closestAnchorPoint->getPosition();
+    	boost::shared_ptr<Model> robotBody = robot -> getBodyPart("Core");
+    	boost::shared_ptr<Model> s29Body = robot -> getBodyPart("S29");
+    	boost::shared_ptr<Model> s30Body = robot -> getBodyPart("S30");
+    	osg::Vec3d point = (s29Body -> getRootPosition() + s30Body -> getRootPosition())/2;
+		if (robotBody != NULL && pushingRobots_ == 1 && (distance(robotBody->getRootPosition(), anchorPoint) > 0.08/*0.085*/) ){
+			return false;
+		}
+		if (robotBody != NULL && pushingRobots_ > 1 && (distance(/*robotBody->getRootPosition()*/point, anchorPoint) > 0.03/**0.05*/) ){
+			//std::cout << "Distance to core: " << distance(robotBody->getRootPosition(), anchorPoint) /**<< " Anchor point: " << anchorPoint.x() << " " << anchorPoint.y()*/ << " distance to point " << distance(point, anchorPoint) << std::endl; //" Robot: " << robotBody -> getRootAttitude().x() << " " << robotBody -> getRootAttitude().y() << " " << robotBody -> getRootAttitude().z()  <<  std::endl;
+			return false;
+		}
+		/*osg::Vec3d calcLocalPos = getLocalPoint(osg::Vec3d(anchorPoint.x(), anchorPoint.y(), 0));
+
+		double y = calcLocalPos.y();// - coreGlobalPos.y();
+		double x = calcLocalPos.x();// - coreGlobalPos.x();
+		double targetAngle = atan2 (y, x);
+		osg::Vec3d coreGlobalPos = robot->getCoreComponent()->getRoot()->getPosition();
+		//osg::Vec3d coreGlobalPos2 = robot_->getCoreComponent()->getRootPosition();
+		osg::Vec3d robbotCalcLocalPos = getLocalPoint(robot->getCoreComponent()->getRoot()->getPosition());
+		if(std::abs(targetAngle) > M_PI){
+			if(signbit(targetAngle))
+				targetAngle = M_PI*(-1);
+			else
+				targetAngle = M_PI;
+		}
+		if (targetAngle > -10 && targetAngle < 10){*/
+		/*if ( (abs( anchorPoint.x() - robot->getCoreComponent()->getSlotPosition(2).x() ) < deltaX)
+				&& (abs( anchorPoint.y() - robot->getCoreComponent()->getSlotPosition(2).y() ) < deltaY) ){*/
+		// Set the sticky side if unset
+		if (stickyFace_ == NONE) {
+			stickyFace_ = attachFace;
+		}
+		dJointID joint = dJointCreateFixed (odeWorld_, jointGroup_);
+		dJointAttach (
+						joint,
+						robotBody->getRoot()->getBody(),
+						box_
+					);
+		dJointSetFixed (joint);
+		joints_.insert(std::pair<boost::shared_ptr<Robot>, dJointID>(robot, joint));
+		robot -> setBoundToResource(true);
+		robot -> setBoundResourceId( getId());
+		closestAnchorPoint -> markTaken();
+		return true;
+		/**}
+		else{
+			return false;
+		}*/
+
 
 }
 
@@ -407,51 +460,37 @@ Face BoxResource::getFaceClosestToPointLocal(osg::Vec3 localPoint){
     return face;
 }
 
-bool BoxResource::getClosestAnchorPointLocal(osg::Vec3d localPoint, int& index) {
-        // Get the side and corresponding anchor points
-        if (stickyFace_ == Face::NONE){
-            stickyFace_ = getFaceClosestToPointLocal(localPoint);
-            if (!initAnchorPoints()){
-                return false;
-            }
-        }
-        // Fast path for single robot resource
-        if (pushingRobots_ == 1) {
-            index = 0;
-            return !anchorPoints_[index]->isTaken();
-        }
+boost::shared_ptr<AnchorPoint> BoxResource::getClosestAnchorPointLocal(osg::Vec3d localPoint) {
+	// Get the side and corresponding anchor points
+	Face face = (stickyFace_ != Face::NONE) ? stickyFace_ : getFaceClosestToPointLocal(localPoint);
+	std::vector<boost::shared_ptr<AnchorPoint>> anchorPoints = getAnchorPointsForFace(face);
+	// Fast path for single robot resource
+	if (pushingRobots_ == 1) {
+		boost::shared_ptr<AnchorPoint> anchorPoint = anchorPoints[0];
+		return !anchorPoint->isTaken()? anchorPoint: NULL;
+	}
 
-        // Else iterate through anchor points finding closest one (generally only 2 options)
-        float shortestDistance = std::numeric_limits<float>::max();
-        bool returnVal = false;
-        for (int i = 0; i < anchorPoints_.size(); i++) {
-            if (!anchorPoints_[i]->isTaken()) {
 
-                float distance_ = distance(anchorPoints_[i]->getPosition(), localPoint);/*sqrt(pow(anchorPoints_[i]->getPosition().x() - localPoint.x(), 2)
-                                    + pow(anchorPoints_[i]->getPosition().y() - localPoint.y(), 2)
-                                    + pow(anchorPoints_[i]->getPosition().z() - localPoint.z(), 2));*/
-                if (distance_ < shortestDistance) {
-                    shortestDistance = distance_;
-                    index = i;
-                }
-                returnVal = true;
-            }
-        }
+	// Else iterate through anchor points finding closest one (generally only 2 options)
+	boost::shared_ptr<AnchorPoint> closestAnchorPoint;
+	float shortestDistance = std::numeric_limits<float>::max();
+	for (boost::shared_ptr<AnchorPoint> anchor: anchorPoints) {
+		if ( !anchor->isTaken()) {
+			float distance_ = distance(anchor->getLocalPosition(), localPoint);/*sqrt(pow(anchorPoints_[i]->getPosition().x() - localPoint.x(), 2)
+									+ pow(anchorPoints_[i]->getPosition().y() - localPoint.y(), 2)
+									+ pow(anchorPoints_[i]->getPosition().z() - localPoint.z(), 2));*/
+			if (distance_ < shortestDistance) {
+				shortestDistance = distance_;
+				closestAnchorPoint = anchor;
 
-        return returnVal;
-    }
-
-bool BoxResource::getClosestAnchorPoint(osg::Vec3 position, int& index){
-    return getClosestAnchorPointLocal(getLocalPoint(position), index);
+			}
+		}
+	}
+	return closestAnchorPoint;
 }
+
 boost::shared_ptr<AnchorPoint> BoxResource::getClosestAnchorPoint(osg::Vec3 position){
-	int index = -1000;
-	if (getClosestAnchorPoint(position, index)){
-		return anchorPoints_[index];
-	}
-	else{
-		return NULL;
-	}
+    return getClosestAnchorPointLocal(getLocalPoint(position));
 }
 
 }/*Close namespace brace*/

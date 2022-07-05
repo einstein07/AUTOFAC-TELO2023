@@ -16,7 +16,7 @@
 
 namespace robogen {
 
-const float SensorMorphology::SENSOR_RANGE = /*0.255*/1;
+const float SensorMorphology::SENSOR_RANGE = /*0.255*/5;
 
 SensorMorphology::SensorMorphology(dSpaceID odeSpace,
 		std::vector<boost::shared_ptr<SimpleBody> > sensorBodies,
