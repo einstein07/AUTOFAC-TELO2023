@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=24
+#PBS -q smp
+#PBS -l walltime=00:02:00
+#PBS -P CSCI1142
+#PBS -o /mnt/lustre/users/smkhatshwa/Masters/vncsession.out
+#PBS -e /mnt/lustre/users/smkhatshwa/Masters/vncsession.err
+#PBS -m abe
+#PBS -M mkhhsin035@myuct.ac.za
+###  This following line will write the hostname of your compute node to the file hostname.txt
+hostname > hostname.txt
+/apps/chpc/compmech/TurboVNC-2.2.5/bin/vncserver :7 -depth 24 -geometry 1366x768
+sleep 2h
+/apps/chpc/compmech/TurboVNC-2.2.5/bin/vncserver -kill :7
+
