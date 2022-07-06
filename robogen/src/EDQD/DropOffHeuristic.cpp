@@ -33,7 +33,7 @@ namespace robogen{
 					resource -> dropOff();
 					//boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
 					//return Heuristic::driveToTargetPosition(osg::Vec2d(-resource -> getPosition().x(), -resource -> getPosition().y()));
-					std::cout << "Drop-off heuristic active for resource type - " << resource -> getType() << std::endl;
+					//std::cout << "Drop-off heuristic active for resource type - " << resource -> getType() << std::endl;
 				}
 				/*else{
 					boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> incTimeResourceBound();
