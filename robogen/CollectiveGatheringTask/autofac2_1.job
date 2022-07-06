@@ -1,0 +1,37 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=24
+#PBS -q smp
+#PBS -l walltime=13:40:00
+#PBS -P CSCI1142
+#PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//vncsession.out
+#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//vncsession.err
+### PBS -J 1-10:1
+#PBS -m abe
+#PBS -M mkhsin035@myuct.ac.za
+#PBS -N EER-SSCI
+ulimit -s unlimited
+###  This following line will write the hostname of your compute node to the file hostname.txt
+hostname > hostname.txt
+
+
+
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con1.txt --seed 1 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con2.txt --seed 2 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con3.txt --seed 3 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con4.txt --seed 4 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con5.txt --seed 5 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con6.txt --seed 6 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con7.txt --seed 7 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con8.txt --seed 8 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con9.txt --seed 9 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con10.txt --seed 10 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con11.txt --seed 11 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con12.txt --seed 12 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con13.txt --seed 13 --no-visualization
+.cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && /robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con14.txt --seed 14 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con15.txt --seed 15 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con16.txt --seed 16 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con17.txt --seed 17 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con18.txt --seed 18 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con19.txt --seed 19 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build &&./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-2/con20.txt --seed 20 --no-visualization
