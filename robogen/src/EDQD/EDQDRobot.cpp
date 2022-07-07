@@ -31,18 +31,18 @@ namespace robogen{
 		bool status = this->init(odeWorld, odeSpace, robotSpace, nbALive, robotSpec);
 
 		isNull = true;
-		logFilename = "logs/robot_"+ std::to_string(getId()) +"_datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
+		//logFilename = "logs/robot_"+ std::to_string(getId()) +"_datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
 
-		robotLogFile.open(logFilename.c_str());
+		//robotLogFile.open(logFilename.c_str());
 
 
-		if(!robotLogFile) {
-			std::cout << "[error] Cannot open log file " << std::endl;
-			exit (-1);
-		}
+		//if(!robotLogFile) {
+		//	std::cout << "[error] Cannot open log file " << std::endl;
+		//	exit (-1);
+		//}
 
-		logger = new Logger();
-		logger->setLoggerFile(robotLogFile);
+		//logger = new Logger();
+		//	logger->setLoggerFile(robotLogFile);
 
 
 		/*std::string sLog = std::string("");
@@ -153,15 +153,15 @@ namespace robogen{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ",status,listening\n";
-						logger->write(sLog);
-						logger->flush();
+						//logger->write(sLog);
+						//logger->flush();
 					}
 					else{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
-						logger->write(sLog);
-						logger->flush();
+						//logger->write(sLog);
+						//logger->flush();
 					}
 				}
 			}
@@ -175,8 +175,8 @@ namespace robogen{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
-						logger->write(sLog);
-						logger->flush();
+						//logger->write(sLog);
+						//logger->flush();
 
 						// agent will not be able to be active anymore
 						notListeningDelay_ = -1;
@@ -200,88 +200,7 @@ namespace robogen{
 
 	}
 
-	std::vector<double> EDQDRobot::getInputs(){
-		std::vector<double> inputs;
-		//inputs.reserve(nbInputs_);
-		double floor_sensor = 0;
 
-		/**
-		 * 1: distance/max_range
-		 * 2: agent
-		 * 3: resource type 1
-		 * 4: resource type 2
-		 * 5: resource type 3
-		 * 6: resource type 4
-		 * 7: resource type 5
-		 * 8: wall
-		 * 9: target area
-		 */
-		for (unsigned int  i = 0; i < getSensors().size(); ++i){
-
-			if (boost::dynamic_pointer_cast< IrSensorElement>(getSensors()[i])) {
-
-				inputs.push_back(boost::dynamic_pointer_cast< IrSensorElement>(getSensors()[i])->
-						read()/ColorSensor::SENSOR_RANGE);
-
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+1])) {
-					if ( boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+1])->
-							read()){
-						// This is an agent
-						inputs.push_back( 1 );
-					}
-					else{
-						inputs.push_back( 0 );
-					}
-				}
-
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+2])) {
-					if ( boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+2])->
-							read()){ // This is a resource
-						for (int j = 1; j <= EDQD::Parameters::nbOfPhysicalObjectGroups; j++){
-							if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+3])->
-									read() == j){ // check the object type
-								inputs.push_back( 1 );
-							}
-							else{
-								inputs.push_back( 0 );
-							}
-						}
-
-					}
-					else{ // This is not a resource, set all resource types to 0
-						for (int j = 1; j <= EDQD::Parameters::nbOfPhysicalObjectGroups; j++){
-							inputs.push_back( 0 );
-						}
-					}
-				}
-				if (boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+3])) {
-					if ( boost::dynamic_pointer_cast< ColorSensorElement>(getSensors()[i+3])->
-							read()){ // This is a wall
-						inputs.push_back( 1 );
-					}
-					else{
-						inputs.push_back( 0 );
-					}
-				}
-
-			}
-			else if (boost::dynamic_pointer_cast< TargetAreaDetectorElement >(getSensors()[i])){
-				if ( boost::dynamic_pointer_cast< TargetAreaDetectorElement >(getSensors()[i])->
-											read()){
-					floor_sensor = 1;
-				}
-			}
-		}
-
-		//std::cout << "Inputs size: " << inputs.size() << std::endl;
-		for (int i = 0; i < inputs.size(); i++){
-			std::cout << inputs[i] <<" " ;
-			if (i % 10 == 0){
-				std::cout << "\n";
-			}
-		}
-		return inputs;
-	}
 
 	std::vector<double> EDQDRobot::getSensorInputs(){
 		std::vector<double> inputs;
@@ -503,15 +422,15 @@ namespace robogen{
 				std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 						"::" + std::to_string(birthdate_) + ", genome added to map\n";
-				logger->write(sLog);
-				logger->flush();
+				//logger->write(sLog);
+				//logger->flush();
 	    	}
 	    	else{
 	    		std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 						"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
-				logger->write(sLog);
-				logger->flush();
+				//logger->write(sLog);
+				//logger->flush();
 	    	}
 
 	    	loadNewGenome();
@@ -628,12 +547,12 @@ namespace robogen{
 	    if (mergedMap_->getNumFilledCells() > 0){
 			do {
 				index = mergedMap_->getRandomIndex();
-				/**if (tries > 99)
+				if (tries > 99)
 					break;
-				tries++;*/
+				tries++;
 				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( mergedMap_->get(index)->genome_.size() == 0 );
-			//if (tries < 100){
+			if (tries < 100){
 				currentGenome_ = mergedMap_->get(index)->genome_;
 				currentSigma_ = mergedMap_->get(index)->sigma_;
 				birthdate_ = robogen::iterations;
@@ -641,7 +560,7 @@ namespace robogen{
 				ancestor_ = mergedMap_->get(index)->id_;
 
 				setNewGenomeStatus(true);
-			//}
+			}
 	    }
 	    //return true;
 	}
@@ -894,8 +813,8 @@ namespace robogen{
 			sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 					"::" + std::to_string(birthdate_) + ", descendsFrom, " + std::to_string(ancestor_.first) +
 					"::" + std::to_string(ancestor_.second) + "\n";
-			logger->write(sLog);
-			logger->flush();
+			//logger->write(sLog);
+			//logger->flush();
 			//return true;
 		//}
 		// Logging: track descendance
@@ -908,7 +827,7 @@ namespace robogen{
 
 	void EDQDRobot::loadNewGenome(){
 		if (isAlive()){
-			logCurrentState();
+			//logCurrentState();
 	        if ( mapList_.size() > 0 ){
 	        	performSelection();
 	        	performVariation();
@@ -917,8 +836,8 @@ namespace robogen{
 
 				std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, active\n";
-				logger->write(sLog);
-				logger->flush();
+				//logger->write(sLog);
+				//logger->flush();
 
 	            osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 				Xinit_ = currPos.x();
@@ -948,8 +867,8 @@ namespace robogen{
 					sLog += "(...)"; // do not write genome
 
 					sLog += "\n";
-					logger->write(sLog);
-					logger->flush();
+					//logger->write(sLog);
+					//logger->flush();
 				}
 	        }
 	        else{
@@ -958,8 +877,8 @@ namespace robogen{
 					std::string sLog = std::string("");
 					sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
 							"::" + std::to_string(birthdate_) + ", genome, n/a.\n";
-					logger->write(sLog);
-					logger->flush();
+					//logger->write(sLog);
+					//logger->flush();
 
 	        		reset();
 
@@ -975,8 +894,8 @@ namespace robogen{
 
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
-						logger->write(sLog);
-						logger->flush();
+						//logger->write(sLog);
+						//logger->flush();
 					}
 	        		else{
 
@@ -986,14 +905,14 @@ namespace robogen{
 							isListening_ = true;
 							std::string sLog = std::string("");
 							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, listening\n";
-							logger->write(sLog);
-							logger->flush();
+							//logger->write(sLog);
+							//logger->flush();
 						}
 						else{
 							std::string sLog = std::string("");
 							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
-							logger->write(sLog);
-							logger->flush();
+							//logger->write(sLog);
+							//logger->flush();
 						}
 
 					}
@@ -1018,8 +937,8 @@ namespace robogen{
 	    ", maxDist, " + std::to_string( dMaxTravelled_ ) +
 	    ", fitnessValue, " + std::to_string(getFitness()) +
 	    "\n";
-	    logger->write(sLog);
-	    logger->flush();
+	    //logger->write(sLog);
+	    //logger->flush();
 	}
 
 
