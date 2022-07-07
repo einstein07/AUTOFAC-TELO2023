@@ -1,3 +1,0 @@
-# lite logger
-# generation,iteration,populationSize,minFitness,maxFitness,avgFitness,t0,t1,t2,t3,t4log:0,9999,100,0.000000,47.368421,1.894737,sigma, ,, sigma, ,
-log:1,19999,100,0.000000,0.000000,0.000000,,,,,
