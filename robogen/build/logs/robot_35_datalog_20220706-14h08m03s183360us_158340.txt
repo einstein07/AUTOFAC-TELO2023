@@ -1,0 +1,397 @@
+10000, 35::0, genome added to map
+Iteration: 10000, Robot Id: 35, Birthdate: 0, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, 0.000000, y_init, 0.000000, x_current, -4.329766, y_current, 9.447351, dist, 10.392272, maxDist, 11.000000, fitnessValue, 53.904925
+10000, 35::10000, descendsFrom, 35::0
+10000, 35::10000, status, active
+10000, 35::10000, genome, (...)
+20000, 35::10000, genome NOT added to map
+Iteration: 20000, Robot Id: 35, Birthdate: 10000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -4.329766, y_init, 9.447351, x_current, -4.082015, y_current, 9.425120, dist, 0.248746, maxDist, 0.000000, fitnessValue, 0.000000
+20000, 35::20000, descendsFrom, 60::0
+20000, 35::20000, status, active
+20000, 35::20000, genome, (...)
+30000, 35::20000, genome NOT added to map
+Iteration: 30000, Robot Id: 35, Birthdate: 20000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -4.082015, y_init, 9.425120, x_current, -4.049819, y_current, 9.443419, dist, 0.037033, maxDist, 0.000000, fitnessValue, 0.000000
+30000, 35::30000, descendsFrom, 20::10000
+30000, 35::30000, status, active
+30000, 35::30000, genome, (...)
+40000, 35::30000, genome NOT added to map
+Iteration: 40000, Robot Id: 35, Birthdate: 30000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -4.049819, y_init, 9.443419, x_current, -4.068620, y_current, 9.455717, dist, 0.022467, maxDist, 0.000000, fitnessValue, 0.000000
+40000, 35::40000, descendsFrom, 33::30000
+40000, 35::40000, status, active
+40000, 35::40000, genome, (...)
+50000, 35::40000, genome NOT added to map
+Iteration: 50000, Robot Id: 35, Birthdate: 40000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -4.068620, y_init, 9.455717, x_current, -4.033440, y_current, 9.473501, dist, 0.039420, maxDist, 0.000000, fitnessValue, 0.000000
+50000, 35::50000, descendsFrom, 20::10000
+50000, 35::50000, status, active
+50000, 35::50000, genome, (...)
+60000, 35::50000, genome NOT added to map
+Iteration: 60000, Robot Id: 35, Birthdate: 50000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -4.033440, y_init, 9.473501, x_current, -3.749492, y_current, 9.473366, dist, 0.283948, maxDist, 0.000000, fitnessValue, 0.000000
+60000, 35::60000, descendsFrom, 33::30000
+60000, 35::60000, status, active
+60000, 35::60000, genome, (...)
+70000, 35::60000, genome NOT added to map
+Iteration: 70000, Robot Id: 35, Birthdate: 60000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749492, y_init, 9.473366, x_current, -3.749052, y_current, 9.473123, dist, 0.000503, maxDist, 0.000000, fitnessValue, 0.000000
+70000, 35::70000, descendsFrom, 50::40000
+70000, 35::70000, status, active
+70000, 35::70000, genome, (...)
+80000, 35::70000, genome NOT added to map
+Iteration: 80000, Robot Id: 35, Birthdate: 70000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749052, y_init, 9.473123, x_current, -3.749105, y_current, 9.473121, dist, 0.000052, maxDist, 0.000000, fitnessValue, 0.000000
+80000, 35::80000, descendsFrom, 50::40000
+80000, 35::80000, status, active
+80000, 35::80000, genome, (...)
+90000, 35::80000, genome NOT added to map
+Iteration: 90000, Robot Id: 35, Birthdate: 80000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749105, y_init, 9.473121, x_current, -3.749157, y_current, 9.473122, dist, 0.000053, maxDist, 0.000000, fitnessValue, 0.000000
+90000, 35::90000, descendsFrom, 50::40000
+90000, 35::90000, status, active
+90000, 35::90000, genome, (...)
+100000, 35::90000, genome NOT added to map
+Iteration: 100000, Robot Id: 35, Birthdate: 90000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749157, y_init, 9.473122, x_current, -3.749210, y_current, 9.473120, dist, 0.000052, maxDist, 0.000000, fitnessValue, 0.000000
+100000, 35::100000, descendsFrom, 50::40000
+100000, 35::100000, status, active
+100000, 35::100000, genome, (...)
+110000, 35::100000, genome NOT added to map
+Iteration: 110000, Robot Id: 35, Birthdate: 100000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749210, y_init, 9.473120, x_current, -3.749262, y_current, 9.473118, dist, 0.000052, maxDist, 0.000000, fitnessValue, 0.000000
+110000, 35::110000, descendsFrom, 33::30000
+110000, 35::110000, status, active
+110000, 35::110000, genome, (...)
+120000, 35::110000, genome NOT added to map
+Iteration: 120000, Robot Id: 35, Birthdate: 110000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749262, y_init, 9.473118, x_current, -3.749311, y_current, 9.473121, dist, 0.000049, maxDist, 0.000000, fitnessValue, 0.000000
+120000, 35::120000, descendsFrom, 50::40000
+120000, 35::120000, status, active
+120000, 35::120000, genome, (...)
+130000, 35::120000, genome NOT added to map
+Iteration: 130000, Robot Id: 35, Birthdate: 120000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749311, y_init, 9.473121, x_current, -3.749363, y_current, 9.473118, dist, 0.000052, maxDist, 0.000000, fitnessValue, 0.000000
+130000, 35::130000, descendsFrom, 50::40000
+130000, 35::130000, status, active
+130000, 35::130000, genome, (...)
+140000, 35::130000, genome NOT added to map
+Iteration: 140000, Robot Id: 35, Birthdate: 130000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749363, y_init, 9.473118, x_current, -3.749420, y_current, 9.473118, dist, 0.000057, maxDist, 0.000000, fitnessValue, 0.000000
+140000, 35::140000, descendsFrom, 33::30000
+140000, 35::140000, status, active
+140000, 35::140000, genome, (...)
+150000, 35::140000, genome NOT added to map
+Iteration: 150000, Robot Id: 35, Birthdate: 140000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749420, y_init, 9.473118, x_current, -3.749524, y_current, 9.473122, dist, 0.000104, maxDist, 0.000000, fitnessValue, 0.000000
+150000, 35::150000, descendsFrom, 33::30000
+150000, 35::150000, status, active
+150000, 35::150000, genome, (...)
+160000, 35::150000, genome NOT added to map
+Iteration: 160000, Robot Id: 35, Birthdate: 150000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749524, y_init, 9.473122, x_current, -3.749696, y_current, 9.473142, dist, 0.000173, maxDist, 0.000000, fitnessValue, 0.000000
+160000, 35::160000, descendsFrom, 50::40000
+160000, 35::160000, status, active
+160000, 35::160000, genome, (...)
+170000, 35::160000, genome NOT added to map
+Iteration: 170000, Robot Id: 35, Birthdate: 160000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749696, y_init, 9.473142, x_current, -3.749845, y_current, 9.473153, dist, 0.000149, maxDist, 0.000000, fitnessValue, 0.000000
+170000, 35::170000, descendsFrom, 50::40000
+170000, 35::170000, status, active
+170000, 35::170000, genome, (...)
+180000, 35::170000, genome NOT added to map
+Iteration: 180000, Robot Id: 35, Birthdate: 170000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.749845, y_init, 9.473153, x_current, -3.750379, y_current, 9.473132, dist, 0.000534, maxDist, 0.000000, fitnessValue, 0.000000
+180000, 35::180000, descendsFrom, 50::40000
+180000, 35::180000, status, active
+180000, 35::180000, genome, (...)
+190000, 35::180000, genome NOT added to map
+Iteration: 190000, Robot Id: 35, Birthdate: 180000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.750379, y_init, 9.473132, x_current, -3.750762, y_current, 9.473109, dist, 0.000383, maxDist, 0.000000, fitnessValue, 0.000000
+190000, 35::190000, descendsFrom, 50::40000
+190000, 35::190000, status, active
+190000, 35::190000, genome, (...)
+200000, 35::190000, genome NOT added to map
+Iteration: 200000, Robot Id: 35, Birthdate: 190000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.750762, y_init, 9.473109, x_current, -3.751506, y_current, 9.473096, dist, 0.000745, maxDist, 0.000000, fitnessValue, 0.000000
+200000, 35::200000, descendsFrom, 33::30000
+200000, 35::200000, status, active
+200000, 35::200000, genome, (...)
+210000, 35::200000, genome NOT added to map
+Iteration: 210000, Robot Id: 35, Birthdate: 200000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.751506, y_init, 9.473096, x_current, -3.752249, y_current, 9.473073, dist, 0.000743, maxDist, 0.000000, fitnessValue, 0.000000
+210000, 35::210000, descendsFrom, 50::40000
+210000, 35::210000, status, active
+210000, 35::210000, genome, (...)
+220000, 35::210000, genome NOT added to map
+Iteration: 220000, Robot Id: 35, Birthdate: 210000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.752249, y_init, 9.473073, x_current, -3.752650, y_current, 9.473057, dist, 0.000401, maxDist, 0.000000, fitnessValue, 0.000000
+220000, 35::220000, descendsFrom, 33::30000
+220000, 35::220000, status, active
+220000, 35::220000, genome, (...)
+230000, 35::220000, genome NOT added to map
+Iteration: 230000, Robot Id: 35, Birthdate: 220000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.752650, y_init, 9.473057, x_current, -3.753266, y_current, 9.473046, dist, 0.000617, maxDist, 0.000000, fitnessValue, 0.000000
+230000, 35::230000, descendsFrom, 33::30000
+230000, 35::230000, status, active
+230000, 35::230000, genome, (...)
+240000, 35::230000, genome NOT added to map
+Iteration: 240000, Robot Id: 35, Birthdate: 230000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.753266, y_init, 9.473046, x_current, -3.753775, y_current, 9.473033, dist, 0.000508, maxDist, 0.000000, fitnessValue, 0.000000
+240000, 35::240000, descendsFrom, 50::40000
+240000, 35::240000, status, active
+240000, 35::240000, genome, (...)
+250000, 35::240000, genome NOT added to map
+Iteration: 250000, Robot Id: 35, Birthdate: 240000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.753775, y_init, 9.473033, x_current, -3.754245, y_current, 9.473021, dist, 0.000471, maxDist, 0.000000, fitnessValue, 0.000000
+250000, 35::250000, descendsFrom, 33::30000
+250000, 35::250000, status, active
+250000, 35::250000, genome, (...)
+260000, 35::250000, genome NOT added to map
+Iteration: 260000, Robot Id: 35, Birthdate: 250000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.754245, y_init, 9.473021, x_current, -3.754960, y_current, 9.472977, dist, 0.000716, maxDist, 0.000000, fitnessValue, 0.000000
+260000, 35::260000, descendsFrom, 50::40000
+260000, 35::260000, status, active
+260000, 35::260000, genome, (...)
+270000, 35::260000, genome NOT added to map
+Iteration: 270000, Robot Id: 35, Birthdate: 260000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.754960, y_init, 9.472977, x_current, -3.755603, y_current, 9.472967, dist, 0.000643, maxDist, 0.000000, fitnessValue, 0.000000
+270000, 35::270000, descendsFrom, 33::30000
+270000, 35::270000, status, active
+270000, 35::270000, genome, (...)
+280000, 35::270000, genome NOT added to map
+Iteration: 280000, Robot Id: 35, Birthdate: 270000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.755603, y_init, 9.472967, x_current, -3.756060, y_current, 9.472961, dist, 0.000457, maxDist, 0.000000, fitnessValue, 0.000000
+280000, 35::280000, descendsFrom, 50::40000
+280000, 35::280000, status, active
+280000, 35::280000, genome, (...)
+290000, 35::280000, genome NOT added to map
+Iteration: 290000, Robot Id: 35, Birthdate: 280000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.756060, y_init, 9.472961, x_current, -3.756776, y_current, 9.472941, dist, 0.000716, maxDist, 0.000000, fitnessValue, 0.000000
+290000, 35::290000, descendsFrom, 33::30000
+290000, 35::290000, status, active
+290000, 35::290000, genome, (...)
+300000, 35::290000, genome NOT added to map
+Iteration: 300000, Robot Id: 35, Birthdate: 290000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.756776, y_init, 9.472941, x_current, -3.757257, y_current, 9.472928, dist, 0.000482, maxDist, 0.000000, fitnessValue, 0.000000
+300000, 35::300000, descendsFrom, 33::30000
+300000, 35::300000, status, active
+300000, 35::300000, genome, (...)
+310000, 35::300000, genome NOT added to map
+Iteration: 310000, Robot Id: 35, Birthdate: 300000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.757257, y_init, 9.472928, x_current, -3.757911, y_current, 9.472928, dist, 0.000654, maxDist, 0.000000, fitnessValue, 0.000000
+310000, 35::310000, descendsFrom, 33::30000
+310000, 35::310000, status, active
+310000, 35::310000, genome, (...)
+320000, 35::310000, genome NOT added to map
+Iteration: 320000, Robot Id: 35, Birthdate: 310000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.757911, y_init, 9.472928, x_current, -3.758471, y_current, 9.472926, dist, 0.000561, maxDist, 0.000000, fitnessValue, 0.000000
+320000, 35::320000, descendsFrom, 50::40000
+320000, 35::320000, status, active
+320000, 35::320000, genome, (...)
+330000, 35::320000, genome NOT added to map
+Iteration: 330000, Robot Id: 35, Birthdate: 320000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.758471, y_init, 9.472926, x_current, -3.759006, y_current, 9.472919, dist, 0.000535, maxDist, 0.000000, fitnessValue, 0.000000
+330000, 35::330000, descendsFrom, 50::40000
+330000, 35::330000, status, active
+330000, 35::330000, genome, (...)
+340000, 35::330000, genome NOT added to map
+Iteration: 340000, Robot Id: 35, Birthdate: 330000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.759006, y_init, 9.472919, x_current, -3.759667, y_current, 9.472902, dist, 0.000661, maxDist, 0.000000, fitnessValue, 0.000000
+340000, 35::340000, descendsFrom, 33::30000
+340000, 35::340000, status, active
+340000, 35::340000, genome, (...)
+350000, 35::340000, genome NOT added to map
+Iteration: 350000, Robot Id: 35, Birthdate: 340000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.759667, y_init, 9.472902, x_current, -3.760278, y_current, 9.472906, dist, 0.000611, maxDist, 0.000000, fitnessValue, 0.000000
+350000, 35::350000, descendsFrom, 50::40000
+350000, 35::350000, status, active
+350000, 35::350000, genome, (...)
+360000, 35::350000, genome NOT added to map
+Iteration: 360000, Robot Id: 35, Birthdate: 350000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.760278, y_init, 9.472906, x_current, -3.760759, y_current, 9.472901, dist, 0.000481, maxDist, 0.000000, fitnessValue, 0.000000
+360000, 35::360000, descendsFrom, 33::30000
+360000, 35::360000, status, active
+360000, 35::360000, genome, (...)
+370000, 35::360000, genome NOT added to map
+Iteration: 370000, Robot Id: 35, Birthdate: 360000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.760759, y_init, 9.472901, x_current, -3.761241, y_current, 9.472898, dist, 0.000483, maxDist, 0.000000, fitnessValue, 0.000000
+370000, 35::370000, descendsFrom, 33::30000
+370000, 35::370000, status, active
+370000, 35::370000, genome, (...)
+380000, 35::370000, genome NOT added to map
+Iteration: 380000, Robot Id: 35, Birthdate: 370000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.761241, y_init, 9.472898, x_current, -3.761861, y_current, 9.472900, dist, 0.000619, maxDist, 0.000000, fitnessValue, 0.000000
+380000, 35::380000, descendsFrom, 33::30000
+380000, 35::380000, status, active
+380000, 35::380000, genome, (...)
+390000, 35::380000, genome NOT added to map
+Iteration: 390000, Robot Id: 35, Birthdate: 380000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.761861, y_init, 9.472900, x_current, -3.762350, y_current, 9.472890, dist, 0.000490, maxDist, 0.000000, fitnessValue, 0.000000
+390000, 35::390000, descendsFrom, 33::30000
+390000, 35::390000, status, active
+390000, 35::390000, genome, (...)
+400000, 35::390000, genome NOT added to map
+Iteration: 400000, Robot Id: 35, Birthdate: 390000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.762350, y_init, 9.472890, x_current, -3.762905, y_current, 9.472878, dist, 0.000555, maxDist, 0.000000, fitnessValue, 0.000000
+400000, 35::400000, descendsFrom, 50::40000
+400000, 35::400000, status, active
+400000, 35::400000, genome, (...)
+410000, 35::400000, genome NOT added to map
+Iteration: 410000, Robot Id: 35, Birthdate: 400000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.762905, y_init, 9.472878, x_current, -3.763422, y_current, 9.472876, dist, 0.000517, maxDist, 0.000000, fitnessValue, 0.000000
+410000, 35::410000, descendsFrom, 50::40000
+410000, 35::410000, status, active
+410000, 35::410000, genome, (...)
+420000, 35::410000, genome NOT added to map
+Iteration: 420000, Robot Id: 35, Birthdate: 410000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.763422, y_init, 9.472876, x_current, -3.764035, y_current, 9.472893, dist, 0.000613, maxDist, 0.000000, fitnessValue, 0.000000
+420000, 35::420000, descendsFrom, 50::40000
+420000, 35::420000, status, active
+420000, 35::420000, genome, (...)
+430000, 35::420000, genome NOT added to map
+Iteration: 430000, Robot Id: 35, Birthdate: 420000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.764035, y_init, 9.472893, x_current, -3.764647, y_current, 9.472887, dist, 0.000612, maxDist, 0.000000, fitnessValue, 0.000000
+430000, 35::430000, descendsFrom, 50::40000
+430000, 35::430000, status, active
+430000, 35::430000, genome, (...)
+440000, 35::430000, genome NOT added to map
+Iteration: 440000, Robot Id: 35, Birthdate: 430000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.764647, y_init, 9.472887, x_current, -3.765241, y_current, 9.472908, dist, 0.000594, maxDist, 0.000000, fitnessValue, 0.000000
+440000, 35::440000, descendsFrom, 50::40000
+440000, 35::440000, status, active
+440000, 35::440000, genome, (...)
+450000, 35::440000, genome NOT added to map
+Iteration: 450000, Robot Id: 35, Birthdate: 440000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.765241, y_init, 9.472908, x_current, -3.765840, y_current, 9.472927, dist, 0.000600, maxDist, 0.000000, fitnessValue, 0.000000
+450000, 35::450000, descendsFrom, 33::30000
+450000, 35::450000, status, active
+450000, 35::450000, genome, (...)
+460000, 35::450000, genome NOT added to map
+Iteration: 460000, Robot Id: 35, Birthdate: 450000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.765840, y_init, 9.472927, x_current, -3.766382, y_current, 9.472931, dist, 0.000542, maxDist, 0.000000, fitnessValue, 0.000000
+460000, 35::460000, descendsFrom, 50::40000
+460000, 35::460000, status, active
+460000, 35::460000, genome, (...)
+470000, 35::460000, genome NOT added to map
+Iteration: 470000, Robot Id: 35, Birthdate: 460000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.766382, y_init, 9.472931, x_current, -3.767078, y_current, 9.472949, dist, 0.000696, maxDist, 0.000000, fitnessValue, 0.000000
+470000, 35::470000, descendsFrom, 33::30000
+470000, 35::470000, status, active
+470000, 35::470000, genome, (...)
+480000, 35::470000, genome NOT added to map
+Iteration: 480000, Robot Id: 35, Birthdate: 470000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.767078, y_init, 9.472949, x_current, -3.767630, y_current, 9.472976, dist, 0.000553, maxDist, 0.000000, fitnessValue, 0.000000
+480000, 35::480000, descendsFrom, 33::30000
+480000, 35::480000, status, active
+480000, 35::480000, genome, (...)
+490000, 35::480000, genome NOT added to map
+Iteration: 490000, Robot Id: 35, Birthdate: 480000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.767630, y_init, 9.472976, x_current, -3.768138, y_current, 9.472979, dist, 0.000508, maxDist, 0.000000, fitnessValue, 0.000000
+490000, 35::490000, descendsFrom, 50::40000
+490000, 35::490000, status, active
+490000, 35::490000, genome, (...)
+500000, 35::490000, genome NOT added to map
+Iteration: 500000, Robot Id: 35, Birthdate: 490000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.768138, y_init, 9.472979, x_current, -3.768806, y_current, 9.473011, dist, 0.000668, maxDist, 0.000000, fitnessValue, 0.000000
+500000, 35::500000, descendsFrom, 50::40000
+500000, 35::500000, status, active
+500000, 35::500000, genome, (...)
+510000, 35::500000, genome NOT added to map
+Iteration: 510000, Robot Id: 35, Birthdate: 500000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.768806, y_init, 9.473011, x_current, -3.769373, y_current, 9.473013, dist, 0.000567, maxDist, 0.000000, fitnessValue, 0.000000
+510000, 35::510000, descendsFrom, 33::30000
+510000, 35::510000, status, active
+510000, 35::510000, genome, (...)
+520000, 35::510000, genome NOT added to map
+Iteration: 520000, Robot Id: 35, Birthdate: 510000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.769373, y_init, 9.473013, x_current, -3.769926, y_current, 9.473046, dist, 0.000554, maxDist, 0.000000, fitnessValue, 0.000000
+520000, 35::520000, descendsFrom, 33::30000
+520000, 35::520000, status, active
+520000, 35::520000, genome, (...)
+530000, 35::520000, genome NOT added to map
+Iteration: 530000, Robot Id: 35, Birthdate: 520000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.769926, y_init, 9.473046, x_current, -3.770532, y_current, 9.473083, dist, 0.000607, maxDist, 0.000000, fitnessValue, 0.000000
+530000, 35::530000, descendsFrom, 33::30000
+530000, 35::530000, status, active
+530000, 35::530000, genome, (...)
+540000, 35::530000, genome NOT added to map
+Iteration: 540000, Robot Id: 35, Birthdate: 530000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.770532, y_init, 9.473083, x_current, -3.770749, y_current, 9.473088, dist, 0.000216, maxDist, 0.000000, fitnessValue, 0.000000
+540000, 35::540000, descendsFrom, 50::40000
+540000, 35::540000, status, active
+540000, 35::540000, genome, (...)
+550000, 35::540000, genome NOT added to map
+Iteration: 550000, Robot Id: 35, Birthdate: 540000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.770749, y_init, 9.473088, x_current, -3.771347, y_current, 9.473126, dist, 0.000599, maxDist, 0.000000, fitnessValue, 0.000000
+550000, 35::550000, descendsFrom, 33::30000
+550000, 35::550000, status, active
+550000, 35::550000, genome, (...)
+560000, 35::550000, genome NOT added to map
+Iteration: 560000, Robot Id: 35, Birthdate: 550000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.771347, y_init, 9.473126, x_current, -3.771948, y_current, 9.473154, dist, 0.000602, maxDist, 0.000000, fitnessValue, 0.000000
+560000, 35::560000, descendsFrom, 33::30000
+560000, 35::560000, status, active
+560000, 35::560000, genome, (...)
+570000, 35::560000, genome NOT added to map
+Iteration: 570000, Robot Id: 35, Birthdate: 560000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.771948, y_init, 9.473154, x_current, -3.772519, y_current, 9.473182, dist, 0.000572, maxDist, 0.000000, fitnessValue, 0.000000
+570000, 35::570000, descendsFrom, 50::40000
+570000, 35::570000, status, active
+570000, 35::570000, genome, (...)
+580000, 35::570000, genome NOT added to map
+Iteration: 580000, Robot Id: 35, Birthdate: 570000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.772519, y_init, 9.473182, x_current, -3.773019, y_current, 9.473203, dist, 0.000500, maxDist, 0.000000, fitnessValue, 0.000000
+580000, 35::580000, descendsFrom, 33::30000
+580000, 35::580000, status, active
+580000, 35::580000, genome, (...)
+590000, 35::580000, genome NOT added to map
+Iteration: 590000, Robot Id: 35, Birthdate: 580000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.773019, y_init, 9.473203, x_current, -3.773704, y_current, 9.473241, dist, 0.000686, maxDist, 0.000000, fitnessValue, 0.000000
+590000, 35::590000, descendsFrom, 50::40000
+590000, 35::590000, status, active
+590000, 35::590000, genome, (...)
+600000, 35::590000, genome NOT added to map
+Iteration: 600000, Robot Id: 35, Birthdate: 590000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.773704, y_init, 9.473241, x_current, -3.774127, y_current, 9.473259, dist, 0.000423, maxDist, 0.000000, fitnessValue, 0.000000
+600000, 35::600000, descendsFrom, 50::40000
+600000, 35::600000, status, active
+600000, 35::600000, genome, (...)
+610000, 35::600000, genome NOT added to map
+Iteration: 610000, Robot Id: 35, Birthdate: 600000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.774127, y_init, 9.473259, x_current, -3.774764, y_current, 9.473288, dist, 0.000638, maxDist, 0.000000, fitnessValue, 0.000000
+610000, 35::610000, descendsFrom, 50::40000
+610000, 35::610000, status, active
+610000, 35::610000, genome, (...)
+620000, 35::610000, genome NOT added to map
+Iteration: 620000, Robot Id: 35, Birthdate: 610000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.774764, y_init, 9.473288, x_current, -3.775065, y_current, 9.473286, dist, 0.000302, maxDist, 0.000000, fitnessValue, 0.000000
+620000, 35::620000, descendsFrom, 50::40000
+620000, 35::620000, status, active
+620000, 35::620000, genome, (...)
+630000, 35::620000, genome NOT added to map
+Iteration: 630000, Robot Id: 35, Birthdate: 620000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.775065, y_init, 9.473286, x_current, -3.775673, y_current, 9.473316, dist, 0.000609, maxDist, 0.000000, fitnessValue, 0.000000
+630000, 35::630000, descendsFrom, 50::40000
+630000, 35::630000, status, active
+630000, 35::630000, genome, (...)
+640000, 35::630000, genome NOT added to map
+Iteration: 640000, Robot Id: 35, Birthdate: 630000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.775673, y_init, 9.473316, x_current, -3.776206, y_current, 9.473356, dist, 0.000534, maxDist, 0.000000, fitnessValue, 0.000000
+640000, 35::640000, descendsFrom, 33::30000
+640000, 35::640000, status, active
+640000, 35::640000, genome, (...)
+650000, 35::640000, genome NOT added to map
+Iteration: 650000, Robot Id: 35, Birthdate: 640000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.776206, y_init, 9.473356, x_current, -3.776741, y_current, 9.473403, dist, 0.000537, maxDist, 0.000000, fitnessValue, 0.000000
+650000, 35::650000, descendsFrom, 33::30000
+650000, 35::650000, status, active
+650000, 35::650000, genome, (...)
+660000, 35::650000, genome NOT added to map
+Iteration: 660000, Robot Id: 35, Birthdate: 650000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.776741, y_init, 9.473403, x_current, -3.777456, y_current, 9.473455, dist, 0.000717, maxDist, 0.000000, fitnessValue, 0.000000
+660000, 35::660000, descendsFrom, 33::30000
+660000, 35::660000, status, active
+660000, 35::660000, genome, (...)
+670000, 35::660000, genome NOT added to map
+Iteration: 670000, Robot Id: 35, Birthdate: 660000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.777456, y_init, 9.473455, x_current, -3.778010, y_current, 9.473510, dist, 0.000557, maxDist, 0.000000, fitnessValue, 0.000000
+670000, 35::670000, descendsFrom, 50::40000
+670000, 35::670000, status, active
+670000, 35::670000, genome, (...)
+680000, 35::670000, genome NOT added to map
+Iteration: 680000, Robot Id: 35, Birthdate: 670000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.778010, y_init, 9.473510, x_current, -3.778362, y_current, 9.473522, dist, 0.000352, maxDist, 0.000000, fitnessValue, 0.000000
+680000, 35::680000, descendsFrom, 33::30000
+680000, 35::680000, status, active
+680000, 35::680000, genome, (...)
+690000, 35::680000, genome NOT added to map
+Iteration: 690000, Robot Id: 35, Birthdate: 680000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.778362, y_init, 9.473522, x_current, -3.778904, y_current, 9.473597, dist, 0.000547, maxDist, 0.000000, fitnessValue, 0.000000
+690000, 35::690000, descendsFrom, 33::30000
+690000, 35::690000, status, active
+690000, 35::690000, genome, (...)
+700000, 35::690000, genome NOT added to map
+Iteration: 700000, Robot Id: 35, Birthdate: 690000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.778904, y_init, 9.473597, x_current, -3.779299, y_current, 9.473634, dist, 0.000396, maxDist, 0.000000, fitnessValue, 0.000000
+700000, 35::700000, descendsFrom, 33::30000
+700000, 35::700000, status, active
+700000, 35::700000, genome, (...)
+710000, 35::700000, genome NOT added to map
+Iteration: 710000, Robot Id: 35, Birthdate: 700000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.779299, y_init, 9.473634, x_current, -3.779784, y_current, 9.473688, dist, 0.000488, maxDist, 0.000000, fitnessValue, 0.000000
+710000, 35::710000, descendsFrom, 33::30000
+710000, 35::710000, status, active
+710000, 35::710000, genome, (...)
+720000, 35::710000, genome NOT added to map
+Iteration: 720000, Robot Id: 35, Birthdate: 710000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.779784, y_init, 9.473688, x_current, -3.780283, y_current, 9.473717, dist, 0.000500, maxDist, 0.000000, fitnessValue, 0.000000
+720000, 35::720000, descendsFrom, 33::30000
+720000, 35::720000, status, active
+720000, 35::720000, genome, (...)
+730000, 35::720000, genome NOT added to map
+Iteration: 730000, Robot Id: 35, Birthdate: 720000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.780283, y_init, 9.473717, x_current, -3.780867, y_current, 9.473784, dist, 0.000587, maxDist, 0.000000, fitnessValue, 0.000000
+730000, 35::730000, descendsFrom, 50::40000
+730000, 35::730000, status, active
+730000, 35::730000, genome, (...)
+740000, 35::730000, genome NOT added to map
+Iteration: 740000, Robot Id: 35, Birthdate: 730000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.780867, y_init, 9.473784, x_current, -3.781323, y_current, 9.473820, dist, 0.000458, maxDist, 0.000000, fitnessValue, 0.000000
+740000, 35::740000, descendsFrom, 33::30000
+740000, 35::740000, status, active
+740000, 35::740000, genome, (...)
+750000, 35::740000, genome NOT added to map
+Iteration: 750000, Robot Id: 35, Birthdate: 740000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.781323, y_init, 9.473820, x_current, -3.781946, y_current, 9.473887, dist, 0.000627, maxDist, 0.000000, fitnessValue, 0.000000
+750000, 35::750000, descendsFrom, 33::30000
+750000, 35::750000, status, active
+750000, 35::750000, genome, (...)
+760000, 35::750000, genome NOT added to map
+Iteration: 760000, Robot Id: 35, Birthdate: 750000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.781946, y_init, 9.473887, x_current, -3.782506, y_current, 9.473965, dist, 0.000565, maxDist, 0.000000, fitnessValue, 0.000000
+760000, 35::760000, descendsFrom, 50::40000
+760000, 35::760000, status, active
+760000, 35::760000, genome, (...)
+770000, 35::760000, genome NOT added to map
+Iteration: 770000, Robot Id: 35, Birthdate: 760000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.782506, y_init, 9.473965, x_current, -3.783071, y_current, 9.474019, dist, 0.000567, maxDist, 0.000000, fitnessValue, 0.000000
+770000, 35::770000, descendsFrom, 50::40000
+770000, 35::770000, status, active
+770000, 35::770000, genome, (...)
+780000, 35::770000, genome NOT added to map
+Iteration: 780000, Robot Id: 35, Birthdate: 770000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.783071, y_init, 9.474019, x_current, -3.783661, y_current, 9.474084, dist, 0.000593, maxDist, 0.000000, fitnessValue, 0.000000
+780000, 35::780000, descendsFrom, 33::30000
+780000, 35::780000, status, active
+780000, 35::780000, genome, (...)
+790000, 35::780000, genome NOT added to map
+Iteration: 790000, Robot Id: 35, Birthdate: 780000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.783661, y_init, 9.474084, x_current, -3.784084, y_current, 9.474129, dist, 0.000425, maxDist, 0.000000, fitnessValue, 0.000000
+790000, 35::790000, descendsFrom, 33::30000
+790000, 35::790000, status, active
+790000, 35::790000, genome, (...)
+800000, 35::790000, genome NOT added to map
+Iteration: 800000, Robot Id: 35, Birthdate: 790000, age, 10000, rxMapListSize, 99, rxGenomesListSize ,0, sigma, 0.100000, x_init, -3.784084, y_init, 9.474129, x_current, -3.784575, y_current, 9.474174, dist, 0.000493, maxDist, 0.000000, fitnessValue, 0.000000
