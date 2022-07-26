@@ -28,7 +28,7 @@ class Heuristic{
 		Heuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		virtual ~Heuristic();
 		void setPriority(int priority);
-		virtual osg::Vec2d step()=0;
+		virtual osg::Vec2d step(boost::mutex& queueMutex)=0;
 
 		osg::Vec2d driveToTargetPosition(osg::Vec2d targetPosition);
 		osg::Vec3 getLocalPoint(osg::Vec3 globalPoint);

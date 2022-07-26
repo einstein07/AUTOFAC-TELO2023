@@ -71,7 +71,6 @@ namespace robogen{
 
 		motorOutputs = osg::Vec2d(0, 0);
 		// behaviour
-		iteration_ = 0;
 		birthdate_ = 0;
 
 		ancestor_ = std::make_pair(getId(), getBirthdate());
@@ -89,7 +88,6 @@ namespace robogen{
 		nbComRx_ = 0;
 		currentCellId_ = 0;
 		step_ = configuration->getTimeStepLength();
-		count_ = 0;
 		timeResourceBound_ = 0;
 
 		scenario_ = scenario;
@@ -130,12 +128,10 @@ namespace robogen{
 	 * Handles control decision and evolution (but: actual movement
 	 * is done in roborobo's main loop)
 	 */
-	void EDQDRobot::step( double elapsedEvaluationTime ){
+	void EDQDRobot::step(boost::mutex& queueMutex){
 
-		iteration_++;
-		count_++;
 		// step evolution
-	    stepEvolution();
+	    stepEvolution(queueMutex);
 	    // update fitness
 	    if ( isAlive() ){
 	    	stepController();
@@ -410,7 +406,7 @@ namespace robogen{
 	}
 
 
-	void EDQDRobot::stepEvolution(){
+	void EDQDRobot::stepEvolution(boost::mutex& queueMutex){
 		if( robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0 ){
 
 			/**
@@ -435,7 +431,10 @@ namespace robogen{
 
 	    	loadNewGenome();
 	    	nbGenomeTransmission_ = 0;
-	        resetFitness();
+	    	{
+				boost::lock_guard<boost::mutex> lock(queueMutex);
+				resetFitness();
+	    	}
 #ifdef DEBUG_STEP_EV
 	        std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
 #endif
@@ -456,7 +455,7 @@ namespace robogen{
 	        //}
 
 	        osg::Vec3 currPos = getCoreComponent()->getRootPosition();
-	        int tmpMaxDistance = sqrt(pow(currPos.x() - Xinit_,2) + pow(currPos.y() - Yinit_, 2));
+	        int tmpMaxDistance = sqrt(std::pow(currPos.x() - Xinit_,2) + pow(currPos.y() - Yinit_, 2));
 	        dSumTravelled_ += sqrt(pow(currPos.x() - Xlast_,2) + pow(currPos.y() - Ylast_, 2));
 	        Xlast_ = currPos.x();
 			Ylast_ = currPos.y();
@@ -489,7 +488,6 @@ namespace robogen{
 	}
 
 	void EDQDRobot::performVariation(){
-		//mutator_->EDQDperformVariation(currentGenome_, currentSigma_);
 		// global mutation rate (whether this genome will get any mutation or not) - default: always
 			if ( EDQD::Parameters::individualMutationRate > random() ) {
 			switch ( EDQD::Parameters::mutationOperator ){
@@ -987,27 +985,14 @@ namespace robogen{
 	 */
 	void EDQDRobot::resetFitness()
 	{
-		fitness_ = 0;
-		pickUpPosition = osg::Vec3d(targetArea_.x(), targetArea_.y(), 0);
-		resetResourceCounter();
+
+			fitness_ = 0;
+			pickUpPosition = osg::Vec3d(targetArea_.x(), targetArea_.y(), 0);
+			resetResourceCounter();
+
 	}
 
-	/**
-	 * Updates the fitness of the robot based on the number of resources that have been collected.
-	 */
-	void EDQDRobot::updateFitness(){
-		//double sum = 0.00;
-		//std::map<int, int>::iterator it = resourceCounters_.begin();
-		//for (; it != resourceCounters_.end(); ++it)
-		//{
-			// The value of each resource is 100/number-of-pushing-robots
-			/**
-			 * Changed this to just 100 - since all resources are pushed by one robot now
-			 * JUst different colors
-			 */
-		//	sum += 100 * it->second;// / it->first;
-		//}
-	}
+
 	void EDQDRobot::updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value){
 		fitness_ += (100*value/pushingRobots) * (distance(dropOffPosition, pickUpPosition)/(scenario_ ->getEnvironment() -> getTerrain() -> getWidth() - (scenario_ ->getEnvironment() -> getGatheringZone() -> getSize().y()/2)));
 	}

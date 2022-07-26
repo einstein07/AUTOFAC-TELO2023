@@ -28,7 +28,7 @@ class CollisionAvoidanceHeuristic : public Heuristic{
 	public:
 		CollisionAvoidanceHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~CollisionAvoidanceHeuristic();
-		virtual osg::Vec2d step();
+		virtual osg::Vec2d step(boost::mutex& queueMutex);
 		osg::Vec2d stepStatic();
 		void decrement();
 		inline bool isStaticObject(){return staticObject;}

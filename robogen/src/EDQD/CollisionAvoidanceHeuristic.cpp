@@ -30,7 +30,7 @@ namespace robogen{
 		}
 	}
 
-	osg::Vec2d CollisionAvoidanceHeuristic::step(){
+	osg::Vec2d CollisionAvoidanceHeuristic::step(boost::mutex& queueMutex){
 		osg::Vec2d pos = osg::Vec2d(-1000, -1000);
 		double minDistance = 0.5;//0.35;//0.2;//0.8
 		osg::Vec3d area = scenario_ -> getEnvironment() -> getGatheringZone() -> getPosition();

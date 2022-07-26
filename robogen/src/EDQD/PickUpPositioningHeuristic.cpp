@@ -23,7 +23,7 @@ namespace robogen{
 
 	PickUpPositioningHeuristic::~PickUpPositioningHeuristic(){}
 
-	osg::Vec2d PickUpPositioningHeuristic::step(){
+	osg::Vec2d PickUpPositioningHeuristic::step(boost::mutex& queueMutex){
 		if (robot_ -> isBoundToResource()){
 			setActive(false);
 			if (resource_ -> pushedByMaxRobots())

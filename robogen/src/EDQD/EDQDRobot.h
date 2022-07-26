@@ -12,6 +12,8 @@
 #define EDQDROBOT_H_
 
 #include <EDQD/contrib/neuralnetworks/NeuralNetwork.h>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/lock_guard.hpp>
 #include "evolution/representation/RobotRepresentation.h"
 #include "model/components/perceptive/ColorSensorModel.h"
 #include "model/sensors/SensorMorphology.h"
@@ -70,8 +72,6 @@ class EDQDRobot : public Robot{
 		boost::random::uniform_01<float> uniformDistribution;
 		boost::shared_ptr<RobogenConfig> configuration;
 		boost::shared_ptr<Scenario> scenario_;
-		boost::shared_ptr<Mutator> mutator_;
-		int iteration_;
 		/**
 		 * Evaluation when this controller was initialised
 		 */
@@ -83,7 +83,6 @@ class EDQDRobot : public Robot{
 		bool isNewGenome_;
 		double fitness_;
 		double step_;
-		int count_;
 		int timeResourceBound_;
 		// map
 		EDQDMap* map_;
@@ -202,19 +201,11 @@ class EDQDRobot : public Robot{
 
 	    bool storeMap(EDQDMap* map, int senderId);
 	    void broadcastMap();
-	    void updateFitness();
 	    void updateFitness(int pushingRobots, double value);
 	    void updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value);
 
-	    void step(
-	    			/**boost::shared_ptr<Environment> env,*/
-					/**boost::shared_ptr<RobogenConfig> configuration,*/
-					/**boost::random::mt19937 &rng,*/
-					/**int count,*/
-					/**double step,*/
-					double elapsedEvaluationTime
-	    		);
-	    void stepEvolution();
+	    void step(boost::mutex& queueMutex);
+	    void stepEvolution(boost::mutex& queueMutex);
 	    void stepController(
 	    					boost::shared_ptr<Environment> env,
 							/**boost::shared_ptr<RobogenConfig> configuration,*/

@@ -22,15 +22,18 @@ namespace robogen{
 
 	DropOffHeuristic::~DropOffHeuristic(){}
 
-	osg::Vec2d DropOffHeuristic::step(){
+	osg::Vec2d DropOffHeuristic::step(boost::mutex& queueMutex){
 		if (robot_->isBoundToResource()){
 			if (boost::dynamic_pointer_cast<EDQDRobot>(robot_)){
 				if ( robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0
 						/**boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> getTimeResourceBound()> EDQD::Parameters::maxTimeResourceBound*/){
-					boost::shared_ptr<BoxResource> resource = env->getResources()[robot_->getBoundResourceId()];
-					boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> updateFitness(resource->getPosition(), resource -> getSize(), resource -> getValue());
-					boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> incResourceCounter(resource -> getType());
-					resource -> dropOff();
+					{
+						boost::lock_guard<boost::mutex> lock(queueMutex);
+						boost::shared_ptr<BoxResource> resource = env->getResources()[robot_->getBoundResourceId()];
+						boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> updateFitness(resource->getPosition(), resource -> getSize(), resource -> getValue());
+						boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> incResourceCounter(resource -> getType());
+						resource -> dropOff();
+					}
 					//boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
 					//return Heuristic::driveToTargetPosition(osg::Vec2d(-resource -> getPosition().x(), -resource -> getPosition().y()));
 					//std::cout << "Drop-off heuristic active for resource type - " << resource -> getType() << std::endl;

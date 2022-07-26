@@ -113,7 +113,7 @@ public:
 	 * SM added
 	 * step the gathering zone
 	 */
-	void stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots);
+	void stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots, boost::mutex& queueMutex);
 
 	/**
 	 * SM added

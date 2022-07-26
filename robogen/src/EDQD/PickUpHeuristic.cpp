@@ -22,12 +22,12 @@ namespace robogen{
 
 	PickUpHeuristic::~PickUpHeuristic(){}
 
-	osg::Vec2d PickUpHeuristic::step(){
+	osg::Vec2d PickUpHeuristic::step(boost::mutex& queueMutex){
 
 
 		if (heuristicpp_ -> isActive()){
 			//std::cout << "Robot " << robot_ -> getId() << " stepping p-u-p" << std::endl;
-			return heuristicpp_ -> step();
+			return heuristicpp_ -> step(queueMutex);
 		}
 
 
@@ -191,7 +191,7 @@ namespace robogen{
 								heuristicpp_ -> setResource(resource);
 								heuristicpp_ -> setActive(true);
 							}
-							return heuristicpp_ -> step();
+							return heuristicpp_ -> step(queueMutex);
 						}
 					}
 					else{

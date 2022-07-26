@@ -23,7 +23,7 @@ class PickUpHeuristic : public Heuristic {
 	public:
 		PickUpHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~PickUpHeuristic();
-		virtual osg::Vec2d step();
+		virtual osg::Vec2d step(boost::mutex& queueMutex);
 
 	private:
 		boost::shared_ptr<Environment> env;

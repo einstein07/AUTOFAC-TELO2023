@@ -106,8 +106,8 @@ bool Environment::init() {
 	return true;
 }
 
-void Environment::stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots){
-	gatheringZone_ -> step(robots, resources_);
+void Environment::stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots, boost::mutex& queueMutex){
+	gatheringZone_ -> step(robots, resources_, queueMutex);
 }
 
 

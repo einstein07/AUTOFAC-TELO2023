@@ -22,7 +22,7 @@ class DropOffHeuristic : public Heuristic {
 	public:
 		DropOffHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~DropOffHeuristic();
-		virtual osg::Vec2d step();
+		virtual osg::Vec2d step(boost::mutex& queueMutex);
 
 	private:
 		boost::shared_ptr<Environment> env;

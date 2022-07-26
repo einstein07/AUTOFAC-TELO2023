@@ -9,6 +9,8 @@
 
 #include <osg/Quat>
 #include <osg/Vec3>
+#include <boost/thread/mutex.hpp>
+#include <boost/thread/lock_guard.hpp>
 #include <boost/shared_ptr.hpp>
 #include "model/PositionObservable.h"
 #include "BoxResource.h"
@@ -69,7 +71,7 @@ class GatheringZone : public PositionObservable {
                     double& maxZ
                 );
         
-        void step(std::vector<boost::shared_ptr<Robot> > robots, std::vector<boost::shared_ptr<BoxResource>> resources);
+        void step(std::vector<boost::shared_ptr<Robot> > robots, std::vector<boost::shared_ptr<BoxResource>> resources, boost::mutex& queueMutex);
 
 
         /**

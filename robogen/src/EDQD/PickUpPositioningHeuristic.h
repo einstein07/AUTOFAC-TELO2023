@@ -24,7 +24,7 @@ class PickUpPositioningHeuristic : public Heuristic {
 		PickUpPositioningHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
 		~PickUpPositioningHeuristic();
 
-		virtual osg::Vec2d step();
+		virtual osg::Vec2d step(boost::mutex& queueMutex);
 		osg::Vec3d nextStep(boost::shared_ptr<BoxResource> resource);
 		osg::Vec3d calculateTargetPoint(boost::shared_ptr<BoxResource> resource);
 		void setResource(boost::shared_ptr<BoxResource> resource);

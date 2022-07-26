@@ -395,7 +395,7 @@ void stepEmbodied(
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
 		if (robot -> isAlive()){
 			//std::cout << "Robot " << robot ->getId() <<" stepping drop-off" << std::endl;
-			heuristicD -> step();
+			heuristicD -> step(queueMutex);
 			//std::cout << "Stepping drop-off Done" << std::endl;
 			osg::Vec2d signal;
 			/*if (robot -> getId() == 10)
@@ -408,7 +408,7 @@ void stepEmbodied(
 				//std::cout << "Robot " << robot -> getId() << "Avoiding static object - current counter value: " << heuristicC -> getCounter() << std::endl;
 			}
 			if (signal.x() == -1000 || signal.y() == -1000) {
-				signal = heuristicC->step();
+				signal = heuristicC->step(queueMutex);
 				/**if (signal.x() != -1000){
 					std::cout << "Robot " << robot -> getId() << " collision active" <<std::endl;
 				}*/
@@ -423,7 +423,7 @@ void stepEmbodied(
 					signal = heuristicC ->driveToTargetPosition( osg::Vec2d(0, -5));
 
 				}*/
-				signal = heuristicP->step();
+				signal = heuristicP->step(queueMutex);
 				/**if (signal.x() != -1000){
 					std::cout << "Robot " << robot -> getId() << " pick-up active" <<std::endl;
 				}*/
@@ -472,7 +472,7 @@ void stepEmbodied(
 		for (unsigned int i = 0; i < robot->getMotors().size(); ++i) {
 			robot->getMotors()[i]->step(atp.step) ;
 		}
-		boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(atp.t);
+		boost::dynamic_pointer_cast<EDQDRobot>(robot)->step(queueMutex);
 	}
 	else{
 		std::cout << "Stepping embodied with a robot that is not EDQD" <<std::endl;
@@ -483,7 +483,7 @@ void stepGatheringZone(
 					boost::shared_ptr<Environment>& env,
 					boost::mutex& queueMutex
 				){
-	env -> stepGatheringZone(robots);
+	env -> stepGatheringZone(robots, queueMutex);
 }
 void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots ){
     // * monitoring: count number of active agents.
