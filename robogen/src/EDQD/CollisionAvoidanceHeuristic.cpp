@@ -101,91 +101,93 @@ namespace robogen{
 						boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) ||
 						boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])    ) {
 						int targetIndex = -1;
-
-						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2])-> read()){
-							if (robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId();
-							else if (!robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId();
-						}
-						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3])-> read()){
-							if (robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId();
-							else if (!robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId();
-						}
-						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4])-> read()){
-							if (robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId();
-							else if (!robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId();
-						}
-						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])-> read()){
-							if (robot_-> isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId();
-							else if (!robot_ ->isBoundToResource())
-								targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId();
-						}
-						if (targetIndex != -1){
-							boost::shared_ptr<BoxResource> resource = scenario_->getEnvironment() -> getResources()[targetIndex];
-							if (robot_ ->isBoundToResource() || (!robot_ -> isBoundToResource() && resource -> pushedByMaxRobots())){
-								double minX, maxX, minY, maxY, minZ, maxZ;
-								double robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ;
-								resource -> getAABB(minX, maxX, minY, maxY, minZ, maxZ);
-								robot_ -> getAABB(robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ);
-
-								if (robot_ -> isBoundToResource()){
-									if (((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
-												|| (robotmaxX > minX && robotmaxX < maxX)) && (robotminY > maxY)) {
-										setStaticObject(true);
-										resetCounter(250);
-										//std::cout << "Robot: "<< robot_ -> getId() <<" aabb: min x: " << robotminX << " max x: " << robotmaxX << " min y: " << robotminY << " max y: " << robotmaxY << " ";
-										//std::cout << "Resource type: "<< resource -> getType() <<" aabb: min x: " << minX << " max x: " << maxX << " min y: " << minY << " max y: " << maxY;
-
-										osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
-										if (distance(robotPos, osg::Vec3d(minX, maxY, 0)) < distance(robotPos, osg::Vec3d(maxX, maxY, 0))){
-											pos = osg::Vec2d(minX - 2, maxY);
-											//std::cout << "Driving to: (" << pos.x() << ", " << pos.y() << ")" << std::endl;
-										}else{
-											pos = osg::Vec2d(maxX + 2, maxY);
-											//std::cout << "Driving to: (" << pos.x() << ", " << pos.y() << ")" << std::endl;
-										}
-									}
-								}
-								else{
-									if ((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
-											|| (robotmaxX > minX && robotmaxX < maxX)) {
-
-										osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
-										setStaticObject(true);
-										resetCounter(250);
-
-										if (distance(robotPos, osg::Vec3d(minX, maxY, 0)) < distance(robotPos, osg::Vec3d(maxX, maxY, 0))){
-											pos = osg::Vec2d(minX - 2, maxY);
-										}else{
-											pos = osg::Vec2d(maxX + 2, maxY);
-										}
-									}
-									else if ((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
-											|| (robotmaxX > minX && robotmaxX < maxX) ) {
-
-										setStaticObject(true);
-										resetCounter(250);
-
-										osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
-										if (distance(robotPos, osg::Vec3d(minY, maxX, 0)) < distance(robotPos, osg::Vec3d(maxY, maxX, 0))){
-											pos = osg::Vec2d(minY - 2, maxX);
-										}else{
-											pos = osg::Vec2d(maxY + 2, maxX);
-										}
-									}
-								}
+						{
+							boost::lock_guard<boost::mutex> lock(queueMutex);
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2])-> read()){
+								if (robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId();
+								else if (!robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) -> getObjectId();
 							}
-							/**else{
-								setStaticObject(true);
-																	resetCounter(250);
-								pos.set(-resource -> getPosition().x(), -resource -> getPosition().y());
-							}*/
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3])-> read()){
+								if (robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId();
+								else if (!robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) -> getObjectId();
+							}
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4])-> read()){
+								if (robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId();
+								else if (!robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) -> getObjectId();
+							}
+							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])-> read()){
+								if (robot_-> isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId() == robot_ -> getBoundResourceId()? -1: boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId();
+								else if (!robot_ ->isBoundToResource())
+									targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5]) -> getObjectId();
+							}
+							if (targetIndex != -1){
+								boost::shared_ptr<BoxResource> resource = scenario_->getEnvironment() -> getResources()[targetIndex];
+								if (robot_ ->isBoundToResource() || (!robot_ -> isBoundToResource() && resource -> pushedByMaxRobots())){
+									double minX, maxX, minY, maxY, minZ, maxZ;
+									double robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ;
+									resource -> getAABB(minX, maxX, minY, maxY, minZ, maxZ);
+									robot_ -> getAABB(robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ);
+
+									if (robot_ -> isBoundToResource()){
+										if (((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
+													|| (robotmaxX > minX && robotmaxX < maxX)) && (robotminY > maxY)) {
+											setStaticObject(true);
+											resetCounter(250);
+											//std::cout << "Robot: "<< robot_ -> getId() <<" aabb: min x: " << robotminX << " max x: " << robotmaxX << " min y: " << robotminY << " max y: " << robotmaxY << " ";
+											//std::cout << "Resource type: "<< resource -> getType() <<" aabb: min x: " << minX << " max x: " << maxX << " min y: " << minY << " max y: " << maxY;
+
+											osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
+											if (distance(robotPos, osg::Vec3d(minX, maxY, 0)) < distance(robotPos, osg::Vec3d(maxX, maxY, 0))){
+												pos = osg::Vec2d(minX - 2, maxY);
+												//std::cout << "Driving to: (" << pos.x() << ", " << pos.y() << ")" << std::endl;
+											}else{
+												pos = osg::Vec2d(maxX + 2, maxY);
+												//std::cout << "Driving to: (" << pos.x() << ", " << pos.y() << ")" << std::endl;
+											}
+										}
+									}
+									else{
+										if ((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
+												|| (robotmaxX > minX && robotmaxX < maxX)) {
+
+											osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
+											setStaticObject(true);
+											resetCounter(250);
+
+											if (distance(robotPos, osg::Vec3d(minX, maxY, 0)) < distance(robotPos, osg::Vec3d(maxX, maxY, 0))){
+												pos = osg::Vec2d(minX - 2, maxY);
+											}else{
+												pos = osg::Vec2d(maxX + 2, maxY);
+											}
+										}
+										else if ((robotminX < minX && robotmaxX > maxX) || (robotminX > minX && robotminX < maxX)
+												|| (robotmaxX > minX && robotmaxX < maxX) ) {
+
+											setStaticObject(true);
+											resetCounter(250);
+
+											osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
+											if (distance(robotPos, osg::Vec3d(minY, maxX, 0)) < distance(robotPos, osg::Vec3d(maxY, maxX, 0))){
+												pos = osg::Vec2d(minY - 2, maxX);
+											}else{
+												pos = osg::Vec2d(maxY + 2, maxX);
+											}
+										}
+									}
+								}
+								/**else{
+									setStaticObject(true);
+																		resetCounter(250);
+									pos.set(-resource -> getPosition().x(), -resource -> getPosition().y());
+								}*/
+							}
 						}
 					}
 					/**if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])) {
