@@ -162,40 +162,43 @@ namespace robogen{
 							resource = r;
 						}
 					}
+					{
+						boost::lock_guard<boost::mutex> lock(queueMutex);
+						if (resource->pickup(robot_)){
 
-					if (resource->pickup(robot_)){
+							boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> setPickUpPosition(resource -> getPosition());
+							//return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
 
-						boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> setPickUpPosition(resource -> getPosition());
-						//return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
+							if(resource -> pushedByMaxRobots()){
+								//resource -> setMovable();
+								//std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
+								return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
+							}
+							else{
+								//resource -> setFixed();
+								return osg::Vec2d(0.5, 0.5);
+							}
 
-						if(resource -> pushedByMaxRobots()){
-							//resource -> setMovable();
-							//std::cout << "number of pushing robots allow resource to be moved: " << resource -> getNumberPushingRobots() << std::endl;
-							return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
 						}
+
+						else if (ENABLE_PICKUP_POSITIONING && resource -> getType() != 1 && !resource -> pushedByMaxRobots()){
+
+							if (resource -> isCollected()){
+								heuristicpp_ -> setActive(false);
+								return osg::Vec2d(-1000, -1000);
+							}
+							else{
+								if (!heuristicpp_ -> isActive()){
+									heuristicpp_ -> setResource(resource);
+									heuristicpp_ -> setActive(true);
+								}
+								return heuristicpp_ -> step(queueMutex);
+							}
+						}
+
 						else{
-							//resource -> setFixed();
-							return osg::Vec2d(0.5, 0.5);
-						}
-
-					}
-
-					else if (ENABLE_PICKUP_POSITIONING && resource -> getType() != 1 && !resource -> pushedByMaxRobots()){
-
-						if (resource -> isCollected()){
-							heuristicpp_ -> setActive(false);
 							return osg::Vec2d(-1000, -1000);
 						}
-						else{
-							if (!heuristicpp_ -> isActive()){
-								heuristicpp_ -> setResource(resource);
-								heuristicpp_ -> setActive(true);
-							}
-							return heuristicpp_ -> step(queueMutex);
-						}
-					}
-					else{
-						return osg::Vec2d(-1000, -1000);
 					}
 				}
 				else{
