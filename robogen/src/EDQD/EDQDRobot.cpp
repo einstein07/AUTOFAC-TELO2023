@@ -407,77 +407,79 @@ namespace robogen{
 
 
 	void EDQDRobot::stepEvolution(boost::mutex& queueMutex){
-		if( robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0 ){
+		{
+			boost::lock_guard<boost::mutex> lock(queueMutex);
+			if( robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0 ){
 
-			/**
-			 * lifetime ended: replace genome (if possible)
-			 * add needs to happen before new genome is loaded to ensure the map has an entry.
-			 * moved to agent observer in previous work - why???
-			 */
-			if (map_->add(getId(), this, currentGenome_, currentSigma_ )){
-				std::string sLog = std::string("");
-				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
-						"::" + std::to_string(birthdate_) + ", genome added to map\n";
-				//logger->write(sLog);
-				//logger->flush();
-	    	}
-	    	else{
-	    		std::string sLog = std::string("");
-				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
-						"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
-				//logger->write(sLog);
-				//logger->flush();
-	    	}
+				/**
+				 * lifetime ended: replace genome (if possible)
+				 * add needs to happen before new genome is loaded to ensure the map has an entry.
+				 * moved to agent observer in previous work - why???
+				 */
+				if (map_->add(getId(), this, currentGenome_, currentSigma_ )){
+					std::string sLog = std::string("");
+					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+							"::" + std::to_string(birthdate_) + ", genome added to map\n";
+					//logger->write(sLog);
+					//logger->flush();
+				}
+				else{
+					std::string sLog = std::string("");
+					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+							"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
+					//logger->write(sLog);
+					//logger->flush();
+				}
 
-	    	loadNewGenome();
-	    	nbGenomeTransmission_ = 0;
-	    	{
-				boost::lock_guard<boost::mutex> lock(queueMutex);
+				loadNewGenome();
+				nbGenomeTransmission_ = 0;
+
 				resetFitness();
-	    	}
-#ifdef DEBUG_STEP_EV
-	        std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
-#endif
-	    }
-	    else{
-	        /* broadcasting genome : robot broadcasts its genome to all neighbors
-	         * (contact-based wrt proximity sensors)
-	         * note: no broadcast if last iteration before replacement --
-	         * this is enforced as roborobo update method is random-asynchroneous.
-	         * This means that robots broadcasting may transmit genomes to robot
-	         * already at the next generation depending on the update ordering (should be avoided).
-	         */
 
-	    	// We now exchange maps with all agents within the population
-	    	// That is, environment pressure is not applied.
-	        //if ( isAlive() /*&& gRadioNetwork*/ ){
-	        //    broadcastMap();
-	        //}
-
-	        osg::Vec3 currPos = getCoreComponent()->getRootPosition();
-	        int tmpMaxDistance = sqrt(std::pow(currPos.x() - Xinit_,2) + pow(currPos.y() - Yinit_, 2));
-	        dSumTravelled_ += sqrt(pow(currPos.x() - Xlast_,2) + pow(currPos.y() - Ylast_, 2));
-	        Xlast_ = currPos.x();
-			Ylast_ = currPos.y();
-			if ( dMaxTravelled_ < tmpMaxDistance ) {
-				dMaxTravelled_ = tmpMaxDistance;
+	#ifdef DEBUG_STEP_EV
+				std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
+	#endif
 			}
-	    }
+			else{
+				/* broadcasting genome : robot broadcasts its genome to all neighbors
+				 * (contact-based wrt proximity sensors)
+				 * note: no broadcast if last iteration before replacement --
+				 * this is enforced as roborobo update method is random-asynchroneous.
+				 * This means that robots broadcasting may transmit genomes to robot
+				 * already at the next generation depending on the update ordering (should be avoided).
+				 */
 
-		// check for new NN parameters
-	    if ( getNewGenomeStatus() ){
-#ifdef DEBUG_STEP_EV
-	    	std::cout<< "*****Robot ID: "<< getId()<< " Mapping genotype to phenotype*****" << std::endl;
-#endif
-	    	mapGenotypeToPhenotype();
-#ifdef DEBUG_STEP_EV
-	        std::cout<< "*****Robot ID: "<< getId()	<< " Done mapping genotype to phenotype*****" << std::endl;
-#endif
-	        setNewGenomeStatus(false);
-#ifdef DEBUG_STEP_EV
-	        std::cout << "*****Robot ID: " << getId() << " New weights set *****" << std::endl;
-#endif
-	    }
+				// We now exchange maps with all agents within the population
+				// That is, environment pressure is not applied.
+				//if ( isAlive() /*&& gRadioNetwork*/ ){
+				//    broadcastMap();
+				//}
+
+				osg::Vec3 currPos = getCoreComponent()->getRootPosition();
+				int tmpMaxDistance = sqrt(std::pow(currPos.x() - Xinit_,2) + pow(currPos.y() - Yinit_, 2));
+				dSumTravelled_ += sqrt(pow(currPos.x() - Xlast_,2) + pow(currPos.y() - Ylast_, 2));
+				Xlast_ = currPos.x();
+				Ylast_ = currPos.y();
+				if ( dMaxTravelled_ < tmpMaxDistance ) {
+					dMaxTravelled_ = tmpMaxDistance;
+				}
+			}
+
+			// check for new NN parameters
+			if ( getNewGenomeStatus() ){
+	#ifdef DEBUG_STEP_EV
+				std::cout<< "*****Robot ID: "<< getId()<< " Mapping genotype to phenotype*****" << std::endl;
+	#endif
+				mapGenotypeToPhenotype();
+	#ifdef DEBUG_STEP_EV
+				std::cout<< "*****Robot ID: "<< getId()	<< " Done mapping genotype to phenotype*****" << std::endl;
+	#endif
+				setNewGenomeStatus(false);
+	#ifdef DEBUG_STEP_EV
+				std::cout << "*****Robot ID: " << getId() << " New weights set *****" << std::endl;
+	#endif
+			}
+		}
 	}
 
 	void EDQDRobot::mapGenotypeToPhenotype(){
