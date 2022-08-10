@@ -1,0 +1,19 @@
+#!/bin/bash
+#PBS -l select=1:ncpus=3
+#PBS -q seriallong
+#PBS -l walltime=25:00:00
+#PBS -P CSCI1142
+#PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac3_11session.out
+#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac3_11session.err
+### PBS -J 1-10:1
+#PBS -m abe
+#PBS -M mkhsin035@myuct.ac.za
+#PBS -N EER-SSCI
+ulimit -s unlimited
+###  This following line will write the hostname of your compute node to the file hostname.txt
+hostname > hostname.txt
+
+
+
+
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/environment-3/con11.txt --seed 11 --no-visualization
