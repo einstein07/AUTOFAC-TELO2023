@@ -330,7 +330,7 @@ bool BoxResource::pickup(boost::shared_ptr<Robot> robot){
     	boost::shared_ptr<Model> s29Body = robot -> getBodyPart("S29");
     	boost::shared_ptr<Model> s30Body = robot -> getBodyPart("S30");
     	osg::Vec3d point = (s29Body -> getRootPosition() + s30Body -> getRootPosition())/2;
-		if (robotBody != NULL && pushingRobots_ == 1 && (distance(robotBody->getRootPosition(), anchorPoint) > 0.08/*0.085*/) ){
+		if (robotBody != NULL && pushingRobots_ == 1 && (distance(robotBody->getRootPosition(), anchorPoint) > 0.1/*0.080.085*/) ){
 			return false;
 		}
 		if (robotBody != NULL && pushingRobots_ > 1 && (distance(/*robotBody->getRootPosition()*/point, anchorPoint) > 0.03/**0.05*/) ){
