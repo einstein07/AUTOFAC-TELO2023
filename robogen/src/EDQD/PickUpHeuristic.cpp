@@ -181,7 +181,7 @@ namespace robogen{
 
 						}
 
-						else if (ENABLE_PICKUP_POSITIONING && resource -> getType() != 1 && !resource -> pushedByMaxRobots()){
+						else if (ENABLE_PICKUP_POSITIONING /**&& resource -> getType() != 1*/ && !resource -> pushedByMaxRobots()){
 
 							if (resource -> isCollected()){
 								heuristicpp_ -> setActive(false);
