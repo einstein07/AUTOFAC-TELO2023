@@ -43,7 +43,7 @@ extern dJointGroupID odeContactGroup;
 
 namespace robogen {
 
-const int MAX_CONTACTS = 3;//32; // maximum number of contact points per body
+const int MAX_CONTACTS = 2;//32; // maximum number of contact points per body
 
 
 //CollisionData::CollisionData(boost::shared_ptr<Scenario> scenario) :
