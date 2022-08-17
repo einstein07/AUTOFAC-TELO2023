@@ -99,7 +99,7 @@ namespace EDQD{
 		 * Defines the number of intervals per dimension of a map
 		 * NB: needs to be set at compile time
 		 */
-		static const int nbOfIntervals = 2;//2;///*15*/5;
+		static const int nbOfIntervals = 10;//2;///*15*/5;
 
 		/**
 		 * Used to decide whether to discard or keep an elite in the map
