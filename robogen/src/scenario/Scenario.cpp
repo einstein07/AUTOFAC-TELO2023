@@ -256,7 +256,13 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	}
 	terrain_ = environment_ -> getTerrainID();
 	stopSimulationNow_ = false;
-        
+	boost::shared_ptr<GatheringZone> gatheringZone = boost::shared_ptr<GatheringZone>(
+				new GatheringZone(
+						odeWorld,
+						areaSpace,
+						robogenConfig_->getGatheringZoneConfig() -> getPosition(),
+						robogenConfig_->getGatheringZoneConfig() -> getSize()));
+	environment_ -> setGatheringZone(gatheringZone);
         /**---------------------------------------------------------------------
          * Setup robot positions - inner vector contains: 
          * minX;maxX;minY;maxY;minZ;maxZ; in that order
