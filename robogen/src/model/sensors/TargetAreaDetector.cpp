@@ -62,13 +62,6 @@ void TargetAreaDetector::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 
 
 	if (dGeomIsSpace (o1) || dGeomIsSpace (o2)) {
-		/**if (dGeomIsSpace (o1))
-			std::cout <<"Space ID: " << o2 << ". Total number of geoms in O1: " << dSpaceGetNumGeoms((dSpaceID)o1)
-				<< std::endl;
-		if (dGeomIsSpace (o2))
-			std::cout << "Space ID: " << o2 << ". Total number of geoms in O2: " << dSpaceGetNumGeoms((dSpaceID)o2)
-						<< std::endl;*/
-		//std::cout << "Colliding a space with something" << std::endl;
 		// colliding a space with something :
 		dSpaceCollide2 (o1, o2, data, collisionCallback);
 	}
@@ -78,7 +71,6 @@ void TargetAreaDetector::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 				o1) != r->ignoreGeoms.end() ||
 				std::find(r->ignoreGeoms.begin(),r->ignoreGeoms.end(),
 						o2) != r->ignoreGeoms.end()){
-			//std::cout << "Ignoring what needs to be ignored." << std::endl;
 			return;
 		}
 
@@ -90,31 +82,12 @@ void TargetAreaDetector::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 					contact.geom.pos[1],
 					contact.geom.pos[2]);
 			r->isColliding = true;
-			//std::cout << "Getting pointer to geom data. . ." << std::endl;
-
-			//if ( o1 != RAY_GEOM){
-				r->objData = (ObjectData*)dGeomGetData(o1);
-				if(r->objData == NULL){
-					/**std::cout 	<< "**Geom o1** "
-								<<  o1
-								<< " is not either one of the objects of interest." << std::endl;
-				}*/
-			//}
-			//if ( o2 != RAY_GEOM){
-					r->objData = (ObjectData*)dGeomGetData(o2);
-				/**if (r->objData == NULL){
-					std::cout 	<< "**Geom o2** "
-								<< o2
-								<< " is ALSO NOT an object of interest."
-								<< std::endl;*/
-				}
-			//}
-
-
+			r->objData = (ObjectData*)dGeomGetData(o1);
+			if(r->objData == NULL){
+				r->objData = (ObjectData*)dGeomGetData(o2);
+			}
 		}
-
 	}
-
 }
 
 void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& attitude, boost::shared_ptr<Environment>& env) {
@@ -124,11 +97,7 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 	osg::Vec3 rayVector = attitude_ *  osg::Vec3(1,0,0);
 
 	// create ray
-	dGeomID ray = dCreateRay(raySpace_, /**DETECTOR_RANGE*/0.255);
-	/*TargetAreaDetector::RAY_GEOM = dCreateRay(raySpace_, DETECTOR_RANGE);
-	std::cout 	<< "RAY GEOM -ID "
-				<< RAY_GEOM
-				<<std::endl;*/
+	dGeomID ray = dCreateRay(raySpace_, /**DETECTOR_RANGE*/1);
 	// position ray
 	dGeomRaySet(ray, position_.x(), position_.y(), position_.z(),
 			rayVector.x(), rayVector.y(), rayVector.z());
@@ -164,12 +133,9 @@ void TargetAreaDetector::update(const osg::Vec3& position, const osg::Quat& atti
 	}*/
 
 	if (data.isColliding && data.objData != 0 ){
-		//std::cout << "Data not null" << std::endl;
 		if ( data.objData->isTargetArea ){
 			value = 1.0;
-			//std::cout << "TARGET AREA" << std::endl;
 		}
-
 	}
 
 	// want 0 when nothing is seen
