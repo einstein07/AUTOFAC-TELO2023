@@ -103,6 +103,14 @@ public:
 
 	/**
 	 * SM added
+	 * @arg the gathering zone
+	 */
+	void setGatheringZone(boost::shared_ptr<GatheringZone> gatheringZone) {
+		gatheringZone_ = gatheringZone;
+	}
+
+	/**
+	 * SM added
 	 * @return the gathering zone
 	 */
 	boost::shared_ptr<GatheringZone> getGatheringZone() {

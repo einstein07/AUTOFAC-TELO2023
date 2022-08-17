@@ -92,7 +92,7 @@ bool Environment::init() {
 				<< " AREA APSACE: "
 				<< areaSpace_
 				<<std::endl;*/
-	boost::shared_ptr<GatheringZoneConfig> gatheringZoneConfig =
+	/**boost::shared_ptr<GatheringZoneConfig> gatheringZoneConfig =
 				robogenConfig_->getGatheringZoneConfig();
 	gatheringZone_ = boost::shared_ptr<GatheringZone>(
 			new GatheringZone(
@@ -101,7 +101,7 @@ bool Environment::init() {
 					areaSpace_,
 					gatheringZoneConfig->getPosition(),
 					gatheringZoneConfig->getSize()
-													));
+													));*/
 
 	return true;
 }
