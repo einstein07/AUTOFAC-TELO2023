@@ -12,7 +12,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/lock_guard.hpp>
 #include <boost/shared_ptr.hpp>
-#include "model/PositionObservable.h"
+#include "model/objects/Obstacle.h"
 #include "BoxResource.h"
 #include "Robogen.h"
 #include "EDQD/Util.h"
@@ -24,7 +24,7 @@ namespace robogen {
 /**
  * A simple gathering zone made of a box of specified size
  */
-class GatheringZone : public PositionObservable {
+class GatheringZone : public Obstacle {
 
     public:
 
