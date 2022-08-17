@@ -919,7 +919,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			osg::Vec3d gZone = env->getGatheringZone()->getPosition();
 			//std::cout << "Gathering zone position (" << gZone.x() << ", " << gZone.y() << ")" << std::endl;
 			//std::cout<<"EMBODIED - Main Loop . . ." <<std::endl;
-			while ( (!constraintViolated) && (iterations < EDQD::Parameters::maxIterations) && (!(visualize && viewer->done())) ){
+			while ( (!constraintViolated) && (iterations < EDQD::Parameters::maxIterations) && (!(visualize && viewer->done())) && (env -> getGatheringZone() -> getNumberOfContainedResources() != env -> getResources().size()) ){
 				if(visualize) {
 					if(!viewer->frame(t, count)) {
 						continue;
