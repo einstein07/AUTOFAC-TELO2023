@@ -37,6 +37,7 @@ namespace robogen{
 			return osg::Vec2d(-1000, -1000);
 		}
 		if (resource_ -> pickup(robot_)){
+			boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> setPickUpPosition(resource_ -> getPosition());
 			setActive(false);
 			if(resource_ -> pushedByMaxRobots()){
 				//std::cout << "Robot " << robot_ -> getId() << "[P-U-P] -- number of pushing robots allow resource to be moved: " << resource_ -> getNumberPushingRobots() << std::endl;
