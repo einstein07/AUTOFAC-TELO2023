@@ -95,7 +95,7 @@ class GatheringZone : public Obstacle {
 		 */
 		std::set<boost::shared_ptr<Robot> > findRobotsNearResource(std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<BoxResource>);
 
-
+		std::set</*boost::shared_ptr<BoxResource>*/ int > getResources(){return /*containedResources_;*/ containedResourcesIds_;}
 	private:
 		/**
 		 * Area space to ensure this object can be detected by sensors
@@ -121,6 +121,7 @@ class GatheringZone : public Obstacle {
          * A set of the resources gathered thus far
          */
         std::set<boost::shared_ptr<BoxResource> > containedResources_;
+        std::set< int > containedResourcesIds_;
 
         /**
 		 * Object information used by sensor to identify the nature of this object
