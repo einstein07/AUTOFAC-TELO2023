@@ -989,17 +989,22 @@ namespace robogen{
 	{
 
 			fitness_ = 0;
-			pickUpPosition = osg::Vec3d(targetArea_.x(), targetArea_.y(), 0);
 			resetResourceCounter();
 
 	}
 
 
 	void EDQDRobot::updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value){
-		fitness_ += (100*value/pushingRobots) * (distance(dropOffPosition, pickUpPosition)/(scenario_ ->getEnvironment() -> getTerrain() -> getWidth() - (scenario_ ->getEnvironment() -> getGatheringZone() -> getSize().y()/2)));
+		double totalDistPossible = (scenario_ ->getEnvironment() -> getTerrain() -> getWidth() - ((scenario_ ->getEnvironment() -> getGatheringZone() -> getSize().y()/2) - 0.5));
+		double distResourceMoved = distance(osg::Vec3d(pickUpPosition.x(), dropOffPosition.y(), pickUpPosition.z()), pickUpPosition);
+		double fitValue = ((100*value/pushingRobots) * (distResourceMoved/totalDistPossible));
+		//std::cout << "Robot id: " << getId() << ". total dist possible: " << totalDistPossible << ". Dist resource moved: " << distResourceMoved <<". Fit value: " << fitValue << std::endl;
+		//std::cout << "Pick up position: (" << pickUpPosition.x() << ", " << pickUpPosition.y() << ")" << "Drop off position: (" << dropOffPosition.x() << ", " << dropOffPosition.y() << ")" << std::endl;
+		fitness_ += fitValue;
 	}
 	void EDQDRobot::updateFitness(int pushingRobots, double value){
 		fitness_ += (100*value/pushingRobots) * (1/10);
+		//normalize fitness
 	}
 
 	int EDQDRobot::updateCellId() {
