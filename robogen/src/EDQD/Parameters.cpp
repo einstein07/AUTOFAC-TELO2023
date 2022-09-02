@@ -68,7 +68,8 @@ namespace EDQD{
 	std::ofstream Parameters::gMapsLogFile;
 	Logger* Parameters::gMapsLogger = NULL;
 
-
+	std::ofstream Parameters::gResourcesLogFile;
+	Logger* Parameters::gResourcesLogger = NULL;
 
 	Parameters::Parameters(){
 	}
