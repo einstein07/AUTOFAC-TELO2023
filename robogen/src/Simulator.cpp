@@ -1061,6 +1061,38 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 						<< std::endl;
 				return SIMULATION_FAILURE;
 			}
+			int t1 = 0;
+			int t2 = 0;
+			int t3 = 0;
+			int t4 = 0;
+			int t5 = 0;
+			int numResources = env -> getGatheringZone() -> getNumberOfContainedResources();
+			for (unsigned int i = 0; i < numResources; ++i){
+				if (env -> getResources()[i] -> getType() == 1){
+					t1++;
+				}
+				else if (env -> getResources()[i] -> getType() == 2){
+					t2++;
+				}
+				else if (env -> getResources()[i] -> getType() == 2){
+					t3++;
+				}
+				else if (env -> getResources()[i] -> getType() == 2){
+					t4++;
+				}
+				else if (env -> getResources()[i] -> getType() == 2){
+					t5++;
+				}
+				else{
+					std::cerr << "Unknown resource type" << std::endl;
+				}
+			}
+			std::cout 	<< "Number of resources inside gathering zone: " << numResources <<"\n"
+						<< "T1: " << t1 <<"\n"
+						<< "T2: " << t2 << "\n"
+						<< "T3: " << t3 << "\n"
+						<< "T4: " << t4 << "\n"
+						<< "T5: " << t5 << std::endl;
 
 
 		}
