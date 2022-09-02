@@ -223,11 +223,13 @@ class EDQDRobot : public Robot{
 	    	/*if (resourceCounters_[group] == -1 ){
 	    		resourceCounters_[group] = 1;
 	    	}else{*/
-			resourceCounters_[group]++;
+	    	//std::cout << "Robot ID: " << getId() << " Current count: " << resourceCounters_[group] << std::endl;
+			resourceCounters_[group] +=1;
+			//std::cout << "Count after increment: " << resourceCounters_[group] << std::endl;
 			//std::cout << "Current count: " << resourceCounters_[group] << std::endl;
 	    	//}
 		}
-	    void decResourceCounter(const int group) {resourceCounters_[group]++;}
+	    void decResourceCounter(const int group) {resourceCounters_[group]--;;}
 
 	    void resetPotMaxTravelled();
 
