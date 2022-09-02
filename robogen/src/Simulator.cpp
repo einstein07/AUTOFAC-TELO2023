@@ -77,6 +77,7 @@ int gRandomSeed = -1; // (default value should be "-1" => time-based random seed
 
 // Number of robots that are active - used to set each robot's unique ID
 int gNbOfRobots = 0;
+std::vector<osg::Vec3d> resourcePos;
 namespace robogen{
 
 unsigned int iterations = 0;
@@ -216,6 +217,22 @@ void initLogging()
 	EDQD::Parameters::gMapsLogger->write(std::string("\n"));
 	EDQD::Parameters::gMapsLogger->flush();
 
+	// ==== create specific "resources" logger file
+
+	std::string resourcesLogFullFilename = gLogDirectoryname + "/resources_"
+			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
+	EDQD::Parameters::gResourcesLogFile.open(resourcesLogFullFilename.c_str());
+
+	if(!EDQD::Parameters::gResourcesLogFile) {
+		std::cout << "[CRITICAL] Cannot open \"resources\" log file " << resourcesLogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	EDQD::Parameters::gResourcesLogger = new Logger();
+	EDQD::Parameters::gResourcesLogger->setLoggerFile(EDQD::Parameters::gResourcesLogFile);
+	EDQD::Parameters::gResourcesLogger->write("generation,resource_type,initial_pos,final_pos,distance");
+	EDQD::Parameters::gResourcesLogger->write(std::string("\n"));
+	EDQD::Parameters::gResourcesLogger->flush();
 }
 
 
@@ -225,6 +242,7 @@ void stopLogging(){
 	gLitelogFile.close();
 	EDQD::Parameters::gEOGLogFile.close();
 	EDQD::Parameters::gMapsLogFile.close();
+	EDQD::Parameters::gResourcesLogFile.close();
 }
 
 
@@ -483,7 +501,36 @@ void stepGatheringZone(
 					boost::shared_ptr<Environment>& env,
 					boost::mutex& queueMutex
 				){
+	if (robogen::iterations % EDQD::Parameters::evaluationTime == 0){
+		for (unsigned int c = 0; c < env -> getResources().size(); c++){
+			resourcePos.push_back(env -> getResources()[c] -> getPosition());
+		}
+	}
 	env -> stepGatheringZone(robots, queueMutex);
+	int generation = iterations / EDQD::Parameters::evaluationTime;
+	if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
+		// "generation,resource_type,initial_pos,final_pos,distance"
+		for(unsigned int c = 0; c < env -> getResources().size(); c++ ){
+		osg::Vec3d curr_pos = env -> getResources()[c] -> getPosition();
+		double dist = distance(resourcePos[c], curr_pos);
+		// output
+		std::string ofs =
+					std::to_string(generation) + ","
+				+ 	std::to_string(env -> getResources()[c] -> getType()) + ","
+				+	"(" + std::to_string( resourcePos[c].x() ) + ", " + std::to_string( resourcePos[c].y() ) + "),"
+				+	"(" + std::to_string( curr_pos.x() ) + ", " + std::to_string( curr_pos.y() ) + "),"
+				+	std::to_string(dist);
+		ofs += "\n";
+
+		EDQD::Parameters::gMapsLogger->write(std::string(ofs));
+		ofs.clear();
+		ofs = "";
+		}
+		EDQD::Parameters::gMapsLogger->flush();
+		resourcePos.clear();
+
+	}
+
 }
 void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots ){
     // * monitoring: count number of active agents.

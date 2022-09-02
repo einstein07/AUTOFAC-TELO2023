@@ -27,12 +27,13 @@ namespace robogen{
 			boost::lock_guard<boost::mutex> lock(queueMutex);
 			if (robot_->isBoundToResource()){
 				if (boost::dynamic_pointer_cast<EDQDRobot>(robot_)){
-					if ( robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0
-							/**boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> getTimeResourceBound()> EDQD::Parameters::maxTimeResourceBound*/){
+					if ( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1
+							&& abs( targetAreaPosition_.y() - boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> getCoreComponent() -> getRoot() -> getPosition().y()) > scenario_ ->getEnvironment()->getGatheringZone() -> getSize().y()/2 ){
 
 							boost::shared_ptr<BoxResource> resource = env->getResources()[robot_->getBoundResourceId()];
 							boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> updateFitness(resource->getPosition(), resource -> getSize(), resource -> getValue());
 							boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> incResourceCounter(resource -> getType());
+							//std::cout << "DH -inc resource counter for robot id: " << robot_ -> getId() << std::endl;
 							resource -> dropOff();
 
 						//boost::dynamic_pointer_cast<EDQDRobot>(robot_) -> resetTimeResourceBound();
