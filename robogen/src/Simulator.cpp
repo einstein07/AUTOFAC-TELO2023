@@ -230,7 +230,7 @@ void initLogging()
 
 	EDQD::Parameters::gResourcesLogger = new Logger();
 	EDQD::Parameters::gResourcesLogger->setLoggerFile(EDQD::Parameters::gResourcesLogFile);
-	EDQD::Parameters::gResourcesLogger->write("generation,resource_type,initial_pos,final_pos,distance");
+	EDQD::Parameters::gResourcesLogger->write("generation,resource_type,initial_x_pos, initial_y_pos, final_x_pos, final_y_pos, distance, isCollected");
 	EDQD::Parameters::gResourcesLogger->write(std::string("\n"));
 	EDQD::Parameters::gResourcesLogger->flush();
 }
@@ -412,6 +412,10 @@ void stepEmbodied(
 	 */
 	if (boost::dynamic_pointer_cast<EDQDRobot>(robot)){
 		if (robot -> isAlive()){
+			if( iterations % EDQD::Parameters::evaluationTime == 0 ){
+			// call here: any constructor of AgentObserver, Controller or WorldModel is before robot is positioned which would lead to wrong value.
+				boost::dynamic_pointer_cast<EDQDRobot>(robot)->resetPotMaxTravelled();
+			}
 			//std::cout << "Robot " << robot ->getId() <<" stepping drop-off" << std::endl;
 			heuristicD -> step(queueMutex);
 			//std::cout << "Stepping drop-off Done" << std::endl;
@@ -501,13 +505,13 @@ void stepGatheringZone(
 					boost::shared_ptr<Environment>& env,
 					boost::mutex& queueMutex
 				){
-	if (robogen::iterations % EDQD::Parameters::evaluationTime == 0){
+	/**if (robogen::iterations % EDQD::Parameters::evaluationTime == 0){
 		for (unsigned int c = 0; c < env -> getResources().size(); c++){
 			resourcePos.push_back(env -> getResources()[c] -> getPosition());
 		}
-	}
+	}*/
 	env -> stepGatheringZone(robots, queueMutex);
-	int generation = iterations / EDQD::Parameters::evaluationTime;
+	/**int generation = iterations / EDQD::Parameters::evaluationTime;
 	if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
 		// "generation,resource_type,initial_pos,final_pos,distance"
 		for(unsigned int c = 0; c < env -> getResources().size(); c++ ){
@@ -529,10 +533,10 @@ void stepGatheringZone(
 		EDQD::Parameters::gMapsLogger->flush();
 		resourcePos.clear();
 
-	}
+	}*/
 
 }
-void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots ){
+void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<Environment> env ){
     // * monitoring: count number of active agents.
     int generation = iterations / EDQD::Parameters::evaluationTime;
 
@@ -630,6 +634,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 				f = m->getMap().data()[c].fitness_;
 				if (f >= 0) {
 					N++;
+					sum += f;
 					fit.push_back(f);
 					if (f < min_fit) min_fit = f;
 					if (f > max_fit) max_fit = f;
@@ -686,6 +691,27 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 
     }
 
+    // "generation,resource_type,initial_x_pos, initial_y_pos, final_x_pos, final_y_pos, distance, isCollected"
+	for(unsigned int c = 0; c < env -> getResources().size(); c++ ){
+		osg::Vec3d curr_pos = env -> getResources()[c] -> getPosition();
+		double dist = distance(resourcePos[c], curr_pos);
+		// output
+		std::string ofs =
+					std::to_string(generation) + ","
+				+ 	std::to_string(env -> getResources()[c] -> getType()) + ","
+				+	std::to_string( resourcePos[c].x() ) + ", " + std::to_string( resourcePos[c].y() ) + ","
+				+	std::to_string( curr_pos.x() ) + ", " + std::to_string( curr_pos.y() ) + ","
+				+	std::to_string(dist) + ","
+				+	std::to_string(env -> getResources()[c]-> isCollected());
+		ofs += "\n";
+
+		EDQD::Parameters::gResourcesLogger->write(std::string(ofs));
+		ofs.clear();
+		ofs = "";
+	}
+	EDQD::Parameters::gResourcesLogger->flush();
+	resourcePos.clear();
+
     if ( /**gVerbose && */localVerbose ) {
         std::cout << "[ gen:" << (iterations/EDQD::Parameters::evaluationTime)
 					<< "\tit:" << iterations
@@ -736,6 +762,7 @@ void exchangeMapsWithinPopulation( std::vector<boost::shared_ptr<Robot> > robots
 									boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getMap(),
 									boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getId()
 									);
+				boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> incNbComTx();
 			}
 		}
 	}
@@ -1010,11 +1037,16 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				// Update each robot's sensors in the threads but, update environment first - elapsed time since last call
 				env->setTimeElapsed(step);
 
+				if (robogen::iterations % EDQD::Parameters::evaluationTime == 0){
+						for (unsigned int c = 0; c < env -> getResources().size(); c++){
+							resourcePos.push_back(env -> getResources()[c] -> getPosition());
+						}
+				}
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
 					std::cout << "******************************************************\n"
 							"Lifetime ended: replace genome (if possible)\n"
 							     "******************************************************" << std::endl;
-					exchangeMapsWithinPopulation(robots);
+
 #ifdef EVOLVE_SENSORS
 					float dice = float(randint()%100) / 100.0;
 					std::cout << "Dice value: "<< dice << std::endl;
@@ -1085,7 +1117,8 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
 				if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
-				        monitorPopulation(true, robots);
+					exchangeMapsWithinPopulation(robots);
+					monitorPopulation(true, robots, env);
 				}
 #ifdef DEBUG_SIM_LOOP
 				std::cout << "Robot action loop complete" << std::endl;
@@ -1113,34 +1146,42 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 			int t3 = 0;
 			int t4 = 0;
 			int t5 = 0;
-			int numResources = env -> getGatheringZone() -> getNumberOfContainedResources();
-			for (unsigned int i = 0; i < numResources; ++i){
-				if (env -> getResources()[i] -> getType() == 1){
-					t1++;
-				}
-				else if (env -> getResources()[i] -> getType() == 2){
-					t2++;
-				}
-				else if (env -> getResources()[i] -> getType() == 2){
-					t3++;
-				}
-				else if (env -> getResources()[i] -> getType() == 2){
-					t4++;
-				}
-				else if (env -> getResources()[i] -> getType() == 2){
-					t5++;
-				}
-				else{
-					std::cerr << "Unknown resource type" << std::endl;
+			std::set<int> resourceIds = env -> getGatheringZone() -> getResources();
+			if (!resourceIds.empty()){
+				for (auto i:resourceIds){
+					if (env ->  getResources()[i] -> getType() == 1){
+						t1++;
+					}
+					else if (env -> getResources()[i] -> getType() == 2){
+						t2++;
+					}
+					else if (env -> getResources()[i] -> getType() == 3){
+						t3++;
+					}
+					else if (env -> getResources()[i] -> getType() == 4){
+						t4++;
+					}
+					else if (env -> getResources()[i] -> getType() == 5){
+						t5++;
+					}
+					else{
+						std::cerr << "Unknown resource type" << std::endl;
+					}
 				}
 			}
-			std::cout 	<< "Number of resources inside gathering zone: " << numResources <<"\n"
+
+			std::cout 	<< "Number of resources inside gathering zone: " << resourceIds.size() <<"\n"
 						<< "T1: " << t1 <<"\n"
 						<< "T2: " << t2 << "\n"
 						<< "T3: " << t3 << "\n"
 						<< "T4: " << t4 << "\n"
 						<< "T5: " << t5 << std::endl;
-
+			gLogFile 	<< "Number of resources inside gathering zone: " << resourceIds.size() <<"\n"
+						<< "T1: " << t1 <<"\n"
+						<< "T2: " << t2 << "\n"
+						<< "T3: " << t3 << "\n"
+						<< "T4: " << t4 << "\n"
+						<< "T5: " << t5 << std::endl;
 
 		}
 		//std::cout << "OUTSIDE MAIN LOOP - finalizing simulation . . ." << std::endl;
