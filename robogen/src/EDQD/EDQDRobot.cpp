@@ -992,6 +992,16 @@ namespace robogen{
 			resetResourceCounter();
 
 	}
+	void EDQDRobot::resetPotMaxTravelled() {
+		osg::Vec3 currPos = getCoreComponent()->getRootPosition();
+		Xinit_ = currPos.x();
+		Yinit_ = currPos.y();
+		Xlast_ = Xinit_;
+		Ylast_ = Yinit_;
+		dPotMaxTravelled_ =
+				distance(osg::Vec3d(scenario_ ->getEnvironment() -> getTerrain() -> getWidth()/2.0, scenario_ ->getEnvironment() -> getTerrain() -> getWidth()/2.0, 0), osg::Vec3d(Xinit_, Yinit_, 0)) +
+				(scenario_ ->getEnvironment() -> getTerrain() -> getWidth()/2); // crude way to get average radius if ellipse is not a circle
+	}
 
 
 	void EDQDRobot::updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value){
