@@ -44,7 +44,7 @@
 //#define DEBUG_MASSES
 //#define DEBUG_SIM_LOOP
 //#define DEBUG_ROBOT_LOOP
-//#define EVOLVE_SENSORS
+#define EVOLVE_SENSORS
 // ODE World
 extern dWorldID odeWorld;
 
@@ -233,6 +233,26 @@ void initLogging()
 	EDQD::Parameters::gResourcesLogger->write("generation,resource_type,initial_x_pos, initial_y_pos, final_x_pos, final_y_pos, distance, isCollected");
 	EDQD::Parameters::gResourcesLogger->write(std::string("\n"));
 	EDQD::Parameters::gResourcesLogger->flush();
+
+#ifdef EVOLVE_SENSORS
+
+	// ==== create specific "morphology state" logger file
+
+	std::string morphLogFullFilename = gLogDirectoryname + "/morph_"
+			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
+	EDQD::Parameters::gMorphLogFile.open(morphLogFullFilename.c_str());
+
+	if(!EDQD::Parameters::gMorphLogFile) {
+		std::cout << "[CRITICAL] Cannot open \"morph\" log file " << morphLogFullFilename << "." << std::endl << std::endl;
+		exit(-1);
+	}
+
+	EDQD::Parameters::gMorphLogger = new Logger();
+	EDQD::Parameters::gMorphLogger->setLoggerFile(EDQD::Parameters::gMorphLogFile);
+	EDQD::Parameters::gMorphLogger->write("generation,s-type,s-value, isActive");
+	EDQD::Parameters::gMorphLogger->write(std::string("\n"));
+	EDQD::Parameters::gMorphLogger->flush();
+#endif
 }
 
 
@@ -243,6 +263,9 @@ void stopLogging(){
 	EDQD::Parameters::gEOGLogFile.close();
 	EDQD::Parameters::gMapsLogFile.close();
 	EDQD::Parameters::gResourcesLogFile.close();
+#ifdef EVOLVE_SENSORS
+	EDQD::Parameters::gMorphLogFile.close();
+#endif
 }
 
 
@@ -712,6 +735,25 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 	EDQD::Parameters::gResourcesLogger->flush();
 	resourcePos.clear();
 
+#ifdef EVOLVE_SENSORS
+	// "generation,s-type,s-value,isActive"
+	for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
+		// output
+		if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
+			std::string ofs =
+					std::to_string(generation) + ","
+				+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getType() ) + ","
+				+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getValue() ) + ","
+				+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> isActive() );
+			ofs += "\n";
+			EDQD::Parameters::gMorphLogger->write(std::string(ofs));
+			ofs.clear();
+			ofs = "";
+		}
+	}
+	EDQD::Parameters::gMorphLogger->flush();
+#endif
+
     if ( /**gVerbose && */localVerbose ) {
         std::cout << "[ gen:" << (iterations/EDQD::Parameters::evaluationTime)
 					<< "\tit:" << iterations
@@ -1049,7 +1091,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 
 #ifdef EVOLVE_SENSORS
 					float dice = float(randint()%100) / 100.0;
-					std::cout << "Dice value: "<< dice << std::endl;
+					//std::cout << "Dice value: "<< dice << std::endl;
 					if ( dice <= EDQD::Parameters::pMutateSensorState )
 					{
 						sensorStateMutator -> mutateSensorGroup(robots);
