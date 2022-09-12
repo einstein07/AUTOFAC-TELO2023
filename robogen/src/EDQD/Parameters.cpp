@@ -71,6 +71,9 @@ namespace EDQD{
 	std::ofstream Parameters::gResourcesLogFile;
 	Logger* Parameters::gResourcesLogger = NULL;
 
+	std::ofstream Parameters::gMorphLogFile;
+	Logger* Parameters::gMorphLogger = NULL;
+
 	Parameters::Parameters(){
 	}
 	Parameters::~Parameters(){}

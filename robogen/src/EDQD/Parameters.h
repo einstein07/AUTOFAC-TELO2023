@@ -163,6 +163,9 @@ namespace EDQD{
 		static std::ofstream gResourcesLogFile;
 		static Logger* gResourcesLogger;
 
+		static std::ofstream gMorphLogFile;
+		static Logger* gMorphLogger;
+
 		// =========================================================================================
 		// Constructors
 		// =========================================================================================
