@@ -44,7 +44,7 @@
 //#define DEBUG_MASSES
 //#define DEBUG_SIM_LOOP
 //#define DEBUG_ROBOT_LOOP
-//#define EVOLVE_SENSORS
+#define EVOLVE_SENSORS
 // ODE World
 extern dWorldID odeWorld;
 
