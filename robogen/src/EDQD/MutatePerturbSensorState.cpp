@@ -11,7 +11,7 @@
 #include "model/sensors/SensorMorphology.h"
 
 namespace robogen{
-	MutatePerturbSensorState::MutatePerturbSensorState(double sigma):sigma_(sigma), _minValue(0.0), _maxValue(1.0){srand((unsigned) time(NULL));}
+	MutatePerturbSensorState::MutatePerturbSensorState(double sigma):sigma_(sigma), _minValue(0.0), _maxValue(0.3){srand((unsigned) time(NULL));}
 	MutatePerturbSensorState::~MutatePerturbSensorState(){}
 
 	void MutatePerturbSensorState::mutateSensorGroup(std::vector< boost::shared_ptr<Robot> > robots){
@@ -36,7 +36,7 @@ namespace robogen{
 				}
 			}
 		}
-		std::cout << "New sensor "<< sensor <<" state value: " << normalisedVal << std::endl;
+		//std::cout << "New sensor "<< sensor <<" state value: " << normalisedVal << std::endl;
 	}
 
 	double MutatePerturbSensorState::normaliseValue(double newValue){
