@@ -56,7 +56,7 @@ public:
 	inline const std::string &getBaseLabel() { return baseLabel_; }
 	inline int getObjectId() { return objectId_; }
 	inline void updateObjectId(int objectId) { objectId_ = objectId; }
-	inline bool isActive(){return (value_ < 0.5);}
+	inline bool isActive(){return (value_ < 0.15)?true:false;}
 	inline double getValue(){return value_;}
 	inline void setValue(double value){value_ = value;}
 private:
