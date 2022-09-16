@@ -43,7 +43,6 @@ class EDQDRobot : public Robot{
 		void loadNewGenome();
 		bool getNewGenomeStatus() { return isNewGenome_; }
 		void setNewGenomeStatus( bool status ) { isNewGenome_ = status; }
-		bool storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map);
 
 		/**
 		 * clear genomesList, sigmaList, fitnessesList and birthdayList
@@ -58,6 +57,10 @@ class EDQDRobot : public Robot{
 		void performSelection();
 		void performVariation();
 		void selectRandomGenomeFromMergedMap();
+		void selectRandomGenome();
+		void selectBestGenome();
+		void selectFirstGenome();
+		void selectFitProp();
 		void logCurrentState();
 		void resetFitness();
 
@@ -200,6 +203,8 @@ class EDQDRobot : public Robot{
 						);
 
 	    bool storeMap(EDQDMap* map, int senderId);
+		bool storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map);
+
 	    void broadcastMap();
 	    void updateFitness(int pushingRobots, double value);
 	    void updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value);

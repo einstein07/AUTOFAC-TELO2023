@@ -565,6 +565,146 @@ namespace robogen{
 	    //return true;
 	}
 
+	void EDQDRobot::selectRandomGenome(){ // if called, assume genomeList.size()>0
+
+	    int randomIndex = randint() % genomesList_.size();
+
+	    std::map<std::pair<int,int>, std::vector<double> >::iterator it = genomesList_.begin();
+	    while (randomIndex !=0 ){
+	        it ++;
+	        randomIndex --;
+	    }
+
+	    currentGenome_ = (*it).second;
+	    currentSigma_ = sigmaList_[(*it).first];
+	    birthdate_ = robogen::iterations;
+
+	    ancestor_ = (*it).first;
+
+	    setNewGenomeStatus(true);
+	}
+
+	// used for debugging
+	void EDQDRobot::selectFirstGenome(){  // if called, assume genomeList.size()>0
+	    currentGenome_ = (*genomesList_.begin()).second;
+	    currentSigma_ = sigmaList_[(*genomesList_.begin()).first];
+	    birthdate_ = robogen::iterations;
+
+	    ancestor_ = (*genomesList_.begin()).first;
+
+	    setNewGenomeStatus(true);
+	}
+
+	void EDQDRobot::selectBestGenome(){
+	    std::pair<int,int> bestId;
+
+	    std::map<std::pair<int,int>, float >::iterator fitnessesIt = fitnessValuesList_.begin();
+
+	    float bestFitnessValue = (*fitnessesIt).second;
+	    bestId = (*fitnessesIt).first;
+
+	    ++fitnessesIt;
+
+	    int nbSimilar = 0;
+
+	    for ( int i = 1 ; fitnessesIt != fitnessValuesList_.end(); ++fitnessesIt, i++)
+	    {
+	        if ( (*fitnessesIt).second >= bestFitnessValue )
+	        {
+	            if ( (*fitnessesIt).second > bestFitnessValue )
+	            {
+	                bestFitnessValue = (*fitnessesIt).second;
+	                bestId = (*fitnessesIt).first;
+	                nbSimilar = 0;
+	            }
+	            else
+	            {
+	                nbSimilar++;
+	            }
+	        }
+	    }
+
+	    if ( nbSimilar > 0 ) // >1 genomes have the same fitness best value. Pick randomly among them
+	    {
+	        int count = 0;
+	        int randomPick = randint() % ( nbSimilar + 1 );
+
+	        if ( randomPick != 0 ) // not already stored (i.e. not the first one)
+	        {
+	            fitnessesIt = fitnessValuesList_.begin();
+	            for ( int i = 0 ; ; ++fitnessesIt, i++)
+	            {
+	                if ( (*fitnessesIt).second == bestFitnessValue )
+	                {
+	                    if ( count == randomPick )
+	                    {
+	                        bestId = (*fitnessesIt).first;
+	                        break;
+	                    }
+	                    count++;
+	                }
+	            }
+	        }
+	    }
+
+	    birthdate_ = robogen::iterations;
+
+	    currentGenome_ = genomesList_[bestId];
+	    currentSigma_ = sigmaList_[bestId];
+
+	    ancestor_ = bestId;
+
+	    setNewGenomeStatus(true);
+	}
+
+	void EDQDRobot::selectFitProp()
+	{
+	    std::pair<int,int> selectId;
+
+	    // compute sum of fitness
+
+	    float sumOfFit = 0;
+
+	    std::map<std::pair<int,int>, float >::iterator fitnessesIt = fitnessValuesList_.begin();
+
+	    for ( ; fitnessesIt != fitnessValuesList_.end(); ++fitnessesIt )
+	    {
+	        sumOfFit += (*fitnessesIt).second;
+	    }
+
+	    // randomly draw a value in [0,sum_of_fitness] -- assume maximisation
+
+	    float fitnessTarget = random()*sumOfFit;
+
+	    // find the parent
+
+	    float currentSum = 0;
+
+	    fitnessesIt = fitnessValuesList_.begin();
+
+	    for ( ; fitnessesIt != fitnessValuesList_.end(); ++fitnessesIt )
+	    {
+	        currentSum += (*fitnessesIt).second;
+	        if ( currentSum >= fitnessTarget )
+	        {
+	            selectId = (*fitnessesIt).first;
+	            break;
+	        }
+	    }
+
+	    // update current genome with selected parent (mutation will be done elsewhere)
+
+	    birthdate_ = robogen::iterations;
+
+	    currentGenome_ = genomesList_[selectId];
+	    currentSigma_ = sigmaList_[selectId];
+
+	    ancestor_ = selectId;
+
+	    setNewGenomeStatus(true);
+	}
+
+
 	/**
 	 * Manage storage of a map received from a neighbour
 	 * Note that in case of multiple encounters with the same robot (same id, same "birthdate"),
@@ -592,6 +732,40 @@ namespace robogen{
 	        else{
 	        	mapList_[senderId] = map;
 	        	//std::cout << "*" <<std::flush;
+	            return true;
+	        }
+	    }
+	}
+
+	/* manage storage of a genome received from a neighbour
+	 *
+	 * Note that in case of multiple encounters with the same robot (same id, same "birthdate"), genome is stored only once, and last known fitness value is stored (i.e. updated at each encounter).
+	 */
+	bool EDQDRobot::storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map){ // fitness is optional (default: 0)
+
+	    if ( !isListening_ )
+	    {
+	        return false; // current agent is not listening: do nothing.
+	    }
+	    else
+	    {
+	    	nbComRx_++;
+
+	        std::map<std::pair<int,int>, std::vector<double> >::const_iterator it = genomesList_.find(senderId);
+
+	        if ( it != genomesList_.end() ) // this exact agent's genome is already stored. Exact means: same robot, same generation. Then: update fitness value (the rest in unchanged)
+	        {
+	            fitnessValuesList_[senderId] = fitness; // update with most recent fitness (IMPLEMENTATION CHOICE) [!n]
+	            return false;
+	        }
+	        else
+	        {
+	        	genomesList_[senderId].clear();
+	            genomesList_[senderId] = genome;
+	            sigmaList_[senderId] = sigma;
+	            fitnessValuesList_[senderId] = fitness;
+
+	            mapList_[senderId.first] = map;
 	            return true;
 	        }
 	    }
@@ -803,9 +977,10 @@ namespace robogen{
 	 * Called only if at least 1 genome was stored.
 	 */
 	void EDQDRobot::performSelection(){
-		// Include Local Map For Selection Merge
-		mapList_[getId()] = map_;
-		//if (selectRandomGenomeFromMergedMap()){
+		if (EDQD::Parameters::EDQDMapSelection) {
+			// Include Local Map For Selection Merge
+			mapList_[getId()] = map_;
+			//if (selectRandomGenomeFromMergedMap()){
 			selectRandomGenomeFromMergedMap();
 			mergedMap_->mergeInto(*map_);
 			// Logging: track descendance
@@ -813,16 +988,27 @@ namespace robogen{
 			sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 					"::" + std::to_string(birthdate_) + ", descendsFrom, " + std::to_string(ancestor_.first) +
 					"::" + std::to_string(ancestor_.second) + "\n";
-			//logger->write(sLog);
-			//logger->flush();
-			//return true;
-		//}
-		// Logging: track descendance
-		/**std::string sLog = std::string("");
-		sLog += "[Perform selection - could not be performed]\n";
-		logger->write(sLog);
-		logger->flush();
-		return false;*/
+		}
+		else{
+			switch ( EDQD::Parameters::selectionMethod ){
+				case 0:
+					selectRandomGenome();
+					break;
+				case 1:
+					selectFirstGenome();
+					break;
+				case 2:
+					selectBestGenome();
+					break;
+				case 3:
+					selectFitProp();
+					break;
+				default:
+					std::cerr << "[ERROR] unknown selection method (gSelectionMethod = " << EDQD::Parameters::selectionMethod << ")\n";
+					exit(-1);
+			}
+		}
+
 	}
 
 	void EDQDRobot::loadNewGenome(){
