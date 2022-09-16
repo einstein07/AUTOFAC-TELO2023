@@ -59,6 +59,8 @@ namespace EDQD{
 	double Parameters::sigma = 0.01;
 
 	bool Parameters::onlyKeepMapsForGeneration = true;
+	bool Parameters::EDQDMapSelection = false;
+	int Parameters::selectionMethod = 2;
 
 	int Parameters::maxTimeResourceBound = 8000;//1000;
 
