@@ -797,6 +797,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 }
 
 void exchangeMapsWithinPopulation( std::vector<boost::shared_ptr<Robot> > robots ){
+
 	for (unsigned int i = 0; i < robots.size(); ++i){
 		for (unsigned int j = 0; j < robots.size(); ++j){
 			if (i != j){
@@ -809,6 +810,24 @@ void exchangeMapsWithinPopulation( std::vector<boost::shared_ptr<Robot> > robots
 		}
 	}
 }
+void exchangeGenomesWithinPopulation( std::vector<boost::shared_ptr<Robot> > robots ){
+	for (unsigned int i = 0; i < robots.size(); ++i){
+		for (unsigned int j = 0; j < robots.size(); ++j){
+			if (i != j){
+				boost::dynamic_pointer_cast<EDQDRobot>(robots[j])->storeGenome(
+							boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getCurrentGenome(),
+							std::make_pair (boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getId(), boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getBirthdate()),
+							boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getCurrentSigma(),
+							boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getFitness(),
+							boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> getMap()
+						);
+				boost::dynamic_pointer_cast<EDQDRobot>(robots[i]) -> incNbComTx();
+			}
+		}
+	}
+}
+
+
 
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		boost::shared_ptr<RobogenConfig> configuration,
@@ -1159,7 +1178,10 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				// 3. Join threads. Individuals are now evaluated.
 				actions.join_all();
 				if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
-					exchangeMapsWithinPopulation(robots);
+					if (EDQD::Parameters::EDQDMapSelection)
+						exchangeMapsWithinPopulation(robots);
+					else
+						exchangeGenomesWithinPopulation(robots);
 					monitorPopulation(true, robots, env);
 				}
 #ifdef DEBUG_SIM_LOOP
