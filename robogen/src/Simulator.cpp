@@ -850,7 +850,15 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 	bool motorBurntOut = false;
 
 	if (configuration->getMode() == "embodied"){
-		std::cout<<"*****EMBODIED*****" <<std::endl;
+		if (EDQD::Parameters::EDQDMapSelection){
+			if (EDQD::Parameters::EDQDMultiBCMap)
+				std::cout<<"*****Multi-BC Map Elites*****" <<std::endl;
+			else
+				std::cout<<"*****Single-BC Map Elites*****" <<std::endl;
+		}
+		else{
+			std::cout<<"*****mEDEA*****" <<std::endl;
+		}
 		// ======================================================================================================
 		// Configure Simulator
 		// ======================================================================================================
