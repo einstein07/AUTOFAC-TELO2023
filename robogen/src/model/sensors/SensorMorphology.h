@@ -49,7 +49,7 @@ public:
 								(type == RESOURCET4)? "-Resource-Type-4" :
 								(type == RESOURCET5)? "-Resource-Type-5" : "-Wall"
 								)),
-			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0) {
+			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0), sensorRange_(5.0) {
 	}
 
 	inline Type getType() { return type_; }
@@ -59,11 +59,14 @@ public:
 	inline bool isActive(){return (value_ < 0.15)?true:false;}
 	inline double getValue(){return value_;}
 	inline void setValue(double value){value_ = value;}
+	inline double getSensorRange(){return sensorRange_;}
+	inline void updateSensorRange(double value){sensorRange_ += value;}
 private:
 	std::string baseLabel_;
 	Type type_;
 	int objectId_;
 	double value_;
+	double sensorRange_;
 };
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
