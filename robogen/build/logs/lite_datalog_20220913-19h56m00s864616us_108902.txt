@@ -1,0 +1,12 @@
+# lite logger
+# generation,iteration,populationSize,minFitness,maxFitness,avgFitness,t0,t1,t2,t3,t4log:0,9999,100,0.000000,91.851499,7.678714nit, , sigma, sigma, sigma, sigma, 
+log:1,19999,100,0.000000,77.586057,2.598974igma,  sigma, gma, sigma, igma, 
+log:2,29999,100,0.000000,82.063186,1.255553 sigma, igma,  sigma, sigma, igma, 
+log:3,39999,100,0.000000,48.765486,2.361476ma, sigma,  sigma, sigma, igma, 
+log:4,49999,100,0.000000,13.740268,0.342482, sigma, sigma,  sigma, sigma, igma, 
+log:5,59999,100,0.000000,20.372625,0.968913 sigma, sigma,  sigma, a, igma, 
+log:6,69999,100,0.000000,62.795871,2.034719, sigma, igma, sigma, igma, 
+log:7,79999,100,0.000000,64.130795,1.423715sigma, sigma, sigma, igma, 
+log:8,89999,100,0.000000,4.552553,0.059346,, sigma, ,sigma, igma, 
+log:9,99999,100,0.000000,15.575825,0.238542,, sigma, , sigma,  sigma, igma, 
+log:10,109999,100,0.000000,68.868256,1.517558, sigma, , sigma, igma, 
