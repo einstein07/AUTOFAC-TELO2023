@@ -149,6 +149,7 @@ namespace EDQD{
 		static bool onlyKeepMapsForGeneration;
 
 		static bool EDQDMapSelection;
+		static bool EDQDMultiBCMap;
 		static int selectionMethod;
 
 		/**

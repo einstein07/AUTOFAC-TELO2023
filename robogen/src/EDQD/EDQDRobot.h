@@ -57,6 +57,7 @@ class EDQDRobot : public Robot{
 		void performSelection();
 		void performVariation();
 		void selectRandomGenomeFromMergedMap();
+		void selectRandomGenomeFromMorphMergedMap();
 		void selectRandomGenome();
 		void selectBestGenome();
 		void selectFirstGenome();
@@ -87,15 +88,22 @@ class EDQDRobot : public Robot{
 		double fitness_;
 		double step_;
 		int timeResourceBound_;
-		// map
+
+		//Behavior map
 		EDQDMap* map_;
 		EDQDMap* mergedMap_;
+		//Morphology map
+		EDQDMap* morphMap_;
+		EDQDMap* morphMergedMap_;
 
 		// incoming genomes reservoir
 		std::map< std::pair<int,int>, std::vector<double> > genomesList_;
 		std::map< std::pair<int,int>, float > sigmaList_;
 		std::map< std::pair<int,int>, float > fitnessValuesList_;
+		//behavior map list
 		std::map< int, EDQDMap* > mapList_;
+		//morph map list
+		std::map< int, EDQDMap* > morphMapList_;
 
 		/**
 		 * Current genome
@@ -171,6 +179,13 @@ class EDQDRobot : public Robot{
 		 * to number collected
 		 */
 		std::map<int,int> resourceCounters_;
+		std::map<int,int> activeSensors_;
+
+		int possibleTotalNumberOfSensors_;
+
+		double averageSensorRange_;
+
+		double maxSensorRangeAverage_;
 
 		/**
 		 * Behavioral heuristics
@@ -213,10 +228,6 @@ class EDQDRobot : public Robot{
 	    void stepEvolution(boost::mutex& queueMutex);
 	    void stepController(
 	    					boost::shared_ptr<Environment> env,
-							/**boost::shared_ptr<RobogenConfig> configuration,*/
-							/**boost::random::mt19937 &rng,*/
-							/**int count,*/
-							/**double step,*/
 							double elapsedEvaluationTime
 							);
 	    void setWeights();
@@ -226,14 +237,7 @@ class EDQDRobot : public Robot{
 
 	    void incNbComTx(){nbComTx_++;}
 	    void incResourceCounter(const int group) {
-	    	/*if (resourceCounters_[group] == -1 ){
-	    		resourceCounters_[group] = 1;
-	    	}else{*/
-	    	//std::cout << "Robot ID: " << getId() << " Current count: " << resourceCounters_[group] << std::endl;
-			resourceCounters_[group] +=1;
-			//std::cout << "Count after increment: " << resourceCounters_[group] << std::endl;
-			//std::cout << "Current count: " << resourceCounters_[group] << std::endl;
-	    	//}
+	    	resourceCounters_[group] +=1;
 		}
 	    void decResourceCounter(const int group) {resourceCounters_[group]--;;}
 
@@ -249,12 +253,19 @@ class EDQDRobot : public Robot{
 			return resourceCounters_;
 		}
 
+	    const std::map<int,int>& getActiveSensors() const {
+			return activeSensors_;
+		}
+	    double getAverageRange(){return averageSensorRange_;};
+	    double getMaxSensorRangeAverage(){return maxSensorRangeAverage_;};
+	    int getPossibleNumberOfSensors(){return possibleTotalNumberOfSensors_;}
+
 		void resetResourceCounter() {
 			/**
 			 * 5 types of resources in the environment right now (sizes 1, 2, 3, 4, 5)
 			 */
 			for (int i = 1; i <= 5 ; i++){
-				resourceCounters_[i] = 0; /**randint()%100;//*///0;
+				resourceCounters_[i] = 0;
 			}
 		}
 
@@ -272,6 +283,10 @@ class EDQDRobot : public Robot{
 
 		EDQDMap*& getMap() {
 			return (map_);
+		}
+
+		EDQDMap*& getMorphMap() {
+			return (morphMap_);
 		}
 
 		const std::vector<double>& getCurrentGenome() const {

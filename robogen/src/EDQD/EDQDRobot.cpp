@@ -419,7 +419,7 @@ namespace robogen{
 				if (map_->add(getId(), this, currentGenome_, currentSigma_ )){
 					std::string sLog = std::string("");
 					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
-							"::" + std::to_string(birthdate_) + ", genome added to map\n";
+							"::" + std::to_string(birthdate_) + ", genome added to behavior map\n";
 					//logger->write(sLog);
 					//logger->flush();
 				}
@@ -429,6 +429,22 @@ namespace robogen{
 							"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
 					//logger->write(sLog);
 					//logger->flush();
+				}
+				if (EDQD::Parameters::EDQDMultiBCMap){
+					if (morphMap_ -> add(getId(), this, currentGenome_, currentSigma_ )){
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+								"::" + std::to_string(birthdate_) + ", genome added to morphology map\n";
+						//logger->write(sLog);
+						//logger->flush();
+					}
+					else{
+						std::string sLog = std::string("");
+						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+								"::" + std::to_string(birthdate_) + ", genome NOT added to map\n";
+						//logger->write(sLog);
+						//logger->flush();
+					}
 				}
 
 				loadNewGenome();
@@ -491,7 +507,7 @@ namespace robogen{
 
 	void EDQDRobot::performVariation(){
 		// global mutation rate (whether this genome will get any mutation or not) - default: always
-			if ( EDQD::Parameters::individualMutationRate > random() ) {
+			//if ( EDQD::Parameters::individualMutationRate > random() ) {
 			switch ( EDQD::Parameters::mutationOperator ){
 				case 0:
 					mutateUniform();
@@ -504,17 +520,8 @@ namespace robogen{
 					 * original MEDEA [ppsn2010], as used before year 2015
 					 *
 					 */
-	#ifdef DEBUG_EDQD
-					std::cout 	<< "*****Robot ID: " << getId() << " Mutating sigma value *****" << std::endl;
-	#endif
 					mutateSigmaValue();
-	#ifdef DEBUG_EDQD
-					std::cout 	<< "*****Robot ID: " << getId() << " Done mutating sigma value. Mutating guassian. . . *****" << std::endl;
-	#endif
 					mutateGaussian(currentSigma_);
-	#ifdef DEBUG_EDQD
-					std::cout 	<< "*****Robot ID: " << getId() << " Done mutating guassian*****" << std::endl;
-	#endif
 					break;
 				case 2:
 
@@ -528,11 +535,11 @@ namespace robogen{
 								<< EDQD::Parameters::mutationOperator << ")\n";
 					exit(-1);
 			}
-		}
+//		}
 	}
 
 
-	/**
+	/*********************************************************************
 	 * If called, assume genomeList.size() > 0
 	 */
 	void EDQDRobot::selectRandomGenomeFromMergedMap(){
@@ -563,6 +570,39 @@ namespace robogen{
 			}
 	    }
 	    //return true;
+	}
+
+	/*********************************************************************
+	 * If called, assume genomeList.size() > 0
+	 ********************************************************************/
+	void EDQDRobot::selectRandomGenomeFromMorphMergedMap(){
+
+		std::map<int, EDQDMap* >::iterator it = morphMapList_.begin();
+		while ( it != morphMapList_.end() ) {
+			it->second->mergeInto(*morphMergedMap_);
+			it ++;
+		}
+		behav_index_t index;
+		int tries = 0;
+		if (morphMergedMap_->getNumFilledCells() > 0){
+			do {
+				index = morphMergedMap_->getRandomIndex();
+				if (tries > 99)
+					break;
+				tries++;
+				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
+			} while ( morphMergedMap_->get(index)->genome_.size() == 0 );
+			if (tries < 100){
+				currentGenome_ = morphMergedMap_->get(index)->genome_;
+				currentSigma_ = morphMergedMap_->get(index)->sigma_;
+				birthdate_ = robogen::iterations;
+
+				ancestor_ = morphMergedMap_->get(index)->id_;
+
+				setNewGenomeStatus(true);
+			}
+		}
+		//return true;
 	}
 
 	void EDQDRobot::selectRandomGenome(){ // if called, assume genomeList.size()>0
@@ -866,30 +906,21 @@ namespace robogen{
 	}
 
 	void EDQDRobot::clearReservoir(){
-		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing sigmalist. . .*****"
-		//																			<< std::endl;
 		sigmaList_.clear();
-		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing fitness values list. . .*****"
-		//																			<< std::endl;
 		fitnessValuesList_.clear();
 
 		// always clear _mapList, as results have been merged.
-		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: clearing map list. . .*****"
-		//																			<< std::endl;
 		mapList_.clear();
-		//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: done clearing map list.*****"
-		//																			<< std::endl;
-
+		morphMapList_.clear();
 		if ( EDQD::Parameters::onlyKeepMapsForGeneration||robogen::iterations == 0 ){
-				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: deleting. . .*****"
-				//															<< std::endl;
 				delete mergedMap_;
-				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: deleted.*****"
-				//																			<< std::endl;
 				mergedMap_ = new EDQDMap();
-				//std::cout 	<< "*****Robot ID: " << getId() << " Clear-reservoir: leaving. . .*****"
-				//																			<< std::endl;
+				if(EDQD::Parameters::EDQDMultiBCMap){
+					delete morphMap_;
+					morphMergedMap_ = new EDQDMap();
+				}
 		}
+
 	}
 
 	void EDQDRobot::reset(){
@@ -978,6 +1009,7 @@ namespace robogen{
 	 */
 	void EDQDRobot::performSelection(){
 		if (EDQD::Parameters::EDQDMapSelection) {
+
 			// Include Local Map For Selection Merge
 			mapList_[getId()] = map_;
 			//if (selectRandomGenomeFromMergedMap()){
@@ -988,6 +1020,19 @@ namespace robogen{
 			sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 					"::" + std::to_string(birthdate_) + ", descendsFrom, " + std::to_string(ancestor_.first) +
 					"::" + std::to_string(ancestor_.second) + "\n";
+
+			if (EDQD::Parameters::EDQDMultiBCMap){
+				// Include Local Map For Selection Merge
+				morphMapList_[getId()] = morphMap_;
+				//if (selectRandomGenomeFromMergedMap()){
+				selectRandomGenomeFromMorphMergedMap();
+				morphMergedMap_->mergeInto(*morphMap_);
+				// Logging: track descendance
+				std::string sLog = std::string("");
+				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
+						"::" + std::to_string(birthdate_) + ", descendsFrom, " + std::to_string(ancestor_.first) +
+						"::" + std::to_string(ancestor_.second) + "\n";
+			}
 		}
 		else{
 			switch ( EDQD::Parameters::selectionMethod ){

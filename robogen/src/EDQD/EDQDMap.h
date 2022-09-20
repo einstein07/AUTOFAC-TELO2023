@@ -136,9 +136,9 @@ class EDQDMap {
 			mapHasEntry_ = mapHasEntry;
 		}
 
-		/**
+		/****************************************************************************************
 		 * @return float distance to center of behavior descriptor cell
-		 */
+		 ***************************************************************************************/
 		float _dist_center(const std::vector<double>& pos) {
 
 			float dist = 0.0;
@@ -172,6 +172,10 @@ class EDQDMap {
 											double maxDistance,
 											std::vector<double>* pos = NULL
 										);
+		/****************************************************************************************
+		 * Morphology index computation
+		 ***************************************************************************************/
+		static behav_index_t computeMorphIndex(const std::map<int, int>& sensorTypes, int totalNumOfSensors, double averageRange, double maxRange, std::vector<double>* pos);
 
 		//Setter
 		Elite& operator()(int i, int j) {
@@ -182,9 +186,9 @@ class EDQDMap {
 			return map_[i][j];
 		}
 
-		/**
+		/**************************************************************************************
 		 * Write EDQDMap object to standard output stream
-		 */
+		 *************************************************************************************/
 		inline friend std::ostream& operator<<(std::ostream& os, const EDQDMap& obj) {
 
 			int dim1 = obj.map_.shape()[0];
@@ -231,6 +235,12 @@ class EDQDMap {
 		bool add(
 					int id,
 					EDQDRobot* ctrl,
+					std::vector<double> genome,
+					float sigma
+				);
+		bool morphAdd(
+					int id,
+					EDQDRobot* robot,
 					std::vector<double> genome,
 					float sigma
 				);

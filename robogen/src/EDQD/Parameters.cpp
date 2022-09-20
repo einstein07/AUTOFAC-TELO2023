@@ -23,7 +23,7 @@ namespace EDQD{
 	int Parameters::nbNeuronsPerHiddenLayer = 20;
 	int Parameters::weightRange = 800; // From EDQD-GECCO2018 [-400, +400]
 	int Parameters::nbOfPhysicalObjectGroups = 5; // 5 resource types in this work
-	double Parameters::pMutation = 0.0; // From EDQD-GECCO2018
+	double Parameters::pMutation = 0.34; // From EDQD-GECCO2018
 
 	double Parameters::pMutateSensorState = 0.34;
 
@@ -33,7 +33,7 @@ namespace EDQD{
 	// how long a controller will be evaluated on a robot
 	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 1000000;//804000;// 40000; // From EDQD-GECCO2018*/
+	unsigned int Parameters::maxIterations = 30000;//1000000;//804000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
@@ -59,7 +59,8 @@ namespace EDQD{
 	double Parameters::sigma = 0.01;
 
 	bool Parameters::onlyKeepMapsForGeneration = true;
-	bool Parameters::EDQDMapSelection = false;
+	bool Parameters::EDQDMapSelection = true;
+	bool Parameters::EDQDMultiBCMap = false;
 	int Parameters::selectionMethod = 2;
 
 	int Parameters::maxTimeResourceBound = 8000;//1000;

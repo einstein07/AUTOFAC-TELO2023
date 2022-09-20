@@ -70,6 +70,45 @@ namespace robogen{
 		behav_index_t index = {{(long int)dim1, (long int)dim2}};
 		return index;
 	}
+	behav_index_t EDQDMap::computeMorphIndex(const std::map<int, int>& sensorTypes, int totalNumOfSensors, double averageRange, double maxRange, std::vector<double>* pos){
+		double dim1 = 0.5, dim2 = 0.0;
+		int oc1 = sensorTypes.at(1);
+		int	oc2 = sensorTypes.at(2);
+		int oc3 = sensorTypes.at(3);
+		int	oc4 = sensorTypes.at(4);
+		int oc5 = sensorTypes.at(5);
+
+		if ( sensorTypes.at(5) > 0.0 ) {
+			dim1 = ( oc1 + oc2 + oc3 + oc4 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		} else if ( sensorTypes.at(4) > 0.0 ) {
+			dim1 = ( oc1 + oc2 + oc3 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( sensorTypes.at(3) > 0.0 ) {
+			dim1 = ( oc1 + oc2 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( sensorTypes.at(2) > 0.0 ) {
+			dim1 =  oc1  / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		}
+		else if ( sensorTypes.at(1) > 0.0 ) {
+			dim1 = 1.0;
+		}
+		dim1 *= ((double) EDQD::Parameters::nbOfIntervals - 0.5);
+
+		if ( averageRange > 0 ) {
+			dim2 = ( (averageRange / ((double)maxRange)) * ( (double) EDQD::Parameters::nbOfIntervals - 0.5 ) );
+			if ( dim2 < 0.0 ) { dim2 = 0; }
+			if ( dim2 > EDQD::Parameters::nbOfIntervals - 1 ) { dim2 = (double) EDQD::Parameters::nbOfIntervals - 0.5; }
+		}
+		//std::cout << dim1 << " " << dim2 << " "  << (long int)dim1 << " " << (long int)dim2 << std::endl; // DEBUG
+
+		if (pos) {
+			(*pos)[0] = dim1;
+			(*pos)[1] = dim2;
+		}
+
+		behav_index_t index = {{(long int)dim1, (long int)dim2}};
+		return index;
+	}
 
 	behav_index_t EDQDMap::getRandomIndex() {
 		behav_index_t index = {{(long int)(random() * EDQD::Parameters::nbOfIntervals),
@@ -109,6 +148,42 @@ namespace robogen{
 		}
 		return false;
 	}
+	/*****************************************************************************************************
+	 * Morphology-map genome addition addition
+	 ****************************************************************************************************/
+
+	bool EDQDMap::morphAdd( int id, EDQDRobot* robot, std::vector<double> genome, float sigma ) {
+
+			std::vector<double>* pos = new std::vector<double>(2);
+			behav_index_t index = computeMorphIndex(
+									(*robot).getActiveSensors(),
+									(*robot).getPossibleNumberOfSensors(),
+									(*robot).getAverageRange(),
+									(*robot).getMaxSensorRangeAverage(),
+									pos);
+
+			if (map_(index).fitness_ == -1
+				|| (robot->getFitness() - map_(index).fitness_) > EDQD::Parameters::fitEpsilon
+				|| (fabs(robot->getFitness() - map_(index).fitness_) <= EDQD::Parameters::fitEpsilon
+						&& _dist_center((*pos)) < _dist_center(map_(index).pos_))
+			) {
+				if (map_(index).fitness_ == -1) {
+					num_filled_cells_++;
+				}
+
+				map_(index).fitness_ = robot->getFitness();
+				map_(index).genome_.clear();
+				map_(index).genome_ = genome;
+				map_(index).id_ = std::make_pair(id,robot->getBirthdate());
+				map_(index).sigma_ = sigma;
+				map_(index).pos_.clear();
+				map_(index).pos_ = (*pos);
+
+				setMapHasEntry(true);
+				return true;
+			}
+			return false;
+		}
 
 	bool EDQDMap::mergeInto(EDQDMap &m) {
 		bool result = false;
