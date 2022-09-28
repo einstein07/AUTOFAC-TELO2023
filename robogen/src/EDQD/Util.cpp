@@ -17,6 +17,11 @@ std::minstd_rand randint;
 std::mt19937 engine(rnd());
 std::uniform_real_distribution<double> disRandom(0.0, 1.0);
 std::normal_distribution<> disNormal(0,1);
+std::uniform_int_distribution<int> randomSensor(
+		2, // Resource type-1 sensor element
+		6  // Resource type-5 sensor element
+		); // uniform, unbiased
+
 
 std::string getpidAsReadableString()
 {
@@ -98,4 +103,30 @@ double distance (osg::Vec3d a, osg::Vec3d b){
 						+ pow(a.y() - b.y(), 2)
 						+ pow(a.z() - b.z(), 2));
 	return distance;
+}
+
+double normaliseValue(double newValue, double _minValue, double _maxValue){
+	double value = newValue;
+	// bouncing upper/lower bounds
+	if ( value < _minValue )
+	{
+		double range = _maxValue - _minValue;
+		double overflow = - ( (double)value - _minValue );
+		overflow = overflow - 2*range * (int)( overflow / (2*range) );
+		if ( overflow < range )
+			value = _minValue + overflow;
+		else // overflow btw range and range*2
+			value = _minValue + range - (overflow-range);
+	}
+	else if ( value > _maxValue )
+	{
+		double range = _maxValue - _minValue;
+		double overflow = (double)value - _maxValue;
+		overflow = overflow - 2*range * (int)( overflow / (2*range) );
+		if ( overflow < range )
+			value = _maxValue - overflow;
+		else // overflow btw range and range*2
+			value = _maxValue - range + (overflow-range);
+	}
+	return value;
 }

@@ -64,6 +64,7 @@ extern std::minstd_rand randint; // randint() returns an int with value drawn un
 extern std::mt19937 engine;
 extern std::uniform_real_distribution<double> disRandom;
 extern std::normal_distribution<> disNormal;
+extern std::uniform_int_distribution<int> randomSensor; // uniform, unbiased
 
 #define random() disRandom(engine) // uniform in [0,1), return double
 #define randgaussian() disNormal(engine) // normal distribution mean=0 and stddev=1 (use: mean+rand*stddev)
@@ -87,5 +88,7 @@ inline double getEuclideanDistance(double x1, double y1, double x2, double y2)
 }
 bool isOverlap(double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double oMinX, double oMaxX, double oMinY, double oMaxY, double oMinZ, double oMaxZ);
 double distance (osg::Vec3d a, osg::Vec3d b);
+
+double normaliseValue(double newValue, double _minValue, double _maxValue);
 
 #endif /* EDQD_UTIL_H_ */
