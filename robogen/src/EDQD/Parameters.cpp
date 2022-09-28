@@ -33,7 +33,7 @@ namespace EDQD{
 	// how long a controller will be evaluated on a robot
 	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 30000;//1000000;//804000;// 40000; // From EDQD-GECCO2018*/
+	unsigned int Parameters::maxIterations = 1000000;//804000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
@@ -70,6 +70,9 @@ namespace EDQD{
 
 	std::ofstream Parameters::gMapsLogFile;
 	Logger* Parameters::gMapsLogger = NULL;
+
+	std::ofstream Parameters::gMorphMapsLogFile;
+	Logger* Parameters::gMorphMapsLogger = NULL;
 
 	std::ofstream Parameters::gResourcesLogFile;
 	Logger* Parameters::gResourcesLogger = NULL;
