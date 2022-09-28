@@ -52,6 +52,10 @@ class EDQDRobot : public Robot{
 		void mutateGaussian( float sigma );
 		void mutateUniform();
 		void mutateSigmaValue();
+		/*****************************************************************************************
+		 * Morphology adaptation
+		 ****************************************************************************************/
+		void mutateSensors();
 
 		void mapGenotypeToPhenotype();
 		void performSelection();
@@ -179,13 +183,24 @@ class EDQDRobot : public Robot{
 		 * to number collected
 		 */
 		std::map<int,int> resourceCounters_;
-		std::map<int,int> activeSensors_;
+
+		/**************************************************************************************************
+		 * Morphology properties
+		 ************************************************************************************************/
+		std::map<int,bool> isSensorTypeActive_;
+		std::map<int,int> numOfActiveSensorsPerType_;
 
 		int possibleTotalNumberOfSensors_;
 
-		double averageSensorRange_;
+		std::map<int,double> perSensorTypeMaxRange_;
+		std::map<int,double> perSensorTypeRange_;
 
-		double maxSensorRangeAverage_;
+		double averageActiveSensorRange_;
+
+		double maxActiveSensorRangeAverage_;
+
+		double sensorMinValue_;
+		double sensorMaxValue_;
 
 		/**
 		 * Behavioral heuristics
@@ -218,6 +233,7 @@ class EDQDRobot : public Robot{
 						);
 
 	    bool storeMap(EDQDMap* map, int senderId);
+	    bool storeMaps(EDQDMap* map, EDQDMap* morphMap, int senderId);
 		bool storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map);
 
 	    void broadcastMap();
@@ -239,7 +255,7 @@ class EDQDRobot : public Robot{
 	    void incResourceCounter(const int group) {
 	    	resourceCounters_[group] +=1;
 		}
-	    void decResourceCounter(const int group) {resourceCounters_[group]--;;}
+	    void decResourceCounter(const int group) {resourceCounters_[group]--;}
 
 	    void resetPotMaxTravelled();
 
@@ -252,13 +268,19 @@ class EDQDRobot : public Robot{
 	    const std::map<int,int>& getResourceCounters() const {
 			return resourceCounters_;
 		}
+	    /********************************************************************************
+	     * MORPHO-EVO
+	     *******************************************************************************/
 
+	    void updateSensorInfo();
 	    const std::map<int,int>& getActiveSensors() const {
-			return activeSensors_;
+			return numOfActiveSensorsPerType_;
 		}
-	    double getAverageRange(){return averageSensorRange_;};
-	    double getMaxSensorRangeAverage(){return maxSensorRangeAverage_;};
+	    double getAverageActiveSensorRange();
+	    double getMaxActiveSensorRangeAverage();
 	    int getPossibleNumberOfSensors(){return possibleTotalNumberOfSensors_;}
+
+	    void resetSensorInfo();
 
 		void resetResourceCounter() {
 			/**

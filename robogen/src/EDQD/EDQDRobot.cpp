@@ -54,6 +54,14 @@ namespace robogen{
 		map_ = new EDQDMap();
 		mergedMap_ = new EDQDMap();
 
+		if (EDQD::Parameters::EDQDMultiBCMap){
+			morphMap_ = new EDQDMap();
+			morphMergedMap_ = new EDQDMap();
+
+			sensorMinValue_ = 0.0;
+			sensorMaxValue_ = 1.0;
+
+		}
 		//nbInputs_ = getBrain()->nInputs;
 		//nbHidden_ = getBrain()->nHidden;
 		//nbOutputs_ = getBrain()->nOutputs;
@@ -93,6 +101,9 @@ namespace robogen{
 		scenario_ = scenario;
 		reset();
 		resetFitness();
+		if (EDQD::Parameters::EDQDMultiBCMap){
+			resetSensorInfo();
+		}
 		// debug
 		//fitness_ = 1;
 		setAlive(true);
@@ -451,6 +462,9 @@ namespace robogen{
 				nbGenomeTransmission_ = 0;
 
 				resetFitness();
+				if (EDQD::Parameters::EDQDMultiBCMap){
+					resetSensorInfo();
+				}
 
 	#ifdef DEBUG_STEP_EV
 				std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
@@ -550,6 +564,7 @@ namespace robogen{
 	    	it ++;
 	    }
 	    behav_index_t index;
+	    //Useful when environment pressure is active - i.e. size of map list depends on how much an agent moved around in the environment.
 	    int tries = 0;
 	    if (mergedMap_->getNumFilledCells() > 0){
 			do {
@@ -583,6 +598,7 @@ namespace robogen{
 			it ++;
 		}
 		behav_index_t index;
+		//Useful when environment pressure is active - i.e. size of map list depends on how much an agent moved around in the environment.
 		int tries = 0;
 		if (morphMergedMap_->getNumFilledCells() > 0){
 			do {
@@ -777,6 +793,31 @@ namespace robogen{
 	    }
 	}
 
+	bool EDQDRobot::storeMaps(EDQDMap* map, EDQDMap* morphMap, int senderId){
+		if ( !isListening_ ){
+			// current agent is not listening: do nothing.
+			return false;
+		}
+		else{
+			nbComRx_++;
+			std::map<int, EDQDMap* >::const_iterator it = mapList_.find(senderId);
+			/**
+			 * This exact agent's map is already stored.
+			 * Exact means: same robot, same generation.
+			 * Then: update fitness value (the rest in unchanged) - however, fitness is not really updated, why???
+			 */
+			if ( it != mapList_.end() ){
+				/** Sender already stored in map list.*/
+				return false;
+			}
+			else{
+				mapList_[senderId] = map;
+				morphMapList_[senderId] = morphMap;
+				//std::cout << "*" <<std::flush;
+				return true;
+			}
+		}
+	}
 	/* manage storage of a genome received from a neighbour
 	 *
 	 * Note that in case of multiple encounters with the same robot (same id, same "birthdate"), genome is stored only once, and last known fitness value is stored (i.e. updated at each encounter).
@@ -911,12 +952,14 @@ namespace robogen{
 
 		// always clear _mapList, as results have been merged.
 		mapList_.clear();
-		morphMapList_.clear();
+		if(EDQD::Parameters::EDQDMultiBCMap){
+			morphMapList_.clear();
+		}
 		if ( EDQD::Parameters::onlyKeepMapsForGeneration||robogen::iterations == 0 ){
 				delete mergedMap_;
 				mergedMap_ = new EDQDMap();
 				if(EDQD::Parameters::EDQDMultiBCMap){
-					delete morphMap_;
+					delete morphMergedMap_;
 					morphMergedMap_ = new EDQDMap();
 				}
 		}
@@ -950,6 +993,7 @@ namespace robogen{
 	        }
 	    }
 	}
+
 
 	void EDQDRobot::broadcastMap(){
 	    // TODO: From previous work: limiting genome transmission is sensitive to sensor order. (but: assume ok)
@@ -1254,5 +1298,178 @@ namespace robogen{
 
 		return currentCellId_;
 	}
+
+	/*****************************************************************************************************************
+	 * MORPHO-EVO
+	 ****************************************************************************************************************/
+	void EDQDRobot::mutateSensors(){
+		double delta_T1 = randgaussian() * currentSigma_;
+		double delta_T2 = randgaussian() * currentSigma_;
+		double delta_T3 = randgaussian() * currentSigma_;
+		double delta_T4 = randgaussian() * currentSigma_;
+		double delta_T5 = randgaussian() * currentSigma_;
+
+		double normalisedVal_T1 = 0;
+		double normalisedVal_T2 = 0;
+		double normalisedVal_T3 = 0;
+		double normalisedVal_T4 = 0;
+		double normalisedVal_T5 = 0;
+
+		bool isNormalised_T1 = false;
+		bool isNormalised_T2 = false;
+		bool isNormalised_T3 = false;
+		bool isNormalised_T4 = false;
+		bool isNormalised_T5 = false;
+		for (unsigned int j = 0; j < getSensors().size(); j++){
+			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
+				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET1 ){
+					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T1;
+					if (!isNormalised_T1){
+						normalisedVal_T1 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+						isNormalised_T1 = true;
+					}
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T1);
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET2 ){
+					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T2;
+					if (!isNormalised_T2){
+						normalisedVal_T2 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+						isNormalised_T2 = true;
+					}
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T2);
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET3 ){
+					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T3;
+					if (!isNormalised_T3){
+						normalisedVal_T3 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+						isNormalised_T3 = true;
+					}
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T3);
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET4 ){
+					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T4;
+					if (!isNormalised_T4){
+						normalisedVal_T4 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+						isNormalised_T4 = true;
+					}
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T4);
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET5 ){
+					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T5;
+					if (!isNormalised_T5){
+						normalisedVal_T5 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+						isNormalised_T5 = true;
+					}
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T5);
+				}
+			}
+		}
+	}
+	void EDQDRobot::updateSensorInfo(){
+		for (unsigned int i = 0; i < getSensors().size(); ++i){
+			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[i]) ){
+				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET1 ){
+					possibleTotalNumberOfSensors_++;
+					if (  boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET1]++;
+						if (isSensorTypeActive_[SensorElement::RESOURCET1] == false){
+							isSensorTypeActive_[SensorElement::RESOURCET1] = true;
+							perSensorTypeRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+							perSensorTypeMaxRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+						}
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET2 ){
+					possibleTotalNumberOfSensors_++;
+					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET2]++;
+						if (isSensorTypeActive_[SensorElement::RESOURCET2] == false){
+							isSensorTypeActive_[SensorElement::RESOURCET2] = true;
+							perSensorTypeMaxRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+							perSensorTypeRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+						}
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET3 ){
+					possibleTotalNumberOfSensors_++;
+					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET3]++;
+						if (isSensorTypeActive_[SensorElement::RESOURCET3] == false){
+							isSensorTypeActive_[SensorElement::RESOURCET3] = true;
+							perSensorTypeMaxRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+							perSensorTypeRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+						}
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET4 ){
+					possibleTotalNumberOfSensors_++;
+					if (boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive()){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET4]++;
+						if ( isSensorTypeActive_[SensorElement::RESOURCET4] == false ){
+							isSensorTypeActive_[SensorElement::RESOURCET4] = true;
+							perSensorTypeMaxRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+							perSensorTypeRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+						}
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET5 ){
+					possibleTotalNumberOfSensors_++;
+					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET5]++;
+						if ( isSensorTypeActive_[SensorElement::RESOURCET5] == false ){
+							isSensorTypeActive_[SensorElement::RESOURCET5] = true;
+							perSensorTypeMaxRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+							perSensorTypeRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+						}
+					}
+				}
+			}
+		}
+	}
+
+	double EDQDRobot::getAverageActiveSensorRange(){
+		double av = 0;
+		int totalActive = 0;
+		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			if ( isSensorTypeActive_[i] ){
+				av += perSensorTypeRange_[i];
+				totalActive++;
+			}
+		}
+		averageActiveSensorRange_ = av/((double)totalActive);
+		return averageActiveSensorRange_;
+	}
+
+	double EDQDRobot::getMaxActiveSensorRangeAverage(){
+		double av = 0;
+		int totalActive = 0;
+		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			if ( isSensorTypeActive_[i] ){
+				av += perSensorTypeMaxRange_[i];
+				totalActive++;
+			}
+		}
+		maxActiveSensorRangeAverage_ = av/((double)totalActive);
+		return maxActiveSensorRangeAverage_;
+	}
+
+    void EDQDRobot::resetSensorInfo() {
+    	possibleTotalNumberOfSensors_ = 0;
+    	averageActiveSensorRange_ = 0;
+    	maxActiveSensorRangeAverage_ = 0;
+
+
+		/**
+		 * 5 sensor-types right now (sizes 1, 2, 3, 4, 5)
+		 */
+		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			isSensorTypeActive_[i] = false;
+			numOfActiveSensorsPerType_[i] = 0;
+			perSensorTypeMaxRange_[i] = 0;
+			perSensorTypeRange_[i] = 0;
+			numOfActiveSensorsPerType_[i] = 0;
+		}
+	}
+
 
 }
