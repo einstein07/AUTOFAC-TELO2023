@@ -11,14 +11,17 @@
 #include "model/sensors/SensorMorphology.h"
 
 namespace robogen{
-	MutatePerturbSensorState::MutatePerturbSensorState(double sigma):sigma_(sigma), _minValue(0.0), _maxValue(0.3){srand((unsigned) time(NULL));}
+	MutatePerturbSensorState::MutatePerturbSensorState(double sigma):sigma_(sigma), minValue_(0.0), maxValue_(0.3){
+		srand((unsigned) time(NULL));
+	}
 	MutatePerturbSensorState::~MutatePerturbSensorState(){}
 
 	void MutatePerturbSensorState::mutateSensorGroup(std::vector< boost::shared_ptr<Robot> > robots){
-
+		mutateSigmaValue();
 		double delta = randgaussian() * sigma_;
 		double normalisedVal = 0;
-		int sensor = 1 + (rand()%5);
+		int sensor =  randomSensor(engine);//1 + (rand()%5);
+		//std::cout << "Sensor val: " <<  sensor << std::endl;
 		bool isNormalised = false;
 		for (unsigned int i = 0; i < robots.size(); i++){
 			for (unsigned int j = 0; j < robots[i]->getSensors().size(); j++){
@@ -27,7 +30,7 @@ namespace robogen{
 
 						double newValue = boost::dynamic_pointer_cast< SensorElement>(robots[i]-> getSensors()[j])-> getValue() + delta;
 						if (!isNormalised){
-							normalisedVal = normaliseValue(newValue);
+							normalisedVal = normaliseValue(newValue, minValue_, maxValue_);
 							isNormalised = true;
 						}
 
@@ -38,30 +41,27 @@ namespace robogen{
 		}
 		//std::cout << "New sensor "<< sensor <<" state value: " << normalisedVal << std::endl;
 	}
+	void MutatePerturbSensorState::mutateSigmaValue(){
+		float dice = float( randint() % 100) / 100.0;
 
-	double MutatePerturbSensorState::normaliseValue(double newValue){
-		double value = newValue;
-		// bouncing upper/lower bounds
-		if ( value < _minValue )
-		{
-			double range = _maxValue - _minValue;
-			double overflow = - ( (double)value - _minValue );
-			overflow = overflow - 2*range * (int)( overflow / (2*range) );
-			if ( overflow < range )
-				value = _minValue + overflow;
-			else // overflow btw range and range*2
-				value = _minValue + range - (overflow-range);
+		if ( dice <= EDQD::Parameters::pMutation ){
+
+			dice = float(randint() %100) / 100.0;
+			if ( dice < 0.5 ){
+
+				sigma_ = sigma_ * ( 1 + EDQD::Parameters::updateSigmaStep ); // increase sigma
+
+				if (sigma_ > EDQD::Parameters::sigmaMax){
+					sigma_ = EDQD::Parameters::sigmaMax;
+				}
+			}
+			else{
+				sigma_ = sigma_ * ( 1 - EDQD::Parameters::updateSigmaStep ); // decrease sigma
+
+				if ( sigma_ < EDQD::Parameters::sigmaMin ){
+					sigma_ = EDQD::Parameters::sigmaMin;
+				}
+			}
 		}
-		else if ( value > _maxValue )
-		{
-			double range = _maxValue - _minValue;
-			double overflow = (double)value - _maxValue;
-			overflow = overflow - 2*range * (int)( overflow / (2*range) );
-			if ( overflow < range )
-				value = _maxValue - overflow;
-			else // overflow btw range and range*2
-				value = _maxValue - range + (overflow-range);
-		}
-		return value;
 	}
 }

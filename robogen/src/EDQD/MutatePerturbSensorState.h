@@ -11,18 +11,21 @@
 #ifndef EDQD_MUTATEPERTURBSENSORSTATE_H_
 #define EDQD_MUTATEPERTURBSENSORSTATE_H_
 #include "Robot.h"
+#include "EDQD/Parameters.h"
+
 
 namespace robogen{
 class MutatePerturbSensorState{
 private:
 	double sigma_;
-	double _minValue;
-	double _maxValue;
+	double minValue_;
+	double maxValue_;
 public:
 	MutatePerturbSensorState(double sigma);
 	~MutatePerturbSensorState();
+	void mutateSigmaValue();
 	void mutateSensorGroup(std::vector< boost::shared_ptr<Robot> > robots);
-	double normaliseValue(double newValue);
+
 };
 }
 #endif /*EDQD_MUTATEPERTURBSENSORSTATE_H_ */
