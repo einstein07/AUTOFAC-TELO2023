@@ -19,6 +19,7 @@
 #include "model/SimpleBody.h"
 #include "SensorGroup.h"
 #include "IrSensor.h"
+#include "EDQD/Parameters.h"
 #include "scenario/Environment.h"
 
 namespace robogen {
@@ -49,24 +50,32 @@ public:
 								(type == RESOURCET4)? "-Resource-Type-4" :
 								(type == RESOURCET5)? "-Resource-Type-5" : "-Wall"
 								)),
-			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0), sensorRange_(5.0) {
+			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0), MAX_RANGE(1.0), sensorRange_(MAX_RANGE) {
 	}
 
 	inline Type getType() { return type_; }
 	inline const std::string &getBaseLabel() { return baseLabel_; }
 	inline int getObjectId() { return objectId_; }
 	inline void updateObjectId(int objectId) { objectId_ = objectId; }
-	inline bool isActive(){return (value_ < 0.15)?true:false;}
+	inline bool isActive(){
+		if (EDQD::Parameters::EDQDMultiBCMap)
+			return ( sensorRange_ > (MAX_RANGE * 0.05) )?true:false;
+		else
+			return (value_ < 0.15)?true:false;
+	}
 	inline double getValue(){return value_;}
 	inline void setValue(double value){value_ = value;}
 	inline double getSensorRange(){return sensorRange_;}
-	inline void updateSensorRange(double value){sensorRange_ += value;}
+	inline void updateSensorRange(double value){sensorRange_ = value;}
+	inline double getMaxSensorRange(){return MAX_RANGE;}
+
 private:
 	std::string baseLabel_;
 	Type type_;
 	int objectId_;
 	double value_;
 	double sensorRange_;
+	double MAX_RANGE;
 };
 //----------------------------------------------------------------------
 //----------------------------------------------------------------------
