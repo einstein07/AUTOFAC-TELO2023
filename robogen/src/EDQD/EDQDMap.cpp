@@ -158,8 +158,8 @@ namespace robogen{
 			behav_index_t index = computeMorphIndex(
 									(*robot).getActiveSensors(),
 									(*robot).getPossibleNumberOfSensors(),
-									(*robot).getAverageRange(),
-									(*robot).getMaxSensorRangeAverage(),
+									(*robot).getAverageActiveSensorRange(),
+									(*robot).getMaxActiveSensorRangeAverage(),
 									pos);
 
 			if (map_(index).fitness_ == -1
@@ -199,63 +199,6 @@ namespace robogen{
 			m.updateNumFilledCells();
 		}
 		return result;
-	}
-	//=========================================================================================
-	//*************************STATIC METHODS*************************
-	//=========================================================================================
-	static void writeMapBin(const EDQDMap& m, const std::string& filename) {
-		std::ofstream ofs(filename.c_str());
-		assert(ofs.good());
-		std::cout << "writing : " << filename << std::endl;
-		boost::archive::binary_oarchive oa(ofs);
-		oa& BOOST_SERIALIZATION_NVP(m);
-		std::cout << "done" << std::endl;
-	}
-
-	static EDQDMap loadMap(const std::string& filename) {
-		std::ifstream ifs(filename.c_str());
-		assert(ifs.good());
-		boost::archive::binary_iarchive ia(ifs);
-		EDQDMap data;
-		ia& BOOST_SERIALIZATION_NVP(data);
-		return data;
-	}
-
-	static std::string mapToString(const map_t& m, const std::string& prefix = std::string("")) {
-		std::stringstream ofs;
-
-		size_t behav_dim = m.dimensionality;
-		size_t offset = 0;
-		for (const Elite* i = m.data(); i < (m.data() + m.num_elements()); ++i) {
-			if (i) {
-				behav_index_t index;
-				for (unsigned int dim = 0; dim < behav_dim; dim++ ) {
-					index[dim] = (offset / m.strides()[dim] % m.shape()[dim] +  m.index_bases()[dim]);
-				}
-
-				assert(m(index).fitness_ == (i)->fitness_);
-
-				ofs << prefix << offset << ",";
-				for (size_t dim = 0; dim < behav_dim; ++dim) {
-					ofs << index[dim] / (float)m.shape()[dim] << ",";
-				}
-				ofs << m(index).fitness_;
-				ofs << std::endl;
-			}
-			++offset;
-		}
-
-		return ofs.str();
-	}
-
-	static void writeMapToFile(const map_t& m, const std::string& filename,
-		const std::string& note = "")
-	{
-		std::cout << "writing " << note << " " << filename << std::endl;
-
-		std::ofstream ofs(filename.c_str());
-
-		ofs << mapToString(m);
 	}
 
 }
