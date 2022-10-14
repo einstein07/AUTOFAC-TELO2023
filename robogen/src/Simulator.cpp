@@ -44,7 +44,7 @@
 //#define DEBUG_MASSES
 //#define DEBUG_SIM_LOOP
 //#define DEBUG_ROBOT_LOOP
-#define EVOLVE_SENSORS
+//#define EVOLVE_SENSORS
 // ODE World
 extern dWorldID odeWorld;
 robogen::EDQDMap bestMap_;
@@ -258,7 +258,7 @@ void initLogging()
 
 		EDQD::Parameters::gMorphLogger = new Logger();
 		EDQD::Parameters::gMorphLogger->setLoggerFile(EDQD::Parameters::gMorphLogFile);
-		EDQD::Parameters::gMorphLogger->write("generation,s-type,s-range, isActive");
+		EDQD::Parameters::gMorphLogger->write("generation,robot-id, s-type,s-range, isActive");
 		EDQD::Parameters::gMorphLogger->write(std::string("\n"));
 		EDQD::Parameters::gMorphLogger->flush();
 	}
@@ -669,21 +669,25 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 
     if (EDQD::Parameters::EDQDMultiBCMap) {
 
-		// "generation,s-type,s-value,isActive"
-		for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
-			// output
-			if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
-				std::string ofs =
-						std::to_string(generation) + ","
-					+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getType() ) + ","
-					+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getSensorRange() ) + ","
-					+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> isActive() );
-				ofs += "\n";
-				EDQD::Parameters::gMorphLogger->write(std::string(ofs));
-				ofs.clear();
-				ofs = "";
+		// "generation,robot-id,s-type,s-value,isActive"
+    	for (unsigned int r = 0; r < robots.size(); r++){
+    		for(unsigned int c = 0; c < robots[r] -> getSensors().size(); c++ ){
+				// output
+				if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
+					std::string ofs =
+							std::to_string(generation) + ","
+						+	std::to_string(robots[r]-> getId()) + ","
+						+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getType() ) + ","
+						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getSensorRange() ) + ","
+						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> isActive() );
+					ofs += "\n";
+					EDQD::Parameters::gMorphLogger->write(std::string(ofs));
+					ofs.clear();
+					ofs = "";
+				}
 			}
-		}
+    	}
+
 		EDQD::Parameters::gMorphLogger->flush();
 
 	}
@@ -790,10 +794,10 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
 		std::map<std::pair<int,int>,int> ancestors;
 		double f = 0.0;
 		int sum = 0;
-		int min_fit = 0;
-		int max_fit = 0;
+		double min_fit = 0;
+		double max_fit = 0;
 		double mean_fit = 0;
-		int median_fit = 0;
+		double median_fit = 0;
 		double se = 0.0;
 		double sd = 0.0;
 		double var = 0.0;
