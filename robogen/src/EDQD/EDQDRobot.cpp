@@ -949,7 +949,7 @@ namespace robogen{
 	void EDQDRobot::clearReservoir(){
 		sigmaList_.clear();
 		fitnessValuesList_.clear();
-
+		genomesList_.clear();
 		// always clear _mapList, as results have been merged.
 		mapList_.clear();
 		if(EDQD::Parameters::EDQDMultiBCMap){
@@ -1104,6 +1104,9 @@ namespace robogen{
 		if (isAlive()){
 			//logCurrentState();
 	        if ( mapList_.size() > 0 ){
+	        	if (EDQD::Parameters::EDQDMultiBCMap){
+	        		mutateSensors();
+	        	}
 	        	performSelection();
 	        	performVariation();
 	        	clearReservoir();
