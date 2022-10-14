@@ -50,7 +50,7 @@ public:
 								(type == RESOURCET4)? "-Resource-Type-4" :
 								(type == RESOURCET5)? "-Resource-Type-5" : "-Wall"
 								)),
-			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0), MAX_RANGE(1.0), sensorRange_(MAX_RANGE) {
+			baseLabel_(baseLabel), type_(type), objectId_(-1), value_(0.0), MAX_RANGE(1.0), sensorRange_(1.0) {
 	}
 
 	inline Type getType() { return type_; }
