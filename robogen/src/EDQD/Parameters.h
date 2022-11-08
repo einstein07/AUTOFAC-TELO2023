@@ -151,7 +151,7 @@ namespace EDQD{
 		static bool EDQDMapSelection;
 		static bool EDQDMultiBCMap;
 		static int selectionMethod;
-
+		static bool evolveSensors;
 		/**
 		 * Maximum time a robot can stay attached to a resource before eventually
 		 * getting forced to drop it off for other robots to pick it up.

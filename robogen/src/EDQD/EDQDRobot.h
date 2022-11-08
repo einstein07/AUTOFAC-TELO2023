@@ -120,6 +120,10 @@ class EDQDRobot : public Robot{
 
 		std::pair<int,int> ancestor_;
 
+
+		int morphBirthdate_;
+		std::pair<int,int> morphAncestor_;
+
 		/**
 		 * ANN
 		 */
@@ -149,6 +153,7 @@ class EDQDRobot : public Robot{
 		void setIOcontrollerSize();
 
 		void initController(); // called by resetRobot
+		void mapMorphPhenotype(); // called by resetRobot
 		void stepController();
 		/***************************************************/
 		//double minValue_;
@@ -212,9 +217,13 @@ class EDQDRobot : public Robot{
 		 *
 		 * LOGGING Purposes
 		 */
-		Logger *logger;
-		std::ofstream robotLogFile;
-		std::string logFilename;
+		Logger *resourceLogger;
+		std::ofstream resourceLogFile;
+		std::string resourceLogFilename;
+
+		Logger *sensorLogger;
+		std::ofstream sensorLogFile;
+		std::string sensorLogFilename;
 
 	public:
 		osg::Vec2d motorOutputs;
@@ -274,7 +283,7 @@ class EDQDRobot : public Robot{
 
 	    void updateSensorInfo();
 	    const std::map<int,int>& getActiveSensors() const {
-			return numOfActiveSensorsPerType_;
+	    	return numOfActiveSensorsPerType_;
 		}
 	    double getAverageActiveSensorRange();
 	    double getMaxActiveSensorRangeAverage();

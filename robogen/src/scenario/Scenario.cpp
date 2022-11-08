@@ -407,6 +407,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	resourcesRemoved_ = false;
 
 	overlapMaxZ = 0;//minZ;
+	std::cout << "Task environment width: " << environment_ -> getTerrain() -> getWidth() << std::endl;// << " Task environment length: " << environment_ -> getTerrai
 	std::cout << "Total number of resources from config file: " << resourceCoordinates.size() << std::endl;
 	for (unsigned int i = 0; i < resourceCoordinates.size(); ++i) {
 		boost::shared_ptr<BoxResource> resource(

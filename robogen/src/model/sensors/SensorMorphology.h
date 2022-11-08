@@ -59,7 +59,7 @@ public:
 	inline void updateObjectId(int objectId) { objectId_ = objectId; }
 	inline bool isActive(){
 		if (EDQD::Parameters::EDQDMultiBCMap)
-			return ( sensorRange_ > (MAX_RANGE * 0.05) )?true:false;
+			return ( sensorRange_ > (MAX_RANGE * 0.85) )?true:false;
 		else
 			return (value_ < 0.15)?true:false;
 	}

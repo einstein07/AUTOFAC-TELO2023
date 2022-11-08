@@ -36,6 +36,16 @@ struct Elite {
 		//========================================================================================
 		Elite(){}
 
+		/**Elite(Elite* o) {
+			fitness_ = o->fitness_;
+			genome_.clear();
+			genome_ = o->genome_;
+			id_ = o->id_;
+			sigma_ = o->sigma_;
+			pos_.clear();
+			pos_ = o->pos_;
+		}*/
+
 		Elite(Elite* o) {
 			fitness_ = o->fitness_;
 			genome_.clear();
@@ -44,9 +54,11 @@ struct Elite {
 			sigma_ = o->sigma_;
 			pos_.clear();
 			pos_ = o->pos_;
+			perSensorTypeRange_.clear();
+			perSensorTypeRange_ = o->perSensorTypeRange_;
 		}
 
-		Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos) {
+		/**Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos) {
 			fitness_ = fitness;
 			genome_.clear();
 			genome_ = genome;
@@ -54,6 +66,17 @@ struct Elite {
 			sigma_ = sigma;
 			pos_.clear();
 			pos_ = pos;
+		}*/
+		Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos, std::map<int,double> perSensorTypeRange) {
+			fitness_ = fitness;
+			genome_.clear();
+			genome_ = genome;
+			id_ = id;
+			sigma_ = sigma;
+			pos_.clear();
+			pos_ = pos;
+			perSensorTypeRange_.clear();
+			perSensorTypeRange_ = perSensorTypeRange;
 		}
 
 		inline bool operator< (const Elite& rhs){
@@ -115,6 +138,12 @@ struct Elite {
 		float sigma_ = EDQD::Parameters::sigmaRef;
 		std::vector<double> pos_;
 		int counter_ = 0;
+		//---------------------------------------------------------------------------------------
+		// Double-Map EDQD
+		// All sensor types are subjected to the same variation ops, i.e. if one type-1 sensor is
+		// off, then all type 1 sensors should be off
+		//---------------------------------------------------------------------------------------
+		std::map<int,double> perSensorTypeRange_;
 
 };
 
@@ -242,7 +271,8 @@ class EDQDMap {
 					int id,
 					EDQDRobot* robot,
 					std::vector<double> genome,
-					float sigma
+					float sigma,
+					std::map<int,double> perSensorTypeRange
 				);
 
 		Elite* get(behav_index_t index) {
