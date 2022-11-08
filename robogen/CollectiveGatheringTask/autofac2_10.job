@@ -1,10 +1,10 @@
 #!/bin/bash
 #PBS -l select=1:ncpus=3
 #PBS -q seriallong
-#PBS -l walltime=30:00:00
+#PBS -l walltime=72:00:00
 #PBS -P CSCI1142
 #PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac2_10session.out
-#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac2_11session.err
+#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac2_10session.err
 ### PBS -J 1-10:1
 #PBS -m abe
 #PBS -M mkhsin035@myuct.ac.za
