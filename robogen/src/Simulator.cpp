@@ -196,7 +196,7 @@ void initLogging()
 
 	// ==== create specific "maps" logger file
 
-	std::string mapsLogFullFilename = gLogDirectoryname + "/maps_"
+	std::string mapsLogFullFilename = gLogDirectoryname + "/behavior-maps/maps_"
 			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
 	EDQD::Parameters::gMapsLogFile.open(mapsLogFullFilename.c_str());
 
@@ -220,7 +220,7 @@ void initLogging()
 	if (EDQD::Parameters::EDQDMultiBCMap){
 	// ==== create specific "maps" logger file
 
-		std::string morphMapsLogFullFilename = gLogDirectoryname + "/morph_maps_"
+		std::string morphMapsLogFullFilename = gLogDirectoryname + "/morph-maps/morph_maps_"
 				+ gStartTime + "_" + getpidAsReadableString() + ".csv";
 		EDQD::Parameters::gMorphMapsLogFile.open(morphMapsLogFullFilename.c_str());
 
@@ -247,7 +247,7 @@ void initLogging()
 		 */
 		// ==== create specific "morphology state" logger file
 
-		std::string morphLogFullFilename = gLogDirectoryname + "/morph_"
+		/**std::string morphLogFullFilename = gLogDirectoryname + "/morph_"
 				+ gStartTime + "_" + getpidAsReadableString() + ".csv";
 		EDQD::Parameters::gMorphLogFile.open(morphLogFullFilename.c_str());
 
@@ -260,12 +260,12 @@ void initLogging()
 		EDQD::Parameters::gMorphLogger->setLoggerFile(EDQD::Parameters::gMorphLogFile);
 		EDQD::Parameters::gMorphLogger->write("generation,robot-id, s-type,s-range, isActive");
 		EDQD::Parameters::gMorphLogger->write(std::string("\n"));
-		EDQD::Parameters::gMorphLogger->flush();
+		EDQD::Parameters::gMorphLogger->flush();*/
 	}
 
 	// ==== create specific "resources" logger file
 
-	std::string resourcesLogFullFilename = gLogDirectoryname + "/resources_"
+	std::string resourcesLogFullFilename = gLogDirectoryname + "/resources/resources_"
 			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
 	EDQD::Parameters::gResourcesLogFile.open(resourcesLogFullFilename.c_str());
 
@@ -280,7 +280,7 @@ void initLogging()
 	EDQD::Parameters::gResourcesLogger->write(std::string("\n"));
 	EDQD::Parameters::gResourcesLogger->flush();
 
-#ifdef EVOLVE_SENSORS
+/**#ifdef EVOLVE_SENSORS
 
 	// ==== create specific "morphology state" logger file
 
@@ -298,7 +298,7 @@ void initLogging()
 	EDQD::Parameters::gMorphLogger->write("generation,s-type,s-value, isActive");
 	EDQD::Parameters::gMorphLogger->write(std::string("\n"));
 	EDQD::Parameters::gMorphLogger->flush();
-#endif
+#endif*/
 }
 
 
@@ -309,13 +309,13 @@ void stopLogging(){
 	EDQD::Parameters::gEOGLogFile.close();
 	EDQD::Parameters::gMapsLogFile.close();
 	EDQD::Parameters::gResourcesLogFile.close();
-	if (EDQD::Parameters::EDQDMultiBCMap){
+	/**if (EDQD::Parameters::EDQDMultiBCMap){
 		EDQD::Parameters::gMorphLogFile.close();
 		EDQD::Parameters::gMorphLogFile.close();
 	}
 #ifdef EVOLVE_SENSORS
 	EDQD::Parameters::gMorphLogFile.close();
-#endif
+#endif*/
 }
 
 
@@ -667,7 +667,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 
 
 
-    if (EDQD::Parameters::EDQDMultiBCMap) {
+    /**if (EDQD::Parameters::EDQDMultiBCMap) {
 
 		// "generation,robot-id,s-type,s-value,isActive"
     	for (unsigned int r = 0; r < robots.size(); r++){
@@ -690,7 +690,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 
 		EDQD::Parameters::gMorphLogger->flush();
 
-	}
+	}*/
 
     // "generation,resource_type,initial_x_pos, initial_y_pos, final_x_pos, final_y_pos, distance, isCollected"
 	for(unsigned int c = 0; c < env -> getResources().size(); c++ ){
@@ -713,7 +713,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 	EDQD::Parameters::gResourcesLogger->flush();
 	resourcePos.clear();
 
-#ifdef EVOLVE_SENSORS
+/**#ifdef EVOLVE_SENSORS
 	// "generation,s-type,s-value,isActive"
 	for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
 		// output
@@ -730,7 +730,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 		}
 	}
 	EDQD::Parameters::gMorphLogger->flush();
-#endif
+#endif*/
 
     if ( /**gVerbose && */localVerbose ) {
         std::cout << "[ gen:" << (iterations/EDQD::Parameters::evaluationTime)
@@ -986,7 +986,7 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
   		EDQD::Parameters::gMorphMapsLogger->flush();
 
   		// "generation,s-type,s-value,isActive"
-  		for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
+  		/**for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
   			// output
   			if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
   				std::string ofs =
@@ -1000,9 +1000,10 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
   				ofs = "";
   			}
   		}
-  		EDQD::Parameters::gMorphLogger->flush();
+  		EDQD::Parameters::gMorphLogger->flush();*/
 
   	}
+
 
 
 
@@ -1010,6 +1011,7 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
 		for ( int i = 0 ; i != robots.size() ; i++ ) {
 			boost::shared_ptr<EDQDRobot> ctl = boost::static_pointer_cast<EDQDRobot>(robots[i]);
 			EDQDMap* __rMap = ctl->getMap();
+
 			for ( map_index_t j = 0; j < EDQD::Parameters::nbOfIntervals; j++ ) {
 				for ( map_index_t k = 0; k < EDQD::Parameters::nbOfIntervals; k++ ) {
 //					std::cout << _bestMap(j,k) << " " << (*__rMap)(j,k) << std::endl;
@@ -1025,7 +1027,7 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
 		{
 			std::cout << "[INFO] Global best map updated:\n";
 					//<< bestMap_ << std::endl;
-			std::string fname = gLogDirectoryname + "/"
+			std::string fname = gLogDirectoryname + "/bestmaps/"
 					+ "bestmap_"
 					+ gStartTime + "_" + getpidAsReadableString();
 
@@ -1109,18 +1111,16 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				std::cout<<"*****Multi-BC Map Elites*****" <<std::endl;
 			else{
 				std::cout<<"*****Single-BC Map Elites*****";
-#ifdef EVOLVE_SENSORS
-				std::cout << "Morph-adaptation";
-#endif
+				if (EDQD::Parameters::evolveSensors)
+					std::cout << "Morph-adaptation";
 				std::cout << "\n";
 			}
 		}
 		else{
 			std::cout<<"*****mEDEA*****" <<std::endl;
-#ifdef EVOLVE_SENSORS
+			if (EDQD::Parameters::evolveSensors)
 				std::cout << "Morph-adaptation";
-#endif
-				std::cout << "\n";
+			std::cout << "\n";
 		}
 		// ======================================================================================================
 		// Configure Simulator
@@ -1379,14 +1379,13 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 							"Lifetime ended: replace genome (if possible)\n"
 							     "******************************************************" << std::endl;
 
-#ifdef EVOLVE_SENSORS
-					float dice = float(randint()%100) / 100.0;
-					//std::cout << "Dice value: "<< dice << std::endl;
-					if ( dice <= EDQD::Parameters::pMutateSensorState )
-					{
-						sensorStateMutator -> mutateSensorGroup(robots);
+					if (EDQD::Parameters::evolveSensors){
+						float dice = float(randint()%100) / 100.0;
+						//std::cout << "Dice value: "<< dice << std::endl;
+						if ( dice <= EDQD::Parameters::pMutateSensorState ){
+							sensorStateMutator -> mutateSensorGroup(robots);
+						}
 					}
-#endif
 				}
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)

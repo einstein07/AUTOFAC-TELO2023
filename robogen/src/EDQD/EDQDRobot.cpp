@@ -31,23 +31,32 @@ namespace robogen{
 		bool status = this->init(odeWorld, odeSpace, robotSpace, nbALive, robotSpec);
 
 		isNull = true;
-		//logFilename = "logs/robot_"+ std::to_string(getId()) +"_datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
 
-		//robotLogFile.open(logFilename.c_str());
+		resourceLogFilename = "logs/resources/robot_"+ std::to_string(getId()) +"_resourcelog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
+		resourceLogFile.open(resourceLogFilename.c_str());
+		if(!resourceLogFile) {
+			std::cout << "[error] Cannot open log file " << std::endl;
+			exit (-1);
+		}
+		resourceLogger = new Logger();
+		resourceLogger->setLoggerFile(resourceLogFile);
+		resourceLogger -> write("generation, A, B, C, D, E, Total-Collected");
+		resourceLogger -> write("\n");
+		resourceLogger -> flush();
 
-
-		//if(!robotLogFile) {
-		//	std::cout << "[error] Cannot open log file " << std::endl;
-		//	exit (-1);
-		//}
-
-		//logger = new Logger();
-		//	logger->setLoggerFile(robotLogFile);
-
-
-		/*std::string sLog = std::string("");
-		sLog += "***********ROBOT [initialise] "+ getId()+ " initialized successfully.********\n" ;*/
-
+		if (EDQD::Parameters::evolveSensors || EDQD::Parameters::EDQDMultiBCMap){
+			sensorLogFilename = "logs/sensors/robot_"+ std::to_string(getId()) +"_sensorlog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
+			sensorLogFile.open(sensorLogFilename.c_str());
+			if(!sensorLogFile) {
+				std::cout << "[error] Cannot open log file " << std::endl;
+				exit (-1);
+			}
+			sensorLogger = new Logger();
+			sensorLogger -> setLoggerFile(sensorLogFile);
+			sensorLogger -> write("generation, sensor-type, range, isActive");
+			sensorLogger -> write("\n");
+			sensorLogger -> flush();
+		}
 
 		this->configuration = configuration;
 
@@ -58,7 +67,7 @@ namespace robogen{
 			morphMap_ = new EDQDMap();
 			morphMergedMap_ = new EDQDMap();
 
-			sensorMinValue_ = 0.0;
+			sensorMinValue_ = 0.7;
 			sensorMaxValue_ = 1.0;
 
 		}
@@ -101,9 +110,7 @@ namespace robogen{
 		scenario_ = scenario;
 		reset();
 		resetFitness();
-		if (EDQD::Parameters::EDQDMultiBCMap){
-			resetSensorInfo();
-		}
+
 		// debug
 		//fitness_ = 1;
 		setAlive(true);
@@ -147,6 +154,12 @@ namespace robogen{
 	    if ( isAlive() ){
 	    	stepController();
 	    	//updateFitness();
+	    	if (iterations == EDQD::Parameters::maxIterations-1){
+				writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+									"");
+				writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+									"");
+			}
 	    }
 
 	    else{
@@ -442,7 +455,7 @@ namespace robogen{
 					//logger->flush();
 				}
 				if (EDQD::Parameters::EDQDMultiBCMap){
-					if (morphMap_ -> add(getId(), this, currentGenome_, currentSigma_ )){
+					if (morphMap_ -> morphAdd( getId(), this, currentGenome_, currentSigma_, perSensorTypeRange_ ) ){
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ", genome added to morphology map\n";
@@ -462,9 +475,10 @@ namespace robogen{
 				nbGenomeTransmission_ = 0;
 
 				resetFitness();
-				if (EDQD::Parameters::EDQDMultiBCMap){
+				/**if (EDQD::Parameters::EDQDMultiBCMap){
 					resetSensorInfo();
-				}
+					updateSensorInfo();
+				}*/
 
 	#ifdef DEBUG_STEP_EV
 				std::cout 	<< "*****Robot ID: "<< getId() << " Done resetting fitness*****" << std::endl;
@@ -497,17 +511,9 @@ namespace robogen{
 
 			// check for new NN parameters
 			if ( getNewGenomeStatus() ){
-	#ifdef DEBUG_STEP_EV
-				std::cout<< "*****Robot ID: "<< getId()<< " Mapping genotype to phenotype*****" << std::endl;
-	#endif
 				mapGenotypeToPhenotype();
-	#ifdef DEBUG_STEP_EV
-				std::cout<< "*****Robot ID: "<< getId()	<< " Done mapping genotype to phenotype*****" << std::endl;
-	#endif
+				mapMorphPhenotype();
 				setNewGenomeStatus(false);
-	#ifdef DEBUG_STEP_EV
-				std::cout << "*****Robot ID: " << getId() << " New weights set *****" << std::endl;
-	#endif
 			}
 		}
 	}
@@ -609,12 +615,9 @@ namespace robogen{
 				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( morphMergedMap_->get(index)->genome_.size() == 0 );
 			if (tries < 100){
-				currentGenome_ = morphMergedMap_->get(index)->genome_;
-				currentSigma_ = morphMergedMap_->get(index)->sigma_;
-				birthdate_ = robogen::iterations;
-
-				ancestor_ = morphMergedMap_->get(index)->id_;
-
+				morphBirthdate_ = robogen::iterations;
+				morphAncestor_ = morphMergedMap_->get(index)->id_;
+				perSensorTypeRange_ = morphMergedMap_->get(index)-> perSensorTypeRange_;
 				setNewGenomeStatus(true);
 			}
 		}
@@ -945,6 +948,29 @@ namespace robogen{
 	    setNewGenomeStatus(true);
 	    clearReservoir(); // will contain the genomes received from other robots
 	}
+	void EDQDRobot::mapMorphPhenotype(){
+		for (unsigned int j = 0; j < getSensors().size(); j++){
+			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
+				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET1 ){
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(perSensorTypeRange_.at(SensorElement::RESOURCET1));
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET2 ){
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(perSensorTypeRange_.at(SensorElement::RESOURCET2));
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET3 ){
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(perSensorTypeRange_.at(SensorElement::RESOURCET3));
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET4 ){
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(perSensorTypeRange_.at(SensorElement::RESOURCET4));
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET5 ){
+					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(perSensorTypeRange_.at(SensorElement::RESOURCET5));
+				}
+			}
+		}
+		resetSensorInfo();
+		updateSensorInfo();
+	}
 
 	void EDQDRobot::clearReservoir(){
 		sigmaList_.clear();
@@ -968,6 +994,9 @@ namespace robogen{
 
 	void EDQDRobot::reset(){
 		initController();
+		resetSensorInfo();
+		updateSensorInfo();
+
 	}
 
 	void EDQDRobot::mutateSigmaValue(){
@@ -1102,13 +1131,18 @@ namespace robogen{
 
 	void EDQDRobot::loadNewGenome(){
 		if (isAlive()){
-			//logCurrentState();
+			logCurrentState();
 	        if ( mapList_.size() > 0 ){
-	        	if (EDQD::Parameters::EDQDMultiBCMap){
-	        		mutateSensors();
-	        	}
+
 	        	performSelection();
 	        	performVariation();
+	        	if (EDQD::Parameters::EDQDMultiBCMap){
+					float dice = float(randint()%100) / 100.0;
+					if ( dice <= EDQD::Parameters::pMutateSensorState ){
+						mutateSensors();
+					}
+
+				}
 	        	clearReservoir();
 	        	setAlive(true);
 
@@ -1201,7 +1235,8 @@ namespace robogen{
 
 	void EDQDRobot::logCurrentState(){
 	    // Logging
-	    std::string sLog = "Iteration: " + std::to_string(robogen::iterations) + ", Robot Id: " + std::to_string(getId()) + ", Birthdate: " + std::to_string(birthdate_) +
+		int generation = iterations / EDQD::Parameters::evaluationTime;
+	    /**std::string sLog = "Iteration: " + std::to_string(robogen::iterations) + ", Robot Id: " + std::to_string(getId()) + ", Birthdate: " + std::to_string(birthdate_) +
 	    ", age, " + std::to_string(robogen::iterations-birthdate_) +
 
 	    ", rxMapListSize, " + std::to_string(mapList_.size()) +
@@ -1215,8 +1250,43 @@ namespace robogen{
 	    ", maxDist, " + std::to_string( dMaxTravelled_ ) +
 	    ", fitnessValue, " + std::to_string(getFitness()) +
 	    "\n";
-	    //logger->write(sLog);
-	    //logger->flush();
+	    logger->write(sLog);
+	    logger->flush();*/
+
+	    if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors) {
+
+			// "generation, s-type, range, isActive"
+			for(unsigned int c = 0; c < getSensors().size(); c++ ){
+				// output
+				if (boost::dynamic_pointer_cast<SensorElement>( getSensors()[c])){
+					std::string ofs =
+							std::to_string(generation) + ","
+						+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getType() ) + ","
+						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getSensorRange() ) + ","
+						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> isActive() );
+					ofs += "\n";
+					sensorLogger->write(std::string(ofs));
+					ofs.clear();
+					ofs = "";
+				}
+			}
+
+			sensorLogger->flush();
+
+		}
+
+	    // generation, A, B, C, D, E, Total-Collected
+	    int total = 0;
+	    std::string ofs = std::to_string(generation);
+		for (int i = 1; i <= EDQD::Parameters::nbOfPhysicalObjectGroups; i++) {
+			ofs += "," + std::to_string(resourceCounters_[i]);
+			total += resourceCounters_[i];
+		}
+		ofs += "," + std::to_string(total);
+		ofs += "\n";
+		resourceLogger->write(std::string(ofs));
+		resourceLogger->flush();
+
 	}
 
 
@@ -1312,7 +1382,7 @@ namespace robogen{
 		double delta_T4 = randgaussian() * currentSigma_;
 		double delta_T5 = randgaussian() * currentSigma_;
 
-		double normalisedVal_T1 = 0;
+		/**double normalisedVal_T1 = 0;
 		double normalisedVal_T2 = 0;
 		double normalisedVal_T3 = 0;
 		double normalisedVal_T4 = 0;
@@ -1322,8 +1392,14 @@ namespace robogen{
 		bool isNormalised_T2 = false;
 		bool isNormalised_T3 = false;
 		bool isNormalised_T4 = false;
-		bool isNormalised_T5 = false;
-		for (unsigned int j = 0; j < getSensors().size(); j++){
+		bool isNormalised_T5 = false;*/
+		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			double newValue = perSensorTypeRange_[i] - delta_T1;
+			perSensorTypeRange_[i] = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+
+		}
+
+		/**for (unsigned int j = 0; j < getSensors().size(); j++){
 			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
 				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET1 ){
 					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T1;
@@ -1366,63 +1442,63 @@ namespace robogen{
 					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T5);
 				}
 			}
-		}
+		}*/
 	}
 	void EDQDRobot::updateSensorInfo(){
 		for (unsigned int i = 0; i < getSensors().size(); ++i){
 			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[i]) ){
 				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET1 ){
 					possibleTotalNumberOfSensors_++;
+					perSensorTypeRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
+					perSensorTypeMaxRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
 					if (  boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET1]++;
 						if (isSensorTypeActive_[SensorElement::RESOURCET1] == false){
 							isSensorTypeActive_[SensorElement::RESOURCET1] = true;
-							perSensorTypeRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
-							perSensorTypeMaxRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
 						}
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET2 ){
 					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET2]++;
 						if (isSensorTypeActive_[SensorElement::RESOURCET2] == false){
 							isSensorTypeActive_[SensorElement::RESOURCET2] = true;
-							perSensorTypeMaxRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
-							perSensorTypeRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 						}
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET3 ){
 					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET3]++;
 						if (isSensorTypeActive_[SensorElement::RESOURCET3] == false){
 							isSensorTypeActive_[SensorElement::RESOURCET3] = true;
-							perSensorTypeMaxRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
-							perSensorTypeRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 						}
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET4 ){
 					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 					if (boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive()){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET4]++;
 						if ( isSensorTypeActive_[SensorElement::RESOURCET4] == false ){
 							isSensorTypeActive_[SensorElement::RESOURCET4] = true;
-							perSensorTypeMaxRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
-							perSensorTypeRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 						}
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET5 ){
 					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 					if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET5]++;
 						if ( isSensorTypeActive_[SensorElement::RESOURCET5] == false ){
 							isSensorTypeActive_[SensorElement::RESOURCET5] = true;
-							perSensorTypeMaxRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getMaxSensorRange();
-							perSensorTypeRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(getSensors()[i]) -> getSensorRange();
 						}
 					}
 				}
@@ -1431,7 +1507,7 @@ namespace robogen{
 	}
 
 	double EDQDRobot::getAverageActiveSensorRange(){
-		double av = 0;
+		double av = 0.0;
 		int totalActive = 0;
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
 			if ( isSensorTypeActive_[i] ){
@@ -1444,7 +1520,7 @@ namespace robogen{
 	}
 
 	double EDQDRobot::getMaxActiveSensorRangeAverage(){
-		double av = 0;
+		double av = 0.0;
 		int totalActive = 0;
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
 			if ( isSensorTypeActive_[i] ){

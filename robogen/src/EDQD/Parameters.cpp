@@ -62,6 +62,7 @@ namespace EDQD{
 	bool Parameters::EDQDMapSelection = true;
 	bool Parameters::EDQDMultiBCMap = true;
 	int Parameters::selectionMethod = 2;
+	bool Parameters::evolveSensors = false;
 
 	int Parameters::maxTimeResourceBound = 8000;//1000;
 

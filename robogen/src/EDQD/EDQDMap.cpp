@@ -39,20 +39,27 @@ namespace robogen{
 		int oc3 = oc.at(3);
 		int	oc4 = oc.at(4);
 		int oc5 = oc.at(5);
-
+		double sumOfToken = ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		double r_types = 5.0;
 		if ( oc.at(5) > 0.0 ) {
-			dim1 = ( oc1 + oc2 + oc3 + oc4 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			//dim1 = ( oc1 + oc2 + oc3 + oc4 + oc5 ) / sumOfToken;
+			dim1 = ((double)(5.0/r_types));
 		} else if ( oc.at(4) > 0.0 ) {
-			dim1 = ( oc1 + oc2 + oc3 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			//dim1 = ( oc1 + oc2 + oc3 + oc4 ) / sumOfToken;
+			dim1 = ((double)(4.0/r_types));
 		}
 		else if ( oc.at(3) > 0.0 ) {
-			dim1 = ( oc1 + oc2 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			//dim1 = ( oc1 + oc2 + oc3 ) / sumOfToken;
+			dim1 = ((double)(3.0/r_types));
 		}
 		else if ( oc.at(2) > 0.0 ) {
-			dim1 =  oc1  / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			//dim1 =  ( oc1 + oc2 )  / sumOfToken;
+			dim1 = ((double)(2.0/r_types));
 		}
 		else if ( oc.at(1) > 0.0 ) {
-			dim1 = 1.0;
+			//dim1 = 1.0;
+			//dim1 =  oc1  / sumOfToken;
+			dim1 = ((double)(1.0/r_types));
 		}
 		dim1 *= ((double) EDQD::Parameters::nbOfIntervals - 0.5);
 
@@ -72,26 +79,33 @@ namespace robogen{
 	}
 	behav_index_t EDQDMap::computeMorphIndex(const std::map<int, int>& sensorTypes, int totalNumOfSensors, double averageRange, double maxRange, std::vector<double>* pos){
 		double dim1 = 0.5, dim2 = 0.0;
-		int oc1 = sensorTypes.at(1);
-		int	oc2 = sensorTypes.at(2);
-		int oc3 = sensorTypes.at(3);
-		int	oc4 = sensorTypes.at(4);
-		int oc5 = sensorTypes.at(5);
+		/**for(auto const& imap: sensorTypes) {
 
-		if ( sensorTypes.at(5) > 0.0 ) {
-			dim1 = ( oc1 + oc2 + oc3 + oc4 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+		  std::cout << "Key: " << imap.first << " ";
+		  std::cout << "Value: " << imap.second << std::endl;
+		}*/
+
+		int s1 = sensorTypes.at(SensorElement::RESOURCET1);
+		int	s2 = sensorTypes.at(SensorElement::RESOURCET2);
+		int s3 = sensorTypes.at(SensorElement::RESOURCET3);
+		int	s4 = sensorTypes.at(SensorElement::RESOURCET4);
+		int s5 = sensorTypes.at(SensorElement::RESOURCET5);
+		double sumOfActiveSensors = ((double)(s1 + s2 + s3 + s4 + s5));
+		dim1 = sumOfActiveSensors/totalNumOfSensors;
+		/**if ( sensorTypes.at(5) > 0.0 ) {
+			dim1 = ( s1 + s2 + s3 + s4 + s5 ) / sumOfActiveSensors;
 		} else if ( sensorTypes.at(4) > 0.0 ) {
-			dim1 = ( oc1 + oc2 + oc3 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			dim1 = ( s1 + s2 + s3 +s4 ) / sumOfActiveSensors;
 		}
 		else if ( sensorTypes.at(3) > 0.0 ) {
-			dim1 = ( oc1 + oc2 ) / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			dim1 = ( s1 + s2 + s3 ) / sumOfActiveSensors;
 		}
 		else if ( sensorTypes.at(2) > 0.0 ) {
-			dim1 =  oc1  / ((double)(oc1 + oc2 + oc3 + oc4 + oc5));
+			dim1 = ( s1 + s2 ) / sumOfActiveSensors;
 		}
 		else if ( sensorTypes.at(1) > 0.0 ) {
-			dim1 = 1.0;
-		}
+			dim1 = ( s1 ) / sumOfActiveSensors;
+		}*/
 		dim1 *= ((double) EDQD::Parameters::nbOfIntervals - 0.5);
 
 		if ( averageRange > 0 ) {
@@ -99,6 +113,7 @@ namespace robogen{
 			if ( dim2 < 0.0 ) { dim2 = 0; }
 			if ( dim2 > EDQD::Parameters::nbOfIntervals - 1 ) { dim2 = (double) EDQD::Parameters::nbOfIntervals - 0.5; }
 		}
+		//std::cout << "dim1" << dim1 << " s-1" << oc1 << " s-2"  << oc2 << " s-3" << oc3 << " s-4" << oc4 << " s-5" << oc5 << " dim2: " << dim2 << " av-range: " << averageRange << " max-range: " << maxRange << std::endl; // DEBUG
 		//std::cout << dim1 << " " << dim2 << " "  << (long int)dim1 << " " << (long int)dim2 << std::endl; // DEBUG
 
 		if (pos) {
@@ -152,7 +167,7 @@ namespace robogen{
 	 * Morphology-map genome addition addition
 	 ****************************************************************************************************/
 
-	bool EDQDMap::morphAdd( int id, EDQDRobot* robot, std::vector<double> genome, float sigma ) {
+	bool EDQDMap::morphAdd( int id, EDQDRobot* robot, std::vector<double> genome, float sigma, std::map<int,double> perSensorTypeRange ) {
 
 			std::vector<double>* pos = new std::vector<double>(2);
 			behav_index_t index = computeMorphIndex(
@@ -178,6 +193,9 @@ namespace robogen{
 				map_(index).sigma_ = sigma;
 				map_(index).pos_.clear();
 				map_(index).pos_ = (*pos);
+
+				map_(index).perSensorTypeRange_.clear();
+				map_(index).perSensorTypeRange_ = perSensorTypeRange;
 
 				setMapHasEntry(true);
 				return true;
