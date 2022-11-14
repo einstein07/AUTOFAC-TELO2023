@@ -154,12 +154,15 @@ namespace robogen{
 	    if ( isAlive() ){
 	    	stepController();
 	    	//updateFitness();
-	    	if (iterations == EDQD::Parameters::maxIterations-1){
-				writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
-									"");
-				writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
-									"");
-			}
+	    	if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors){
+				if (iterations == EDQD::Parameters::maxIterations-1){
+					writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+										"");
+					if (EDQD::Parameters::EDQDMultiBCMap)
+						writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+										"");
+				}
+	    	}
 	    }
 
 	    else{
@@ -1261,9 +1264,12 @@ namespace robogen{
 				if (boost::dynamic_pointer_cast<SensorElement>( getSensors()[c])){
 					std::string ofs =
 							std::to_string(generation) + ","
-						+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getType() ) + ","
-						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getSensorRange() ) + ","
-						+	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> isActive() );
+						+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getType() ) + ",";
+					if(EDQD::Parameters::EDQDMultiBCMap)
+						ofs +=	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getSensorRange() ) + ",";
+					else
+						ofs +=	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> getValue() ) + ",";
+					ofs +=	std::to_string( boost::dynamic_pointer_cast< SensorElement>( getSensors()[c])-> isActive() );
 					ofs += "\n";
 					sensorLogger->write(std::string(ofs));
 					ofs.clear();
