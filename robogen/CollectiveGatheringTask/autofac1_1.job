@@ -1,5 +1,5 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=3
+#PBS -l select=1:ncpus=12
 #PBS -q seriallong
 #PBS -l walltime=144:00:00
 #PBS -P CSCI1142
