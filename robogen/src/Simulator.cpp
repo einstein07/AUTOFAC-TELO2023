@@ -233,7 +233,7 @@ void initLogging()
 		EDQD::Parameters::gMorphMapsLogger->setLoggerFile(EDQD::Parameters::gMorphMapsLogFile);
 		EDQD::Parameters::gMorphMapsLogger->write("generation,map_index");
 
-		std::vector<std::string> _behav_dim_names = {"average_sensor_range","active_sensor_ratio"};
+		std::vector<std::string> _behav_dim_names = {"active_sensor_ratio", "average_sensor_range"};
 		for (int i = 0; i < EDQD::Parameters::nbOfDimensions; i++) {
 			EDQD::Parameters::gMorphMapsLogger->write(std::string("," + _behav_dim_names[i]));
 		}

@@ -67,7 +67,7 @@ namespace robogen{
 			morphMap_ = new EDQDMap();
 			morphMergedMap_ = new EDQDMap();
 
-			sensorMinValue_ = 0.7;
+			sensorMinValue_ = -1.0;
 			sensorMaxValue_ = 1.0;
 
 		}
@@ -156,10 +156,10 @@ namespace robogen{
 	    	//updateFitness();
 	    	if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors){
 				if (iterations == EDQD::Parameters::maxIterations-1){
-					writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+					writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
 										"");
 					if (EDQD::Parameters::EDQDMultiBCMap)
-						writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + std::string(".csv"),
+						writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
 										"");
 				}
 	    	}
@@ -971,7 +971,6 @@ namespace robogen{
 				}
 			}
 		}
-		resetSensorInfo();
 		updateSensorInfo();
 	}
 
@@ -997,7 +996,6 @@ namespace robogen{
 
 	void EDQDRobot::reset(){
 		initController();
-		resetSensorInfo();
 		updateSensorInfo();
 
 	}
@@ -1382,13 +1380,13 @@ namespace robogen{
 	 * MORPHO-EVO
 	 ****************************************************************************************************************/
 	void EDQDRobot::mutateSensors(){
-		double delta_T1 = randgaussian() * currentSigma_;
+		/**double delta_T1 = randgaussian() * currentSigma_;
 		double delta_T2 = randgaussian() * currentSigma_;
 		double delta_T3 = randgaussian() * currentSigma_;
 		double delta_T4 = randgaussian() * currentSigma_;
 		double delta_T5 = randgaussian() * currentSigma_;
 
-		/**double normalisedVal_T1 = 0;
+		double normalisedVal_T1 = 0;
 		double normalisedVal_T2 = 0;
 		double normalisedVal_T3 = 0;
 		double normalisedVal_T4 = 0;
@@ -1399,11 +1397,12 @@ namespace robogen{
 		bool isNormalised_T3 = false;
 		bool isNormalised_T4 = false;
 		bool isNormalised_T5 = false;*/
-		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
-			double newValue = perSensorTypeRange_[i] - delta_T1;
-			perSensorTypeRange_[i] = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
+		int sensor =  randomSensor(engine);
+		//for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			double newValue = (((double)20/(double)3))*(perSensorTypeRange_[sensor] - (randgaussian() * currentSigma_));
+			perSensorTypeRange_[sensor] = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
 
-		}
+		//}
 
 		/**for (unsigned int j = 0; j < getSensors().size(); j++){
 			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
@@ -1451,6 +1450,7 @@ namespace robogen{
 		}*/
 	}
 	void EDQDRobot::updateSensorInfo(){
+		resetSensorInfo();
 		for (unsigned int i = 0; i < getSensors().size(); ++i){
 			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[i]) ){
 				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[i])-> getType() == SensorElement::RESOURCET1 ){

@@ -92,6 +92,7 @@ namespace robogen{
 		int s5 = sensorTypes.at(SensorElement::RESOURCET5);
 		double sumOfActiveSensors = ((double)(s1 + s2 + s3 + s4 + s5));
 		dim1 = sumOfActiveSensors/totalNumOfSensors;
+		std::cout << "dim 1: " << dim1 << " active sensors: " << sumOfActiveSensors << " total number of sensors: " << totalNumOfSensors << std::endl;
 		/**if ( sensorTypes.at(5) > 0.0 ) {
 			dim1 = ( s1 + s2 + s3 + s4 + s5 ) / sumOfActiveSensors;
 		} else if ( sensorTypes.at(4) > 0.0 ) {
