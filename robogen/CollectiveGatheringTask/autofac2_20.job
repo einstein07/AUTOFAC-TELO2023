@@ -1,6 +1,6 @@
 #!/bin/bash
-#PBS -l select=1:ncpus=3
-#PBS -q seriallong
+#PBS -l select=1:ncpus=12
+#PBS -q serial
 #PBS -l walltime=48:00:00
 #PBS -P CSCI1142
 #PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC//autofac2_20session.out
