@@ -31,7 +31,7 @@ namespace EDQD{
 	// reference value of sigma
 	double Parameters::sigmaRef = 0.1; // From EDQD-GECCO2018
 	// how long a controller will be evaluated on a robot
-	unsigned int Parameters::evaluationTime =10000;//3200;//800; // From EDQD-GECCO2018*/
+	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
 	unsigned int Parameters::maxIterations = 1000000;//804000;// 40000; // From EDQD-GECCO2018*/
 
@@ -60,9 +60,9 @@ namespace EDQD{
 
 	bool Parameters::onlyKeepMapsForGeneration = true;
 	bool Parameters::EDQDMapSelection = true;
-	bool Parameters::EDQDMultiBCMap = true;
+	bool Parameters::EDQDMultiBCMap = false;
 	int Parameters::selectionMethod = 2;
-	bool Parameters::evolveSensors = false;
+	bool Parameters::evolveSensors = true;
 
 	int Parameters::maxTimeResourceBound = 8000;//1000;
 
