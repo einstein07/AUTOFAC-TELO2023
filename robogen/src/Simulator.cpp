@@ -82,6 +82,8 @@ namespace robogen{
 
 unsigned int iterations = 0;
 
+//Morphology map
+EDQDMap* morphMap_;
 
 void initLogging()
 {
@@ -217,7 +219,7 @@ void initLogging()
 	EDQD::Parameters::gMapsLogger->write(std::string("\n"));
 	EDQD::Parameters::gMapsLogger->flush();
 
-	if (EDQD::Parameters::EDQDMultiBCMap){
+	if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors){
 	// ==== create specific "maps" logger file
 
 		std::string morphMapsLogFullFilename = gLogDirectoryname + "/morph-maps/morph_maps_"
@@ -621,6 +623,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
     int sumOfToken = 0;
     std::map<int,int> tokens;
 //    double tokenRatio = 0.0;
+    boost::shared_ptr<EDQDRobot> max_fitness = boost::static_pointer_cast<EDQDRobot>(robots[0]);
 
 
     for ( int i = 1; i <= EDQD::Parameters::nbOfPhysicalObjectGroups; i++ ){
@@ -648,6 +651,13 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 		ctl->updateCellId();
 
         ctl->writeEOGEntry(EDQD::Parameters::gEOGLogger);
+
+
+        if (EDQD::Parameters::evolveSensors){
+			if (ctl -> getFitness() > max_fitness -> getFitness()){
+				max_fitness = ctl;
+			}
+		}
 
         /**maps.push_back( *(ctl->getMap()) );
         if (EDQD::Parameters::EDQDMultiBCMap)
@@ -772,6 +782,60 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
     std::string sLog = std::string("") + std::to_string(iterations) + ",pop,alive," + std::to_string(activeCount) + "\n";
     gLogger->write(sLog);
     gLogger->flush();
+
+    if (EDQD::Parameters::evolveSensors){
+		int possibleTotalNumberOfSensors_ = 20;
+		std::map<int,double> perSensorTypeMaxRange_;
+		std::map<int,double> perSensorTypeRange_;
+		std::map<int,int> numOfActiveSensorsPerType_;
+		for (unsigned int i = 0; i < max_fitness -> getSensors().size(); ++i){
+			if ( boost::dynamic_pointer_cast<SensorElement>(max_fitness -> getSensors()[i]) ){
+				if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness -> getSensors()[i])-> getType() == SensorElement::RESOURCET1 ){
+					perSensorTypeRange_[SensorElement::RESOURCET1] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeMaxRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					if (  boost::dynamic_pointer_cast< SensorElement>(max_fitness -> getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET1]++;
+
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET2 ){
+					perSensorTypeMaxRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET2] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET2]++;
+
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET3 ){
+					perSensorTypeMaxRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET3] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET3]++;
+
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET4 ){
+					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET4] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					if (boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive()){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET4]++;
+
+					}
+				}
+				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET5 ){
+					possibleTotalNumberOfSensors_++;
+					perSensorTypeMaxRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET5] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
+						numOfActiveSensorsPerType_[SensorElement::RESOURCET5]++;
+
+					}
+				}
+			}
+		}
+		morphMap_ -> morphAdd( max_fitness -> getId(), max_fitness.get(), max_fitness -> getCurrentGenome(), max_fitness -> getCurrentSigma(), perSensorTypeRange_ );
+	}
 }
 
 void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
@@ -780,12 +844,15 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
 	std::vector<EDQDMap> maps(gNbOfRobots);
 	std::vector<EDQDMap> morphMaps(gNbOfRobots);
 
+
 	for ( int i = 0 ; i != gNbOfRobots ; i++ ) {
 		//EDQDRobot *ctl = static_cast<EDQDRobot*>(robots[i]);
 		boost::shared_ptr<EDQDRobot> ctl = boost::static_pointer_cast<EDQDRobot>(robots[i]);
 		maps.push_back( *(ctl->getMap()) );
 		if (EDQD::Parameters::EDQDMultiBCMap)
 			morphMaps.push_back( *(ctl->getMorphMap()) );
+
+
 
 	}
 
@@ -1005,6 +1072,102 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
   	}
 
 
+    if (EDQD::Parameters::evolveSensors){
+    	std::vector<double> fit;
+		std::map<std::pair<int,int>,int> ancestors;
+		double f = 0.0;
+		int sum = 0;
+		int min_fit = 0;
+		int max_fit = 0;
+		double mean_fit = 0;
+		int median_fit = 0;
+		double se = 0.0;
+		double sd = 0.0;
+		double var = 0.0;
+		int N = 0;
+    	behav_index_t _index;
+
+		size_t behav_dim = EDQD::Parameters::nbOfDimensions;
+	//	size_t behav_interval = EDQDSharedData::gEDQDNbOfIntervals;
+		size_t num_elements = morphMap_->getMap().num_elements();
+	//	EDQDMap* last;
+
+		for(size_t c = 0; c < num_elements; c++ ) {
+			// initialise
+			sum = 0;
+			fit.clear();
+			ancestors.clear();
+			f = 0.0;
+			min_fit = 0;
+			max_fit = 0;
+			mean_fit = 0;
+			median_fit = 0;
+			se = 0.0;
+			sd = 0.0;
+			var = 0.0;
+			N = 0;
+
+
+			// iterate through maps
+			//for (std::vector<EDQDMap>::iterator m = morphMaps.begin(); m != morphMaps.end(); m++ ) {
+				f = morphMap_->getMap().data()[c].fitness_;
+				if (f >= 0) {
+					N++;
+					sum += f;
+					fit.push_back(f);
+					if (f < min_fit) min_fit = f;
+					if (f > max_fit) max_fit = f;
+	//				last = &(*m);
+					//will add new entry to map if ancestor is not yet in
+					// => size of ancestors is used as approximation for number of unique genomes
+					ancestors[morphMap_->getMap().data()[c].id_];
+				}
+			//}
+
+			// calculate values
+			if (N > 0) {
+				size_t n = fit.size() / 2;
+				nth_element(fit.begin(), fit.begin()+n, fit.end());
+				if (fit.size() % 2 == 0) {
+					nth_element(fit.begin(), fit.begin()+n-1, fit.end());
+					median_fit = (fit[n-1] + fit[n]) / 2;
+				} else {
+					median_fit = fit[n];
+				}
+				mean_fit = sum / (double)N;
+				for( int i = 0; i < N; i++ ) {
+				  var += (fit[i] - mean_fit) * (fit[i] - mean_fit);
+				}
+				var /= N;
+				sd = sqrt(var);
+				se = sd / sqrt(N);
+			}
+
+			// get index values
+			for (size_t dim = 0; dim < behav_dim; dim++ ) {
+			  _index[dim] = (c / morphMaps.begin()->getMap().strides()[dim] % morphMaps.begin()->getMap().shape()[dim] +  morphMaps.begin()->getMap().index_bases()[dim]);
+			}
+
+			// output
+			std::string ofs = std::to_string(generation) + ","
+					+ std::to_string(c) + ",";
+			for (size_t dim = 0; dim < behav_dim; ++dim) {
+				ofs += std::to_string(_index[dim] / (float)morphMaps.begin()->getMap().shape()[dim]) + ",";
+			}
+			ofs += std::to_string(min_fit) + "," + std::to_string(max_fit) + ","
+					+ std::to_string(mean_fit) + "," + std::to_string(median_fit) + ","
+					+ std::to_string(sd) + "," + std::to_string(se) + ","
+					+ std::to_string(var) + "," + std::to_string(N);
+			ofs += "," + std::to_string(ancestors.size());
+			ofs += "\n";
+
+			EDQD::Parameters::gMorphMapsLogger->write(std::string(ofs));
+			ofs.clear();
+			ofs = "";
+		}
+		EDQD::Parameters::gMorphMapsLogger->flush();
+    }
+
 
 
 		bool _update = false;
@@ -1111,8 +1274,10 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				std::cout<<"*****Multi-BC Map Elites*****" <<std::endl;
 			else{
 				std::cout<<"*****Single-BC Map Elites*****";
-				if (EDQD::Parameters::evolveSensors)
+				if (EDQD::Parameters::evolveSensors){
 					std::cout << "Morph-adaptation";
+					morphMap_ = new EDQDMap();
+				}
 				std::cout << "\n";
 			}
 		}
@@ -1378,14 +1543,6 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 					std::cout << "******************************************************\n"
 							"Lifetime ended: replace genome (if possible)\n"
 							     "******************************************************" << std::endl;
-
-					if (EDQD::Parameters::evolveSensors){
-						float dice = float(randint()%100) / 100.0;
-						//std::cout << "Dice value: "<< dice << std::endl;
-						if ( dice <= EDQD::Parameters::pMutateSensorState ){
-							sensorStateMutator -> mutateSensorGroup(robots);
-						}
-					}
 				}
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
@@ -1462,6 +1619,13 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 									"Done. Replace life iteration: " << iterations << "\n"
 									"***********************************************" <<std::endl;
 					stepPost(robots);
+					if (EDQD::Parameters::evolveSensors){
+						float dice = float(randint()%100) / 100.0;
+						//std::cout << "Dice value: "<< dice << std::endl;
+						if ( dice <= EDQD::Parameters::pMutateSensorState ){
+							sensorStateMutator -> mutateSensorGroup(robots);
+						}
+					}
 				}
 				t += step;
 				iterations++;
