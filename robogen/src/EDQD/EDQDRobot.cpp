@@ -1517,11 +1517,16 @@ namespace robogen{
 		int totalActive = 0;
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
 			if ( isSensorTypeActive_[i] ){
+				std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << std::endl;
 				av += perSensorTypeRange_[i];
 				totalActive++;
 			}
+			else{
+				std::cout << "Sensor-type: " << i <<" is inactive "  << std::endl;
+			}
 		}
 		averageActiveSensorRange_ = av/((double)totalActive);
+		std::cout << "Active sensor av range: " << averageActiveSensorRange_ << std::endl;
 		return averageActiveSensorRange_;
 	}
 

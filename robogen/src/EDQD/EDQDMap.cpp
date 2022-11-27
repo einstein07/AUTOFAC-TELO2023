@@ -116,7 +116,7 @@ namespace robogen{
 		}
 		//std::cout << "dim1" << dim1 << " s-1" << oc1 << " s-2"  << oc2 << " s-3" << oc3 << " s-4" << oc4 << " s-5" << oc5 << " dim2: " << dim2 << " av-range: " << averageRange << " max-range: " << maxRange << std::endl; // DEBUG
 		//std::cout << dim1 << " " << dim2 << " "  << (long int)dim1 << " " << (long int)dim2 << std::endl; // DEBUG
-
+		std::cout << "dim 2: " << dim2 << " average range: " << averageRange << " max range: " << maxRange << std::endl;
 		if (pos) {
 			(*pos)[0] = dim1;
 			(*pos)[1] = dim2;

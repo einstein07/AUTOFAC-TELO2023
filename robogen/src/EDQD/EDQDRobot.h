@@ -285,9 +285,31 @@ class EDQDRobot : public Robot{
 	    const std::map<int,int>& getActiveSensors() const {
 	    	return numOfActiveSensorsPerType_;
 		}
+
+	    void setActiveSensors(std::map<int,int> active_sensors){
+	    	for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+	    		numOfActiveSensorsPerType_[i] = active_sensors[i];
+			}
+		}
+	    void isSensorTypeActive(std::map<int,bool> isSensorTypeActive){
+			for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+				isSensorTypeActive_[i] = isSensorTypeActive[i];
+			}
+		}
 	    double getAverageActiveSensorRange();
 	    double getMaxActiveSensorRangeAverage();
+	    void setPerSensorTypeRange(std::map<int,double> perSensorTypeRange){
+			for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+				perSensorTypeRange_[i] = perSensorTypeRange[i];
+			}
+		}
+	    void setPerSensorTypeMaxRange(std::map<int,double> perSensorTypeMaxRange){
+	    	for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+	    		perSensorTypeMaxRange_[i] = perSensorTypeMaxRange[i];
+			}
+	    }
 	    int getPossibleNumberOfSensors(){return possibleTotalNumberOfSensors_;}
+	    void setPossibleNumberOfSensors(int possible_number_of_sensors){possibleTotalNumberOfSensors_ = possible_number_of_sensors;}
 
 	    void resetSensorInfo();
 
