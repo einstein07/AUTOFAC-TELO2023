@@ -784,56 +784,84 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
     gLogger->flush();
 
     if (EDQD::Parameters::evolveSensors){
-		int possibleTotalNumberOfSensors_ = 20;
+		int possibleTotalNumberOfSensors = 20;
 		std::map<int,double> perSensorTypeMaxRange_;
 		std::map<int,double> perSensorTypeRange_;
+		std::map<int,double> perSensorTypeValue_;
 		std::map<int,int> numOfActiveSensorsPerType_;
+		std::map<int,bool> isSensorTypeActive;
 		for (unsigned int i = 0; i < max_fitness -> getSensors().size(); ++i){
 			if ( boost::dynamic_pointer_cast<SensorElement>(max_fitness -> getSensors()[i]) ){
 				if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness -> getSensors()[i])-> getType() == SensorElement::RESOURCET1 ){
-					perSensorTypeRange_[SensorElement::RESOURCET1] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
 					perSensorTypeMaxRange_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
+					perSensorTypeRange_[SensorElement::RESOURCET1] = (((double)3/(double)20) - boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeValue_[SensorElement::RESOURCET1] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue();
 					if (  boost::dynamic_pointer_cast< SensorElement>(max_fitness -> getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET1]++;
-
+						isSensorTypeActive[SensorElement::RESOURCET1] = true;
+					}
+					else{
+						isSensorTypeActive[SensorElement::RESOURCET1] = false;
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET2 ){
 					perSensorTypeMaxRange_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
-					perSensorTypeRange_[SensorElement::RESOURCET2] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeRange_[SensorElement::RESOURCET2] = (((double)3/(double)20) - boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeValue_[SensorElement::RESOURCET2] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue();
 					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET2]++;
-
+						isSensorTypeActive[SensorElement::RESOURCET2] = true;
+					}
+					else{
+						isSensorTypeActive[SensorElement::RESOURCET2] = false;
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET3 ){
 					perSensorTypeMaxRange_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
-					perSensorTypeRange_[SensorElement::RESOURCET3] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeRange_[SensorElement::RESOURCET3] = (((double)3/(double)20) - boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeValue_[SensorElement::RESOURCET3] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue();
 					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET3]++;
-
+						isSensorTypeActive[SensorElement::RESOURCET3] = true;
+					}
+					else{
+						isSensorTypeActive[SensorElement::RESOURCET3] = false;
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET4 ){
-					possibleTotalNumberOfSensors_++;
 					perSensorTypeMaxRange_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
-					perSensorTypeRange_[SensorElement::RESOURCET4] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeRange_[SensorElement::RESOURCET4] = (((double)3/(double)20) - boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeValue_[SensorElement::RESOURCET4] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue();
 					if (boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive()){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET4]++;
-
+						isSensorTypeActive[SensorElement::RESOURCET4] = true;
+					}
+					else{
+						isSensorTypeActive[SensorElement::RESOURCET4] = false;
 					}
 				}
 				else if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])-> getType() == SensorElement::RESOURCET5 ){
-					possibleTotalNumberOfSensors_++;
 					perSensorTypeMaxRange_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getMaxSensorRange();
-					perSensorTypeRange_[SensorElement::RESOURCET5] = (((double)3/(double)20) * boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeRange_[SensorElement::RESOURCET5] = (((double)3/(double)20) - boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue()) * ((double)20/(double)3);
+					perSensorTypeValue_[SensorElement::RESOURCET5] = boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i]) -> getValue();
 					if ( boost::dynamic_pointer_cast< SensorElement>(max_fitness ->getSensors()[i])->isActive() ){
 						numOfActiveSensorsPerType_[SensorElement::RESOURCET5]++;
-
+						isSensorTypeActive[SensorElement::RESOURCET5] = true;
+					}
+					else{
+						isSensorTypeActive[SensorElement::RESOURCET5] = false;
 					}
 				}
 			}
 		}
+		max_fitness -> isSensorTypeActive(isSensorTypeActive);
+		max_fitness -> setPossibleNumberOfSensors(possibleTotalNumberOfSensors);
+		max_fitness -> setActiveSensors(numOfActiveSensorsPerType_);
+		max_fitness -> setPerSensorTypeRange(perSensorTypeRange_);
+		max_fitness -> setPerSensorTypeMaxRange(perSensorTypeMaxRange_);
+		/**for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
+			std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << " - Value: " << perSensorTypeValue_[i] << std::endl;
+		}*/
 		morphMap_ -> morphAdd( max_fitness -> getId(), max_fitness.get(), max_fitness -> getCurrentGenome(), max_fitness -> getCurrentSigma(), perSensorTypeRange_ );
 	}
 }
