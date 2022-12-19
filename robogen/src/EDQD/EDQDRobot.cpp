@@ -154,15 +154,16 @@ namespace robogen{
 	    if ( isAlive() ){
 	    	stepController();
 	    	//updateFitness();
-	    	if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors){
-				if (iterations == EDQD::Parameters::maxIterations-1){
-					writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
-										"");
-					if (EDQD::Parameters::EDQDMultiBCMap)
-						writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
-										"");
-				}
-	    	}
+
+			if (iterations == EDQD::Parameters::maxIterations-1){
+				writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
+									"");
+
+				if (EDQD::Parameters::EDQDMultiBCMap)
+					writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
+									"");
+			}
+
 	    }
 
 	    else{
