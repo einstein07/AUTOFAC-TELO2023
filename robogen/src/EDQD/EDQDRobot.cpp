@@ -149,6 +149,7 @@ namespace robogen{
 	void EDQDRobot::step(boost::mutex& queueMutex){
 
 		// step evolution
+
 	    stepEvolution(queueMutex);
 	    // update fitness
 	    if ( isAlive() ){
@@ -374,7 +375,6 @@ namespace robogen{
 	    nn->setWeights(parameters_); // set-up NN
 	//    nn.set_all_weights(_parameters);
 	    std::vector<double> inputs = getSensorInputs(); // Build list of inputs (check properties file for extended/non-extended input values
-
 	    nn->setInputs(inputs);
 
 	    nn->step();
@@ -922,7 +922,7 @@ namespace robogen{
 		// wrt inputs
 
 		//TODO: Calculate this dynamically
-		nbInputs_ = 70;
+		nbInputs_ = 33;
 
 		// wrt outputs
 
