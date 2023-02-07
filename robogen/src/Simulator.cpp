@@ -1311,8 +1311,11 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		}
 		else{
 			std::cout<<"*****mEDEA*****" <<std::endl;
-			if (EDQD::Parameters::evolveSensors)
+			if (EDQD::Parameters::evolveSensors){
 				std::cout << "Morph-adaptation";
+				morphMap_ = new EDQDMap();
+			}
+
 			std::cout << "\n";
 		}
 		// ======================================================================================================
