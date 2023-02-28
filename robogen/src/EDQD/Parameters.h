@@ -158,6 +158,8 @@ namespace EDQD{
 		 */
 		static int maxTimeResourceBound;
 
+		static std::string logDirectoryname;
+
 		static std::ofstream gEOGLogFile;
 		static Logger* gEOGLogger;
 

@@ -31,9 +31,9 @@ namespace EDQD{
 	// reference value of sigma
 	double Parameters::sigmaRef = 0.1; // From EDQD-GECCO2018
 	// how long a controller will be evaluated on a robot
-	unsigned int Parameters::evaluationTime = 10000;//3200;//800; // From EDQD-GECCO2018*/
+	unsigned int Parameters::evaluationTime = 100;//10000;//3200;//800; // From EDQD-GECCO2018*/
 	// default to value used in previous work
-	unsigned int Parameters::maxIterations = 1000000;//804000;// 40000; // From EDQD-GECCO2018*/
+	unsigned int Parameters::maxIterations = 2000;//1000000;//804000;// 40000; // From EDQD-GECCO2018*/
 
 	bool Parameters::synchronization = true;
 
@@ -66,6 +66,8 @@ namespace EDQD{
 	bool Parameters::evolveSensors = true;
 
 	int Parameters::maxTimeResourceBound = 8000;//1000;
+
+	std::string Parameters::logDirectoryname = "logs";
 
 	std::ofstream Parameters::gEOGLogFile;
 	Logger* Parameters::gEOGLogger = NULL;
@@ -159,6 +161,46 @@ namespace EDQD{
 
 	        if (s == "sigma")
 				a_DataFile >> sigma;
+
+	        if (s == "logDirectoryname"){
+				a_DataFile >> logDirectoryname;
+			}
+
+	        if (s == "selectionMethod")
+				a_DataFile >> selectionMethod;
+
+	        if (s == "onlyKeepMapsForGeneration"){
+				a_DataFile >> tf;
+				if (tf == "true" || tf == "1" || tf == "1.0")
+					onlyKeepMapsForGeneration = true;
+				else
+					onlyKeepMapsForGeneration = false;
+			}
+
+	        if (s == "EDQDMapSelection"){
+				a_DataFile >> tf;
+				if (tf == "true" || tf == "1" || tf == "1.0")
+					EDQDMapSelection = true;
+				else
+					EDQDMapSelection = false;
+			}
+
+	        if (s == "EDQDMultiBCMap"){
+				a_DataFile >> tf;
+				if (tf == "true" || tf == "1" || tf == "1.0")
+					EDQDMultiBCMap = true;
+				else
+					EDQDMultiBCMap = false;
+			}
+	        if (s == "evolveSensors"){
+				a_DataFile >> tf;
+				if (tf == "true" || tf == "1" || tf == "1.0")
+					evolveSensors = true;
+				else
+					evolveSensors = false;
+			}
+
+
 	    }
 	    return 0;
 	}
@@ -168,8 +210,8 @@ namespace EDQD{
 	    std::ifstream data(a_FileName);
 	    if (!data.is_open())
 	        return 0;
-
 	    int result = Load(data);
+	    std::cout << "[INFO] - EDQD Parameters updated" << std::endl;
 	    data.close();
 	    return result;
 	}
@@ -203,6 +245,14 @@ namespace EDQD{
 	    fprintf(a_fstream, "listeningStateDelay %d\n", listeningStateDelay);
 	    fprintf(a_fstream, "mutationOperator %d\n", mutationOperator);
 	    fprintf(a_fstream, "sigma %3.20f\n", sigma);
+	    fprintf(a_fstream, "logDirectoryname %s\n", logDirectoryname.c_str());
+	    fprintf(a_fstream, "selectionMethod %d\n", selectionMethod);
+	    fprintf(a_fstream, "onlyKeepMapsForGeneration %s\n", onlyKeepMapsForGeneration==true?"true":"false");
+	    fprintf(a_fstream, "EDQDMapSelection %s\n", EDQDMapSelection==true?"true":"false");
+	    fprintf(a_fstream, "EDQDMultiBCMap %s\n", EDQDMultiBCMap==true?"true":"false");
+	    fprintf(a_fstream, "evolveSensors %s\n", evolveSensors==true?"true":"false");
+
+
 
 	    fprintf(a_fstream, "EDQD_ParametersEnd\n");
 	}
