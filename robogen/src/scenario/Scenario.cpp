@@ -457,15 +457,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 										rMaxZ <= robots_position[j][5])) {
 					inRangeZ = true;
 			}
-			/**if ((inRangeX && inRangeY && inRangeZ)) {
-				std::cout << "Attempting to pick a resource" <<std::endl;
-				if (resource->pickup(robots[j])) {
-					//can be picked up, so undo the overlap
-					inRangeX = false;
-					inRangeY = false;
-					inRangeZ = false;
-				}
-			}*/
+
 		}
 
 		// Do not insert resources in the robot range
@@ -482,16 +474,6 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 		}*/
 
 	}//end of resources loop
-	//if (environment_ -> getResources().size() >= 50){
-		for (unsigned int i = 0; i < environment_ -> getResources().size(); ++i){
-			std::cout << "The mass of resource " << (i+1) <<" is: " << std::to_string(environment_ -> getResources()[i] -> getMass().mass) << std::endl;
-		}
-	/**	std::cout << "The mass of resource 1 is: " << std::to_string(environment_ -> getResources()[0] -> getMass().mass) << std::endl;
-		std::cout << "The mass of resource 2 is: " << std::to_string(environment_ -> getResources()[10] -> getMass().mass) << std::endl;
-		std::cout << "The mass of resource 3 is: " << std::to_string(environment_ -> getResources()[20] -> getMass().mass) << std::endl;
-		std::cout << "The mass of resource 4 is: " << std::to_string(environment_ -> getResources()[30] -> getMass().mass) << std::endl;
-		std::cout << "The mass of resource 5 is: " << std::to_string(environment_ -> getResources()[40] -> getMass().mass) << std::endl;
-	}*/
         
         //---------------------------------------------------------------------- 
         //Setup light sources
