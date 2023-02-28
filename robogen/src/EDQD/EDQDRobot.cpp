@@ -32,7 +32,7 @@ namespace robogen{
 
 		isNull = true;
 
-		resourceLogFilename = "logs/resources/robot_"+ std::to_string(getId()) +"_resourcelog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
+		resourceLogFilename = gLogDirectoryname + "/resources/robot_"+ std::to_string(getId()) +"_resourcelog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
 		resourceLogFile.open(resourceLogFilename.c_str());
 		if(!resourceLogFile) {
 			std::cout << "[error] Cannot open log file " << std::endl;
@@ -45,7 +45,7 @@ namespace robogen{
 		resourceLogger -> flush();
 
 		if (EDQD::Parameters::evolveSensors || EDQD::Parameters::EDQDMultiBCMap){
-			sensorLogFilename = "logs/sensors/robot_"+ std::to_string(getId()) +"_sensorlog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
+			sensorLogFilename = gLogDirectoryname + "/sensors/robot_"+ std::to_string(getId()) +"_sensorlog_" + gStartTime + "_" + getpidAsReadableString() + ".csv";
 			sensorLogFile.open(sensorLogFilename.c_str());
 			if(!sensorLogFile) {
 				std::cout << "[error] Cannot open log file " << std::endl;
@@ -1518,16 +1518,16 @@ namespace robogen{
 		int totalActive = 0;
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
 			if ( isSensorTypeActive_[i] ){
-				std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << std::endl;
+				//std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << std::endl;
 				av += perSensorTypeRange_[i];
 				totalActive++;
 			}
-			else{
+			/*else{
 				std::cout << "Sensor-type: " << i <<" is inactive "  << std::endl;
-			}
+			}*/
 		}
 		averageActiveSensorRange_ = av/((double)totalActive);
-		std::cout << "Active sensor av range: " << averageActiveSensorRange_ << std::endl;
+		//std::cout << "Active sensor av range: " << averageActiveSensorRange_ << std::endl;
 		return averageActiveSensorRange_;
 	}
 
