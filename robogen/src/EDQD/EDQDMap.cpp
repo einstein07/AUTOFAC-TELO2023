@@ -79,11 +79,6 @@ namespace robogen{
 	}
 	behav_index_t EDQDMap::computeMorphIndex(const std::map<int, int>& sensorTypes, int totalNumOfSensors, double averageRange, double maxRange, std::vector<double>* pos){
 		double dim1 = 0.5, dim2 = 0.0;
-		/**for(auto const& imap: sensorTypes) {
-
-		  std::cout << "Key: " << imap.first << " ";
-		  std::cout << "Value: " << imap.second << std::endl;
-		}*/
 
 		int s1 = sensorTypes.at(SensorElement::RESOURCET1);
 		int	s2 = sensorTypes.at(SensorElement::RESOURCET2);
@@ -92,21 +87,8 @@ namespace robogen{
 		int s5 = sensorTypes.at(SensorElement::RESOURCET5);
 		double sumOfActiveSensors = ((double)(s1 + s2 + s3 + s4 + s5));
 		dim1 = sumOfActiveSensors/totalNumOfSensors;
-		std::cout << "dim 1: " << dim1 << " active sensors: " << sumOfActiveSensors << " total number of sensors: " << totalNumOfSensors << std::endl;
-		/**if ( sensorTypes.at(5) > 0.0 ) {
-			dim1 = ( s1 + s2 + s3 + s4 + s5 ) / sumOfActiveSensors;
-		} else if ( sensorTypes.at(4) > 0.0 ) {
-			dim1 = ( s1 + s2 + s3 +s4 ) / sumOfActiveSensors;
-		}
-		else if ( sensorTypes.at(3) > 0.0 ) {
-			dim1 = ( s1 + s2 + s3 ) / sumOfActiveSensors;
-		}
-		else if ( sensorTypes.at(2) > 0.0 ) {
-			dim1 = ( s1 + s2 ) / sumOfActiveSensors;
-		}
-		else if ( sensorTypes.at(1) > 0.0 ) {
-			dim1 = ( s1 ) / sumOfActiveSensors;
-		}*/
+		//std::cout << "dim 1: " << dim1 << " active sensors: " << sumOfActiveSensors << " total number of sensors: " << totalNumOfSensors << std::endl;
+
 		dim1 *= ((double) EDQD::Parameters::nbOfIntervals - 0.5);
 
 		if ( averageRange > 0 ) {
@@ -114,9 +96,10 @@ namespace robogen{
 			if ( dim2 < 0.0 ) { dim2 = 0; }
 			if ( dim2 > EDQD::Parameters::nbOfIntervals - 1 ) { dim2 = (double) EDQD::Parameters::nbOfIntervals - 0.5; }
 		}
+		// DEBUG
 		//std::cout << "dim1" << dim1 << " s-1" << oc1 << " s-2"  << oc2 << " s-3" << oc3 << " s-4" << oc4 << " s-5" << oc5 << " dim2: " << dim2 << " av-range: " << averageRange << " max-range: " << maxRange << std::endl; // DEBUG
 		//std::cout << dim1 << " " << dim2 << " "  << (long int)dim1 << " " << (long int)dim2 << std::endl; // DEBUG
-		std::cout << "dim 2: " << dim2 << " average range: " << averageRange << " max range: " << maxRange << std::endl;
+		//std::cout << "dim 2: " << dim2 << " average range: " << averageRange << " max range: " << maxRange << std::endl;
 		if (pos) {
 			(*pos)[0] = dim1;
 			(*pos)[1] = dim2;

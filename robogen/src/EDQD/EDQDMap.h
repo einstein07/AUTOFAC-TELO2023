@@ -312,10 +312,10 @@ class EDQDMap {
 	static void writeMapBin(const EDQDMap& m, const std::string& filename) {
 		std::ofstream ofs(filename.c_str());
 		assert(ofs.good());
-		std::cout << "writing : " << filename << std::endl;
+		//std::cout << "writing : " << filename << std::endl;
 		boost::archive::binary_oarchive oa(ofs);
 		oa& BOOST_SERIALIZATION_NVP(m);
-		std::cout << "done" << std::endl;
+		//std::cout << "done" << std::endl;
 	}
 
 	static EDQDMap loadMap(const std::string& filename) {
@@ -357,7 +357,7 @@ class EDQDMap {
 	static void writeMapToFile(const map_t& m, const std::string& filename,
 		const std::string& note = "")
 	{
-		std::cout << "writing " << note << " " << filename << std::endl;
+		//std::cout << "writing " << note << " " << filename << std::endl;
 
 		std::ofstream ofs(filename.c_str());
 
