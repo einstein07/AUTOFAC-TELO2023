@@ -120,6 +120,9 @@ namespace EDQD{
 	        if (s == "evaluationTime")
 				a_DataFile >> evaluationTime;
 
+	        if (s == "maxIterations")
+				a_DataFile >> maxIterations;
+
 	        if (s == "synchronization"){
 	        	a_DataFile >> tf;
 				if (tf == "true" || tf == "1" || tf == "1.0")
