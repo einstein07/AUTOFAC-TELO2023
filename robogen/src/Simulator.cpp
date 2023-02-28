@@ -69,7 +69,7 @@ Logger *gLogger = NULL;
 bool gVerbose_commandlineargument =             false; // set to true if given as command line argument (priority over properties file)
 bool gLogDirectoryname_commandlineargument =    false; // set to true only if given as command line argument (priority over properties file)
 bool gBatchMode_commandlineargument = false; // set to true only if given as command line argument (priority over properties file)
-std::string gLogDirectoryname =                 "logs";
+std::string gLogDirectoryname =                 "";
 std::string gLogFilename =						/**"datalog.txt";*/ "datalog_" + gStartTime + "_" + getpidAsReadableString() + ".txt";
 std::string gLogFullFilename =                  ""; // cf. the initLog method
 
@@ -78,6 +78,8 @@ int gRandomSeed = -1; // (default value should be "-1" => time-based random seed
 // Number of robots that are active - used to set each robot's unique ID
 int gNbOfRobots = 0;
 std::vector<osg::Vec3d> resourcePos;
+
+EDQD::Parameters EDQD_params_obj;
 namespace robogen{
 
 unsigned int iterations = 0;
@@ -87,49 +89,9 @@ EDQDMap* morphMap_;
 
 void initLogging()
 {
-	// test log directory.
-
-    /*
-
-    // notes, 2014-09-02: unfortunatly, boost::filesystem is not a header-only boost library...
-    // http://www.boost.org/doc/libs/1_53_0/more/getting_started/windows.html#header-only-libraries
-
-    boost::filesystem::path dir (gLogDirectoryname);
-    try
-    {
-		if (boost::filesystem::exists(dir))
-	    {
-			if (boost::filesystem::is_regular_file(dir))
-			{
-	        	std::cout << "[ERROR] directory for logging \"" << dir << "\" already exists, but is a regular file!\n";
-				exit (-1);
-			}
-			else
-				if (!boost::filesystem::is_directory(dir))
-				{
-					// directory does not exist. Create it.
-                    std::cout << "[INFO] directory for logging \"" << dir << "\" did not exist. Creating new directory.\n";
-					boost::filesystem::create_directories(dir);
-				}
-	    }
-	    else
-		{
-			// directory does not exist. Create it.
-            std::cout << "[INFO] directory for logging \"" << dir << "\" did not exist. Creating new directory.\n";
-			boost::filesystem::create_directories(dir);
-		}
-	}
-	catch (const boost::filesystem::filesystem_error& ex)
-	{
-		std::cout << ex.what() << std::endl;
-		exit (-1);
-	}
-
-    */
-
 
     // init log file
-
+	gLogDirectoryname = EDQD::Parameters::logDirectoryname;
     gLogFullFilename = gLogDirectoryname + "/" + gLogFilename;
 
 	gLogFile.open(gLogFullFilename.c_str());//, std::ofstream::out | std::ofstream::app);
@@ -282,25 +244,6 @@ void initLogging()
 	EDQD::Parameters::gResourcesLogger->write(std::string("\n"));
 	EDQD::Parameters::gResourcesLogger->flush();
 
-/**#ifdef EVOLVE_SENSORS
-
-	// ==== create specific "morphology state" logger file
-
-	std::string morphLogFullFilename = gLogDirectoryname + "/morph_"
-			+ gStartTime + "_" + getpidAsReadableString() + ".csv";
-	EDQD::Parameters::gMorphLogFile.open(morphLogFullFilename.c_str());
-
-	if(!EDQD::Parameters::gMorphLogFile) {
-		std::cout << "[CRITICAL] Cannot open \"morph\" log file " << morphLogFullFilename << "." << std::endl << std::endl;
-		exit(-1);
-	}
-
-	EDQD::Parameters::gMorphLogger = new Logger();
-	EDQD::Parameters::gMorphLogger->setLoggerFile(EDQD::Parameters::gMorphLogFile);
-	EDQD::Parameters::gMorphLogger->write("generation,s-type,s-value, isActive");
-	EDQD::Parameters::gMorphLogger->write(std::string("\n"));
-	EDQD::Parameters::gMorphLogger->flush();
-#endif*/
 }
 
 
@@ -579,37 +522,8 @@ void stepGatheringZone(
 					std::vector<boost::shared_ptr<Robot>>& robots,
 					boost::shared_ptr<Environment>& env,
 					boost::mutex& queueMutex
-				){
-	/**if (robogen::iterations % EDQD::Parameters::evaluationTime == 0){
-		for (unsigned int c = 0; c < env -> getResources().size(); c++){
-			resourcePos.push_back(env -> getResources()[c] -> getPosition());
-		}
-	}*/
+					){
 	env -> stepGatheringZone(robots, queueMutex);
-	/**int generation = iterations / EDQD::Parameters::evaluationTime;
-	if( iterations % EDQD::Parameters::evaluationTime == EDQD::Parameters::evaluationTime-1 ){
-		// "generation,resource_type,initial_pos,final_pos,distance"
-		for(unsigned int c = 0; c < env -> getResources().size(); c++ ){
-		osg::Vec3d curr_pos = env -> getResources()[c] -> getPosition();
-		double dist = distance(resourcePos[c], curr_pos);
-		// output
-		std::string ofs =
-					std::to_string(generation) + ","
-				+ 	std::to_string(env -> getResources()[c] -> getType()) + ","
-				+	"(" + std::to_string( resourcePos[c].x() ) + ", " + std::to_string( resourcePos[c].y() ) + "),"
-				+	"(" + std::to_string( curr_pos.x() ) + ", " + std::to_string( curr_pos.y() ) + "),"
-				+	std::to_string(dist);
-		ofs += "\n";
-
-		EDQD::Parameters::gMapsLogger->write(std::string(ofs));
-		ofs.clear();
-		ofs = "";
-		}
-		EDQD::Parameters::gMapsLogger->flush();
-		resourcePos.clear();
-
-	}*/
-
 }
 void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> > robots, boost::shared_ptr<Environment> env ){
     // * monitoring: count number of active agents.
@@ -658,19 +572,6 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 				max_fitness = ctl;
 			}
 		}
-
-        /**maps.push_back( *(ctl->getMap()) );
-        if (EDQD::Parameters::EDQDMultiBCMap)
-        	morphMaps.push_back( *(ctl->getMorphMap()) );*/
-
-//        std::string __map =
-//        		EDQD::mapToString(
-//        				ctl->getMap()->getMap(),
-//						std::string(
-//								std::to_string(generation) + "," +
-//								std::to_string(ctl->getWorldModel()->getId()) + ","
-//								));
-//		EDQDSharedData::gMapsLogManager->write(__map);
     }
     EDQD::Parameters::gEOGLogger->flush();
 //    EDQDSharedData::gMapsLogManager->flush();
@@ -722,25 +623,6 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 	}
 	EDQD::Parameters::gResourcesLogger->flush();
 	resourcePos.clear();
-
-/**#ifdef EVOLVE_SENSORS
-	// "generation,s-type,s-value,isActive"
-	for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
-		// output
-		if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
-			std::string ofs =
-					std::to_string(generation) + ","
-				+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getType() ) + ","
-				+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getValue() ) + ","
-				+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> isActive() );
-			ofs += "\n";
-			EDQD::Parameters::gMorphLogger->write(std::string(ofs));
-			ofs.clear();
-			ofs = "";
-		}
-	}
-	EDQD::Parameters::gMorphLogger->flush();
-#endif*/
 
     if ( /**gVerbose && */localVerbose ) {
         std::cout << "[ gen:" << (iterations/EDQD::Parameters::evaluationTime)
@@ -859,9 +741,7 @@ void monitorPopulation( bool localVerbose, std::vector<boost::shared_ptr<Robot> 
 		max_fitness -> setActiveSensors(numOfActiveSensorsPerType_);
 		max_fitness -> setPerSensorTypeRange(perSensorTypeRange_);
 		max_fitness -> setPerSensorTypeMaxRange(perSensorTypeMaxRange_);
-		/**for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
-			std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << " - Value: " << perSensorTypeValue_[i] << std::endl;
-		}*/
+
 		morphMap_ -> morphAdd( max_fitness -> getId(), max_fitness.get(), max_fitness -> getCurrentGenome(), max_fitness -> getCurrentSigma(), perSensorTypeRange_ );
 	}
 }
@@ -1080,23 +960,6 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
   		}
   		EDQD::Parameters::gMorphMapsLogger->flush();
 
-  		// "generation,s-type,s-value,isActive"
-  		/**for(unsigned int c = 0; c < robots[0] -> getSensors().size(); c++ ){
-  			// output
-  			if (boost::dynamic_pointer_cast<SensorElement>(robots[0]-> getSensors()[c])){
-  				std::string ofs =
-  						std::to_string(generation) + ","
-  					+ 	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getType() ) + ","
-  					+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> getSensorRange() ) + ","
-  					+	std::to_string( boost::dynamic_pointer_cast< SensorElement>(robots[0]-> getSensors()[c])-> isActive() );
-  				ofs += "\n";
-  				EDQD::Parameters::gMorphLogger->write(std::string(ofs));
-  				ofs.clear();
-  				ofs = "";
-  			}
-  		}
-  		EDQD::Parameters::gMorphLogger->flush();*/
-
   	}
 
 
@@ -1216,7 +1079,7 @@ void stepPost(std::vector<boost::shared_ptr<Robot> > robots)
 		}
 		if ( _update )
 		{
-			std::cout << "[INFO] Global best map updated:\n";
+			std::cout << "[INFO] Global best map updated\n";
 					//<< bestMap_ << std::endl;
 			std::string fname = gLogDirectoryname + "/bestmaps/"
 					+ "bestmap_"
@@ -1501,9 +1364,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				return SIMULATION_FAILURE;
 			}
 
-			std::cout << /**"Space ID: " << perRobotSpaces[0] <<*/"Total number of geoms per robot space: " << dSpaceGetNumGeoms(perRobotSpaces[0]) << std::endl;
-			std::cout << /**"Space ID: " << envObjectsSpace <<*/"Total number of geoms in environment space: " << dSpaceGetNumGeoms(envObjectsSpace) << std::endl;
-			std::cout << /**"Space ID: " << odeSpace <<*/"Total number of geoms in odeSpace: " << dSpaceGetNumGeoms(odeSpace) << std::endl;
+			//std::cout << /**"Space ID: " << perRobotSpaces[0] <<*/"Total number of geoms per robot space: " << dSpaceGetNumGeoms(perRobotSpaces[0]) << std::endl;
+			//std::cout << /**"Space ID: " << envObjectsSpace <<*/"Total number of geoms in environment space: " << dSpaceGetNumGeoms(envObjectsSpace) << std::endl;
+			//std::cout << /**"Space ID: " << odeSpace <<*/"Total number of geoms in odeSpace: " << dSpaceGetNumGeoms(odeSpace) << std::endl;
 			//setup vectors for keeping velocities
 			int len = configuration->getSwarmSize();
 			dReal previousLinVel[len][3];
@@ -1570,11 +1433,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 							resourcePos.push_back(env -> getResources()[c] -> getPosition());
 						}
 				}
-				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
-					std::cout << "******************************************************\n"
-							"Lifetime ended: replace genome (if possible)\n"
-							     "******************************************************" << std::endl;
-				}
+
 				// 1. Prepare thread structure
 				//if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0)
 #ifdef DEBUG_SIM_LOOP
@@ -1646,9 +1505,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 				std::cout << "Robot action loop complete" << std::endl;
 #endif
 				if (robogen::iterations > 0 && robogen::iterations % EDQD::Parameters::evaluationTime == 0){
-					std::cout << 	"**********************************************\n"
-									"Done. Replace life iteration: " << iterations << "\n"
-									"***********************************************" <<std::endl;
+
 					stepPost(robots);
 					if (EDQD::Parameters::evolveSensors){
 						float dice = float(randint()%100) / 100.0;
@@ -1778,6 +1635,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 	    if ( seconds > 1 )
 	        std::cout << "s";
 	    std::cout << "." << std::endl << std::endl;
+	    std::string  str = "EDQD_params_"+gStartTime+".txt";
+	    const char* ptr = str.c_str();
+	    EDQD_params_obj.Save(ptr);
 	}
 	else{
 
