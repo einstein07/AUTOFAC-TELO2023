@@ -596,11 +596,8 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 	}
 	else if(vm["mode"].as<std::string>() == "embodied") {
 		mode = "embodied";
-
-		if((!vm.count("EDQDParamsFile"))){
-
-		}
-		else{
+		if((vm.count("EDQDParamsFile"))){
+			EDQDParamsFile = vm["EDQDParamsFile"].as<std::string>();
 			makeAbsolute(EDQDParamsFile, filePath);
 
 			if (EDQDParams.Load(EDQDParamsFile.c_str()) < 0) {
