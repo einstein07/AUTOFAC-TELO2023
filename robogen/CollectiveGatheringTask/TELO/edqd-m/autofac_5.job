@@ -3,8 +3,8 @@
 #PBS -q serial
 #PBS -l walltime=48:00:00
 #PBS -P CSCI1142
-#PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC/robogen/build/TELO/edqd-m/output/autofac_5session.out
-#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC/robogen/build/TELO/edqd-m/output/autofac_5session.err
+#PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC-TELO2023/robogen/build/TELO/edqd-m/output/autofac_5session.out
+#PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC-TELO2023/robogen/build/TELO/edqd-m/output/autofac_5session.err
 ### PBS -J 1-10:1
 #PBS -m abe
 #PBS -M mkhsin035@myuct.ac.za
@@ -15,4 +15,4 @@ hostname > hostname.txt
 
 
 
-cd /home/smkhatshwa/lustre/Masters/AUTOFAC/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/TELO/edqd-m/con5.txt --seed 5 --no-visualization
+cd /home/smkhatshwa/lustre/Masters/AUTOFAC-TELO2023/robogen/build && ./robogen-file-viewer ../CollectiveGatheringTask/front_active_wheel_robot_model_sensor_morph.txt ../CollectiveGatheringTask/TELO/edqd-m/con5.txt --seed 5 --no-visualization
