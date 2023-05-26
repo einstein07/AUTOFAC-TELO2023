@@ -35,7 +35,9 @@
 #include <QCoreApplication>
 #include <QScriptEngine>
 #include <QScriptable>
-
+/**
+ * \brief Class to describe exposable
+ */
 class Exposable : public QObject, public QScriptable,
 					public boost::enable_shared_from_this<Exposable> {
 	Q_OBJECT
@@ -44,14 +46,22 @@ class Exposable : public QObject, public QScriptable,
 	QScriptValue userObject_;
 
  public:
+	/**
+	 * \brief Default constructor
+	 */
 	Exposable() : a_(5), b_(7), child_(new Exposable(2, 3)) {}
+	/**
+	 * \brief Constructor
+	 */
 	Exposable(int a, int b) : a_(a), b_(b) {}
 	/*Exposable(const Exposable& exposable) :
 		QObject(), boost::enable_shared_from_this<Exposable>(),
 		a(exposable.a), b(exposable.b), child(exposable.child) {
 	}*/
 
-
+	/**
+	 * \brief Destructor
+	 */
 	~Exposable() {}
 	boost::shared_ptr<Exposable> getShared() { return shared_from_this(); }
 	void setUserObject(QScriptValue userObject) {
