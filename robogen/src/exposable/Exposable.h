@@ -39,7 +39,9 @@
 #define EXPOSED_POINTER QObject*
 
 namespace robogen {
-
+/**
+ * \brief Class to describe Exposable
+ */
 class Exposable : QObject {
 	Q_OBJECT
 };

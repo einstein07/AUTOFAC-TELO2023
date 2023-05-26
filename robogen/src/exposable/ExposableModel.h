@@ -33,14 +33,21 @@
 
 namespace robogen {
 
-
+/**
+ * \brief Class to describe ExposableModel
+ */
 class ExposableModel : public Exposable {
 
 public :
+	/**
+	 * \brief Constructor
+	 */
 	ExposableModel(boost::shared_ptr<Model> model) : model_(model) {}
 
 EXPOSE_METHODS :
-
+	/**
+	 * \brief Returns position
+	 */
 	osg::Vec3 getRootPosition();
 
 private :
