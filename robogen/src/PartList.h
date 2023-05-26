@@ -117,8 +117,13 @@ extern const std::map<std::string, std::vector<std::string> >
 	PART_TYPE_MOTORS_MAP;
 extern const std::map<std::string, std::vector<std::string> >
 	PART_TYPE_SENSORS_MAP;
-
+/**
+ * \brief Returns whether this part is a core or not
+ */
 bool isCore(char partType);
+/**
+ * \brief Returns whether this part is a core or not
+ */
 bool isCore(std::string partType);
 
 } /* namespace robogen */
