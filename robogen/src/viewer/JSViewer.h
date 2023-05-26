@@ -38,11 +38,20 @@
 void sendJSEvent(std::string name, std::string jsonData);
 
 namespace robogen {
-
+/**
+ * \brief Class to describe JSViewer
+ */
 class JSViewer: public IViewer {
 public:
+	/**
+	 * \brief Constructor
+	 */
 	JSViewer();
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~JSViewer();
+
 	virtual bool configureScene(
 			std::vector<boost::shared_ptr<Model> > bodyParts,
 			boost::shared_ptr<Scenario> scenario);

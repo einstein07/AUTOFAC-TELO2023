@@ -33,17 +33,23 @@
 #include <osg/Version>
 
 namespace robogen {
-
+/**
+ * \brief Class to describe KeyboardHandler
+ */
 class KeyboardHandler: public osgGA::GUIEventHandler {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	KeyboardHandler(bool startPaused, bool geoms, bool meshes/*, bool transparent*/)
 		: osgGA::GUIEventHandler(), paused_(startPaused), geoms_(geoms),
 		  meshes_(meshes), /*transparent_(transparent),*/ quit_(false)  {
 
 	}
-
+	/**
+	 * \brief Handles key press events
+	 */
 	virtual bool handle(const osgGA::GUIEventAdapter& ea,
 			osgGA::GUIActionAdapter&) {
 
@@ -98,16 +104,20 @@ public:
 #endif
 
 	/**
-	 * Check if the pause button was pressed
+	 * \brief Check if the pause button was pressed
 	 */
 	bool isPaused() {
 		return paused_;
 	}
-
+	/**
+	 * \brief Returns whether or not Geoms are shown
+	 */
 	bool showGeoms() {
 		return geoms_;
 	}
-
+	/**
+	 * \brief Returns whether or not Meshes are shown
+	 */
 	bool showMeshes() {
 		return meshes_;
 	}
@@ -118,7 +128,7 @@ public:
 
 
 	/**
-	 * True if the quit button was pressed
+	 * \brief True if the quit button was pressed
 	 */
 	bool isQuit() {
 		return quit_;

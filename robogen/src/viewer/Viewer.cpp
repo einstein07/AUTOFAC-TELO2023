@@ -38,21 +38,37 @@
 #include "model/objects/GatheringZone.h"
 
 namespace robogen{
-
+/**
+ * \brief Class to describe SnapImageDrawCallback
+ */
 class SnapImageDrawCallback : public osg::Camera::DrawCallback {
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	SnapImageDrawCallback()
 	{
 		_snapImageOnNextFrame = false;
 	}
-
+	/**
+	 * \brief Sets filename
+	 */
 	void setFileName(const std::string& filename) { _filename = filename; }
+	/**
+	 * \brief Returns filename
+	 */
 	const std::string& getFileName() const { return _filename; }
-
+	/**
+	 * \brief Sets flag
+	 */
 	void setSnapImageOnNextFrame(bool flag) { _snapImageOnNextFrame = flag; }
+	/**
+	 * \brief Returns flag
+	 */
 	bool getSnapImageOnNextFrame() const { return _snapImageOnNextFrame; }
-
+	/**
+	 * \brief Definition of () operator
+	 */
 	virtual void operator () (const osg::Camera& camera) const
 	{
 		if (!_snapImageOnNextFrame) return;
@@ -75,8 +91,13 @@ public:
 	}
 
 protected:
-
+	/**
+	 * \brief Filename
+	 */
 	std::string _filename;
+	/**
+	 * \brief Flags snapping image on next frame
+	 */
 	mutable bool _snapImageOnNextFrame;
 
 

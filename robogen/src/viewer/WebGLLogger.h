@@ -42,37 +42,112 @@
 #include <model/components/ParametricBrickModel.h>
 
 namespace robogen {
-
+/**
+ * \brief Struct to describe BodyDescriptor
+ */
 struct BodyDescriptor {
+	/**
+	 * \brief Model
+	 */
 	boost::shared_ptr<Model> model;
+	/**
+	 * \brief Mesh name
+	 */
 	std::string meshName;
+	/**
+	 * \brief Body id
+	 */
 	int bodyId;
 };
-
+/**
+ * \brief Class to describe WebGLLogger
+ */
 class WebGLLogger {
 public:
+	/**
+	 * \brief Constructor
+	 */
 	WebGLLogger(std::string inFileName, boost::shared_ptr<Scenario> in_scenario,
 			double targetFramerate = 120.0);
+	/**
+	 * \brief Log
+	 */
 	void log(double dt);
+	/**
+	 * \brief Destructor
+	 */
 	~ WebGLLogger();
+	/**
+	 * \brief Structure tag
+	 */
 	static const char* STRUCTURE_TAG;
+	/**
+	 * \brief Log tag
+	 */
 	static const char* LOG_TAG;
+	/**
+	 * \brief Attitude tag
+	 */
 	static const char* ATTITUDE_TAG;
+	/**
+	 * \brief Position tag
+	 */
 	static const char* POSITION_TAG;
+	/**
+	 * \brief REL Position tag
+	 */
 	static const char* REL_POS_TAG;
+	/**
+	 * \brief REL attitude tag
+	 */
 	static const char* REL_ATT_TAG;
+	/**
+	 * \brief Map tag
+	 */
 	static const char* MAP_TAG;
+	/**
+	 * \brief Mesh path
+	 */
 	static const char* MESH_PATH;
+	/**
+	 * \brief Map dimension tag
+	 */
 	static const char* MAP_DIM_TAG;
+	/**
+	 * \brief Map data tag
+	 */
 	static const char* MAP_DATA_TAG;
+	/**
+	 * \brief Obstacle tags
+	 */
 	static const char* OBSTACLE_TAGS;
+	/**
+	 * \brief Obstacle DEF tag
+	 */
 	static const char* OBSTACLE_DEF_TAG;
+	/**
+	 * \brief Obstacle LOG tag
+	 */
 	static const char* OBSTACLE_LOG_TAG;
+	/**
+	 * \brief Light tags
+	 */
 	static const char* LIGHT_TAGS;
-
+	/**
+	 * \brief Returns structure JSON
+	 */
 	std::string getStructureJSON();
+	/**
+	 * \brief Returns obstacle definition JSON
+	 */
 	std::string getObstaclesDefinitionJSON();
+	/**
+	 * \brief Returns lights JSON
+	 */
 	std::string getLightsJSON();
+	/**
+	 * \brief Returns last log JSON
+	 */
 	std::string getLastLogJSON();
 
 private:

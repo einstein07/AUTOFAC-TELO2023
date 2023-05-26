@@ -36,23 +36,36 @@
 
 #define MAX_TIME_BETWEEN_FRAMES 0.05
 namespace robogen {
+/**
+ * \brief Class to describe IViewer
+ */
 class IViewer {
 
 public:
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~IViewer() {};
+	/**
+	 * \brief Configure scene
+	 */
 	virtual bool configureScene(std::vector<boost::shared_ptr<Model> > bodyParts,
 			boost::shared_ptr<Scenario> scenario) = 0;
 	/**
-	 * SM Added
+	 * \brief Configure scene with swarm
 	 */
 	virtual bool configureScene(std::vector<std::vector<boost::shared_ptr<Model> > > swarmBodyParts,
 				boost::shared_ptr<Scenario> scenario) = 0;
 	virtual bool done() = 0;
 
-	/***	 * frame:  updates frame if it should be updated	 * params:	 * 		simulatedTime: the amount of time simulated so far (in seconds)	 * 		numTimeSteps: the number of time steps simulated so far	 * returns:	 * 		false if paused or going to fast	 * 			(so simulator should continue without stepping physics)	 * 		true otherwise	 */
+	/**
+	 * \brief Step frame
+	 *	 * frame:  updates frame if it should be updated	 * params:	 * 		simulatedTime: the amount of time simulated so far (in seconds)	 * 		numTimeSteps: the number of time steps simulated so far	 * returns:	 * 		false if paused or going to fast	 * 			(so simulator should continue without stepping physics)	 * 		true otherwise	 */
 
 	virtual bool frame(double simulatedTime, unsigned int numTimeSteps) = 0;
-
+	/**
+	 * \brief Flags IViewer activity
+	 */
 	virtual bool isPaused() = 0;
 };
 }
