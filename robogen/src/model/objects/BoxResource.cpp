@@ -32,8 +32,12 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
     
     jointGroup_ = dJointGroupCreate(0);
-    value_ = type;
-    pushingRobots_ = type;
+    /*
+     * No cooperation.
+     * Pushing robots should be set to 1
+     */
+    value_ = 1;//type;
+    pushingRobots_ = 1;//type;
     id = resourceId;
     data_.objectId = resourceId;
     resourceId++;
