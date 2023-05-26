@@ -42,28 +42,61 @@
 
 namespace robogen {
 //---------------------------------------------
-//SM Added - useful data for sensing mechanism
+/** \brief Useful data for sensing mechanism - SM*/
 //---------------------------------------------
 struct ObjectData {
+	/**
+	 * \brief id
+	 */
 	int objectId;
+	/**
+	 * \brief Flag robot
+	 */
 	bool isRobot;
+	/**
+	 * \brief Flag resource
+	 */
 	bool isResource;
+	/**
+	 * \brief Flag target area
+	 */
 	bool isTargetArea;
+	/**
+	 * \brief Flag wall
+	 */
 	bool isWall;
 };
 //---------------------------------------------
+/**
+ * \brief ODE ops
+ */
 float fromOde(float x);
+/**
+ * \brief ODE ops
+ */
 double fromOde(double x);
+/**
+ * \brief ODE ops
+ */
 osg::Vec3 fromOde(osg::Vec3 x);
 
-//build rotationMatrixOde and put it in rotationMatrixOde
+/** \brief build rotationMatrixOde and put it in rotationMatrixOde*/
 void getRotationMatrixOde(osg::Quat quat, dQuaternion rotationMatrixOde);
-
+/**
+ * \brief Returns RPY from Quat
+ */
 osg::Vec3 getRPYfromQuat(osg::Quat quat);
-
+/**
+ * \brief Perform modulo
+ */
 int modulo(int x, int y);
-
+/**
+ * \brief Start robogen
+ */
 void startRobogen();
+/**
+ * \brief Exit robogen
+ */
 void exitRobogen(int exitCode);
 
 }

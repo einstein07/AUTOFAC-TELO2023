@@ -43,7 +43,7 @@
 namespace robogen {
 
 /**
- * Visits a body tree and connects body parts accordingly
+ * \brief Class to visit a body tree and connect body parts accordingly
  */
 class BodyConnectionVisitor: public boost::default_bfs_visitor {
 
@@ -56,7 +56,7 @@ public:
 	}
 
 	/**
-	 * From boost doc: This is invoked on each edge as it becomes a member of
+	 * \brief From boost doc: This is invoked on each edge as it becomes a member of
 	 * the edges that form the search tree.
 	 */
 	void tree_edge(BodyEdge v, const BodyGraph& g) const {
@@ -96,7 +96,7 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 	//std::cout << "****ROBOT-INIT****" <<std::endl;
 	odeWorld_ = odeWorld;
 	odeSpace_ = odeSpace;
-	/**
+	/*
 	 * SM Added
 	 */
 	//robotSpace_ = NULL;
@@ -139,7 +139,7 @@ bool Robot::init(dWorldID odeWorld, dSpaceID odeSpace,
 	// SM Added - necessary for sensory mechanism, i.e. for sensor to detect object type
 	//----------------------------------------------------------------------------------------
 	//std::cout << "Robot ID: "<< getId() << std::endl;
-	/**data_.objectId = getId();
+	/*data_.objectId = getId();
 	data_.isRobot = true;
 	data_.isResource = false;
 	data_.isTargetArea = false;
@@ -1013,7 +1013,7 @@ boost::shared_ptr<Model> Robot::getBodyPart(std::string id) {
 	std::map<std::string, unsigned int>::iterator bodyPartId =
 			bodyPartsMap_.find(id);
 
-	/**if (bodyPartId == bodyPartsMap_.end()) {
+	/*if (bodyPartId == bodyPartsMap_.end()) {
 		std::cout << "ID not found!!!" << std::endl;
 		//std::cout << "Will return: "<< bodyPartId->first << " with index: " << bodyPartId->second << " in the bodyparts vector."<<std::endl;
 	}

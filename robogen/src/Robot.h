@@ -52,8 +52,13 @@ namespace robogen {
 class Model;
 class Motor;
 class Sensor;
-
+/**
+ * \brief Struct to describe BodyEdgeDescriptorTag
+ */
 struct BodyEdgeDescriptorTag {
+	/**
+	 * \brief Edge property tag
+	 */
 	typedef boost::edge_property_tag kind;
 };
 typedef boost::property<BodyEdgeDescriptorTag, boost::shared_ptr<Connection> >
@@ -65,18 +70,18 @@ typedef boost::adjacency_list<boost::listS, boost::vecS, boost::undirectedS,
 typedef boost::graph_traits<BodyGraph>::edge_descriptor BodyEdge;
 
 /**
- * A ROBOGEN Robot
+ * \brief Class that describes a ROBOGEN robot
  */
 class Robot {
 
 public:
 	/**
-	 * Error-less constructor.
+	 * \brief Error-less constructor.
 	 */
 	Robot();
 
 	/**
-	 * Initializes a Robogen robot from a robogen message
+	 * \brief Initializes a Robogen robot from a robogen message
 	 * @param odeWorld
 	 * @param odeSpace
 	 * @param robotSpec
@@ -85,9 +90,9 @@ public:
 				const robogenMessage::Robot& robotSpec,
 				bool printInfo=false, bool printInitErrors=true);
 	/**
-	 * SM Modified - to allow constructor initialization with two
+	 * \brief Modified - to allow constructor initialization with two
 	 * collision spaces - one for the whole word and the other
-	 * specific to this robot
+	 * specific to this robot - SM
 	 */
 
 	bool init(dWorldID odeWorld, dSpaceID odeSpace,
@@ -95,127 +100,158 @@ public:
 				bool printInfo=false, bool printInitErrors=true);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~Robot();
 
 	/**
+	 * \brief Returns body parts
+	 *
 	 *  @return  the body parts of which the robot is composed of
 	 */
 	const std::vector<boost::shared_ptr<Model> >& getBodyParts();
 
 	/**
+	 * \brief Returns ANN
+	 *
 	 * @return the neural network that controls the robot
 	 */
 	const boost::shared_ptr<NeuralNetwork>& getBrain() const;
 
 	/**
+	 * \brief Returns sensors
+	 *
 	 * @return the sensors of the robot
 	 */
 	const std::vector<boost::shared_ptr<Sensor> >& getSensors() const;
 
 	/**
+	 * \brief Returns motors
+	 *
 	 * @return the motors of the robot
 	 */
 	const std::vector<boost::shared_ptr<Motor> >& getMotors();
 
 	/**
+	 * \brief Returns core component
+	 *
 	 * @return the core component of the robot
 	 */
 	boost::shared_ptr<Model> getCoreComponent();
 
 	/**
-	 * Translate the robot
+	 * \brief Translate the robot
+	 *
 	 * @param pos Amount of translation
 	 */
 	void translateRobot(const osg::Vec3& translation);
 
 	/**
-	 * Rotate the robot
+	 * \brief Rotate the robot
+	 *
 	 * @param rot rotation Quaternion
 	 */
 	void rotateRobot(const osg::Quat &rot);
 
 	/**
-	 * Returns the robot axis-aligned bounding box
+	 * \brief Returns the robot axis-aligned bounding box
 	 */
 	void getAABB(double& minX, double& maxX, double& minY, double& maxY,
 			double& minZ, double& maxZ);
 
 	/**
+	 * \brief Returns robot id
+	 *
 	 * @return the robot ID
 	 */
 	int getId() const;
 
 	/**
-	 *
+	 * \brief Returns specified body part
 	 */
 	boost::shared_ptr<Model> getBodyPart(std::string id);
 
 	/**
+	 * \brief Returns robogen message
+	 *
 	 * @return message that generated the robot
 	 */
 	const robogenMessage::Robot& getMessage();
-
-	const std::vector<boost::shared_ptr<Connection> >& getBodyConnections()
-			const;
+	/**
+	 * \brief Returns body connections
+	 */
+	const std::vector<boost::shared_ptr<Connection> >& getBodyConnections()const;
+	/**
+	 * \brief Traverse body
+	 */
 	void traverseBody(const std::vector<boost::shared_ptr<Model> >,
 			const std::vector<boost::shared_ptr<Connection> >);
+	/**
+	 * \brief Returns root
+	 */
 	int getRoot();
-
+	/**
+	 * \brief Add joint
+	 */
 	inline void addJoint(boost::shared_ptr<Joint> joint) {
 		joints_.push_back(joint);
 	}
 
 	/**
-	 * Merges bodies connected with fixed joints into complex bodies
+	 * \brief Merges bodies connected with fixed joints into complex bodies
 	 */
 	void optimizePhysics();
         
 	/**
-	 * SM - returns the status of this robot vis-a-vis resources
+	 * \brief Returns the status of this robot vis-a-vis resources - SM
 	 * @return returns the status of this robot with regard to
 	 * resources in the environment
 	 */
 	const bool isBoundToResource();
         
 	/**
-	 * SM - sets the status of this robot vis-a-vis resources in the environment
+	 * \brief Sets the status of this robot vis-a-vis resources in the environment - SM
 	 * @param isBoundToResource sets the status of this robot with regard to
 	 * resources in the environment
 	 */
 	void setBoundToResource(bool isBoundToResource);
 
-	/***
-	 * Sets the id of the resource bound to this robot
+	/**
+	 * \brief Sets the id of the resource bound to this robot
 	 */
 	void setBoundResourceId(int resourceId){resourceId_ = resourceId;}
 
 	/**
-	 * Gets the id of the resource this robot is bound to
+	 * \brief Gets the id of the resource this robot is bound to
 	 */
 	int getBoundResourceId(){return resourceId_;}
 
 	/**
-	 * CH - Brain-body complexity of robot
+	 * \brief CH - Brain-body complexity of robot
 	 */
 	float complexity_;
 
 	/**
-	 * CH - Flag to indicate if complexity cost should be imposed or not
+	 * \brief CH - Flag to indicate if complexity cost should be imposed or not
 	 */
 	int complexityCost_;
 
 	/**
-	 * BK - for novelty score, to record end position achieved during evaluation
+	 * \brief BK - for novelty score, to record end position achieved during evaluation
 	 */
 	float endPosX_;
+	/**
+	 * \brief BK - for novelty score, to record end position achieved during evaluation
+	 */
 	float endPosY_;
 
 	/**
-	 * SM added - set and get robot state
+	 * \brief Set robot state
 	 */
 	 void setAlive( bool value ) { isAlive_ = value; }
+	 /**
+	  * \brief Returns robot status
+	  */
 	 bool isAlive() { return isAlive_; }
 private:
 
