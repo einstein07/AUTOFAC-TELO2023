@@ -32,12 +32,12 @@
 #define MAX_INPUT_NEURONS /**20*/80 //SM modified
 #define MAX_OUTPUT_NEURONS 8
 
-/*
+/**
  * set arbitrarily
  */
 #define MAX_HIDDEN_NEURONS 20
 
-/*
+/**
  * max is either (bias, tau, gain) or (phase offset, period, gain)
  */
 #define MAX_PARAMS 3
@@ -46,11 +46,13 @@
 /* HEADER_FOOTER_BREAK */
 
 
-/*
+/**
  * No namespace here on purpose ;-)
  */
 
-/*
+/**
+ * \brief Neuron type
+ *
  * Copied from NeuronRepresentation.h
  */
 enum neuronType{
@@ -61,10 +63,9 @@ enum neuronType{
 		SUPG
 };
 
-
-typedef struct {
-
-	/*
+/**		\brief Struct to describe Neural Network representation
+ *
+ *
 	 * Given m input neurons and n output neurons
 	 * m <= MAX_INPUT_NEURONS
 	 * n <= MAX_OUTPUT_NEURONS
@@ -83,62 +84,63 @@ typedef struct {
 	 * ...  ...  ... ....
 	 * wo_n0 wo_n1 ... wo_nn
 	 */
+typedef struct {
+
 	#ifndef ARDUINO
 	float weight[(MAX_INPUT_NEURONS + MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)
 	             * (MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 	#endif
-	/*
-	 * Params for hidden and output neurons, quantity depends on the type of
+	/**
+	 * \brief Params for hidden and output neurons, quantity depends on the type of
 	 * neuron
 	 */
 	#ifndef ARDUINO
 	float params[MAX_PARAMS * (MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 	#endif
 
-	/*
-	 * One state for each output and hidden neuron
+	/**
+	 * \brief One state for each output and hidden neuron
 	 * activations will be used to temporarily store summed inputs before updating states
 	 */
 	float state[(MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 	float activations[(MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 
 	/**
-	 * One input state for each input neuron
+	 * \brief One input state for each input neuron
 	 */
 	float input[MAX_INPUT_NEURONS];
 
 
 	/**
-	 * Type of each non-input neuron
+	 * \brief Type of each non-input neuron
 	 */
 	#ifndef ARDUINO
 	unsigned int types[(MAX_OUTPUT_NEURONS + MAX_HIDDEN_NEURONS)];
 	#endif
 	/**
-	 * The number of inputs
+	 * \brief The number of inputs
 	 */
 	unsigned int nInputs;
 
 	/**
-	 * The number of outputs
+	 * \brief The number of outputs
 	 */
 	unsigned int nOutputs;
 
 	/**
-	 * The number of hidden units
+	 * \brief The number of hidden units
 	 */
 	unsigned int nHidden;
 
 	/**
-	 * The number of non-inputs (i.e. nOutputs + nHidden)
+	 * \brief The number of non-inputs (i.e. nOutputs + nHidden)
 	 */
 	unsigned int nNonInputs;
 
 } NeuralNetwork;
 
 /**
- * TODO update this doc
- * Initializes a NeuralNetwork data structure
+ * \brief Initializes a NeuralNetwork data structure
  * @param network the neural network
  * @param nInputs the number of inputs of the neural network
  * @param nOutputs the number of outputs of the neural network
@@ -153,14 +155,14 @@ void initNetwork(NeuralNetwork* network, unsigned int nInputs,
 		const unsigned int *types);
 
 /**
- * Feed the neural network with input values
+ * \brief Feed the neural network with input values
  * @param network the neural network
  * @param input the input values, must be an array of m inputs
  */
 void feed(NeuralNetwork* network, const float *input);
 
 /**
- * Step the neural network of 1 timestep
+ * \brief Step the neural network of 1 timestep
  * @param network the neural network
  * @param time, amount of time elapsed since brain turned on
  * 				(needed for oscillators)
@@ -168,14 +170,14 @@ void feed(NeuralNetwork* network, const float *input);
 void step(NeuralNetwork* network, float time);
 
 /**
- * Read the output of the neural network
+ * \brief Read the output of the neural network
  * @param network the neural network
  * @param output the output of the neural network, must point to an area of memory of at least size n
  */
 void fetch(const NeuralNetwork* network, float *output);
 
 /**
- * SM Added: Set the weights of the neural network with new/updated values
+ * \brief Set the weights of the neural network with new/updated values -SM
  * @param network the neural network
  * @param weights the weight values, must be an array
  */
