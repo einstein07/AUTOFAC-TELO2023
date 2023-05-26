@@ -34,15 +34,23 @@
 namespace robogen {
 
 class Terrain;
-
+/**
+ * \brief Class to render Terrain model
+ */
 class TerrainRender {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	TerrainRender(boost::shared_ptr<Terrain> terrain);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~TerrainRender();
-
+	/**
+	 * \brief Returns root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
 private:

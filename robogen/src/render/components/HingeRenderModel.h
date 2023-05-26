@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render Hinge model
+ */
 class HingeRenderModel : public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
    HingeRenderModel(boost::shared_ptr<HingeModel> model);
-
+   /**
+    * \brief Destructor
+    */
    virtual ~HingeRenderModel();
-
+   /**
+    * \brief Initializes render model
+    */
    virtual bool initRenderModel();
-
+   /**
+    * \brief Switches to debug view
+    */
    void showDebugView();
-
+   /**
+    * \brief Sets model color
+    */
    virtual void setColor(osg::Vec4 color);
 
 private:

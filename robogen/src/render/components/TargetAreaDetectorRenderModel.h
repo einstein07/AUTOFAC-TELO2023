@@ -17,19 +17,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render TargetAreaDetector model
+ */
 class TargetAreaDetectorRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	TargetAreaDetectorRenderModel(boost::shared_ptr<TargetAreaDetectorModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~TargetAreaDetectorRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

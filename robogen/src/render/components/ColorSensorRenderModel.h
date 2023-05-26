@@ -17,19 +17,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render ColorSensor model
+ */
 class ColorSensorRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constuctor
+	 */
 	ColorSensorRenderModel(boost::shared_ptr<ColorSensorModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~ColorSensorRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

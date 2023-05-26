@@ -36,13 +36,19 @@
 namespace robogen {
 
 class Model;
-
+/**
+ * \brief Class to describe PositionObservableCallback
+ */
 class PositionObservableCallback: public osg::NodeCallback {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	PositionObservableCallback(boost::shared_ptr<PositionObservable> model);
-
+	/**
+	 * \brief Definition of () operator
+	 */
 	virtual void operator()(osg::Node* node, osg::NodeVisitor* nv);
 
 private:

@@ -34,20 +34,32 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render LightSensor model
+ */
 class LightSensorRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	LightSensorRenderModel(boost::shared_ptr<LightSensorModel> model,
 			bool internalSensor);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~LightSensorRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

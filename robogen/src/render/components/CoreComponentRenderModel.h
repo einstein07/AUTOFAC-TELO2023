@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render CoreComponent model
+ */
 class CoreComponentRenderModel : public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	CoreComponentRenderModel(boost::shared_ptr<CoreComponentModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~CoreComponentRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
 
 private:

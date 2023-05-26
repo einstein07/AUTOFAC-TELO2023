@@ -38,41 +38,74 @@
 namespace robogen {
 
 class Model;
-
+/**
+ * \brief Class to render a model
+ */
 class RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	RenderModel(boost::shared_ptr<Model> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~RenderModel();
-
+	/**
+	 * \brief Returns a root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
-
+	/**
+	 * \brief Initializes a render model
+	 */
 	virtual bool initRenderModel() = 0;
-
+	/**
+	 * \brief Attaches axis to model
+	 */
 	static void attachAxis(osg::Transform* transform);
-
+	/**
+	 * \brief Returns debug status
+	 */
 	bool isDebugActive();
-
+	/**
+	 * \brief Returns box
+	 */
 	osg::ref_ptr<osg::Geode> getBox(float lengthX, float lengthY,
 			float lengthZ);
+	/**
+	 * \brief Returns box
+	 */
 	osg::ref_ptr<osg::Geode> getBox(float lengthX, float lengthY,
 				float lengthZ, const osg::Vec4& color);
-
+	/**
+	 * \brief Returns cylinder
+	 */
 	osg::ref_ptr<osg::Geode> getCylinder(float radius, float height,
 			const osg::Vec4& color);
-
+	/**
+	 * \brief Returns capsule
+	 */
 	osg::ref_ptr<osg::Geode> getCapsule(float radius, float height);
-
+	/**
+	 * \brief Returns model
+	 */
 	boost::shared_ptr<Model> getModel();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color) = 0;
-
+	/**
+	 * \brief Toggles debug status
+	 */
 	void setDebugActive(bool debugActive);
-
+	/**
+	 * \brief Toggles primitives
+	 */
 	void togglePrimitives(bool primitives);
-
+	/**
+	 * \brief Toggles meshes
+	 */
 	void toggleMeshes(bool meshes);
 
 	//void toggleTransparency(bool transparency);
@@ -80,19 +113,35 @@ public:
 protected:
 
 	/**
+	 * \brief Attaches box
+	 *
 	 * Measures are expressed in mm
 	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> attachBox(int label, float lengthX, float lengthY, float lengthZ, const osg::Vec4& color);
+	/**
+	 * \brief Attaches box
+	 *
+	 * Measures are expressed in mm
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> attachBox(int label, float lengthX, float lengthY, float lengthZ);
-
+	/**
+	 * \brief Attaches Geode
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> attachGeode(int label, osg::ref_ptr<osg::Geode> geode);
-
-
+	/**
+	 * \brief Attaches Geoms	 */
 	std::vector<osg::ref_ptr<osg::PositionAttitudeTransform> > attachGeoms();
+	/**
+	 * \brief Attaches Geoms
+	 */
 	std::vector<osg::ref_ptr<osg::PositionAttitudeTransform> > attachGeoms(std::vector<osg::Vec4> colors);
-
+	/**
+	 * \brief Activates transparency
+	 */
 	void activateTransparency(osg::StateSet*);
-
+	/**
+	 * \brief Returns meshes
+	 */
 	inline osg::ref_ptr<osg::Group> getMeshes() {
 		return meshes_;
 	}

@@ -29,15 +29,19 @@
 #define RENDERABLE_JOINT_H_
 
 namespace robogen {
-
+/**
+ * \brief Class to describe a Joint model that can be rendered
+ */
 class RenderableJoint {
 
 public:
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~RenderableJoint() {}
 
 	/**
-	 * Provide one joint angle for each degree of freeedom of the joint
+	 * \brief Provide one joint angle for each degree of freeedom of the joint
 	 */
 	virtual void operateJoint(std::vector<double> jointAngles) = 0;
 

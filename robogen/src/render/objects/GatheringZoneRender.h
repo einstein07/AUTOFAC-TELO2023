@@ -16,15 +16,23 @@
 namespace robogen {
 
 class GatheringZone;
-
+/**
+ * \brief Class to render GatheringZone
+ */
 class GatheringZoneRender {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	GatheringZoneRender(boost::shared_ptr<GatheringZone> gatheringZone);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~GatheringZoneRender();
-
+	/**
+	 * \brief Returns root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
 private:

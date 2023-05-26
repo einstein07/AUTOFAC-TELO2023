@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render TouchSensor model
+ */
 class TouchSensorRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	TouchSensorRenderModel(boost::shared_ptr<TouchSensorModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~TouchSensorRenderModel();
-
+	/**
+	 * \brief Initializes a render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets modle color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

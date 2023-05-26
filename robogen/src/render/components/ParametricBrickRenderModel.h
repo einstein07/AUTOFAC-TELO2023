@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render ParametricBrick
+ */
 class ParametricBrickRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief COnstructor
+	 */
 	ParametricBrickRenderModel(boost::shared_ptr<ParametricBrickModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~ParametricBrickRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets render model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

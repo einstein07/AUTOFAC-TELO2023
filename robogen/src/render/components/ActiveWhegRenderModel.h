@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render ActiveWheg model
+ */
 class ActiveWhegRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	ActiveWhegRenderModel(boost::shared_ptr<ActiveWhegModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~ActiveWhegRenderModel();
-
+	/**
+	 * \brief Initializes render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * \brief Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render RotateJoint modle
+ */
 class RotateJointRenderModel: public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	RotateJointRenderModel(boost::shared_ptr<RotateJointModel> model);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~RotateJointRenderModel();
-
+	/**
+	 * \brief Initializes a render model
+	 */
 	virtual bool initRenderModel();
-
+	/**
+	 * \brief Switches to debug view
+	 */
 	void showDebugView();
-
+	/**
+	 * Sets model color
+	 */
 	virtual void setColor(osg::Vec4 color);
 
 private:

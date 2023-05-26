@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * \brief Class to render PassiveWheel
+ */
 class PassiveWheelRenderModel : public RenderModel {
 
 public:
-
+   /**
+    * \brief Constructor
+    */
    PassiveWheelRenderModel(boost::shared_ptr<PassiveWheelModel> model);
-
+   /**
+    * \brief Destructor
+    */
    virtual ~PassiveWheelRenderModel();
-
+   /**
+    * \brief Initializes render model
+    */
    virtual bool initRenderModel();
-
+   /**
+    * \brief Switches to debug view
+    */
    void showDebugView();
-
+   /**
+    * \brief Sets model color
+    */
    virtual void setColor(osg::Vec4 color);
 
 private:

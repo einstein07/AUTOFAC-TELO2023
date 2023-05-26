@@ -34,19 +34,31 @@
 namespace robogen {
 
 class Mesh;
-
+/**
+ * Class to render Cardan model
+ */
 class CardanRenderModel : public RenderModel {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	CardanRenderModel(boost::shared_ptr<CardanModel> model);
-
+   /**
+    * \brief Destructor
+    */
    virtual ~CardanRenderModel();
-
+   /**
+    * \brief Initializes render model
+    */
    virtual bool initRenderModel();
-
+   /**
+    * \brief Switches to debug view
+    */
    void showDebugView();
-
+   /**
+    * \brief Sets model color
+    */
    virtual void setColor(osg::Vec4 color);
 
 private:

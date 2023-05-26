@@ -34,15 +34,23 @@
 namespace robogen {
 
 class BoxObstacle;
-
+/**
+ * \brief CLass to render BoxObstacle model
+ */
 class BoxObstacleRender {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	BoxObstacleRender(boost::shared_ptr<BoxObstacle> obstacle);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~BoxObstacleRender();
-
+	/**
+	 * \brief Returns root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
 private:

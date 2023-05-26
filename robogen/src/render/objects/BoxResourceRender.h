@@ -18,15 +18,23 @@
 namespace robogen {
 
 class BoxResource;
-
+/**
+ * \brief Class to render BoxResource model
+ */
 class BoxResourceRender {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	BoxResourceRender(boost::shared_ptr<BoxResource> resource);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~BoxResourceRender();
-
+	/**
+	 * \brief Returns root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
 

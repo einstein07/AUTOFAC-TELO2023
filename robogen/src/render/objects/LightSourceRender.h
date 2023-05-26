@@ -36,15 +36,23 @@
 namespace robogen {
 
 class LightSource;
-
+/**
+ * \brief Class to render LightSource
+ */
 class LightSourceRender {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	LightSourceRender(boost::shared_ptr<LightSource> lightSource, osg::ref_ptr<osg::Group> rootNode);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~LightSourceRender();
-
+	/**
+	 * \brief Returns root node
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getRootNode();
 
 private:

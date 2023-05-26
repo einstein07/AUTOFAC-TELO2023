@@ -32,24 +32,47 @@
 #include <osg/PositionAttitudeTransform>
 
 namespace robogen {
-
+/**
+ * \brief Class to describe a Mesh
+ */
 class Mesh {
 
 public:
-
+	/**
+	 * \brief Default Constructor
+	 */
 	Mesh();
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~Mesh();
-
+	/**
+	 * \brief Loads mesh
+	 */
 	bool loadMesh(const std::string& mesh);
+	/**
+	 * \brief Rescale mesh
+	 */
 	void rescaleMesh(float scaleX, float scaleY, float scaleZ);
-
+	/**
+	 * \brief Returns mesh
+	 */
 	osg::ref_ptr<osg::PositionAttitudeTransform> getMesh();
-
+	/**
+	 * \brief X length
+	 */
 	float xLen();
+	/**
+	 * \brief Y length
+	 */
 	float yLen();
+	/**
+	 * \brief Z length
+	 */
 	float zLen();
-
+	/**
+	 * \brief Sets Mesh color
+	 */
 	void setColor(osg::Vec4 color);
 
 private:
