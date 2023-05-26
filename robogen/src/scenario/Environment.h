@@ -41,68 +41,97 @@
 namespace robogen {
 
 
-/*
+/**
+ * \brief Class to describe simulation Environment
+ *
  * Environment contains all info about the simulation except for the robot
  */
 
 class Environment {
 
 public:
-
+	/**
+	 * \brief Constructor
+	 */
 	Environment(dWorldID odeWorld, dSpaceID odeSpace,
 			boost::shared_ptr<RobogenConfig> robogenConfig);
 	/**
-	 * SM ADDED
+	 * \brief Constructor - SM
 	 */
 	Environment(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 				boost::shared_ptr<RobogenConfig> robogenConfig);
-
+	/**
+	 * \brief Initializes Environment
+	 */
 	bool init();
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~Environment();
-
+	/**
+	 * \brief Sets time elapsed
+	 */
 	void setTimeElapsed(float timeElapsed) {
 		timeElapsed_ = timeElapsed;
 	}
-
+	/**
+	 * \brief Returns time elapsed
+	 */
 	float getTimeElapsed() {
 		return timeElapsed_;
 	}
-
+	/**
+	 * \brief Sets light sources
+	 */
 	void setLightSources(
 			const std::vector<boost::shared_ptr<LightSource> >& lightSources) {
 		lightSources_ = lightSources;
 	}
-
+	/**
+	 * \brief Returns light sources
+	 */
 	const std::vector<boost::shared_ptr<LightSource> >& getLightSources() {
 		return lightSources_;
 	}
-
+	/**
+	 * \brief Set AAmbient light
+	 */
 	void setAmbientLight(float ambientLight) {
 		ambientLight_ = ambientLight;
 	}
-
+	/**
+	 * \brief Returns Ambient light
+	 */
 	float getAmbientLight() {
 		return ambientLight_;
 	}
-
+	/**
+	 * \brief Adds obstacle
+	 */
 	void addObstacle(boost::shared_ptr<Obstacle> obstacle) {
 		obstacles_.push_back(obstacle);
 	}
-
+	/**
+	 * \brief Returns Terrain Id
+	 */
 	dGeomID getTerrainID() {
 		return terrain_ -> getGeom();
 	}
+	/**
+	 * \brief Returns Terrain
+	 */
 	boost::shared_ptr<Terrain> getTerrain() {
 		return terrain_ ;
 	}
-
+	/**
+	 * \brief Returns Obstacles
+	 */
 	std::vector<boost::shared_ptr<Obstacle> > getObstacles() {
 		return obstacles_;
 	}
 
 	/**
-	 * SM added
+	 * \brief Sets GatheringZone - SM
 	 * @arg the gathering zone
 	 */
 	void setGatheringZone(boost::shared_ptr<GatheringZone> gatheringZone) {
@@ -110,7 +139,7 @@ public:
 	}
 
 	/**
-	 * SM added
+	 * \brief Returns GatheringZone - SM
 	 * @return the gathering zone
 	 */
 	boost::shared_ptr<GatheringZone> getGatheringZone() {
@@ -118,13 +147,12 @@ public:
 	}
 
 	/**
-	 * SM added
-	 * step the gathering zone
+	 * \brief Step the gathering zone - SM
 	 */
 	void stepGatheringZone(std::vector<boost::shared_ptr<Robot> > robots, boost::mutex& queueMutex);
 
 	/**
-	 * SM added
+	 * \brief Returns resources - SM
 	 * @return all resources in the environment
 	 */
 	std::vector<boost::shared_ptr<BoxResource> > getResources() {
@@ -132,7 +160,7 @@ public:
 	}
         
         /**
-         * SM added
+         * \brief Adds resource - SM
          * @param resource the resource that is being added 
          */
         void addResource(boost::shared_ptr<BoxResource> resource) {

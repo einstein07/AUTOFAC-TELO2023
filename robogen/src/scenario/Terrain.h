@@ -40,7 +40,9 @@ class Image;
 namespace robogen {
 
 /**
- * Terrain model. The terrain can be either a flat surface or defined by an height map
+ * \brief Class to describe Terrain model.
+ *
+ * The terrain can be either a flat surface or defined by an height map
  * that is tiled infinitely or totally empty.
  */
 class Terrain {
@@ -48,22 +50,25 @@ class Terrain {
 public:
 
 	/**
+	 * \brief Constructor
+	 *
 	 * Initializes the model for terrain
 	 */
 	Terrain(dWorldID odeWorld, dSpaceID odeSpace);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~Terrain();
 
 	/**
+	 * \brief Returns Terrain type
 	 * @return type of terrain
 	 */
 	TerrainConfig::TerrainType getType();
 
 	/**
-	 * Initializes a flat terrain
+	 * \brief Initializes a flat terrain
 	 * @param width
 	 * @param depth
 	 */
@@ -71,7 +76,7 @@ public:
 
 #ifndef DISABLE_HEIGHT_MAP
 	/**
-	 * Initializes a rough terrain
+	 * \brief Initializes a rough terrain
 	 *
 	 * @param heightMapFileName the height map file defining terrain elevation contains a nxm matrix of byte values (0-255).
 	 *                          0 Corresponds to the lower elevation, 1 to the maximum elevation
@@ -84,33 +89,43 @@ public:
 #endif
 
 	/**
+	 * \brief Returns heightfield data
+	 *
 	 * @return the heightfield data
 	 */
 	osg::ref_ptr<osg::Image> getHeightFieldData();
 
 	/**
+	 * \brief Returns terrain width
+	 *
 	 * @return width
 	 */
 	float getWidth() const;
 
 	/**
+	 * \brief Returns heightfield depth
+	 *
 	 * @return heightfield depth
 	 */
 	float getDepth() const;
 
 	/**
+	 * \brief Returns heightfield height
+	 *
 	 * @return heightfield height
 	 */
 	float getHeightFieldHeight() const;
 
 	/**
+	 * \brief Returns Axis-Bounding-Box
+	 *
 	 * @return the AABB for the terrain (useful if the terrain is an heightfield)
 	 */
 	void getBB(double& minX, double& maxX, double& minY, double& maxY,
 			double& minZ, double& maxZ);
 
 	/**
-	 * SM Added
+	 * \brief Returns Geom - SM
 	 */
 	inline const dGeomID& getGeom() {
 		return tID;

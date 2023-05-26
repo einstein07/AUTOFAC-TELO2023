@@ -35,7 +35,9 @@
 namespace robogen {
 
 /**
- * Racing Scenario.
+ * \brief Class to describe a RacingScenario.
+ *
+ *
  * The robot that can cover the longer distance in the given simulation time wins.
  * The distance is computed as the euclidean distance from the starting to the ending position computed using as
  * reference the core component.
@@ -45,24 +47,42 @@ class RacingScenario: public Scenario {
 public:
 
 	/**
-	 * Initializes a RacingScenario
+	 * \brief Initializes a RacingScenario
 	 */
 	RacingScenario(boost::shared_ptr<RobogenConfig> robogenConfig);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~RacingScenario();
 
 	/**
-	 * Methods inherited from {@link #Scenario}
+	 * Method inherited from {@link #Scenario}
 	 */
 	virtual bool setupSimulation();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool afterSimulationStep();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool endSimulation();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual double getFitness();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual std::vector<float> getEndPosition();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool remainingTrials();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual int getCurTrial() const;
 
 private:

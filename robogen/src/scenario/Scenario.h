@@ -44,14 +44,16 @@ class Robot;
 class Terrain;
 class BoxResource;
 /**
- * A Scenario for the Robogen simulator.
+ * \brief Class to describe a Scenario for the Robogen simulator.
  */
 class Scenario {
 
 public:
 
 	/**
-	 * A scenario is not valid until the
+	 * \brief AConstructor
+	 *
+	 *  scenario is not valid until the
 	 * init() method is called successfully.
 	 *
 	 * @param robogenConfig
@@ -59,12 +61,12 @@ public:
 	Scenario(boost::shared_ptr<RobogenConfig> robogenConfig);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~Scenario();
 
 	/**
-	 * Initializes a scenario
+	 * \brief Initializes a scenario
 	 *
 	 * @param odeWorld
 	 * @param odeSpace
@@ -73,7 +75,7 @@ public:
 	virtual bool init(dWorldID odeWorld, dSpaceID odeSpace,
 			boost::shared_ptr<Robot> robot);
 	/**
-	 * SM added: Initializes a scenario with multiple robots
+	 * \brief Initializes a scenario with multiple robots - SM
 	 *
 	 * @param odeWorld
 	 * @param odeSpace
@@ -83,112 +85,138 @@ public:
 						std::vector<boost::shared_ptr<Robot> > robots);
 
 	/**
-	 * Clears unused scenario (so that robot can be freed - joints need to be
-	 * destroyed before the destruction of the world). Undoes what init() does
+	 * \brief Clears unused scenario (so that robot can be freed - joints need to be
+	 * destroyed before the destruction of the world).
+	 *
+	 * Undoes what init() does
 	 * and avoids memory leaks over multiple starting positions.
 	 */
 	void prune();
-	//SM added
+	/**
+	 * \brief Clears unused scenario (so that robots can be freed - joints need to be
+	 * destroyed before the destruction of the world).
+	 *
+	 * Undoes what init() does
+	 * and avoids memory leaks over multiple starting positions. SM
+	 *
+	 */
 	void pruneswarm();
 
 	/**
+	 * \brief Returns robot
 	 * @return the robot
 	 */
 	boost::shared_ptr<Robot> getRobot();
         
 	/**
+	 * \brief Returns specified robot
+	 *
 	 * @return the robot
 	 */
 	boost::shared_ptr<Robot> getRobot(int robotId);
         
 	/**
-	 * SM added
+	 * \brief Returns vector of robot swarm - SM
 	 * @return the robots
 	 */
 	std::vector<boost::shared_ptr<Robot> > getRobots();
         
 	/**
+	 * \brief Returns Robogen config
+	 *
 	 * @return the robogen configuration
 	 */
 	boost::shared_ptr<RobogenConfig> getRobogenConfig();
 
 	/**
+	 * \brief Returns Environment
+	 *
 	 * @return the environment
 	 */
 	boost::shared_ptr<Environment> getEnvironment();
 
 	/**
-	 * @return the environment
+	 * \brief Returns Terrain Id
+	 * @return Terrain id
 	 */
 	dGeomID getTerrainID();
-
+	/**
+	 * Returns whether obstacles were removed
+	 */
 	inline bool wereObstaclesRemoved() {
 		return obstaclesRemoved_;
 	}
 
 	/**
-	 * Sets the starting position id
+	 * \brief Sets the starting position id
 	 */
 	void setStartingPosition(int id);
 
 	/**
-	 * Setup the simulation scenario. Called before the physics simulation begins.
+	 * \brief Setup the simulation scenario. Called before the physics simulation begins.
 	 * @return true if the operation completed successfully, false otherwise
 	 */
 	virtual bool setupSimulation() = 0;
 
 	/**
-	 * Called after each simulation step
+	 * \brief Called after each simulation step
 	 * @return true if the operation completed successfully, false otherwise
 	 */
 	virtual bool afterSimulationStep() = 0;
 
 	/**
-	 * This is called just after afterSimulationStep
+	 * \brief This is called just after afterSimulationStep
 	 * @return stopSimulationNow_, which is true only if the scenario has
 	 * 	called stopSimulationNow()
 	 */
 	bool shouldStopSimulationNow() { return stopSimulationNow_; }
 
 	/**
-	 * Called at the end of the physics simulation
+	 * \brief Called at the end of the physics simulation
 	 * @return true if the operation completed successfully, false otherwise
 	 */
 	virtual bool endSimulation() = 0;
 
 	/**
-	 * Compute the fitness
+	 * \brief Compute the fitness
 	 * @return fitness
 	 */
 	virtual double getFitness() = 0;
 
 	/**
-	 * BK-added - Get the endPosition
+	 * \brief BK-added - Get the endPosition
 	 * @return endPosition
 	 */
 	virtual std::vector<float> getEndPosition() = 0;
 
 	/**
+	 * \brief Returns whether there are still remaining trials
 	 * @return true if another trial must be executed
 	 */
 	virtual bool remainingTrials() = 0;
 
 	/**
+	 * \brief Returns current trial
+	 *
 	 * @return the current trial
 	 */
 	virtual int getCurTrial() const = 0;
 
 	/**
+	 * \brief Returns current trial starting position
+	 *
 	 * @return the current trial starting position
 	 */
 	boost::shared_ptr<StartPosition> getCurrentStartPosition();
-
+	/**
+	 * \brief Sets Robogen config
+	 */
 	void setRobogenConfig(boost::shared_ptr<RobogenConfig> robogenConfig) {
 		robogenConfig_ = robogenConfig;
 	}
 
 	/**
-	 * calling this will stop the simulation immediately after the next call to
+	 * \brief calling this will stop the simulation immediately after the next call to
 	 * afterSimulationStep
 	 */
 	void stopSimulationNow() {
@@ -196,7 +224,8 @@ public:
 	}
         
 	/**
-	 * SM added
+	 * \brief Returns whether resources were removed or not
+	 *
 	 * @return true if resources were removed, false otherwise
 	 */
 	inline bool wereResourcesRemoved() {

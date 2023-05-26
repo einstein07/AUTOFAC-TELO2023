@@ -34,7 +34,8 @@
 namespace robogen {
 
 /**
- * Chasing Scenario.
+ * \brief Chasing Scenario.
+ *
  * The robot that can reach and stay close to the light source int the given simulation time wins.
  * The distance is computed as the euclidean distance from the light source to robot computed using as
  * reference the core component.
@@ -44,26 +45,46 @@ class ChasingScenario: public Scenario {
 public:
 
 	/**
-	 * Initializes a RacingScenario
+	 * \brief Initializes a RacingScenario
 	 */
 	ChasingScenario(boost::shared_ptr<RobogenConfig> robogenConfig);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~ChasingScenario();
 
 	/**
-	 * Methods inherited from {@link #Scenario}
+	 * \brief Method inherited from {@link #Scenario}
 	 */
 	virtual bool setupSimulation();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool afterSimulationStep();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool endSimulation();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual double getFitness();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool remainingTrials();
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual bool init(dWorldID odeWorld, dSpaceID odeSpace, boost::shared_ptr<Robot> robot);
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual int getCurTrial() const;
-
+	/**
+	 * \brief Method inherited from {@link #Scenario}
+	 */
 	virtual std::vector<float> getEndPosition();
 
 private:

@@ -37,19 +37,19 @@ class Scenario;
 class RobogenConfig;
 
 /**
- * Instantiates the correct scenario
+ * \brief Class to instantiate the correct Scenario
  */
 class ScenarioFactory {
 
 public:
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~ScenarioFactory();
 
 	/**
-	 * Create a scenario
+	 * \brief Create a scenario
 	 * @param config
 	 * @return the scenario
 	 */
