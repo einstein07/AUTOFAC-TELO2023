@@ -41,6 +41,7 @@ namespace robogen {
  * Class to encapsulate a routine that can write to file the Neural Network
  * representation of a given robot in a way that can be used by the Robogen
  * Arduino program
+ * \brief Class for writing ANN representation to file
  */
 class ArduinoNNCompiler {
 public:
