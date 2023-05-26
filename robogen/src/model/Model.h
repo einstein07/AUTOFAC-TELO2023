@@ -41,6 +41,8 @@
 namespace robogen {
 
 /**
+ * \brief Class to describe a Model
+ *
  * A slot center must always be place on the external surface of the slot
  */
 class Model : public boost::enable_shared_from_this<Model> {
@@ -48,109 +50,109 @@ class Model : public boost::enable_shared_from_this<Model> {
 public:
 
 	/**
-	 * Constructor
+	 * \brief Constructor
 	 */
 	Model(dWorldID odeWorld, dSpaceID odeSpace,std::string id);
 	/**
-	 * SM Modified Signature - each robot has its own collision space,
-	 * Constructor takes both an individual robot's space and the whole world space now.
+	 *
+	 * \brief Constructor takes both an individual robot's space and the whole world space
+	 *
+	 * Each robot has its own collision space - SM
 	 */
 	Model(dWorldID odeWorld, dSpaceID odeSpace,  dSpaceID robotSpace, std::string id);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~Model();
 
 	/**
-	 * @return true if the model initialization completed successfully
+	 * \brief Returns true if the model initialization completed successfully
 	 */
 	virtual bool initModel() = 0;
 
 	/**
-	 * @return id string of the part
+	 * \brief Returns id string of the part
 	 */
 	const std::string &getId();
 
 	/**
-	 * @return the body corresponding to the selected slot
+	 * \brief Returns body corresponding to the selected slot
 	 */
 	virtual boost::shared_ptr<SimpleBody> getSlot(unsigned int i) = 0;
 
 	/**
-	 * @return the slot position, in world coordinates
+	 * \brief Returns slot position, in world coordinates
 	 */
 	virtual osg::Vec3 getSlotPosition(unsigned int i) = 0;
 
 	/**
-	 * @return the slot axis (normal to the slot)
+	 * \brief Returns slot axis (normal to the slot)
 	 */
 	virtual osg::Vec3 getSlotAxis(unsigned int i) = 0;
 
 	/**
-	 * Tangent to the slot surface, defines the zero rotation orientation
+	 * \brief Returns tangent to the slot surface, defines the zero rotation orientation
 	 * on that slot
 	 */
 	virtual osg::Vec3 getSlotOrientation(unsigned int i) = 0;
 
 	/**
-	 * @return the root body
+	 * \brief Returns root body
 	 */
 	virtual boost::shared_ptr<SimpleBody> getRoot() = 0;
 
 	/**
-	 * @return the position of the root part
+	 * \brief Returns position of the root part
 	 */
 	osg::Vec3 getRootPosition();
 
 	/**
-	 * @return the attitude of the root part (a quaternion)
+	 * \brief Returns attitude of the root part (a quaternion)
 	 */
 	osg::Quat getRootAttitude();
 
 	/**
-	 * @return the position of the specified body
+	 * \brief Returns position of the specified body
 	 */
 	osg::Vec3 getBodyPosition(int id);
 
 	/**
-	 * @return the attitude of the specified body
+	 * \brief Returns attitude of the specified body
 	 */
 	osg::Quat getBodyAttitude(int id);
 
 	/**
-	 * Sets the position of the root part.
+	 * \brief Sets the position of the root part.
 	 * Will force all the other bodies to translate accordingly.
 	 */
 	void setRootPosition(const osg::Vec3& pos);
 
 	/**
-	 * Translate the root part of the specified amount
+	 * \brief Translate the root part of the specified amount
 	 * Will force all the other bodies to translate accordingly.
 	 */
 	void translateRootPosition(const osg::Vec3& translation);
 
 	/**
-	 * Sets the attitude of the root part (a quaternion).
+	 * \brief Sets the attitude of the root part (a quaternion).
 	 * Will force all the other bodies to rotate accordingly.
 	 */
 	void setRootAttitude(const osg::Quat& quat);
 
 	/**
-	 * @return the physics world
+	 * \brief Returns the physics world
 	 */
 	dWorldID getPhysicsWorld();
 
 	/**
-	 * SM Added
-	 * @return the robot collision space
+	 * \brief Returns robot collision space - SM
 	 */
 	dSpaceID getODECollisionSpace();
 
 
 	/**
-	 * SM Added
-	 * @return the robot collision space
+	 * \brief Returns robot collision space - SM
 	 */
 	dSpaceID getRobotCollisionSpace();
 
@@ -160,22 +162,22 @@ public:
 	/**dSpaceID getCollisionSpace();*/
 
 	/**
-	 * @return the specified body
+	 * \brief Returns specified body
 	 */
 	boost::shared_ptr<SimpleBody> getBody(int id);
 
 	/**
-	 * @return all the bodies belonging to this model
+	 * \brief Returns all the bodies belonging to this model
 	 */
 	std::vector<boost::shared_ptr<SimpleBody> > getBodies();
 
 	/**
-	 * @return all the bodies belonging to this model
+	 * \brief Returns all the ids belonging to this model
 	 */
 	std::vector<int> getIDs();
 
 	/**
-	 * Create a box geometry for the body
+	 * \brief Create a box geometry for the body
 	 * @param mass
 	 * @param pos
 	 * @param lengthX
@@ -188,7 +190,7 @@ public:
 			int label=-1);
 
 	/**
-	 * Create a capsule geometry for the body
+	 * \brief Create a capsule geometry for the body
 	 * @param mass
 	 * @param pos
 	 * @param direction
@@ -200,7 +202,7 @@ public:
 			int direction, float radius, float height, int label=-1);
 
 	/**
-	 * Create a cylinder geometry for the body
+	 * \brief Create a cylinder geometry for the body
 	 * @param mass
 	 * @param pos
 	 * @param direction
@@ -212,7 +214,7 @@ public:
 			int direction, float radius, float height, int label=-1);
 
 	/**
-	 * Fix bodies together
+	 * \brief Fix bodies together
 	 * @param b1 first body
 	 * @param b2 second body
 	 */
@@ -227,7 +229,7 @@ public:
 
 
 	/**
-	 * Attach with hinge
+	 * \brief Attach with hinge
 	 * @param b1 first body
 	 * @param b2 second body
 	 * @param axis hinge's rotation axis
@@ -237,7 +239,7 @@ public:
 			boost::shared_ptr<SimpleBody> b2, osg::Vec3 axis, osg::Vec3 anchor);
 
 	/**
-	 * Attach with universal joint
+	 * \brief Attach with universal joint
 	 * @param b1 first body
 	 * @param b2 second body
 	 * @param axis1 universal's first rotation axis
@@ -250,37 +252,41 @@ public:
 
 
 	/**
-	 * Set orientation to parent slot with increments of 90 degrees
+	 * \brief Set orientation to parent slot with increments of 90 degrees
 	 * @param orientation integer between 0 and 3, specifying the amount of
 	 * additional 90 degree increments after attaching the part to its parent.
 	 */
 	bool setOrientationToParentSlot(int orientation);
 
 	/**
-	 * Get orientation to parent slot.
+	 * \brief Get orientation to parent slot.
 	 * @return a number specifying the amount of additional 90 degree increments
 	 * after attaching the part to its parent.
 	 */
 	int getOrientationToParentSlot();
 
 	/**
-	 * Specify parent's orientation relative to root (increments of 90 degrees)
+	 * \brief Specify parent's orientation relative to root (increments of 90 degrees)
 	 * @param orientation integer between 0 and 3, specifying the amount of
 	 * 90 degree increments of parent relative to root
 	 * Needed to enforce "planarity" of bricks
 	 */
 	bool setParentOrientation(int orientation);
 
-
+	/**
+	 * \brief Returns orientation to root
+	 */
 	int getOrientationToRoot();
 
 	/**
-	 * Get the internal joints of the model
+	 * \brief Get the internal joints of the model
 	 */
 	inline const std::vector< boost::shared_ptr<Joint> > &getJoints() {
 		return joints_;
 	}
-
+	/**
+	 * \brief Removes specified Joint
+	 */
 	void removeJoint(boost::shared_ptr<Joint> joint);
 
 protected:

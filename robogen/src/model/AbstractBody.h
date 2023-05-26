@@ -41,7 +41,9 @@ namespace robogen {
 
 class Model;
 class CompositeBody;
-
+/**
+ * \brief Class for describing a body representation
+ */
 class AbstractBody : public boost::enable_shared_from_this<AbstractBody> {
 
 public:

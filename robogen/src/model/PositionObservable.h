@@ -31,25 +31,28 @@
 namespace robogen {
 
 /**
- * Makes the position of an object/model observable
+ * \brief Class to make the position of an object/model observable
  */
 class PositionObservable {
 
 public:
 
 	/**
+	 * \brief Returns position
+	 *
 	 * @return the position of the observed object
 	 */
 	virtual const osg::Vec3 getPosition() = 0;
 
 	/**
+	 * \brief Returns attitude
 	 * @return the attitude of the observed object
 	 */
 	virtual const osg::Quat getAttitude() = 0;
 
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~PositionObservable() {}
 

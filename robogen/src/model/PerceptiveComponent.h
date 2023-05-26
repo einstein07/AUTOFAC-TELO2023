@@ -37,7 +37,9 @@
 
 
 namespace robogen {
-
+/**
+ * \brief Class to describe PerceptiveComponent
+ */
 class PerceptiveComponent : public Model {
 
 public:
@@ -48,24 +50,24 @@ public:
 	 */
 	PerceptiveComponent(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
 		Model(odeWorld, odeSpace, id) {}
-	/***
-	 * SM Changed constructor signature to accommodate per robot collision spaces
+	/**
+	 * \brief Constructor signature to accommodate per robot collision spaces - SM
 	 */
 	PerceptiveComponent(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID robotSpace, std::string id) :
 			Model(odeWorld, odeSpace, robotSpace, id) {}
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~PerceptiveComponent() {}
 
 	/**
-	 * @return the available sensors
+	 * \brief Returns available sensors
 	 */
 	virtual void getSensors(std::vector<boost::shared_ptr<Sensor> >& sensors) = 0;
 
 	/**
-	 * Updates the internal values of the sensors
+	 * \brief Updates the internal values of the sensors
 	 */
 	virtual void updateSensors(boost::shared_ptr<Environment>& env) = 0;
 };

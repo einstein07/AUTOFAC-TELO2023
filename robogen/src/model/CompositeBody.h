@@ -44,31 +44,52 @@
 #include "SimpleBody.h"
 
 namespace robogen {
-
+/**
+ * \brief Class to describe CompositeBody
+ */
 class CompositeBody : public AbstractBody {
 
 public:
-	//errorless constructor
+	/**
+	 * \brief Errorless constructor
+	 */
 	CompositeBody() { }
-
+	/**
+	 * \brief Initializes CompositeBody
+	 */
 	void init(std::vector<boost::shared_ptr<AbstractBody> > subBodies,
 			dWorldID world, bool multiModel = false);
-
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~CompositeBody();
-
+	/**
+	 * \brief Returns position
+	 */
 	virtual osg::Vec3 getPosition();
+	/**
+	 * \brief Returns attitude
+	 */
 	virtual osg::Quat getAttitude();
-
+	/**
+	 * \brief Returns sub-bodies
+	 */
 	inline const std::vector<boost::weak_ptr<AbstractBody> > &getSubBodies() {
 		return subBodies_;
 	}
-
+	/**
+	 * \brief Flags multi model status
+	 */
 	inline bool isMultiModel() {
 		return multiModel_;
 	}
-
+	/**
+	 * \brief Returns all joints
+	 */
 	std::vector<boost::shared_ptr<Joint> > getAllJoints();
-
+	/**
+	 * \brief Returns string detailing composition of body
+	 */
 	std::string str(int indent=0);
 
 private:

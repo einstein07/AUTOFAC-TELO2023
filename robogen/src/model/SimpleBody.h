@@ -38,14 +38,22 @@
 namespace robogen {
 
 class Model;
-
+/**
+ * \brief Class to describe a SimpleBody
+ */
 class SimpleBody : public AbstractBody {
 
 public:
+	/**
+	 * \brief Constructor
+	 */
 	SimpleBody(boost::shared_ptr<Model> model, dMass mass,
 			dGeomID geom, const osg::Vec3& pos,
 			const osg::Quat& attitude = osg::Quat());
 
+	/**
+	 * \brief Destructor
+	 */
 	inline ~SimpleBody() {
 		/*if(geom_) {
 			printf("destroying geom!!!\n");
@@ -55,55 +63,91 @@ public:
 		}*/
 		joints_.clear();
 	}
-
+	/**
+	 * \brief Adds a Joint
+	 */
 	void addJoint(boost::shared_ptr<Joint> joint);
+	/**
+	 * \brief Clears Joints
+	 */
 	void clearJoints();
-
+	/**
+	 * \brief Removes specified Joint
+	 */
 	void removeJoint(boost::shared_ptr<Joint> joint);
-
+	/**
+	 * \brief Returns Joints
+	 */
 	inline const std::vector<boost::shared_ptr<Joint> > &getJoints() {
 		return joints_;
 	}
 
-
+	/**
+	 * \brief Returns position
+	 */
 	osg::Vec3 getPosition();
+	/**
+	 * \brief Returns attitude
+	 */
 	osg::Quat getAttitude();
-
+	/**
+	 * \brief Returns local position
+	 */
 	osg::Vec3 getLocalPosition();
+	/**
+	 * \brief Returns local attitude
+	 */
 	osg::Quat getLocalAttitude();
-
+	/**
+	 * \brief Returns Geom
+	 */
 	inline const dGeomID& getGeom() {
 		return geom_;
 	}
-
+	/**
+	 * \brief Returns mass
+	 */
 	inline const dMass& getMass() {
 		return mass_;
 	}
-
+	/**
+	 * \brief Returns Mass
+	 */
 	const boost::weak_ptr<Model>& getModel();
-
+	/**
+	 * \brief Returns specified position
+	 */
 	inline const osg::Vec3& getSpecifiedPosition() {
 		return specifiedPosition_;
 	}
-
+	/**
+	 * \brief Returns specified attitude
+	 */
 	inline const osg::Quat& getSpecifiedAttitude() {
 		return specifiedAttitude_;
 	}
-
+	/**
+	 * \brief Sets specified position
+	 */
 	inline void setSpecifiedPosition(osg::Vec3 specifiedPosition) {
 		specifiedPosition_ = specifiedPosition;
 	}
-
+	/**
+	 * \brief Sets specified attitude
+	 */
 	inline void setSpecifiedAttitude(osg::Quat specifiedAttitude) {
 		specifiedAttitude_ = specifiedAttitude;
 	}
-
-	//overwrite parent methods to also update specified position / attitude
+	/**
+	 * \brief overwrite parent methods to also update specified position / attitude
+	 */
 	inline void setPosition(osg::Vec3 position) {
 		AbstractBody::setPosition(position);
 		setSpecifiedPosition(position);
 	}
-
+	/**
+	 * \brief Sets attitude
+	 */
 	inline void setAttitude(osg::Quat attitude) {
 		AbstractBody::setAttitude(attitude);
 		setSpecifiedAttitude(attitude);

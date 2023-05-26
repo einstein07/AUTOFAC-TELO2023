@@ -36,14 +36,20 @@
 #include "robogen.pb.h"
 
 namespace robogen {
-
+/**
+ * \brief Class to describe ConnectionException
+ */
 class ConnectionException : public std::runtime_error{
 public:
+	/**
+	 * \brief Constructor
+	 */
 	ConnectionException(const std::string &w);
 };
 
 /**
  * \brief Representation of connection between two parts
+ *
  * This class serves to explicitly represent a connection between two parts
  * of the robot. Thus, the robot representation in the simulator is independent
  * of whatever compact representation has been used before.
@@ -51,7 +57,7 @@ public:
 class Connection {
 public:
 	/**
-	 * Error-less contructor
+	 * \brief Error-less contructor
 	 */
 	Connection();
 
@@ -59,7 +65,7 @@ public:
 			boost::shared_ptr<Model> to, int toSlot);
 
 	/**
-	 * Creates a connection from the specified connection message
+	 * \brief Creates a connection from the specified connection message
 	 * @param c Connection message to be used (uses string id's)
 	 * @param map mapping from string id to index in vector of body part
 	 * @param vec std::vector containing the body part shared pointers

@@ -36,24 +36,26 @@
 
 
 namespace robogen {
-
+/**
+ * \brief Class to describe ActuatedComponent
+ */
 class ActuatedComponent : public Model {
 
 public:
 
 	/**
-	 * Constructor
+	 * \brief Constructor
 	 * @see Model
 	 */
 	ActuatedComponent(dWorldID odeWorld, dSpaceID odeSpace, std::string id) :
 		Model(odeWorld, odeSpace, id) {}
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~ActuatedComponent() {}
 
 	/**
-	 * @return the available motors
+	 * \brief Returns available motors
 	 */
 	virtual void getMotors(std::vector<boost::shared_ptr<Motor> >& motors) = 0;
 };

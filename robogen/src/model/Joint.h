@@ -37,57 +37,105 @@
 namespace robogen {
 
 class SimpleBody;
-
+/**
+ * \brief Class to describe a Joint
+ */
 class Joint : public boost::enable_shared_from_this<Joint> {
 public:
-
+	/**
+	 * \brief Joint type
+	 */
 	enum JointType {
 		FIXED = 0,
 		HINGE,
 		UNIVERSAL
 	};
 
-	// error free constructor
+	/**
+	 * \brief Error free constructor
+	 *
+	 */
 	inline Joint() {
 		joint_ = NULL;
 		fback_ = NULL;
 	}
-	// create a hinge
+	/**
+	 * \brief Creates a hinge
+	 *
+	 */
 	void createHinge(dWorldID world, boost::shared_ptr<SimpleBody> bodyA,
 		  boost::shared_ptr<SimpleBody> bodyB,
 		  osg::Vec3 axis, osg::Vec3 anchor, dJointGroupID jointGroup=0);
-	// create fixed
+	/**
+	 * \brief Creates a fixed Joint
+	 */
 	void createFixed(dWorldID world, boost::shared_ptr<SimpleBody> bodyA,
 		  boost::shared_ptr<SimpleBody> bodyB, dJointGroupID jointGroup=0);
-	// create universal
+	/**
+	 * Creates universal Joint
+	 */
 	void createUniversal(dWorldID world, boost::shared_ptr<SimpleBody> bodyA,
 		  boost::shared_ptr<SimpleBody> bodyB, osg::Vec3 axis1,
 		  osg::Vec3 axis2, osg::Vec3 anchor, dJointGroupID jointGroup=0);
-
+	/**
+	 * \brief Reconnects Joint connection
+	 */
 	void reconnect();
-
+	/**
+	 * \brief Resets Joint connection
+	 */
 	void reset();
-
+	/**
+	 * \brief Destructor
+	 */
 	~Joint();
-
+	/**
+	 * \brief Returns Joint
+	 */
 	inline dJointID getJoint() { return joint_; }
+	/**
+	 * \brief Returns type
+	 */
 	inline JointType getType() { return type_; }
-
+	/**
+	 * \brief Returns body A
+	 */
 	inline boost::weak_ptr<SimpleBody> getBodyA() { return bodyA_; }
+	/**
+	 * \brief Returns body B
+	 */
 	inline boost::weak_ptr<SimpleBody> getBodyB() { return bodyB_; }
-
-
+	/**
+	 * \brief Returns anchor
+	 */
 	inline const osg::Vec3 &getAnchor() { return anchor_; }
+	/**
+	 * \brief Returns hinge axis
+	 */
 	inline const osg::Vec3 &getHingeAxis() { return hingeAxis_; }
+	/**
+	 * \brief Returns universal axis a
+	 */
 	inline const osg::Vec3 &getUniversalAxis1() { return universalAxis1_; }
+	/**
+	 * \brief Returns universal axis 2
+	 */
 	inline const osg::Vec3 &getUniversalAxis2() { return universalAxis2_; }
-
+	/**
+	 * \brief UPdates axis and angle
+	 */
 	void updateAxisAndAngle();
-
+	/**
+	 * \brief Returns world
+	 */
 	inline dWorldID getWorld() { return world_; }
-
+	/**
+	 * \brief Sets parameters
+	 */
 	void setParam(unsigned int param, double value);
-
+	/**
+	 * \brief Sets feedback
+	 */
 	void setFeedback(dJointFeedback *fback);
 
 private :
