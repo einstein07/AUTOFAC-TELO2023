@@ -35,7 +35,7 @@
 namespace robogen {
 
 /**
- * Terrain configuration parameters
+ * \brief Terrain configuration parameters
  */
 class TerrainConfig {
 
@@ -48,7 +48,7 @@ public:
 	};
 
 	/**
-	 * Initializes an empty terrain
+	 * \brief Constructor.\nInitializes an empty terrain
 	 *
 	 * @param friction
 	 */
@@ -60,6 +60,7 @@ public:
 
 
 	/**
+	 * \brief Constructor\n
 	 * Initializes a flat terrain
 	 *
 	 * @param length
@@ -73,6 +74,7 @@ public:
 	}
 
 	/**
+	 * \brief Constructor\n
 	 * Initializes a rough terrain
 	 *
 	 * @param heightFieldFileName
@@ -89,13 +91,14 @@ public:
 	}
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~TerrainConfig() {
 
 	}
 
 	/**
+	 * \brief Returns terrain type
 	 * @return true if the terrain is flat, false otherwise
 	 */
 	TerrainType getType() {
@@ -103,6 +106,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns heightfield file
 	 * @return the heightfield file name
 	 */
 	const std::string& getHeightFieldFileName() const {
@@ -110,6 +114,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns terrain length
 	 * @return the length of the terrain
 	 */
 	float getLength() {
@@ -117,6 +122,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns terrain width
 	 * @return the width of the terrain
 	 */
 	float getWidth() {
@@ -124,6 +130,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns terrain height
 	 * @return the height of the terrain
 	 */
 	float getHeight() {
@@ -131,14 +138,19 @@ public:
 	}
 
 	/**
-	 * @return the friction coefficient of the terrain
+	 * \brief Returns frisction coefficient
 	 * TODO: make this be more configurable than just global
 	 * 	friction coefficient
+	 * @return the friction coefficient of the terrain
+	 *
 	 */
 	float getFriction() {
 		return friction_;
 	}
 
+	/**
+	 * \brief Serializes terrain details into a SimulatorConf message
+	 */
 	void serialize(robogenMessage::SimulatorConf &message) {
 		message.set_terraintype(type_);
 		message.set_terrainheightfieldfilename(heightFieldFileName_);

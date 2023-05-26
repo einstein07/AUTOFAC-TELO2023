@@ -42,17 +42,20 @@
 namespace robogen {
 
 /**
- * Parameters for experimental scenarios supported by the simulator
+ * \brief Parameters for experimental scenarios supported by the simulator
  */
 class RobogenConfig {
 
 public:
-
+	/**
+	 * \brief Describes how to handle overlaps with obstacles
+	 */
 	enum ObstacleOverlapPolicies {
 		REMOVE_OBSTACLES, CONSTRAINT_VIOLATION, ELEVATE_ROBOT
 	};
 
 	/**
+	 * \brief Constructor.\n
 	 * Initializes a robogen config object from configuration parameters
 	 */
 	RobogenConfig(std::string scenario, std::string scenarioFile,
@@ -103,18 +106,20 @@ public:
 	}
 
 	/**
+	 * Constructor\n
 	 * Initializes a robogen config object from a message
 	 */
 	RobogenConfig(const robogenMessage::SimulatorConf &message);
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~RobogenConfig() {
 
 	}
 
 	/**
+	 * \brief Returns simulation scenario.\n
 	 * @return the simulation scenario
 	 */
 	std::string getScenario() const {
@@ -122,6 +127,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns scenario file.\n
 	 * @return the simulation scenario file (for scripted scenario)
 	 */
 	std::string getScenarioFile() const {
@@ -129,6 +135,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns terrain config\n
 	 * @return the terrain configuration
 	 */
 	boost::shared_ptr<TerrainConfig> getTerrainConfig() {
@@ -136,6 +143,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns obstacles config\n
 	 * @return the obstacles configuration
 	 */
 	boost::shared_ptr<ObstaclesConfig> getObstaclesConfig() {
@@ -143,6 +151,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns light sources config\n
 	 * @return the light sources configuration
 	 */
 	boost::shared_ptr<LightSourcesConfig> getLightSourcesConfig() {
@@ -150,6 +159,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns timesteps\n
 	 * @return the number of timesteps
 	 */
 	unsigned int getTimeSteps() const {
@@ -157,6 +167,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns simulation time\n
 	 * @return the total simulation time
 	 */
 	float getSimulationTime() const {
@@ -164,6 +175,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns time step length\n
 	 * @return the time step length
 	 */
 	float getTimeStepLength() const {
@@ -171,6 +183,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns actuation period\n
 	 * @return the actuation period
 	 */
 	int getActuationPeriod() const {
@@ -178,6 +191,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns robot starting positions\n
 	 * @return the robot starting positions
 	 */
 	boost::shared_ptr<StartPositionConfig> getStartingPos() {
@@ -185,6 +199,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns starting positions file\n
 	 * @return the starting position configuration file
 	 */
 	std::string getStartPosFile(){
@@ -192,6 +207,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns obstacle config file\n
 	 * @return the obstacle configuration file
 	 */
 	std::string getObstacleFile(){
@@ -199,6 +215,7 @@ public:
 	}
 
 	/**
+	 *
 	 * @return the light source configuration file
 	 */
 	std::string getLightSourceFile(){
@@ -206,24 +223,27 @@ public:
 	}
 
 	/**
-	 * @return sensor noise level
+	 * \brief Returns sensors noise level\n
 	 * Sensor noise is Gaussian with std dev of sensorNoiseLevel * actualValue
-	 * i.e. value given to Neural Network is N(a, a * s)
+	 * i.e. value given to Neural Network is N(a, a * s)\n
 	 * where a is actual value and s is sensorNoiseLevel
+	 * @return sensor noise level
 	 */
 	float getSensorNoiseLevel() {
 		return sensorNoiseLevel_;
 	}
 
 	/**
-	 * @return motor noise level
+	 * \brief Return smotor noise level\n
 	 * Motor noise is uniform in range +/- motorNoiseLevel * actualValue
+	 * @return motor noise level
 	 */
 	float getMotorNoiseLevel() {
 		return motorNoiseLevel_;
 	}
 
 	/**
+	 * \brief Returns whether acceleration is capped or not\n
 	 * @return if acceleration is capped
 	 */
 	bool isCapAlleration() {
@@ -231,6 +251,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns max linear acceleration\n
 	 * @return max linear acceleration (if capped)
 	 */
 	float getMaxLinearAcceleration() {
@@ -238,6 +259,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns max angular acceleration.\n
 	 * @return max angular acceleration (if capped)
 	 */
 	float getMaxAngularAcceleration() {
@@ -245,6 +267,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns max direction shift per second\n
 	 * @return max direction shifts per second for testing motor burnout
 	 * 		if -1, then do not check burnout
 	 */
@@ -253,6 +276,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns the value of gravity in each dimension\n
 	 * @return gravity vector
 	 */
 	osg::Vec3 getGravity() {
@@ -260,6 +284,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns whether obstacle collisions are allowed or not\n
 	 * return if should disallow obstacle collisions
 	 */
 	bool isDisallowObstacleCollisions() {
@@ -267,14 +292,15 @@ public:
 	}
 
 	/**
-	 * return if should disallow obstacle remove
+	 * \brief Returns method for handling obstacle overlaps.\n
+	 * @return how to handle obstacle overlaps
 	 */
 	unsigned int getObstacleOverlapPolicy() {
 		return obstacleOverlapPolicy_;
 	}
 
 	/**
-	 * CH - Returns the complexity cost flag (1==true, 0==false)
+	 * CH - Returns the complexity cost flag (1==true, 0==false)\n
 	 * @return the complexity cost flag
 	 */
 	bool getComplexityCost(){
@@ -282,7 +308,7 @@ public:
 	}
 
 	/**
-	 * SM added
+	 * \brief Returns GatheringZone - SM\n
 	 * @return the gathering zone configuration
 	 */
 	boost::shared_ptr<GatheringZoneConfig> getGatheringZoneConfig() {
@@ -290,7 +316,7 @@ public:
 	}
         
 	/**
-	 * SM added
+	 * \brief Returns Resources config - SM\n
 	 * @return the resources configuration
 	 */
 	boost::shared_ptr<ResourcesConfig> getResourcesConfig() {
@@ -298,7 +324,7 @@ public:
 	}
         
 	/**
-	 * SM added
+	 * \brief Returns config file - SM\n
 	 * @return the resource configuration file
 	 */
 	std::string getResourceFile(){
@@ -306,7 +332,7 @@ public:
 	}
 
 	/**
-	 * SM added
+	 * \brief Returns swarm size -SM\n
 	 * @return the swarm size
 	 */
 	int getSwarmSize(){
@@ -314,14 +340,14 @@ public:
 	}
         
 	/**
-	 * SM added
+	 * \brief Returns swarm size - SM\n
 	 * @return the swarm size
 	 */
 	std::string getMode(){
 		return mode_;
 	}
 	/**
-	 * Convert configuration into configuration message.
+	 * \brief Convert configuration into configuration message.
 	 */
 	robogenMessage::SimulatorConf serialize() const{
 		robogenMessage::SimulatorConf ret;

@@ -38,14 +38,14 @@
 namespace robogen {
 
 /**
- * Contains the list of allowed starting positions for the robots
+ * \brief Contains the list of allowed starting positions for the robots
  */
 class StartPositionConfig {
 
 public:
 
 	/**
-	 * Starting positions and azimuths
+	 * \brief Starting positions and azimuths
 	 */
 	StartPositionConfig(
 			std::vector<boost::shared_ptr<StartPosition> > startPosition) :
@@ -54,6 +54,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns starting positions.
 	 * @return the starting positions
 	 */
 	std::vector<boost::shared_ptr<StartPosition> > getStartPosition() {
@@ -61,6 +62,7 @@ public:
 	}
 
 	/**
+	 * \brief Returns starting position at position 'i'
 	 * @return the starting position at index i
 	 */
 	boost::shared_ptr<StartPosition> getStartPosition(int i) {
@@ -73,7 +75,7 @@ public:
 	}
 
 	/**
-	 * Serialize starting positions into a SimulatorConf message
+	 * \brief Serializes starting positions into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
 		for (unsigned int i=0; i<startPosition_.size(); ++i){

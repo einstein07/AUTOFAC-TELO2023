@@ -15,41 +15,40 @@
 namespace robogen {
 
 /**
- * Gathering zone configuration parameters
+ * \brief Gathering zone configuration parameters
  */
 class GatheringZoneConfig {
 
 public:
 
 	/**
+	 * \brief Default Constructor
 	 * Initializes gethering zone configuration
 	 */
 	GatheringZoneConfig() {}
-
-	GatheringZoneConfig(
-                        const osg::Vec3& position,
-			const osg::Vec3& size
-			) :
-			position_(position), size_(size) {
-
-	}
+	/**
+	 * \brief Constructor
+	 * Initializes gethering zone configuration
+	 */
+	GatheringZoneConfig(const osg::Vec3& position, const osg::Vec3& size) :
+			position_(position), size_(size) {}
 
 	/**
 	 * Destructor
 	 */
-	virtual ~GatheringZoneConfig() {
-
-	}
+	virtual ~GatheringZoneConfig() {}
 
 	/**
+	 * Returns position of gathering zone.\n
 	 * @return the coordinates of the gathering zone
-         * point of reference is its center
+	 * point of reference is its center
 	 */
 	const osg::Vec3& getPosition() const {
 		return position_;
 	}
 
 	/**
+	 * Returns size of gathering zone.\n
 	 * @return the size of the gathering zone
 	 */
 	const osg::Vec3& getSize() const {
@@ -57,7 +56,7 @@ public:
 	}
 
 	/**
-	 * Serialize gathering zone into a SimulatorConf message
+	 * Serializes gathering zone into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
             message.set_gatheringzonex(position_.x());

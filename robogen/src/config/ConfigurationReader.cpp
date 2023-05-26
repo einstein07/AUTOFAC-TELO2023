@@ -575,16 +575,16 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 		}
 	}
 
-	/**
+	/*
 	 * *****SM Added*****
 	 * Reads in EDQD parameters
 	 */
 	std::string mode = "";
-	/**
+	/*
 	 * File for EDQD parameters
 	 */
 	std::string EDQDParamsFile;
-	/**
+	/*
 	 * EDQD parameters
 	 */
 	EDQD::Parameters EDQDParams;
@@ -891,7 +891,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 					obstaclesDensity, obstaclesRotationAxis,
 					obstaclesRotationAngle));
 
-	/**---------------------------------------------------------------------
+	/*---------------------------------------------------------------------
 	 * SM added
 	 * Decode resources
 	 * ---------------------------------------------------------------------
@@ -953,7 +953,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 							simulatorConf.terrainfriction()));
 	}
         
-	/**---------------------------------------------------------------------
+	/*---------------------------------------------------------------------
 	 * SM added
 	 * Decode gathering zone configuration
 	 *----------------------------------------------------------------------

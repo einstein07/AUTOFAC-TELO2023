@@ -73,9 +73,6 @@ bool parseBounds(std::string value, double &min, double &max) {
 
 
 
-/**
- * Parses options from given conf file.
- */
 bool EvolverConfiguration::init(std::string configFileName) {
 
 	this->confFileName = configFileName;
@@ -165,7 +162,7 @@ bool EvolverConfiguration::init(std::string configFileName) {
 		("neatParamsFile",
 				boost::program_options::value<std::string>(&neatParamsFile),
 				"File for NEAT/HyperNEAT specific params")
-		/**("EDQDParamsFile",
+		/*("EDQDParamsFile",
 				boost::program_options::value<std::string>(&EDQDParamsFile),
 				"File for EDQD specific params")*/
 		("pBrainMutate", boost::program_options::value<double>

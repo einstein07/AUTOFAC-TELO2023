@@ -40,33 +40,35 @@
 namespace robogen {
 
 /**
+ * \brief Struct to describe evolution config parameters
+ *
  * The choice is made to use a struct as we want to easily write access to new
  * parameters of the configuration class
  */
 typedef struct EvolverConfiguration {
 	/**
-	 * Types of replacement strategies
+	 * \brief Types of replacement strategies
 	 */
 	enum ReplacementTypes{
 		PLUS_REPLACEMENT, COMMA_REPLACEMENT
 	};
 
 	/**
-	 * Types of selection strategies
+	 * \brief Types of selection strategies
 	 */
 	enum SelectionTypes{
 		DETERMINISTIC_TOURNAMENT
 	};
 
 	/**
-	 * Modes of evolution
+	 * \brief Modes of evolution
 	 */
 	enum EvolutionModes {
 		BRAIN_EVOLVER, FULL_EVOLVER, EMBODIED
 	};
 
 	/**
-	 * Evolationary Algorithm
+	 * \brief Evolationary Algorithm
 	 * TODO add other possibilities (e.g. CMA-ES)
 	 */
 	enum EvolutionaryAlgorithms {
@@ -75,25 +77,25 @@ typedef struct EvolverConfiguration {
 
 
 	/**
-	 * Types of body mutation.
+	 * \brief Types of body mutation.
 	 * Last entry is used to get the amount of operators
 	 */
 	enum BodyMutationOperators{
 		SUBTREE_REMOVAL, SUBTREE_DUPLICATION, SUBTREE_SWAPPING,
 		NODE_INSERTION, NODE_REMOVAL, PARAMETER_MODIFICATION,
-		/*ORIENTATION_CHANGE, SENSOR_SWAP, LINK_CHANGE, ACTIVE_PASSIVE,*/
+		/** \brief ORIENTATION_CHANGE, SENSOR_SWAP, LINK_CHANGE, ACTIVE_PASSIVE,*/
 		NUM_BODY_OPERATORS
 	};
 
 	static const std::string BodyMutationOperatorsProbabilityCodes[];
 
 	/**
-	 * File name of this configuration
+	 * \brief File name of this configuration
 	 */
 	std::string confFileName;
 
 	/**
-	 * Parses a configuration from a proper configuration file
+	 * \brief Parses a configuration from a proper configuration file
 	 */
 	bool init(std::string configFileName);
 
@@ -101,58 +103,58 @@ typedef struct EvolverConfiguration {
 	// ========================================================================
 
 	/**
-	 * File for reference robot
+	 * \brief File for reference robot
 	 */
 	std::string referenceRobotFile;
 
 	/**
-	 * Configuration file for simulator
+	 * \brief Configuration file for simulator
 	 */
 	std::string simulatorConfFile;
 
 	/**
-	 * Population size
+	 * \brief Population size
 	 */
 	unsigned int mu;
 
 	/**
-	 * Offspring size
+	 * \brief Offspring size
 	 */
 	unsigned int lambda;
 
 	/**
-	 * Amount of generations to be simulated
+	 * \brief Amount of generations to be simulated
 	 */
 	unsigned int numGenerations;
 
 	/**
-	 * Employed selection strategy
+	 * \brief Employed selection strategy
 	 */
 	int selection;
 
 	/**
-	 * Tournament size for tournaments
+	 * \brief Tournament size for tournaments
 	 */
 	unsigned int tournamentSize;
 
 	/**
-	 * Employed replacement strategy
+	 * \brief Employed replacement strategy
 	 */
 	int replacement;
 
 	/**
-	 * Employed replacement strategy
+	 * \brief Employed replacement strategy
 	 */
 	unsigned int evolutionMode;
 
 	/**
-	 *  Flag to continue evolving from provided brain instead of re-initialing
+	 *  \brief Flag to continue evolving from provided brain instead of re-initialing
 	 *  params randomly
 	 */
 	bool useBrainSeed;
 
 	/**
-	 * Sockets to be used to connect to the server
+	 * \brief Sockets to be used to connect to the server
 	 */
 	std::vector<std::pair<std::string, int> > sockets;
 
@@ -160,66 +162,110 @@ typedef struct EvolverConfiguration {
 	// ========================================================================
 
 	/**
-	 * Probability of mutation for any single brain parameter
+	 * \brief Probability of mutation for any single brain parameter
 	 */
 	double pBrainMutate;
 
 	/**
-	 * Sigma of brain weight mutation
+	 * \brief Sigma of brain weight mutation
 	 */
 	double brainWeightSigma;
 
 	/**
-	 * Sigma of brain bias mutation
+	 * \brief Sigma of brain bias mutation
 	 */
 	double brainBiasSigma;
 
 	/**
-	 * Lower bound for brain weights
+	 * \brief Lower bound for brain weights
 	 */
 	double minBrainWeight;
 
 	/**
-	 * Upper bound for brain weights
+	 * \brief Upper bound for brain weights
 	 */
 	double maxBrainWeight;
 
 	/**
-	 * Lower bound for biases
+	 * \brief Lower bound for biases
 	 */
 	double minBrainBias;
 
 	/**
-	 * Upper bound for biases
+	 * \brief Upper bound for biases
 	 */
 	double maxBrainBias;
 
 	/**
-	 * PARAMS FOR OTHER BRAIN PARAMETERS  --
-	 * 	required if using relevant neuron types  TODO -- validate these
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
 	 */
 
 	double brainTauSigma;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double brainPeriodSigma;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double brainPhaseOffsetSigma;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double brainAmplitudeSigma;
-
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double minBrainTau;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double maxBrainTau;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double minBrainPeriod;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 */
 	double maxBrainPeriod;
 
-	// defaults to -1, 1
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 * 	defaults to -1, 1
+	 */
 	double minBrainPhaseOffset;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 * 	defaults to -1, 1
+	 */
 	double maxBrainPhaseOffset;
-
-	// defaults to 0, 1
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 * 	defaults to 0, 1
+	 */
 	double minBrainAmplitude;
+	/**
+	 * \brief PARAM FOR OTHER BRAIN PARAMETERS\n
+	 * 	Required if using relevant neuron types  TODO -- validate this
+	 * 	defaults to 0, 1
+	 */
 	double maxBrainAmplitude;
 
 
 	/**
-	 * Probability of crossover among brains
+	 * \brief Probability of crossover among brains
 	 */
 	double pBrainCrossover;
 
@@ -227,64 +273,68 @@ typedef struct EvolverConfiguration {
 	// ========================================================================
 
 	/**
-	 * Allowed body part types
+	 * \brief Allowed body part types
 	 */
 	std::vector<char> allowedBodyPartTypes;
 
 	/**
-	 * Probabilities for the various body operators
+	 * \brief Probabilities for the various body operators
 	 */
 	double bodyOperatorProbability[NUM_BODY_OPERATORS];
 
 
 	/**
-	 * Max body mutation attempts per reproduction events:
+	 * \brief Max body mutation attempts per reproduction events\n
 	 * 	Mutator will give up trying to mutate the body tree after
 	 * 	this many failed attempts
 	 */
 	unsigned int maxBodyMutationAttempts;
 
 	/**
-	 * Maximum number of allowed body parts
+	 * \brief Maximum number of allowed body parts
 	 */
 	unsigned int maxBodyParts;
 
 	/**
-	 * Minimum number of body parts in individuals in the initial population
+	 * \brief Minimum number of body parts in individuals in the initial population
 	 */
 	unsigned int minNumInitialParts;
 
 	/**
-	 * Maximum number of body parts in individuals in the initial population
+	 * \brief Maximum number of body parts in individuals in the initial population
 	 */
 	unsigned int maxNumInitialParts;
 
 	/**
-	 * Std dev of body param mutations
+	 * \brief Std dev of body param mutations
 	 */
 	double bodyParamSigma;
 
 	/**
-	 * Evolutionary algorithm
+	 * \brief Evolutionary algorithm
 	 */
 	unsigned int evolutionaryAlgorithm;
 
 	/**
-	 * NEAT/HyperNEAT parameters
+	 * \brief NEAT/HyperNEAT parameters
 	 */
 	NEAT::Parameters neatParams;
 
 	/**
-	 * File for NEAT/HyperNEAT parameters
+	 * \brief File for NEAT/HyperNEAT parameters
 	 */
 	std::string neatParamsFile;
-
+	/**
+	 * \brief Probability to mutate oscillator neuron
+	 */
 	double pOscillatorNeuron;
-
+	/**
+	 * \brief Probability to add a hidden neuron
+	 */
 	double pAddHiddenNeuron;
 
 	/**
-	 * BK attempt to add noveltysearch optional param
+	 * \brief BK attempt to add noveltysearch optional param
 	 */
 	bool noveltySearch;
 

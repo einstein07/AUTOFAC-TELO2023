@@ -35,17 +35,21 @@
 namespace robogen {
 
 /**
- * Obstacles configuration parameters
+ * \brief Obstacles configuration parameters
  */
 class ObstaclesConfig {
 
 public:
 
 	/**
+	 * \brief Default Constructor\n
 	 * Initializes obstacles configuration
 	 */
 	ObstaclesConfig() {}
-
+	/**
+	 * \brief Constructor\n
+	 * Initializes obstacles configuration
+	 */
 	ObstaclesConfig(const std::vector<osg::Vec3>& coordinates,
 			const std::vector<osg::Vec3>& sizes,
 			const std::vector<float> &densities,
@@ -64,6 +68,7 @@ public:
 	}
 
 	/**
+	 * Returns the location of obstacles.\n
 	 * @return the coordinates of the obstacles
 	 */
 	const std::vector<osg::Vec3>& getCoordinates() const {
@@ -71,6 +76,7 @@ public:
 	}
 
 	/**
+	 * Returns obstacle sizes.\n
 	 * @return the size of the obstacles
 	 */
 	const std::vector<osg::Vec3>& getSizes() const {
@@ -78,6 +84,7 @@ public:
 	}
 
 	/**
+	 * Returns obstacle densities.\n
 	 * @return the obstacle densities
 	 */
 	const std::vector<float>& getDensities() const{
@@ -85,13 +92,15 @@ public:
 	}
 
 	/**
-	 * @return the obstacle densities
+	 * Returns rotation axes.\n
+	 * @return the rotation axes
 	 */
 	const std::vector<osg::Vec3>& getRotationAxes() const{
 		return rotationAxes_;
 	}
 
 	/**
+	 * Returns the densities of obstacles.\n
 	 * @return the obstacle densities
 	 */
 	const std::vector<float>& getRotationAngles() const{
@@ -99,7 +108,7 @@ public:
 	}
 
 	/**
-	 * Serialize obstacles into a SimulatorConf message
+	 * Serializes obstacles into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
 		for (unsigned int i=0; i<coordinates_.size(); ++i){

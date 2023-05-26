@@ -42,31 +42,34 @@ class GatheringZoneConfig;
 class ResourcesConfig;
 
 /**
- * Read configuration files
+ * \brief A class to read configuration files
  */
 class ConfigurationReader {
 
 public:
 
 	/**
-	 * Reads the configuration file for ROBOGEN.
-	 * The file must contain the following parameterName=parameterValues pairs
+	 * Reads the configuration file for ROBOGEN.\n
+	 * The file must contain the following parameterName=parameterValues pairs\n
 	 *
-	 * scenario=<"racing"|"chasing">
-	 * timeStep=FLOAT
-	 * nTimeSteps=FLOAT
-	 * terrainType=<"flat"|"rugged">
-	 * terrainLength=FLOAT
-	 * terrainWidth=FLOAT
-	 * terrainHeight=FLOAT [Mandatory if terrainType=="rugged", ignored otherwise]
-	 * terrainHeightField=STRING [Mandatory if terrainType=="rugged", ignored otherwise]
-	 * obstaclesConfigFile=STRING
+	 * scenario=<"racing"|"chasing">\n
+	 * timeStep=FLOAT\n
+	 * nTimeSteps=FLOAT\n
+	 * terrainType=<"flat"|"rugged">\n
+	 * terrainLength=FLOAT\n
+	 * terrainWidth=FLOAT\n
+	 * terrainHeight=FLOAT [Mandatory if terrainType=="rugged", ignored otherwise]\n
+	 * terrainHeightField=STRING [Mandatory if terrainType=="rugged", ignored otherwise]\n
+	 * obstaclesConfigFile=STRING\n
 	 * startPositionConfigFile=STRING
 	 *
 	 */
 	static boost::shared_ptr<RobogenConfig> parseConfigurationFile(
 			const std::string& fileName);
 
+	/**
+	 * Reads simulator configuration for ROBOGEN.
+	 */
 	static boost::shared_ptr<RobogenConfig> parseRobogenMessage(
 				const robogenMessage::SimulatorConf& simulatorConf);
 

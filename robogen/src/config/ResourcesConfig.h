@@ -17,17 +17,21 @@
 namespace robogen {
 
 /**
- * Resources configuration parameters
+ * \brief Resources configuration parameters
  */
 class ResourcesConfig {
 
 public:
 
 	/**
+	 * Default Constructor.\n
 	 * Initializes resources configuration
 	 */
 	ResourcesConfig() {}
-
+	/**
+	 * Constructor.\n
+	 * Initializes resources configuration
+	 */
 	ResourcesConfig(const std::vector<osg::Vec3>& coordinates,
 			const std::vector<osg::Vec3>& sizes,
 			const std::vector<float> &densities,
@@ -45,6 +49,7 @@ public:
 	}
 
 	/**
+	 * Return resource coordinates.\n
 	 * @return the coordinates of the resources
 	 */
 	const std::vector<osg::Vec3>& getCoordinates() const {
@@ -52,6 +57,7 @@ public:
 	}
 
 	/**
+	 * Returns resource sizes.\n
 	 * @return the size of the resources
 	 */
 	const std::vector<osg::Vec3>& getSizes() const {
@@ -59,6 +65,7 @@ public:
 	}
 
 	/**
+	 * Returns resource densities.\n
 	 * @return the densities of the resources
 	 */
 	const std::vector<float>& getDensities() const{
@@ -66,6 +73,7 @@ public:
 	}
 
 	/**
+	 * Returns resource types.\n
 	 * @return the types of the resources
 	 */
 	const std::vector<int>& getTypes() const{
@@ -73,7 +81,7 @@ public:
 	}
         
 	/**
-	 * Serialize resources into a SimulatorConf message
+	 * Serializes resources into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
 		for (unsigned int i=0; i<coordinates_.size(); ++i){

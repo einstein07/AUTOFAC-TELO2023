@@ -35,19 +35,22 @@
 namespace robogen {
 
 /**
- * Obstacles configuration parameters
+ * \brief Obstacles configuration parameters
  */
 class LightSourcesConfig {
 
 public:
 
 	/**
+	 * \brief Default constructor.\n
+	 * Initializes light sources configuration.\n
+	 * No light sources
+	 */
+	LightSourcesConfig() {}
+	/**
+	 * \brief Default Constructor\n
 	 * Initializes light sources configuration
 	 */
-
-	// no light sources
-	LightSourcesConfig() {}
-
 	LightSourcesConfig(const std::vector<osg::Vec3>& coordinates,
 			const std::vector<float> &intensities) :
 			coordinates_(coordinates), intensities_(intensities) {
@@ -55,13 +58,14 @@ public:
 	}
 
 	/**
-	 * Destructor
+	 * \brief Destructor
 	 */
 	virtual ~LightSourcesConfig() {
 
 	}
 
 	/**
+	 * \brief Returns location of light sources.\n
 	 * @return the coordinates of the light sources
 	 */
 	const std::vector<osg::Vec3>& getCoordinates() const {
@@ -69,6 +73,7 @@ public:
 	}
 
 	/**
+	 * Returns intensities of ligt sources.\n
 	 * @return the light source intensities
 	 */
 	const std::vector<float>& getIntensities() const{
@@ -76,7 +81,7 @@ public:
 	}
 
 	/**
-	 * Serialize obstacles into a SimulatorConf message
+	 * \brief Serialize obstacles into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
 		for (unsigned int i=0; i<coordinates_.size(); ++i){

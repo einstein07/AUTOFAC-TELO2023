@@ -33,7 +33,7 @@
 namespace robogen{
 
 /**
- * Class to contain beginning modalities of robot (position, azimuth).
+ * \brief Class to contain beginning modalities of robot (position, azimuth).
  */
 class StartPosition{
 
@@ -41,16 +41,18 @@ public:
 	StartPosition();
 
 	/**
-	 * Initializes start position to given position and azimuth
+	 * \brief Initializes start position to given position and azimuth
 	 */
 	bool init(osg::Vec2 position, float azimuth);
 
 	/**
+	 * \brief Returns starting position.
 	 * @return starting position
 	 */
 	osg::Vec2 getPosition();
 
 	/**
+	 * Returns starting azimuth\n
 	 * @return starting azimuth
 	 */
 	float getAzimuth();
