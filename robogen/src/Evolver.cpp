@@ -89,7 +89,7 @@ void printHelp() {
 
 std::vector<boost::shared_ptr<RobotRepresentation> > noveltyArchive;
 /**
- * BK - method required by the noveltySearch experiment
+ * \brief BK - method required by the noveltySearch experiment
  * probabalistcally maintain an archive of maximum 50 individuals 
  */
 void addToArchive(boost::shared_ptr<RobotRepresentation> & individual){

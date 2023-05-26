@@ -53,26 +53,31 @@ namespace robogen{
  * FileViewer.  This involved a lot of duplicate code, so this class aims to
  * encapsulate all ODE code in one place
  */
-
+/**
+ * \brief Simulation result
+ */
 enum result{
 		SIMULATION_SUCCESS,
 		SIMULATION_FAILURE,
 		CONSTRAINT_VIOLATED
 	};
-        
+/**
+ * \brief Values passed into each robot thread in a swarm
+ */
 struct actionThreadParams{
-                dReal* previousAngVel; 
-                dReal* previousLinVel;
-                double step; double t; int count;
-		bool* constraintViolated;
-		bool* motorBurntOut;
-		boost::random::mt19937 rng;
-		boost::random::normal_distribution<float> normalDistribution;
-		boost::random::uniform_01<float> uniformDistribution;
+
+	dReal* previousAngVel;
+	dReal* previousLinVel;
+	double step; double t; int count;
+	bool* constraintViolated;
+	bool* motorBurntOut;
+	boost::random::mt19937 rng;
+	boost::random::normal_distribution<float> normalDistribution;
+	boost::random::uniform_01<float> uniformDistribution;
 };
 
 /**
- * Runs the simulations
+ * \brief Runs the simulations
  * Relies on two extern variables. See .cpp.
  */
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
@@ -80,7 +85,9 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		const robogenMessage::Robot &robotMessage, IViewer *viewer,
 		boost::random::mt19937 &rng);
 
-
+/**
+ * \brief Runs the simulations
+ */
 unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 		boost::shared_ptr<RobogenConfig> configuration,
 		const robogenMessage::Robot &robotMessage, IViewer *viewer,
@@ -89,7 +96,7 @@ unsigned int runSimulations(boost::shared_ptr<Scenario> scenario,
 
 
 /**
- * SM added
+ * \brief Simulation iterations - SM
  */
 extern unsigned int iterations;
 
