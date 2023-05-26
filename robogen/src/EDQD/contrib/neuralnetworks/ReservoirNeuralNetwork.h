@@ -14,7 +14,7 @@
 namespace Neural {
 
 	/**
-	 * Definition of a reservoir neural network
+	 * \brief Definition of a reservoir neural network
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class ReservoirNeuralNetwork : public NeuralNetwork {

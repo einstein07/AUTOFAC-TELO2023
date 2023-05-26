@@ -16,7 +16,7 @@
 namespace Neural {
 
 	/**
-	 * A basic Perceptron
+	 * \brief A basic Perceptron
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class Perceptron : public MLP {

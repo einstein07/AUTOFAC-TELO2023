@@ -131,10 +131,10 @@ namespace robogen{
 
 	osg::Vec3d PickUpPositioningHeuristic::calculateTargetPoint(boost::shared_ptr<BoxResource> resource){
 		// Remember where we're headed, don't get stuck choosing sides
-		/**if (targetPoint.x() != -1000) {
+		/*if (targetPoint.x() != -1000) {
 			return targetPoint;
 		}*/
-		/**if (target_ != NULL && !target_->isTaken()) {
+		/*if (target_ != NULL && !target_->isTaken()) {
 			return target_ -> getPosition();
 		}*/
 		osg::Vec3d robotPosition = robot_ -> getCoreComponent() -> getRootPosition();

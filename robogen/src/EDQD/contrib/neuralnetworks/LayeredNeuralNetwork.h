@@ -14,7 +14,7 @@
 namespace Neural {
 
 	/**
-	 * Definition of a layered neural network
+	 * \brief Definition of a layered neural network
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class LayeredNeuralNetwork : public NeuralNetwork {

@@ -18,14 +18,32 @@
 #include "model/sensors/TargetAreaDetector.h"
 #include "EDQD/PickUpPositioningHeuristic.h"
 namespace robogen{
+/**
+ * \brief Class for describing a resource drop-off heuristic
+ *
+ * DropOffHeuristic inherits from Heuristic to describe a heuristic
+ * for dropping off collected resources once agents are within the gathering zone.
+ *
+ */
 class DropOffHeuristic : public Heuristic {
 	public:
+		/**
+		 * Class constructor
+		 * @param Robot The agent to utilize this heuristic
+		 * @param Scenario The scenario in which this task is being carried out
+		 * @return a heuristic object
+		 */
 		DropOffHeuristic(boost::shared_ptr<Robot> robot, boost::shared_ptr<Scenario> scenario);
+		/**
+		 * Destructor
+		 */
 		~DropOffHeuristic();
 		virtual osg::Vec2d step(boost::mutex& queueMutex);
 
 	private:
+		/** Task environment */
 		boost::shared_ptr<Environment> env;
+		/** Coordinates of gathering zone */
 		osg::Vec3d targetAreaPosition_;
 
 };

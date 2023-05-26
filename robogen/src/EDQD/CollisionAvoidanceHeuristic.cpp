@@ -46,7 +46,7 @@ namespace robogen{
 							read();
 					if (d <= minDistance){
 						// If it is another agent, avoid a collision
-						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])/** && !robot_ -> isBoundToResource()*/) {
+						if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])/* && !robot_ -> isBoundToResource()*/) {
 							if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])-> read()){
 
 								int targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])->getObjectId();
@@ -67,9 +67,9 @@ namespace robogen{
 									resetCounter(200);
 									osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
 									if (distance(robotPos, osg::Vec3d( otherRobotMinX,  otherRobotMaxY, 0)) < distance(robotPos, osg::Vec3d( otherRobotMaxX,  otherRobotMaxY, 0))){
-										pos = osg::Vec2d( otherRobotMinX - 2,  /**otherRobotMaxY*/ robotPos.y());
+										pos = osg::Vec2d( otherRobotMinX - 2,  /*otherRobotMaxY*/ robotPos.y());
 									}else{
-										pos = osg::Vec2d( otherRobotMaxX + 2,  /**otherRobotMaxY*/ robotPos.y());
+										pos = osg::Vec2d( otherRobotMaxX + 2,  /*otherRobotMaxY*/ robotPos.y());
 									}
 								}
 								else if (((robotminY <  otherRobotMinY && robotmaxY >  otherRobotMaxY) || (robotminY >  otherRobotMinY && robotminY <  otherRobotMaxY)
@@ -77,9 +77,9 @@ namespace robogen{
 
 									osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
 									if (distance(robotPos, osg::Vec3d( otherRobotMinY,  otherRobotMaxX, 0)) < distance(robotPos, osg::Vec3d( otherRobotMaxY,  otherRobotMaxX, 0))){
-										pos = osg::Vec2d( /**otherRobotMaxX*/ robotPos.x() ,  otherRobotMinY - 2);
+										pos = osg::Vec2d( /*otherRobotMaxX*/ robotPos.x() ,  otherRobotMinY - 2);
 									}else{
-										pos = osg::Vec2d( /**otherRobotMaxX*/ robotPos.x(),  otherRobotMaxY + 2);
+										pos = osg::Vec2d( /*otherRobotMaxX*/ robotPos.x(),  otherRobotMaxY + 2);
 									}
 								}
 								minDistance = d;
@@ -182,7 +182,7 @@ namespace robogen{
 										}
 									}
 								}
-								/**else{
+								/*else{
 									setStaticObject(true);
 																		resetCounter(250);
 									pos.set(-resource -> getPosition().x(), -resource -> getPosition().y());
@@ -190,7 +190,7 @@ namespace robogen{
 							}
 						}
 					}
-					/**if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])) {
+					/*if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])) {
 						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])->read()){
 							int targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])->getObjectId();
 							boost::shared_ptr<Robot> otherRobot = scenario_->getRobot(targetIndex);

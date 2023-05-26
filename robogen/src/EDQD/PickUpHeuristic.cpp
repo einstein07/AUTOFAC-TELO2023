@@ -39,7 +39,7 @@ namespace robogen{
 
 		//return Heuristic::driveToTargetPosition(osg::Vec2d(targetAreaPosition_.x(), targetAreaPosition_.y()));
 
-		/**
+		/*
 		 * If this agent is already attached to a resource,
 		 * then navigate to the target area
 		 */
@@ -59,12 +59,12 @@ namespace robogen{
 				return osg::Vec2d(0.5, 0.5);
 			}
 		}
-		/***
+		/*
 		 * Not bound to any resource. Keep wandering to find resources that still need to be collected
 		 */
 		else{
 
-			/**
+			/*
 			 * Check if there is any object detected by the IR sensors.
 			 * If there is, then check its distance to the robot, and then finally check
 			 * if the said object is a resource. If the said object is a resource then
@@ -125,14 +125,14 @@ namespace robogen{
 				}
 			}
 
-			/**
+			/*
 			 * If the detected resource has the maximum number of required robots attached to it - i.e. size == 0
 			 * or the obtained resource id is invalid then keep wandering the environment
 			 */
 			if ( t1 == t2 == t3 == t4 == t5 == 0 ){
 				return osg::Vec2d(-1000, -1000);
 			}
-			/**
+			/*
 			 * Resource detected and there is space for attachment
 			 */
 			else{
@@ -181,7 +181,7 @@ namespace robogen{
 
 						}
 
-						else if (ENABLE_PICKUP_POSITIONING /**&& resource -> getType() != 1*/ && !resource -> pushedByMaxRobots()){
+						else if (ENABLE_PICKUP_POSITIONING /*&& resource -> getType() != 1*/ && !resource -> pushedByMaxRobots()){
 
 							if (resource -> isCollected()){
 								heuristicpp_ -> setActive(false);

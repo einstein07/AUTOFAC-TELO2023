@@ -139,7 +139,7 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 		dSpaceCollide2((dGeomID)raySpace_, (dGeomID)odeSpace_, (void*)&data,
 				SensorMorphology::collisionCallback);
 
-		float distance = /**SENSOR_RANGE*/ 0.0;
+		float distance = SENSOR_RANGE;
 
 		// ray should be capped at SENSOR_RANGE, but just to make sure we don't
 		// allow bigger values here
@@ -166,7 +166,7 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 		}
 		dGeomDestroy(ray);
 		// want 0 when nothing is seen
-		sensors_[SensorElement::IR]->updateValue( /**1.0 - (distance / SENSOR_RANGE)*/ distance );
+		sensors_[SensorElement::IR]->updateValue( 1.0 - (distance / SENSOR_RANGE) );
 		//Either nothing was detected or the detected object is not a robot nor a resorce
 		if (value == -1){
 			sensors_[SensorElement::ROBOT]->updateValue(0.0);
@@ -219,28 +219,77 @@ void SensorMorphology::collisionCallback(void *data, dGeomID o1, dGeomID o2) {
 				if (resource != NULL){
 					type = resource->getType();
 					if (type == 1){
-						sensors_[SensorElement::RESOURCET1]->updateValue(1.0);
-						boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET1])
-								->updateObjectId(data.objData->objectId);
+						if (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET1])->isActive()){
+							bool withinRange = EDQD::Parameters::EDQDMultiBCMap ?
+									(boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET1])->getSensorRange() >= distance) :
+									(1 - (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET1])->getValue()/0.15)) >= distance;
+
+							if (withinRange){
+								sensors_[SensorElement::RESOURCET1]->updateValue(1.0);
+								boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET1])
+										->updateObjectId(data.objData->objectId);
+							}
+						}
+
 					}
 					else if (type == 2){
-						sensors_[SensorElement::RESOURCET2]->updateValue(1.0);
-						boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET2])
-								->updateObjectId(data.objData->objectId);
+
+						if (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET2])->isActive()){
+							bool withinRange = EDQD::Parameters::EDQDMultiBCMap ?
+									(boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET2])->getSensorRange() >= distance) :
+									(1 - (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET2])->getValue()/0.15)) >= distance;
+
+							if (withinRange){
+								sensors_[SensorElement::RESOURCET2]->updateValue(1.0);
+								boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET2])
+										->updateObjectId(data.objData->objectId);
+							}
+						}
 					}
 					else if (type == 3){
-						sensors_[SensorElement::RESOURCET3]->updateValue(1.0);
-						boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET3])
-								->updateObjectId(data.objData->objectId);
+
+						if (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET3])->isActive()){
+							bool withinRange = EDQD::Parameters::EDQDMultiBCMap ?
+									(boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET3])->getSensorRange() >= distance) :
+									(1 - (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET3])->getValue()/0.15)) >= distance;
+
+							if (withinRange){
+								sensors_[SensorElement::RESOURCET3]->updateValue(1.0);
+								boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET3])
+										->updateObjectId(data.objData->objectId);
+							}
+						}
+
 					}
 					else if (type == 4){
-						sensors_[SensorElement::RESOURCET4]->updateValue(1.0);
-						boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET4])
-								->updateObjectId(data.objData->objectId);
+
+						if (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET4])->isActive()){
+							bool withinRange = EDQD::Parameters::EDQDMultiBCMap ?
+									(boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET4])->getSensorRange() >= distance) :
+									(1 - (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET4])->getValue()/0.15)) >= distance;
+
+							if (withinRange){
+								sensors_[SensorElement::RESOURCET4]->updateValue(1.0);
+								boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET4])
+										->updateObjectId(data.objData->objectId);
+							}
+						}
+
 					}
 					else if (type == 5){
-						sensors_[SensorElement::RESOURCET5]->updateValue(1.0);
-						boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET5])->updateObjectId(data.objData->objectId);
+
+						if (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET5])->isActive()){
+							bool withinRange = EDQD::Parameters::EDQDMultiBCMap ?
+									(boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET5])->getSensorRange() >= distance) :
+									(1 - (boost::dynamic_pointer_cast< SensorElement>(sensors_[SensorElement::RESOURCET5])->getValue()/0.15)) >= distance;
+
+							if (withinRange){
+								sensors_[SensorElement::RESOURCET5]->updateValue(1.0);
+								boost::dynamic_pointer_cast<SensorElement>(sensors_[SensorElement::RESOURCET5])
+										->updateObjectId(data.objData->objectId);
+							}
+						}
+
 					}
 					else{
 						std::cerr << "[Sensor element] - Box resource of unknown type: "<< type << std::endl;

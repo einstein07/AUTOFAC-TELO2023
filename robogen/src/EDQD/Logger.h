@@ -50,7 +50,9 @@
         (2) dont forget to flush once in a while (no flush means information is not written on disk)
  */
 
-
+/**
+ * \brief Class to handle logging
+ */
 class Logger {
 
 private:
@@ -59,16 +61,33 @@ private:
     std::ofstream *logFile;  // LogManager does not open/close. Assume it is handled elsewhere.
 
 public:
-
+    /**
+     * \brief Default Constructor
+     */
     Logger();
+    /**
+     * \brief Constructor
+     */
     Logger(std::ofstream __logFile);
+    /**
+     * \brief Destructor
+     */
 	virtual ~Logger();
-
+	/**
+	 * \brief Sets logging to defaul logger
+	 */
     static Logger* make_DefaultLogger(); //(std::ofstream __logFile);
-
+    /**
+     * \brief Sets logger file
+     */
     void setLoggerFile ( std::ofstream &__logFile );
-
+    /**
+     * \brief Writes to designated logfile
+     */
 	void write(std::string str);
+	/**
+	 * \brief Saves last written info
+	 */
     void flush();
 };
 

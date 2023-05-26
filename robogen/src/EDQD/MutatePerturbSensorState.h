@@ -15,15 +15,35 @@
 
 
 namespace robogen{
+/**
+ * \brief Class that describes the mutation of sensors
+ */
 class MutatePerturbSensorState{
 private:
+	/** Sigma value */
 	double sigma_;
+	/** Minimum sensor value */
 	double minValue_;
+	/** Maximum sensor value */
 	double maxValue_;
 public:
+	/**
+	 * \brief Class constructor
+	 * @param double sigma value
+	 */
 	MutatePerturbSensorState(double sigma);
+	/**
+	 * \brief Destructor
+	 */
 	~MutatePerturbSensorState();
+	/**
+	 * \brief Mutate sigma value
+	 */
 	void mutateSigmaValue();
+	/**
+	 * \brief Mutate chosen sensors across robot population
+	 * @param std::vector< boost::shared_ptr<Robot> > all robots in the simulation
+	 */
 	void mutateSensorGroup(std::vector< boost::shared_ptr<Robot> > robots);
 
 };

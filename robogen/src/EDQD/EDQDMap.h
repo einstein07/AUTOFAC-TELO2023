@@ -27,16 +27,19 @@
 namespace robogen{
 class EDQDRobot;
 //================================================================================================
-//	A struct that represents an elite stored in the behavior map
+/** \brief	A struct that represents an elite stored in the behavior map */
 //================================================================================================
 struct Elite {
 	public:
 		//========================================================================================
 		// Methods
 		//========================================================================================
+	/**
+	 * \brief Default Constructor
+	 */
 		Elite(){}
 
-		/**Elite(Elite* o) {
+		/*Elite(Elite* o) {
 			fitness_ = o->fitness_;
 			genome_.clear();
 			genome_ = o->genome_;
@@ -45,7 +48,9 @@ struct Elite {
 			pos_.clear();
 			pos_ = o->pos_;
 		}*/
-
+		/**
+		 * \brief Constructor
+		 */
 		Elite(Elite* o) {
 			fitness_ = o->fitness_;
 			genome_.clear();
@@ -58,7 +63,7 @@ struct Elite {
 			perSensorTypeRange_ = o->perSensorTypeRange_;
 		}
 
-		/**Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos) {
+		/*Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos) {
 			fitness_ = fitness;
 			genome_.clear();
 			genome_ = genome;
@@ -67,6 +72,9 @@ struct Elite {
 			pos_.clear();
 			pos_ = pos;
 		}*/
+		/**
+		 * \brief Constructor
+		 */
 		Elite(double fitness, std::vector<double> genome, std::pair<int, int> id, float sigma, std::vector<double> pos, std::map<int,double> perSensorTypeRange) {
 			fitness_ = fitness;
 			genome_.clear();
@@ -78,25 +86,36 @@ struct Elite {
 			perSensorTypeRange_.clear();
 			perSensorTypeRange_ = perSensorTypeRange;
 		}
-
+		/**
+		 * \brief Less than definition
+		 */
 		inline bool operator< (const Elite& rhs){
 			return this->fitness_ < rhs.fitness_ ||
 					( fitness_ == rhs.fitness_ && _dist_center(pos_) > _dist_center(rhs.pos_) ) ;
 		}
+		/**
+		 * \brief Greater than definition
+		 */
 		inline bool operator> (const Elite& rhs){
 			return rhs.fitness_ < fitness_ ||
 					( fitness_ == rhs.fitness_ && _dist_center(rhs.pos_) > _dist_center( pos_) );
 		}
+		/**
+		 * \brief Less than or equal to definition
+		 */
 		inline bool operator<=(const Elite& rhs){
 			return !(rhs.fitness_ < fitness_ ||
 					( fitness_ == rhs.fitness_ && _dist_center(rhs.pos_) > _dist_center( pos_) ));
 		}
+		/**
+		 * \brief Greater or equal to definition
+		 */
 		inline bool operator>=(const Elite& rhs){
 			return !( fitness_ < rhs.fitness_ ||
 					( fitness_ == rhs.fitness_ && _dist_center( pos_) > _dist_center(rhs.pos_) ));
 		}
 		/**
-		 * Write Elite object to standard output stream
+		 * \brief Write Elite object to standard output stream
 		 */
 		inline friend std::ostream& operator<<(std::ostream& os, const Elite& obj){
 			os << obj.fitness_;
@@ -104,6 +123,9 @@ struct Elite {
 		};
 
 		template <class Archive>
+		/**
+		 * \brief Serializes map object
+		 */
 		void serialize(Archive& ar, const unsigned int version) {
 			ar& BOOST_SERIALIZATION_NVP(fitness_);
 			ar& BOOST_SERIALIZATION_NVP(genome_);
@@ -114,7 +136,7 @@ struct Elite {
 		}
 
 		/**
-		 * Returns distance to center of behavior descriptor cell
+		 * \brief Returns distance to center of behavior descriptor cell
 		 */
 		float _dist_center(const std::vector<double>& pos) {
 
@@ -132,17 +154,37 @@ struct Elite {
 		//=======================================================================================
 		// Members
 		//=======================================================================================
+		/**
+		 * \brief Fitness
+		 */
 		double fitness_ = -1.0;
+		/**
+		 * \brief Genome
+		 */
 		std::vector<double> genome_;
+		/**
+		 * \brief ID
+		 */
 		std::pair<int, int> id_;
+		/**
+		 * \brief Reference sigma value
+		 */
 		float sigma_ = EDQD::Parameters::sigmaRef;
+		/**
+		 * \brief Position
+		 */
 		std::vector<double> pos_;
+		/**
+		 * \brief Counter
+		 */
 		int counter_ = 0;
-		//---------------------------------------------------------------------------------------
-		// Double-Map EDQD
-		// All sensor types are subjected to the same variation ops, i.e. if one type-1 sensor is
-		// off, then all type 1 sensors should be off
-		//---------------------------------------------------------------------------------------
+
+		/**
+		* \brief Double-Map EDQD
+		*
+		* All sensor types are subjected to the same variation ops, i.e. if one type-1 sensor is
+		* off, then all type 1 sensors should be off
+		*/
 		std::map<int,double> perSensorTypeRange_;
 
 };
@@ -151,7 +193,7 @@ typedef boost::multi_array<Elite, EDQD::Parameters::nbOfDimensions> map_t;
 typedef map_t::index map_index_t;
 typedef boost::array<map_index_t, EDQD::Parameters::nbOfDimensions> behav_index_t;
 //===============================================================================================
-// Map class
+/** \brief Class describing diversity maintenance maps */
 //===============================================================================================
 class EDQDMap {
 
@@ -161,13 +203,18 @@ class EDQDMap {
 		//========================================================================================
 		// Methods
 		//========================================================================================
+		/**
+		 * \brief Updates has-entry flag
+		 * @param bool new status
+		 */
 		void setMapHasEntry(bool mapHasEntry) {
 			mapHasEntry_ = mapHasEntry;
 		}
 
-		/****************************************************************************************
+		/**
+		 * \brief Returns distance to center of behavior descriptor
 		 * @return float distance to center of behavior descriptor cell
-		 ***************************************************************************************/
+		 */
 		float _dist_center(const std::vector<double>& pos) {
 
 			float dist = 0.0;
@@ -182,42 +229,69 @@ class EDQDMap {
 		//=======================================================================================
 		// Members
 		//=======================================================================================
+		/** \brief Diversity map */
 		map_t map_;
+		/** \brief Map dimensions */
 		size_t map_dim_;
+		/** \brief Map shape according to behavior indexing */
 		behav_index_t map_shape_;
+		/** \brief Flags whether this map has an entry */
 		bool mapHasEntry_;
+		/** \brief Number of filled cells */
 		int num_filled_cells_;
 
 	public:
 		//=======================================================================================
 		// Methods
 		//=======================================================================================
+		/**
+		 * \brief Construtor
+		 */
 		EDQDMap();
+		/**
+		 * \brief Destructor
+		 */
 		virtual ~EDQDMap();
 
+		/**
+		 * \brief Behavior index computation
+		 *
+		 * @param std::map<int, int>& map of resource types to number collected
+		 * @param double distance traversed
+		 * @param double maximum distance possible
+		 * @param std::vector<double>* x y position of elite
+		 * @return behav_index_t index
+		 */
 		static behav_index_t computeIndex(
 											const std::map<int, int>& oc,
 											double distance,
 											double maxDistance,
 											std::vector<double>* pos = NULL
 										);
-		/****************************************************************************************
-		 * Morphology index computation
-		 ***************************************************************************************/
+		/**
+		 * \brief Morphology index computation
+		 *
+		 * @param std::map<int, int>& map of sensor types to number active
+		 * @param int total number of sensors
+		 * @param double average range
+		 * @param double maximum possible range
+		 * @param std::vector<double>* x y position of elite
+		 * @return behav_index_t index
+		 */
 		static behav_index_t computeMorphIndex(const std::map<int, int>& sensorTypes, int totalNumOfSensors, double averageRange, double maxRange, std::vector<double>* pos);
 
-		//Setter
+		/** \brief Setter */
 		Elite& operator()(int i, int j) {
 			return map_[i][j];
 		}
-		//getter
+		/** \brief Getter */
 		Elite operator()(int i, int j) const {
 			return map_[i][j];
 		}
 
-		/**************************************************************************************
-		 * Write EDQDMap object to standard output stream
-		 *************************************************************************************/
+		/**
+		 * \brief Write EDQDMap object to standard output stream
+		 */
 		inline friend std::ostream& operator<<(std::ostream& os, const EDQDMap& obj) {
 
 			int dim1 = obj.map_.shape()[0];
@@ -239,6 +313,12 @@ class EDQDMap {
 		BOOST_SERIALIZATION_SPLIT_MEMBER()
 
 		template <class Archive>
+		/**
+		 * \brief Load map archive
+		 *
+		 * @param Archive archive
+		 * @param int version of archive
+		 */
 		void load(Archive& ar, const int version) {
 			ar& BOOST_SERIALIZATION_NVP(mapHasEntry_);
 			ar& BOOST_SERIALIZATION_NVP(map_dim_);
@@ -251,6 +331,10 @@ class EDQDMap {
 		}
 
 		template <class Archive>
+		/** \brief Save map archive
+		 * @param Archive archive
+		 * @param int version of archive
+		 * */
 		void save(Archive& ar, const int version) const {
 			ar& BOOST_SERIALIZATION_NVP(mapHasEntry_);
 			ar& BOOST_SERIALIZATION_NVP(map_dim_);
@@ -260,13 +344,31 @@ class EDQDMap {
 			ar & boost::serialization::make_array(map_.data(), map_.num_elements());
 		}
 
-
+		/**
+		 * \brief Add new elite to behavior map
+		 *
+		 * @param int robot id
+		 * @param EDQDRobot* pointer to EDQDRobot object
+		 * @param std::vector<double> genome of elite being added
+		 * @param flot sigma of elite being added
+		 * @return bool true if elite was added, false if not
+		 */
 		bool add(
 					int id,
 					EDQDRobot* ctrl,
 					std::vector<double> genome,
 					float sigma
 				);
+		/**
+		 * \brief Add new elite to map
+		 *
+		 * @param int robot id
+		 * @param EDQDRobot* pointer to EDQDRobot object
+		 * @param std::vector<double> genome of elite being added
+		 * @param flot sigma of elite being added
+		 * @param std::map<int,double> per sensor type range
+		 * @return bool true if elite was added, false if not
+		 */
 		bool morphAdd(
 					int id,
 					EDQDRobot* robot,
@@ -274,28 +376,55 @@ class EDQDMap {
 					float sigma,
 					std::map<int,double> perSensorTypeRange
 				);
-
+		/**
+		 * \brief Access an elite stored at the specified index
+		 *
+		 * @param behav_index_t index
+		 * @return Elite*
+		 */
 		Elite* get(behav_index_t index) {
 			return &map_(index);
 		}
 
+		/**
+		 * \brief Returns a random map index
+		 *
+		 * @return behav_index_t
+		 */
 		behav_index_t getRandomIndex();
 
+		/**
+		 * \brief Checks is map has an entry
+		 * @return bool
+		 */
 		bool hasEntry() const {
 			return mapHasEntry_;
 		}
-
+		/**
+		 * \brief Returns a reference to this map
+		 * @return map_t&
+		 */
 		map_t& getMap() {
 			return map_;
 		}
-
+		/**
+		 * \brief Returns number of filled cells in map
+		 * @return int
+		 */
 		int getNumFilledCells() const
 		{
 			return num_filled_cells_;
 		}
-
+		/**
+		 * \brief Merge this map into the parameter of this function
+		 * @param EDQDMap& map to merge into
+		 * @return bool true if merge occurred
+		 */
 		bool mergeInto(EDQDMap& m);
 
+		/**
+		 * \brief Recalculates the number of filled cells within the map
+		 */
 		void updateNumFilledCells() {
 			num_filled_cells_ = 0;
 			for (size_t i = 0; i < map_.num_elements(); i++) {
@@ -309,6 +438,11 @@ class EDQDMap {
 	//=========================================================================================
 	//*************************STATIC METHODS*************************
 	//=========================================================================================
+	/**
+	 * \brief Write binary archive of map
+	 * @param EDQDMap& map
+	 * @param std::string& filename
+	 */
 	static void writeMapBin(const EDQDMap& m, const std::string& filename) {
 		std::ofstream ofs(filename.c_str());
 		assert(ofs.good());
@@ -318,6 +452,10 @@ class EDQDMap {
 		//std::cout << "done" << std::endl;
 	}
 
+	/**
+	 * \brief Load map from file
+	 * @param const std::string& filename
+	 */
 	static EDQDMap loadMap(const std::string& filename) {
 		std::ifstream ifs(filename.c_str());
 		assert(ifs.good());
@@ -327,6 +465,12 @@ class EDQDMap {
 		return data;
 	}
 
+	/**
+	 * \brief Convert map to a string readable format
+	 * @param map_t& map
+	 * @param std::string& prefix
+	 * @return std::string map in string format
+	 */
 	static std::string mapToString(const map_t& m, const std::string& prefix = std::string("")) {
 		std::stringstream ofs;
 
@@ -353,6 +497,12 @@ class EDQDMap {
 
 		return ofs.str();
 	}
+	/**
+	 * \brief Write map to file
+	 * @param const map_t& map
+	 * @param const std::string& filename
+	 * @param const std::string& Note
+	 */
 
 	static void writeMapToFile(const map_t& m, const std::string& filename,
 		const std::string& note = "")

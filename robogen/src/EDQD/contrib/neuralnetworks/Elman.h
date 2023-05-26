@@ -16,7 +16,7 @@
 namespace Neural {
 
 	/**
-	 * Multi-layers version of Elman SRN
+	 * \brief Multi-layers version of Elman SRN
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class Elman : public MLP {

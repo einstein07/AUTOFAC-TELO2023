@@ -17,7 +17,7 @@
 namespace Neural {
 
 	/**
-	 * A simple interface definition of a neural network
+	 * \brief A simple interface definition of a neural network
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class NeuralNetwork {

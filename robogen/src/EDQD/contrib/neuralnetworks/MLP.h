@@ -16,7 +16,7 @@
 namespace Neural {
 
 	/**
-	 * A basic Multi-Layers Perceptron
+	 * \brief A basic Multi-Layers Perceptron
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class MLP : public LayeredNeuralNetwork {

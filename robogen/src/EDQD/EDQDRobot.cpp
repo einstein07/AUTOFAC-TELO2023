@@ -71,16 +71,6 @@ namespace robogen{
 			sensorMaxValue_ = 1.0;
 
 		}
-		//nbInputs_ = getBrain()->nInputs;
-		//nbHidden_ = getBrain()->nHidden;
-		//nbOutputs_ = getBrain()->nOutputs;
-
-		//params_ =getBrain()->params; ***compiler complained about this assignment
-		//memcpy(params_, getBrain()->params,
-		//			sizeof(float) * (nbOutputs_ + nbHidden_) * MAX_PARAMS);
-		//types_ = getBrain()->types; ***compiler complained about this assignment
-		//memcpy(types_, getBrain()->types,
-		//			sizeof(unsigned int) * (nbOutputs_ + nbHidden_));
 
 		currentSigma_ = EDQD::Parameters::sigmaRef;
 		minValue_ = -1.0;
@@ -111,28 +101,14 @@ namespace robogen{
 		reset();
 		resetFitness();
 
-		// debug
-		//fitness_ = 1;
+
 		setAlive(true);
 		targetArea_ = osg::Vec2d(
 				0,-2.5);
-		/**sLog += "Ancestor: " + ancestor_ + "\n"
-				"isListening: " + isListening_ + "\n"
-				"Starting position: (" + Xinit_+ ", " + Yinit_ +").\n"
-				"Fitness: " + getFitness() + "\n"
-				"*****************************************************\n";
-		logger->write(sLog);
-		logger->flush();*/
-		/**
-		 * Initialize behavioral heuristics
-		 */
-		//pheuristic_.reset(new PickUpHeuristic(boost::shared_ptr<Robot>(this), targetArea_));
-		//cheuristic_.reset(new CollisionAvoidanceHeuristic(boost::shared_ptr<Robot>(this)));
 		return status;
 	}
 
 	EDQDRobot::~EDQDRobot(){
-		//memset(weights_, 0, sizeof(weights_));
 
 		//	delete _map;
 		parameters_.clear();
@@ -142,31 +118,23 @@ namespace robogen{
 
 	}
 
-	/**
-	 * Handles control decision and evolution (but: actual movement
-	 * is done in roborobo's main loop)
-	 */
 	void EDQDRobot::step(boost::mutex& queueMutex){
 
 		// step evolution
-
 	    stepEvolution(queueMutex);
 	    // update fitness
 	    if ( isAlive() ){
 	    	stepController();
 	    	//updateFitness();
-
 			if (iterations == EDQD::Parameters::maxIterations-1){
 				writeMapToFile(map_-> getMap(), gLogDirectoryname + "/robot-maps/behavior/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
 									"");
-
 				if (EDQD::Parameters::EDQDMultiBCMap)
 					writeMapToFile(morphMap_-> getMap(), gLogDirectoryname + "/robot-maps/morph/robot"+ boost::lexical_cast<std::string> ( getId()) + gStartTime + "_" + getpidAsReadableString()  + std::string(".csv"),
 									"");
 			}
 
 	    }
-
 	    else{
 			assert ( notListeningDelay_ >= -1 ); // -1 means infinity
 			if ( notListeningDelay_ > 0 ){
@@ -178,15 +146,11 @@ namespace robogen{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ",status,listening\n";
-						//logger->write(sLog);
-						//logger->flush();
 					}
 					else{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
-						//logger->write(sLog);
-						//logger->flush();
 					}
 				}
 			}
@@ -200,8 +164,6 @@ namespace robogen{
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 								"::" + std::to_string(birthdate_) + ", status, inactive\n"; // never listen again.
-						//logger->write(sLog);
-						//logger->flush();
 
 						// agent will not be able to be active anymore
 						notListeningDelay_ = -1;
@@ -214,22 +176,12 @@ namespace robogen{
 					}
 				}
 			}
-#ifdef DEBUG_STEP_EV
-			std::cout << "*****Robot ID: " << getId() <<" DONE DISABLING ROBOT*****" << std::endl;
-#endif
-	    }
-	    /**std::string sLog = std::string("");
-		sLog += "[Step] - done\n"; // never listen again.
-		logger->write(sLog);
-		logger->flush();*/
+		}
 
 	}
 
-
-
 	std::vector<double> EDQDRobot::getSensorInputs(){
 		std::vector<double> inputs;
-		//inputs.reserve(nbInputs_);
 		double floor_sensor = 0;
 
 		/**
@@ -360,35 +312,20 @@ namespace robogen{
 			}
 		}
 		inputs.push_back(floor_sensor);
-		/*for (int i = 0; i < inputs.size(); i++){
-		std::cout << inputs[i] <<" " ;
-		if (i % 10 == 0){
-			std::cout << "\n";
-		}
-		}*/
 		return inputs;
 	}
+
 	void EDQDRobot::stepController(){
 
 	    // ---- compute and read out ----
 
 	    nn->setWeights(parameters_); // set-up NN
-	//    nn.set_all_weights(_parameters);
 	    std::vector<double> inputs = getSensorInputs(); // Build list of inputs (check properties file for extended/non-extended input values
 	    nn->setInputs(inputs);
 
 	    nn->step();
-
-	    //std::vector<double> outputs = nn->readOut();
-
-	    //std::cout << "[DEBUG] Neural Network :" << nn->toString() << " of size=" << nn->getRequiredNumberOfWeights() << std::endl;
-	    //std::cout << "[DEBUG] Neural Network Output 1: " << motorOutputs[0] << " Output 2: " << motorOutputs[1] << std::endl;
-
-	   motorOutputs.set(nn->readOut()[0], nn->readOut()[1]);
-	   /**motorOutputs[0] = outputs[0];
-	   motorOutputs[1] = outputs[1];*/
-	   //std::cout << "[DEBUG] Neural Network Output 1: " << motorOutputs[0] << " Output 2: " << motorOutputs[1] << std::endl;
-	}
+	    motorOutputs.set(nn->readOut()[0], nn->readOut()[1]);
+	   }
 
 	void EDQDRobot::createNN(){
 
@@ -402,11 +339,6 @@ namespace robogen{
 	        {
 	            // MLP
 	            nn = new Neural::MLP(parameters_, nbInputs_, nbOutputs_, *(nbNeuronsPerHiddenLayer_));
-	//            nn = Mlp<Neuron<PfWSum<>, AfSigmoidNoBias<> >, Connection<> >(
-	//            				_nbInputs,
-	//							_nbHiddenLayers * EDQDSharedData::gNbNeuronsPerHiddenLayer,
-	//							_nbOutputs);
-	//            nn.init();
 	            break;
 	        }
 	        case 1:
@@ -538,7 +470,7 @@ namespace robogen{
 					break;
 				case 1:
 
-					/**
+					/*
 					 * self-contained sigma. mutated before use (assume: performVariation is called after selection of
 					 * new current genome)
 					 * original MEDEA [ppsn2010], as used before year 2015
@@ -549,7 +481,7 @@ namespace robogen{
 					break;
 				case 2:
 
-					/**
+					/*
 					 * fixed mutation rate
 					 */
 					mutateGaussian(EDQD::Parameters::sigma);
@@ -562,8 +494,7 @@ namespace robogen{
 //		}
 	}
 
-
-	/*********************************************************************
+	/*
 	 * If called, assume genomeList.size() > 0
 	 */
 	void EDQDRobot::selectRandomGenomeFromMergedMap(){
@@ -582,7 +513,6 @@ namespace robogen{
 				if (tries > 99)
 					break;
 				tries++;
-				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( mergedMap_->get(index)->genome_.size() == 0 );
 			if (tries < 100){
 				currentGenome_ = mergedMap_->get(index)->genome_;
@@ -594,12 +524,11 @@ namespace robogen{
 				setNewGenomeStatus(true);
 			}
 	    }
-	    //return true;
 	}
 
-	/*********************************************************************
+	/*
 	 * If called, assume genomeList.size() > 0
-	 ********************************************************************/
+	 */
 	void EDQDRobot::selectRandomGenomeFromMorphMergedMap(){
 
 		std::map<int, EDQDMap* >::iterator it = morphMapList_.begin();
@@ -616,7 +545,6 @@ namespace robogen{
 				if (tries > 99)
 					break;
 				tries++;
-				//std::cout << "*****Robot ID: " << getId() << " Selecting random genome from merged map. Map list size: "<<mapList_.size()<< " Num of filled cells: " << mergedMap_->getNumFilledCells()<<" *****" << std::endl;
 			} while ( morphMergedMap_->get(index)->genome_.size() == 0 );
 			if (tries < 100){
 				morphBirthdate_ = robogen::iterations;
@@ -625,10 +553,12 @@ namespace robogen{
 				setNewGenomeStatus(true);
 			}
 		}
-		//return true;
 	}
 
-	void EDQDRobot::selectRandomGenome(){ // if called, assume genomeList.size()>0
+	/*
+	 * if called, assume genomeList.size()>0
+	*/
+	void EDQDRobot::selectRandomGenome(){
 
 	    int randomIndex = randint() % genomesList_.size();
 
@@ -647,8 +577,11 @@ namespace robogen{
 	    setNewGenomeStatus(true);
 	}
 
-	// used for debugging
-	void EDQDRobot::selectFirstGenome(){  // if called, assume genomeList.size()>0
+	/*
+	 * used for debugging
+	 * if called, assume genomeList.size()>0
+	 */
+	void EDQDRobot::selectFirstGenome(){
 	    currentGenome_ = (*genomesList_.begin()).second;
 	    currentSigma_ = sigmaList_[(*genomesList_.begin()).first];
 	    birthdate_ = robogen::iterations;
@@ -767,14 +700,6 @@ namespace robogen{
 	    setNewGenomeStatus(true);
 	}
 
-
-	/**
-	 * Manage storage of a map received from a neighbour
-	 * Note that in case of multiple encounters with the same robot (same id, same "birthdate"),
-	 * genome is stored only once, and last known fitness value is stored
-	 * (i.e. updated at each encounter).
-	 * Fitness is optional (default: 0)
-	 */
 	bool EDQDRobot::storeMap(EDQDMap* map, int senderId){
 	    if ( !isListening_ ){
 	    	// current agent is not listening: do nothing.
@@ -783,18 +708,17 @@ namespace robogen{
 	    else{
 	        nbComRx_++;
 	        std::map<int, EDQDMap* >::const_iterator it = mapList_.find(senderId);
-	        /**
+	        /*
 	         * This exact agent's map is already stored.
 	         * Exact means: same robot, same generation.
 	         * Then: update fitness value (the rest in unchanged) - however, fitness is not really updated, why???
 	         */
 	        if ( it != mapList_.end() ){
-	        	/** Sender already stored in map list.*/
+	        	/*Sender already stored in map list.*/
 	            return false;
 	        }
 	        else{
 	        	mapList_[senderId] = map;
-	        	//std::cout << "*" <<std::flush;
 	            return true;
 	        }
 	    }
@@ -808,27 +732,23 @@ namespace robogen{
 		else{
 			nbComRx_++;
 			std::map<int, EDQDMap* >::const_iterator it = mapList_.find(senderId);
-			/**
+			/*
 			 * This exact agent's map is already stored.
 			 * Exact means: same robot, same generation.
 			 * Then: update fitness value (the rest in unchanged) - however, fitness is not really updated, why???
 			 */
 			if ( it != mapList_.end() ){
-				/** Sender already stored in map list.*/
+				/*Sender already stored in map list.*/
 				return false;
 			}
 			else{
 				mapList_[senderId] = map;
 				morphMapList_[senderId] = morphMap;
-				//std::cout << "*" <<std::flush;
 				return true;
 			}
 		}
 	}
-	/* manage storage of a genome received from a neighbour
-	 *
-	 * Note that in case of multiple encounters with the same robot (same id, same "birthdate"), genome is stored only once, and last known fitness value is stored (i.e. updated at each encounter).
-	 */
+
 	bool EDQDRobot::storeGenome(std::vector<double> genome, std::pair<int,int> senderId, float sigma, float fitness, EDQDMap* map){ // fitness is optional (default: 0)
 
 	    if ( !isListening_ )
@@ -859,9 +779,6 @@ namespace robogen{
 	    }
 	}
 
-	/**
-	 * mutates within bounds.
-	 */
 	void EDQDRobot::mutateGaussian(float sigma){
 
 	    currentSigma_ = sigma;
@@ -903,9 +820,6 @@ namespace robogen{
 
 	}
 
-	/**
-	 * Mutate within bounds.
-	 */
 	void EDQDRobot::mutateUniform(){
 
 	    for (unsigned int i = 0 ; i != currentGenome_.size() ; i++ ){
@@ -937,21 +851,18 @@ namespace robogen{
 	    createNN();
 	    unsigned int const nbGene = computeRequiredNumberOfWeights();
 	    currentGenome_.clear();
-	//    if ( _currentGenome.size() < nbGene )
-	//    {
-	//    	_currentGenome.reserve(nbGene);
-	//    }
+
 
 	    // Intialize genome
 
 	    for ( unsigned int i = 0 ; i != nbGene ; i++ )
 	    {
 	        currentGenome_.push_back((double)(randint()%EDQD::Parameters::weightRange)/(EDQD::Parameters::weightRange/2)-1.0); // weights: random init between -1 and +1
-	//        _currentGenome[i] = ((double)(randint()%EDQDSharedData::gNeuronWeightRange)/(EDQDSharedData::gNeuronWeightRange/2)-1.0); // weights: random init between -1 and +1
 	    }
 	    setNewGenomeStatus(true);
 	    clearReservoir(); // will contain the genomes received from other robots
 	}
+
 	void EDQDRobot::mapMorphPhenotype(){
 		for (unsigned int j = 0; j < getSensors().size(); j++){
 			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
@@ -1033,9 +944,7 @@ namespace robogen{
 	    	&&( EDQD::Parameters::limitGenomeTransmission == false
 			|| ( EDQD::Parameters::limitGenomeTransmission == true
 			&& nbGenomeTransmission_ < EDQD::Parameters::maxNbGenomeTransmission ))){
-#ifdef DEBUG_EDQD
-	    	std::cout 	<< "*****Robot ID: " << getId() << " Broadcasting map *****" << std::endl;
-#endif
+
 	    	for ( unsigned int i = 0 ; i < getSensors().size(); ++i){
 
 				ColorSensorElement::Type colorType;
@@ -1060,7 +969,6 @@ namespace robogen{
 								if ( success == true ){
 									// count unique transmissions (ie. nb of different genomes stored).
 									nbGenomeTransmission_++;
-									//std::cout << "Map broadcasted successfully!" << std::endl;
 								}
 								nbComTx_++;
 							}
@@ -1073,15 +981,10 @@ namespace robogen{
 					}
 				}
 	    	}
-#ifdef DEBUG_EDQD
-	    	std::cout << "*****Robot ID: " << getId() << " Done broadcasting map *****"	<< std::endl;
-#endif
 		}
 	}
 
-	/**
-	 * Called only if at least 1 genome was stored.
-	 */
+
 	void EDQDRobot::performSelection(){
 		if (EDQD::Parameters::EDQDMapSelection) {
 
@@ -1150,8 +1053,6 @@ namespace robogen{
 
 				std::string sLog = std::string("");
 				sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, active\n";
-				//logger->write(sLog);
-				//logger->flush();
 
 	            osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 				Xinit_ = currPos.x();
@@ -1170,19 +1071,9 @@ namespace robogen{
 					sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) +
 							"::" + std::to_string(birthdate_) + ", genome, ";
 
-					/*
-					 // write genome (takes a lot of disk space)
-					 for(unsigned int i=0; i<_genome.size(); i++)
-					 {
-					 sLog += std::to_string(_genome[i]) + ",";
-					 //gLogFile << std::fixed << std::showpoint << _wm->_genome[i] << " ";
-					 }
-					 */
 					sLog += "(...)"; // do not write genome
 
 					sLog += "\n";
-					//logger->write(sLog);
-					//logger->flush();
 				}
 	        }
 	        else{
@@ -1191,8 +1082,6 @@ namespace robogen{
 					std::string sLog = std::string("");
 					sLog += "" + std::to_string(robogen::iterations) + "," + std::to_string(getId()) +
 							"::" + std::to_string(birthdate_) + ", genome, n/a.\n";
-					//logger->write(sLog);
-					//logger->flush();
 
 	        		reset();
 
@@ -1208,8 +1097,7 @@ namespace robogen{
 
 						std::string sLog = std::string("");
 						sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
-						//logger->write(sLog);
-						//logger->flush();
+
 					}
 	        		else{
 
@@ -1219,14 +1107,12 @@ namespace robogen{
 							isListening_ = true;
 							std::string sLog = std::string("");
 							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, listening\n";
-							//logger->write(sLog);
-							//logger->flush();
+
 						}
 						else{
 							std::string sLog = std::string("");
 							sLog += "" + std::to_string(robogen::iterations) + ", " + std::to_string(getId()) + "::" + std::to_string(birthdate_) + ", status, inactive\n";
-							//logger->write(sLog);
-							//logger->flush();
+
 						}
 
 					}
@@ -1238,22 +1124,6 @@ namespace robogen{
 	void EDQDRobot::logCurrentState(){
 	    // Logging
 		int generation = iterations / EDQD::Parameters::evaluationTime;
-	    /**std::string sLog = "Iteration: " + std::to_string(robogen::iterations) + ", Robot Id: " + std::to_string(getId()) + ", Birthdate: " + std::to_string(birthdate_) +
-	    ", age, " + std::to_string(robogen::iterations-birthdate_) +
-
-	    ", rxMapListSize, " + std::to_string(mapList_.size()) +
-	    ", rxGenomesListSize ," + std::to_string(genomesList_.size()) +
-	    ", sigma, " + std::to_string(currentSigma_) +
-	    ", x_init, " + std::to_string(Xinit_) +
-	    ", y_init, " + std::to_string(Yinit_) +
-	    ", x_current, " + std::to_string( getCoreComponent()->getRootPosition().x()) +
-	    ", y_current, " + std::to_string( getCoreComponent()->getRootPosition().y()) +
-	    ", dist, " + std::to_string( getEuclideanDistance( Xinit_, Yinit_, getCoreComponent()->getRootPosition().x(),getCoreComponent()->getRootPosition().y() ) ) +
-	    ", maxDist, " + std::to_string( dMaxTravelled_ ) +
-	    ", fitnessValue, " + std::to_string(getFitness()) +
-	    "\n";
-	    logger->write(sLog);
-	    logger->flush();*/
 
 	    if (EDQD::Parameters::EDQDMultiBCMap || EDQD::Parameters::evolveSensors) {
 
@@ -1298,7 +1168,7 @@ namespace robogen{
 	void EDQDRobot::writeEOGEntry(Logger* lm){
 		/*
 		 * generation,iteration,robot,birthday,ancestorId,ancestorBirthday,age,energy,sigma,genomes,fitness,cellsInMap,distMax,distPotMax,distTotal,comRx,comTx,g0,g1
-	    }*/
+	    */
 		std::string sLog = "" + std::to_string(iterations/EDQD::Parameters::evaluationTime)
 				+ "," + std::to_string(iterations)
 				+ "," + std::to_string(getId())
@@ -1325,19 +1195,13 @@ namespace robogen{
 		sLog += "\n";
 
 		lm->write(sLog);
-	//	    lm->flush();
 	}
 
-	/**
-	 * @return fitness The fitness of the robot
-	 */
+
 	double EDQDRobot::getFitness(){
 		return fitness_;
 	}
 
-	/*
-	 * note: resetFitness is first called by the Controller's constructor.
-	 */
 	void EDQDRobot::resetFitness()
 	{
 
@@ -1345,6 +1209,7 @@ namespace robogen{
 			resetResourceCounter();
 
 	}
+
 	void EDQDRobot::resetPotMaxTravelled() {
 		osg::Vec3 currPos = getCoreComponent()->getRootPosition();
 		Xinit_ = currPos.x();
@@ -1356,18 +1221,15 @@ namespace robogen{
 				(scenario_ ->getEnvironment() -> getTerrain() -> getWidth()/2); // crude way to get average radius if ellipse is not a circle
 	}
 
-
 	void EDQDRobot::updateFitness(osg::Vec3d dropOffPosition, int pushingRobots, double value){
 		double totalDistPossible = (scenario_ ->getEnvironment() -> getTerrain() -> getWidth() - ((scenario_ ->getEnvironment() -> getGatheringZone() -> getSize().y()/2) - 0.5));
 		double distResourceMoved = distance(osg::Vec3d(pickUpPosition.x(), dropOffPosition.y(), pickUpPosition.z()), pickUpPosition);
 		double fitValue = ((100*value/pushingRobots) * (distResourceMoved/totalDistPossible));
-		//std::cout << "Robot id: " << getId() << ". total dist possible: " << totalDistPossible << ". Dist resource moved: " << distResourceMoved <<". Fit value: " << fitValue << std::endl;
-		//std::cout << "Pick up position: (" << pickUpPosition.x() << ", " << pickUpPosition.y() << ")" << "Drop off position: (" << dropOffPosition.x() << ", " << dropOffPosition.y() << ")" << std::endl;
 		fitness_ += fitValue;
 	}
+
 	void EDQDRobot::updateFitness(int pushingRobots, double value){
 		fitness_ += (100*value/pushingRobots) * (1/10);
-		//normalize fitness
 	}
 
 	int EDQDRobot::updateCellId() {
@@ -1381,75 +1243,11 @@ namespace robogen{
 	 * MORPHO-EVO
 	 ****************************************************************************************************************/
 	void EDQDRobot::mutateSensors(){
-		/**double delta_T1 = randgaussian() * currentSigma_;
-		double delta_T2 = randgaussian() * currentSigma_;
-		double delta_T3 = randgaussian() * currentSigma_;
-		double delta_T4 = randgaussian() * currentSigma_;
-		double delta_T5 = randgaussian() * currentSigma_;
-
-		double normalisedVal_T1 = 0;
-		double normalisedVal_T2 = 0;
-		double normalisedVal_T3 = 0;
-		double normalisedVal_T4 = 0;
-		double normalisedVal_T5 = 0;
-
-		bool isNormalised_T1 = false;
-		bool isNormalised_T2 = false;
-		bool isNormalised_T3 = false;
-		bool isNormalised_T4 = false;
-		bool isNormalised_T5 = false;*/
 		int sensor =  randomSensor(engine);
-		//for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
-			double newValue = (((double)20/(double)3))*(perSensorTypeRange_[sensor] - (randgaussian() * currentSigma_));
-			perSensorTypeRange_[sensor] = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-
-		//}
-
-		/**for (unsigned int j = 0; j < getSensors().size(); j++){
-			if ( boost::dynamic_pointer_cast<SensorElement>(getSensors()[j]) ){
-				if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET1 ){
-					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T1;
-					if (!isNormalised_T1){
-						normalisedVal_T1 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-						isNormalised_T1 = true;
-					}
-					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T1);
-				}
-				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET2 ){
-					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T2;
-					if (!isNormalised_T2){
-						normalisedVal_T2 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-						isNormalised_T2 = true;
-					}
-					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T2);
-				}
-				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET3 ){
-					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T3;
-					if (!isNormalised_T3){
-						normalisedVal_T3 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-						isNormalised_T3 = true;
-					}
-					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T3);
-				}
-				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET4 ){
-					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T4;
-					if (!isNormalised_T4){
-						normalisedVal_T4 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-						isNormalised_T4 = true;
-					}
-					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T4);
-				}
-				else if ( boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getType() == SensorElement::RESOURCET5 ){
-					double newValue = boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> getSensorRange() - delta_T5;
-					if (!isNormalised_T5){
-						normalisedVal_T5 = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
-						isNormalised_T5 = true;
-					}
-					boost::dynamic_pointer_cast< SensorElement>(getSensors()[j])-> updateSensorRange(normalisedVal_T5);
-				}
-			}
-		}*/
+		double newValue = (((double)20/(double)3))*(perSensorTypeRange_[sensor] - (randgaussian() * currentSigma_));
+		perSensorTypeRange_[sensor] = normaliseValue(newValue, sensorMinValue_, sensorMaxValue_);
 	}
+
 	void EDQDRobot::updateSensorInfo(){
 		resetSensorInfo();
 		for (unsigned int i = 0; i < getSensors().size(); ++i){
@@ -1518,16 +1316,11 @@ namespace robogen{
 		int totalActive = 0;
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){
 			if ( isSensorTypeActive_[i] ){
-				//std::cout << "Sensor-type: " << i <<" range: " <<  perSensorTypeRange_[i] << std::endl;
 				av += perSensorTypeRange_[i];
 				totalActive++;
 			}
-			/*else{
-				std::cout << "Sensor-type: " << i <<" is inactive "  << std::endl;
-			}*/
 		}
 		averageActiveSensorRange_ = av/((double)totalActive);
-		//std::cout << "Active sensor av range: " << averageActiveSensorRange_ << std::endl;
 		return averageActiveSensorRange_;
 	}
 
@@ -1548,9 +1341,7 @@ namespace robogen{
     	possibleTotalNumberOfSensors_ = 0;
     	averageActiveSensorRange_ = 0;
     	maxActiveSensorRangeAverage_ = 0;
-
-
-		/**
+		/*
 		 * 5 sensor-types right now (sizes 1, 2, 3, 4, 5)
 		 */
 		for (int i = SensorElement::RESOURCET1; i <= SensorElement::RESOURCET5 ; i++){

@@ -131,8 +131,7 @@ namespace EDQD{
 					synchronization = false;
 	        }
 
-	        /**
-	         * Compiler compails about this code
+	        /* Compiler compails about this code
 	        if (s == "nbOfDimensions")
 				a_DataFile >> nbOfDimensions;
 

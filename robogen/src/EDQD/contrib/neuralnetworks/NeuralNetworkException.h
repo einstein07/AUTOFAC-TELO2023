@@ -15,7 +15,7 @@
 namespace Neural {
 
 	/**
-	 * Exception class thrown what something bad happens
+	 * \brief Exception class thrown what something bad happens
 	 * @author Leo Cazenille <leo.cazenille@upmc.fr>
 	 */
 	class NeuralNetworkException : public std::runtime_error {
