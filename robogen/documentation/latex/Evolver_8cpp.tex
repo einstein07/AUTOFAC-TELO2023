@@ -1,0 +1,80 @@
+\hypertarget{Evolver_8cpp}{}\doxysection{src/\+Evolver.cpp File Reference}
+\label{Evolver_8cpp}\index{src/Evolver.cpp@{src/Evolver.cpp}}
+{\ttfamily \#include $<$boost/shared\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/make\+\_\+shared.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/lexical\+\_\+cast.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}config/\+Evolver\+Configuration.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/representation/\+Robot\+Representation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/\+Evolver\+Log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/\+Population.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/\+Selector.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/\+Mutator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/selectors/\+Deterministic\+Tournament.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/engine/neat/\+Neat\+Container.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$random$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacerobogen_add0e51b6967e0be830f7287c76dd0230}{robogen\+::init}} (unsigned int seed, std\+::string output\+Directory, std\+::string conf\+File\+Name, bool overwrite, bool save\+All, bool complexity\+Cost)
+\item 
+void \mbox{\hyperlink{namespacerobogen_a007475d4d29d64756c191916b7e41000}{robogen\+::print\+Usage}} (char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{namespacerobogen_adeea9ff0a3aac61fcb2d4e969338b869}{robogen\+::print\+Help}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_a7ccbffaa92e6d969ab4689f5966c75e3}{robogen\+::add\+To\+Archive}} (boost\+::shared\+\_\+ptr$<$ Robot\+Representation $>$ \&individual)
+\begin{DoxyCompactList}\small\item\em BK -\/ method required by the novelty\+Search experiment probabalistcally maintain an archive of maximum 50 individuals. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerobogen_ab90da9d2e8f88f5f9cb7e520bb04b287}{robogen\+::parse\+Args\+Then\+Init}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{namespacerobogen_ae1a3b9e65f41302373241413c35addf8}{robogen\+::main\+Evolution\+Loop}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_aff0dfb5e51480ad503f3c9755b78af60}{robogen\+::post\+Evaluate\+NEAT}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_a60acf36eb03e0d2ba846153ad90d2e95}{robogen\+::post\+Evaluate\+Std}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_abdf8e4074f1c297a7e4be32a6bc040de}{robogen\+::trigger\+Post\+Evaluate}} ()
+\item 
+int \mbox{\hyperlink{Evolver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Robot\+Representation $>$ $>$ \mbox{\hyperlink{namespacerobogen_ac5556030e1ae160b6c8d0373c4e6898c}{robogen\+::novelty\+Archive}}
+\item 
+boost\+::shared\+\_\+ptr$<$ Population $>$ \mbox{\hyperlink{namespacerobogen_ab831a8b466bc2eaf8d6643091d0cf3eb}{robogen\+::population}}
+\item 
+Individual\+Container \mbox{\hyperlink{namespacerobogen_a6b12ee8b8694a2ceb9e9e3e84ea88960}{robogen\+::children}}
+\item 
+boost\+::shared\+\_\+ptr$<$ Neat\+Container $>$ \mbox{\hyperlink{namespacerobogen_a46069846dddac8980989fdd2cf172a54}{robogen\+::neat\+Container}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{namespacerobogen_ad3a2f0ce3a75e35e6d98025f7bd65707}{robogen\+::robot\+Conf}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration}{Evolver\+Configuration}} $>$ \mbox{\hyperlink{namespacerobogen_ac4ddc0202c3b53b7745c9eeae7838221}{robogen\+::conf}}
+\item 
+boost\+::shared\+\_\+ptr$<$ Evolver\+Log $>$ \mbox{\hyperlink{namespacerobogen_aa474e453f4a3a3d2305d58fcb99d4762}{robogen\+::log}}
+\item 
+bool \mbox{\hyperlink{namespacerobogen_ae150bc3ca35b666c3e9387d481d1e1ff}{robogen\+::neat}}
+\item 
+boost\+::shared\+\_\+ptr$<$ Selector $>$ \mbox{\hyperlink{namespacerobogen_aaef4d991ea6e52c1f1114173dfbb2dbd}{robogen\+::selector}}
+\item 
+boost\+::shared\+\_\+ptr$<$ Mutator $>$ \mbox{\hyperlink{namespacerobogen_a98ac129f0aebde1fc65b92393dee6089}{robogen\+::mutator}}
+\item 
+unsigned int \mbox{\hyperlink{namespacerobogen_a2c684558b8d082ca07ed80676dd2f0ec}{robogen\+::generation}}
+\item 
+boost\+::random\+::mt19937 \mbox{\hyperlink{namespacerobogen_a515ff4a1d97df243d8dd870af14a8291}{robogen\+::rng}}
+\item 
+std\+::vector$<$ Socket $\ast$ $>$ \mbox{\hyperlink{namespacerobogen_a61c5b7f64876ab1201a9336a41b4cc17}{robogen\+::sockets}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Evolver_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{Evolver_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{Evolver.cpp@{Evolver.cpp}!main@{main}}
+\index{main@{main}!Evolver.cpp@{Evolver.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+

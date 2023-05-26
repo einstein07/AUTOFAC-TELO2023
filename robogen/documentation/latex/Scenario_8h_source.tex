@@ -1,0 +1,136 @@
+\hypertarget{Scenario_8h_source}{}\doxysection{Scenario.\+h}
+\label{Scenario_8h_source}\index{src/scenario/Scenario.h@{src/scenario/Scenario.h}}
+\mbox{\hyperlink{Scenario_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Scenario.h\ \ \ 1.0\ \ \ Mar\ 13,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_SCENARIO\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_SCENARIO\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{StartPosition_8h}{config/StartPosition.h}}"{}}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }BoxObstacle;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }Environment;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }RobogenConfig;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }Robot;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }Terrain;}
+\DoxyCodeLine{00045\ \textcolor{keyword}{class\ }BoxResource;}
+\DoxyCodeLine{00049\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}}\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}}(boost::shared\_ptr<RobogenConfig>\ robogenConfig);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a85ba31e28a9dbd224e32aefdb47eb4f2}{\string~Scenario}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a6d53e2dba37fc1c5a7ff4ceb5e5fe231}{init}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<Robot>\ robot);}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a6d53e2dba37fc1c5a7ff4ceb5e5fe231}{init}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,\ dSpaceID\ areaSpace,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<boost::shared\_ptr<Robot>\ >\ robots);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Scenario_ab9cc4276371373e31bb7b8c8d2929ddf}{prune}}();}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a0422082006a53c3519e3cf957be93df7}{pruneswarm}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00109\ \ \ \ \ boost::shared\_ptr<Robot>\ \mbox{\hyperlink{classrobogen_1_1Scenario_a5c6b05a5107a9c906e7fbec48e00e0b2}{getRobot}}();}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ boost::shared\_ptr<Robot>\ \mbox{\hyperlink{classrobogen_1_1Scenario_a5c6b05a5107a9c906e7fbec48e00e0b2}{getRobot}}(\textcolor{keywordtype}{int}\ robotId);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00122\ \ \ \ \ std::vector<boost::shared\_ptr<Robot>\ >\ \mbox{\hyperlink{classrobogen_1_1Scenario_a1aaab5043969721d77848ecdd9e605e4}{getRobots}}();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00129\ \ \ \ \ boost::shared\_ptr<RobogenConfig>\ \mbox{\hyperlink{classrobogen_1_1Scenario_aba72e4605e64a9d1158f826333d48478}{getRobogenConfig}}();}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00136\ \ \ \ \ boost::shared\_ptr<Environment>\ \mbox{\hyperlink{classrobogen_1_1Scenario_a871d4329e69a7b9881ad768318022252}{getEnvironment}}();}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00142\ \ \ \ \ dGeomID\ \mbox{\hyperlink{classrobogen_1_1Scenario_a605127308f1eee99eb2383a53c6f0f7f}{getTerrainID}}();}
+\DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a5ebde1e4668678d32d2a95604859a0a9}{wereObstaclesRemoved}}()\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obstaclesRemoved\_;}
+\DoxyCodeLine{00148\ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a0671a426a400bc6e0ad0035343e8ebc2}{setStartingPosition}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_aa3af9ccb87016bcf3e2384aa84254760}{setupSimulation}}()\ =\ 0;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_af5e5a7d3f281c00dc74e23716962372c}{afterSimulationStep}}()\ =\ 0;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a3298eb9e0e96a4ceca8784a33f977c27}{shouldStopSimulationNow}}()\ \{\ \textcolor{keywordflow}{return}\ stopSimulationNow\_;\ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a65b2f14edface625e061a264e9d4ad50}{endSimulation}}()\ =\ 0;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a0cfbeb6feee2f99d73706a165d532477}{getFitness}}()\ =\ 0;}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<float>\ \mbox{\hyperlink{classrobogen_1_1Scenario_a78c58eedc64feb802490e48aaf9f28af}{getEndPosition}}()\ =\ 0;}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a3a7739131e07bf8aede8ddf1fddd4b11}{remainingTrials}}()\ =\ 0;}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a8cc4b020ed7de0dcf54d6819bf2802d9}{getCurTrial}}()\ \textcolor{keyword}{const}\ =\ 0;}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00210\ \ \ \ \ boost::shared\_ptr<StartPosition>\ \mbox{\hyperlink{classrobogen_1_1Scenario_a0aaec9bf781e5fd13ef5a1e01138b144}{getCurrentStartPosition}}();}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a4795d6a70f126230434b6fd452c35202}{setRobogenConfig}}(boost::shared\_ptr<RobogenConfig>\ robogenConfig)\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ robogenConfig\_\ =\ robogenConfig;}
+\DoxyCodeLine{00216\ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Scenario_a22b24967cd43b1c9e9d30c67ea534655}{stopSimulationNow}}()\ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ stopSimulationNow\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00224\ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Scenario_aefb8a156108da50f999e3a032c84205a}{wereResourcesRemoved}}()\ \{}
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{return}\ resourcesRemoved\_;}
+\DoxyCodeLine{00233\ \ \ \ \ \}}
+\DoxyCodeLine{00234\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00239\ \ \ \ \ boost::shared\_ptr<Robot>\ robot\_;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00244\ \ \ \ \ boost::shared\_ptr<RobogenConfig>\ robogenConfig\_;}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{int}\ startPositionId\_;}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00254\ \ \ \ \ boost::shared\_ptr<Environment>\ environment\_;}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00256\ \ \ \ \ \textcolor{keywordtype}{bool}\ obstaclesRemoved\_;}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{bool}\ stopSimulationNow\_;}
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00260\ \ \ \ \ \textcolor{comment}{//SM\ added:\ swarm\ specific\ attributes}}
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00262\ \ \ \ \ dGeomID\ terrain\_;}
+\DoxyCodeLine{00266\ \ \ \ \ std::vector<boost::shared\_ptr<Robot>\ >\ robots\_;}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ resourcesRemoved\_;}
+\DoxyCodeLine{00268\ \};}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00270\ \}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_SCENARIO\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

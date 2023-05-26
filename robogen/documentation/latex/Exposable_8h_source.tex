@@ -1,0 +1,95 @@
+\hypertarget{Exposable_8h_source}{}\doxysection{Exposable.\+h}
+\label{Exposable_8h_source}\index{src/Exposable.h@{src/Exposable.h}}
+\mbox{\hyperlink{Exposable_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Exposable.h\ \ \ 1.0\ \ \ Dec\ 3,\ 2015}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ EXPOSABLE\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ EXPOSABLE\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <boost/enable\_shared\_from\_this.hpp>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <QCoreApplication>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <QScriptEngine>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <QScriptable>}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classExposable}{Exposable}}\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable,}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ boost::enable\_shared\_from\_this<Exposable>\ \{}
+\DoxyCodeLine{00043\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{int}\ a\_,\ b\_;}
+\DoxyCodeLine{00045\ \ \ \ \ boost::shared\_ptr<Exposable>\ child\_;}
+\DoxyCodeLine{00046\ \ \ \ \ QScriptValue\ userObject\_;}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{classExposable_a07ba0faca50e3415eb6d3c88933012b3}{Exposable}}()\ :\ a\_(5),\ b\_(7),\ child\_(new\ \mbox{\hyperlink{classExposable}{Exposable}}(2,\ 3))\ \{\}}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classExposable_a3e7fc1ad9690755919ad04264142fd03}{Exposable}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ :\ a\_(a),\ b\_(b)\ \{\}}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{/*Exposable(const\ Exposable\&\ exposable)\ :}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ QObject(),\ boost::enable\_shared\_from\_this<Exposable>(),}}
+\DoxyCodeLine{00059\ \textcolor{comment}{\ \ \ \ \ \ \ \ a(exposable.a),\ b(exposable.b),\ child(exposable.child)\ \{}}
+\DoxyCodeLine{00060\ \textcolor{comment}{\ \ \ \ \}*/}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{classExposable_a4f26a85a137fc58e25282e10033feb7d}{\string~Exposable}}()\ \{\}}
+\DoxyCodeLine{00066\ \ \ \ \ boost::shared\_ptr<Exposable>\ \mbox{\hyperlink{classExposable_ac90175c9c0beed58afe8c3ea14b8bb61}{getShared}}()\ \{\ \textcolor{keywordflow}{return}\ shared\_from\_this();\ \}}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExposable_ae80c7be37939d858716f4788ccb32093}{setUserObject}}(QScriptValue\ userObject)\ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ userObject\_\ =\ userObject;}
+\DoxyCodeLine{00069\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExposable_a6960505af3a78d72092df8d6c34bcb5a}{invoke}}()\ \{\ \textcolor{comment}{//const\ std::string\&\ str)\ \{}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ QScriptValue\ function\ =\ userObject\_.property(\textcolor{stringliteral}{"{}invoke"{}});}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(!function.isValid())\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}NOT\ DEFINED!!"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ function.call(userObject\_);}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classExposable_a433f15baaafc81601621a3dd6537cbcb}{setA}}(\textcolor{keywordtype}{int}\ a)\ \{\ a\_\ =\ a;\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classExposable_ac72035a318fc00961b10005ef2d21057}{getA}}()\ \{\ \textcolor{keywordflow}{return}\ a\_;\ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classExposable_aca95b9ab39e0f806e8ee00c43db5e45d}{getB}}()\ \{\ \textcolor{keywordflow}{return}\ b\_;\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ QScriptValue\ \mbox{\hyperlink{classExposable_a44b32a91eba1b20a77fdc84834663763}{getBar}}()\ \{}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ QScriptValue\ result\ =\ \mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}}()-\/>newObject();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ result.setProperty(\textcolor{stringliteral}{"{}bar"{}},\ 23);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ QObject*\ \mbox{\hyperlink{classExposable_a068b98483bbedfc92d0f1b007dc3e502}{getChild}}()\ \{\ \textcolor{keywordflow}{return}\ child\_.get();\ \}}
+\DoxyCodeLine{00092\ \ \ \ \ boost::shared\_ptr<Exposable>\ \mbox{\hyperlink{classExposable_a75085338386d6f08b648ab66a5600522}{getChild2}}()\ \{\ \textcolor{keywordflow}{return}\ child\_;\ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{classExposable}{Exposable}}*\ \mbox{\hyperlink{classExposable_a387ecc707e16508cbe9c01b2d2d59231}{getChild3}}()\ \{\ \textcolor{keywordflow}{return}\ child\_.get();\ \}}
+\DoxyCodeLine{00094\ \ \ \ \ boost::shared\_ptr<QObject>\ \mbox{\hyperlink{classExposable_afbea457bb9c65557038856f29d58068f}{getChild4}}()\ \{\ \textcolor{keywordflow}{return}\ child\_;\ \}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//QSharedPointer<QObject>\ getChild5()\ \{\ return\ QSharedPointer<QObject>(getChild());\ \}}}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EXPOSABLE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

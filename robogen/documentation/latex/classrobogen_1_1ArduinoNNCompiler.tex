@@ -1,0 +1,66 @@
+\hypertarget{classrobogen_1_1ArduinoNNCompiler}{}\doxysection{robogen\+::Arduino\+NNCompiler Class Reference}
+\label{classrobogen_1_1ArduinoNNCompiler}\index{robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}}
+
+
+Class for writing ANN representation to file.  
+
+
+
+
+{\ttfamily \#include $<$Arduino\+NNCompiler.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1ArduinoNNCompiler_a586917240048cb09ec59a78547d5a521}{Arduino\+NNCompiler}} ()
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1ArduinoNNCompiler_ab4e2ad7fc34f6532c84c8641967e78e4}{$\sim$\+Arduino\+NNCompiler}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classrobogen_1_1ArduinoNNCompiler_a05bdf0bd65feac5d1b13aa3e5ac6412c}{compile}} (\mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} \&robot, \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} \&config, std\+::ofstream \&file)
+\item 
+static std\+::pair$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classrobogen_1_1ArduinoNNCompiler_aac489994230b2487b8c8ceaa6ce9d575}{get\+Header\+And\+Footer}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for writing ANN representation to file. 
+
+Class to encapsulate a routine that can write to file the Neural Network representation of a given robot in a way that can be used by the Robogen Arduino program 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1ArduinoNNCompiler_a586917240048cb09ec59a78547d5a521}\label{classrobogen_1_1ArduinoNNCompiler_a586917240048cb09ec59a78547d5a521} 
+\index{robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}!ArduinoNNCompiler@{ArduinoNNCompiler}}
+\index{ArduinoNNCompiler@{ArduinoNNCompiler}!robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}}
+\doxysubsubsection{\texorpdfstring{ArduinoNNCompiler()}{ArduinoNNCompiler()}}
+{\footnotesize\ttfamily robogen\+::\+Arduino\+NNCompiler\+::\+Arduino\+NNCompiler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1ArduinoNNCompiler_ab4e2ad7fc34f6532c84c8641967e78e4}\label{classrobogen_1_1ArduinoNNCompiler_ab4e2ad7fc34f6532c84c8641967e78e4} 
+\index{robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}!````~ArduinoNNCompiler@{$\sim$ArduinoNNCompiler}}
+\index{````~ArduinoNNCompiler@{$\sim$ArduinoNNCompiler}!robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}}
+\doxysubsubsection{\texorpdfstring{$\sim$ArduinoNNCompiler()}{~ArduinoNNCompiler()}}
+{\footnotesize\ttfamily robogen\+::\+Arduino\+NNCompiler\+::$\sim$\+Arduino\+NNCompiler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1ArduinoNNCompiler_a05bdf0bd65feac5d1b13aa3e5ac6412c}\label{classrobogen_1_1ArduinoNNCompiler_a05bdf0bd65feac5d1b13aa3e5ac6412c} 
+\index{robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}!compile@{compile}}
+\index{compile@{compile}!robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}}
+\doxysubsubsection{\texorpdfstring{compile()}{compile()}}
+{\footnotesize\ttfamily void robogen\+::\+Arduino\+NNCompiler\+::compile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} \&}]{robot,  }\item[{\mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} \&}]{config,  }\item[{std\+::ofstream \&}]{file }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Compiles the given \doxylink{classrobogen_1_1Robot}{Robot}\textquotesingle{}s Neural Network to the given file stream \Hypertarget{classrobogen_1_1ArduinoNNCompiler_aac489994230b2487b8c8ceaa6ce9d575}\label{classrobogen_1_1ArduinoNNCompiler_aac489994230b2487b8c8ceaa6ce9d575} 
+\index{robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}!getHeaderAndFooter@{getHeaderAndFooter}}
+\index{getHeaderAndFooter@{getHeaderAndFooter}!robogen::ArduinoNNCompiler@{robogen::ArduinoNNCompiler}}
+\doxysubsubsection{\texorpdfstring{getHeaderAndFooter()}{getHeaderAndFooter()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, std\+::string $>$ robogen\+::\+Arduino\+NNCompiler\+::get\+Header\+And\+Footer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Gets the header and footer for \doxylink{NeuralNetwork_8h}{Neural\+Network.\+h} 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/arduino/\mbox{\hyperlink{ArduinoNNCompiler_8h}{Arduino\+NNCompiler.\+h}}\item 
+src/arduino/\mbox{\hyperlink{ArduinoNNCompiler_8cpp}{Arduino\+NNCompiler.\+cpp}}\end{DoxyCompactItemize}

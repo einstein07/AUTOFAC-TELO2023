@@ -1,0 +1,37 @@
+\hypertarget{Robot_8h}{}\doxysection{src/\+Robot.h File Reference}
+\label{Robot_8h}\index{src/Robot.h@{src/Robot.h}}
+{\ttfamily \#include $<$boost/shared\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/adjacency\+\_\+list.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/breadth\+\_\+first\+\_\+search.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/connected\+\_\+components.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/graph/copy.\+hpp$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include \char`\"{}Robogen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}robogen.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/\+Connection.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/\+Composite\+Body.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}brain/\+Neural\+Network.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrobogen_1_1BodyEdgeDescriptorTag}{robogen\+::\+Body\+Edge\+Descriptor\+Tag}}
+\begin{DoxyCompactList}\small\item\em Struct to describe \doxylink{structrobogen_1_1BodyEdgeDescriptorTag}{Body\+Edge\+Descriptor\+Tag}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrobogen_1_1Robot}{robogen\+::\+Robot}}
+\begin{DoxyCompactList}\small\item\em Class that describes a ROBOGEN robot. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef boost\+::property$<$ \mbox{\hyperlink{structrobogen_1_1BodyEdgeDescriptorTag}{Body\+Edge\+Descriptor\+Tag}}, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$ \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{robogen\+::\+Body\+Edge\+Property}}
+\item 
+typedef boost\+::adjacency\+\_\+list$<$ boost\+::listS, boost\+::vecS, boost\+::directedS, boost\+::no\+\_\+property, \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{Body\+Edge\+Property}} $>$ \mbox{\hyperlink{namespacerobogen_a90c45a26b3d15cb83284190214ce1d7c}{robogen\+::\+Body\+Graph}}
+\item 
+typedef boost\+::adjacency\+\_\+list$<$ boost\+::listS, boost\+::vecS, boost\+::undirectedS, boost\+::no\+\_\+property, \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{Body\+Edge\+Property}} $>$ \mbox{\hyperlink{namespacerobogen_a361699b582f521af16118ae24d25c55b}{robogen\+::\+Body\+Undirected\+Graph}}
+\item 
+typedef boost\+::graph\+\_\+traits$<$ \mbox{\hyperlink{namespacerobogen_a90c45a26b3d15cb83284190214ce1d7c}{Body\+Graph}} $>$\+::edge\+\_\+descriptor \mbox{\hyperlink{namespacerobogen_afee6227d8ecdff9f39d0509904d91a18}{robogen\+::\+Body\+Edge}}
+\end{DoxyCompactItemize}

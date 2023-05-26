@@ -1,0 +1,272 @@
+\hypertarget{classrobogen_1_1Environment}{}\doxysection{robogen\+::Environment Class Reference}
+\label{classrobogen_1_1Environment}\index{robogen::Environment@{robogen::Environment}}
+
+
+Class to describe simulation \doxylink{classrobogen_1_1Environment}{Environment}.  
+
+
+
+
+{\ttfamily \#include $<$Environment.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Environment_aa74eb3d89ba2ce51e40d7a0d711f6714}{Environment}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+Config)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1Environment_ad1723febd14f570acc01a5aa46c66b12}{Environment}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID area\+Space, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+Config)
+\begin{DoxyCompactList}\small\item\em Constructor -\/ SM. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Environment_ae87a15faeaf1b981892c60ba7c58cc0c}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes \doxylink{classrobogen_1_1Environment}{Environment}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Environment_a611689ef517fdfd69c075c3a48bbd0a7}{$\sim$\+Environment}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a5725022f8e69908f1580177667de2af7}{set\+Time\+Elapsed}} (float time\+Elapsed)
+\begin{DoxyCompactList}\small\item\em Sets time elapsed. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Environment_ac1bdfb8fd3e04fe471bd8a0ea8251d8e}{get\+Time\+Elapsed}} ()
+\begin{DoxyCompactList}\small\item\em Returns time elapsed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_ab13b8e47be0aece7902986b8ce350108}{set\+Light\+Sources}} (const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Light\+Source $>$ $>$ \&light\+Sources)
+\begin{DoxyCompactList}\small\item\em Sets light sources. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Light\+Source $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Environment_a1b4d772183165a05b61fff137a482c50}{get\+Light\+Sources}} ()
+\begin{DoxyCompactList}\small\item\em Returns light sources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a9174ec127bd39cbd89f424dad6285aa3}{set\+Ambient\+Light}} (float ambient\+Light)
+\begin{DoxyCompactList}\small\item\em Set AAmbient light. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Environment_a5009b169f08461dcf580a528eab31adb}{get\+Ambient\+Light}} ()
+\begin{DoxyCompactList}\small\item\em Returns Ambient light. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a53ec006761cb86d2f2161dac01fc43f5}{add\+Obstacle}} (boost\+::shared\+\_\+ptr$<$ Obstacle $>$ obstacle)
+\begin{DoxyCompactList}\small\item\em Adds obstacle. \end{DoxyCompactList}\item 
+d\+Geom\+ID \mbox{\hyperlink{classrobogen_1_1Environment_a09bc232bc3ff11cb4c814297503a1e5f}{get\+Terrain\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Terrain}{Terrain} Id. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Terrain}{Terrain}} $>$ \mbox{\hyperlink{classrobogen_1_1Environment_af36ee7f957e8c8219d2d47fac884c2c1}{get\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Terrain}{Terrain}. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Obstacle $>$ $>$ \mbox{\hyperlink{classrobogen_1_1Environment_a5cfd2a519103e2794cabd5c18bb06710}{get\+Obstacles}} ()
+\begin{DoxyCompactList}\small\item\em Returns Obstacles. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a59619eab0193373df1f4673ae50db682}{set\+Gathering\+Zone}} (boost\+::shared\+\_\+ptr$<$ Gathering\+Zone $>$ gathering\+Zone)
+\begin{DoxyCompactList}\small\item\em Sets Gathering\+Zone -\/ SM. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ Gathering\+Zone $>$ \mbox{\hyperlink{classrobogen_1_1Environment_a5b0e2dcc8b2cb55008e20a61ef100492}{get\+Gathering\+Zone}} ()
+\begin{DoxyCompactList}\small\item\em Returns Gathering\+Zone -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a47004985ce43292c2d6fe55a692dbd55}{step\+Gathering\+Zone}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots, boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em Step the gathering zone -\/ SM. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Box\+Resource $>$ $>$ \mbox{\hyperlink{classrobogen_1_1Environment_a8f4d6bb0abee93c8cf9cf0ae0c474477}{get\+Resources}} ()
+\begin{DoxyCompactList}\small\item\em Returns resources -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Environment_a457f35c7ae56dbabae9050e6f3b71bc2}{add\+Resource}} (boost\+::shared\+\_\+ptr$<$ Box\+Resource $>$ resource)
+\begin{DoxyCompactList}\small\item\em Adds resource -\/ SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe simulation \doxylink{classrobogen_1_1Environment}{Environment}. 
+
+\doxylink{classrobogen_1_1Environment}{Environment} contains all info about the simulation except for the robot 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Environment_aa74eb3d89ba2ce51e40d7a0d711f6714}\label{classrobogen_1_1Environment_aa74eb3d89ba2ce51e40d7a0d711f6714} 
+\index{robogen::Environment@{robogen::Environment}!Environment@{Environment}}
+\index{Environment@{Environment}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{Environment()}{Environment()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Environment\+::\+Environment (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$}]{robogen\+Config }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classrobogen_1_1Environment_ad1723febd14f570acc01a5aa46c66b12}\label{classrobogen_1_1Environment_ad1723febd14f570acc01a5aa46c66b12} 
+\index{robogen::Environment@{robogen::Environment}!Environment@{Environment}}
+\index{Environment@{Environment}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{Environment()}{Environment()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Environment\+::\+Environment (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{d\+Space\+ID}]{area\+Space,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$}]{robogen\+Config }\end{DoxyParamCaption})}
+
+
+
+Constructor -\/ SM. 
+
+\Hypertarget{classrobogen_1_1Environment_a611689ef517fdfd69c075c3a48bbd0a7}\label{classrobogen_1_1Environment_a611689ef517fdfd69c075c3a48bbd0a7} 
+\index{robogen::Environment@{robogen::Environment}!````~Environment@{$\sim$Environment}}
+\index{````~Environment@{$\sim$Environment}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{$\sim$Environment()}{~Environment()}}
+{\footnotesize\ttfamily robogen\+::\+Environment\+::$\sim$\+Environment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Environment_a53ec006761cb86d2f2161dac01fc43f5}\label{classrobogen_1_1Environment_a53ec006761cb86d2f2161dac01fc43f5} 
+\index{robogen::Environment@{robogen::Environment}!addObstacle@{addObstacle}}
+\index{addObstacle@{addObstacle}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{addObstacle()}{addObstacle()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::add\+Obstacle (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ Obstacle $>$}]{obstacle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds obstacle. 
+
+\Hypertarget{classrobogen_1_1Environment_a457f35c7ae56dbabae9050e6f3b71bc2}\label{classrobogen_1_1Environment_a457f35c7ae56dbabae9050e6f3b71bc2} 
+\index{robogen::Environment@{robogen::Environment}!addResource@{addResource}}
+\index{addResource@{addResource}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::add\+Resource (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ Box\+Resource $>$}]{resource }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds resource -\/ SM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em resource} & the resource that is being added \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1Environment_a5009b169f08461dcf580a528eab31adb}\label{classrobogen_1_1Environment_a5009b169f08461dcf580a528eab31adb} 
+\index{robogen::Environment@{robogen::Environment}!getAmbientLight@{getAmbientLight}}
+\index{getAmbientLight@{getAmbientLight}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getAmbientLight()}{getAmbientLight()}}
+{\footnotesize\ttfamily float robogen\+::\+Environment\+::get\+Ambient\+Light (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Ambient light. 
+
+\Hypertarget{classrobogen_1_1Environment_a5b0e2dcc8b2cb55008e20a61ef100492}\label{classrobogen_1_1Environment_a5b0e2dcc8b2cb55008e20a61ef100492} 
+\index{robogen::Environment@{robogen::Environment}!getGatheringZone@{getGatheringZone}}
+\index{getGatheringZone@{getGatheringZone}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getGatheringZone()}{getGatheringZone()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ Gathering\+Zone $>$ robogen\+::\+Environment\+::get\+Gathering\+Zone (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Gathering\+Zone -\/ SM. 
+
+\begin{DoxyReturn}{Returns}
+the gathering zone 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Environment_a1b4d772183165a05b61fff137a482c50}\label{classrobogen_1_1Environment_a1b4d772183165a05b61fff137a482c50} 
+\index{robogen::Environment@{robogen::Environment}!getLightSources@{getLightSources}}
+\index{getLightSources@{getLightSources}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getLightSources()}{getLightSources()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Light\+Source $>$ $>$ \& robogen\+::\+Environment\+::get\+Light\+Sources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns light sources. 
+
+\Hypertarget{classrobogen_1_1Environment_a5cfd2a519103e2794cabd5c18bb06710}\label{classrobogen_1_1Environment_a5cfd2a519103e2794cabd5c18bb06710} 
+\index{robogen::Environment@{robogen::Environment}!getObstacles@{getObstacles}}
+\index{getObstacles@{getObstacles}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getObstacles()}{getObstacles()}}
+{\footnotesize\ttfamily std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Obstacle $>$ $>$ robogen\+::\+Environment\+::get\+Obstacles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Obstacles. 
+
+\Hypertarget{classrobogen_1_1Environment_a8f4d6bb0abee93c8cf9cf0ae0c474477}\label{classrobogen_1_1Environment_a8f4d6bb0abee93c8cf9cf0ae0c474477} 
+\index{robogen::Environment@{robogen::Environment}!getResources@{getResources}}
+\index{getResources@{getResources}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Box\+Resource $>$ $>$ robogen\+::\+Environment\+::get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns resources -\/ SM. 
+
+\begin{DoxyReturn}{Returns}
+all resources in the environment 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Environment_af36ee7f957e8c8219d2d47fac884c2c1}\label{classrobogen_1_1Environment_af36ee7f957e8c8219d2d47fac884c2c1} 
+\index{robogen::Environment@{robogen::Environment}!getTerrain@{getTerrain}}
+\index{getTerrain@{getTerrain}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getTerrain()}{getTerrain()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Terrain}{Terrain}} $>$ robogen\+::\+Environment\+::get\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns \doxylink{classrobogen_1_1Terrain}{Terrain}. 
+
+\Hypertarget{classrobogen_1_1Environment_a09bc232bc3ff11cb4c814297503a1e5f}\label{classrobogen_1_1Environment_a09bc232bc3ff11cb4c814297503a1e5f} 
+\index{robogen::Environment@{robogen::Environment}!getTerrainID@{getTerrainID}}
+\index{getTerrainID@{getTerrainID}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getTerrainID()}{getTerrainID()}}
+{\footnotesize\ttfamily d\+Geom\+ID robogen\+::\+Environment\+::get\+Terrain\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns \doxylink{classrobogen_1_1Terrain}{Terrain} Id. 
+
+\Hypertarget{classrobogen_1_1Environment_ac1bdfb8fd3e04fe471bd8a0ea8251d8e}\label{classrobogen_1_1Environment_ac1bdfb8fd3e04fe471bd8a0ea8251d8e} 
+\index{robogen::Environment@{robogen::Environment}!getTimeElapsed@{getTimeElapsed}}
+\index{getTimeElapsed@{getTimeElapsed}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{getTimeElapsed()}{getTimeElapsed()}}
+{\footnotesize\ttfamily float robogen\+::\+Environment\+::get\+Time\+Elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns time elapsed. 
+
+\Hypertarget{classrobogen_1_1Environment_ae87a15faeaf1b981892c60ba7c58cc0c}\label{classrobogen_1_1Environment_ae87a15faeaf1b981892c60ba7c58cc0c} 
+\index{robogen::Environment@{robogen::Environment}!init@{init}}
+\index{init@{init}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool robogen\+::\+Environment\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes \doxylink{classrobogen_1_1Environment}{Environment}. 
+
+\Hypertarget{classrobogen_1_1Environment_a9174ec127bd39cbd89f424dad6285aa3}\label{classrobogen_1_1Environment_a9174ec127bd39cbd89f424dad6285aa3} 
+\index{robogen::Environment@{robogen::Environment}!setAmbientLight@{setAmbientLight}}
+\index{setAmbientLight@{setAmbientLight}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{setAmbientLight()}{setAmbientLight()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::set\+Ambient\+Light (\begin{DoxyParamCaption}\item[{float}]{ambient\+Light }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set AAmbient light. 
+
+\Hypertarget{classrobogen_1_1Environment_a59619eab0193373df1f4673ae50db682}\label{classrobogen_1_1Environment_a59619eab0193373df1f4673ae50db682} 
+\index{robogen::Environment@{robogen::Environment}!setGatheringZone@{setGatheringZone}}
+\index{setGatheringZone@{setGatheringZone}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{setGatheringZone()}{setGatheringZone()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::set\+Gathering\+Zone (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ Gathering\+Zone $>$}]{gathering\+Zone }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets Gathering\+Zone -\/ SM. 
+
+\begin{DoxyItemize}
+\item the gathering zone \end{DoxyItemize}
+\Hypertarget{classrobogen_1_1Environment_ab13b8e47be0aece7902986b8ce350108}\label{classrobogen_1_1Environment_ab13b8e47be0aece7902986b8ce350108} 
+\index{robogen::Environment@{robogen::Environment}!setLightSources@{setLightSources}}
+\index{setLightSources@{setLightSources}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{setLightSources()}{setLightSources()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::set\+Light\+Sources (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Light\+Source $>$ $>$ \&}]{light\+Sources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets light sources. 
+
+\Hypertarget{classrobogen_1_1Environment_a5725022f8e69908f1580177667de2af7}\label{classrobogen_1_1Environment_a5725022f8e69908f1580177667de2af7} 
+\index{robogen::Environment@{robogen::Environment}!setTimeElapsed@{setTimeElapsed}}
+\index{setTimeElapsed@{setTimeElapsed}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{setTimeElapsed()}{setTimeElapsed()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::set\+Time\+Elapsed (\begin{DoxyParamCaption}\item[{float}]{time\+Elapsed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets time elapsed. 
+
+\Hypertarget{classrobogen_1_1Environment_a47004985ce43292c2d6fe55a692dbd55}\label{classrobogen_1_1Environment_a47004985ce43292c2d6fe55a692dbd55} 
+\index{robogen::Environment@{robogen::Environment}!stepGatheringZone@{stepGatheringZone}}
+\index{stepGatheringZone@{stepGatheringZone}!robogen::Environment@{robogen::Environment}}
+\doxysubsubsection{\texorpdfstring{stepGatheringZone()}{stepGatheringZone()}}
+{\footnotesize\ttfamily void robogen\+::\+Environment\+::step\+Gathering\+Zone (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$}]{robots,  }\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})}
+
+
+
+Step the gathering zone -\/ SM. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/scenario/\mbox{\hyperlink{Environment_8h}{Environment.\+h}}\item 
+src/scenario/\mbox{\hyperlink{Environment_8cpp}{Environment.\+cpp}}\end{DoxyCompactItemize}

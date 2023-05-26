@@ -1,0 +1,72 @@
+\hypertarget{Robogen_8h_source}{}\doxysection{Robogen.\+h}
+\label{Robogen_8h_source}\index{src/Robogen.h@{src/Robogen.h}}
+\mbox{\hyperlink{Robogen_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Robogen.h\ \ \ 1.0\ \ \ Feb\ 8,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ In\ case\ of\ inertia/mass\ problems\ with\ ODE\ on\ 64bits\ machines\ it's\ necessary}}
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ to\ enble\ dDOUBLE}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ dDOUBLE}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <ode/ode.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <osg/Quat>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ inMm(x)\ ((x)/1000.0)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ inGrams(x)\ ((x)/1000.0)}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00044\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00046\ \textcolor{comment}{}\textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00047\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1ObjectData}{ObjectData}}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1ObjectData_a6d6a0b597fc617de1ec09db0814a4675}{objectId}};}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1ObjectData_a614ee4be16b46d293725026ae8c032f7}{isRobot}};}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1ObjectData_a13ca09282fc60e20ee238235ba8aa134}{isResource}};}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1ObjectData_acd7bc3a60d954c95cca9ea8364c27751}{isTargetArea}};}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1ObjectData_ae8441b34adab1ea0d0ae4f0a362d13aa}{isWall}};}
+\DoxyCodeLine{00068\ \};}
+\DoxyCodeLine{00069\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00073\ \textcolor{comment}{}\textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespacerobogen_a8c1ee35a014845f765897977e64d15b1}{fromOde}}(\textcolor{keywordtype}{float}\ x);}
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespacerobogen_a8c1ee35a014845f765897977e64d15b1}{fromOde}}(\textcolor{keywordtype}{double}\ x);}
+\DoxyCodeLine{00081\ osg::Vec3\ \mbox{\hyperlink{namespacerobogen_a8c1ee35a014845f765897977e64d15b1}{fromOde}}(osg::Vec3\ x);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerobogen_a1a18b67671c835e8f0765df60b14e0b8}{getRotationMatrixOde}}(osg::Quat\ quat,\ dQuaternion\ rotationMatrixOde);}
+\DoxyCodeLine{00088\ osg::Vec3\ \mbox{\hyperlink{namespacerobogen_ac99995edfc1b5e53da880bef4bd3ce58}{getRPYfromQuat}}(osg::Quat\ quat);}
+\DoxyCodeLine{00092\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacerobogen_a09c7ed2080183d82386d7776853efc5f}{modulo}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y);}
+\DoxyCodeLine{00096\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerobogen_a97d46e6b79d9d9b9115773646f8c4bf6}{startRobogen}}();}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerobogen_a923744e9f55485ae2143916296b7d389}{exitRobogen}}(\textcolor{keywordtype}{int}\ exitCode);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

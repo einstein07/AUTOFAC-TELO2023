@@ -1,0 +1,74 @@
+\hypertarget{ArduinoNNConfiguration_8h_source}{}\doxysection{Arduino\+NNConfiguration.\+h}
+\label{ArduinoNNConfiguration_8h_source}\index{src/arduino/ArduinoNNConfiguration.h@{src/arduino/ArduinoNNConfiguration.h}}
+\mbox{\hyperlink{ArduinoNNConfiguration_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ ArduinoNNConfiguration.h\ \ \ 1.0\ \ \ Sep\ 10,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ based\ on\ previous\ work\ by:}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Gregoire\ Heitz\ (gregoire.heitz@epfl.ch)}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Copyright\ ©\ 2013-\/2014}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00030\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#ifndef\ ARDUINONNCONFIGURATION\_H\_}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ ARDUINONNCONFIGURATION\_H\_}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ MAX\_DIGITAL\_PINS\ 12}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MAX\_ANALOG\_PINS\ 12}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ MAX\_PWM\_PINS\ 12}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }arduino\ \{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespacerobogen_1_1arduino_a990d1614a95841648dbc36755c13c71f}{digitalOrder}}[]\ =\ \{\textcolor{stringliteral}{"{}D9"{}},\ \textcolor{stringliteral}{"{}D10"{}},\ \textcolor{stringliteral}{"{}D5"{}},\ \textcolor{stringliteral}{"{}D6"{}},\ \textcolor{stringliteral}{"{}D11"{}},\ \textcolor{stringliteral}{"{}D13"{}},}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}ROLL"{}},\ \textcolor{stringliteral}{"{}PITCH"{}},\ \textcolor{stringliteral}{"{}YAW"{}},\ \textcolor{stringliteral}{"{}AUX1"{}},\ \textcolor{stringliteral}{"{}D7"{}},\ \textcolor{stringliteral}{"{}D4"{}}\};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespacerobogen_1_1arduino_a6f91183351de4ccb98f8accd5a7abf10}{analogOrder}}[]\ =\ \{\textcolor{stringliteral}{"{}A0"{}},\ \textcolor{stringliteral}{"{}A1"{}},\ \textcolor{stringliteral}{"{}A2"{}},\ \textcolor{stringliteral}{"{}A3"{}}\};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{namespacerobogen_1_1arduino_a5770637797a7fa0edb4e4acfd491ec1a}{pwmOrder}}[]\ =\ \{\textcolor{stringliteral}{"{}D11"{}},\ \textcolor{stringliteral}{"{}D5"{}},\ \textcolor{stringliteral}{"{}D6"{}},\ \textcolor{stringliteral}{"{}D13"{}}\};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51a}{inputType}}\{}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa55a404a3a3c601d2ee4764f702ae86c5}{LIGHT\_SENSOR}},}
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa80d57a945fc418500507f57661dbbf42}{TOUCH\_SENSOR}},}
+\DoxyCodeLine{00069\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aab6c76c7ae045160a00055d0c4120e9e6}{IMU}},}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa9febef7f80fda7b430faac6da83ee83f}{IR\_SENSOR}}}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461e}{motorType}}\{}
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461ea1dab0a5d9fdc1dd0aeadd2edbf71bfbd}{POSITION\_CONTROL}},}
+\DoxyCodeLine{00078\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461eab813359d25c174ce26f63eb3b524bcb9}{VELOCITY\_CONTROL}}}
+\DoxyCodeLine{00079\ \};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \}\ \textcolor{comment}{/*\ namespace\ arduino\ */}}
+\DoxyCodeLine{00083\ \}\ \textcolor{comment}{/*\ namespace\ robogen\ */}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ARDUINONNCONFIGURATION\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,138 @@
+\hypertarget{KeyboardHandler_8h_source}{}\doxysection{Keyboard\+Handler.\+h}
+\label{KeyboardHandler_8h_source}\index{src/viewer/KeyboardHandler.h@{src/viewer/KeyboardHandler.h}}
+\mbox{\hyperlink{KeyboardHandler_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ KeyboardHandler.h\ \ \ 1.0\ \ \ March\ 21,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_KEYBOARD\_HANDLER\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_KEYBOARD\_HANDLER\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <osgGA/GUIEventHandler>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <osg/Version>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1KeyboardHandler}{KeyboardHandler}}:\ \textcolor{keyword}{public}\ osgGA::GUIEventHandler\ \{}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_a8e00d7383646b5594907a0a4d45317bb}{KeyboardHandler}}(\textcolor{keywordtype}{bool}\ startPaused,\ \textcolor{keywordtype}{bool}\ geoms,\ \textcolor{keywordtype}{bool}\ meshes\textcolor{comment}{/*,\ bool\ transparent*/})}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ :\ osgGA::GUIEventHandler(),\ paused\_(startPaused),\ geoms\_(geoms),}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ meshes\_(meshes),\ \textcolor{comment}{/*transparent\_(transparent),*/}\ quit\_(false)\ \ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_ac011df21ea5d4be83c319923840d803e}{handle}}(\textcolor{keyword}{const}\ osgGA::GUIEventAdapter\&\ ea,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ osgGA::GUIActionAdapter\&)\ \{}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ osgGA::GUIEventAdapter::EventType\ eventType\ =\ ea.getEventType();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (eventType\ ==\ osgGA::GUIEventAdapter::KEYDOWN)\ \{}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (ea.getKey())\ \{}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Toggle\ Pause\ Simulation}}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'p'}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paused\_\ =\ !paused\_;}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'q'}:}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quit\_\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'g'}:}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ geoms\_\ =\ !geoms\_;}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'m'}:}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ meshes\_\ =\ !meshes\_;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//case\ 't':}}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ transparent\_\ =\ !transparent\_;}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ return\ true;}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ break;}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#if\ OSG\_VERSION\_LESS\_OR\_EQUAL(3,\ 2,\ 0)}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//think\ this\ can\ safely\ be\ removed\ complete,\ but\ will\ wrap\ in\ this\ check}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ for\ now}}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ accept(osgGA::GUIEventHandlerVisitor\&\ v)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ v.visit(*\textcolor{keyword}{this});}
+\DoxyCodeLine{00103\ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_a45877e26f156ac66aa269111a01c2e70}{isPaused}}()\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ paused\_;}
+\DoxyCodeLine{00111\ \ \ \ \ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_a1a1771fd8a045f9a47e81754c9886503}{showGeoms}}()\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ geoms\_;}
+\DoxyCodeLine{00117\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_a4b155119bf0f685ad16586c3617070d9}{showMeshes}}()\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ meshes\_;}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//bool\ isTransparent()\ \{}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ \ return\ transparent\_;}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\}}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1KeyboardHandler_a4e25dff19dc6dc4760587383c7908e02}{isQuit}}()\ \{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ quit\_;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{bool}\ paused\_;}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{bool}\ geoms\_;}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{bool}\ meshes\_;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{comment}{//bool\ transparent\_;}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{bool}\ quit\_;}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_KEYBOARD\_HANDLER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

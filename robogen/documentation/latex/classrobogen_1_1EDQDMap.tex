@@ -1,0 +1,467 @@
+\hypertarget{classrobogen_1_1EDQDMap}{}\doxysection{robogen\+::EDQDMap Class Reference}
+\label{classrobogen_1_1EDQDMap}\index{robogen::EDQDMap@{robogen::EDQDMap}}
+
+
+Class describing diversity maintenance maps.  
+
+
+
+
+{\ttfamily \#include $<$EDQDMap.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap_a208fda2edade7b5f970b20f604dbf8b5}{EDQDMap}} ()
+\begin{DoxyCompactList}\small\item\em Construtor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1EDQDMap_a03d91909361e23a8865e318331518c75}{$\sim$\+EDQDMap}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \& \mbox{\hyperlink{classrobogen_1_1EDQDMap_a3555ac4a4adcf557a44ddc9e5bb6bc6a}{operator()}} (int i, int j)
+\begin{DoxyCompactList}\small\item\em Setter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_acdaac255a15538af852c0e3e7785436a}{operator()}} (int i, int j) const
+\begin{DoxyCompactList}\small\item\em Getter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \mbox{\hyperlink{classrobogen_1_1EDQDMap_a29f671973bffd4cbcc3b7fd9017665da}{load}} (Archive \&ar, const int version)
+\begin{DoxyCompactList}\small\item\em Load map archive. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \mbox{\hyperlink{classrobogen_1_1EDQDMap_aa9c89539920f55722d45205503e59ab1}{save}} (Archive \&ar, const int version) const
+\begin{DoxyCompactList}\small\item\em Save map archive. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDMap_a99d82a057b1a31bf916412e57e8ccb07}{add}} (int id, \mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}} $\ast$ctrl, std\+::vector$<$ double $>$ genome, float sigma)
+\begin{DoxyCompactList}\small\item\em Add new elite to behavior map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDMap_a270cbc32dd37bed70945fc34c5b58e8e}{morph\+Add}} (int id, \mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}} $\ast$robot, std\+::vector$<$ double $>$ genome, float sigma, std\+::map$<$ int, double $>$ per\+Sensor\+Type\+Range)
+\begin{DoxyCompactList}\small\item\em Add new elite to map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDMap_af31f97cf366fdd3e6a8fa1ab1a989f57}{get}} (\mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} index)
+\begin{DoxyCompactList}\small\item\em Access an elite stored at the specified index. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_a9e6c7c898bc12a1082f9bf9036eddbab}{get\+Random\+Index}} ()
+\begin{DoxyCompactList}\small\item\em Returns a random map index. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDMap_a32e542898d06640d5b863467eb4d6546}{has\+Entry}} () const
+\begin{DoxyCompactList}\small\item\em Checks is map has an entry. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\+\_\+t}} \& \mbox{\hyperlink{classrobogen_1_1EDQDMap_aa9afa3e390beb01b4db89ef74eab13b1}{get\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Returns a reference to this map. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDMap_ae0f9b7c4bc00e4b0822d8f6078d0c6b8}{get\+Num\+Filled\+Cells}} () const
+\begin{DoxyCompactList}\small\item\em Returns number of filled cells in map. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDMap_a386fae4127de3e05950f294238f3df61}{merge\+Into}} (\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} \&m)
+\begin{DoxyCompactList}\small\item\em Merge this map into the parameter of this function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDMap_afd63685bef0afa883ed30ba23b2ecea1}{update\+Num\+Filled\+Cells}} ()
+\begin{DoxyCompactList}\small\item\em Recalculates the number of filled cells within the map. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_a84c9f9602fb4f1c53976cb9d8875e85d}{compute\+Index}} (const std\+::map$<$ int, int $>$ \&oc, double \mbox{\hyperlink{Util_8cpp_a94d663bff0c9b842fd3a8c6364c169ce}{distance}}, double max\+Distance, std\+::vector$<$ double $>$ $\ast$pos=NULL)
+\begin{DoxyCompactList}\small\item\em Behavior index computation. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_a4ef8117d8c623b403886acd2582bddbd}{compute\+Morph\+Index}} (const std\+::map$<$ int, int $>$ \&sensor\+Types, int total\+Num\+Of\+Sensors, double average\+Range, double max\+Range, std\+::vector$<$ double $>$ $\ast$pos)
+\begin{DoxyCompactList}\small\item\em Morphology index computation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDMap_ab3e16d80ae580112da45e1c14cf53f38}{set\+Map\+Has\+Entry}} (bool map\+Has\+Entry)
+\begin{DoxyCompactList}\small\item\em Updates has-\/entry flag. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6e7ceeb3e6dcf73741ff19e165b84818}{\+\_\+dist\+\_\+center}} (const std\+::vector$<$ double $>$ \&pos)
+\begin{DoxyCompactList}\small\item\em Returns distance to center of behavior descriptor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\+\_\+t}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Diversity map. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\+\_\+dim\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Map dimensions. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} \mbox{\hyperlink{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}{map\+\_\+shape\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Map shape according to behavior indexing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{map\+Has\+Entry\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Flags whether this map has an entry. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}{num\+\_\+filled\+\_\+cells\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of filled cells. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classrobogen_1_1EDQDMap_a4305f269960e8ccc92b19b2f0480b16d}{boost\+::serialization\+::access}}
+\item 
+std\+::ostream \& \mbox{\hyperlink{classrobogen_1_1EDQDMap_a0347ab56376d0596ec5721f86cc488e7}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} \&obj)
+\begin{DoxyCompactList}\small\item\em Write \doxylink{classrobogen_1_1EDQDMap}{EDQDMap} object to standard output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class describing diversity maintenance maps. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1EDQDMap_a208fda2edade7b5f970b20f604dbf8b5}\label{classrobogen_1_1EDQDMap_a208fda2edade7b5f970b20f604dbf8b5} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!EDQDMap@{EDQDMap}}
+\index{EDQDMap@{EDQDMap}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{EDQDMap()}{EDQDMap()}}
+{\footnotesize\ttfamily robogen\+::\+EDQDMap\+::\+EDQDMap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_a03d91909361e23a8865e318331518c75}\label{classrobogen_1_1EDQDMap_a03d91909361e23a8865e318331518c75} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!````~EDQDMap@{$\sim$EDQDMap}}
+\index{````~EDQDMap@{$\sim$EDQDMap}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{$\sim$EDQDMap()}{~EDQDMap()}}
+{\footnotesize\ttfamily robogen\+::\+EDQDMap\+::$\sim$\+EDQDMap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1EDQDMap_a6e7ceeb3e6dcf73741ff19e165b84818}\label{classrobogen_1_1EDQDMap_a6e7ceeb3e6dcf73741ff19e165b84818} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!\_dist\_center@{\_dist\_center}}
+\index{\_dist\_center@{\_dist\_center}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{\_dist\_center()}{\_dist\_center()}}
+{\footnotesize\ttfamily float robogen\+::\+EDQDMap\+::\+\_\+dist\+\_\+center (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Returns distance to center of behavior descriptor. 
+
+\begin{DoxyReturn}{Returns}
+float distance to center of behavior descriptor cell 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a99d82a057b1a31bf916412e57e8ccb07}\label{classrobogen_1_1EDQDMap_a99d82a057b1a31bf916412e57e8ccb07} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!add@{add}}
+\index{add@{add}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDMap\+::add (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}} $\ast$}]{ctrl,  }\item[{std\+::vector$<$ double $>$}]{genome,  }\item[{float}]{sigma }\end{DoxyParamCaption})}
+
+
+
+Add new elite to behavior map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & robot id \\
+\hline
+{\em EDQDRobot$\ast$} & pointer to \doxylink{classrobogen_1_1EDQDRobot}{EDQDRobot} object \\
+\hline
+{\em std\+::vector$<$double$>$} & genome of elite being added \\
+\hline
+{\em flot} & sigma of elite being added \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if elite was added, false if not 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a84c9f9602fb4f1c53976cb9d8875e85d}\label{classrobogen_1_1EDQDMap_a84c9f9602fb4f1c53976cb9d8875e85d} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!computeIndex@{computeIndex}}
+\index{computeIndex@{computeIndex}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{computeIndex()}{computeIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} robogen\+::\+EDQDMap\+::compute\+Index (\begin{DoxyParamCaption}\item[{const std\+::map$<$ int, int $>$ \&}]{oc,  }\item[{double}]{distance,  }\item[{double}]{max\+Distance,  }\item[{std\+::vector$<$ double $>$ $\ast$}]{pos = {\ttfamily NULL} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Behavior index computation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::map$<$int,int$>$\&} & map of resource types to number collected \\
+\hline
+{\em double} & distance traversed \\
+\hline
+{\em double} & maximum distance possible \\
+\hline
+{\em std\+::vector$<$double$>$$\ast$} & x y position of elite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+behav\+\_\+index\+\_\+t index 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a4ef8117d8c623b403886acd2582bddbd}\label{classrobogen_1_1EDQDMap_a4ef8117d8c623b403886acd2582bddbd} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!computeMorphIndex@{computeMorphIndex}}
+\index{computeMorphIndex@{computeMorphIndex}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{computeMorphIndex()}{computeMorphIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} robogen\+::\+EDQDMap\+::compute\+Morph\+Index (\begin{DoxyParamCaption}\item[{const std\+::map$<$ int, int $>$ \&}]{sensor\+Types,  }\item[{int}]{total\+Num\+Of\+Sensors,  }\item[{double}]{average\+Range,  }\item[{double}]{max\+Range,  }\item[{std\+::vector$<$ double $>$ $\ast$}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Morphology index computation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::map$<$int,int$>$\&} & map of sensor types to number active \\
+\hline
+{\em int} & total number of sensors \\
+\hline
+{\em double} & average range \\
+\hline
+{\em double} & maximum possible range \\
+\hline
+{\em std\+::vector$<$double$>$$\ast$} & x y position of elite \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+behav\+\_\+index\+\_\+t index 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_af31f97cf366fdd3e6a8fa1ab1a989f57}\label{classrobogen_1_1EDQDMap_af31f97cf366fdd3e6a8fa1ab1a989f57} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!get@{get}}
+\index{get@{get}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} $\ast$ robogen\+::\+EDQDMap\+::get (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}}}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Access an elite stored at the specified index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em behav\+\_\+index\+\_\+t} & index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Elite$\ast$ 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_aa9afa3e390beb01b4db89ef74eab13b1}\label{classrobogen_1_1EDQDMap_aa9afa3e390beb01b4db89ef74eab13b1} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!getMap@{getMap}}
+\index{getMap@{getMap}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\+\_\+t}} \& robogen\+::\+EDQDMap\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns a reference to this map. 
+
+\begin{DoxyReturn}{Returns}
+map\+\_\+t\& 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_ae0f9b7c4bc00e4b0822d8f6078d0c6b8}\label{classrobogen_1_1EDQDMap_ae0f9b7c4bc00e4b0822d8f6078d0c6b8} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!getNumFilledCells@{getNumFilledCells}}
+\index{getNumFilledCells@{getNumFilledCells}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{getNumFilledCells()}{getNumFilledCells()}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDMap\+::get\+Num\+Filled\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns number of filled cells in map. 
+
+\begin{DoxyReturn}{Returns}
+int 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a9e6c7c898bc12a1082f9bf9036eddbab}\label{classrobogen_1_1EDQDMap_a9e6c7c898bc12a1082f9bf9036eddbab} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!getRandomIndex@{getRandomIndex}}
+\index{getRandomIndex@{getRandomIndex}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{getRandomIndex()}{getRandomIndex()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} robogen\+::\+EDQDMap\+::get\+Random\+Index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a random map index. 
+
+\begin{DoxyReturn}{Returns}
+behav\+\_\+index\+\_\+t 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a32e542898d06640d5b863467eb4d6546}\label{classrobogen_1_1EDQDMap_a32e542898d06640d5b863467eb4d6546} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!hasEntry@{hasEntry}}
+\index{hasEntry@{hasEntry}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{hasEntry()}{hasEntry()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDMap\+::has\+Entry (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Checks is map has an entry. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a29f671973bffd4cbcc3b7fd9017665da}\label{classrobogen_1_1EDQDMap_a29f671973bffd4cbcc3b7fd9017665da} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!load@{load}}
+\index{load@{load}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily template$<$class Archive $>$ \\
+void robogen\+::\+EDQDMap\+::load (\begin{DoxyParamCaption}\item[{Archive \&}]{ar,  }\item[{const int}]{version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Load map archive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Archive} & archive \\
+\hline
+{\em int} & version of archive \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1EDQDMap_a386fae4127de3e05950f294238f3df61}\label{classrobogen_1_1EDQDMap_a386fae4127de3e05950f294238f3df61} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!mergeInto@{mergeInto}}
+\index{mergeInto@{mergeInto}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{mergeInto()}{mergeInto()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDMap\+::merge\+Into (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} \&}]{m }\end{DoxyParamCaption})}
+
+
+
+Merge this map into the parameter of this function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em EDQDMap\&} & map to merge into \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if merge occurred 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a270cbc32dd37bed70945fc34c5b58e8e}\label{classrobogen_1_1EDQDMap_a270cbc32dd37bed70945fc34c5b58e8e} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!morphAdd@{morphAdd}}
+\index{morphAdd@{morphAdd}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{morphAdd()}{morphAdd()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDMap\+::morph\+Add (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{\mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}} $\ast$}]{robot,  }\item[{std\+::vector$<$ double $>$}]{genome,  }\item[{float}]{sigma,  }\item[{std\+::map$<$ int, double $>$}]{per\+Sensor\+Type\+Range }\end{DoxyParamCaption})}
+
+
+
+Add new elite to map. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & robot id \\
+\hline
+{\em EDQDRobot$\ast$} & pointer to \doxylink{classrobogen_1_1EDQDRobot}{EDQDRobot} object \\
+\hline
+{\em std\+::vector$<$double$>$} & genome of elite being added \\
+\hline
+{\em flot} & sigma of elite being added \\
+\hline
+{\em std\+::map$<$int,double$>$} & per sensor type range \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool true if elite was added, false if not 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDMap_a3555ac4a4adcf557a44ddc9e5bb6bc6a}\label{classrobogen_1_1EDQDMap_a3555ac4a4adcf557a44ddc9e5bb6bc6a} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!operator()@{operator()}}
+\index{operator()@{operator()}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \& robogen\+::\+EDQDMap\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Setter. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_acdaac255a15538af852c0e3e7785436a}\label{classrobogen_1_1EDQDMap_acdaac255a15538af852c0e3e7785436a} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!operator()@{operator()}}
+\index{operator()@{operator()}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} robogen\+::\+EDQDMap\+::operator() (\begin{DoxyParamCaption}\item[{int}]{i,  }\item[{int}]{j }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_aa9c89539920f55722d45205503e59ab1}\label{classrobogen_1_1EDQDMap_aa9c89539920f55722d45205503e59ab1} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!save@{save}}
+\index{save@{save}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily template$<$class Archive $>$ \\
+void robogen\+::\+EDQDMap\+::save (\begin{DoxyParamCaption}\item[{Archive \&}]{ar,  }\item[{const int}]{version }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Save map archive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Archive} & archive \\
+\hline
+{\em int} & version of archive \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1EDQDMap_ab3e16d80ae580112da45e1c14cf53f38}\label{classrobogen_1_1EDQDMap_ab3e16d80ae580112da45e1c14cf53f38} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!setMapHasEntry@{setMapHasEntry}}
+\index{setMapHasEntry@{setMapHasEntry}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{setMapHasEntry()}{setMapHasEntry()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDMap\+::set\+Map\+Has\+Entry (\begin{DoxyParamCaption}\item[{bool}]{map\+Has\+Entry }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Updates has-\/entry flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & new status \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1EDQDMap_afd63685bef0afa883ed30ba23b2ecea1}\label{classrobogen_1_1EDQDMap_afd63685bef0afa883ed30ba23b2ecea1} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!updateNumFilledCells@{updateNumFilledCells}}
+\index{updateNumFilledCells@{updateNumFilledCells}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{updateNumFilledCells()}{updateNumFilledCells()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDMap\+::update\+Num\+Filled\+Cells (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Recalculates the number of filled cells within the map. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{classrobogen_1_1EDQDMap_a4305f269960e8ccc92b19b2f0480b16d}\label{classrobogen_1_1EDQDMap_a4305f269960e8ccc92b19b2f0480b16d} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!boost::serialization::access@{boost::serialization::access}}
+\index{boost::serialization::access@{boost::serialization::access}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{boost::serialization::access}{boost::serialization::access}}
+{\footnotesize\ttfamily boost\+::serialization\+::access\hspace{0.3cm}{\ttfamily [friend]}}
+
+\Hypertarget{classrobogen_1_1EDQDMap_a0347ab56376d0596ec5721f86cc488e7}\label{classrobogen_1_1EDQDMap_a0347ab56376d0596ec5721f86cc488e7} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Write \doxylink{classrobogen_1_1EDQDMap}{EDQDMap} object to standard output stream. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}\label{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!map\_@{map\_}}
+\index{map\_@{map\_}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{map\_}{map\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\+\_\+t}} robogen\+::\+EDQDMap\+::map\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Diversity map. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}\label{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!map\_dim\_@{map\_dim\_}}
+\index{map\_dim\_@{map\_dim\_}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{map\_dim\_}{map\_dim\_}}
+{\footnotesize\ttfamily size\+\_\+t robogen\+::\+EDQDMap\+::map\+\_\+dim\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map dimensions. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}\label{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!map\_shape\_@{map\_shape\_}}
+\index{map\_shape\_@{map\_shape\_}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{map\_shape\_}{map\_shape\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\+\_\+index\+\_\+t}} robogen\+::\+EDQDMap\+::map\+\_\+shape\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map shape according to behavior indexing. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}\label{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!mapHasEntry\_@{mapHasEntry\_}}
+\index{mapHasEntry\_@{mapHasEntry\_}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{mapHasEntry\_}{mapHasEntry\_}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDMap\+::map\+Has\+Entry\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flags whether this map has an entry. 
+
+\Hypertarget{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}\label{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504} 
+\index{robogen::EDQDMap@{robogen::EDQDMap}!num\_filled\_cells\_@{num\_filled\_cells\_}}
+\index{num\_filled\_cells\_@{num\_filled\_cells\_}!robogen::EDQDMap@{robogen::EDQDMap}}
+\doxysubsubsection{\texorpdfstring{num\_filled\_cells\_}{num\_filled\_cells\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDMap\+::num\+\_\+filled\+\_\+cells\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of filled cells. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{EDQDMap_8h}{EDQDMap.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{EDQDMap_8cpp}{EDQDMap.\+cpp}}\end{DoxyCompactItemize}

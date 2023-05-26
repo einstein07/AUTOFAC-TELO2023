@@ -1,0 +1,86 @@
+\hypertarget{ResourcesConfig_8h_source}{}\doxysection{Resources\+Config.\+h}
+\label{ResourcesConfig_8h_source}\index{src/config/ResourcesConfig.h@{src/config/ResourcesConfig.h}}
+\mbox{\hyperlink{ResourcesConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ ResourcesConfig.h\ \ \ 1.0\ \ \ July\ 21,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_RESOURCES\_CONFIG\_H\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ ROBOGEN\_RESOURCES\_CONFIG\_H\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1ResourcesConfig}{ResourcesConfig}}\ \{}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a9d6cceaeed9ad7e7b51d8f694b473b15}{ResourcesConfig}}()\ \{\}}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a645dd2ca99c6c0a0e04afe52e7faf1fa}{ResourcesConfig}}(\textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ coordinates,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ sizes,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&densities,}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ types)\ :}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ coordinates\_(coordinates),\ sizes\_(sizes),\ densities\_(densities),}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ types\_(types)\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a694a427373db02579e2bc529598bf6c7}{\string~ResourcesConfig}}()\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a4746e22b41b7a7e70418e0422840c3e1}{getCoordinates}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coordinates\_;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a32c6e384b257efdb1a4d41fdf1aeb45d}{getSizes}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sizes\_;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\&\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_ae947ea1e98f9dfef941ba69c245921cd}{getDensities}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ densities\_;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<int>\&\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_aa0cf1f17ebd1bc1f35a7d336ca608e77}{getTypes}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ types\_;}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a9c207ca61f8171d216d1979b4be49cd9}{serialize}}(robogenMessage::SimulatorConf\ \&message)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i=0;\ i<coordinates\_.size();\ ++i)\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ robogenMessage::Resource\ *curr\ =\ message.add\_resources();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_density(densities\_[i]);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_type(types\_[i]);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_x(coordinates\_[i].x());}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_y(coordinates\_[i].y());}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_z(coordinates\_[i].z());}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_xsize(sizes\_[i].x());}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_ysize(sizes\_[i].y());}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_zsize(sizes\_[i].z());}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \ \ \ \ std::vector<osg::Vec3>\ coordinates\_;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \ \ std::vector<osg::Vec3>\ sizes\_;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ std::vector<float>\ densities\_;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ std::vector<int>\ types\_;}
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_RESOURCES\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

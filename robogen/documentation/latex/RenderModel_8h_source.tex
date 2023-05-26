@@ -1,0 +1,98 @@
+\hypertarget{RenderModel_8h_source}{}\doxysection{Render\+Model.\+h}
+\label{RenderModel_8h_source}\index{src/render/RenderModel.h@{src/render/RenderModel.h}}
+\mbox{\hyperlink{RenderModel_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ RenderModel.h\ \ \ 1.0\ \ \ Feb\ 5,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_RENDER\_MODEL\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_RENDER\_MODEL\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <boost/weak\_ptr.hpp>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <osg/Node>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <osg/PositionAttitudeTransform>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }Model;}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1RenderModel}{RenderModel}}\ \{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1RenderModel}{RenderModel}}(boost::shared\_ptr<Model>\ model);}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_ad6b077a14e40c87bc8b59b6d7876a465}{\string~RenderModel}}();}
+\DoxyCodeLine{00058\ \ \ \ \ osg::ref\_ptr<osg::PositionAttitudeTransform>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a6e8494ebe4ea60134333ea3affb7464f}{getRootNode}}();}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a28e5688f426371e650e90e31eeca9a63}{initRenderModel}}()\ =\ 0;}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a8c395bbdbe116f9c0c47421746871e2b}{attachAxis}}(osg::Transform*\ transform);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a2c7604f9ad12eb9cdc35c1c3b77c387e}{isDebugActive}}();}
+\DoxyCodeLine{00074\ \ \ \ \ osg::ref\_ptr<osg::Geode>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a524a27aedc15e68a9061d2c7a14c8b51}{getBox}}(\textcolor{keywordtype}{float}\ lengthX,\ \textcolor{keywordtype}{float}\ lengthY,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lengthZ);}
+\DoxyCodeLine{00079\ \ \ \ \ osg::ref\_ptr<osg::Geode>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a524a27aedc15e68a9061d2c7a14c8b51}{getBox}}(\textcolor{keywordtype}{float}\ lengthX,\ \textcolor{keywordtype}{float}\ lengthY,}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ lengthZ,\ \textcolor{keyword}{const}\ osg::Vec4\&\ color);}
+\DoxyCodeLine{00084\ \ \ \ \ osg::ref\_ptr<osg::Geode>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_aa3b89ce544256fab7286fa756e4e74ee}{getCylinder}}(\textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ height,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ osg::Vec4\&\ color);}
+\DoxyCodeLine{00089\ \ \ \ \ osg::ref\_ptr<osg::Geode>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_abdc0555c8977dc8172671546e981428a}{getCapsule}}(\textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00093\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a791e48ef9105119f5312b9709088be5b}{getModel}}();}
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a8873da100e008dc62b7b22a29679915e}{setColor}}(osg::Vec4\ color)\ =\ 0;}
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a9dc42c06fe1c795c937aa14b1dec3439}{setDebugActive}}(\textcolor{keywordtype}{bool}\ debugActive);}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_ac6d7e1d9e13c065e70067e4f8eb2e882}{togglePrimitives}}(\textcolor{keywordtype}{bool}\ primitives);}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a1dcaa24cd536a6050610aa0c21090dc6}{toggleMeshes}}(\textcolor{keywordtype}{bool}\ meshes);}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{comment}{//void\ toggleTransparency(bool\ transparency);}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ osg::ref\_ptr<osg::PositionAttitudeTransform>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a7a560cace06c60faff4d225881728e75}{attachBox}}(\textcolor{keywordtype}{int}\ label,\ \textcolor{keywordtype}{float}\ lengthX,\ \textcolor{keywordtype}{float}\ lengthY,\ \textcolor{keywordtype}{float}\ lengthZ,\ \textcolor{keyword}{const}\ osg::Vec4\&\ color);}
+\DoxyCodeLine{00126\ \ \ \ \ osg::ref\_ptr<osg::PositionAttitudeTransform>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a7a560cace06c60faff4d225881728e75}{attachBox}}(\textcolor{keywordtype}{int}\ label,\ \textcolor{keywordtype}{float}\ lengthX,\ \textcolor{keywordtype}{float}\ lengthY,\ \textcolor{keywordtype}{float}\ lengthZ);}
+\DoxyCodeLine{00130\ \ \ \ \ osg::ref\_ptr<osg::PositionAttitudeTransform>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a5bf9a2bff944d3f95c05179e4f6a52ec}{attachGeode}}(\textcolor{keywordtype}{int}\ label,\ osg::ref\_ptr<osg::Geode>\ geode);}
+\DoxyCodeLine{00133\ \ \ \ \ std::vector<osg::ref\_ptr<osg::PositionAttitudeTransform>\ >\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a1db54dd61cf6167a3f39cbaf0760d432}{attachGeoms}}();}
+\DoxyCodeLine{00137\ \ \ \ \ std::vector<osg::ref\_ptr<osg::PositionAttitudeTransform>\ >\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a1db54dd61cf6167a3f39cbaf0760d432}{attachGeoms}}(std::vector<osg::Vec4>\ colors);}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a66ce3d75450188778be30ad16715306b}{activateTransparency}}(osg::StateSet*);}
+\DoxyCodeLine{00145\ \ \ \ \ \textcolor{keyword}{inline}\ osg::ref\_ptr<osg::Group>\ \mbox{\hyperlink{classrobogen_1_1RenderModel_a88ab75732da1774d8039389b89910ba5}{getMeshes}}()\ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ meshes\_;}
+\DoxyCodeLine{00147\ \ \ \ \ \}}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00149\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00155\ \ \ \ \ osg::ref\_ptr<osg::PositionAttitudeTransform>\ rootNode\_;}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00161\ \ \ \ \ boost::weak\_ptr<Model>\ model\_;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{bool}\ debugActive\_;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ osg::ref\_ptr<osg::Group>\ primitives\_;}
+\DoxyCodeLine{00169\ \ \ \ \ osg::ref\_ptr<osg::Group>\ meshes\_;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_RENDER\_MODEL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

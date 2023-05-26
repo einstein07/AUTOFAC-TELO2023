@@ -1,0 +1,192 @@
+\hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic}{}\doxysection{robogen\+::Collision\+Avoidance\+Heuristic Class Reference}
+\label{classrobogen_1_1CollisionAvoidanceHeuristic}\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+
+
+Class for describing a collision avoidance heuristic.  
+
+
+
+
+{\ttfamily \#include $<$Collision\+Avoidance\+Heuristic.\+h$>$}
+
+Inheritance diagram for robogen\+::Collision\+Avoidance\+Heuristic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1CollisionAvoidanceHeuristic}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a6a0d853bdf10daa38cc24466f6704e08}{Collision\+Avoidance\+Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\item 
+\mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a6ef75ebde122523ebaf8c824ffa3973d}{$\sim$\+Collision\+Avoidance\+Heuristic}} ()
+\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_aaac3f47db99205599e9fe1d2809c456a}{step}} (boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_ae102cf96041cf1f8096d911c8b03938f}{step\+Static}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a5918560fea0f15ee51c2c6a6d7518cba}{decrement}} ()
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a374f2c93004b95616887450e0e0f0ec1}{is\+Static\+Object}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_aea78a1b2b4f4c39fcb29ae64dd0a802a}{set\+Static\+Object}} (bool value)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_adae688d2259619e50fa1c202e8294033}{reset\+Counter}} (int value)
+\item 
+int \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a2c3ef5a2ea7830c32d51ceacc10f3c92}{get\+Counter}} ()
+\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a1497a1dba8a3098767d59f4ab3638ea2}{get\+Signal}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Heuristic_afc9ea35e2ea361eae3bbbaf44d5e079f}{Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Heuristic_ab7a6234416549be4b598255cea4a6894}{$\sim$\+Heuristic}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Heuristic_a0696c12521a965fa5b286b79e64feaf7}{set\+Priority}} (int priority)
+\begin{DoxyCompactList}\small\item\em Sets the priority of this heuristic. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{step}} (boost\+::mutex \&queue\+Mutex)=0
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6cb108a375d429c356ee99f56c07a81e}{drive\+To\+Target\+Position}} (osg\+::\+Vec2d target\+Position)
+\begin{DoxyCompactList}\small\item\em Returns motor signals that will drive the agent towards the desired target position. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Heuristic_a8c8076593f7cb64633903bee003c0209}{get\+Local\+Point}} (osg\+::\+Vec3 global\+Point)
+\begin{DoxyCompactList}\small\item\em Converts global coordinates to local coordinates, relative to the robotic agent. \end{DoxyCompactList}\item 
+osg\+::\+Vec3d \mbox{\hyperlink{classrobogen_1_1Heuristic_a36e7e5f068b7110309420078a1ebc2af}{get\+Global\+Point}} (osg\+::\+Vec3d local\+Point)
+\begin{DoxyCompactList}\small\item\em Converts local coordinates (relative to the robotic agent) to global coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double \mbox{\hyperlink{classrobogen_1_1Heuristic_a661b93334147b666e3d634f3f5146ea0}{HALF\+\_\+\+PI}} = M\+\_\+\+PI / 2
+\begin{DoxyCompactList}\small\item\em Value of half PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_a0ee1d742376365bdfde4871efc935373}{robot\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The agent currently utilizing this heuristic. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_ad20757e76823d7ca6124baf19d2a8747}{scenario\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The scenario in which the task is being carried out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing a collision avoidance heuristic. 
+
+\doxylink{classrobogen_1_1CollisionAvoidanceHeuristic}{Collision\+Avoidance\+Heuristic} inherits from \doxylink{classrobogen_1_1Heuristic}{Heuristic} to describe a heuristic that avoids collisions between robotic agents and other objects in the environments. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a6a0d853bdf10daa38cc24466f6704e08}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a6a0d853bdf10daa38cc24466f6704e08} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!CollisionAvoidanceHeuristic@{CollisionAvoidanceHeuristic}}
+\index{CollisionAvoidanceHeuristic@{CollisionAvoidanceHeuristic}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{CollisionAvoidanceHeuristic()}{CollisionAvoidanceHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Collision\+Avoidance\+Heuristic\+::\+Collision\+Avoidance\+Heuristic (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$}]{robot,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})}
+
+Class constructor 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{classrobogen_1_1Robot}{Robot}} & The agent to utilize this heuristic \\
+\hline
+{\em \doxylink{classrobogen_1_1Scenario}{Scenario}} & The scenario in which this task is being carried out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a heuristic object 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a6ef75ebde122523ebaf8c824ffa3973d}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a6ef75ebde122523ebaf8c824ffa3973d} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!````~CollisionAvoidanceHeuristic@{$\sim$CollisionAvoidanceHeuristic}}
+\index{````~CollisionAvoidanceHeuristic@{$\sim$CollisionAvoidanceHeuristic}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{$\sim$CollisionAvoidanceHeuristic()}{~CollisionAvoidanceHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Collision\+Avoidance\+Heuristic\+::$\sim$\+Collision\+Avoidance\+Heuristic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a5918560fea0f15ee51c2c6a6d7518cba}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a5918560fea0f15ee51c2c6a6d7518cba} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!decrement@{decrement}}
+\index{decrement@{decrement}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{decrement()}{decrement()}}
+{\footnotesize\ttfamily void robogen\+::\+Collision\+Avoidance\+Heuristic\+::decrement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Update (reduce) number of iterations \Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a2c3ef5a2ea7830c32d51ceacc10f3c92}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a2c3ef5a2ea7830c32d51ceacc10f3c92} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!getCounter@{getCounter}}
+\index{getCounter@{getCounter}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{getCounter()}{getCounter()}}
+{\footnotesize\ttfamily int robogen\+::\+Collision\+Avoidance\+Heuristic\+::get\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns time this heuristic will be active for \begin{DoxyReturn}{Returns}
+int number of iterations left 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a1497a1dba8a3098767d59f4ab3638ea2}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a1497a1dba8a3098767d59f4ab3638ea2} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!getSignal@{getSignal}}
+\index{getSignal@{getSignal}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{getSignal()}{getSignal()}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+Collision\+Avoidance\+Heuristic\+::get\+Signal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns motor outputs \begin{DoxyReturn}{Returns}
+osg\+::\+Vec2d values for left and right motors 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_a374f2c93004b95616887450e0e0f0ec1}\label{classrobogen_1_1CollisionAvoidanceHeuristic_a374f2c93004b95616887450e0e0f0ec1} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!isStaticObject@{isStaticObject}}
+\index{isStaticObject@{isStaticObject}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{isStaticObject()}{isStaticObject()}}
+{\footnotesize\ttfamily bool robogen\+::\+Collision\+Avoidance\+Heuristic\+::is\+Static\+Object (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns status of detected object -\/ i.\+e. static or moving \begin{DoxyReturn}{Returns}
+bool Flags whether object being avoided is static (true) or moving (false) 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_adae688d2259619e50fa1c202e8294033}\label{classrobogen_1_1CollisionAvoidanceHeuristic_adae688d2259619e50fa1c202e8294033} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!resetCounter@{resetCounter}}
+\index{resetCounter@{resetCounter}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{resetCounter()}{resetCounter()}}
+{\footnotesize\ttfamily void robogen\+::\+Collision\+Avoidance\+Heuristic\+::reset\+Counter (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets number of iterations to keep heuristic active for 
+\begin{DoxyParams}{Parameters}
+{\em int} & number of iterations \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_aea78a1b2b4f4c39fcb29ae64dd0a802a}\label{classrobogen_1_1CollisionAvoidanceHeuristic_aea78a1b2b4f4c39fcb29ae64dd0a802a} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!setStaticObject@{setStaticObject}}
+\index{setStaticObject@{setStaticObject}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{setStaticObject()}{setStaticObject()}}
+{\footnotesize\ttfamily void robogen\+::\+Collision\+Avoidance\+Heuristic\+::set\+Static\+Object (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets status of detected object -\/ i.\+e. static or moving 
+\begin{DoxyParams}{Parameters}
+{\em bool} & Flags whether object being avoided is static (true) or moving (false) \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_aaac3f47db99205599e9fe1d2809c456a}\label{classrobogen_1_1CollisionAvoidanceHeuristic_aaac3f47db99205599e9fe1d2809c456a} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!step@{step}}
+\index{step@{step}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+Collision\+Avoidance\+Heuristic\+::step (\begin{DoxyParamCaption}\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the heuristic at this iteration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em boost\+::mutex} & a lock to avoid race conditions \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{robogen\+::\+Heuristic}}.
+
+\Hypertarget{classrobogen_1_1CollisionAvoidanceHeuristic_ae102cf96041cf1f8096d911c8b03938f}\label{classrobogen_1_1CollisionAvoidanceHeuristic_ae102cf96041cf1f8096d911c8b03938f} 
+\index{robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}!stepStatic@{stepStatic}}
+\index{stepStatic@{stepStatic}!robogen::CollisionAvoidanceHeuristic@{robogen::CollisionAvoidanceHeuristic}}
+\doxysubsubsection{\texorpdfstring{stepStatic()}{stepStatic()}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+Collision\+Avoidance\+Heuristic\+::step\+Static (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Steps heuristic when object being avoided is static \begin{DoxyReturn}{Returns}
+osg\+::\+Vec2d Motor outputs 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{CollisionAvoidanceHeuristic_8h}{Collision\+Avoidance\+Heuristic.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{CollisionAvoidanceHeuristic_8cpp}{Collision\+Avoidance\+Heuristic.\+cpp}}\end{DoxyCompactItemize}

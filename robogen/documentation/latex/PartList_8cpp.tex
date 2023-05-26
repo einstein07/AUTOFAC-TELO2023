@@ -1,0 +1,50 @@
+\hypertarget{PartList_8cpp}{}\doxysection{src/\+Part\+List.cpp File Reference}
+\label{PartList_8cpp}\index{src/PartList.cpp@{src/PartList.cpp}}
+{\ttfamily \#include \char`\"{}Part\+List.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacerobogen_a8e9bb2f3092011f2e11eee2fb26ad5b1}{robogen\+::init\+Legacy\+Part\+Type\+Map}} ()
+\item 
+std\+::map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacerobogen_a0261d3deda4b06232dbae1544a80f92c}{robogen\+::init\+Part\+Type\+Map}} (const std\+::map$<$ char, std\+::string $>$ \&legacy\+Part\+Type\+Map)
+\item 
+std\+::map$<$ std\+::string, unsigned int $>$ \mbox{\hyperlink{namespacerobogen_a8552546e2d4e389f8689b58246fd21a7}{robogen\+::init\+Part\+Type\+Arity\+Map}} ()
+\item 
+std\+::map$<$ std\+::string, unsigned int $>$ \mbox{\hyperlink{namespacerobogen_adf37a68176b803ea259bb01d7adce8e1}{robogen\+::init\+Part\+Type\+Param\+Count\+Map}} ()
+\item 
+std\+::map$<$ std\+::pair$<$ std\+::string, unsigned int $>$, std\+::pair$<$ double, double $>$ $>$ \mbox{\hyperlink{namespacerobogen_a8c3d7aa843675aab5655918cdeaee5e8}{robogen\+::init\+Part\+Type\+Param\+Range\+Map}} ()
+\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{namespacerobogen_a28c8761d6b7956e8e1e4cba716e44492}{robogen\+::init\+Part\+Type\+Motors\+Map}} ()
+\item 
+std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{namespacerobogen_a5850193d1744b1c8f77b99048e36ed35}{robogen\+::init\+Part\+Type\+Sensors\+Map}} ()
+\item 
+{\footnotesize template$<$typename \+\_\+\+Orig\+Key , typename \+\_\+\+Orig\+Value $>$ }\\std\+::map$<$ \+\_\+\+Orig\+Value, \+\_\+\+Orig\+Key $>$ \mbox{\hyperlink{namespacerobogen_a361d98d79f82e8b236091b5ab4a6c395}{robogen\+::inverse\+Map}} (std\+::map$<$ \+\_\+\+Orig\+Key, \+\_\+\+Orig\+Value $>$ orig\+Map)
+\item 
+bool \mbox{\hyperlink{namespacerobogen_a504fc7da08ae60be09f30f5495161f97}{robogen\+::is\+Core}} (char part\+Type)
+\begin{DoxyCompactList}\small\item\em Returns whether this part is a core or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacerobogen_a377dc34e75b153c0132b6b67c4fdff44}{robogen\+::is\+Core}} (std\+::string part\+Type)
+\begin{DoxyCompactList}\small\item\em Returns whether this part is a core or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacerobogen_a068f2f00eeb7843c4cc615e16ce30ab4}{robogen\+::\+LEGACY\+\_\+\+PART\+\_\+\+TYPE\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ char, std\+::string $>$ \mbox{\hyperlink{namespacerobogen_a82fa31f59c64b9f33da81826c08fb517}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ std\+::string, char $>$ \mbox{\hyperlink{namespacerobogen_af6eafe83baf4b1def102c1b3423093e7}{robogen\+::\+INVERSE\+\_\+\+PART\+\_\+\+TYPE\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ std\+::string, unsigned int $>$ \mbox{\hyperlink{namespacerobogen_a4dc88f9d6ad12e8767fb53264558ee33}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+ARITY\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ std\+::string, unsigned int $>$ \mbox{\hyperlink{namespacerobogen_ad09df1d414ff6a87408a0b164e555af3}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+PARAM\+\_\+\+COUNT\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ std\+::pair$<$ std\+::string, unsigned int $>$, std\+::pair$<$ double, double $>$ $>$ \mbox{\hyperlink{namespacerobogen_a8a0932f3acbc8babb1021016a244a244}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+PARAM\+\_\+\+RANGE\+\_\+\+MAP}} = \mbox{\hyperlink{namespacerobogen_a8c3d7aa843675aab5655918cdeaee5e8}{init\+Part\+Type\+Param\+Range\+Map}}()
+\item 
+const std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{namespacerobogen_a1b9cce5213e592cac648613a5b9269fd}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+MOTORS\+\_\+\+MAP}}
+\item 
+const std\+::map$<$ std\+::string, std\+::vector$<$ std\+::string $>$ $>$ \mbox{\hyperlink{namespacerobogen_a92c2451492d799ce1bab6edf63795858}{robogen\+::\+PART\+\_\+\+TYPE\+\_\+\+SENSORS\+\_\+\+MAP}}
+\end{DoxyCompactItemize}

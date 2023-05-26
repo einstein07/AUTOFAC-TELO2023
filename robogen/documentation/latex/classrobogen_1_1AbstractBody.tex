@@ -1,0 +1,145 @@
+\hypertarget{classrobogen_1_1AbstractBody}{}\doxysection{robogen\+::Abstract\+Body Class Reference}
+\label{classrobogen_1_1AbstractBody}\index{robogen::AbstractBody@{robogen::AbstractBody}}
+
+
+Class for describing a body representation.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Body.\+h$>$}
+
+Inheritance diagram for robogen\+::Abstract\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.818792cm]{classrobogen_1_1AbstractBody}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244}{get\+Body}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0}{set\+Body}} (d\+Body\+ID body)
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab}{$\sim$\+Abstract\+Body}} ()
+\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{get\+Position}} ()=0
+\item 
+virtual osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{get\+Attitude}} ()=0
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051}{set\+Position}} (osg\+::\+Vec3 position)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a}{set\+Attitude}} (osg\+::\+Quat attitude)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd}{set\+Parent}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ parent)
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d}{get\+Parent}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1}{get\+Root}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\+\_\+}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing a body representation. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab}\label{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!````~AbstractBody@{$\sim$AbstractBody}}
+\index{````~AbstractBody@{$\sim$AbstractBody}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{$\sim$AbstractBody()}{~AbstractBody()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Abstract\+Body\+::$\sim$\+Abstract\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}\label{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!getAttitude@{getAttitude}}
+\index{getAttitude@{getAttitude}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{getAttitude()}{getAttitude()}}
+{\footnotesize\ttfamily virtual osg\+::\+Quat robogen\+::\+Abstract\+Body\+::get\+Attitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classrobogen_1_1CompositeBody_a0a9beadb0c215eb34700ca954b631cbe}{robogen\+::\+Composite\+Body}}, and \mbox{\hyperlink{classrobogen_1_1SimpleBody_a59b6f096e8358f114b6e4b3f2662febb}{robogen\+::\+Simple\+Body}}.
+
+\Hypertarget{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244}\label{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!getBody@{getBody}}
+\index{getBody@{getBody}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{getBody()}{getBody()}}
+{\footnotesize\ttfamily d\+Body\+ID robogen\+::\+Abstract\+Body\+::get\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d}\label{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!getParent@{getParent}}
+\index{getParent@{getParent}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{getParent()}{getParent()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ robogen\+::\+Abstract\+Body\+::get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}\label{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily virtual osg\+::\+Vec3 robogen\+::\+Abstract\+Body\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{classrobogen_1_1CompositeBody_a1610e0e1595c7e95e8cf04d99d62d8ce}{robogen\+::\+Composite\+Body}}, and \mbox{\hyperlink{classrobogen_1_1SimpleBody_aba004eb7c0ec0b772eeab05c2daa5028}{robogen\+::\+Simple\+Body}}.
+
+\Hypertarget{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1}\label{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ robogen\+::\+Abstract\+Body\+::get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a}\label{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!setAttitude@{setAttitude}}
+\index{setAttitude@{setAttitude}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{setAttitude()}{setAttitude()}}
+{\footnotesize\ttfamily void robogen\+::\+Abstract\+Body\+::set\+Attitude (\begin{DoxyParamCaption}\item[{osg\+::\+Quat}]{attitude }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0}\label{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!setBody@{setBody}}
+\index{setBody@{setBody}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{setBody()}{setBody()}}
+{\footnotesize\ttfamily void robogen\+::\+Abstract\+Body\+::set\+Body (\begin{DoxyParamCaption}\item[{d\+Body\+ID}]{body }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd}\label{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!setParent@{setParent}}
+\index{setParent@{setParent}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{setParent()}{setParent()}}
+{\footnotesize\ttfamily void robogen\+::\+Abstract\+Body\+::set\+Parent (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$}]{parent }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051}\label{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void robogen\+::\+Abstract\+Body\+::set\+Position (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3}]{position }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}\label{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!body\_@{body\_}}
+\index{body\_@{body\_}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{body\_}{body\_}}
+{\footnotesize\ttfamily d\+Body\+ID robogen\+::\+Abstract\+Body\+::body\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}\label{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7} 
+\index{robogen::AbstractBody@{robogen::AbstractBody}!parent\_@{parent\_}}
+\index{parent\_@{parent\_}!robogen::AbstractBody@{robogen::AbstractBody}}
+\doxysubsubsection{\texorpdfstring{parent\_}{parent\_}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}}$>$ robogen\+::\+Abstract\+Body\+::parent\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{AbstractBody_8h}{Abstract\+Body.\+h}}\item 
+src/model/\mbox{\hyperlink{AbstractBody_8cpp}{Abstract\+Body.\+cpp}}\end{DoxyCompactItemize}

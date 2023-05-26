@@ -1,0 +1,224 @@
+\hypertarget{classrobogen_1_1RacingScenario}{}\doxysection{robogen\+::Racing\+Scenario Class Reference}
+\label{classrobogen_1_1RacingScenario}\index{robogen::RacingScenario@{robogen::RacingScenario}}
+
+
+Class to describe a \doxylink{classrobogen_1_1RacingScenario}{Racing\+Scenario}.  
+
+
+
+
+{\ttfamily \#include $<$Racing\+Scenario.\+h$>$}
+
+Inheritance diagram for robogen\+::Racing\+Scenario\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1RacingScenario}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1RacingScenario_ab3b6117c981e0a8d6c84f3ac42cd5b01}{Racing\+Scenario}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+Config)
+\begin{DoxyCompactList}\small\item\em Initializes a \doxylink{classrobogen_1_1RacingScenario}{Racing\+Scenario}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1RacingScenario_a1716cf9e0d77f97fcf15bf178338e631}{$\sim$\+Racing\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1RacingScenario_ad6caf219ab9086a2774f0c5120484423}{setup\+Simulation}} ()
+\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1RacingScenario_a7a339ac878c7b085ee49edd1c069710a}{after\+Simulation\+Step}} ()
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1RacingScenario_ac4713a4445b0f74b480d1425a5a89696}{end\+Simulation}} ()
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classrobogen_1_1RacingScenario_a4f4ea1a6b83b1588fc158a0c90940b9c}{get\+Fitness}} ()
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classrobogen_1_1RacingScenario_a3c01b777d51abb8a3729db7fcc8c99f9}{get\+End\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1RacingScenario_a23a78c3e3c74d00949158f568130994d}{remaining\+Trials}} ()
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classrobogen_1_1RacingScenario_a25508441bb105090d70cdb4d1748df60}{get\+Cur\+Trial}} () const
+\begin{DoxyCompactList}\small\item\em Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Scenario}{robogen\+::\+Scenario}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+Config)
+\begin{DoxyCompactList}\small\item\em AConstructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Scenario_a85ba31e28a9dbd224e32aefdb47eb4f2}{$\sim$\+Scenario}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_a6d53e2dba37fc1c5a7ff4ceb5e5fe231}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot)
+\begin{DoxyCompactList}\small\item\em Initializes a scenario. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_a4a499dc8e984a7e97428328adf8a7137}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID area\+Space, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots)
+\begin{DoxyCompactList}\small\item\em Initializes a scenario with multiple robots -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Scenario_ab9cc4276371373e31bb7b8c8d2929ddf}{prune}} ()
+\begin{DoxyCompactList}\small\item\em Clears unused scenario (so that robot can be freed -\/ joints need to be destroyed before the destruction of the world). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Scenario_a0422082006a53c3519e3cf957be93df7}{pruneswarm}} ()
+\begin{DoxyCompactList}\small\item\em Clears unused scenario (so that robots can be freed -\/ joints need to be destroyed before the destruction of the world). \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a5c6b05a5107a9c906e7fbec48e00e0b2}{get\+Robot}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a99b1486321c37d6670d993bcd34e8972}{get\+Robot}} (int robot\+Id)
+\begin{DoxyCompactList}\small\item\em Returns specified robot. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a1aaab5043969721d77848ecdd9e605e4}{get\+Robots}} ()
+\begin{DoxyCompactList}\small\item\em Returns vector of robot swarm -\/ SM. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_aba72e4605e64a9d1158f826333d48478}{get\+Robogen\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns Robogen config. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a871d4329e69a7b9881ad768318022252}{get\+Environment}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Environment}{Environment}. \end{DoxyCompactList}\item 
+d\+Geom\+ID \mbox{\hyperlink{classrobogen_1_1Scenario_a605127308f1eee99eb2383a53c6f0f7f}{get\+Terrain\+ID}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Terrain}{Terrain} Id. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Scenario_a5ebde1e4668678d32d2a95604859a0a9}{were\+Obstacles\+Removed}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Scenario_a0671a426a400bc6e0ad0035343e8ebc2}{set\+Starting\+Position}} (int id)
+\begin{DoxyCompactList}\small\item\em Sets the starting position id. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_aa3af9ccb87016bcf3e2384aa84254760}{setup\+Simulation}} ()=0
+\begin{DoxyCompactList}\small\item\em Setup the simulation scenario. Called before the physics simulation begins. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_af5e5a7d3f281c00dc74e23716962372c}{after\+Simulation\+Step}} ()=0
+\begin{DoxyCompactList}\small\item\em Called after each simulation step. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Scenario_a3298eb9e0e96a4ceca8784a33f977c27}{should\+Stop\+Simulation\+Now}} ()
+\begin{DoxyCompactList}\small\item\em This is called just after after\+Simulation\+Step. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_a65b2f14edface625e061a264e9d4ad50}{end\+Simulation}} ()=0
+\begin{DoxyCompactList}\small\item\em Called at the end of the physics simulation. \end{DoxyCompactList}\item 
+virtual double \mbox{\hyperlink{classrobogen_1_1Scenario_a0cfbeb6feee2f99d73706a165d532477}{get\+Fitness}} ()=0
+\begin{DoxyCompactList}\small\item\em Compute the fitness. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ float $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a78c58eedc64feb802490e48aaf9f28af}{get\+End\+Position}} ()=0
+\begin{DoxyCompactList}\small\item\em BK-\/added -\/ Get the end\+Position. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Scenario_a3a7739131e07bf8aede8ddf1fddd4b11}{remaining\+Trials}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns whether there are still remaining trials. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{classrobogen_1_1Scenario_a8cc4b020ed7de0dcf54d6819bf2802d9}{get\+Cur\+Trial}} () const =0
+\begin{DoxyCompactList}\small\item\em Returns current trial. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ \mbox{\hyperlink{classrobogen_1_1Scenario_a0aaec9bf781e5fd13ef5a1e01138b144}{get\+Current\+Start\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns current trial starting position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Scenario_a4795d6a70f126230434b6fd452c35202}{set\+Robogen\+Config}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+Config)
+\begin{DoxyCompactList}\small\item\em Sets Robogen config. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Scenario_a22b24967cd43b1c9e9d30c67ea534655}{stop\+Simulation\+Now}} ()
+\begin{DoxyCompactList}\small\item\em calling this will stop the simulation immediately after the next call to after\+Simulation\+Step \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Scenario_aefb8a156108da50f999e3a032c84205a}{were\+Resources\+Removed}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether resources were removed or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe a \doxylink{classrobogen_1_1RacingScenario}{Racing\+Scenario}. 
+
+The robot that can cover the longer distance in the given simulation time wins. The distance is computed as the euclidean distance from the starting to the ending position computed using as reference the core component. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1RacingScenario_ab3b6117c981e0a8d6c84f3ac42cd5b01}\label{classrobogen_1_1RacingScenario_ab3b6117c981e0a8d6c84f3ac42cd5b01} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!RacingScenario@{RacingScenario}}
+\index{RacingScenario@{RacingScenario}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{RacingScenario()}{RacingScenario()}}
+{\footnotesize\ttfamily robogen\+::\+Racing\+Scenario\+::\+Racing\+Scenario (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$}]{robogen\+Config }\end{DoxyParamCaption})}
+
+
+
+Initializes a \doxylink{classrobogen_1_1RacingScenario}{Racing\+Scenario}. 
+
+\Hypertarget{classrobogen_1_1RacingScenario_a1716cf9e0d77f97fcf15bf178338e631}\label{classrobogen_1_1RacingScenario_a1716cf9e0d77f97fcf15bf178338e631} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!````~RacingScenario@{$\sim$RacingScenario}}
+\index{````~RacingScenario@{$\sim$RacingScenario}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{$\sim$RacingScenario()}{~RacingScenario()}}
+{\footnotesize\ttfamily robogen\+::\+Racing\+Scenario\+::$\sim$\+Racing\+Scenario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1RacingScenario_a7a339ac878c7b085ee49edd1c069710a}\label{classrobogen_1_1RacingScenario_a7a339ac878c7b085ee49edd1c069710a} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!afterSimulationStep@{afterSimulationStep}}
+\index{afterSimulationStep@{afterSimulationStep}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{afterSimulationStep()}{afterSimulationStep()}}
+{\footnotesize\ttfamily bool robogen\+::\+Racing\+Scenario\+::after\+Simulation\+Step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_af5e5a7d3f281c00dc74e23716962372c}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_ac4713a4445b0f74b480d1425a5a89696}\label{classrobogen_1_1RacingScenario_ac4713a4445b0f74b480d1425a5a89696} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!endSimulation@{endSimulation}}
+\index{endSimulation@{endSimulation}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{endSimulation()}{endSimulation()}}
+{\footnotesize\ttfamily bool robogen\+::\+Racing\+Scenario\+::end\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_a65b2f14edface625e061a264e9d4ad50}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_a25508441bb105090d70cdb4d1748df60}\label{classrobogen_1_1RacingScenario_a25508441bb105090d70cdb4d1748df60} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!getCurTrial@{getCurTrial}}
+\index{getCurTrial@{getCurTrial}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{getCurTrial()}{getCurTrial()}}
+{\footnotesize\ttfamily int robogen\+::\+Racing\+Scenario\+::get\+Cur\+Trial (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_a8cc4b020ed7de0dcf54d6819bf2802d9}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_a3c01b777d51abb8a3729db7fcc8c99f9}\label{classrobogen_1_1RacingScenario_a3c01b777d51abb8a3729db7fcc8c99f9} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!getEndPosition@{getEndPosition}}
+\index{getEndPosition@{getEndPosition}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{getEndPosition()}{getEndPosition()}}
+{\footnotesize\ttfamily std\+::vector$<$ float $>$ robogen\+::\+Racing\+Scenario\+::get\+End\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_a78c58eedc64feb802490e48aaf9f28af}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_a4f4ea1a6b83b1588fc158a0c90940b9c}\label{classrobogen_1_1RacingScenario_a4f4ea1a6b83b1588fc158a0c90940b9c} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!getFitness@{getFitness}}
+\index{getFitness@{getFitness}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{getFitness()}{getFitness()}}
+{\footnotesize\ttfamily double robogen\+::\+Racing\+Scenario\+::get\+Fitness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_a0cfbeb6feee2f99d73706a165d532477}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_a23a78c3e3c74d00949158f568130994d}\label{classrobogen_1_1RacingScenario_a23a78c3e3c74d00949158f568130994d} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!remainingTrials@{remainingTrials}}
+\index{remainingTrials@{remainingTrials}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{remainingTrials()}{remainingTrials()}}
+{\footnotesize\ttfamily bool robogen\+::\+Racing\+Scenario\+::remaining\+Trials (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}}. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_a3a7739131e07bf8aede8ddf1fddd4b11}{robogen\+::\+Scenario}}.
+
+\Hypertarget{classrobogen_1_1RacingScenario_ad6caf219ab9086a2774f0c5120484423}\label{classrobogen_1_1RacingScenario_ad6caf219ab9086a2774f0c5120484423} 
+\index{robogen::RacingScenario@{robogen::RacingScenario}!setupSimulation@{setupSimulation}}
+\index{setupSimulation@{setupSimulation}!robogen::RacingScenario@{robogen::RacingScenario}}
+\doxysubsubsection{\texorpdfstring{setupSimulation()}{setupSimulation()}}
+{\footnotesize\ttfamily bool robogen\+::\+Racing\+Scenario\+::setup\+Simulation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Method inherited from {\ttfamily \doxylink{classrobogen_1_1Scenario_a49548cb7a9ffd5f8eb59a9d812135306}{Scenario}} 
+
+Implements \mbox{\hyperlink{classrobogen_1_1Scenario_aa3af9ccb87016bcf3e2384aa84254760}{robogen\+::\+Scenario}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/scenario/\mbox{\hyperlink{RacingScenario_8h}{Racing\+Scenario.\+h}}\item 
+src/scenario/\mbox{\hyperlink{RacingScenario_8cpp}{Racing\+Scenario.\+cpp}}\end{DoxyCompactItemize}

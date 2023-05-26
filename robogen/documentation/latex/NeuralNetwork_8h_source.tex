@@ -1,0 +1,99 @@
+\hypertarget{NeuralNetwork_8h_source}{}\doxysection{Neural\+Network.\+h}
+\label{NeuralNetwork_8h_source}\index{src/brain/NeuralNetwork.h@{src/brain/NeuralNetwork.h}}
+\mbox{\hyperlink{NeuralNetwork_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ NeuralNetwork.h\ \ \ 1.0\ \ \ March\ 5,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_NEURAL\_NETWORK\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_NEURAL\_NETWORK\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ MAX\_INPUT\_NEURONS\ 80\ }\textcolor{comment}{//SM\ modified}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ MAX\_OUTPUT\_NEURONS\ 8}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ MAX\_HIDDEN\_NEURONS\ 20}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ MAX\_PARAMS\ 3}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{comment}{/*\ HEADER\_FOOTER\_BREAK\ */}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7}{neuronType}}\{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a1a6b6e9893ec9e5d9710335b4c74d3f6}{SIMPLE}},\ \textcolor{comment}{/*\ corresponds\ to\ inputs\ */}}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a11c1096689b7d3504dbcc4f61d854883}{SIGMOID}},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a3998dd775ee2e6ed2161135babf443cd}{CTRNN\_SIGMOID}},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7ac4373ff381e53d91733f1026cacf357f}{OSCILLATOR}},}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a9f15fee699801b2a7f2da012c89424a6}{SUPG}}}
+\DoxyCodeLine{00064\ \};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00087\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ ARDUINO}}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{float}\ weight[(\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\_INPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ (\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})];}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ ARDUINO}}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{float}\ params[\mbox{\hyperlink{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d}{MAX\_PARAMS}}\ *\ (\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})];}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{float}\ state[(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})];}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{float}\ activations[(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})];}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{float}\ input[\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\_INPUT\_NEURONS}}];}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \textcolor{preprocessor}{\ \ \ \ \#ifndef\ ARDUINO}}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ types[(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})];}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNeuralNetwork_afcb1edb7cf454c792ed06e027b7a59a1}{nInputs}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNeuralNetwork_a8aac7bba7bd95500a94ba580ac6b1053}{nOutputs}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNeuralNetwork_a8c340fd4f8c896c20c0ebb569808e554}{nHidden}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structNeuralNetwork_a75115e95adff020f5d57bfc97f8852e9}{nNonInputs}};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00140\ \}\ \mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}};}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00152\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NeuralNetwork_8h_a35392862192b6908016afbdc5700de3b}{initNetwork}}(\mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}}*\ network,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nInputs,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nOutputs,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ nHidden,}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *weights,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}*\ params,}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ *types);}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00162\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NeuralNetwork_8h_a42c1a714446f274bbd33ecfe29419062}{feed}}(\mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}}*\ network,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *input);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00170\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NeuralNetwork_8h_acbb18e1b014c76d19ae75ec07ad7977c}{step}}(\mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}}*\ network,\ \textcolor{keywordtype}{float}\ time);}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00177\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NeuralNetwork_8h_adc4df3b0a35f861873a2e725394d83be}{fetch}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}}*\ network,\ \textcolor{keywordtype}{float}\ *output);}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00184\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{NeuralNetwork_8h_a2b4d7c250e5018b3257e0749f8427c5a}{setWeights}}(\mbox{\hyperlink{structNeuralNetwork}{NeuralNetwork}}*\ network,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *weights);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_NEURAL\_NETWORK\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

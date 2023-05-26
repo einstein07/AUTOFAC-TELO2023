@@ -1,0 +1,116 @@
+\hypertarget{classLogger}{}\doxysection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Class to handle logging.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger_a472cc427fe53e22a6e12e672142150e3}{Logger}} (std\+::ofstream \+\_\+\+\_\+log\+File)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{$\sim$\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a2f4f1caa14d0394ee2b07dc78a5dd26e}{set\+Logger\+File}} (std\+::ofstream \&\+\_\+\+\_\+log\+File)
+\begin{DoxyCompactList}\small\item\em Sets logger file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a06a824e0756fba342fa4602911c1408a}{write}} (std\+::string str)
+\begin{DoxyCompactList}\small\item\em Writes to designated logfile. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a5cc08473729523bb4bde48459f2ac468}{flush}} ()
+\begin{DoxyCompactList}\small\item\em Saves last written info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classLogger_a72d4c5c7fb67c1b91d4ed32af2c204dc}{make\+\_\+\+Default\+Logger}} ()
+\begin{DoxyCompactList}\small\item\em Sets logging to defaul logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to handle logging. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classLogger_abc41bfb031d896170c7675fa96a6b30c}\label{classLogger_abc41bfb031d896170c7675fa96a6b30c} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default Constructor. 
+
+\Hypertarget{classLogger_a472cc427fe53e22a6e12e672142150e3}\label{classLogger_a472cc427fe53e22a6e12e672142150e3} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{std\+::ofstream}]{\+\_\+\+\_\+log\+File }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}\label{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a} 
+\index{Logger@{Logger}!````~Logger@{$\sim$Logger}}
+\index{````~Logger@{$\sim$Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{$\sim$Logger()}{~Logger()}}
+{\footnotesize\ttfamily Logger\+::$\sim$\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLogger_a5cc08473729523bb4bde48459f2ac468}\label{classLogger_a5cc08473729523bb4bde48459f2ac468} 
+\index{Logger@{Logger}!flush@{flush}}
+\index{flush@{flush}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{flush()}{flush()}}
+{\footnotesize\ttfamily void Logger\+::flush (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saves last written info. 
+
+\Hypertarget{classLogger_a72d4c5c7fb67c1b91d4ed32af2c204dc}\label{classLogger_a72d4c5c7fb67c1b91d4ed32af2c204dc} 
+\index{Logger@{Logger}!make\_DefaultLogger@{make\_DefaultLogger}}
+\index{make\_DefaultLogger@{make\_DefaultLogger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{make\_DefaultLogger()}{make\_DefaultLogger()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ Logger\+::make\+\_\+\+Default\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sets logging to defaul logger. 
+
+\Hypertarget{classLogger_a2f4f1caa14d0394ee2b07dc78a5dd26e}\label{classLogger_a2f4f1caa14d0394ee2b07dc78a5dd26e} 
+\index{Logger@{Logger}!setLoggerFile@{setLoggerFile}}
+\index{setLoggerFile@{setLoggerFile}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setLoggerFile()}{setLoggerFile()}}
+{\footnotesize\ttfamily void Logger\+::set\+Logger\+File (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{\+\_\+\+\_\+log\+File }\end{DoxyParamCaption})}
+
+
+
+Sets logger file. 
+
+\Hypertarget{classLogger_a06a824e0756fba342fa4602911c1408a}\label{classLogger_a06a824e0756fba342fa4602911c1408a} 
+\index{Logger@{Logger}!write@{write}}
+\index{write@{write}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Logger\+::write (\begin{DoxyParamCaption}\item[{std\+::string}]{str }\end{DoxyParamCaption})}
+
+
+
+Writes to designated logfile. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{Logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

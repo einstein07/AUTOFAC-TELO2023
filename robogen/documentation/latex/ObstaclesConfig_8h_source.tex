@@ -1,0 +1,114 @@
+\hypertarget{ObstaclesConfig_8h_source}{}\doxysection{Obstacles\+Config.\+h}
+\label{ObstaclesConfig_8h_source}\index{src/config/ObstaclesConfig.h@{src/config/ObstaclesConfig.h}}
+\mbox{\hyperlink{ObstaclesConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ ObstaclesConfig.h\ \ \ 1.0\ \ \ Mar\ 12,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Andrea\ Maesani}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_OBSTACLES\_CONFIG\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROBOGEN\_OBSTACLES\_CONFIG\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1ObstaclesConfig}{ObstaclesConfig}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a7ae2b24f72a96bcdb53b16c6e612399d}{ObstaclesConfig}}()\ \{\}}
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a0c6e6dde5bfd5a8865c60fc8e180ccab}{ObstaclesConfig}}(\textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ coordinates,}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ sizes,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&densities,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ rotationAxes,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&rotationAngles)\ :}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ coordinates\_(coordinates),\ sizes\_(sizes),\ densities\_(densities),}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ rotationAxes\_(rotationAxes),\ rotationAngles\_(rotationAngles)\ \{}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_ac5fb730b4571e2a937d28898f0b9d999}{\string~ObstaclesConfig}}()\ \{}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_ac484e17aaa5c3af55571a1fecd67052e}{getCoordinates}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coordinates\_;}
+\DoxyCodeLine{00076\ \ \ \ \ \}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a5131ac061be218a3b5ae25d2805b9a98}{getSizes}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sizes\_;}
+\DoxyCodeLine{00084\ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\&\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a4f7ce3b8a40578cfc3a78adead202576}{getDensities}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ densities\_;}
+\DoxyCodeLine{00092\ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a93a18aebd2892a0ec3d8ec8bc950d11c}{getRotationAxes}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rotationAxes\_;}
+\DoxyCodeLine{00100\ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\&\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a1ae59893e4f1d8431df4a04ef0752beb}{getRotationAngles}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rotationAngles\_;}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig_a7cdb8d9f60ea5db6212f683932dd3e5c}{serialize}}(robogenMessage::SimulatorConf\ \&message)\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i=0;\ i<coordinates\_.size();\ ++i)\{}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ robogenMessage::Obstacle\ *curr\ =\ message.add\_obstacles();}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_density(densities\_[i]);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_x(coordinates\_[i].x());}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_y(coordinates\_[i].y());}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_z(coordinates\_[i].z());}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_xsize(sizes\_[i].x());}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_ysize(sizes\_[i].y());}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_zsize(sizes\_[i].z());}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_xrotation(rotationAxes\_[i].x());}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_yrotation(rotationAxes\_[i].y());}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_zrotation(rotationAxes\_[i].z());}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_rotationangle(rotationAngles\_[i]);}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ std::vector<osg::Vec3>\ coordinates\_;}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \ \ std::vector<osg::Vec3>\ sizes\_;}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00145\ \ \ \ \ std::vector<float>\ densities\_;}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00150\ \ \ \ \ std::vector<osg::Vec3>\ rotationAxes\_;}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00155\ \ \ \ \ std::vector<float>\ rotationAngles\_;}
+\DoxyCodeLine{00156\ \};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_OBSTACLES\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,59 @@
+\hypertarget{GatheringZoneConfig_8h_source}{}\doxysection{Gathering\+Zone\+Config.\+h}
+\label{GatheringZoneConfig_8h_source}\index{src/config/GatheringZoneConfig.h@{src/config/GatheringZoneConfig.h}}
+\mbox{\hyperlink{GatheringZoneConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ ObstaclesConfig.h\ \ \ 1.0\ \ \ Mar\ 12,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_GATHERINGZONE\_CONFIG\_H\_}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ROBOGEN\_GATHERINGZONE\_CONFIG\_H\_}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig}{GatheringZoneConfig}}\ \{}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a3199e00ea1bbf79487f50c73e4f5a798}{GatheringZoneConfig}}()\ \{\}}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a2bc44b2335b40f869604040a0a55da35}{GatheringZoneConfig}}(\textcolor{keyword}{const}\ osg::Vec3\&\ position,\ \textcolor{keyword}{const}\ osg::Vec3\&\ size)\ :}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ position\_(position),\ size\_(size)\ \{\}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_adb7d7bc81824b013dfeee9412237ae5f}{\string~GatheringZoneConfig}}()\ \{\}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{const}\ osg::Vec3\&\ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a113d5037a1dd38212ad034e75562b4f1}{getPosition}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ position\_;}
+\DoxyCodeLine{00048\ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ osg::Vec3\&\ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a393eb8fbba1a05e357fb154758beb9e9}{getSize}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ size\_;}
+\DoxyCodeLine{00056\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_aa71b88f08a455b5b25366af41968f94b}{serialize}}(robogenMessage::SimulatorConf\ \&message)\{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzonex(position\_.x());}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzoney(position\_.y());}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzonez(position\_.z());}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzonesizex(size\_.x());}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzonesizey(size\_.y());}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ message.set\_gatheringzonesizez(size\_.z());}
+\DoxyCodeLine{00068\ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \ \ \ \ osg::Vec3\ position\_;}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00080\ \ \ \ \ osg::Vec3\ size\_;}
+\DoxyCodeLine{00081\ \};}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_GATHERINGZONE\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

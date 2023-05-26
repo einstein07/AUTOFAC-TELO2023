@@ -1,0 +1,188 @@
+\hypertarget{QBindings_8h_source}{}\doxysection{QBindings.\+h}
+\label{QBindings_8h_source}\index{src/scripting/QBindings.h@{src/scripting/QBindings.h}}
+\mbox{\hyperlink{QBindings_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ QBindings.h\ \ \ 1.0\ \ \ Dec\ 22,\ 2015}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_QBINDINGS\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ROBOGEN\_QBINDINGS\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#ifdef\ QT5\_ENABLED}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <QScriptEngine>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <QScriptable>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <boost/weak\_ptr.hpp>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robot_8h}{Robot.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}model/motors/Motor.h"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{PositionObservable_8h}{model/PositionObservable.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Environment_8h}{scenario/Environment.h}}"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}model/objects/BoxObstacle.h"{}}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ note\ we\ keep\ weak\ pointers\ here,\ so\ that\ they\ don't\ keep\ objects\ alive}}
+\DoxyCodeLine{00045\ \textcolor{comment}{//\ after\ the\ scenario\ has\ been\ pruned}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{namespace\ }qscript\ \{}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }QMotor\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00054\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00055\ \ \ \ \ QMotor(boost::weak\_ptr<Motor>\ basePtr);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00058\ \ \ \ \ QScriptValue\ getId();}
+\DoxyCodeLine{00059\ \ \ \ \ QScriptValue\ getVelocity();}
+\DoxyCodeLine{00060\ \ \ \ \ QScriptValue\ getPosition();}
+\DoxyCodeLine{00061\ \ \ \ \ QScriptValue\ getTorque();}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00064\ \ \ \ \ QScriptValue\ id\_;}
+\DoxyCodeLine{00065\ \ \ \ \ boost::weak\_ptr<Motor>\ basePtr\_;}
+\DoxyCodeLine{00066\ \};}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{keyword}{class\ }QSensor\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00069\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00070\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00071\ \ \ \ \ QSensor(boost::weak\_ptr<Sensor>\ basePtr);}
+\DoxyCodeLine{00072\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00073\ \ \ \ \ QScriptValue\ getLabel();}
+\DoxyCodeLine{00074\ \ \ \ \ QScriptValue\ getType();}
+\DoxyCodeLine{00075\ \ \ \ \ QScriptValue\ read();}
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ \ \ \ \ boost::weak\_ptr<Sensor>\ basePtr\_;}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{keyword}{class\ }QModel\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00082\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00083\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00084\ \ \ \ \ QModel(boost::weak\_ptr<Model>\ basePtr);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00087\ \ \ \ \ QScriptValue\ getRootPosition();}
+\DoxyCodeLine{00088\ \ \ \ \ QScriptValue\ getRootAttitude();}
+\DoxyCodeLine{00089\ \ \ \ \ QScriptValue\ getType();}
+\DoxyCodeLine{00090\ \ \ \ \ QScriptValue\ getSensors();}
+\DoxyCodeLine{00091\ \ \ \ \ QScriptValue\ getId();}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00094\ \ \ \ \ boost::weak\_ptr<Model>\ basePtr\_;}
+\DoxyCodeLine{00095\ \ \ \ \ QScriptValue\ sensors\_;}
+\DoxyCodeLine{00096\ \};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{keyword}{class\ }QRobot\ :\ \ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00099\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00100\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00101\ \ \ \ \ QRobot(boost::weak\_ptr<Robot>\ basePtr);}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{comment}{//QScriptValue\ getPosition();}}
+\DoxyCodeLine{00105\ \ \ \ \ QScriptValue\ getBodyParts();}
+\DoxyCodeLine{00106\ \ \ \ \ QScriptValue\ getCoreComponent();}
+\DoxyCodeLine{00107\ \ \ \ \ QScriptValue\ getMotors();}
+\DoxyCodeLine{00108\ \ \ \ \ QScriptValue\ getSensors();}
+\DoxyCodeLine{00109\ \ \ \ \ QScriptValue\ getAABB();}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ private\ :}
+\DoxyCodeLine{00113\ \ \ \ \ boost::weak\_ptr<Robot>\ basePtr\_;}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ QScriptValue\ bodyParts\_;}
+\DoxyCodeLine{00116\ \ \ \ \ QScriptValue\ coreComponent\_;}
+\DoxyCodeLine{00117\ \ \ \ \ QScriptValue\ motors\_;}
+\DoxyCodeLine{00118\ \ \ \ \ QScriptValue\ sensors\_;}
+\DoxyCodeLine{00119\ \};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00121\ \textcolor{keyword}{class\ }QPositionObservable\ :\ \ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00123\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00124\ \ \ \ \ QPositionObservable(boost::weak\_ptr<PositionObservable>\ basePtr);}
+\DoxyCodeLine{00125\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{virtual}\ QScriptValue\ getPosition();}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{virtual}\ QScriptValue\ getAttitude();}
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00129\ \ \ \ \ boost::weak\_ptr<PositionObservable>\ basePtr\_;}
+\DoxyCodeLine{00130\ \};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \textcolor{keyword}{class\ }QLightSource\ :\ \textcolor{keyword}{public}\ QPositionObservable\ \{}
+\DoxyCodeLine{00133\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00134\ public\ :}
+\DoxyCodeLine{00135\ \ \ \ \ QLightSource(boost::weak\_ptr<LightSource>\ basePtr)\ :}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ QPositionObservable(basePtr)\ \{\}}
+\DoxyCodeLine{00137\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00138\ \ \ \ \ QScriptValue\ getIntensity();}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ setPosition(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ z);}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ setIntensity(\textcolor{keywordtype}{float}\ intensity);}
+\DoxyCodeLine{00141\ \};}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \textcolor{keyword}{class\ }QObstacle\ :\ \textcolor{keyword}{public}\ QPositionObservable\ \{}
+\DoxyCodeLine{00144\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00145\ public\ :}
+\DoxyCodeLine{00146\ \ \ \ \ QObstacle(boost::weak\_ptr<Obstacle>\ basePtr)\ :}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ QPositionObservable(basePtr)\ \{\}}
+\DoxyCodeLine{00148\ \};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00150\ \textcolor{keyword}{class\ }QBoxObstacle\ :\ \textcolor{keyword}{public}\ QObstacle\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00152\ public\ :}
+\DoxyCodeLine{00153\ \ \ \ \ QBoxObstacle(boost::weak\_ptr<BoxObstacle>\ basePtr)\ :}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ QObstacle(basePtr)\ \{\}}
+\DoxyCodeLine{00155\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00156\ \ \ \ \ QScriptValue\ getSize();}
+\DoxyCodeLine{00157\ \};}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \textcolor{keyword}{class\ }QEnvironment\ :\ \textcolor{keyword}{public}\ QObject,\ \textcolor{keyword}{public}\ QScriptable\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{00161\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00162\ \ \ \ \ QEnvironment(boost::weak\_ptr<Environment>\ basePtr);}
+\DoxyCodeLine{00163\ \textcolor{keyword}{public}\ slots:}
+\DoxyCodeLine{00164\ \ \ \ \ QScriptValue\ getLightSources();}
+\DoxyCodeLine{00165\ \ \ \ \ QScriptValue\ getAmbientLight();}
+\DoxyCodeLine{00166\ \ \ \ \ QScriptValue\ getObstacles();}
+\DoxyCodeLine{00167\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00168\ \ \ \ \ boost::weak\_ptr<Environment>\ basePtr\_;}
+\DoxyCodeLine{00169\ \ \ \ \ QScriptValue\ lightSources\_;}
+\DoxyCodeLine{00170\ \ \ \ \ QScriptValue\ obstacles\_;}
+\DoxyCodeLine{00171\ \};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00176\ \}}
+\DoxyCodeLine{00177\ \}}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

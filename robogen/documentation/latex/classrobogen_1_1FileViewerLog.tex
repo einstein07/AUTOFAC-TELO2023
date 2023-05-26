@@ -1,0 +1,98 @@
+\hypertarget{classrobogen_1_1FileViewerLog}{}\doxysection{robogen\+::File\+Viewer\+Log Class Reference}
+\label{classrobogen_1_1FileViewerLog}\index{robogen::FileViewerLog@{robogen::FileViewerLog}}
+
+
+Class for logging a robot\textquotesingle{}s behavior.  
+
+
+
+
+{\ttfamily \#include $<$File\+Viewer\+Log.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1FileViewerLog_ad3c006352bfbbdb5ea00bfc778714f4d}{File\+Viewer\+Log}} (std\+::string robot\+File, std\+::string conf\+File, std\+::string obstacle\+File, std\+::string start\+Pos\+File, std\+::string light\+Source\+File, std\+::string scenario\+File, std\+::string log\+Folder, bool overwrite=false, bool write\+Web\+GL=false)
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a496cfce4476a9c2327f33e01da3f1b3d}{init}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ config)
+\item 
+\mbox{\hyperlink{classrobogen_1_1FileViewerLog_a2d2779e0c2e0c436e8b7b0f89e650a01}{$\sim$\+File\+Viewer\+Log}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1FileViewerLog_ac857f32b843adfe447829275d6862913}{log\+Position}} (osg\+::\+Vec3)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1FileViewerLog_afcd7880b4ced7076d5e3a8cca5f7440c}{log\+Sensors}} (float sensor\+Values\mbox{[}$\,$\mbox{]}, int n)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a7c1dde6e2984feaeab270e733f43a03a}{log\+Motors}} (float motor\+Values\mbox{[}$\,$\mbox{]}, int n)
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1FileViewerLog_ac4d43c453c584cee87d4896e1a15b395}{is\+Write\+Web\+GL}} ()
+\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a7a4bf6bc07a84130e292ef98f36e1065}{get\+Web\+GLFile\+Name}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for logging a robot\textquotesingle{}s behavior. 
+
+\doxylink{classrobogen_1_1FileViewerLog}{File\+Viewer\+Log} automatically creates a directory for each run of the file viewer, using the time of the run for a unique name. The directory will contain statistics that are useful to analyze the behavior of the robot, i.\+e. a trajectory log and a log of the motor and sensor values. Furthermore, the directory will contain all the inputs, so that the given run can be repeated at any time. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1FileViewerLog_ad3c006352bfbbdb5ea00bfc778714f4d}\label{classrobogen_1_1FileViewerLog_ad3c006352bfbbdb5ea00bfc778714f4d} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!FileViewerLog@{FileViewerLog}}
+\index{FileViewerLog@{FileViewerLog}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{FileViewerLog()}{FileViewerLog()}}
+{\footnotesize\ttfamily robogen\+::\+File\+Viewer\+Log\+::\+File\+Viewer\+Log (\begin{DoxyParamCaption}\item[{std\+::string}]{robot\+File,  }\item[{std\+::string}]{conf\+File,  }\item[{std\+::string}]{obstacle\+File,  }\item[{std\+::string}]{start\+Pos\+File,  }\item[{std\+::string}]{light\+Source\+File,  }\item[{std\+::string}]{scenario\+File,  }\item[{std\+::string}]{log\+Folder,  }\item[{bool}]{overwrite = {\ttfamily false},  }\item[{bool}]{write\+Web\+GL = {\ttfamily false} }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1FileViewerLog_a2d2779e0c2e0c436e8b7b0f89e650a01}\label{classrobogen_1_1FileViewerLog_a2d2779e0c2e0c436e8b7b0f89e650a01} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!````~FileViewerLog@{$\sim$FileViewerLog}}
+\index{````~FileViewerLog@{$\sim$FileViewerLog}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{$\sim$FileViewerLog()}{~FileViewerLog()}}
+{\footnotesize\ttfamily robogen\+::\+File\+Viewer\+Log\+::$\sim$\+File\+Viewer\+Log (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Closes all open file streams 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1FileViewerLog_a7a4bf6bc07a84130e292ef98f36e1065}\label{classrobogen_1_1FileViewerLog_a7a4bf6bc07a84130e292ef98f36e1065} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!getWebGLFileName@{getWebGLFileName}}
+\index{getWebGLFileName@{getWebGLFileName}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{getWebGLFileName()}{getWebGLFileName()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+File\+Viewer\+Log\+::get\+Web\+GLFile\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1FileViewerLog_a496cfce4476a9c2327f33e01da3f1b3d}\label{classrobogen_1_1FileViewerLog_a496cfce4476a9c2327f33e01da3f1b3d} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!init@{init}}
+\index{init@{init}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool robogen\+::\+File\+Viewer\+Log\+::init (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$}]{robot,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$}]{config }\end{DoxyParamCaption})}
+
+Initializes the directory, copies the inputs and opens the log files for writing. \begin{DoxyReturn}{Returns}
+true if successful 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1FileViewerLog_ac4d43c453c584cee87d4896e1a15b395}\label{classrobogen_1_1FileViewerLog_ac4d43c453c584cee87d4896e1a15b395} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!isWriteWebGL@{isWriteWebGL}}
+\index{isWriteWebGL@{isWriteWebGL}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{isWriteWebGL()}{isWriteWebGL()}}
+{\footnotesize\ttfamily bool robogen\+::\+File\+Viewer\+Log\+::is\+Write\+Web\+GL (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classrobogen_1_1FileViewerLog_a7c1dde6e2984feaeab270e733f43a03a}\label{classrobogen_1_1FileViewerLog_a7c1dde6e2984feaeab270e733f43a03a} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!logMotors@{logMotors}}
+\index{logMotors@{logMotors}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{logMotors()}{logMotors()}}
+{\footnotesize\ttfamily void robogen\+::\+File\+Viewer\+Log\+::log\+Motors (\begin{DoxyParamCaption}\item[{float}]{motor\+Values\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+Writes motor values from float array to motor log file \Hypertarget{classrobogen_1_1FileViewerLog_ac857f32b843adfe447829275d6862913}\label{classrobogen_1_1FileViewerLog_ac857f32b843adfe447829275d6862913} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!logPosition@{logPosition}}
+\index{logPosition@{logPosition}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{logPosition()}{logPosition()}}
+{\footnotesize\ttfamily void robogen\+::\+File\+Viewer\+Log\+::log\+Position (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3}]{pos }\end{DoxyParamCaption})}
+
+Writes x and y of passed position to trajectory log file \Hypertarget{classrobogen_1_1FileViewerLog_afcd7880b4ced7076d5e3a8cca5f7440c}\label{classrobogen_1_1FileViewerLog_afcd7880b4ced7076d5e3a8cca5f7440c} 
+\index{robogen::FileViewerLog@{robogen::FileViewerLog}!logSensors@{logSensors}}
+\index{logSensors@{logSensors}!robogen::FileViewerLog@{robogen::FileViewerLog}}
+\doxysubsubsection{\texorpdfstring{logSensors()}{logSensors()}}
+{\footnotesize\ttfamily void robogen\+::\+File\+Viewer\+Log\+::log\+Sensors (\begin{DoxyParamCaption}\item[{float}]{sensor\+Values\mbox{[}$\,$\mbox{]},  }\item[{int}]{n }\end{DoxyParamCaption})}
+
+Writes sensor values from float array to sensor log file 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/viewer/\mbox{\hyperlink{FileViewerLog_8h}{File\+Viewer\+Log.\+h}}\item 
+src/viewer/\mbox{\hyperlink{FileViewerLog_8cpp}{File\+Viewer\+Log.\+cpp}}\end{DoxyCompactItemize}

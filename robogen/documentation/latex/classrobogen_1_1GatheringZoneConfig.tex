@@ -1,0 +1,92 @@
+\hypertarget{classrobogen_1_1GatheringZoneConfig}{}\doxysection{robogen\+::Gathering\+Zone\+Config Class Reference}
+\label{classrobogen_1_1GatheringZoneConfig}\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+
+
+Gathering zone configuration parameters.  
+
+
+
+
+{\ttfamily \#include $<$Gathering\+Zone\+Config.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a3199e00ea1bbf79487f50c73e4f5a798}{Gathering\+Zone\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor Initializes gethering zone configuration. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a2bc44b2335b40f869604040a0a55da35}{Gathering\+Zone\+Config}} (const osg\+::\+Vec3 \&position, const osg\+::\+Vec3 \&size)
+\begin{DoxyCompactList}\small\item\em Constructor Initializes gethering zone configuration. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_adb7d7bc81824b013dfeee9412237ae5f}{$\sim$\+Gathering\+Zone\+Config}} ()
+\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a113d5037a1dd38212ad034e75562b4f1}{get\+Position}} () const
+\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_a393eb8fbba1a05e357fb154758beb9e9}{get\+Size}} () const
+\item 
+void \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig_aa71b88f08a455b5b25366af41968f94b}{serialize}} (robogen\+Message\+::\+Simulator\+Conf \&message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Gathering zone configuration parameters. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_a3199e00ea1bbf79487f50c73e4f5a798}\label{classrobogen_1_1GatheringZoneConfig_a3199e00ea1bbf79487f50c73e4f5a798} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!GatheringZoneConfig@{GatheringZoneConfig}}
+\index{GatheringZoneConfig@{GatheringZoneConfig}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{GatheringZoneConfig()}{GatheringZoneConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Gathering\+Zone\+Config\+::\+Gathering\+Zone\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default Constructor Initializes gethering zone configuration. 
+
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_a2bc44b2335b40f869604040a0a55da35}\label{classrobogen_1_1GatheringZoneConfig_a2bc44b2335b40f869604040a0a55da35} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!GatheringZoneConfig@{GatheringZoneConfig}}
+\index{GatheringZoneConfig@{GatheringZoneConfig}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{GatheringZoneConfig()}{GatheringZoneConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Gathering\+Zone\+Config\+::\+Gathering\+Zone\+Config (\begin{DoxyParamCaption}\item[{const osg\+::\+Vec3 \&}]{position,  }\item[{const osg\+::\+Vec3 \&}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor Initializes gethering zone configuration. 
+
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_adb7d7bc81824b013dfeee9412237ae5f}\label{classrobogen_1_1GatheringZoneConfig_adb7d7bc81824b013dfeee9412237ae5f} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!````~GatheringZoneConfig@{$\sim$GatheringZoneConfig}}
+\index{````~GatheringZoneConfig@{$\sim$GatheringZoneConfig}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{$\sim$GatheringZoneConfig()}{~GatheringZoneConfig()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Gathering\+Zone\+Config\+::$\sim$\+Gathering\+Zone\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_a113d5037a1dd38212ad034e75562b4f1}\label{classrobogen_1_1GatheringZoneConfig_a113d5037a1dd38212ad034e75562b4f1} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Gathering\+Zone\+Config\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns position of gathering zone.~\newline
+\begin{DoxyReturn}{Returns}
+the coordinates of the gathering zone point of reference is its center 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_a393eb8fbba1a05e357fb154758beb9e9}\label{classrobogen_1_1GatheringZoneConfig_a393eb8fbba1a05e357fb154758beb9e9} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!getSize@{getSize}}
+\index{getSize@{getSize}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{getSize()}{getSize()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Gathering\+Zone\+Config\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns size of gathering zone.~\newline
+\begin{DoxyReturn}{Returns}
+the size of the gathering zone 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1GatheringZoneConfig_aa71b88f08a455b5b25366af41968f94b}\label{classrobogen_1_1GatheringZoneConfig_aa71b88f08a455b5b25366af41968f94b} 
+\index{robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::GatheringZoneConfig@{robogen::GatheringZoneConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void robogen\+::\+Gathering\+Zone\+Config\+::serialize (\begin{DoxyParamCaption}\item[{robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Serializes gathering zone into a Simulator\+Conf message 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{GatheringZoneConfig_8h}{Gathering\+Zone\+Config.\+h}}\end{DoxyCompactItemize}

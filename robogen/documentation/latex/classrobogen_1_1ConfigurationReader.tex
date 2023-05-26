@@ -1,0 +1,53 @@
+\hypertarget{classrobogen_1_1ConfigurationReader}{}\doxysection{robogen\+::Configuration\+Reader Class Reference}
+\label{classrobogen_1_1ConfigurationReader}\index{robogen::ConfigurationReader@{robogen::ConfigurationReader}}
+
+
+A class to read configuration files.  
+
+
+
+
+{\ttfamily \#include $<$Configuration\+Reader.\+h$>$}
+
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1ConfigurationReader_af31ab2601088bdeea5ba87a53a505ca3}{parse\+Configuration\+File}} (const std\+::string \&file\+Name)
+\item 
+static boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1ConfigurationReader_a7c74305d10403d345dc9b15522683cbe}{parse\+Robogen\+Message}} (const robogen\+Message\+::\+Simulator\+Conf \&simulator\+Conf)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class to read configuration files. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1ConfigurationReader_af31ab2601088bdeea5ba87a53a505ca3}\label{classrobogen_1_1ConfigurationReader_af31ab2601088bdeea5ba87a53a505ca3} 
+\index{robogen::ConfigurationReader@{robogen::ConfigurationReader}!parseConfigurationFile@{parseConfigurationFile}}
+\index{parseConfigurationFile@{parseConfigurationFile}!robogen::ConfigurationReader@{robogen::ConfigurationReader}}
+\doxysubsubsection{\texorpdfstring{parseConfigurationFile()}{parseConfigurationFile()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+::\+Configuration\+Reader\+::parse\+Configuration\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads the configuration file for ROBOGEN.~\newline
+The file must contain the following parameter\+Name=parameter\+Values pairs~\newline
+ scenario=\texorpdfstring{$<$}{<}\char`\"{}racing\char`\"{}$\vert$\char`\"{}chasing\char`\"{}\texorpdfstring{$>$}{>}~\newline
+time\+Step=FLOAT~\newline
+n\+Time\+Steps=FLOAT~\newline
+terrain\+Type=\texorpdfstring{$<$}{<}\char`\"{}flat\char`\"{}$\vert$\char`\"{}rugged\char`\"{}\texorpdfstring{$>$}{>}~\newline
+terrain\+Length=FLOAT~\newline
+terrain\+Width=FLOAT~\newline
+terrain\+Height=FLOAT \mbox{[}Mandatory if terrain\+Type==\char`\"{}rugged\char`\"{}, ignored otherwise\mbox{]}~\newline
+terrain\+Height\+Field=STRING \mbox{[}Mandatory if terrain\+Type==\char`\"{}rugged\char`\"{}, ignored otherwise\mbox{]}~\newline
+obstacles\+Config\+File=STRING~\newline
+start\+Position\+Config\+File=STRING \Hypertarget{classrobogen_1_1ConfigurationReader_a7c74305d10403d345dc9b15522683cbe}\label{classrobogen_1_1ConfigurationReader_a7c74305d10403d345dc9b15522683cbe} 
+\index{robogen::ConfigurationReader@{robogen::ConfigurationReader}!parseRobogenMessage@{parseRobogenMessage}}
+\index{parseRobogenMessage@{parseRobogenMessage}!robogen::ConfigurationReader@{robogen::ConfigurationReader}}
+\doxysubsubsection{\texorpdfstring{parseRobogenMessage()}{parseRobogenMessage()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ robogen\+::\+Configuration\+Reader\+::parse\+Robogen\+Message (\begin{DoxyParamCaption}\item[{const robogen\+Message\+::\+Simulator\+Conf \&}]{simulator\+Conf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Reads simulator configuration for ROBOGEN. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{ConfigurationReader_8h}{Configuration\+Reader.\+h}}\item 
+src/config/\mbox{\hyperlink{ConfigurationReader_8cpp}{Configuration\+Reader.\+cpp}}\end{DoxyCompactItemize}

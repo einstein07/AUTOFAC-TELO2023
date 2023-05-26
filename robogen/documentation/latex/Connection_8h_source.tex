@@ -1,0 +1,80 @@
+\hypertarget{Connection_8h_source}{}\doxysection{Connection.\+h}
+\label{Connection_8h_source}\index{src/model/Connection.h@{src/model/Connection.h}}
+\mbox{\hyperlink{Connection_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Connection.h\ \ \ 1.0\ \ \ Aug\ 26,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Titus\ Cieslewski}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ CONNECTION\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CONNECTION\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Model_8h}{model/Model.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1ConnectionException}{ConnectionException}}\ :\ \textcolor{keyword}{public}\ std::runtime\_error\{}
+\DoxyCodeLine{00043\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1ConnectionException_a4e73b9755754c7d7970377306d4db32a}{ConnectionException}}(\textcolor{keyword}{const}\ std::string\ \&w);}
+\DoxyCodeLine{00048\ \};}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Connection}{Connection}}\ \{}
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Connection_aa3ee44cf92ecf1ae8bbe548c47ab00ec}{Connection}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Connection_aa3ee44cf92ecf1ae8bbe548c47ab00ec}{Connection}}(boost::shared\_ptr<Model>\ from,\ \textcolor{keywordtype}{int}\ fromSlot,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<Model>\ to,\ \textcolor{keywordtype}{int}\ toSlot);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Connection_a2402f220689f1e4f957e0ac5b221e177}{init}}(\textcolor{keyword}{const}\ robogenMessage::BodyConnection\ \&c,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ std::map<std::string,\ unsigned\ int>\ \&map,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<boost::shared\_ptr<Model>\ >\ \&vec);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{classrobogen_1_1Connection_aada2ccd22f222e4b9a3015316304cec1}{getFrom}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Connection_a8c37fa7b554dcd1cc83dffa75f4597dc}{getFromSlot}}();}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00093\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{classrobogen_1_1Connection_a22f8d9148420f03f337b461a2b65541d}{getTo}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Connection_a13871ec5d87c6559ba612d74468ebfa7}{getToSlot}}();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00105\ \ \ \ \ boost::shared\_ptr<Model>\ from\_;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ fromSlot\_;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ boost::shared\_ptr<Model>\ to\_;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ toSlot\_;}
+\DoxyCodeLine{00121\ \};}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00123\ \}\ \textcolor{comment}{/*\ namespace\ robogen\ */}}
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ CONNECTION\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

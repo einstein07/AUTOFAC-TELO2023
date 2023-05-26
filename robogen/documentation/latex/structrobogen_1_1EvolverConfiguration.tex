@@ -1,0 +1,789 @@
+\hypertarget{structrobogen_1_1EvolverConfiguration}{}\doxysection{robogen\+::Evolver\+Configuration Struct Reference}
+\label{structrobogen_1_1EvolverConfiguration}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+
+
+Struct to describe evolution config parameters.  
+
+
+
+
+{\ttfamily \#include $<$Evolver\+Configuration.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48}{Replacement\+Types}} \{ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48a6e4d16e1e315ce394e579e85eea62646}{PLUS\+\_\+\+REPLACEMENT}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48aeb3725d2ef28cc78c29240e7ea0ff119}{COMMA\+\_\+\+REPLACEMENT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of replacement strategies. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338}{Selection\+Types}} \{ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338ae26eafce861ddd555c1f0f2a0a5962c0}{DETERMINISTIC\+\_\+\+TOURNAMENT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of selection strategies. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409}{Evolution\+Modes}} \{ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409ab060543fdaa43f69a183efb8903b4a58}{BRAIN\+\_\+\+EVOLVER}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409af98b83773c778bfa2647567d893fa251}{FULL\+\_\+\+EVOLVER}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409a9732c30dc6f824cb4affef57361fd4c4}{EMBODIED}}
+ \}
+\begin{DoxyCompactList}\small\item\em Modes of evolution. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4d}{Evolutionary\+Algorithms}} \{ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4daddf76d148582f1b4a847a5b87efe44f8}{BASIC}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4dace1553b4191165be785c4226c416b550}{HYPER\+\_\+\+NEAT}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4da992f17ca4633b55466e5dc173fdc2191}{EDQD}}
+ \}
+\begin{DoxyCompactList}\small\item\em Evolationary Algorithm TODO add other possibilities (e.\+g. CMA-\/\+ES) \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723f}{Body\+Mutation\+Operators}} \{ \newline
+\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa6f72757128bc7560325a1e0972a7c9d4}{SUBTREE\+\_\+\+REMOVAL}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6769a59ca4aef2402c7ea515c906e17}{SUBTREE\+\_\+\+DUPLICATION}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa620bd67f9edf331a693f2b2e01f9b0c9}{SUBTREE\+\_\+\+SWAPPING}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa70b16109cdf33f1d834e0020eb666dd2}{NODE\+\_\+\+INSERTION}}
+, \newline
+\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6f5a82d1ff394785960613d71ae9ae8}{NODE\+\_\+\+REMOVAL}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa3a54dae8978f6b850ac9ff09faed2df6}{PARAMETER\+\_\+\+MODIFICATION}}
+, \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}{NUM\+\_\+\+BODY\+\_\+\+OPERATORS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Types of body mutation. Last entry is used to get the amount of operators. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a934513dad3c42684ea692eac71bf4017}{init}} (std\+::string config\+File\+Name)
+\begin{DoxyCompactList}\small\item\em Parses a configuration from a proper configuration file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a58780a8b7b131fd48275821f9a8bba31}{conf\+File\+Name}}
+\begin{DoxyCompactList}\small\item\em File name of this configuration. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a9c0c27f0bcf23f9b6d4c3388935c68dc}{reference\+Robot\+File}}
+\begin{DoxyCompactList}\small\item\em File for reference robot. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a34fe3fdf5dc05d34c0550077771c408f}{simulator\+Conf\+File}}
+\begin{DoxyCompactList}\small\item\em Configuration file for simulator. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1f39a7b355def627931eb6701127acb9}{mu}}
+\begin{DoxyCompactList}\small\item\em Population size. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a19c513a6d82220085742105fd3bb7b3e}{lambda}}
+\begin{DoxyCompactList}\small\item\em Offspring size. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaa3cfd4905f1d1b2ceed76854285a818}{num\+Generations}}
+\begin{DoxyCompactList}\small\item\em Amount of generations to be simulated. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5e013855bd02485cb342c3aef54f0161}{selection}}
+\begin{DoxyCompactList}\small\item\em Employed selection strategy. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7d450e439d450fb6b508b579ba27bc4b}{tournament\+Size}}
+\begin{DoxyCompactList}\small\item\em Tournament size for tournaments. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a88c770d3744097107462b8e11a5945ea}{replacement}}
+\begin{DoxyCompactList}\small\item\em Employed replacement strategy. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1bc006e173b445e5b779e6bd22be9064}{evolution\+Mode}}
+\begin{DoxyCompactList}\small\item\em Employed replacement strategy. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaf373ec4cc8da81a83ec92cb848f879e}{use\+Brain\+Seed}}
+\begin{DoxyCompactList}\small\item\em Flag to continue evolving from provided brain instead of re-\/initialing params randomly. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, int $>$ $>$ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a3c88a0d167757d8d5dc96017cabd082f}{sockets}}
+\begin{DoxyCompactList}\small\item\em Sockets to be used to connect to the server. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7f4f2d7256c70814f0c0610063a1cd80}{p\+Brain\+Mutate}}
+\begin{DoxyCompactList}\small\item\em Probability of mutation for any single brain parameter. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a3db554b9690aa8dc6b704c68f9ea72b0}{brain\+Weight\+Sigma}}
+\begin{DoxyCompactList}\small\item\em Sigma of brain weight mutation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1e18427c265104a1cf15e24ca270a333}{brain\+Bias\+Sigma}}
+\begin{DoxyCompactList}\small\item\em Sigma of brain bias mutation. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a82a34a96488a6d07b6f5fdd3ec6187bf}{min\+Brain\+Weight}}
+\begin{DoxyCompactList}\small\item\em Lower bound for brain weights. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a6a3dccc6a70c803f80ad36ca290d24}{max\+Brain\+Weight}}
+\begin{DoxyCompactList}\small\item\em Upper bound for brain weights. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afe02281d2d387a80e38543f365bdfda7}{min\+Brain\+Bias}}
+\begin{DoxyCompactList}\small\item\em Lower bound for biases. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a62653d2b7f36fa8aaecd8a4748f29262}{max\+Brain\+Bias}}
+\begin{DoxyCompactList}\small\item\em Upper bound for biases. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afc741cc6cd867a9c51fbe8b0044438f2}{brain\+Tau\+Sigma}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ad05283158c64b95260bb8e5e4fbd2baf}{brain\+Period\+Sigma}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_abfe6a0cf5ef805f1fce2cbb516858f65}{brain\+Phase\+Offset\+Sigma}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae4d19c18025a655eac838655bb57e88c}{brain\+Amplitude\+Sigma}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a2dfbc235c01e0fef6bde20b59fb54788}{min\+Brain\+Tau}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a489ca8e4eae85c7a2896b0ff55a02d2a}{max\+Brain\+Tau}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ab4cf0c3195d87c6c9ad87629c22dcc30}{min\+Brain\+Period}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a329736274c1fb9144970fcd79d3b0f48}{max\+Brain\+Period}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a112fc670227ebcb122cc88a7129c4b8c}{min\+Brain\+Phase\+Offset}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to -\/1, 1. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae180b0cf60432e96516a4282106fd2d0}{max\+Brain\+Phase\+Offset}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to -\/1, 1. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a938f29ff799b279c3a4da36b86ef6b62}{min\+Brain\+Amplitude}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to 0, 1. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ab09b9a7d3d8e467468e5ce1ef3f8b397}{max\+Brain\+Amplitude}}
+\begin{DoxyCompactList}\small\item\em PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to 0, 1. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a604d0427baa6b5dbac2c888228c46959}{p\+Brain\+Crossover}}
+\begin{DoxyCompactList}\small\item\em Probability of crossover among brains. \end{DoxyCompactList}\item 
+std\+::vector$<$ char $>$ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a238971cc452f1452a1b98a3cdff80dd9}{allowed\+Body\+Part\+Types}}
+\begin{DoxyCompactList}\small\item\em Allowed body part types. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a18228b0b43c8bfb97ca51ea8c126d70a}{body\+Operator\+Probability}} \mbox{[}\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}{NUM\+\_\+\+BODY\+\_\+\+OPERATORS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Probabilities for the various body operators. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaad55c104a6c7439c90cf5c1b19d5e6a}{max\+Body\+Mutation\+Attempts}}
+\begin{DoxyCompactList}\small\item\em Max body mutation attempts per reproduction events~\newline
+ Mutator will give up trying to mutate the body tree after this many failed attempts. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7e47317ad54f5ccea0d99e8389a55a69}{max\+Body\+Parts}}
+\begin{DoxyCompactList}\small\item\em Maximum number of allowed body parts. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ada6c579a62e2e3a3bf11edd62262f5ce}{min\+Num\+Initial\+Parts}}
+\begin{DoxyCompactList}\small\item\em Minimum number of body parts in individuals in the initial population. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ac479049df00dc207b9b0af829d397811}{max\+Num\+Initial\+Parts}}
+\begin{DoxyCompactList}\small\item\em Maximum number of body parts in individuals in the initial population. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ad3c33d944920cbad69139b964d443724}{body\+Param\+Sigma}}
+\begin{DoxyCompactList}\small\item\em Std dev of body param mutations. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a0500d91af241c325840f4113f855a71b}{evolutionary\+Algorithm}}
+\begin{DoxyCompactList}\small\item\em Evolutionary algorithm. \end{DoxyCompactList}\item 
+NEAT\+::\+Parameters \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a42e1d92ddb1743164181d9ad4bb37106}{neat\+Params}}
+\begin{DoxyCompactList}\small\item\em NEAT/\+Hyper\+NEAT parameters. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a93bbeda596df3ce1ef97294de3657a5d}{neat\+Params\+File}}
+\begin{DoxyCompactList}\small\item\em File for NEAT/\+Hyper\+NEAT parameters. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a92f4b6df36d4347fe854424697ab948c}{p\+Oscillator\+Neuron}}
+\begin{DoxyCompactList}\small\item\em Probability to mutate oscillator neuron. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aa22796228052f6fb5df6320c7fc5f7c8}{p\+Add\+Hidden\+Neuron}}
+\begin{DoxyCompactList}\small\item\em Probability to add a hidden neuron. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a4b68209f93e7b3386a22a64533260579}{novelty\+Search}}
+\begin{DoxyCompactList}\small\item\em BK attempt to add noveltysearch optional param. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::string \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae5e8e7061835cbf31a6f343a1d08ee8a}{Body\+Mutation\+Operators\+Probability\+Codes}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct to describe evolution config parameters. 
+
+The choice is made to use a struct as we want to easily write access to new parameters of the configuration class 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723f}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723f} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!BodyMutationOperators@{BodyMutationOperators}}
+\index{BodyMutationOperators@{BodyMutationOperators}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{BodyMutationOperators}{BodyMutationOperators}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723f}{robogen\+::\+Evolver\+Configuration\+::\+Body\+Mutation\+Operators}}}
+
+
+
+Types of body mutation. Last entry is used to get the amount of operators. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTREE\_REMOVAL@{SUBTREE\_REMOVAL}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!SUBTREE\_REMOVAL@{SUBTREE\_REMOVAL}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa6f72757128bc7560325a1e0972a7c9d4}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa6f72757128bc7560325a1e0972a7c9d4} 
+SUBTREE\+\_\+\+REMOVAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTREE\_DUPLICATION@{SUBTREE\_DUPLICATION}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!SUBTREE\_DUPLICATION@{SUBTREE\_DUPLICATION}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6769a59ca4aef2402c7ea515c906e17}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6769a59ca4aef2402c7ea515c906e17} 
+SUBTREE\+\_\+\+DUPLICATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUBTREE\_SWAPPING@{SUBTREE\_SWAPPING}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!SUBTREE\_SWAPPING@{SUBTREE\_SWAPPING}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa620bd67f9edf331a693f2b2e01f9b0c9}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa620bd67f9edf331a693f2b2e01f9b0c9} 
+SUBTREE\+\_\+\+SWAPPING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NODE\_INSERTION@{NODE\_INSERTION}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!NODE\_INSERTION@{NODE\_INSERTION}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa70b16109cdf33f1d834e0020eb666dd2}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa70b16109cdf33f1d834e0020eb666dd2} 
+NODE\+\_\+\+INSERTION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NODE\_REMOVAL@{NODE\_REMOVAL}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!NODE\_REMOVAL@{NODE\_REMOVAL}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6f5a82d1ff394785960613d71ae9ae8}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6f5a82d1ff394785960613d71ae9ae8} 
+NODE\+\_\+\+REMOVAL&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PARAMETER\_MODIFICATION@{PARAMETER\_MODIFICATION}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!PARAMETER\_MODIFICATION@{PARAMETER\_MODIFICATION}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa3a54dae8978f6b850ac9ff09faed2df6}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa3a54dae8978f6b850ac9ff09faed2df6} 
+PARAMETER\+\_\+\+MODIFICATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NUM\_BODY\_OPERATORS@{NUM\_BODY\_OPERATORS}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!NUM\_BODY\_OPERATORS@{NUM\_BODY\_OPERATORS}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}\label{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098} 
+NUM\+\_\+\+BODY\+\_\+\+OPERATORS&ORIENTATION\+\_\+\+CHANGE, SENSOR\+\_\+\+SWAP, LINK\+\_\+\+CHANGE, ACTIVE\+\_\+\+PASSIVE,. \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4d}\label{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4d} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!EvolutionaryAlgorithms@{EvolutionaryAlgorithms}}
+\index{EvolutionaryAlgorithms@{EvolutionaryAlgorithms}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{EvolutionaryAlgorithms}{EvolutionaryAlgorithms}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4d}{robogen\+::\+Evolver\+Configuration\+::\+Evolutionary\+Algorithms}}}
+
+
+
+Evolationary Algorithm TODO add other possibilities (e.\+g. CMA-\/\+ES) 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BASIC@{BASIC}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!BASIC@{BASIC}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4daddf76d148582f1b4a847a5b87efe44f8}\label{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4daddf76d148582f1b4a847a5b87efe44f8} 
+BASIC&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HYPER\_NEAT@{HYPER\_NEAT}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!HYPER\_NEAT@{HYPER\_NEAT}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4dace1553b4191165be785c4226c416b550}\label{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4dace1553b4191165be785c4226c416b550} 
+HYPER\+\_\+\+NEAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EDQD@{EDQD}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!EDQD@{EDQD}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4da992f17ca4633b55466e5dc173fdc2191}\label{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4da992f17ca4633b55466e5dc173fdc2191} 
+EDQD&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409}\label{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!EvolutionModes@{EvolutionModes}}
+\index{EvolutionModes@{EvolutionModes}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{EvolutionModes}{EvolutionModes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409}{robogen\+::\+Evolver\+Configuration\+::\+Evolution\+Modes}}}
+
+
+
+Modes of evolution. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BRAIN\_EVOLVER@{BRAIN\_EVOLVER}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!BRAIN\_EVOLVER@{BRAIN\_EVOLVER}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409ab060543fdaa43f69a183efb8903b4a58}\label{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409ab060543fdaa43f69a183efb8903b4a58} 
+BRAIN\+\_\+\+EVOLVER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FULL\_EVOLVER@{FULL\_EVOLVER}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!FULL\_EVOLVER@{FULL\_EVOLVER}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409af98b83773c778bfa2647567d893fa251}\label{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409af98b83773c778bfa2647567d893fa251} 
+FULL\+\_\+\+EVOLVER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMBODIED@{EMBODIED}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!EMBODIED@{EMBODIED}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409a9732c30dc6f824cb4affef57361fd4c4}\label{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409a9732c30dc6f824cb4affef57361fd4c4} 
+EMBODIED&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48}\label{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!ReplacementTypes@{ReplacementTypes}}
+\index{ReplacementTypes@{ReplacementTypes}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{ReplacementTypes}{ReplacementTypes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48}{robogen\+::\+Evolver\+Configuration\+::\+Replacement\+Types}}}
+
+
+
+Types of replacement strategies. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLUS\_REPLACEMENT@{PLUS\_REPLACEMENT}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!PLUS\_REPLACEMENT@{PLUS\_REPLACEMENT}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48a6e4d16e1e315ce394e579e85eea62646}\label{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48a6e4d16e1e315ce394e579e85eea62646} 
+PLUS\+\_\+\+REPLACEMENT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{COMMA\_REPLACEMENT@{COMMA\_REPLACEMENT}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!COMMA\_REPLACEMENT@{COMMA\_REPLACEMENT}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48aeb3725d2ef28cc78c29240e7ea0ff119}\label{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48aeb3725d2ef28cc78c29240e7ea0ff119} 
+COMMA\+\_\+\+REPLACEMENT&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338}\label{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!SelectionTypes@{SelectionTypes}}
+\index{SelectionTypes@{SelectionTypes}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{SelectionTypes}{SelectionTypes}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338}{robogen\+::\+Evolver\+Configuration\+::\+Selection\+Types}}}
+
+
+
+Types of selection strategies. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DETERMINISTIC\_TOURNAMENT@{DETERMINISTIC\_TOURNAMENT}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!DETERMINISTIC\_TOURNAMENT@{DETERMINISTIC\_TOURNAMENT}}}\Hypertarget{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338ae26eafce861ddd555c1f0f2a0a5962c0}\label{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338ae26eafce861ddd555c1f0f2a0a5962c0} 
+DETERMINISTIC\+\_\+\+TOURNAMENT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a934513dad3c42684ea692eac71bf4017}\label{structrobogen_1_1EvolverConfiguration_a934513dad3c42684ea692eac71bf4017} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!init@{init}}
+\index{init@{init}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool robogen\+::\+Evolver\+Configuration\+::init (\begin{DoxyParamCaption}\item[{std\+::string}]{config\+File\+Name }\end{DoxyParamCaption})}
+
+
+
+Parses a configuration from a proper configuration file. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a238971cc452f1452a1b98a3cdff80dd9}\label{structrobogen_1_1EvolverConfiguration_a238971cc452f1452a1b98a3cdff80dd9} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!allowedBodyPartTypes@{allowedBodyPartTypes}}
+\index{allowedBodyPartTypes@{allowedBodyPartTypes}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{allowedBodyPartTypes}{allowedBodyPartTypes}}
+{\footnotesize\ttfamily std\+::vector$<$char$>$ robogen\+::\+Evolver\+Configuration\+::allowed\+Body\+Part\+Types}
+
+
+
+Allowed body part types. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ae5e8e7061835cbf31a6f343a1d08ee8a}\label{structrobogen_1_1EvolverConfiguration_ae5e8e7061835cbf31a6f343a1d08ee8a} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!BodyMutationOperatorsProbabilityCodes@{BodyMutationOperatorsProbabilityCodes}}
+\index{BodyMutationOperatorsProbabilityCodes@{BodyMutationOperatorsProbabilityCodes}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{BodyMutationOperatorsProbabilityCodes}{BodyMutationOperatorsProbabilityCodes}}
+{\footnotesize\ttfamily const std\+::string robogen\+::\+Evolver\+Configuration\+::\+Body\+Mutation\+Operators\+Probability\+Codes\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pSubtreeRemove"{}},\ \textcolor{stringliteral}{"{}pSubtreeDuplicate"{}},\ \textcolor{stringliteral}{"{}pSubtreeSwap"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}pNodeInsert"{}},\ \textcolor{stringliteral}{"{}pNodeRemove"{}},\ \textcolor{stringliteral}{"{}pParameterModify"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a18228b0b43c8bfb97ca51ea8c126d70a}\label{structrobogen_1_1EvolverConfiguration_a18228b0b43c8bfb97ca51ea8c126d70a} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!bodyOperatorProbability@{bodyOperatorProbability}}
+\index{bodyOperatorProbability@{bodyOperatorProbability}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{bodyOperatorProbability}{bodyOperatorProbability}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::body\+Operator\+Probability\mbox{[}\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}{NUM\+\_\+\+BODY\+\_\+\+OPERATORS}}\mbox{]}}
+
+
+
+Probabilities for the various body operators. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ad3c33d944920cbad69139b964d443724}\label{structrobogen_1_1EvolverConfiguration_ad3c33d944920cbad69139b964d443724} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!bodyParamSigma@{bodyParamSigma}}
+\index{bodyParamSigma@{bodyParamSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{bodyParamSigma}{bodyParamSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::body\+Param\+Sigma}
+
+
+
+Std dev of body param mutations. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ae4d19c18025a655eac838655bb57e88c}\label{structrobogen_1_1EvolverConfiguration_ae4d19c18025a655eac838655bb57e88c} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainAmplitudeSigma@{brainAmplitudeSigma}}
+\index{brainAmplitudeSigma@{brainAmplitudeSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainAmplitudeSigma}{brainAmplitudeSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Amplitude\+Sigma}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a1e18427c265104a1cf15e24ca270a333}\label{structrobogen_1_1EvolverConfiguration_a1e18427c265104a1cf15e24ca270a333} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainBiasSigma@{brainBiasSigma}}
+\index{brainBiasSigma@{brainBiasSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainBiasSigma}{brainBiasSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Bias\+Sigma}
+
+
+
+Sigma of brain bias mutation. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ad05283158c64b95260bb8e5e4fbd2baf}\label{structrobogen_1_1EvolverConfiguration_ad05283158c64b95260bb8e5e4fbd2baf} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainPeriodSigma@{brainPeriodSigma}}
+\index{brainPeriodSigma@{brainPeriodSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainPeriodSigma}{brainPeriodSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Period\+Sigma}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_abfe6a0cf5ef805f1fce2cbb516858f65}\label{structrobogen_1_1EvolverConfiguration_abfe6a0cf5ef805f1fce2cbb516858f65} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainPhaseOffsetSigma@{brainPhaseOffsetSigma}}
+\index{brainPhaseOffsetSigma@{brainPhaseOffsetSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainPhaseOffsetSigma}{brainPhaseOffsetSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Phase\+Offset\+Sigma}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_afc741cc6cd867a9c51fbe8b0044438f2}\label{structrobogen_1_1EvolverConfiguration_afc741cc6cd867a9c51fbe8b0044438f2} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainTauSigma@{brainTauSigma}}
+\index{brainTauSigma@{brainTauSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainTauSigma}{brainTauSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Tau\+Sigma}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a3db554b9690aa8dc6b704c68f9ea72b0}\label{structrobogen_1_1EvolverConfiguration_a3db554b9690aa8dc6b704c68f9ea72b0} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!brainWeightSigma@{brainWeightSigma}}
+\index{brainWeightSigma@{brainWeightSigma}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{brainWeightSigma}{brainWeightSigma}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::brain\+Weight\+Sigma}
+
+
+
+Sigma of brain weight mutation. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a58780a8b7b131fd48275821f9a8bba31}\label{structrobogen_1_1EvolverConfiguration_a58780a8b7b131fd48275821f9a8bba31} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!confFileName@{confFileName}}
+\index{confFileName@{confFileName}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{confFileName}{confFileName}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Evolver\+Configuration\+::conf\+File\+Name}
+
+
+
+File name of this configuration. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a0500d91af241c325840f4113f855a71b}\label{structrobogen_1_1EvolverConfiguration_a0500d91af241c325840f4113f855a71b} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!evolutionaryAlgorithm@{evolutionaryAlgorithm}}
+\index{evolutionaryAlgorithm@{evolutionaryAlgorithm}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{evolutionaryAlgorithm}{evolutionaryAlgorithm}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::evolutionary\+Algorithm}
+
+
+
+Evolutionary algorithm. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a1bc006e173b445e5b779e6bd22be9064}\label{structrobogen_1_1EvolverConfiguration_a1bc006e173b445e5b779e6bd22be9064} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!evolutionMode@{evolutionMode}}
+\index{evolutionMode@{evolutionMode}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{evolutionMode}{evolutionMode}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::evolution\+Mode}
+
+
+
+Employed replacement strategy. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a19c513a6d82220085742105fd3bb7b3e}\label{structrobogen_1_1EvolverConfiguration_a19c513a6d82220085742105fd3bb7b3e} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!lambda@{lambda}}
+\index{lambda@{lambda}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{lambda}{lambda}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::lambda}
+
+
+
+Offspring size. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_aaad55c104a6c7439c90cf5c1b19d5e6a}\label{structrobogen_1_1EvolverConfiguration_aaad55c104a6c7439c90cf5c1b19d5e6a} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBodyMutationAttempts@{maxBodyMutationAttempts}}
+\index{maxBodyMutationAttempts@{maxBodyMutationAttempts}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBodyMutationAttempts}{maxBodyMutationAttempts}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::max\+Body\+Mutation\+Attempts}
+
+
+
+Max body mutation attempts per reproduction events~\newline
+ Mutator will give up trying to mutate the body tree after this many failed attempts. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a7e47317ad54f5ccea0d99e8389a55a69}\label{structrobogen_1_1EvolverConfiguration_a7e47317ad54f5ccea0d99e8389a55a69} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBodyParts@{maxBodyParts}}
+\index{maxBodyParts@{maxBodyParts}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBodyParts}{maxBodyParts}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::max\+Body\+Parts}
+
+
+
+Maximum number of allowed body parts. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ab09b9a7d3d8e467468e5ce1ef3f8b397}\label{structrobogen_1_1EvolverConfiguration_ab09b9a7d3d8e467468e5ce1ef3f8b397} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainAmplitude@{maxBrainAmplitude}}
+\index{maxBrainAmplitude@{maxBrainAmplitude}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainAmplitude}{maxBrainAmplitude}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Amplitude}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to 0, 1. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a62653d2b7f36fa8aaecd8a4748f29262}\label{structrobogen_1_1EvolverConfiguration_a62653d2b7f36fa8aaecd8a4748f29262} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainBias@{maxBrainBias}}
+\index{maxBrainBias@{maxBrainBias}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainBias}{maxBrainBias}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Bias}
+
+
+
+Upper bound for biases. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a329736274c1fb9144970fcd79d3b0f48}\label{structrobogen_1_1EvolverConfiguration_a329736274c1fb9144970fcd79d3b0f48} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainPeriod@{maxBrainPeriod}}
+\index{maxBrainPeriod@{maxBrainPeriod}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainPeriod}{maxBrainPeriod}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Period}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ae180b0cf60432e96516a4282106fd2d0}\label{structrobogen_1_1EvolverConfiguration_ae180b0cf60432e96516a4282106fd2d0} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainPhaseOffset@{maxBrainPhaseOffset}}
+\index{maxBrainPhaseOffset@{maxBrainPhaseOffset}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainPhaseOffset}{maxBrainPhaseOffset}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Phase\+Offset}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to -\/1, 1. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a489ca8e4eae85c7a2896b0ff55a02d2a}\label{structrobogen_1_1EvolverConfiguration_a489ca8e4eae85c7a2896b0ff55a02d2a} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainTau@{maxBrainTau}}
+\index{maxBrainTau@{maxBrainTau}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainTau}{maxBrainTau}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Tau}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a5a6a3dccc6a70c803f80ad36ca290d24}\label{structrobogen_1_1EvolverConfiguration_a5a6a3dccc6a70c803f80ad36ca290d24} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxBrainWeight@{maxBrainWeight}}
+\index{maxBrainWeight@{maxBrainWeight}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxBrainWeight}{maxBrainWeight}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::max\+Brain\+Weight}
+
+
+
+Upper bound for brain weights. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ac479049df00dc207b9b0af829d397811}\label{structrobogen_1_1EvolverConfiguration_ac479049df00dc207b9b0af829d397811} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!maxNumInitialParts@{maxNumInitialParts}}
+\index{maxNumInitialParts@{maxNumInitialParts}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{maxNumInitialParts}{maxNumInitialParts}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::max\+Num\+Initial\+Parts}
+
+
+
+Maximum number of body parts in individuals in the initial population. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a938f29ff799b279c3a4da36b86ef6b62}\label{structrobogen_1_1EvolverConfiguration_a938f29ff799b279c3a4da36b86ef6b62} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainAmplitude@{minBrainAmplitude}}
+\index{minBrainAmplitude@{minBrainAmplitude}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainAmplitude}{minBrainAmplitude}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Amplitude}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to 0, 1. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_afe02281d2d387a80e38543f365bdfda7}\label{structrobogen_1_1EvolverConfiguration_afe02281d2d387a80e38543f365bdfda7} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainBias@{minBrainBias}}
+\index{minBrainBias@{minBrainBias}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainBias}{minBrainBias}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Bias}
+
+
+
+Lower bound for biases. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ab4cf0c3195d87c6c9ad87629c22dcc30}\label{structrobogen_1_1EvolverConfiguration_ab4cf0c3195d87c6c9ad87629c22dcc30} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainPeriod@{minBrainPeriod}}
+\index{minBrainPeriod@{minBrainPeriod}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainPeriod}{minBrainPeriod}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Period}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a112fc670227ebcb122cc88a7129c4b8c}\label{structrobogen_1_1EvolverConfiguration_a112fc670227ebcb122cc88a7129c4b8c} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainPhaseOffset@{minBrainPhaseOffset}}
+\index{minBrainPhaseOffset@{minBrainPhaseOffset}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainPhaseOffset}{minBrainPhaseOffset}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Phase\+Offset}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this defaults to -\/1, 1. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a2dfbc235c01e0fef6bde20b59fb54788}\label{structrobogen_1_1EvolverConfiguration_a2dfbc235c01e0fef6bde20b59fb54788} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainTau@{minBrainTau}}
+\index{minBrainTau@{minBrainTau}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainTau}{minBrainTau}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Tau}
+
+
+
+PARAM FOR OTHER BRAIN PARAMETERS~\newline
+ Required if using relevant neuron types TODO -- validate this. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a82a34a96488a6d07b6f5fdd3ec6187bf}\label{structrobogen_1_1EvolverConfiguration_a82a34a96488a6d07b6f5fdd3ec6187bf} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minBrainWeight@{minBrainWeight}}
+\index{minBrainWeight@{minBrainWeight}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minBrainWeight}{minBrainWeight}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::min\+Brain\+Weight}
+
+
+
+Lower bound for brain weights. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_ada6c579a62e2e3a3bf11edd62262f5ce}\label{structrobogen_1_1EvolverConfiguration_ada6c579a62e2e3a3bf11edd62262f5ce} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!minNumInitialParts@{minNumInitialParts}}
+\index{minNumInitialParts@{minNumInitialParts}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{minNumInitialParts}{minNumInitialParts}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::min\+Num\+Initial\+Parts}
+
+
+
+Minimum number of body parts in individuals in the initial population. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a1f39a7b355def627931eb6701127acb9}\label{structrobogen_1_1EvolverConfiguration_a1f39a7b355def627931eb6701127acb9} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!mu@{mu}}
+\index{mu@{mu}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::mu}
+
+
+
+Population size. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a42e1d92ddb1743164181d9ad4bb37106}\label{structrobogen_1_1EvolverConfiguration_a42e1d92ddb1743164181d9ad4bb37106} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!neatParams@{neatParams}}
+\index{neatParams@{neatParams}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{neatParams}{neatParams}}
+{\footnotesize\ttfamily NEAT\+::\+Parameters robogen\+::\+Evolver\+Configuration\+::neat\+Params}
+
+
+
+NEAT/\+Hyper\+NEAT parameters. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a93bbeda596df3ce1ef97294de3657a5d}\label{structrobogen_1_1EvolverConfiguration_a93bbeda596df3ce1ef97294de3657a5d} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!neatParamsFile@{neatParamsFile}}
+\index{neatParamsFile@{neatParamsFile}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{neatParamsFile}{neatParamsFile}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Evolver\+Configuration\+::neat\+Params\+File}
+
+
+
+File for NEAT/\+Hyper\+NEAT parameters. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a4b68209f93e7b3386a22a64533260579}\label{structrobogen_1_1EvolverConfiguration_a4b68209f93e7b3386a22a64533260579} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!noveltySearch@{noveltySearch}}
+\index{noveltySearch@{noveltySearch}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{noveltySearch}{noveltySearch}}
+{\footnotesize\ttfamily bool robogen\+::\+Evolver\+Configuration\+::novelty\+Search}
+
+
+
+BK attempt to add noveltysearch optional param. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_aaa3cfd4905f1d1b2ceed76854285a818}\label{structrobogen_1_1EvolverConfiguration_aaa3cfd4905f1d1b2ceed76854285a818} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!numGenerations@{numGenerations}}
+\index{numGenerations@{numGenerations}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{numGenerations}{numGenerations}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::num\+Generations}
+
+
+
+Amount of generations to be simulated. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_aa22796228052f6fb5df6320c7fc5f7c8}\label{structrobogen_1_1EvolverConfiguration_aa22796228052f6fb5df6320c7fc5f7c8} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!pAddHiddenNeuron@{pAddHiddenNeuron}}
+\index{pAddHiddenNeuron@{pAddHiddenNeuron}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{pAddHiddenNeuron}{pAddHiddenNeuron}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::p\+Add\+Hidden\+Neuron}
+
+
+
+Probability to add a hidden neuron. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a604d0427baa6b5dbac2c888228c46959}\label{structrobogen_1_1EvolverConfiguration_a604d0427baa6b5dbac2c888228c46959} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!pBrainCrossover@{pBrainCrossover}}
+\index{pBrainCrossover@{pBrainCrossover}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{pBrainCrossover}{pBrainCrossover}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::p\+Brain\+Crossover}
+
+
+
+Probability of crossover among brains. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a7f4f2d7256c70814f0c0610063a1cd80}\label{structrobogen_1_1EvolverConfiguration_a7f4f2d7256c70814f0c0610063a1cd80} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!pBrainMutate@{pBrainMutate}}
+\index{pBrainMutate@{pBrainMutate}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{pBrainMutate}{pBrainMutate}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::p\+Brain\+Mutate}
+
+
+
+Probability of mutation for any single brain parameter. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a92f4b6df36d4347fe854424697ab948c}\label{structrobogen_1_1EvolverConfiguration_a92f4b6df36d4347fe854424697ab948c} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!pOscillatorNeuron@{pOscillatorNeuron}}
+\index{pOscillatorNeuron@{pOscillatorNeuron}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{pOscillatorNeuron}{pOscillatorNeuron}}
+{\footnotesize\ttfamily double robogen\+::\+Evolver\+Configuration\+::p\+Oscillator\+Neuron}
+
+
+
+Probability to mutate oscillator neuron. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a9c0c27f0bcf23f9b6d4c3388935c68dc}\label{structrobogen_1_1EvolverConfiguration_a9c0c27f0bcf23f9b6d4c3388935c68dc} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!referenceRobotFile@{referenceRobotFile}}
+\index{referenceRobotFile@{referenceRobotFile}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{referenceRobotFile}{referenceRobotFile}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Evolver\+Configuration\+::reference\+Robot\+File}
+
+
+
+File for reference robot. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a88c770d3744097107462b8e11a5945ea}\label{structrobogen_1_1EvolverConfiguration_a88c770d3744097107462b8e11a5945ea} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!replacement@{replacement}}
+\index{replacement@{replacement}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{replacement}{replacement}}
+{\footnotesize\ttfamily int robogen\+::\+Evolver\+Configuration\+::replacement}
+
+
+
+Employed replacement strategy. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a5e013855bd02485cb342c3aef54f0161}\label{structrobogen_1_1EvolverConfiguration_a5e013855bd02485cb342c3aef54f0161} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!selection@{selection}}
+\index{selection@{selection}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{selection}{selection}}
+{\footnotesize\ttfamily int robogen\+::\+Evolver\+Configuration\+::selection}
+
+
+
+Employed selection strategy. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a34fe3fdf5dc05d34c0550077771c408f}\label{structrobogen_1_1EvolverConfiguration_a34fe3fdf5dc05d34c0550077771c408f} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!simulatorConfFile@{simulatorConfFile}}
+\index{simulatorConfFile@{simulatorConfFile}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{simulatorConfFile}{simulatorConfFile}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Evolver\+Configuration\+::simulator\+Conf\+File}
+
+
+
+Configuration file for simulator. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a3c88a0d167757d8d5dc96017cabd082f}\label{structrobogen_1_1EvolverConfiguration_a3c88a0d167757d8d5dc96017cabd082f} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!sockets@{sockets}}
+\index{sockets@{sockets}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{sockets}{sockets}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::pair$<$std\+::string, int$>$ $>$ robogen\+::\+Evolver\+Configuration\+::sockets}
+
+
+
+Sockets to be used to connect to the server. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_a7d450e439d450fb6b508b579ba27bc4b}\label{structrobogen_1_1EvolverConfiguration_a7d450e439d450fb6b508b579ba27bc4b} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!tournamentSize@{tournamentSize}}
+\index{tournamentSize@{tournamentSize}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{tournamentSize}{tournamentSize}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Evolver\+Configuration\+::tournament\+Size}
+
+
+
+Tournament size for tournaments. 
+
+\Hypertarget{structrobogen_1_1EvolverConfiguration_aaf373ec4cc8da81a83ec92cb848f879e}\label{structrobogen_1_1EvolverConfiguration_aaf373ec4cc8da81a83ec92cb848f879e} 
+\index{robogen::EvolverConfiguration@{robogen::EvolverConfiguration}!useBrainSeed@{useBrainSeed}}
+\index{useBrainSeed@{useBrainSeed}!robogen::EvolverConfiguration@{robogen::EvolverConfiguration}}
+\doxysubsubsection{\texorpdfstring{useBrainSeed}{useBrainSeed}}
+{\footnotesize\ttfamily bool robogen\+::\+Evolver\+Configuration\+::use\+Brain\+Seed}
+
+
+
+Flag to continue evolving from provided brain instead of re-\/initialing params randomly. 
+
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{EvolverConfiguration_8h}{Evolver\+Configuration.\+h}}\item 
+src/config/\mbox{\hyperlink{EvolverConfiguration_8cpp}{Evolver\+Configuration.\+cpp}}\end{DoxyCompactItemize}

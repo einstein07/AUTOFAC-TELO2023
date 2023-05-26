@@ -1,0 +1,89 @@
+\hypertarget{LightSourcesConfig_8h_source}{}\doxysection{Light\+Sources\+Config.\+h}
+\label{LightSourcesConfig_8h_source}\index{src/config/LightSourcesConfig.h@{src/config/LightSourcesConfig.h}}
+\mbox{\hyperlink{LightSourcesConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ LightSourcesConfig.h\ \ \ 1.0\ \ \ Jan\ 7,\ 2016}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2016\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_LIGHTSOURCESCONFIG\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROBOGEN\_LIGHTSOURCESCONFIG\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1LightSourcesConfig}{LightSourcesConfig}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a50914aa1479485cf47c5861df1093a77}{LightSourcesConfig}}()\ \{\}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_ae2c2fa5d207c0e63ee96c1865faa6767}{LightSourcesConfig}}(\textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ coordinates,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\ \&intensities)\ :}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ coordinates\_(coordinates),\ intensities\_(intensities)\ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a3d7e38668ea1d5e9f143d66ba94620b0}{\string~LightSourcesConfig}}()\ \{}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<osg::Vec3>\&\ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a7149f588f9b252f9099a31c008476702}{getCoordinates}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coordinates\_;}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<float>\&\ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_acd4c109a82296bc2a5628dfbcc02eb74}{getIntensities}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ intensities\_;}
+\DoxyCodeLine{00081\ \ \ \ \ \}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a2afc919d1e1f34f4e6c50a3c29944ca3}{serialize}}(robogenMessage::SimulatorConf\ \&message)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i=0;\ i<coordinates\_.size();\ ++i)\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ robogenMessage::LightSource\ *curr\ =\ message.add\_lightsources();}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_intensity(intensities\_[i]);}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_x(coordinates\_[i].x());}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_y(coordinates\_[i].y());}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ curr-\/>set\_z(coordinates\_[i].z());}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<osg::Vec3>\ coordinates\_;}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \ \ \ \ std::vector<float>\ intensities\_;}
+\DoxyCodeLine{00108\ \};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_LIGHTSOURCESCONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

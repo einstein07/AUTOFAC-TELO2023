@@ -1,0 +1,201 @@
+\hypertarget{Robot_8h_source}{}\doxysection{Robot.\+h}
+\label{Robot_8h_source}\index{src/Robot.h@{src/Robot.h}}
+\mbox{\hyperlink{Robot_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Robot.h\ \ \ 1.0\ \ \ Mar\ 4,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Andrea\ Maesani}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_ROBOT\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_ROBOT\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <boost/graph/adjacency\_list.hpp>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <boost/graph/breadth\_first\_search.hpp>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <boost/graph/connected\_components.hpp>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <boost/graph/copy.hpp>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Connection_8h}{model/Connection.h}}"{}}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{CompositeBody_8h}{model/CompositeBody.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{NeuralNetwork_8h}{brain/NeuralNetwork.h}}"{}}}
+\DoxyCodeLine{00048\ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{class\ }Model;}
+\DoxyCodeLine{00053\ \textcolor{keyword}{class\ }Motor;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{class\ }Sensor;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1BodyEdgeDescriptorTag}{BodyEdgeDescriptorTag}}\ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{typedef}\ boost::edge\_property\_tag\ \mbox{\hyperlink{structrobogen_1_1BodyEdgeDescriptorTag_a7b486f0c8c9858a25121f39235f2c5cb}{kind}};}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ \textcolor{keyword}{typedef}\ boost::property<BodyEdgeDescriptorTag,\ boost::shared\_ptr<Connection>\ >}
+\DoxyCodeLine{00065\ \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{BodyEdgeProperty}};}
+\DoxyCodeLine{00066\ \textcolor{keyword}{typedef}\ boost::adjacency\_list<boost::listS,\ boost::vecS,\ boost::directedS,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ boost::no\_property,\ \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{BodyEdgeProperty}}>\ \mbox{\hyperlink{namespacerobogen_a90c45a26b3d15cb83284190214ce1d7c}{BodyGraph}};}
+\DoxyCodeLine{00068\ \textcolor{keyword}{typedef}\ boost::adjacency\_list<boost::listS,\ boost::vecS,\ boost::undirectedS,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ boost::no\_property,\ \mbox{\hyperlink{namespacerobogen_af7ba688e979c55f6c141bd66507ae82f}{BodyEdgeProperty}}>\ \mbox{\hyperlink{namespacerobogen_a361699b582f521af16118ae24d25c55b}{BodyUndirectedGraph}};}
+\DoxyCodeLine{00070\ \textcolor{keyword}{typedef}\ boost::graph\_traits<BodyGraph>::edge\_descriptor\ \mbox{\hyperlink{namespacerobogen_afee6227d8ecdff9f39d0509904d91a18}{BodyEdge}};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00075\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Robot}{Robot}}\ \{}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Robot_a2c126b183e2dbeacd445189ac7d1946f}{Robot}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb}{init}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::Robot\&\ robotSpec,}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ printInfo=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ printInitErrors=\textcolor{keyword}{true});}
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb}{init}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ dSpaceID\ robotSpace,\ \textcolor{keywordtype}{int}\&\ nbAlive,\ \textcolor{keyword}{const}\ robogenMessage::Robot\&\ robotSpec,}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ printInfo=\textcolor{keyword}{false},\ \textcolor{keywordtype}{bool}\ printInitErrors=\textcolor{keyword}{true});}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1Robot_a627dd89e627527f46cedbca757d07e12}{\string~Robot}}();}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Model>\ >\&\ \mbox{\hyperlink{classrobogen_1_1Robot_a6eadb94ee1c6c831e1c046d62d48563e}{getBodyParts}}();}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{const}\ boost::shared\_ptr<NeuralNetwork>\&\ \mbox{\hyperlink{classrobogen_1_1Robot_aa5a62a6067860cae1c33697493798eaa}{getBrain}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Sensor>\ >\&\ \mbox{\hyperlink{classrobogen_1_1Robot_a4c10457e67f68eb9f3c48a42bbcae7c6}{getSensors}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Motor>\ >\&\ \mbox{\hyperlink{classrobogen_1_1Robot_a07a19ec43df0eea8f77bfadfda25003c}{getMotors}}();}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00140\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{classrobogen_1_1Robot_a8ade4c311ad5cbca90669e6630850927}{getCoreComponent}}();}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a5f576fd460a5fb6bc88414bed7ee3448}{translateRobot}}(\textcolor{keyword}{const}\ osg::Vec3\&\ translation);}
+\DoxyCodeLine{00148\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a0cb9b2124cee51b27b3ebf500936c880}{rotateRobot}}(\textcolor{keyword}{const}\ osg::Quat\ \&rot);}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a2bc3ae1d7086975bfcd60721c4edf4ca}{getAABB}}(\textcolor{keywordtype}{double}\&\ minX,\ \textcolor{keywordtype}{double}\&\ maxX,\ \textcolor{keywordtype}{double}\&\ minY,\ \textcolor{keywordtype}{double}\&\ maxY,}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ minZ,\ \textcolor{keywordtype}{double}\&\ maxZ);}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Robot_a2d0b022ee6d7a84241d4e07008c335c5}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{classrobogen_1_1Robot_a50b476312a6502bb10ba5b40441ffe7d}{getBodyPart}}(std::string\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::Robot\&\ \mbox{\hyperlink{classrobogen_1_1Robot_a3c4959bf89d2224e507b50688291d9c4}{getMessage}}();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Connection>\ >\&\ \mbox{\hyperlink{classrobogen_1_1Robot_aab5ca5b6b650d2f37771de841b701dc0}{getBodyConnections}}()\textcolor{keyword}{const};}
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a937af10cf8b0b8abdfcc02c4d1137d82}{traverseBody}}(\textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Model>\ >,}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<boost::shared\_ptr<Connection>\ >);}
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Robot_a723d9b99c7a79c9558c3ea3bbc6dd478}{getRoot}}();}
+\DoxyCodeLine{00196\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a0f11893534830a52c92e983beb6ee6ee}{addJoint}}(boost::shared\_ptr<Joint>\ joint)\ \{}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ joints\_.push\_back(joint);}
+\DoxyCodeLine{00198\ \ \ \ \ \}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_ab21e39faacd47842d008bdbdfe9a45ad}{optimizePhysics}}();}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{isBoundToResource}}();}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00217\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a3dbfad54e8bd5a78ae406561bc6a733f}{setBoundToResource}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{isBoundToResource}});}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_aeb5585a3dc467f92ade5e1eeb5e454eb}{setBoundResourceId}}(\textcolor{keywordtype}{int}\ resourceId)\{resourceId\_\ =\ resourceId;\}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00227\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Robot_a9b1111302f6005113baec269447e6fc8}{getBoundResourceId}}()\{\textcolor{keywordflow}{return}\ resourceId\_;\}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Robot_ac1b3a60620db50c9e994b15630f40647}{complexity\_}};}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Robot_a2a3b9e691a2217b4f69229fac43eab6c}{complexityCost\_}};}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Robot_a0aa145138fab8f9930f533caf857429d}{endPosX\_}};}
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Robot_a9fe3f2f6ded4c25d08297fd5bfba7806}{endPosY\_}};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Robot_a44a7f6fe0fa13bd01699bbde08f52ca6}{setAlive}}(\ \textcolor{keywordtype}{bool}\ value\ )\ \{\ isAlive\_\ =\ value;\ \}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Robot_a0be0945c05a8c9739d1524b45734f7e4}{isAlive}}()\ \{\ \textcolor{keywordflow}{return}\ isAlive\_;\ \}}
+\DoxyCodeLine{00256\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00263\ \ \ \ \ \textcolor{keywordtype}{bool}\ decodeBody(\textcolor{keyword}{const}\ robogenMessage::Body\&\ robotBody);}
+\DoxyCodeLine{00264\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{bool}\ decodeBrain(\textcolor{keyword}{const}\ robogenMessage::Brain\&\ robotBrain);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00275\ \ \ \ \ \textcolor{keywordtype}{void}\ reconnect();}
+\DoxyCodeLine{00276\ }
+\DoxyCodeLine{00280\ \ \ \ \ dWorldID\ odeWorld\_;}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00285\ \ \ \ \ dSpaceID\ odeSpace\_;}
+\DoxyCodeLine{00286\ }
+\DoxyCodeLine{00291\ \ \ \ \ dSpaceID\ robotSpace\_;}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \ \ std::vector<boost::shared\_ptr<Model>\ >\ bodyParts\_;}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00301\ \ \ \ \ std::vector<boost::shared\_ptr<Connection>\ >\ bodyConnections\_;}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00306\ \ \ \ \ std::map<unsigned\ int,\ std::vector<boost::shared\_ptr<Sensor>\ >\ >\ bodyPartsToSensors\_;}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00311\ \ \ \ \ std::map<unsigned\ int,\ std::vector<boost::shared\_ptr<Motor>\ >\ >\ bodyPartsToMotors\_;}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00316\ \ \ \ \ std::vector<boost::shared\_ptr<Sensor>\ >\ sensors\_;}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \ \ \ \ std::vector<boost::shared\_ptr<Motor>\ >\ motors\_;}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00326\ \ \ \ \ boost::shared\_ptr<NeuralNetwork>\ neuralNetwork\_;}
+\DoxyCodeLine{00327\ }
+\DoxyCodeLine{00331\ \ \ \ \ std::map<std::string,\ unsigned\ int>\ bodyPartsMap\_;}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00336\ \ \ \ \ boost::shared\_ptr<Model>\ coreComponent\_;}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00341\ \ \ \ \ \textcolor{keywordtype}{int}\ id\_;}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00346\ \ \ \ \ \textcolor{keywordtype}{int}\ rootNode\_;}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00351\ \ \ \ \ boost::shared\_ptr<BodyGraph>\ bodyTree\_;}
+\DoxyCodeLine{00352\ }
+\DoxyCodeLine{00356\ \ \ \ \ dJointGroupID\ connectionJointGroup\_;}
+\DoxyCodeLine{00357\ }
+\DoxyCodeLine{00362\ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::Robot*\ robotMessage\_;}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keywordtype}{bool}\ printInfo\_;}
+\DoxyCodeLine{00365\ }
+\DoxyCodeLine{00366\ \ \ \ \ \textcolor{keywordtype}{bool}\ printInitErrors\_;}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{comment}{//\ store\ joints\ created\ by\ connecting\ components}}
+\DoxyCodeLine{00369\ \ \ \ \ \textcolor{comment}{//\ not\ a\ set\ because\ we\ don't\ want\ iteration\ order\ to\ depend\ on\ address,}}
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{comment}{//\ but\ we\ will\ use\ a\ set\ to\ check\ for\ uniqueness\ while\ iterating}}
+\DoxyCodeLine{00371\ \ \ \ \ std::vector<boost::shared\_ptr<Joint>\ >\ joints\_;}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{comment}{//\ store\ the\ composite\ bodies\ formed\ by\ replacing\ fixed\ joints}}
+\DoxyCodeLine{00374\ \ \ \ \ std::vector<boost::shared\_ptr<CompositeBody>\ >\ composites\_;}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00379\ \ \ \ \ \textcolor{keywordtype}{bool}\ isBoundToResource\_;}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keywordtype}{int}\ resourceId\_;}
+\DoxyCodeLine{00385\ }
+\DoxyCodeLine{00389\ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1ObjectData}{ObjectData}}\ data\_;}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00394\ \ \ \ \ \textcolor{keywordtype}{bool}\ isAlive\_;}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \};}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_ROBOT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

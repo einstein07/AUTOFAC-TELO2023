@@ -1,0 +1,85 @@
+\hypertarget{Simulator_8h_source}{}\doxysection{Simulator.\+h}
+\label{Simulator_8h_source}\index{src/Simulator.h@{src/Simulator.h}}
+\mbox{\hyperlink{Simulator_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Simulator.h\ \ \ 1.0\ \ \ Nov\ 27,\ 2014}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2014\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ SIMULATOR\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ SIMULATOR\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <boost/random.hpp>}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RobogenConfig_8h}{config/RobogenConfig.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Scenario_8h}{scenario/Scenario.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FileViewerLog_8h}{viewer/FileViewerLog.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{IViewer_8h}{viewer/IViewer.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MIN\_FITNESS\ (-\/10000.0)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{enum}\ \mbox{\hyperlink{namespacerobogen_a62262045431472e7de60455e6d479ffc}{result}}\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a62262045431472e7de60455e6d479ffca0dae2e37b1e75ddeb8afbf5a0f6a7221}{SIMULATION\_SUCCESS}},}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a62262045431472e7de60455e6d479ffca804dea08c41d75b3963d0bde62bdb896}{SIMULATION\_FAILURE}},}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a62262045431472e7de60455e6d479ffca2b565acd0759fa82ff40bcc79ff683ff}{CONSTRAINT\_VIOLATED}}}
+\DoxyCodeLine{00063\ \ \ \ \ \};}
+\DoxyCodeLine{00067\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1actionThreadParams}{actionThreadParams}}\{}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ dReal*\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a0279d953598f33ab8d61d828ce2faa2c}{previousAngVel}};}
+\DoxyCodeLine{00070\ \ \ \ \ dReal*\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a2e0f57dedfa55cf1a53ebd440018c847}{previousLinVel}};}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_aa88d5bc5585cffbae004a2ac44fca95c}{step}};\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a801c6565c4d79bf3eec5a69f586253c3}{t}};\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_aed3e2203cf610108b55bbe9a6a7feb2b}{count}};}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{bool}*\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_ac9d02799236bb419dc4b6a71a18f09ef}{constraintViolated}};}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}*\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a7a2b8d5352386faa3198e5ab74f95329}{motorBurntOut}};}
+\DoxyCodeLine{00074\ \ \ \ \ boost::random::mt19937\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a90491dd7dc5129d69260e17158a0c066}{rng}};}
+\DoxyCodeLine{00075\ \ \ \ \ boost::random::normal\_distribution<float>\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_ab790d4fbaea7d9d236a46a094d1fe8f3}{normalDistribution}};}
+\DoxyCodeLine{00076\ \ \ \ \ boost::random::uniform\_01<float>\ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a3d2e2525f0c29bfb6a0acc9e7ea1621a}{uniformDistribution}};}
+\DoxyCodeLine{00077\ \};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacerobogen_a510e240e290d9506c2c8e7311d684bef}{runSimulations}}(boost::shared\_ptr<Scenario>\ scenario,}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ boost::shared\_ptr<RobogenConfig>\ configuration,}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::Robot\ \&robotMessage,\ \mbox{\hyperlink{classrobogen_1_1IViewer}{IViewer}}\ *viewer,}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ boost::random::mt19937\ \&\mbox{\hyperlink{namespacerobogen_a515ff4a1d97df243d8dd870af14a8291}{rng}});}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacerobogen_a510e240e290d9506c2c8e7311d684bef}{runSimulations}}(boost::shared\_ptr<Scenario>\ scenario,}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ boost::shared\_ptr<RobogenConfig>\ configuration,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::Robot\ \&robotMessage,\ \mbox{\hyperlink{classrobogen_1_1IViewer}{IViewer}}\ *viewer,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ boost::random::mt19937\ \&\mbox{\hyperlink{namespacerobogen_a515ff4a1d97df243d8dd870af14a8291}{rng}},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ onlyOnce,\ boost::shared\_ptr<FileViewerLog>\ \mbox{\hyperlink{namespacerobogen_aa474e453f4a3a3d2305d58fcb99d4762}{log}});}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacerobogen_a626e3dfa39895792ea5cafc331a8c6d9}{iterations}};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ SIMULATOR\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

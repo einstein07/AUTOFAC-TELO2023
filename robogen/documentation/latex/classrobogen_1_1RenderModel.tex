@@ -1,0 +1,301 @@
+\hypertarget{classrobogen_1_1RenderModel}{}\doxysection{robogen\+::Render\+Model Class Reference}
+\label{classrobogen_1_1RenderModel}\index{robogen::RenderModel@{robogen::RenderModel}}
+
+
+Class to render a model.  
+
+
+
+
+{\ttfamily \#include $<$Render\+Model.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1RenderModel_ab812998cb5a226f0aa6d39a987485b65}{Render\+Model}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ model)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1RenderModel_ad6b077a14e40c87bc8b59b6d7876a465}{$\sim$\+Render\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a6e8494ebe4ea60134333ea3affb7464f}{get\+Root\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Returns a root node. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1RenderModel_a28e5688f426371e650e90e31eeca9a63}{init\+Render\+Model}} ()=0
+\begin{DoxyCompactList}\small\item\em Initializes a render model. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1RenderModel_a2c7604f9ad12eb9cdc35c1c3b77c387e}{is\+Debug\+Active}} ()
+\begin{DoxyCompactList}\small\item\em Returns debug status. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a524a27aedc15e68a9061d2c7a14c8b51}{get\+Box}} (float lengthX, float lengthY, float lengthZ)
+\begin{DoxyCompactList}\small\item\em Returns box. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a18b059a87a04c5d99514573016b95e9f}{get\+Box}} (float lengthX, float lengthY, float lengthZ, const osg\+::\+Vec4 \&color)
+\begin{DoxyCompactList}\small\item\em Returns box. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_aa3b89ce544256fab7286fa756e4e74ee}{get\+Cylinder}} (float radius, float height, const osg\+::\+Vec4 \&color)
+\begin{DoxyCompactList}\small\item\em Returns cylinder. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_abdc0555c8977dc8172671546e981428a}{get\+Capsule}} (float radius, float height)
+\begin{DoxyCompactList}\small\item\em Returns capsule. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a791e48ef9105119f5312b9709088be5b}{get\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Returns model. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classrobogen_1_1RenderModel_a8873da100e008dc62b7b22a29679915e}{set\+Color}} (osg\+::\+Vec4 color)=0
+\begin{DoxyCompactList}\small\item\em Sets model color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1RenderModel_a9dc42c06fe1c795c937aa14b1dec3439}{set\+Debug\+Active}} (bool debug\+Active)
+\begin{DoxyCompactList}\small\item\em Toggles debug status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1RenderModel_ac6d7e1d9e13c065e70067e4f8eb2e882}{toggle\+Primitives}} (bool primitives)
+\begin{DoxyCompactList}\small\item\em Toggles primitives. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1RenderModel_a1dcaa24cd536a6050610aa0c21090dc6}{toggle\+Meshes}} (bool meshes)
+\begin{DoxyCompactList}\small\item\em Toggles meshes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classrobogen_1_1RenderModel_a8c395bbdbe116f9c0c47421746871e2b}{attach\+Axis}} (osg\+::\+Transform $\ast$transform)
+\begin{DoxyCompactList}\small\item\em Attaches axis to model. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a7a560cace06c60faff4d225881728e75}{attach\+Box}} (int label, float lengthX, float lengthY, float lengthZ, const osg\+::\+Vec4 \&color)
+\begin{DoxyCompactList}\small\item\em Attaches box. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a6bab05a9c2068302f1e06634d702c345}{attach\+Box}} (int label, float lengthX, float lengthY, float lengthZ)
+\begin{DoxyCompactList}\small\item\em Attaches box. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a5bf9a2bff944d3f95c05179e4f6a52ec}{attach\+Geode}} (int label, osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ geode)
+\begin{DoxyCompactList}\small\item\em Attaches Geode. \end{DoxyCompactList}\item 
+std\+::vector$<$ osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a1db54dd61cf6167a3f39cbaf0760d432}{attach\+Geoms}} ()
+\begin{DoxyCompactList}\small\item\em Attaches Geoms ~\newline
+ \end{DoxyCompactList}\item 
+std\+::vector$<$ osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_aee195523be1b50f83f7334226d7a2c5c}{attach\+Geoms}} (std\+::vector$<$ osg\+::\+Vec4 $>$ colors)
+\begin{DoxyCompactList}\small\item\em Attaches Geoms. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1RenderModel_a66ce3d75450188778be30ad16715306b}{activate\+Transparency}} (osg\+::\+State\+Set $\ast$)
+\begin{DoxyCompactList}\small\item\em Activates transparency. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Group $>$ \mbox{\hyperlink{classrobogen_1_1RenderModel_a88ab75732da1774d8039389b89910ba5}{get\+Meshes}} ()
+\begin{DoxyCompactList}\small\item\em Returns meshes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to render a model. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1RenderModel_ab812998cb5a226f0aa6d39a987485b65}\label{classrobogen_1_1RenderModel_ab812998cb5a226f0aa6d39a987485b65} 
+\index{robogen::RenderModel@{robogen::RenderModel}!RenderModel@{RenderModel}}
+\index{RenderModel@{RenderModel}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{RenderModel()}{RenderModel()}}
+{\footnotesize\ttfamily robogen\+::\+Render\+Model\+::\+Render\+Model (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$}]{model }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classrobogen_1_1RenderModel_ad6b077a14e40c87bc8b59b6d7876a465}\label{classrobogen_1_1RenderModel_ad6b077a14e40c87bc8b59b6d7876a465} 
+\index{robogen::RenderModel@{robogen::RenderModel}!````~RenderModel@{$\sim$RenderModel}}
+\index{````~RenderModel@{$\sim$RenderModel}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{$\sim$RenderModel()}{~RenderModel()}}
+{\footnotesize\ttfamily robogen\+::\+Render\+Model\+::$\sim$\+Render\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1RenderModel_a66ce3d75450188778be30ad16715306b}\label{classrobogen_1_1RenderModel_a66ce3d75450188778be30ad16715306b} 
+\index{robogen::RenderModel@{robogen::RenderModel}!activateTransparency@{activateTransparency}}
+\index{activateTransparency@{activateTransparency}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{activateTransparency()}{activateTransparency()}}
+{\footnotesize\ttfamily void robogen\+::\+Render\+Model\+::activate\+Transparency (\begin{DoxyParamCaption}\item[{osg\+::\+State\+Set $\ast$}]{set }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Activates transparency. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a8c395bbdbe116f9c0c47421746871e2b}\label{classrobogen_1_1RenderModel_a8c395bbdbe116f9c0c47421746871e2b} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachAxis@{attachAxis}}
+\index{attachAxis@{attachAxis}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachAxis()}{attachAxis()}}
+{\footnotesize\ttfamily void robogen\+::\+Render\+Model\+::attach\+Axis (\begin{DoxyParamCaption}\item[{osg\+::\+Transform $\ast$}]{transform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attaches axis to model. 
+
+Function taken from James Moliere, Open Scene Graph examples x is red, y is green, z is blue. \Hypertarget{classrobogen_1_1RenderModel_a6bab05a9c2068302f1e06634d702c345}\label{classrobogen_1_1RenderModel_a6bab05a9c2068302f1e06634d702c345} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachBox@{attachBox}}
+\index{attachBox@{attachBox}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachBox()}{attachBox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ robogen\+::\+Render\+Model\+::attach\+Box (\begin{DoxyParamCaption}\item[{int}]{label,  }\item[{float}]{lengthX,  }\item[{float}]{lengthY,  }\item[{float}]{lengthZ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Attaches box. 
+
+Measures are expressed in mm \Hypertarget{classrobogen_1_1RenderModel_a7a560cace06c60faff4d225881728e75}\label{classrobogen_1_1RenderModel_a7a560cace06c60faff4d225881728e75} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachBox@{attachBox}}
+\index{attachBox@{attachBox}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachBox()}{attachBox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ robogen\+::\+Render\+Model\+::attach\+Box (\begin{DoxyParamCaption}\item[{int}]{label,  }\item[{float}]{lengthX,  }\item[{float}]{lengthY,  }\item[{float}]{lengthZ,  }\item[{const osg\+::\+Vec4 \&}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Attaches box. 
+
+Measures are expressed in mm \Hypertarget{classrobogen_1_1RenderModel_a5bf9a2bff944d3f95c05179e4f6a52ec}\label{classrobogen_1_1RenderModel_a5bf9a2bff944d3f95c05179e4f6a52ec} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachGeode@{attachGeode}}
+\index{attachGeode@{attachGeode}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachGeode()}{attachGeode()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ robogen\+::\+Render\+Model\+::attach\+Geode (\begin{DoxyParamCaption}\item[{int}]{label,  }\item[{osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$}]{geode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Attaches Geode. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a1db54dd61cf6167a3f39cbaf0760d432}\label{classrobogen_1_1RenderModel_a1db54dd61cf6167a3f39cbaf0760d432} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachGeoms@{attachGeoms}}
+\index{attachGeoms@{attachGeoms}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachGeoms()}{attachGeoms()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ $>$ robogen\+::\+Render\+Model\+::attach\+Geoms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Attaches Geoms ~\newline
+ 
+
+\Hypertarget{classrobogen_1_1RenderModel_aee195523be1b50f83f7334226d7a2c5c}\label{classrobogen_1_1RenderModel_aee195523be1b50f83f7334226d7a2c5c} 
+\index{robogen::RenderModel@{robogen::RenderModel}!attachGeoms@{attachGeoms}}
+\index{attachGeoms@{attachGeoms}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{attachGeoms()}{attachGeoms()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ $>$ robogen\+::\+Render\+Model\+::attach\+Geoms (\begin{DoxyParamCaption}\item[{std\+::vector$<$ osg\+::\+Vec4 $>$}]{colors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Attaches Geoms. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a524a27aedc15e68a9061d2c7a14c8b51}\label{classrobogen_1_1RenderModel_a524a27aedc15e68a9061d2c7a14c8b51} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getBox@{getBox}}
+\index{getBox@{getBox}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getBox()}{getBox()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ robogen\+::\+Render\+Model\+::get\+Box (\begin{DoxyParamCaption}\item[{float}]{lengthX,  }\item[{float}]{lengthY,  }\item[{float}]{lengthZ }\end{DoxyParamCaption})}
+
+
+
+Returns box. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a18b059a87a04c5d99514573016b95e9f}\label{classrobogen_1_1RenderModel_a18b059a87a04c5d99514573016b95e9f} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getBox@{getBox}}
+\index{getBox@{getBox}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getBox()}{getBox()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ robogen\+::\+Render\+Model\+::get\+Box (\begin{DoxyParamCaption}\item[{float}]{lengthX,  }\item[{float}]{lengthY,  }\item[{float}]{lengthZ,  }\item[{const osg\+::\+Vec4 \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Returns box. 
+
+\Hypertarget{classrobogen_1_1RenderModel_abdc0555c8977dc8172671546e981428a}\label{classrobogen_1_1RenderModel_abdc0555c8977dc8172671546e981428a} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getCapsule@{getCapsule}}
+\index{getCapsule@{getCapsule}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getCapsule()}{getCapsule()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ robogen\+::\+Render\+Model\+::get\+Capsule (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+
+
+Returns capsule. 
+
+\Hypertarget{classrobogen_1_1RenderModel_aa3b89ce544256fab7286fa756e4e74ee}\label{classrobogen_1_1RenderModel_aa3b89ce544256fab7286fa756e4e74ee} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getCylinder@{getCylinder}}
+\index{getCylinder@{getCylinder}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getCylinder()}{getCylinder()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Geode $>$ robogen\+::\+Render\+Model\+::get\+Cylinder (\begin{DoxyParamCaption}\item[{float}]{radius,  }\item[{float}]{height,  }\item[{const osg\+::\+Vec4 \&}]{color }\end{DoxyParamCaption})}
+
+
+
+Returns cylinder. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a88ab75732da1774d8039389b89910ba5}\label{classrobogen_1_1RenderModel_a88ab75732da1774d8039389b89910ba5} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getMeshes@{getMeshes}}
+\index{getMeshes@{getMeshes}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getMeshes()}{getMeshes()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Group $>$ robogen\+::\+Render\+Model\+::get\+Meshes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Returns meshes. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a791e48ef9105119f5312b9709088be5b}\label{classrobogen_1_1RenderModel_a791e48ef9105119f5312b9709088be5b} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getModel@{getModel}}
+\index{getModel@{getModel}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ robogen\+::\+Render\+Model\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns model. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a6e8494ebe4ea60134333ea3affb7464f}\label{classrobogen_1_1RenderModel_a6e8494ebe4ea60134333ea3affb7464f} 
+\index{robogen::RenderModel@{robogen::RenderModel}!getRootNode@{getRootNode}}
+\index{getRootNode@{getRootNode}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{getRootNode()}{getRootNode()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Position\+Attitude\+Transform $>$ robogen\+::\+Render\+Model\+::get\+Root\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns a root node. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a28e5688f426371e650e90e31eeca9a63}\label{classrobogen_1_1RenderModel_a28e5688f426371e650e90e31eeca9a63} 
+\index{robogen::RenderModel@{robogen::RenderModel}!initRenderModel@{initRenderModel}}
+\index{initRenderModel@{initRenderModel}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{initRenderModel()}{initRenderModel()}}
+{\footnotesize\ttfamily virtual bool robogen\+::\+Render\+Model\+::init\+Render\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Initializes a render model. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a2c7604f9ad12eb9cdc35c1c3b77c387e}\label{classrobogen_1_1RenderModel_a2c7604f9ad12eb9cdc35c1c3b77c387e} 
+\index{robogen::RenderModel@{robogen::RenderModel}!isDebugActive@{isDebugActive}}
+\index{isDebugActive@{isDebugActive}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{isDebugActive()}{isDebugActive()}}
+{\footnotesize\ttfamily bool robogen\+::\+Render\+Model\+::is\+Debug\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns debug status. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a8873da100e008dc62b7b22a29679915e}\label{classrobogen_1_1RenderModel_a8873da100e008dc62b7b22a29679915e} 
+\index{robogen::RenderModel@{robogen::RenderModel}!setColor@{setColor}}
+\index{setColor@{setColor}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{setColor()}{setColor()}}
+{\footnotesize\ttfamily virtual void robogen\+::\+Render\+Model\+::set\+Color (\begin{DoxyParamCaption}\item[{osg\+::\+Vec4}]{color }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Sets model color. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a9dc42c06fe1c795c937aa14b1dec3439}\label{classrobogen_1_1RenderModel_a9dc42c06fe1c795c937aa14b1dec3439} 
+\index{robogen::RenderModel@{robogen::RenderModel}!setDebugActive@{setDebugActive}}
+\index{setDebugActive@{setDebugActive}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{setDebugActive()}{setDebugActive()}}
+{\footnotesize\ttfamily void robogen\+::\+Render\+Model\+::set\+Debug\+Active (\begin{DoxyParamCaption}\item[{bool}]{debug\+Active }\end{DoxyParamCaption})}
+
+
+
+Toggles debug status. 
+
+\Hypertarget{classrobogen_1_1RenderModel_a1dcaa24cd536a6050610aa0c21090dc6}\label{classrobogen_1_1RenderModel_a1dcaa24cd536a6050610aa0c21090dc6} 
+\index{robogen::RenderModel@{robogen::RenderModel}!toggleMeshes@{toggleMeshes}}
+\index{toggleMeshes@{toggleMeshes}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{toggleMeshes()}{toggleMeshes()}}
+{\footnotesize\ttfamily void robogen\+::\+Render\+Model\+::toggle\+Meshes (\begin{DoxyParamCaption}\item[{bool}]{meshes }\end{DoxyParamCaption})}
+
+
+
+Toggles meshes. 
+
+\Hypertarget{classrobogen_1_1RenderModel_ac6d7e1d9e13c065e70067e4f8eb2e882}\label{classrobogen_1_1RenderModel_ac6d7e1d9e13c065e70067e4f8eb2e882} 
+\index{robogen::RenderModel@{robogen::RenderModel}!togglePrimitives@{togglePrimitives}}
+\index{togglePrimitives@{togglePrimitives}!robogen::RenderModel@{robogen::RenderModel}}
+\doxysubsubsection{\texorpdfstring{togglePrimitives()}{togglePrimitives()}}
+{\footnotesize\ttfamily void robogen\+::\+Render\+Model\+::toggle\+Primitives (\begin{DoxyParamCaption}\item[{bool}]{primitives }\end{DoxyParamCaption})}
+
+
+
+Toggles primitives. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/render/\mbox{\hyperlink{RenderModel_8h}{Render\+Model.\+h}}\item 
+src/render/\mbox{\hyperlink{RenderModel_8cpp}{Render\+Model.\+cpp}}\end{DoxyCompactItemize}

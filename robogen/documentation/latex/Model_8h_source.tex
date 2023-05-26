@@ -1,0 +1,165 @@
+\hypertarget{Model_8h_source}{}\doxysection{Model.\+h}
+\label{Model_8h_source}\index{src/model/Model.h@{src/model/Model.h}}
+\mbox{\hyperlink{Model_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Model.h\ \ \ 1.0\ \ \ Feb\ 8,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Andrea\ Maesani}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_MODEL\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROBOGEN\_MODEL\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <osg/PositionAttitudeTransform>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <boost/enable\_shared\_from\_this.hpp>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SimpleBody_8h}{SimpleBody.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Joint_8h}{Joint.h}}"{}}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Model}{Model}}\ :\ \textcolor{keyword}{public}\ boost::enable\_shared\_from\_this<Model>\ \{}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00055\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Model}{Model}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,std::string\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Model}{Model}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace,\ \ dSpaceID\ robotSpace,\ std::string\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1Model_a44e307b717c9708f4742b840ab5731c6}{\string~Model}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Model_a9f975bb15344d66ab57bec333306fa63}{initModel}}()\ =\ 0;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&\mbox{\hyperlink{classrobogen_1_1Model_a58c9b816eb0306aa8417f9c1312d235b}{getId}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{virtual}\ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_a5fe089a0cfa71ddb462a849e23e0672c}{getSlot}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i)\ =\ 0;}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1Model_aede61ab612937f5faa04fc6517c342fe}{getSlotPosition}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i)\ =\ 0;}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1Model_af1d088a4c5ff3c1903659df4b8527f1a}{getSlotAxis}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i)\ =\ 0;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1Model_aabc7dadd69ae708a8974f941fda0de21}{getSlotOrientation}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i)\ =\ 0;}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{virtual}\ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_a10178076e7468fb09df99eaa592785e3}{getRoot}}()\ =\ 0;}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1Model_a9d12eceac34f9a3177a68893569cedf8}{getRootPosition}}();}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ osg::Quat\ \mbox{\hyperlink{classrobogen_1_1Model_af03c22782fa961b69cf0e7ddb2a6265c}{getRootAttitude}}();}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1Model_aed9ca2aba477363da886f76eba41f1c8}{getBodyPosition}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ osg::Quat\ \mbox{\hyperlink{classrobogen_1_1Model_a1300d092adf1b53ae77bdae813d9bbb9}{getBodyAttitude}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a9f29b07929d82619371f9e9d8c47ef83}{setRootPosition}}(\textcolor{keyword}{const}\ osg::Vec3\&\ pos);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a09182900ca9b941cf1b53096283e14e3}{translateRootPosition}}(\textcolor{keyword}{const}\ osg::Vec3\&\ translation);}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_aea94b6feed793bfd8b1ccdfa0315a70b}{setRootAttitude}}(\textcolor{keyword}{const}\ osg::Quat\&\ quat);}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00146\ \ \ \ \ dWorldID\ \mbox{\hyperlink{classrobogen_1_1Model_ae3e913a2fc8373e5b40dfc6aacb3ccc9}{getPhysicsWorld}}();}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00151\ \ \ \ \ dSpaceID\ \mbox{\hyperlink{classrobogen_1_1Model_a95e985bd9f28eeeeb445f51417aa5ff0}{getODECollisionSpace}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00157\ \ \ \ \ dSpaceID\ \mbox{\hyperlink{classrobogen_1_1Model_a429bdf0be8198d2d0b364d857eead6a6}{getRobotCollisionSpace}}();}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00167\ \ \ \ \ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_aa4ee83ab4fcafb88493a3f58ea2037c1}{getBody}}(\textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ std::vector<boost::shared\_ptr<SimpleBody>\ >\ \mbox{\hyperlink{classrobogen_1_1Model_aceb9e95f5b3763db89d7e99a4b185162}{getBodies}}();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00177\ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{classrobogen_1_1Model_a76c225adc940c9784150c6ef57ea58be}{getIDs}}();}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00188\ \ \ \ \ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_a0c09e1ea50a6d457e5dcb8fa7f48e77f}{addBox}}(\textcolor{keywordtype}{float}\ mass,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ osg::Vec3\&\ pos,\ \textcolor{keywordtype}{float}\ lengthX,\ \textcolor{keywordtype}{float}\ lengthY,\ \textcolor{keywordtype}{float}\ lengthZ,}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ label=-\/1);}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00201\ \ \ \ \ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_a5080085adcb11c7606f4e88e4d6acc7c}{addCapsule}}(\textcolor{keywordtype}{float}\ mass,\ \textcolor{keyword}{const}\ osg::Vec3\&\ pos,}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{int}\ label=-\/1);}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00213\ \ \ \ \ boost::shared\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Model_a7db3a9acb98a615543175ef54b4d8686}{addCylinder}}(\textcolor{keywordtype}{float}\ mass,\ \textcolor{keyword}{const}\ osg::Vec3\&\ pos,}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ direction,\ \textcolor{keywordtype}{float}\ radius,\ \textcolor{keywordtype}{float}\ height,\ \textcolor{keywordtype}{int}\ label=-\/1);}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00221\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a92cc6213e3d3d9845834a51e3a7edf97}{fixBodies}}(boost::shared\_ptr<SimpleBody>\ b1,}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ b2);}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00228\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a92cc6213e3d3d9845834a51e3a7edf97}{fixBodies}}(std::vector<boost::shared\_ptr<AbstractBody>\ >bodies);}
+\DoxyCodeLine{00229\ }
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00238\ \ \ \ \ boost::shared\_ptr<Joint>\ \mbox{\hyperlink{classrobogen_1_1Model_a8d2778a938d47f9efd9ce16f32702f3f}{attachWithHinge}}(boost::shared\_ptr<SimpleBody>\ b1,}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ b2,\ osg::Vec3\ axis,\ osg::Vec3\ anchor);}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00249\ \ \ \ \ boost::shared\_ptr<Joint>\ \mbox{\hyperlink{classrobogen_1_1Model_a884746deb1f75f12f9e1b9b841ae2a95}{attachWithUniversal}}(boost::shared\_ptr<SimpleBody>\ b1,}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ b2,\ osg::Vec3\ axis,osg::Vec3\ axis2,}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ osg::Vec3\ anchor);}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00259\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Model_acf047df8e51e81719d16fc07d11f1bc0}{setOrientationToParentSlot}}(\textcolor{keywordtype}{int}\ orientation);}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00266\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Model_a6fb9a7643e044cf5e1db5512f73aa0a1}{getOrientationToParentSlot}}();}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Model_a569bd73db86d3ea0b96a2c8197ba8af8}{setParentOrientation}}(\textcolor{keywordtype}{int}\ orientation);}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00279\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1Model_a73980148efe547f4eac1cd91b2643726}{getOrientationToRoot}}();}
+\DoxyCodeLine{00280\ }
+\DoxyCodeLine{00284\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::vector<\ boost::shared\_ptr<Joint>\ >\ \&\mbox{\hyperlink{classrobogen_1_1Model_a08e7cc53eaefab0fe0854709bd1936d4}{getJoints}}()\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ joints\_;}
+\DoxyCodeLine{00286\ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a6b818659905c9a9bd91fbaf98377e89d}{removeJoint}}(boost::shared\_ptr<Joint>\ joint);}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Model_a2c02b1b34b87efe2b2e4e44c551458ad}{addBody}}(boost::shared\_ptr<SimpleBody>,\ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ std::set<boost::shared\_ptr<AbstractBody>\ >\ bodiesToMove();}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00308\ \ \ \ \ dWorldID\ odeWorld\_;}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00313\ \ \ \ \ dSpaceID\ odeSpace\_;}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00318\ \ \ \ \ dSpaceID\ robotSpace\_;}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00323\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ id\_;}
+\DoxyCodeLine{00324\ }
+\DoxyCodeLine{00328\ \ \ \ \ std::map<int,\ boost::shared\_ptr<SimpleBody>\ >\ bodies\_;}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{int}\ orientationToParentSlot\_;}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00336\ \ \ \ \ \textcolor{keywordtype}{int}\ orientationToRoot\_;}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00342\ \ \ \ \ std::vector<\ boost::shared\_ptr<Joint>\ >\ joints\_;}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00344\ \};}
+\DoxyCodeLine{00345\ }
+\DoxyCodeLine{00346\ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00348\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_MODEL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

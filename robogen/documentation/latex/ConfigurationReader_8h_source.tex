@@ -1,0 +1,74 @@
+\hypertarget{ConfigurationReader_8h_source}{}\doxysection{Configuration\+Reader.\+h}
+\label{ConfigurationReader_8h_source}\index{src/config/ConfigurationReader.h@{src/config/ConfigurationReader.h}}
+\mbox{\hyperlink{ConfigurationReader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ ConfigurationReader.h\ \ \ 1.0\ \ \ Mar\ 13,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Andrea\ Maesani}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_CONFIGURATION\_READER\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROBOGEN\_CONFIGURATION\_READER\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00034\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }ObstaclesConfig;}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }RobogenConfig;}
+\DoxyCodeLine{00038\ \textcolor{keyword}{class\ }StartPositionConfig;}
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }TerrainConfig;}
+\DoxyCodeLine{00040\ \textcolor{keyword}{class\ }LightSourcesConfig;}
+\DoxyCodeLine{00041\ \textcolor{keyword}{class\ }GatheringZoneConfig;}
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }ResourcesConfig;}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1ConfigurationReader}{ConfigurationReader}}\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<RobogenConfig>\ \mbox{\hyperlink{classrobogen_1_1ConfigurationReader_af31ab2601088bdeea5ba87a53a505ca3}{parseConfigurationFile}}(}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<RobogenConfig>\ \mbox{\hyperlink{classrobogen_1_1ConfigurationReader_a7c74305d10403d345dc9b15522683cbe}{parseRobogenMessage}}(}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ robogenMessage::SimulatorConf\&\ simulatorConf);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<ObstaclesConfig>\ parseObstaclesFile(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<StartPositionConfig>\ parseStartPositionFile(\textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<LightSourcesConfig>\ parseLightSourcesFile(\textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ boost::shared\_ptr<ResourcesConfig>\ parseResourcesFile(\textcolor{keyword}{const}\ std::string\&\ fileName);}
+\DoxyCodeLine{00100\ \};}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_CONFIGURATION\_READER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,52 @@
+\hypertarget{PickUpPositioningHeuristic_8h_source}{}\doxysection{Pick\+Up\+Positioning\+Heuristic.\+h}
+\label{PickUpPositioningHeuristic_8h_source}\index{src/EDQD/PickUpPositioningHeuristic.h@{src/EDQD/PickUpPositioningHeuristic.h}}
+\mbox{\hyperlink{PickUpPositioningHeuristic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ PickUpPositioningHeuristic.h\ \ \ 1.0\ \ \ Oct\ 25,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ EDQD\_PICKUPPOSITIONINGHEURISTIC\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EDQD\_PICKUPPOSITIONINGHEURISTIC\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Heuristic_8h}{EDQD/Heuristic.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Scenario_8h}{scenario/Scenario.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}model/sensors/IrSensor.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}model/sensors/ColorSensor.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}model/sensors/TargetAreaDetector.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }AnchorPoint;}
+\DoxyCodeLine{00030\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic}{PickUpPositioningHeuristic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrobogen_1_1Heuristic}{Heuristic}}\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic}{PickUpPositioningHeuristic}}(boost::shared\_ptr<Robot>\ robot,\ boost::shared\_ptr<Scenario>\ scenario);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_a8edb03d6a4e95b79236a2bdb3fe9f790}{\string~PickUpPositioningHeuristic}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec2d\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_a4af772644f6693961d767f5322c0c8e9}{step}}(boost::mutex\&\ queueMutex);}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ osg::Vec3d\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_a90ae24977ab3274071965c9b4fc9aae1}{nextStep}}(boost::shared\_ptr<BoxResource>\ resource);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ osg::Vec3d\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_a1b634b9d814265758b52ffc77b692150}{calculateTargetPoint}}(boost::shared\_ptr<BoxResource>\ resource);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_ad60ff8b64e2378f59ef5b08d19a67303}{setResource}}(boost::shared\_ptr<BoxResource>\ resource);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_a34569bd048bf568e5f45dae314b7fe8b}{isActive}}()\{\textcolor{keywordflow}{return}\ active\_;\}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1PickUpPositioningHeuristic_ad5687e07bc9b6650676ea004610f5f86}{setActive}}(\textcolor{keywordtype}{bool}\ value)\{active\_\ =\ value;\}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ boost::shared\_ptr<Environment>\ env;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ osg::Vec3d\ targetAreaPosition\_;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ osg::Vec3d\ targetPoint;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ boost::shared\_ptr<BoxResource>\ resource\_;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ active\_;}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EDQD\_PICKUPPOSITIONINGHEURISTIC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

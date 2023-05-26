@@ -1,0 +1,90 @@
+\hypertarget{AbstractBody_8h_source}{}\doxysection{Abstract\+Body.\+h}
+\label{AbstractBody_8h_source}\index{src/model/AbstractBody.h@{src/model/AbstractBody.h}}
+\mbox{\hyperlink{AbstractBody_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ AbstractBody.h\ \ \ 1.0\ \ \ September\ 13,\ 2015}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_ABSTRACT\_BODY\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_ABSTRACT\_BODY\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <boost/enable\_shared\_from\_this.hpp>}}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Joint_8h}{Joint.h}}"{}}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{class\ }Model;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }CompositeBody;}
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1AbstractBody}{AbstractBody}}\ :\ \textcolor{keyword}{public}\ boost::enable\_shared\_from\_this<AbstractBody>\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{inline}\ dBodyID\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244}{getBody}}()\ \{\ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\_}};\ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0}{setBody}}(dBodyID\ body)\ \{\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\_}}\ =\ body;\ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab}{\string~AbstractBody}}()\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*if(body\_)\ \{}}
+\DoxyCodeLine{00054\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ printf("{}destroying\ body!!!\(\backslash\)n"{});}}
+\DoxyCodeLine{00055\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ body\_\ <<\ std::endl;}}
+\DoxyCodeLine{00056\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ dBodyDestroy(body\_);}}
+\DoxyCodeLine{00057\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ body\_\ =\ NULL;}}
+\DoxyCodeLine{00058\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{getPosition}}()\ =\ 0;}
+\DoxyCodeLine{00064\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Quat\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{getAttitude}}()\ =\ 0;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051}{setPosition}}(osg::Vec3\ position);}
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a}{setAttitude}}(osg::Quat\ attitude);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd}{setParent}}(boost::shared\_ptr<CompositeBody>\ parent)\ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\_}}\ =\ parent;}
+\DoxyCodeLine{00071\ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{inline}\ boost::shared\_ptr<CompositeBody>\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d}{getParent}}()\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\_}};}
+\DoxyCodeLine{00075\ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ boost::shared\_ptr<AbstractBody>\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1}{getRoot}}();}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00081\ \ \ \ \ dBodyID\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\_}};}
+\DoxyCodeLine{00082\ \ \ \ \ boost::shared\_ptr<CompositeBody>\ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\_}};}
+\DoxyCodeLine{00083\ \};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_ABSTRACT\_BODY\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

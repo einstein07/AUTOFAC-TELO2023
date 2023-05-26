@@ -1,0 +1,103 @@
+\hypertarget{Terrain_8h_source}{}\doxysection{Terrain.\+h}
+\label{Terrain_8h_source}\index{src/scenario/Terrain.h@{src/scenario/Terrain.h}}
+\mbox{\hyperlink{Terrain_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Terrain.h\ \ \ 1.0\ \ \ Mar\ 12,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2013\ Andrea\ Maesani}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_TERRAIN\_H\_}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ ROBOGEN\_TERRAIN\_H\_}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <osg/ref\_ptr>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TerrainConfig_8h}{config/TerrainConfig.h}}"{}}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceosg}{osg}}\ \{}
+\DoxyCodeLine{00037\ \textcolor{keyword}{class\ }Image;}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Terrain}{Terrain}}\ \{}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Terrain}{Terrain}}(dWorldID\ \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{odeWorld}},\ dSpaceID\ odeSpace);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1Terrain_aa5231f204463d162752943d0a6788ba3}{\string~Terrain}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{TerrainConfig::TerrainType}}\ \mbox{\hyperlink{classrobogen_1_1Terrain_a7f639a76926014b98a14933da23a4ce1}{getType}}();}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Terrain_ad13a0052714852aa60d24b9380c5e6bf}{initFlat}}(\textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ depth);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#ifndef\ DISABLE\_HEIGHT\_MAP}}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Terrain_a84f1e3c824bbebef5ccca89ef8c2411e}{initRough}}(\textcolor{keyword}{const}\ std::string\&\ heightMapFileName,\ \textcolor{keywordtype}{float}\ width,}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ depth,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00096\ \ \ \ \ osg::ref\_ptr<osg::Image>\ \mbox{\hyperlink{classrobogen_1_1Terrain_a8b03b7630220cceaf225e1df86b906f3}{getHeightFieldData}}();}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Terrain_a19792127138684642e6f7d68ef709c7a}{getWidth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Terrain_ab5f62df38fc6cf512375fa723f49a173}{getDepth}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1Terrain_a8f761d358f3c9d25c5ea170f536f11ca}{getHeightFieldHeight}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Terrain_a4e925898773e1f77da961eebbac16813}{getBB}}(\textcolor{keywordtype}{double}\&\ minX,\ \textcolor{keywordtype}{double}\&\ maxX,\ \textcolor{keywordtype}{double}\&\ minY,\ \textcolor{keywordtype}{double}\&\ maxY,}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ minZ,\ \textcolor{keywordtype}{double}\&\ maxZ);}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ dGeomID\&\ \mbox{\hyperlink{classrobogen_1_1Terrain_a867f6084dbc9f8c79262c91872486264}{getGeom}}()\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ tID;}
+\DoxyCodeLine{00132\ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ dWorldID\ odeWorld\_;}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ dSpaceID\ odeSpace\_;}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{TerrainConfig::TerrainType}}\ type\_;}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00153\ \ \ \ \ dHeightfieldDataID\ heightField\_;}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00158\ \ \ \ \ osg::ref\_ptr<osg::Image>\ heightFieldData\_;}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{float}\ heightFieldWidth\_;}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordtype}{float}\ heightFieldDepth\_;}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{float}\ heightFieldHeight\_;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ \ \ dGeomID\ odeGeometry\_;}
+\DoxyCodeLine{00171\ }
+\DoxyCodeLine{00175\ \ \ \ \ dGeomID\ tID;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00179\ \}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_TERRAIN\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

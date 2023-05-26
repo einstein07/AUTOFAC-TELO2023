@@ -1,0 +1,64 @@
+\hypertarget{JSViewer_8h_source}{}\doxysection{JSViewer.\+h}
+\label{JSViewer_8h_source}\index{src/viewer/JSViewer.h@{src/viewer/JSViewer.h}}
+\mbox{\hyperlink{JSViewer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ FileViewerLog.h\ \ \ 1.0\ \ \ Aug\ 20,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Guillaume\ Leclerc}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Titus\ Cieslweski,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ NULLVIEWER\_H\_}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ NULLVIEWER\_H\_}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{IViewer_8h}{viewer/IViewer.h}}>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{WebGLLogger_8h}{viewer/WebGLLogger.h}}>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{JSViewer_8h_af9a0167293559a144071ab112c732d4d}{sendJSEvent}}(std::string\ name,\ std::string\ jsonData);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1JSViewer}{JSViewer}}:\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrobogen_1_1IViewer}{IViewer}}\ \{}
+\DoxyCodeLine{00045\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00049\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1JSViewer_acaf1e88600ba399ba5a0b801c1179180}{JSViewer}}();}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1JSViewer_a04a422722eb3494e77e11bea6fba8f94}{\string~JSViewer}}();}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1JSViewer_ad3f12940077e9275b09cf49624288383}{configureScene}}(}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<boost::shared\_ptr<Model>\ >\ bodyParts,}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<Scenario>\ scenario);}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1JSViewer_aef130cddb9e10a84f75c589479d72b55}{done}}();}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1JSViewer_a5a71ec6054f288a25bd9148ee67ca073}{frame}}(\textcolor{keywordtype}{double}\ simulatedTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numTimeSteps);}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1JSViewer_a4473fedd3fabb2f2ff950de36691bffd}{isPaused}}();}
+\DoxyCodeLine{00061\ private\ :}
+\DoxyCodeLine{00062\ \ \ \ \ boost::shared\_ptr<robogen::WebGLLogger>\ innerLogger;}
+\DoxyCodeLine{00063\ \};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \}\ \textcolor{comment}{/*\ namespace\ robogen\ */}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ NULLVIEWER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

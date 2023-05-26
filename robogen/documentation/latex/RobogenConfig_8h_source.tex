@@ -1,0 +1,313 @@
+\hypertarget{RobogenConfig_8h_source}{}\doxysection{Robogen\+Config.\+h}
+\label{RobogenConfig_8h_source}\index{src/config/RobogenConfig.h@{src/config/RobogenConfig.h}}
+\mbox{\hyperlink{RobogenConfig_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ RobogenConfig.h\ \ \ 1.0\ \ \ Mar\ 12,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_ROBOGEN\_CONFIG\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ROBOGEN\_ROBOGEN\_CONFIG\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ObstaclesConfig_8h}{config/ObstaclesConfig.h}}"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{StartPositionConfig_8h}{config/StartPositionConfig.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{TerrainConfig_8h}{config/TerrainConfig.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LightSourcesConfig_8h}{config/LightSourcesConfig.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{GatheringZoneConfig_8h}{config/GatheringZoneConfig.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ResourcesConfig_8h}{config/ResourcesConfig.h}}"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}robogen.pb.h"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1RobogenConfig}{RobogenConfig}}\ \{}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0}{ObstacleOverlapPolicies}}\ \{}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a773102805ce551be9934b3c80eaa25a9}{REMOVE\_OBSTACLES}},\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a18e3ef4a25112823b08910652a144379}{CONSTRAINT\_VIOLATION}},\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0aeab6added055f1402f328c1447673a6f}{ELEVATE\_ROBOT}}}
+\DoxyCodeLine{00055\ \ \ \ \ \};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12cc3ea34c2c103125ab4a3101934924}{RobogenConfig}}(std::string\ scenario,\ std::string\ scenarioFile,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ timeSteps,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ timeStepLength,\ \textcolor{keywordtype}{int}\ actuationPeriod,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<TerrainConfig>\ terrain,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<ObstaclesConfig>\ obstacles,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ obstacleFile,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<StartPositionConfig>\ startPositions,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ startPosFile,}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<ResourcesConfig>\ resources,}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ resourceFile,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<LightSourcesConfig>\ lightSources,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ std::string\ lightSourceFile,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sensorNoiseLevel,\ \textcolor{keywordtype}{float}\ motorNoiseLevel,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ capAcceleration,\ \textcolor{keywordtype}{float}\ maxLinearAcceleration,}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ maxAngularAcceleration,\ \textcolor{keywordtype}{int}\ maxDirectionShiftsPerSecond,}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ osg::Vec3\ gravity,\ \textcolor{keywordtype}{bool}\ disallowObstacleCollisions,}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ obstacleOverlapPolicy,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<GatheringZoneConfig>\ gatheringZone,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ swarmSize,\ std::string\ mode,\ \textcolor{keywordtype}{bool}\ complexityCost=\textcolor{keyword}{false})\ :}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ scenario\_(scenario),\ scenarioFile\_(scenarioFile),}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timeSteps\_(timeSteps),}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ timeStepLength\_(timeStepLength),}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ actuationPeriod\_(actuationPeriod),}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ terrain\_(terrain),\ obstacles\_(obstacles),}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obstacleFile\_(obstacleFile),}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ startPositions\_(startPositions),}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ startPosFile\_(startPosFile),}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resources\_(resources),}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resourceFile\_(resourceFile),}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lightSources\_(lightSources),}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ lightSourceFile\_(lightSourceFile),}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sensorNoiseLevel\_(sensorNoiseLevel),}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ motorNoiseLevel\_(motorNoiseLevel),}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ capAcceleration\_(capAcceleration),}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxLinearAcceleration\_(maxLinearAcceleration),}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxAngularAcceleration\_(maxAngularAcceleration),}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ maxDirectionShiftsPerSecond\_(maxDirectionShiftsPerSecond),}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gravity\_(gravity),}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ disallowObstacleCollisions\_(disallowObstacleCollisions),}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ obstacleOverlapPolicy\_(obstacleOverlapPolicy),\ }
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gatheringZone\_(gatheringZone),\ swarmSize\_(swarmSize),}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mode\_(mode),\ complexityCost\_(complexityCost)\ \{}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ simulationTime\_\ =\ timeSteps\ *\ timeStepLength;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00112\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a212eae93a586fb897223ee5a2161411e}{RobogenConfig}}(\textcolor{keyword}{const}\ robogenMessage::SimulatorConf\ \&message);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a73578b9984b7d79ad80a8676f9fc024c}{\string~RobogenConfig}}()\ \{}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \}}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00125\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a85d89a0f60fee7ded7f1c756368894f5}{getScenario}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scenario\_;}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00133\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a766fc9845d4d9ada762ddf9fb312f05c}{getScenarioFile}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ scenarioFile\_;}
+\DoxyCodeLine{00135\ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00141\ \ \ \ \ boost::shared\_ptr<TerrainConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aabb5630b2a3db0f23a8eed379a1550b7}{getTerrainConfig}}()\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ terrain\_;}
+\DoxyCodeLine{00143\ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00149\ \ \ \ \ boost::shared\_ptr<ObstaclesConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aa113811335e773455b81f597feabfae2}{getObstaclesConfig}}()\ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obstacles\_;}
+\DoxyCodeLine{00151\ \ \ \ \ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00157\ \ \ \ \ boost::shared\_ptr<LightSourcesConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac70969089160a942960e14580bd32f34}{getLightSourcesConfig}}()\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lightSources\_;}
+\DoxyCodeLine{00159\ \ \ \ \ \}}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_abc386a04625030facc442b6abe1b4d1c}{getTimeSteps}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ timeSteps\_;}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a5cfa0fe65de951de2eb594360a8f03ec}{getSimulationTime}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ simulationTime\_;}
+\DoxyCodeLine{00175\ \ \ \ \ \}}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aeb9a6a1e6fdefc2c24310d06fafe7f6f}{getTimeStepLength}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ timeStepLength\_;}
+\DoxyCodeLine{00183\ \ \ \ \ \}}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ae75ba92d833a71221f0cb9275b686a55}{getActuationPeriod}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ actuationPeriod\_;}
+\DoxyCodeLine{00191\ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00197\ \ \ \ \ boost::shared\_ptr<StartPositionConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a59f0cd5e42138be064068961f54ddef2}{getStartingPos}}()\ \{}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ startPositions\_;}
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00205\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12bf4bd71336879b61f45b23ce498881}{getStartPosFile}}()\{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ startPosFile\_;}
+\DoxyCodeLine{00207\ \ \ \ \ \}}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00213\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a7f3f5494d4330dc0fbd815ee16f167f3}{getObstacleFile}}()\{}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obstacleFile\_;}
+\DoxyCodeLine{00215\ \ \ \ \ \}}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00221\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a4fadbf38eb1a9ae68e4998897f6f76fb}{getLightSourceFile}}()\{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ lightSourceFile\_;}
+\DoxyCodeLine{00223\ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a5e5ede42a32598490f583a4f28503238}{getSensorNoiseLevel}}()\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sensorNoiseLevel\_;}
+\DoxyCodeLine{00234\ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00241\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ad4e7520b1693711f1c0b10210ff62d65}{getMotorNoiseLevel}}()\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ motorNoiseLevel\_;}
+\DoxyCodeLine{00243\ \ \ \ \ \}}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac2960ffca8a884615f7a688cb7b63360}{isCapAlleration}}()\ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ capAcceleration\_;}
+\DoxyCodeLine{00251\ \ \ \ \ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00257\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a952d284a5a582041ea79b2746e428e48}{getMaxLinearAcceleration}}()\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxLinearAcceleration\_;}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_adcbabca25d932a0412b9c4c270ff070d}{getMaxAngularAcceleration}}()\ \{}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxAngularAcceleration\_;}
+\DoxyCodeLine{00267\ \ \ \ \ \}}
+\DoxyCodeLine{00268\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a4a434b66ef527b50c4e943e80803ae15}{getMaxDirectionShiftsPerSecond}}()\ \{}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ maxDirectionShiftsPerSecond\_;}
+\DoxyCodeLine{00276\ \ \ \ \ \}}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00282\ \ \ \ \ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a92edb2cdadb560f4abdd0868ec1f5c8e}{getGravity}}()\ \{}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gravity\_;}
+\DoxyCodeLine{00284\ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00290\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a3498f5f385ee71ce02b52fc228ddc7c8}{isDisallowObstacleCollisions}}()\ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ disallowObstacleCollisions\_;}
+\DoxyCodeLine{00292\ \ \ \ \ \}}
+\DoxyCodeLine{00293\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12601218088a04633940eda0e93af766}{getObstacleOverlapPolicy}}()\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obstacleOverlapPolicy\_;}
+\DoxyCodeLine{00300\ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a18fac1eae4bffbd681e323647a7d2e02}{getComplexityCost}}()\{}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ complexityCost\_;}
+\DoxyCodeLine{00308\ \ \ \ \ \}}
+\DoxyCodeLine{00309\ }
+\DoxyCodeLine{00314\ \ \ \ \ boost::shared\_ptr<GatheringZoneConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a042398034339a84c41f20ec1ba8c11d0}{getGatheringZoneConfig}}()\ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gatheringZone\_;}
+\DoxyCodeLine{00316\ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00322\ \ \ \ \ boost::shared\_ptr<ResourcesConfig>\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac52cffd7571e29ced337aae3e36b9d3b}{getResourcesConfig}}()\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ resources\_;}
+\DoxyCodeLine{00324\ \ \ \ \ \}}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00330\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac2d0389135cfae58b237f6e17b7f860a}{getResourceFile}}()\{}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ resourceFile\_;}
+\DoxyCodeLine{00332\ \ \ \ \ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00338\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac8c14d49716f8b2bc27aa3009582175c}{getSwarmSize}}()\{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ swarmSize\_;}
+\DoxyCodeLine{00340\ \ \ \ \ \}}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00346\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_accf99e724b7d848ce97e32fdd9279e8c}{getMode}}()\{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mode\_;}
+\DoxyCodeLine{00348\ \ \ \ \ \}}
+\DoxyCodeLine{00352\ \ \ \ \ robogenMessage::SimulatorConf\ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a44fb178c13d98c52397dc5d79a67dba2}{serialize}}()\textcolor{keyword}{\ const}\{}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ robogenMessage::SimulatorConf\ ret;}
+\DoxyCodeLine{00354\ }
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ ret.set\_ntimesteps(timeSteps\_);}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ ret.set\_scenario(scenario\_);}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ ret.set\_timestep(timeStepLength\_);}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ ret.set\_actuationperiod(actuationPeriod\_);}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ ret.set\_sensornoiselevel(sensorNoiseLevel\_);}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ ret.set\_motornoiselevel(motorNoiseLevel\_);}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ ret.set\_capacceleration(capAcceleration\_);}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ ret.set\_maxlinearacceleration(maxLinearAcceleration\_);}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ ret.set\_maxangularacceleration(maxAngularAcceleration\_);}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ ret.set\_maxdirectionshiftspersecond(maxDirectionShiftsPerSecond\_);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ ret.set\_gravityx(gravity\_.x());}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ ret.set\_gravityy(gravity\_.y());}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ ret.set\_gravityz(gravity\_.z());}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ ret.set\_disallowobstaclecollisions(disallowObstacleCollisions\_);}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ ret.set\_obstacleoverlappolicy(obstacleOverlapPolicy\_);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ terrain\_-\/>serialize(ret);}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ obstacles\_-\/>serialize(ret);}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ startPositions\_-\/>serialize(ret);}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ lightSources\_-\/>serialize(ret);}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ gatheringZone\_\ -\/>serialize(ret);}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00379\ \ \ \ \ \}}
+\DoxyCodeLine{00380\ }
+\DoxyCodeLine{00381\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00386\ \ \ \ \ std::string\ scenario\_;}
+\DoxyCodeLine{00387\ }
+\DoxyCodeLine{00391\ \ \ \ \ std::string\ scenarioFile\_;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00396\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ timeSteps\_;}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00401\ \ \ \ \ \textcolor{keywordtype}{float}\ timeStepLength\_;}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00406\ \ \ \ \ \textcolor{keywordtype}{int}\ actuationPeriod\_;}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00411\ \ \ \ \ boost::shared\_ptr<TerrainConfig>\ terrain\_;}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00416\ \ \ \ \ boost::shared\_ptr<ObstaclesConfig>\ obstacles\_;}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00421\ \ \ \ \ std::string\ obstacleFile\_;}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00426\ \ \ \ \ boost::shared\_ptr<StartPositionConfig>\ startPositions\_;}
+\DoxyCodeLine{00427\ }
+\DoxyCodeLine{00431\ \ \ \ \ std::string\ startPosFile\_;}
+\DoxyCodeLine{00432\ }
+\DoxyCodeLine{00436\ \ \ \ \ boost::shared\_ptr<LightSourcesConfig>\ lightSources\_;}
+\DoxyCodeLine{00437\ }
+\DoxyCodeLine{00441\ \ \ \ \ std::string\ lightSourceFile\_;}
+\DoxyCodeLine{00442\ }
+\DoxyCodeLine{00446\ \ \ \ \ \textcolor{keywordtype}{float}\ simulationTime\_;}
+\DoxyCodeLine{00447\ }
+\DoxyCodeLine{00451\ \ \ \ \ \textcolor{keywordtype}{float}\ sensorNoiseLevel\_;}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00456\ \ \ \ \ \textcolor{keywordtype}{float}\ motorNoiseLevel\_;}
+\DoxyCodeLine{00457\ }
+\DoxyCodeLine{00458\ }
+\DoxyCodeLine{00463\ \ \ \ \ \textcolor{keywordtype}{bool}\ capAcceleration\_;}
+\DoxyCodeLine{00464\ }
+\DoxyCodeLine{00468\ \ \ \ \ \textcolor{keywordtype}{float}\ maxLinearAcceleration\_;}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00473\ \ \ \ \ \textcolor{keywordtype}{float}\ maxAngularAcceleration\_;}
+\DoxyCodeLine{00474\ }
+\DoxyCodeLine{00478\ \ \ \ \ \textcolor{keywordtype}{int}\ maxDirectionShiftsPerSecond\_;}
+\DoxyCodeLine{00479\ }
+\DoxyCodeLine{00483\ \ \ \ \ osg::Vec3\ gravity\_;}
+\DoxyCodeLine{00484\ }
+\DoxyCodeLine{00488\ \ \ \ \ \textcolor{keywordtype}{bool}\ disallowObstacleCollisions\_;}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ obstacleOverlapPolicy\_;}
+\DoxyCodeLine{00495\ }
+\DoxyCodeLine{00499\ \ \ \ \ \textcolor{keywordtype}{bool}\ complexityCost\_;}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00504\ \ \ \ \ boost::shared\_ptr<GatheringZoneConfig>\ gatheringZone\_;}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00509\ \ \ \ \ boost::shared\_ptr<ResourcesConfig>\ resources\_;}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00514\ \ \ \ \ std::string\ resourceFile\_;}
+\DoxyCodeLine{00515\ }
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keywordtype}{int}\ swarmSize\_;}
+\DoxyCodeLine{00520\ }
+\DoxyCodeLine{00525\ \ \ \ \ std::string\ mode\_;}
+\DoxyCodeLine{00526\ }
+\DoxyCodeLine{00527\ \};}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00529\ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_ROBOGEN\_CONFIG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

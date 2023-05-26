@@ -1,0 +1,203 @@
+\hypertarget{NeuralNetwork_8h}{}\doxysection{src/brain/\+Neural\+Network.h File Reference}
+\label{NeuralNetwork_8h}\index{src/brain/NeuralNetwork.h@{src/brain/NeuralNetwork.h}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}}
+\begin{DoxyCompactList}\small\item\em Struct to describe Neural Network representation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\+\_\+\+INPUT\+\_\+\+NEURONS}}~/$\ast$$\ast$20$\ast$/80
+\item 
+\#define \mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}~8
+\item 
+\#define \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}}~20
+\item 
+\#define \mbox{\hyperlink{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d}{MAX\+\_\+\+PARAMS}}~3
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7}{neuron\+Type}} \{ \newline
+\mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a1a6b6e9893ec9e5d9710335b4c74d3f6}{SIMPLE}}
+, \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a11c1096689b7d3504dbcc4f61d854883}{SIGMOID}}
+, \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a3998dd775ee2e6ed2161135babf443cd}{CTRNN\+\_\+\+SIGMOID}}
+, \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7ac4373ff381e53d91733f1026cacf357f}{OSCILLATOR}}
+, \newline
+\mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a9f15fee699801b2a7f2da012c89424a6}{SUPG}}
+ \}
+\begin{DoxyCompactList}\small\item\em Neuron type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{NeuralNetwork_8h_a35392862192b6908016afbdc5700de3b}{init\+Network}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, unsigned int n\+Inputs, unsigned int n\+Outputs, unsigned int n\+Hidden, const float $\ast$weights, const float $\ast$params, const unsigned int $\ast$types)
+\begin{DoxyCompactList}\small\item\em Initializes a \doxylink{structNeuralNetwork}{Neural\+Network} data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8h_a42c1a714446f274bbd33ecfe29419062}{feed}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, const float $\ast$input)
+\begin{DoxyCompactList}\small\item\em Feed the neural network with input values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8h_acbb18e1b014c76d19ae75ec07ad7977c}{step}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, float time)
+\begin{DoxyCompactList}\small\item\em Step the neural network of 1 timestep. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8h_adc4df3b0a35f861873a2e725394d83be}{fetch}} (const \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, float $\ast$output)
+\begin{DoxyCompactList}\small\item\em Read the output of the neural network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8h_a2b4d7c250e5018b3257e0749f8427c5a}{set\+Weights}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, const float $\ast$weights)
+\begin{DoxyCompactList}\small\item\em Set the weights of the neural network with new/updated values -\/SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}\label{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!MAX\_HIDDEN\_NEURONS@{MAX\_HIDDEN\_NEURONS}}
+\index{MAX\_HIDDEN\_NEURONS@{MAX\_HIDDEN\_NEURONS}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_HIDDEN\_NEURONS}{MAX\_HIDDEN\_NEURONS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS~20}
+
+set arbitrarily \Hypertarget{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}\label{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!MAX\_INPUT\_NEURONS@{MAX\_INPUT\_NEURONS}}
+\index{MAX\_INPUT\_NEURONS@{MAX\_INPUT\_NEURONS}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_INPUT\_NEURONS}{MAX\_INPUT\_NEURONS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+INPUT\+\_\+\+NEURONS~/$\ast$$\ast$20$\ast$/80}
+
+\Hypertarget{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}\label{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!MAX\_OUTPUT\_NEURONS@{MAX\_OUTPUT\_NEURONS}}
+\index{MAX\_OUTPUT\_NEURONS@{MAX\_OUTPUT\_NEURONS}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_OUTPUT\_NEURONS}{MAX\_OUTPUT\_NEURONS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS~8}
+
+\Hypertarget{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d}\label{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!MAX\_PARAMS@{MAX\_PARAMS}}
+\index{MAX\_PARAMS@{MAX\_PARAMS}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PARAMS}{MAX\_PARAMS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PARAMS~3}
+
+max is either (bias, tau, gain) or (phase offset, period, gain) 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!neuronType@{neuronType}}
+\index{neuronType@{neuronType}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{neuronType}{neuronType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7}{neuron\+Type}}}
+
+
+
+Neuron type. 
+
+No namespace here on purpose ;-\/) 
+
+Copied from Neuron\+Representation.\+h \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIMPLE@{SIMPLE}!NeuralNetwork.h@{NeuralNetwork.h}}\index{NeuralNetwork.h@{NeuralNetwork.h}!SIMPLE@{SIMPLE}}}\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a1a6b6e9893ec9e5d9710335b4c74d3f6}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a1a6b6e9893ec9e5d9710335b4c74d3f6} 
+SIMPLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIGMOID@{SIGMOID}!NeuralNetwork.h@{NeuralNetwork.h}}\index{NeuralNetwork.h@{NeuralNetwork.h}!SIGMOID@{SIGMOID}}}\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a11c1096689b7d3504dbcc4f61d854883}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a11c1096689b7d3504dbcc4f61d854883} 
+SIGMOID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CTRNN\_SIGMOID@{CTRNN\_SIGMOID}!NeuralNetwork.h@{NeuralNetwork.h}}\index{NeuralNetwork.h@{NeuralNetwork.h}!CTRNN\_SIGMOID@{CTRNN\_SIGMOID}}}\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a3998dd775ee2e6ed2161135babf443cd}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a3998dd775ee2e6ed2161135babf443cd} 
+CTRNN\+\_\+\+SIGMOID&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OSCILLATOR@{OSCILLATOR}!NeuralNetwork.h@{NeuralNetwork.h}}\index{NeuralNetwork.h@{NeuralNetwork.h}!OSCILLATOR@{OSCILLATOR}}}\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7ac4373ff381e53d91733f1026cacf357f}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7ac4373ff381e53d91733f1026cacf357f} 
+OSCILLATOR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SUPG@{SUPG}!NeuralNetwork.h@{NeuralNetwork.h}}\index{NeuralNetwork.h@{NeuralNetwork.h}!SUPG@{SUPG}}}\Hypertarget{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a9f15fee699801b2a7f2da012c89424a6}\label{NeuralNetwork_8h_a6df8fe2a62b2b37dd5c4a39760d47db7a9f15fee699801b2a7f2da012c89424a6} 
+SUPG&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{NeuralNetwork_8h_a42c1a714446f274bbd33ecfe29419062}\label{NeuralNetwork_8h_a42c1a714446f274bbd33ecfe29419062} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!feed@{feed}}
+\index{feed@{feed}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{feed()}{feed()}}
+{\footnotesize\ttfamily void feed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{const float $\ast$}]{input }\end{DoxyParamCaption})}
+
+
+
+Feed the neural network with input values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em input} & the input values, must be an array of m inputs \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8h_adc4df3b0a35f861873a2e725394d83be}\label{NeuralNetwork_8h_adc4df3b0a35f861873a2e725394d83be} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!fetch@{fetch}}
+\index{fetch@{fetch}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{fetch()}{fetch()}}
+{\footnotesize\ttfamily void fetch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{float $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+Read the output of the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em output} & the output of the neural network, must point to an area of memory of at least size n \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8h_a35392862192b6908016afbdc5700de3b}\label{NeuralNetwork_8h_a35392862192b6908016afbdc5700de3b} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!initNetwork@{initNetwork}}
+\index{initNetwork@{initNetwork}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{initNetwork()}{initNetwork()}}
+{\footnotesize\ttfamily void init\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{unsigned int}]{n\+Inputs,  }\item[{unsigned int}]{n\+Outputs,  }\item[{unsigned int}]{n\+Hidden,  }\item[{const float $\ast$}]{weights,  }\item[{const float $\ast$}]{params,  }\item[{const unsigned int $\ast$}]{types }\end{DoxyParamCaption})}
+
+
+
+Initializes a \doxylink{structNeuralNetwork}{Neural\+Network} data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em n\+Inputs} & the number of inputs of the neural network \\
+\hline
+{\em n\+Outputs} & the number of outputs of the neural network \\
+\hline
+{\em weight} & weights of the neural network. Weights must be provided in the same order as specified in the \doxylink{structNeuralNetwork}{Neural\+Network} structure \\
+\hline
+{\em bias} & the bias of each output neuron \\
+\hline
+{\em gain} & the gain of each output neuron \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8h_a2b4d7c250e5018b3257e0749f8427c5a}\label{NeuralNetwork_8h_a2b4d7c250e5018b3257e0749f8427c5a} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!setWeights@{setWeights}}
+\index{setWeights@{setWeights}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{setWeights()}{setWeights()}}
+{\footnotesize\ttfamily void set\+Weights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{const float $\ast$}]{weights }\end{DoxyParamCaption})}
+
+
+
+Set the weights of the neural network with new/updated values -\/SM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em weights} & the weight values, must be an array \\
+\hline
+\end{DoxyParams}
+Lazy approach to get number of weights TODO\+: Change it to something more efficient\Hypertarget{NeuralNetwork_8h_acbb18e1b014c76d19ae75ec07ad7977c}\label{NeuralNetwork_8h_acbb18e1b014c76d19ae75ec07ad7977c} 
+\index{NeuralNetwork.h@{NeuralNetwork.h}!step@{step}}
+\index{step@{step}!NeuralNetwork.h@{NeuralNetwork.h}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily void step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{float}]{time }\end{DoxyParamCaption})}
+
+
+
+Step the neural network of 1 timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em time,amount} & of time elapsed since brain turned on (needed for oscillators) \\
+\hline
+\end{DoxyParams}

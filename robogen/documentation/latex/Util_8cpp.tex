@@ -1,0 +1,198 @@
+\hypertarget{Util_8cpp}{}\doxysection{src/\+EDQD/\+Util.cpp File Reference}
+\label{Util_8cpp}\index{src/EDQD/Util.cpp@{src/EDQD/Util.cpp}}
+{\ttfamily \#include \char`\"{}Util.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::mt19937 \mbox{\hyperlink{Util_8cpp_ac60206a0eb6a559a74bde9d9ab693c1f}{engine}} (\mbox{\hyperlink{Util_8cpp_afa066fe29070929c1b0a08338c20bc61}{rnd}}())
+\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{Util_8cpp_a8db245e43cb861fcbfe787b14509d8cb}{dis\+Random}} (0.\+0, 1.\+0)
+\item 
+std\+::normal\+\_\+distribution \mbox{\hyperlink{Util_8cpp_a3c9c8bc045cfa66dcbc9400ad0701bd1}{dis\+Normal}} (0, 1)
+\item 
+std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ \mbox{\hyperlink{Util_8cpp_af8c030528db80fcfbfb8db37c048daab}{random\+Sensor}} (2, 6)
+\item 
+std\+::string \mbox{\hyperlink{Util_8cpp_a21065bd1a3ef9a8909b2051554ec0bad}{getpid\+As\+Readable\+String}} ()
+\begin{DoxyCompactList}\small\item\em Return PID as a string. Useful to desambiguate timestamps. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8cpp_a0936f59402074a1c9ee0d3d09ef9ee30}{get\+Current\+Time\+As\+Readable\+String}} ()
+\begin{DoxyCompactList}\small\item\em Return current time in a string, with readable format -\/ e.\+g. 20100526-\/10h12m08s. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8cpp_aed679ea2c90771d849493c21ee7d9ad3}{convert\+To\+String}} (int \+\_\+\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Convert integer to string. check\+: \href{http://notfaq.wordpress.com/2006/08/30/c-convert-int-to-string/}{\texttt{ http\+://notfaq.\+wordpress.\+com/2006/08/30/c-\/convert-\/int-\/to-\/string/}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Util_8cpp_a72d72c80d795cb7c527752cc54cf025e}{is\+Overlap}} (double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double o\+MinX, double o\+MaxX, double o\+MinY, double o\+MaxY, double o\+MinZ, double o\+MaxZ)
+\begin{DoxyCompactList}\small\item\em Checks if there is an overlap between two regions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Util_8cpp_a94d663bff0c9b842fd3a8c6364c169ce}{distance}} (osg\+::\+Vec3d a, osg\+::\+Vec3d b)
+\begin{DoxyCompactList}\small\item\em Calculates and returns euclidean distance\+: two 3D points. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Util_8cpp_ab409fa3590c58fe28ed5bd355be4c12a}{normalise\+Value}} (double new\+Value, double \+\_\+min\+Value, double \+\_\+max\+Value)
+\begin{DoxyCompactList}\small\item\em Normalize value within bounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::random\+\_\+device \mbox{\hyperlink{Util_8cpp_afa066fe29070929c1b0a08338c20bc61}{rnd}}
+\item 
+std\+::minstd\+\_\+rand \mbox{\hyperlink{Util_8cpp_a7208437a4b4eda05486e64ae23e11dd0}{randint}}
+\begin{DoxyCompactList}\small\item\em Returns an int with value drawn uniformly in \mbox{[}0,max) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Util_8cpp_aed679ea2c90771d849493c21ee7d9ad3}\label{Util_8cpp_aed679ea2c90771d849493c21ee7d9ad3} 
+\index{Util.cpp@{Util.cpp}!convertToString@{convertToString}}
+\index{convertToString@{convertToString}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{convertToString()}{convertToString()}}
+{\footnotesize\ttfamily std\+::string convert\+To\+String (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Convert integer to string. check\+: \href{http://notfaq.wordpress.com/2006/08/30/c-convert-int-to-string/}{\texttt{ http\+://notfaq.\+wordpress.\+com/2006/08/30/c-\/convert-\/int-\/to-\/string/}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string string representation 
+\end{DoxyReturn}
+\Hypertarget{Util_8cpp_a3c9c8bc045cfa66dcbc9400ad0701bd1}\label{Util_8cpp_a3c9c8bc045cfa66dcbc9400ad0701bd1} 
+\index{Util.cpp@{Util.cpp}!disNormal@{disNormal}}
+\index{disNormal@{disNormal}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{disNormal()}{disNormal()}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution dis\+Normal (\begin{DoxyParamCaption}\item[{0}]{,  }\item[{1}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{Util_8cpp_a8db245e43cb861fcbfe787b14509d8cb}\label{Util_8cpp_a8db245e43cb861fcbfe787b14509d8cb} 
+\index{Util.cpp@{Util.cpp}!disRandom@{disRandom}}
+\index{disRandom@{disRandom}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{disRandom()}{disRandom()}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ dis\+Random (\begin{DoxyParamCaption}\item[{0.}]{0,  }\item[{1.}]{0 }\end{DoxyParamCaption})}
+
+\Hypertarget{Util_8cpp_a94d663bff0c9b842fd3a8c6364c169ce}\label{Util_8cpp_a94d663bff0c9b842fd3a8c6364c169ce} 
+\index{Util.cpp@{Util.cpp}!distance@{distance}}
+\index{distance@{distance}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily double distance (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3d}]{a,  }\item[{osg\+::\+Vec3d}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates and returns euclidean distance\+: two 3D points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em osg\+::\+Vec3d} & a \\
+\hline
+{\em osg\+::\+Vec3d} & b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+euclidean distance 
+\end{DoxyReturn}
+\Hypertarget{Util_8cpp_ac60206a0eb6a559a74bde9d9ab693c1f}\label{Util_8cpp_ac60206a0eb6a559a74bde9d9ab693c1f} 
+\index{Util.cpp@{Util.cpp}!engine@{engine}}
+\index{engine@{engine}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{engine()}{engine()}}
+{\footnotesize\ttfamily std\+::mt19937 engine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Util_8cpp_afa066fe29070929c1b0a08338c20bc61}{rnd}}()}]{ }\end{DoxyParamCaption})}
+
+\Hypertarget{Util_8cpp_a0936f59402074a1c9ee0d3d09ef9ee30}\label{Util_8cpp_a0936f59402074a1c9ee0d3d09ef9ee30} 
+\index{Util.cpp@{Util.cpp}!getCurrentTimeAsReadableString@{getCurrentTimeAsReadableString}}
+\index{getCurrentTimeAsReadableString@{getCurrentTimeAsReadableString}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{getCurrentTimeAsReadableString()}{getCurrentTimeAsReadableString()}}
+{\footnotesize\ttfamily std\+::string get\+Current\+Time\+As\+Readable\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return current time in a string, with readable format -\/ e.\+g. 20100526-\/10h12m08s. 
+
+check\+: \href{http://www.cplusplus.com/reference/clibrary/ctime/strftime/}{\texttt{ http\+://www.\+cplusplus.\+com/reference/clibrary/ctime/strftime/}} \Hypertarget{Util_8cpp_a21065bd1a3ef9a8909b2051554ec0bad}\label{Util_8cpp_a21065bd1a3ef9a8909b2051554ec0bad} 
+\index{Util.cpp@{Util.cpp}!getpidAsReadableString@{getpidAsReadableString}}
+\index{getpidAsReadableString@{getpidAsReadableString}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{getpidAsReadableString()}{getpidAsReadableString()}}
+{\footnotesize\ttfamily std\+::string getpid\+As\+Readable\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return PID as a string. Useful to desambiguate timestamps. 
+
+\Hypertarget{Util_8cpp_a72d72c80d795cb7c527752cc54cf025e}\label{Util_8cpp_a72d72c80d795cb7c527752cc54cf025e} 
+\index{Util.cpp@{Util.cpp}!isOverlap@{isOverlap}}
+\index{isOverlap@{isOverlap}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{isOverlap()}{isOverlap()}}
+{\footnotesize\ttfamily bool is\+Overlap (\begin{DoxyParamCaption}\item[{double}]{minX,  }\item[{double}]{maxX,  }\item[{double}]{minY,  }\item[{double}]{maxY,  }\item[{double}]{minZ,  }\item[{double}]{maxZ,  }\item[{double}]{o\+MinX,  }\item[{double}]{o\+MaxX,  }\item[{double}]{o\+MinY,  }\item[{double}]{o\+MaxY,  }\item[{double}]{o\+MinZ,  }\item[{double}]{o\+MaxZ }\end{DoxyParamCaption})}
+
+
+
+Checks if there is an overlap between two regions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & minX \\
+\hline
+{\em double} & maxX \\
+\hline
+{\em double} & minY \\
+\hline
+{\em double} & maxY \\
+\hline
+{\em double} & minZ \\
+\hline
+{\em double} & maxZ \\
+\hline
+{\em double} & other region minX \\
+\hline
+{\em double} & other region maxX \\
+\hline
+{\em double} & other region minY \\
+\hline
+{\em double} & other region maxY \\
+\hline
+{\em double} & other region minZ \\
+\hline
+{\em double} & other region maxZ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is, otherwise false 
+\end{DoxyReturn}
+\Hypertarget{Util_8cpp_ab409fa3590c58fe28ed5bd355be4c12a}\label{Util_8cpp_ab409fa3590c58fe28ed5bd355be4c12a} 
+\index{Util.cpp@{Util.cpp}!normaliseValue@{normaliseValue}}
+\index{normaliseValue@{normaliseValue}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{normaliseValue()}{normaliseValue()}}
+{\footnotesize\ttfamily double normalise\+Value (\begin{DoxyParamCaption}\item[{double}]{new\+Value,  }\item[{double}]{\+\_\+min\+Value,  }\item[{double}]{\+\_\+max\+Value }\end{DoxyParamCaption})}
+
+
+
+Normalize value within bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & value to normalize \\
+\hline
+{\em double} & minimum \\
+\hline
+{\em double} & maximum @double normalized value \\
+\hline
+\end{DoxyParams}
+\Hypertarget{Util_8cpp_af8c030528db80fcfbfb8db37c048daab}\label{Util_8cpp_af8c030528db80fcfbfb8db37c048daab} 
+\index{Util.cpp@{Util.cpp}!randomSensor@{randomSensor}}
+\index{randomSensor@{randomSensor}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{randomSensor()}{randomSensor()}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ random\+Sensor (\begin{DoxyParamCaption}\item[{2}]{,  }\item[{6}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Util_8cpp_a7208437a4b4eda05486e64ae23e11dd0}\label{Util_8cpp_a7208437a4b4eda05486e64ae23e11dd0} 
+\index{Util.cpp@{Util.cpp}!randint@{randint}}
+\index{randint@{randint}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{randint}{randint}}
+{\footnotesize\ttfamily std\+::minstd\+\_\+rand randint}
+
+
+
+Returns an int with value drawn uniformly in \mbox{[}0,max) 
+
+\Hypertarget{Util_8cpp_afa066fe29070929c1b0a08338c20bc61}\label{Util_8cpp_afa066fe29070929c1b0a08338c20bc61} 
+\index{Util.cpp@{Util.cpp}!rnd@{rnd}}
+\index{rnd@{rnd}!Util.cpp@{Util.cpp}}
+\doxysubsubsection{\texorpdfstring{rnd}{rnd}}
+{\footnotesize\ttfamily std\+::random\+\_\+device rnd}
+

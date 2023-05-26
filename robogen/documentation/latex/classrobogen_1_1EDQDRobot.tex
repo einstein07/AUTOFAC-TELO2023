@@ -1,0 +1,1835 @@
+\hypertarget{classrobogen_1_1EDQDRobot}{}\doxysection{robogen\+::EDQDRobot Class Reference}
+\label{classrobogen_1_1EDQDRobot}\index{robogen::EDQDRobot@{robogen::EDQDRobot}}
+
+
+Class for describing an EDQD-\/robot Extends \doxylink{classrobogen_1_1Robot}{Robot}.  
+
+
+
+
+{\ttfamily \#include $<$EDQDRobot.\+h$>$}
+
+Inheritance diagram for robogen\+::EDQDRobot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1EDQDRobot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDRobot_a8d91580fb72bf00f09c510e410e9c509}{EDQDRobot}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a64c7a14978c014ad1aa2bae53c6aca1f}{$\sim$\+EDQDRobot}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2aaad787a762408c58473e95e8217f40}{initialise}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID robot\+Space, int \&nb\+ALive, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4c2438b42f170ebd65d9549f878ba397}{configuration}}, const robogen\+Message\+::\+Robot \&robot\+Spec, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Initializes a new \doxylink{classrobogen_1_1EDQDRobot}{EDQDRobot}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a93a6600d3b4cbb3531218879b4cf0680}{store\+Map}} (\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$map, int sender\+Id)
+\begin{DoxyCompactList}\small\item\em Manage storage of a map received from a neighbour. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a97a9dcfb2a86859dbe1ad5de44f38ce2}{store\+Maps}} (\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$map, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$morph\+Map, int sender\+Id)
+\begin{DoxyCompactList}\small\item\em Manage storage of behavior and morphology maps received from a neighbour. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a883647d6be46037dfb492f26551f1d95}{store\+Genome}} (std\+::vector$<$ double $>$ genome, std\+::pair$<$ int, int $>$ sender\+Id, float sigma, float fitness, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$map)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a52a5b7255a53515ba56fb236868b03b0}{broadcast\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Broadcast map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aa595a84bdaf5b149925d1d39067e671b}{update\+Fitness}} (int pushing\+Robots, double value)
+\begin{DoxyCompactList}\small\item\em Update fitness. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a83b83ba53808c901c440177fcc8c3bf9}{update\+Fitness}} (osg\+::\+Vec3d drop\+Off\+Position, int pushing\+Robots, double value)
+\begin{DoxyCompactList}\small\item\em Update fitness. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ac5c0ffc289f74de2e7394b8955f75a07}{step}} (boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em Perform control decision and evolution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_addcfc10f823122fcdd4458d780a05288}{step\+Evolution}} (boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em STep evolution. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a60b880823b4a5f022e8fa3e1efb0708f}{step\+Controller}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$ env, double elapsed\+Evaluation\+Time)
+\begin{DoxyCompactList}\small\item\em Step controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a770d2281eae0de0a89ca6ea4e37286c5}{set\+Weights}} ()
+\begin{DoxyCompactList}\small\item\em Set ANN weights. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a95ff7ae913ffe8acff0cadaa3afc9591}{set\+Pick\+Up\+Position}} (osg\+::\+Vec3d position)
+\begin{DoxyCompactList}\small\item\em Sets pick-\/up position. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ab5bafb9d26f1ae563de33faad65f14a5}{is\+Listening}} ()
+\begin{DoxyCompactList}\small\item\em Returns listening status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aaf078c3a5316708384a20e9144f18e29}{inc\+Nb\+Com\+Tx}} ()
+\begin{DoxyCompactList}\small\item\em Increments number of genomes/maps transmitted. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a3eec3a62a12e5a7959d2e884340f4dd1}{inc\+Resource\+Counter}} (const int group)
+\begin{DoxyCompactList}\small\item\em Increments resource counters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a11c1ce53c67c0fca00e12d7c6cba722a}{dec\+Resource\+Counter}} (const int group)
+\begin{DoxyCompactList}\small\item\em Decrements resource counters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2cc8445e6bb303d566e81a663b271457}{reset\+Pot\+Max\+Travelled}} ()
+\begin{DoxyCompactList}\small\item\em Resets maximum possible distance that could have been traveled. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a347e7c2afe1dd9084de39ef746ad234d}{update\+Cell\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Updates cell id. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ade05a23d72a3f334b0491308ae3c3086}{get\+Birthdate}} ()
+\begin{DoxyCompactList}\small\item\em Returns birthdate. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4582fa65f72a47f90dd1bd510fbc019c}{get\+Fitness}} ()
+\begin{DoxyCompactList}\small\item\em Returns fitness of the robot. \end{DoxyCompactList}\item 
+const std\+::map$<$ int, int $>$ \& \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a069ebf205c6e90dd57f9a92f3c599433}{get\+Resource\+Counters}} () const
+\begin{DoxyCompactList}\small\item\em Returns map container of resource counters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad26c42589866966e5048c712e5f69460}{update\+Sensor\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Updates sensor info. \end{DoxyCompactList}\item 
+const std\+::map$<$ int, int $>$ \& \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af62c0bfcc49f83a23eb3ac4da07e0a56}{get\+Active\+Sensors}} () const
+\begin{DoxyCompactList}\small\item\em Returns active sensors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a3701bbbefcce84e66173f8226535363b}{set\+Active\+Sensors}} (std\+::map$<$ int, int $>$ active\+\_\+sensors)
+\begin{DoxyCompactList}\small\item\em Sets active sensors per type. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a090843fe5d6c74826b3980da7b4c042e}{is\+Sensor\+Type\+Active}} (std\+::map$<$ int, bool $>$ is\+Sensor\+Type\+Active)
+\begin{DoxyCompactList}\small\item\em Returns sensor status. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad33932f11ca5500dc36f9a652142f183}{get\+Average\+Active\+Sensor\+Range}} ()
+\begin{DoxyCompactList}\small\item\em Returns average range of active sensors. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a87952ef78f878470771e454f3be118b0}{get\+Max\+Active\+Sensor\+Range\+Average}} ()
+\begin{DoxyCompactList}\small\item\em Returns maximum range possible of active sensors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad49914d6bd5ea886c9b23033ed3da994}{set\+Per\+Sensor\+Type\+Range}} (std\+::map$<$ int, double $>$ per\+Sensor\+Type\+Range)
+\begin{DoxyCompactList}\small\item\em Sets per sensor type range. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2a5972c02362e1fdeb37edd37c55ff8d}{set\+Per\+Sensor\+Type\+Max\+Range}} (std\+::map$<$ int, double $>$ per\+Sensor\+Type\+Max\+Range)
+\begin{DoxyCompactList}\small\item\em Sets per sensor type max range. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ab3449d9031ec42b21cbae01253822301}{get\+Possible\+Number\+Of\+Sensors}} ()
+\begin{DoxyCompactList}\small\item\em Gets total possible number of sensors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_abff5d68a22e5472b38ed933e73e507d4}{set\+Possible\+Number\+Of\+Sensors}} (int possible\+\_\+number\+\_\+of\+\_\+sensors)
+\begin{DoxyCompactList}\small\item\em Sets the total possible number of sensors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a45f98f036b59fe904790a695fcd1d72e}{reset\+Sensor\+Info}} ()
+\begin{DoxyCompactList}\small\item\em Resets sensor info. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a20072a074ac4358b1d7ac3a28ee5c98a}{reset\+Resource\+Counter}} ()
+\begin{DoxyCompactList}\small\item\em Resets resource counters. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a1c5cab273326c1bb37f1675d49233892}{get\+Max\+Travelled}} () const
+\begin{DoxyCompactList}\small\item\em Gets maximum distance traveled. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ae6a1dc1928351826780b2a0449faa718}{get\+Pot\+Max\+Travelled}} () const
+\begin{DoxyCompactList}\small\item\em Returns total distance that could have been traveled. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a26649a89a78f7d47c22037c456e9c50d}{get\+Sum\+Travelled}} () const
+\begin{DoxyCompactList}\small\item\em Returns sum traveled. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$\& \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2066f42611115f2a02e7586aa46b5933}{get\+Map}} ()
+\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$\& \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a57dbab1e700da0805f7a0028b5d7f37c}{get\+Morph\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Returns morphology map. \end{DoxyCompactList}\item 
+const std\+::vector$<$ double $>$ \& \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a623e6876f7701a1702dc33ea0ef3ccda}{get\+Current\+Genome}} () const
+\item 
+float \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a5141599c6a46fa0789acb2fae8f06990}{get\+Current\+Sigma}} () const
+\begin{DoxyCompactList}\small\item\em Returns current sigma. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a27449629f3e3dbfa4526545df283ac11}{get\+Time\+Resource\+Bound}} ()
+\begin{DoxyCompactList}\small\item\em Returns time robot was bound to resource. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a15ea309078ef5c06f93d1156202c0c10}{inc\+Time\+Resource\+Bound}} ()
+\begin{DoxyCompactList}\small\item\em Increment time robot is bound to resource. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a3f6c86baca17cf10c3cf96cb822ce468}{reset\+Time\+Resource\+Bound}} ()
+\begin{DoxyCompactList}\small\item\em Reset time robot was bound to resource. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a65d409eeef709e5c4d007ce0804272d7}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset this robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ab1aa6b0547983ebdb92ec12cd4761d4c}{write\+EOGEntry}} (\mbox{\hyperlink{classLogger}{Logger}} $\ast$lm)
+\begin{DoxyCompactList}\small\item\em Log end of generation info. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Robot}{robogen\+::\+Robot}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Robot_a2c126b183e2dbeacd445189ac7d1946f}{Robot}} ()
+\begin{DoxyCompactList}\small\item\em Error-\/less constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, const robogen\+Message\+::\+Robot \&robot\+Spec, bool print\+Info=false, bool print\+Init\+Errors=true)
+\begin{DoxyCompactList}\small\item\em Initializes a Robogen robot from a robogen message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_ab032e45d81189ee666078414a89aafd8}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID robot\+Space, int \&nb\+Alive, const robogen\+Message\+::\+Robot \&robot\+Spec, bool print\+Info=false, bool print\+Init\+Errors=true)
+\begin{DoxyCompactList}\small\item\em Modified -\/ to allow constructor initialization with two collision spaces -\/ one for the whole word and the other specific to this robot -\/ SM. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Robot_a627dd89e627527f46cedbca757d07e12}{$\sim$\+Robot}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a6eadb94ee1c6c831e1c046d62d48563e}{get\+Body\+Parts}} ()
+\begin{DoxyCompactList}\small\item\em Returns body parts. \end{DoxyCompactList}\item 
+const boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_aa5a62a6067860cae1c33697493798eaa}{get\+Brain}} () const
+\begin{DoxyCompactList}\small\item\em Returns ANN. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Sensor $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a4c10457e67f68eb9f3c48a42bbcae7c6}{get\+Sensors}} () const
+\begin{DoxyCompactList}\small\item\em Returns sensors. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a07a19ec43df0eea8f77bfadfda25003c}{get\+Motors}} ()
+\begin{DoxyCompactList}\small\item\em Returns motors. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Robot_a8ade4c311ad5cbca90669e6630850927}{get\+Core\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Returns core component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a5f576fd460a5fb6bc88414bed7ee3448}{translate\+Robot}} (const osg\+::\+Vec3 \&translation)
+\begin{DoxyCompactList}\small\item\em Translate the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a0cb9b2124cee51b27b3ebf500936c880}{rotate\+Robot}} (const osg\+::\+Quat \&rot)
+\begin{DoxyCompactList}\small\item\em Rotate the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a2bc3ae1d7086975bfcd60721c4edf4ca}{get\+AABB}} (double \&minX, double \&maxX, double \&minY, double \&maxY, double \&minZ, double \&maxZ)
+\begin{DoxyCompactList}\small\item\em Returns the robot axis-\/aligned bounding box. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a2d0b022ee6d7a84241d4e07008c335c5}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns robot id. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Robot_a50b476312a6502bb10ba5b40441ffe7d}{get\+Body\+Part}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Returns specified body part. \end{DoxyCompactList}\item 
+const robogen\+Message\+::\+Robot \& \mbox{\hyperlink{classrobogen_1_1Robot_a3c4959bf89d2224e507b50688291d9c4}{get\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Returns robogen message. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_aab5ca5b6b650d2f37771de841b701dc0}{get\+Body\+Connections}} () const
+\begin{DoxyCompactList}\small\item\em Returns body connections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a937af10cf8b0b8abdfcc02c4d1137d82}{traverse\+Body}} (const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$, const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$)
+\begin{DoxyCompactList}\small\item\em Traverse body. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a723d9b99c7a79c9558c3ea3bbc6dd478}{get\+Root}} ()
+\begin{DoxyCompactList}\small\item\em Returns root. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a0f11893534830a52c92e983beb6ee6ee}{add\+Joint}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ joint)
+\begin{DoxyCompactList}\small\item\em Add joint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_ab21e39faacd47842d008bdbdfe9a45ad}{optimize\+Physics}} ()
+\begin{DoxyCompactList}\small\item\em Merges bodies connected with fixed joints into complex bodies. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{is\+Bound\+To\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em Returns the status of this robot vis-\/a-\/vis resources -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a3dbfad54e8bd5a78ae406561bc6a733f}{set\+Bound\+To\+Resource}} (bool \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{is\+Bound\+To\+Resource}})
+\begin{DoxyCompactList}\small\item\em Sets the status of this robot vis-\/a-\/vis resources in the environment -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_aeb5585a3dc467f92ade5e1eeb5e454eb}{set\+Bound\+Resource\+Id}} (int resource\+Id)
+\begin{DoxyCompactList}\small\item\em Sets the id of the resource bound to this robot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a9b1111302f6005113baec269447e6fc8}{get\+Bound\+Resource\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the id of the resource this robot is bound to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a44a7f6fe0fa13bd01699bbde08f52ca6}{set\+Alive}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set robot state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_a0be0945c05a8c9739d1524b45734f7e4}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aee70b6c1d65303ad2f8c0629d7452248}{motor\+Outputs}}
+\begin{DoxyCompactList}\small\item\em Motor outputs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Robot}{robogen\+::\+Robot}}}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_ac1b3a60620db50c9e994b15630f40647}{complexity\+\_\+}}
+\begin{DoxyCompactList}\small\item\em CH -\/ Brain-\/body complexity of robot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a2a3b9e691a2217b4f69229fac43eab6c}{complexity\+Cost\+\_\+}}
+\begin{DoxyCompactList}\small\item\em CH -\/ Flag to indicate if complexity cost should be imposed or not. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_a0aa145138fab8f9930f533caf857429d}{end\+Pos\+X\+\_\+}}
+\begin{DoxyCompactList}\small\item\em BK -\/ for novelty score, to record end position achieved during evaluation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_a9fe3f2f6ded4c25d08297fd5bfba7806}{end\+Pos\+Y\+\_\+}}
+\begin{DoxyCompactList}\small\item\em BK -\/ for novelty score, to record end position achieved during evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ab2a2cefe11f9e43a4e7b9bf53a9d631b}{load\+New\+Genome}} ()
+\begin{DoxyCompactList}\small\item\em Load a new genome -\/ i.\+e. replace currently active genome with a new one. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a61e43c32046d7ef87b9e15e93efd0acd}{get\+New\+Genome\+Status}} ()
+\begin{DoxyCompactList}\small\item\em Checks if a new genome was loaded. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_abae071d3e4180ea2a1c0e4922afb8174}{set\+New\+Genome\+Status}} (bool status)
+\begin{DoxyCompactList}\small\item\em Updates new genome flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af66319fa95a0ca9b1f9ac98069a53fb5}{clear\+Reservoir}} ()
+\begin{DoxyCompactList}\small\item\em Clears genomes\+List, sigma\+List, fitnesses\+List and birthday\+List. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a32be6568e2a2f80f62fdbd8349f07537}{mutate\+Gaussian}} (float sigma)
+\begin{DoxyCompactList}\small\item\em Mutate genome using Gaussian distribution~\newline
+Mutates within bounds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a699230d2810a63f47c026e5d9433c309}{mutate\+Uniform}} ()
+\begin{DoxyCompactList}\small\item\em Mutate genome using Uniform distribution~\newline
+Mutates within bounds. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a7a466b228ca7267bc26a39a43d55f5b5}{mutate\+Sigma\+Value}} ()
+\begin{DoxyCompactList}\small\item\em Mutate sigma value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aae64a216202679d6a05040d3eeb743a9}{mutate\+Sensors}} ()
+\begin{DoxyCompactList}\small\item\em Mutate robot sensors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ae1c5242d7df4b01b405d81ac9e735338}{map\+Genotype\+To\+Phenotype}} ()
+\begin{DoxyCompactList}\small\item\em Map genotype to phenotype. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4bbdcefaa5b2c462583e056af60d53ba}{perform\+Selection}} ()
+\begin{DoxyCompactList}\small\item\em Perform selection~\newline
+Called only if at least 1 genome was stored. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a46f108565d774aecb14f01f87501b743}{perform\+Variation}} ()
+\begin{DoxyCompactList}\small\item\em Perform variation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2c4e8e79403b096fbb7c8a538f731ede}{select\+Random\+Genome\+From\+Merged\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Select random genome form behavior-\/related merged map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af9b4591244607f9adb41b1d77b480a10}{select\+Random\+Genome\+From\+Morph\+Merged\+Map}} ()
+\begin{DoxyCompactList}\small\item\em Select random genome from morphology-\/related merged map. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_abc56dd47472a84a9c0710a67c4c66f4a}{select\+Random\+Genome}} ()
+\begin{DoxyCompactList}\small\item\em Select random genome from received genome list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aa00878d5649f56062b12a8fb03a25583}{select\+Best\+Genome}} ()
+\begin{DoxyCompactList}\small\item\em Select best genome from genome list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af04621cb347c32897b0c8dbf9320e468}{select\+First\+Genome}} ()
+\begin{DoxyCompactList}\small\item\em Select first genome from genome list. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4df2cd3b77508a802b9bf8b89a1bbf72}{select\+Fit\+Prop}} ()
+\begin{DoxyCompactList}\small\item\em Select fitness proportionate. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a0945ee1a88454242637ad69f839e6bb5}{log\+Current\+State}} ()
+\begin{DoxyCompactList}\small\item\em Log current agent state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ae214c6a5b95ca02cb55a44a214e009ab}{reset\+Fitness}} ()
+\begin{DoxyCompactList}\small\item\em Reset fitness~\newline
+Note\+: reset\+Fitness is first called by the Controller\textquotesingle{}s constructor. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4674486c639d69b6a60d959f9d9da383}{compute\+Required\+Number\+Of\+Weights}} ()
+\begin{DoxyCompactList}\small\item\em Compute required number of weights for given ANN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aedb26026396cdb2a6db7d6d2b52b8a34}{create\+NN}} ()
+\begin{DoxyCompactList}\small\item\em Creates ANN. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af338fec128315b3d0b59ccc603bc471a}{get\+Inputs}} ()
+\begin{DoxyCompactList}\small\item\em Gets inputs. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a028dfa1a7b1477278c5d5ced4e473cb9}{get\+Sensor\+Inputs}} ()
+\begin{DoxyCompactList}\small\item\em Gets sensors inputs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a5d3af2b0314bb6970060fcd94c20b1e9}{set\+IOcontroller\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Sets IO size. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_afe8678cfac7a7e1bfa735202dbef83d0}{init\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Initializes controller. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a6c32400a5f466761a8b9a77d78ebb404}{map\+Morph\+Phenotype}} ()
+\begin{DoxyCompactList}\small\item\em Map morphology representation to phenotype c. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4e5b4dc1bad65dde79b4830c0465c629}{step\+Controller}} ()
+\begin{DoxyCompactList}\small\item\em Step controller. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a0ba5025a69a9c5a929d389a41d0a75a9}{is\+Null}}
+\begin{DoxyCompactList}\small\item\em Status check of this robot -\/ i.\+e. has it been initialized? \end{DoxyCompactList}\item 
+boost\+::random\+::normal\+\_\+distribution$<$ float $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a22b7b021cfc7cae36adee820cea93f39}{normal\+Distribution}}
+\begin{DoxyCompactList}\small\item\em Normal distribution. \end{DoxyCompactList}\item 
+boost\+::random\+::uniform\+\_\+01$<$ float $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a8f463396ad169846e9283a92bca9d8dc}{uniform\+Distribution}}
+\begin{DoxyCompactList}\small\item\em Uniform distribution. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4c2438b42f170ebd65d9549f878ba397}{configuration}}
+\begin{DoxyCompactList}\small\item\em Robogen config. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad6448e554f299157b365e78828199b9f}{scenario\+\_\+}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classrobogen_1_1Scenario}{Scenario}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a481eba9dc60156897564604e5d0354d0}{birthdate\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Evaluation when this controller was initialised. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ac084f2a021d14b847a1d489404439b8f}{is\+Listening\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Flags whether this agent can receive broadcasted genomes/maps from nearby agents. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a996edb7180e01f578224cf4573f8c176}{not\+Listening\+Delay\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Amount of time to be spent in a not-\/listening-\/state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ac10a36856e5ebea12648f031ecded7c1}{listening\+Delay\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Duration of listening state. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_acae9f5f8c692cb2ce79d2200d1e82e75}{nb\+Genome\+Transmission\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of genomes transmitted. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aaa8800e4ede59f2d5059ba1e8c44868a}{is\+New\+Genome\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Flags whether a new genome was recently loaded. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4acb94d9088ccc7a485fd184e16c9e6a}{fitness\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Behavioral competence. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a152190f9cf81420d4cac63176a70fd41}{step\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Step size. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a5377f14a8d03f8b534bc2c4fd7297971}{time\+Resource\+Bound\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The number of iterations that have passed while this agent is attached to a specific resource. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad5ddea6cb86662b9af692295b0e23fc2}{map\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Behavior map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a9d44fbd34c504919eb78cbe39b78b424}{merged\+Map\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Merged map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a720691af5d1c8ac74eded564953a8be5}{morph\+Map\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Morphology map. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a43e10d569a7b12b9286e4f1e4593b44c}{morph\+Merged\+Map\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Morphology merged map. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::pair$<$ int, int $>$, std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aac83f29192f7eb1b7f3a415fa50c2526}{genomes\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Incoming genomes reservoir. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::pair$<$ int, int $>$, float $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af7577be839fcceb4c16a2e296cdb1c4d}{sigma\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of sigma values. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::pair$<$ int, int $>$, float $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a87e887416f9ba99772489b7cd1764162}{fitness\+Values\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em List of fitness values. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a256d451ae6214a9e1c083ba4027f86c2}{map\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Behavior map list. \end{DoxyCompactList}\item 
+std\+::map$<$ int, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a523484401b0d2796bdf3cb5e2ec68224}{morph\+Map\+List\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Morphology map list. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ae72793dae1023179f6c74acd50a17a2a}{current\+Genome\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Vector of current genome. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1EDQDRobot_accb081d5d9fe5c91c5e6b4534c1ae0dd}{current\+Sigma\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Current sigma. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af6f6232cdf638dac90bb9a7c2f21e133}{ancestor\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This robot\textquotesingle{}s ancestor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a8323a50bb787557f8702ffaaad9e7e31}{morph\+Birthdate\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Morphology birthdate. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a0be1ac347a0b7296d13be452be754bdb}{morph\+Ancestor\+\_\+}}
+\begin{DoxyCompactList}\small\item\em This morphology\textquotesingle{}s ancestor. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a2338f674967eb679745a5eabdb7ef45e}{min\+Value\+\_\+}}
+\begin{DoxyCompactList}\small\item\em ANN minimum value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a64a6bf8453b43d20a52b6ed1a129808f}{max\+Value\+\_\+}}
+\begin{DoxyCompactList}\small\item\em ANN max value. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_acd36f94abd62338079feef72bb9f955b}{nb\+Inputs\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of input neurons. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ab297f7a757176fb78ce816f6c49cf0ff}{nb\+Outputs\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of output neurons. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a9e1962bb471527be5482c03e0a09446d}{nb\+Hidden\+Layers\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of hidden layers. \end{DoxyCompactList}\item 
+std\+::vector$<$ unsigned int $>$ $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a5f109705caf155c414521629e4439d78}{nb\+Neurons\+Per\+Hidden\+Layer\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of neurons per hidden layer. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af017664926ebe34f0d992434220c3337}{parameters\+\_\+}}
+\begin{DoxyCompactList}\small\item\em ANN parameters. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a01ba9a6e86890f98badcd4c831897a0a}{nn\+Type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Neural Network type. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a72be73f4bf1661b23fca27787f07d390}{nb\+Hidden\+Neurons\+Per\+Layer\+\_\+}}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aa6a9a8452e78673359386edceefa3610}{nb\+Bias\+Neurons\+Per\+Layer\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of bias neurons per layer. \end{DoxyCompactList}\item 
+Neural\+::\+Neural\+Network $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aa6d8badf836d78119d06160f78d01c5b}{nn}}
+\begin{DoxyCompactList}\small\item\em Neural Network. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af24ba1cd94879435cdd103df4633c556}{Xinit\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log robot initial x position. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a95944cd7c2f679d929ea741688f5be36}{Yinit\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log robot initial y position. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a07750c7f3664605a90f06f9b34c1ddf8}{Xlast\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log robot last x position. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a02320e71827d25f4b08e9cdefd19d392}{Ylast\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log robot last y position. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ae48b35109269975ef60cf6d21e6f32ab}{d\+Sum\+Travelled\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log sum of distance traveled. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a641d7d15369268a67369b212c7cf2723}{d\+Max\+Travelled\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log maximum distance traveled. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a29907a08e9540553efc0e4e0da7b8810}{d\+Pot\+Max\+Travelled\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Log potential distance that could have been traveled by robot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aeab5a13e94cab9d4c33c1f8c1364a2a3}{nb\+Com\+Tx\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of genomes/maps transmitted. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a6d14711d8619c4bdadb8ce9a6a5b1489}{nb\+Com\+Rx\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Number of genomes/maps received. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a3549913e66dcf9fd2dbb47266c59928f}{current\+Cell\+Id\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Current cell id. \end{DoxyCompactList}\item 
+std\+::map$<$ int, int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a3490ae52813fecedb481e02bb5e4d08d}{resource\+Counters\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Map resource size (in terms of the number of robots required to push it) to number collected. \end{DoxyCompactList}\item 
+std\+::map$<$ int, bool $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a9b3075d53acd3efaf1df35a7568139b8}{is\+Sensor\+Type\+Active\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Flags whether sensor type is active or not. \end{DoxyCompactList}\item 
+std\+::map$<$ int, int $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a6b8d6191470d436d4e719f03285497f8}{num\+Of\+Active\+Sensors\+Per\+Type\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Maps number of sensors active per sensor type. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a85944b1b4477b463938ea33d49c69e13}{possible\+Total\+Number\+Of\+Sensors\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Keeps total number of sensors (inactive + active) \end{DoxyCompactList}\item 
+std\+::map$<$ int, double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a9058ca1893149885c000b555913a6da0}{per\+Sensor\+Type\+Max\+Range\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Maps max range possible per sensors type. \end{DoxyCompactList}\item 
+std\+::map$<$ int, double $>$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a4fd502831e70093bc77be92ca632b0d8}{per\+Sensor\+Type\+Range\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Maps current range of each sensor type. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a7462d8f806a0f26803bd1d26d7e491c8}{average\+Active\+Sensor\+Range\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Average range of all active sensors. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_af8d8748409382312709909914f7d7584}{max\+Active\+Sensor\+Range\+Average\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Max active sensor range average. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a40ee08a5d84e51b2ebb2db22e1c2f8ba}{sensor\+Min\+Value\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Sensor minimum value. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a69f27fe964610f8e1de9d43efea886d0}{sensor\+Max\+Value\+\_\+}}
+\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a0c160e5f85652480d4c184ac7e4b775a}{target\+Area\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Target area location. \end{DoxyCompactList}\item 
+osg\+::\+Vec3d \mbox{\hyperlink{classrobogen_1_1EDQDRobot_afca0e4a268a0e481c1ef6ed9502ad6c2}{pick\+Up\+Position}}
+\begin{DoxyCompactList}\small\item\em Position at which resource was picked up. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a82d6923335d9626cf5a02e12f8846e52}{resource\+Logger}}
+\begin{DoxyCompactList}\small\item\em Resource logger. \end{DoxyCompactList}\item 
+std\+::ofstream \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a0ab7dec6bf50930fedb55440559b1695}{resource\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Resource log ofstream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a1d8180c4c9bb10cd0df8bd65bb4e3fe9}{resource\+Log\+Filename}}
+\begin{DoxyCompactList}\small\item\em Name of resource log file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classrobogen_1_1EDQDRobot_a104b896680a39894d47993b7caf4ee66}{sensor\+Logger}}
+\begin{DoxyCompactList}\small\item\em Sensor logger. \end{DoxyCompactList}\item 
+std\+::ofstream \mbox{\hyperlink{classrobogen_1_1EDQDRobot_ad2f5d1ee8011e628406a10c170f999f1}{sensor\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Sensor log ofstream. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1EDQDRobot_adf646241dbae934c5834798cc90e6aad}{sensor\+Log\+Filename}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \mbox{\hyperlink{classrobogen_1_1EDQDRobot_aa5134e372abcea1b93469a4ae30c5fb6}{max\+Genome\+Size}}
+\begin{DoxyCompactList}\small\item\em Current genome. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing an EDQD-\/robot Extends \doxylink{classrobogen_1_1Robot}{Robot}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1EDQDRobot_a8d91580fb72bf00f09c510e410e9c509}\label{classrobogen_1_1EDQDRobot_a8d91580fb72bf00f09c510e410e9c509} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!EDQDRobot@{EDQDRobot}}
+\index{EDQDRobot@{EDQDRobot}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{EDQDRobot()}{EDQDRobot()}}
+{\footnotesize\ttfamily robogen\+::\+EDQDRobot\+::\+EDQDRobot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a64c7a14978c014ad1aa2bae53c6aca1f}\label{classrobogen_1_1EDQDRobot_a64c7a14978c014ad1aa2bae53c6aca1f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!````~EDQDRobot@{$\sim$EDQDRobot}}
+\index{````~EDQDRobot@{$\sim$EDQDRobot}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{$\sim$EDQDRobot()}{~EDQDRobot()}}
+{\footnotesize\ttfamily robogen\+::\+EDQDRobot\+::$\sim$\+EDQDRobot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1EDQDRobot_a52a5b7255a53515ba56fb236868b03b0}\label{classrobogen_1_1EDQDRobot_a52a5b7255a53515ba56fb236868b03b0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!broadcastMap@{broadcastMap}}
+\index{broadcastMap@{broadcastMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{broadcastMap()}{broadcastMap()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::broadcast\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Broadcast map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af66319fa95a0ca9b1f9ac98069a53fb5}\label{classrobogen_1_1EDQDRobot_af66319fa95a0ca9b1f9ac98069a53fb5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!clearReservoir@{clearReservoir}}
+\index{clearReservoir@{clearReservoir}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{clearReservoir()}{clearReservoir()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::clear\+Reservoir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Clears genomes\+List, sigma\+List, fitnesses\+List and birthday\+List. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4674486c639d69b6a60d959f9d9da383}\label{classrobogen_1_1EDQDRobot_a4674486c639d69b6a60d959f9d9da383} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!computeRequiredNumberOfWeights@{computeRequiredNumberOfWeights}}
+\index{computeRequiredNumberOfWeights@{computeRequiredNumberOfWeights}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{computeRequiredNumberOfWeights()}{computeRequiredNumberOfWeights()}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+EDQDRobot\+::compute\+Required\+Number\+Of\+Weights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Compute required number of weights for given ANN. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aedb26026396cdb2a6db7d6d2b52b8a34}\label{classrobogen_1_1EDQDRobot_aedb26026396cdb2a6db7d6d2b52b8a34} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!createNN@{createNN}}
+\index{createNN@{createNN}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{createNN()}{createNN()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::create\+NN (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Creates ANN. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a11c1ce53c67c0fca00e12d7c6cba722a}\label{classrobogen_1_1EDQDRobot_a11c1ce53c67c0fca00e12d7c6cba722a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!decResourceCounter@{decResourceCounter}}
+\index{decResourceCounter@{decResourceCounter}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{decResourceCounter()}{decResourceCounter()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::dec\+Resource\+Counter (\begin{DoxyParamCaption}\item[{const int}]{group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Decrements resource counters. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af62c0bfcc49f83a23eb3ac4da07e0a56}\label{classrobogen_1_1EDQDRobot_af62c0bfcc49f83a23eb3ac4da07e0a56} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getActiveSensors@{getActiveSensors}}
+\index{getActiveSensors@{getActiveSensors}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getActiveSensors()}{getActiveSensors()}}
+{\footnotesize\ttfamily const std\+::map$<$ int, int $>$ \& robogen\+::\+EDQDRobot\+::get\+Active\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns active sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad33932f11ca5500dc36f9a652142f183}\label{classrobogen_1_1EDQDRobot_ad33932f11ca5500dc36f9a652142f183} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getAverageActiveSensorRange@{getAverageActiveSensorRange}}
+\index{getAverageActiveSensorRange@{getAverageActiveSensorRange}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getAverageActiveSensorRange()}{getAverageActiveSensorRange()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Average\+Active\+Sensor\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns average range of active sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ade05a23d72a3f334b0491308ae3c3086}\label{classrobogen_1_1EDQDRobot_ade05a23d72a3f334b0491308ae3c3086} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getBirthdate@{getBirthdate}}
+\index{getBirthdate@{getBirthdate}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getBirthdate()}{getBirthdate()}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::get\+Birthdate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns birthdate. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a623e6876f7701a1702dc33ea0ef3ccda}\label{classrobogen_1_1EDQDRobot_a623e6876f7701a1702dc33ea0ef3ccda} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getCurrentGenome@{getCurrentGenome}}
+\index{getCurrentGenome@{getCurrentGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getCurrentGenome()}{getCurrentGenome()}}
+{\footnotesize\ttfamily const std\+::vector$<$ double $>$ \& robogen\+::\+EDQDRobot\+::get\+Current\+Genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns current genome \Hypertarget{classrobogen_1_1EDQDRobot_a5141599c6a46fa0789acb2fae8f06990}\label{classrobogen_1_1EDQDRobot_a5141599c6a46fa0789acb2fae8f06990} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getCurrentSigma@{getCurrentSigma}}
+\index{getCurrentSigma@{getCurrentSigma}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getCurrentSigma()}{getCurrentSigma()}}
+{\footnotesize\ttfamily float robogen\+::\+EDQDRobot\+::get\+Current\+Sigma (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns current sigma. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4582fa65f72a47f90dd1bd510fbc019c}\label{classrobogen_1_1EDQDRobot_a4582fa65f72a47f90dd1bd510fbc019c} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getFitness@{getFitness}}
+\index{getFitness@{getFitness}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getFitness()}{getFitness()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Fitness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns fitness of the robot. 
+
+\begin{DoxyReturn}{Returns}
+double 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDRobot_af338fec128315b3d0b59ccc603bc471a}\label{classrobogen_1_1EDQDRobot_af338fec128315b3d0b59ccc603bc471a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getInputs@{getInputs}}
+\index{getInputs@{getInputs}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getInputs()}{getInputs()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ robogen\+::\+EDQDRobot\+::get\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Gets inputs. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a2066f42611115f2a02e7586aa46b5933}\label{classrobogen_1_1EDQDRobot_a2066f42611115f2a02e7586aa46b5933} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getMap@{getMap}}
+\index{getMap@{getMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getMap()}{getMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$\& robogen\+::\+EDQDRobot\+::get\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns behavior map \Hypertarget{classrobogen_1_1EDQDRobot_a87952ef78f878470771e454f3be118b0}\label{classrobogen_1_1EDQDRobot_a87952ef78f878470771e454f3be118b0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getMaxActiveSensorRangeAverage@{getMaxActiveSensorRangeAverage}}
+\index{getMaxActiveSensorRangeAverage@{getMaxActiveSensorRangeAverage}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getMaxActiveSensorRangeAverage()}{getMaxActiveSensorRangeAverage()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Max\+Active\+Sensor\+Range\+Average (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns maximum range possible of active sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a1c5cab273326c1bb37f1675d49233892}\label{classrobogen_1_1EDQDRobot_a1c5cab273326c1bb37f1675d49233892} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getMaxTravelled@{getMaxTravelled}}
+\index{getMaxTravelled@{getMaxTravelled}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getMaxTravelled()}{getMaxTravelled()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Max\+Travelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets maximum distance traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a57dbab1e700da0805f7a0028b5d7f37c}\label{classrobogen_1_1EDQDRobot_a57dbab1e700da0805f7a0028b5d7f37c} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getMorphMap@{getMorphMap}}
+\index{getMorphMap@{getMorphMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getMorphMap()}{getMorphMap()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$\& robogen\+::\+EDQDRobot\+::get\+Morph\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns morphology map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a61e43c32046d7ef87b9e15e93efd0acd}\label{classrobogen_1_1EDQDRobot_a61e43c32046d7ef87b9e15e93efd0acd} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getNewGenomeStatus@{getNewGenomeStatus}}
+\index{getNewGenomeStatus@{getNewGenomeStatus}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getNewGenomeStatus()}{getNewGenomeStatus()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::get\+New\+Genome\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Checks if a new genome was loaded. 
+
+\begin{DoxyReturn}{Returns}
+bool flagging new genome status 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1EDQDRobot_ab3449d9031ec42b21cbae01253822301}\label{classrobogen_1_1EDQDRobot_ab3449d9031ec42b21cbae01253822301} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getPossibleNumberOfSensors@{getPossibleNumberOfSensors}}
+\index{getPossibleNumberOfSensors@{getPossibleNumberOfSensors}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getPossibleNumberOfSensors()}{getPossibleNumberOfSensors()}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::get\+Possible\+Number\+Of\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets total possible number of sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ae6a1dc1928351826780b2a0449faa718}\label{classrobogen_1_1EDQDRobot_ae6a1dc1928351826780b2a0449faa718} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getPotMaxTravelled@{getPotMaxTravelled}}
+\index{getPotMaxTravelled@{getPotMaxTravelled}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getPotMaxTravelled()}{getPotMaxTravelled()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Pot\+Max\+Travelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns total distance that could have been traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a069ebf205c6e90dd57f9a92f3c599433}\label{classrobogen_1_1EDQDRobot_a069ebf205c6e90dd57f9a92f3c599433} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getResourceCounters@{getResourceCounters}}
+\index{getResourceCounters@{getResourceCounters}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getResourceCounters()}{getResourceCounters()}}
+{\footnotesize\ttfamily const std\+::map$<$ int, int $>$ \& robogen\+::\+EDQDRobot\+::get\+Resource\+Counters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns map container of resource counters. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a028dfa1a7b1477278c5d5ced4e473cb9}\label{classrobogen_1_1EDQDRobot_a028dfa1a7b1477278c5d5ced4e473cb9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getSensorInputs@{getSensorInputs}}
+\index{getSensorInputs@{getSensorInputs}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getSensorInputs()}{getSensorInputs()}}
+{\footnotesize\ttfamily std\+::vector$<$ double $>$ robogen\+::\+EDQDRobot\+::get\+Sensor\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Gets sensors inputs. 
+
+1\+: distance/max\+\_\+range 2\+: agent 3\+: resource type 1 4\+: resource type 2 5\+: resource type 3 6\+: resource type 4 7\+: resource type 5 8\+: wall 9\+: target area\Hypertarget{classrobogen_1_1EDQDRobot_a26649a89a78f7d47c22037c456e9c50d}\label{classrobogen_1_1EDQDRobot_a26649a89a78f7d47c22037c456e9c50d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getSumTravelled@{getSumTravelled}}
+\index{getSumTravelled@{getSumTravelled}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getSumTravelled()}{getSumTravelled()}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::get\+Sum\+Travelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sum traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a27449629f3e3dbfa4526545df283ac11}\label{classrobogen_1_1EDQDRobot_a27449629f3e3dbfa4526545df283ac11} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!getTimeResourceBound@{getTimeResourceBound}}
+\index{getTimeResourceBound@{getTimeResourceBound}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{getTimeResourceBound()}{getTimeResourceBound()}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::get\+Time\+Resource\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns time robot was bound to resource. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aaf078c3a5316708384a20e9144f18e29}\label{classrobogen_1_1EDQDRobot_aaf078c3a5316708384a20e9144f18e29} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!incNbComTx@{incNbComTx}}
+\index{incNbComTx@{incNbComTx}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{incNbComTx()}{incNbComTx()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::inc\+Nb\+Com\+Tx (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increments number of genomes/maps transmitted. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a3eec3a62a12e5a7959d2e884340f4dd1}\label{classrobogen_1_1EDQDRobot_a3eec3a62a12e5a7959d2e884340f4dd1} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!incResourceCounter@{incResourceCounter}}
+\index{incResourceCounter@{incResourceCounter}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{incResourceCounter()}{incResourceCounter()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::inc\+Resource\+Counter (\begin{DoxyParamCaption}\item[{const int}]{group }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increments resource counters. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a15ea309078ef5c06f93d1156202c0c10}\label{classrobogen_1_1EDQDRobot_a15ea309078ef5c06f93d1156202c0c10} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!incTimeResourceBound@{incTimeResourceBound}}
+\index{incTimeResourceBound@{incTimeResourceBound}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{incTimeResourceBound()}{incTimeResourceBound()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::inc\+Time\+Resource\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Increment time robot is bound to resource. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_afe8678cfac7a7e1bfa735202dbef83d0}\label{classrobogen_1_1EDQDRobot_afe8678cfac7a7e1bfa735202dbef83d0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!initController@{initController}}
+\index{initController@{initController}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{initController()}{initController()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::init\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Initializes controller. 
+
+Called by reset\+Robot \Hypertarget{classrobogen_1_1EDQDRobot_a2aaad787a762408c58473e95e8217f40}\label{classrobogen_1_1EDQDRobot_a2aaad787a762408c58473e95e8217f40} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!initialise@{initialise}}
+\index{initialise@{initialise}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{initialise()}{initialise()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::initialise (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{d\+Space\+ID}]{robot\+Space,  }\item[{int \&}]{nb\+ALive,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$}]{configuration,  }\item[{const robogen\+Message\+::\+Robot \&}]{robot\+Spec,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})}
+
+
+
+Initializes a new \doxylink{classrobogen_1_1EDQDRobot}{EDQDRobot}. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ab5bafb9d26f1ae563de33faad65f14a5}\label{classrobogen_1_1EDQDRobot_ab5bafb9d26f1ae563de33faad65f14a5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isListening@{isListening}}
+\index{isListening@{isListening}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isListening()}{isListening()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::is\+Listening (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns listening status. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a090843fe5d6c74826b3980da7b4c042e}\label{classrobogen_1_1EDQDRobot_a090843fe5d6c74826b3980da7b4c042e} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isSensorTypeActive@{isSensorTypeActive}}
+\index{isSensorTypeActive@{isSensorTypeActive}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isSensorTypeActive()}{isSensorTypeActive()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::is\+Sensor\+Type\+Active (\begin{DoxyParamCaption}\item[{std\+::map$<$ int, bool $>$}]{is\+Sensor\+Type\+Active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sensor status. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ab2a2cefe11f9e43a4e7b9bf53a9d631b}\label{classrobogen_1_1EDQDRobot_ab2a2cefe11f9e43a4e7b9bf53a9d631b} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!loadNewGenome@{loadNewGenome}}
+\index{loadNewGenome@{loadNewGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{loadNewGenome()}{loadNewGenome()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::load\+New\+Genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Load a new genome -\/ i.\+e. replace currently active genome with a new one. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a0945ee1a88454242637ad69f839e6bb5}\label{classrobogen_1_1EDQDRobot_a0945ee1a88454242637ad69f839e6bb5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!logCurrentState@{logCurrentState}}
+\index{logCurrentState@{logCurrentState}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{logCurrentState()}{logCurrentState()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::log\+Current\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log current agent state. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ae1c5242d7df4b01b405d81ac9e735338}\label{classrobogen_1_1EDQDRobot_ae1c5242d7df4b01b405d81ac9e735338} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mapGenotypeToPhenotype@{mapGenotypeToPhenotype}}
+\index{mapGenotypeToPhenotype@{mapGenotypeToPhenotype}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mapGenotypeToPhenotype()}{mapGenotypeToPhenotype()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::map\+Genotype\+To\+Phenotype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map genotype to phenotype. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a6c32400a5f466761a8b9a77d78ebb404}\label{classrobogen_1_1EDQDRobot_a6c32400a5f466761a8b9a77d78ebb404} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mapMorphPhenotype@{mapMorphPhenotype}}
+\index{mapMorphPhenotype@{mapMorphPhenotype}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mapMorphPhenotype()}{mapMorphPhenotype()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::map\+Morph\+Phenotype (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map morphology representation to phenotype c. 
+
+Called by reset\+Robot \Hypertarget{classrobogen_1_1EDQDRobot_a32be6568e2a2f80f62fdbd8349f07537}\label{classrobogen_1_1EDQDRobot_a32be6568e2a2f80f62fdbd8349f07537} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mutateGaussian@{mutateGaussian}}
+\index{mutateGaussian@{mutateGaussian}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mutateGaussian()}{mutateGaussian()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::mutate\+Gaussian (\begin{DoxyParamCaption}\item[{float}]{sigma }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mutate genome using Gaussian distribution~\newline
+Mutates within bounds. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aae64a216202679d6a05040d3eeb743a9}\label{classrobogen_1_1EDQDRobot_aae64a216202679d6a05040d3eeb743a9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mutateSensors@{mutateSensors}}
+\index{mutateSensors@{mutateSensors}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mutateSensors()}{mutateSensors()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::mutate\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mutate robot sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a7a466b228ca7267bc26a39a43d55f5b5}\label{classrobogen_1_1EDQDRobot_a7a466b228ca7267bc26a39a43d55f5b5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mutateSigmaValue@{mutateSigmaValue}}
+\index{mutateSigmaValue@{mutateSigmaValue}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mutateSigmaValue()}{mutateSigmaValue()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::mutate\+Sigma\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mutate sigma value. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a699230d2810a63f47c026e5d9433c309}\label{classrobogen_1_1EDQDRobot_a699230d2810a63f47c026e5d9433c309} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mutateUniform@{mutateUniform}}
+\index{mutateUniform@{mutateUniform}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mutateUniform()}{mutateUniform()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::mutate\+Uniform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Mutate genome using Uniform distribution~\newline
+Mutates within bounds. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4bbdcefaa5b2c462583e056af60d53ba}\label{classrobogen_1_1EDQDRobot_a4bbdcefaa5b2c462583e056af60d53ba} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!performSelection@{performSelection}}
+\index{performSelection@{performSelection}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{performSelection()}{performSelection()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::perform\+Selection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Perform selection~\newline
+Called only if at least 1 genome was stored. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a46f108565d774aecb14f01f87501b743}\label{classrobogen_1_1EDQDRobot_a46f108565d774aecb14f01f87501b743} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!performVariation@{performVariation}}
+\index{performVariation@{performVariation}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{performVariation()}{performVariation()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::perform\+Variation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Perform variation. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a65d409eeef709e5c4d007ce0804272d7}\label{classrobogen_1_1EDQDRobot_a65d409eeef709e5c4d007ce0804272d7} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!reset@{reset}}
+\index{reset@{reset}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reset this robot. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ae214c6a5b95ca02cb55a44a214e009ab}\label{classrobogen_1_1EDQDRobot_ae214c6a5b95ca02cb55a44a214e009ab} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resetFitness@{resetFitness}}
+\index{resetFitness@{resetFitness}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resetFitness()}{resetFitness()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset\+Fitness (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Reset fitness~\newline
+Note\+: reset\+Fitness is first called by the Controller\textquotesingle{}s constructor. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a2cc8445e6bb303d566e81a663b271457}\label{classrobogen_1_1EDQDRobot_a2cc8445e6bb303d566e81a663b271457} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resetPotMaxTravelled@{resetPotMaxTravelled}}
+\index{resetPotMaxTravelled@{resetPotMaxTravelled}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resetPotMaxTravelled()}{resetPotMaxTravelled()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset\+Pot\+Max\+Travelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets maximum possible distance that could have been traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a20072a074ac4358b1d7ac3a28ee5c98a}\label{classrobogen_1_1EDQDRobot_a20072a074ac4358b1d7ac3a28ee5c98a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resetResourceCounter@{resetResourceCounter}}
+\index{resetResourceCounter@{resetResourceCounter}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resetResourceCounter()}{resetResourceCounter()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset\+Resource\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Resets resource counters. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a45f98f036b59fe904790a695fcd1d72e}\label{classrobogen_1_1EDQDRobot_a45f98f036b59fe904790a695fcd1d72e} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resetSensorInfo@{resetSensorInfo}}
+\index{resetSensorInfo@{resetSensorInfo}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resetSensorInfo()}{resetSensorInfo()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset\+Sensor\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets sensor info. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a3f6c86baca17cf10c3cf96cb822ce468}\label{classrobogen_1_1EDQDRobot_a3f6c86baca17cf10c3cf96cb822ce468} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resetTimeResourceBound@{resetTimeResourceBound}}
+\index{resetTimeResourceBound@{resetTimeResourceBound}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resetTimeResourceBound()}{resetTimeResourceBound()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::reset\+Time\+Resource\+Bound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reset time robot was bound to resource. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aa00878d5649f56062b12a8fb03a25583}\label{classrobogen_1_1EDQDRobot_aa00878d5649f56062b12a8fb03a25583} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectBestGenome@{selectBestGenome}}
+\index{selectBestGenome@{selectBestGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectBestGenome()}{selectBestGenome()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+Best\+Genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select best genome from genome list. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af04621cb347c32897b0c8dbf9320e468}\label{classrobogen_1_1EDQDRobot_af04621cb347c32897b0c8dbf9320e468} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectFirstGenome@{selectFirstGenome}}
+\index{selectFirstGenome@{selectFirstGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectFirstGenome()}{selectFirstGenome()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+First\+Genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select first genome from genome list. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4df2cd3b77508a802b9bf8b89a1bbf72}\label{classrobogen_1_1EDQDRobot_a4df2cd3b77508a802b9bf8b89a1bbf72} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectFitProp@{selectFitProp}}
+\index{selectFitProp@{selectFitProp}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectFitProp()}{selectFitProp()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+Fit\+Prop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select fitness proportionate. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_abc56dd47472a84a9c0710a67c4c66f4a}\label{classrobogen_1_1EDQDRobot_abc56dd47472a84a9c0710a67c4c66f4a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectRandomGenome@{selectRandomGenome}}
+\index{selectRandomGenome@{selectRandomGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectRandomGenome()}{selectRandomGenome()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+Random\+Genome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select random genome from received genome list. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a2c4e8e79403b096fbb7c8a538f731ede}\label{classrobogen_1_1EDQDRobot_a2c4e8e79403b096fbb7c8a538f731ede} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectRandomGenomeFromMergedMap@{selectRandomGenomeFromMergedMap}}
+\index{selectRandomGenomeFromMergedMap@{selectRandomGenomeFromMergedMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectRandomGenomeFromMergedMap()}{selectRandomGenomeFromMergedMap()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+Random\+Genome\+From\+Merged\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select random genome form behavior-\/related merged map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af9b4591244607f9adb41b1d77b480a10}\label{classrobogen_1_1EDQDRobot_af9b4591244607f9adb41b1d77b480a10} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!selectRandomGenomeFromMorphMergedMap@{selectRandomGenomeFromMorphMergedMap}}
+\index{selectRandomGenomeFromMorphMergedMap@{selectRandomGenomeFromMorphMergedMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{selectRandomGenomeFromMorphMergedMap()}{selectRandomGenomeFromMorphMergedMap()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::select\+Random\+Genome\+From\+Morph\+Merged\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Select random genome from morphology-\/related merged map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a3701bbbefcce84e66173f8226535363b}\label{classrobogen_1_1EDQDRobot_a3701bbbefcce84e66173f8226535363b} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setActiveSensors@{setActiveSensors}}
+\index{setActiveSensors@{setActiveSensors}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setActiveSensors()}{setActiveSensors()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Active\+Sensors (\begin{DoxyParamCaption}\item[{std\+::map$<$ int, int $>$}]{active\+\_\+sensors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets active sensors per type. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a5d3af2b0314bb6970060fcd94c20b1e9}\label{classrobogen_1_1EDQDRobot_a5d3af2b0314bb6970060fcd94c20b1e9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setIOcontrollerSize@{setIOcontrollerSize}}
+\index{setIOcontrollerSize@{setIOcontrollerSize}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setIOcontrollerSize()}{setIOcontrollerSize()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+IOcontroller\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sets IO size. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_abae071d3e4180ea2a1c0e4922afb8174}\label{classrobogen_1_1EDQDRobot_abae071d3e4180ea2a1c0e4922afb8174} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setNewGenomeStatus@{setNewGenomeStatus}}
+\index{setNewGenomeStatus@{setNewGenomeStatus}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setNewGenomeStatus()}{setNewGenomeStatus()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+New\+Genome\+Status (\begin{DoxyParamCaption}\item[{bool}]{status }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Updates new genome flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bool} & new status \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1EDQDRobot_a2a5972c02362e1fdeb37edd37c55ff8d}\label{classrobogen_1_1EDQDRobot_a2a5972c02362e1fdeb37edd37c55ff8d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setPerSensorTypeMaxRange@{setPerSensorTypeMaxRange}}
+\index{setPerSensorTypeMaxRange@{setPerSensorTypeMaxRange}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setPerSensorTypeMaxRange()}{setPerSensorTypeMaxRange()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Per\+Sensor\+Type\+Max\+Range (\begin{DoxyParamCaption}\item[{std\+::map$<$ int, double $>$}]{per\+Sensor\+Type\+Max\+Range }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets per sensor type max range. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad49914d6bd5ea886c9b23033ed3da994}\label{classrobogen_1_1EDQDRobot_ad49914d6bd5ea886c9b23033ed3da994} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setPerSensorTypeRange@{setPerSensorTypeRange}}
+\index{setPerSensorTypeRange@{setPerSensorTypeRange}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setPerSensorTypeRange()}{setPerSensorTypeRange()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Per\+Sensor\+Type\+Range (\begin{DoxyParamCaption}\item[{std\+::map$<$ int, double $>$}]{per\+Sensor\+Type\+Range }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets per sensor type range. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a95ff7ae913ffe8acff0cadaa3afc9591}\label{classrobogen_1_1EDQDRobot_a95ff7ae913ffe8acff0cadaa3afc9591} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setPickUpPosition@{setPickUpPosition}}
+\index{setPickUpPosition@{setPickUpPosition}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setPickUpPosition()}{setPickUpPosition()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Pick\+Up\+Position (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3d}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets pick-\/up position. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_abff5d68a22e5472b38ed933e73e507d4}\label{classrobogen_1_1EDQDRobot_abff5d68a22e5472b38ed933e73e507d4} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setPossibleNumberOfSensors@{setPossibleNumberOfSensors}}
+\index{setPossibleNumberOfSensors@{setPossibleNumberOfSensors}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setPossibleNumberOfSensors()}{setPossibleNumberOfSensors()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Possible\+Number\+Of\+Sensors (\begin{DoxyParamCaption}\item[{int}]{possible\+\_\+number\+\_\+of\+\_\+sensors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the total possible number of sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a770d2281eae0de0a89ca6ea4e37286c5}\label{classrobogen_1_1EDQDRobot_a770d2281eae0de0a89ca6ea4e37286c5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!setWeights@{setWeights}}
+\index{setWeights@{setWeights}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{setWeights()}{setWeights()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::set\+Weights (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Set ANN weights. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ac5c0ffc289f74de2e7394b8955f75a07}\label{classrobogen_1_1EDQDRobot_ac5c0ffc289f74de2e7394b8955f75a07} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!step@{step}}
+\index{step@{step}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::step (\begin{DoxyParamCaption}\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})}
+
+
+
+Perform control decision and evolution. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4e5b4dc1bad65dde79b4830c0465c629}\label{classrobogen_1_1EDQDRobot_a4e5b4dc1bad65dde79b4830c0465c629} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!stepController@{stepController}}
+\index{stepController@{stepController}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{stepController()}{stepController()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::step\+Controller (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Step controller. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a60b880823b4a5f022e8fa3e1efb0708f}\label{classrobogen_1_1EDQDRobot_a60b880823b4a5f022e8fa3e1efb0708f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!stepController@{stepController}}
+\index{stepController@{stepController}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{stepController()}{stepController()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::step\+Controller (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$}]{env,  }\item[{double}]{elapsed\+Evaluation\+Time }\end{DoxyParamCaption})}
+
+
+
+Step controller. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_addcfc10f823122fcdd4458d780a05288}\label{classrobogen_1_1EDQDRobot_addcfc10f823122fcdd4458d780a05288} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!stepEvolution@{stepEvolution}}
+\index{stepEvolution@{stepEvolution}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{stepEvolution()}{stepEvolution()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::step\+Evolution (\begin{DoxyParamCaption}\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})}
+
+
+
+STep evolution. 
+
+lifetime ended\+: replace genome (if possible) add needs to happen before new genome is loaded to ensure the map has an entry. moved to agent observer in previous work -\/ why???
+
+if (\doxylink{classEDQD_1_1Parameters_a9914ae95de3b450a5cfd2793711367fe}{EDQD\+::\+Parameters\+::\+EDQDMulti\+BCMap})\{ \doxylink{classrobogen_1_1EDQDRobot_a45f98f036b59fe904790a695fcd1d72e}{reset\+Sensor\+Info()}; \doxylink{classrobogen_1_1EDQDRobot_ad26c42589866966e5048c712e5f69460}{update\+Sensor\+Info()}; \}\Hypertarget{classrobogen_1_1EDQDRobot_a883647d6be46037dfb492f26551f1d95}\label{classrobogen_1_1EDQDRobot_a883647d6be46037dfb492f26551f1d95} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!storeGenome@{storeGenome}}
+\index{storeGenome@{storeGenome}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{storeGenome()}{storeGenome()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::store\+Genome (\begin{DoxyParamCaption}\item[{std\+::vector$<$ double $>$}]{genome,  }\item[{std\+::pair$<$ int, int $>$}]{sender\+Id,  }\item[{float}]{sigma,  }\item[{float}]{fitness,  }\item[{\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$}]{map }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a93a6600d3b4cbb3531218879b4cf0680}\label{classrobogen_1_1EDQDRobot_a93a6600d3b4cbb3531218879b4cf0680} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!storeMap@{storeMap}}
+\index{storeMap@{storeMap}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{storeMap()}{storeMap()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::store\+Map (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$}]{map,  }\item[{int}]{sender\+Id }\end{DoxyParamCaption})}
+
+
+
+Manage storage of a map received from a neighbour. 
+
+Note that in case of multiple encounters with the same robot (same id, same \char`\"{}birthdate\char`\"{}), genome is stored only once, and last known fitness value is stored (i.\+e. updated at each encounter). Fitness is optional (default\+: 0) \Hypertarget{classrobogen_1_1EDQDRobot_a97a9dcfb2a86859dbe1ad5de44f38ce2}\label{classrobogen_1_1EDQDRobot_a97a9dcfb2a86859dbe1ad5de44f38ce2} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!storeMaps@{storeMaps}}
+\index{storeMaps@{storeMaps}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{storeMaps()}{storeMaps()}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::store\+Maps (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$}]{map,  }\item[{\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$}]{morph\+Map,  }\item[{int}]{sender\+Id }\end{DoxyParamCaption})}
+
+
+
+Manage storage of behavior and morphology maps received from a neighbour. 
+
+Note that in case of multiple encounters with the same robot (same id, same \char`\"{}birthdate\char`\"{}), genome is stored only once, and last known fitness value is stored (i.\+e. updated at each encounter). Fitness is optional (default\+: 0) \Hypertarget{classrobogen_1_1EDQDRobot_a347e7c2afe1dd9084de39ef746ad234d}\label{classrobogen_1_1EDQDRobot_a347e7c2afe1dd9084de39ef746ad234d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!updateCellId@{updateCellId}}
+\index{updateCellId@{updateCellId}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{updateCellId()}{updateCellId()}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::update\+Cell\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates cell id. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aa595a84bdaf5b149925d1d39067e671b}\label{classrobogen_1_1EDQDRobot_aa595a84bdaf5b149925d1d39067e671b} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!updateFitness@{updateFitness}}
+\index{updateFitness@{updateFitness}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{updateFitness()}{updateFitness()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::update\+Fitness (\begin{DoxyParamCaption}\item[{int}]{pushing\+Robots,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Update fitness. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a83b83ba53808c901c440177fcc8c3bf9}\label{classrobogen_1_1EDQDRobot_a83b83ba53808c901c440177fcc8c3bf9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!updateFitness@{updateFitness}}
+\index{updateFitness@{updateFitness}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{updateFitness()}{updateFitness()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::update\+Fitness (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3d}]{drop\+Off\+Position,  }\item[{int}]{pushing\+Robots,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Update fitness. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad26c42589866966e5048c712e5f69460}\label{classrobogen_1_1EDQDRobot_ad26c42589866966e5048c712e5f69460} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!updateSensorInfo@{updateSensorInfo}}
+\index{updateSensorInfo@{updateSensorInfo}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{updateSensorInfo()}{updateSensorInfo()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::update\+Sensor\+Info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates sensor info. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ab1aa6b0547983ebdb92ec12cd4761d4c}\label{classrobogen_1_1EDQDRobot_ab1aa6b0547983ebdb92ec12cd4761d4c} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!writeEOGEntry@{writeEOGEntry}}
+\index{writeEOGEntry@{writeEOGEntry}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{writeEOGEntry()}{writeEOGEntry()}}
+{\footnotesize\ttfamily void robogen\+::\+EDQDRobot\+::write\+EOGEntry (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{lm }\end{DoxyParamCaption})}
+
+
+
+Log end of generation info. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrobogen_1_1EDQDRobot_af6f6232cdf638dac90bb9a7c2f21e133}\label{classrobogen_1_1EDQDRobot_af6f6232cdf638dac90bb9a7c2f21e133} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!ancestor\_@{ancestor\_}}
+\index{ancestor\_@{ancestor\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{ancestor\_}{ancestor\_}}
+{\footnotesize\ttfamily std\+::pair$<$int,int$>$ robogen\+::\+EDQDRobot\+::ancestor\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This robot\textquotesingle{}s ancestor. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a7462d8f806a0f26803bd1d26d7e491c8}\label{classrobogen_1_1EDQDRobot_a7462d8f806a0f26803bd1d26d7e491c8} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!averageActiveSensorRange\_@{averageActiveSensorRange\_}}
+\index{averageActiveSensorRange\_@{averageActiveSensorRange\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{averageActiveSensorRange\_}{averageActiveSensorRange\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::average\+Active\+Sensor\+Range\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Average range of all active sensors. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a481eba9dc60156897564604e5d0354d0}\label{classrobogen_1_1EDQDRobot_a481eba9dc60156897564604e5d0354d0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!birthdate\_@{birthdate\_}}
+\index{birthdate\_@{birthdate\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{birthdate\_}{birthdate\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::birthdate\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Evaluation when this controller was initialised. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4c2438b42f170ebd65d9549f878ba397}\label{classrobogen_1_1EDQDRobot_a4c2438b42f170ebd65d9549f878ba397} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!configuration@{configuration}}
+\index{configuration@{configuration}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{configuration}{configuration}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}}$>$ robogen\+::\+EDQDRobot\+::configuration\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Robogen config. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a3549913e66dcf9fd2dbb47266c59928f}\label{classrobogen_1_1EDQDRobot_a3549913e66dcf9fd2dbb47266c59928f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!currentCellId\_@{currentCellId\_}}
+\index{currentCellId\_@{currentCellId\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{currentCellId\_}{currentCellId\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::current\+Cell\+Id\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Current cell id. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ae72793dae1023179f6c74acd50a17a2a}\label{classrobogen_1_1EDQDRobot_ae72793dae1023179f6c74acd50a17a2a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!currentGenome\_@{currentGenome\_}}
+\index{currentGenome\_@{currentGenome\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{currentGenome\_}{currentGenome\_}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ robogen\+::\+EDQDRobot\+::current\+Genome\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Vector of current genome. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_accb081d5d9fe5c91c5e6b4534c1ae0dd}\label{classrobogen_1_1EDQDRobot_accb081d5d9fe5c91c5e6b4534c1ae0dd} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!currentSigma\_@{currentSigma\_}}
+\index{currentSigma\_@{currentSigma\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{currentSigma\_}{currentSigma\_}}
+{\footnotesize\ttfamily float robogen\+::\+EDQDRobot\+::current\+Sigma\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Current sigma. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a641d7d15369268a67369b212c7cf2723}\label{classrobogen_1_1EDQDRobot_a641d7d15369268a67369b212c7cf2723} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!dMaxTravelled\_@{dMaxTravelled\_}}
+\index{dMaxTravelled\_@{dMaxTravelled\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{dMaxTravelled\_}{dMaxTravelled\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::d\+Max\+Travelled\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log maximum distance traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a29907a08e9540553efc0e4e0da7b8810}\label{classrobogen_1_1EDQDRobot_a29907a08e9540553efc0e4e0da7b8810} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!dPotMaxTravelled\_@{dPotMaxTravelled\_}}
+\index{dPotMaxTravelled\_@{dPotMaxTravelled\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{dPotMaxTravelled\_}{dPotMaxTravelled\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::d\+Pot\+Max\+Travelled\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log potential distance that could have been traveled by robot. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ae48b35109269975ef60cf6d21e6f32ab}\label{classrobogen_1_1EDQDRobot_ae48b35109269975ef60cf6d21e6f32ab} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!dSumTravelled\_@{dSumTravelled\_}}
+\index{dSumTravelled\_@{dSumTravelled\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{dSumTravelled\_}{dSumTravelled\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::d\+Sum\+Travelled\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log sum of distance traveled. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4acb94d9088ccc7a485fd184e16c9e6a}\label{classrobogen_1_1EDQDRobot_a4acb94d9088ccc7a485fd184e16c9e6a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!fitness\_@{fitness\_}}
+\index{fitness\_@{fitness\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{fitness\_}{fitness\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::fitness\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Behavioral competence. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a87e887416f9ba99772489b7cd1764162}\label{classrobogen_1_1EDQDRobot_a87e887416f9ba99772489b7cd1764162} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!fitnessValuesList\_@{fitnessValuesList\_}}
+\index{fitnessValuesList\_@{fitnessValuesList\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{fitnessValuesList\_}{fitnessValuesList\_}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::pair$<$int,int$>$, float $>$ robogen\+::\+EDQDRobot\+::fitness\+Values\+List\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+List of fitness values. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aac83f29192f7eb1b7f3a415fa50c2526}\label{classrobogen_1_1EDQDRobot_aac83f29192f7eb1b7f3a415fa50c2526} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!genomesList\_@{genomesList\_}}
+\index{genomesList\_@{genomesList\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{genomesList\_}{genomesList\_}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::pair$<$int,int$>$, std\+::vector$<$double$>$ $>$ robogen\+::\+EDQDRobot\+::genomes\+List\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Incoming genomes reservoir. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ac084f2a021d14b847a1d489404439b8f}\label{classrobogen_1_1EDQDRobot_ac084f2a021d14b847a1d489404439b8f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isListening\_@{isListening\_}}
+\index{isListening\_@{isListening\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isListening\_}{isListening\_}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::is\+Listening\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flags whether this agent can receive broadcasted genomes/maps from nearby agents. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aaa8800e4ede59f2d5059ba1e8c44868a}\label{classrobogen_1_1EDQDRobot_aaa8800e4ede59f2d5059ba1e8c44868a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isNewGenome\_@{isNewGenome\_}}
+\index{isNewGenome\_@{isNewGenome\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isNewGenome\_}{isNewGenome\_}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::is\+New\+Genome\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flags whether a new genome was recently loaded. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a0ba5025a69a9c5a929d389a41d0a75a9}\label{classrobogen_1_1EDQDRobot_a0ba5025a69a9c5a929d389a41d0a75a9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isNull@{isNull}}
+\index{isNull@{isNull}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isNull}{isNull}}
+{\footnotesize\ttfamily bool robogen\+::\+EDQDRobot\+::is\+Null\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Status check of this robot -\/ i.\+e. has it been initialized? 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a9b3075d53acd3efaf1df35a7568139b8}\label{classrobogen_1_1EDQDRobot_a9b3075d53acd3efaf1df35a7568139b8} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!isSensorTypeActive\_@{isSensorTypeActive\_}}
+\index{isSensorTypeActive\_@{isSensorTypeActive\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{isSensorTypeActive\_}{isSensorTypeActive\_}}
+{\footnotesize\ttfamily std\+::map$<$int,bool$>$ robogen\+::\+EDQDRobot\+::is\+Sensor\+Type\+Active\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Flags whether sensor type is active or not. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ac10a36856e5ebea12648f031ecded7c1}\label{classrobogen_1_1EDQDRobot_ac10a36856e5ebea12648f031ecded7c1} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!listeningDelay\_@{listeningDelay\_}}
+\index{listeningDelay\_@{listeningDelay\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{listeningDelay\_}{listeningDelay\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::listening\+Delay\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Duration of listening state. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad5ddea6cb86662b9af692295b0e23fc2}\label{classrobogen_1_1EDQDRobot_ad5ddea6cb86662b9af692295b0e23fc2} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!map\_@{map\_}}
+\index{map\_@{map\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{map\_}{map\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ robogen\+::\+EDQDRobot\+::map\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Behavior map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a256d451ae6214a9e1c083ba4027f86c2}\label{classrobogen_1_1EDQDRobot_a256d451ae6214a9e1c083ba4027f86c2} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mapList\_@{mapList\_}}
+\index{mapList\_@{mapList\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mapList\_}{mapList\_}}
+{\footnotesize\ttfamily std\+::map$<$ int, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ $>$ robogen\+::\+EDQDRobot\+::map\+List\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Behavior map list. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af8d8748409382312709909914f7d7584}\label{classrobogen_1_1EDQDRobot_af8d8748409382312709909914f7d7584} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!maxActiveSensorRangeAverage\_@{maxActiveSensorRangeAverage\_}}
+\index{maxActiveSensorRangeAverage\_@{maxActiveSensorRangeAverage\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{maxActiveSensorRangeAverage\_}{maxActiveSensorRangeAverage\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::max\+Active\+Sensor\+Range\+Average\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Max active sensor range average. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aa5134e372abcea1b93469a4ae30c5fb6}\label{classrobogen_1_1EDQDRobot_aa5134e372abcea1b93469a4ae30c5fb6} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!maxGenomeSize@{maxGenomeSize}}
+\index{maxGenomeSize@{maxGenomeSize}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{maxGenomeSize}{maxGenomeSize}}
+{\footnotesize\ttfamily const int robogen\+::\+EDQDRobot\+::max\+Genome\+Size\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\_INPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ *\ (\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\_OUTPUT\_NEURONS}}\ +\ \mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\_HIDDEN\_NEURONS}})}
+
+\end{DoxyCode}
+
+
+Current genome. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a64a6bf8453b43d20a52b6ed1a129808f}\label{classrobogen_1_1EDQDRobot_a64a6bf8453b43d20a52b6ed1a129808f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!maxValue\_@{maxValue\_}}
+\index{maxValue\_@{maxValue\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{maxValue\_}{maxValue\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::max\+Value\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ANN max value. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a9d44fbd34c504919eb78cbe39b78b424}\label{classrobogen_1_1EDQDRobot_a9d44fbd34c504919eb78cbe39b78b424} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!mergedMap\_@{mergedMap\_}}
+\index{mergedMap\_@{mergedMap\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{mergedMap\_}{mergedMap\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ robogen\+::\+EDQDRobot\+::merged\+Map\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Merged map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a2338f674967eb679745a5eabdb7ef45e}\label{classrobogen_1_1EDQDRobot_a2338f674967eb679745a5eabdb7ef45e} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!minValue\_@{minValue\_}}
+\index{minValue\_@{minValue\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{minValue\_}{minValue\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::min\+Value\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ANN minimum value. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a0be1ac347a0b7296d13be452be754bdb}\label{classrobogen_1_1EDQDRobot_a0be1ac347a0b7296d13be452be754bdb} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!morphAncestor\_@{morphAncestor\_}}
+\index{morphAncestor\_@{morphAncestor\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{morphAncestor\_}{morphAncestor\_}}
+{\footnotesize\ttfamily std\+::pair$<$int,int$>$ robogen\+::\+EDQDRobot\+::morph\+Ancestor\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+This morphology\textquotesingle{}s ancestor. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a8323a50bb787557f8702ffaaad9e7e31}\label{classrobogen_1_1EDQDRobot_a8323a50bb787557f8702ffaaad9e7e31} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!morphBirthdate\_@{morphBirthdate\_}}
+\index{morphBirthdate\_@{morphBirthdate\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{morphBirthdate\_}{morphBirthdate\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::morph\+Birthdate\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Morphology birthdate. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a720691af5d1c8ac74eded564953a8be5}\label{classrobogen_1_1EDQDRobot_a720691af5d1c8ac74eded564953a8be5} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!morphMap\_@{morphMap\_}}
+\index{morphMap\_@{morphMap\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{morphMap\_}{morphMap\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ robogen\+::\+EDQDRobot\+::morph\+Map\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Morphology map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a523484401b0d2796bdf3cb5e2ec68224}\label{classrobogen_1_1EDQDRobot_a523484401b0d2796bdf3cb5e2ec68224} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!morphMapList\_@{morphMapList\_}}
+\index{morphMapList\_@{morphMapList\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{morphMapList\_}{morphMapList\_}}
+{\footnotesize\ttfamily std\+::map$<$ int, \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ $>$ robogen\+::\+EDQDRobot\+::morph\+Map\+List\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Morphology map list. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a43e10d569a7b12b9286e4f1e4593b44c}\label{classrobogen_1_1EDQDRobot_a43e10d569a7b12b9286e4f1e4593b44c} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!morphMergedMap\_@{morphMergedMap\_}}
+\index{morphMergedMap\_@{morphMergedMap\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{morphMergedMap\_}{morphMergedMap\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}$\ast$ robogen\+::\+EDQDRobot\+::morph\+Merged\+Map\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Morphology merged map. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aee70b6c1d65303ad2f8c0629d7452248}\label{classrobogen_1_1EDQDRobot_aee70b6c1d65303ad2f8c0629d7452248} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!motorOutputs@{motorOutputs}}
+\index{motorOutputs@{motorOutputs}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{motorOutputs}{motorOutputs}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+EDQDRobot\+::motor\+Outputs}
+
+
+
+Motor outputs. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aa6a9a8452e78673359386edceefa3610}\label{classrobogen_1_1EDQDRobot_aa6a9a8452e78673359386edceefa3610} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbBiasNeuronsPerLayer\_@{nbBiasNeuronsPerLayer\_}}
+\index{nbBiasNeuronsPerLayer\_@{nbBiasNeuronsPerLayer\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbBiasNeuronsPerLayer\_}{nbBiasNeuronsPerLayer\_}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ robogen\+::\+EDQDRobot\+::nb\+Bias\+Neurons\+Per\+Layer\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of bias neurons per layer. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a6d14711d8619c4bdadb8ce9a6a5b1489}\label{classrobogen_1_1EDQDRobot_a6d14711d8619c4bdadb8ce9a6a5b1489} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbComRx\_@{nbComRx\_}}
+\index{nbComRx\_@{nbComRx\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbComRx\_}{nbComRx\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::nb\+Com\+Rx\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of genomes/maps received. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aeab5a13e94cab9d4c33c1f8c1364a2a3}\label{classrobogen_1_1EDQDRobot_aeab5a13e94cab9d4c33c1f8c1364a2a3} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbComTx\_@{nbComTx\_}}
+\index{nbComTx\_@{nbComTx\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbComTx\_}{nbComTx\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::nb\+Com\+Tx\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of genomes/maps transmitted. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_acae9f5f8c692cb2ce79d2200d1e82e75}\label{classrobogen_1_1EDQDRobot_acae9f5f8c692cb2ce79d2200d1e82e75} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbGenomeTransmission\_@{nbGenomeTransmission\_}}
+\index{nbGenomeTransmission\_@{nbGenomeTransmission\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbGenomeTransmission\_}{nbGenomeTransmission\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::nb\+Genome\+Transmission\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of genomes transmitted. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a9e1962bb471527be5482c03e0a09446d}\label{classrobogen_1_1EDQDRobot_a9e1962bb471527be5482c03e0a09446d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbHiddenLayers\_@{nbHiddenLayers\_}}
+\index{nbHiddenLayers\_@{nbHiddenLayers\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbHiddenLayers\_}{nbHiddenLayers\_}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+EDQDRobot\+::nb\+Hidden\+Layers\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of hidden layers. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a72be73f4bf1661b23fca27787f07d390}\label{classrobogen_1_1EDQDRobot_a72be73f4bf1661b23fca27787f07d390} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbHiddenNeuronsPerLayer\_@{nbHiddenNeuronsPerLayer\_}}
+\index{nbHiddenNeuronsPerLayer\_@{nbHiddenNeuronsPerLayer\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbHiddenNeuronsPerLayer\_}{nbHiddenNeuronsPerLayer\_}}
+{\footnotesize\ttfamily std\+::vector$<$int$>$ robogen\+::\+EDQDRobot\+::nb\+Hidden\+Neurons\+Per\+Layer\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{classrobogen_1_1EDQDRobot_acd36f94abd62338079feef72bb9f955b}\label{classrobogen_1_1EDQDRobot_acd36f94abd62338079feef72bb9f955b} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbInputs\_@{nbInputs\_}}
+\index{nbInputs\_@{nbInputs\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbInputs\_}{nbInputs\_}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+EDQDRobot\+::nb\+Inputs\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of input neurons. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a5f109705caf155c414521629e4439d78}\label{classrobogen_1_1EDQDRobot_a5f109705caf155c414521629e4439d78} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbNeuronsPerHiddenLayer\_@{nbNeuronsPerHiddenLayer\_}}
+\index{nbNeuronsPerHiddenLayer\_@{nbNeuronsPerHiddenLayer\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbNeuronsPerHiddenLayer\_}{nbNeuronsPerHiddenLayer\_}}
+{\footnotesize\ttfamily std\+::vector$<$unsigned int$>$$\ast$ robogen\+::\+EDQDRobot\+::nb\+Neurons\+Per\+Hidden\+Layer\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of neurons per hidden layer. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ab297f7a757176fb78ce816f6c49cf0ff}\label{classrobogen_1_1EDQDRobot_ab297f7a757176fb78ce816f6c49cf0ff} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nbOutputs\_@{nbOutputs\_}}
+\index{nbOutputs\_@{nbOutputs\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nbOutputs\_}{nbOutputs\_}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+EDQDRobot\+::nb\+Outputs\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Number of output neurons. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_aa6d8badf836d78119d06160f78d01c5b}\label{classrobogen_1_1EDQDRobot_aa6d8badf836d78119d06160f78d01c5b} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nn@{nn}}
+\index{nn@{nn}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nn}{nn}}
+{\footnotesize\ttfamily Neural\+::\+Neural\+Network$\ast$ robogen\+::\+EDQDRobot\+::nn\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Neural Network. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a01ba9a6e86890f98badcd4c831897a0a}\label{classrobogen_1_1EDQDRobot_a01ba9a6e86890f98badcd4c831897a0a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!nnType\_@{nnType\_}}
+\index{nnType\_@{nnType\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{nnType\_}{nnType\_}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+EDQDRobot\+::nn\+Type\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Neural Network type. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a22b7b021cfc7cae36adee820cea93f39}\label{classrobogen_1_1EDQDRobot_a22b7b021cfc7cae36adee820cea93f39} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!normalDistribution@{normalDistribution}}
+\index{normalDistribution@{normalDistribution}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{normalDistribution}{normalDistribution}}
+{\footnotesize\ttfamily boost\+::random\+::normal\+\_\+distribution$<$float$>$ robogen\+::\+EDQDRobot\+::normal\+Distribution\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Normal distribution. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a996edb7180e01f578224cf4573f8c176}\label{classrobogen_1_1EDQDRobot_a996edb7180e01f578224cf4573f8c176} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!notListeningDelay\_@{notListeningDelay\_}}
+\index{notListeningDelay\_@{notListeningDelay\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{notListeningDelay\_}{notListeningDelay\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::not\+Listening\+Delay\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Amount of time to be spent in a not-\/listening-\/state. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a6b8d6191470d436d4e719f03285497f8}\label{classrobogen_1_1EDQDRobot_a6b8d6191470d436d4e719f03285497f8} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!numOfActiveSensorsPerType\_@{numOfActiveSensorsPerType\_}}
+\index{numOfActiveSensorsPerType\_@{numOfActiveSensorsPerType\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{numOfActiveSensorsPerType\_}{numOfActiveSensorsPerType\_}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ robogen\+::\+EDQDRobot\+::num\+Of\+Active\+Sensors\+Per\+Type\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maps number of sensors active per sensor type. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af017664926ebe34f0d992434220c3337}\label{classrobogen_1_1EDQDRobot_af017664926ebe34f0d992434220c3337} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!parameters\_@{parameters\_}}
+\index{parameters\_@{parameters\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{parameters\_}{parameters\_}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ robogen\+::\+EDQDRobot\+::parameters\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+ANN parameters. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a9058ca1893149885c000b555913a6da0}\label{classrobogen_1_1EDQDRobot_a9058ca1893149885c000b555913a6da0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!perSensorTypeMaxRange\_@{perSensorTypeMaxRange\_}}
+\index{perSensorTypeMaxRange\_@{perSensorTypeMaxRange\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{perSensorTypeMaxRange\_}{perSensorTypeMaxRange\_}}
+{\footnotesize\ttfamily std\+::map$<$int,double$>$ robogen\+::\+EDQDRobot\+::per\+Sensor\+Type\+Max\+Range\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maps max range possible per sensors type. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a4fd502831e70093bc77be92ca632b0d8}\label{classrobogen_1_1EDQDRobot_a4fd502831e70093bc77be92ca632b0d8} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!perSensorTypeRange\_@{perSensorTypeRange\_}}
+\index{perSensorTypeRange\_@{perSensorTypeRange\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{perSensorTypeRange\_}{perSensorTypeRange\_}}
+{\footnotesize\ttfamily std\+::map$<$int,double$>$ robogen\+::\+EDQDRobot\+::per\+Sensor\+Type\+Range\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Maps current range of each sensor type. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_afca0e4a268a0e481c1ef6ed9502ad6c2}\label{classrobogen_1_1EDQDRobot_afca0e4a268a0e481c1ef6ed9502ad6c2} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!pickUpPosition@{pickUpPosition}}
+\index{pickUpPosition@{pickUpPosition}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{pickUpPosition}{pickUpPosition}}
+{\footnotesize\ttfamily osg\+::\+Vec3d robogen\+::\+EDQDRobot\+::pick\+Up\+Position\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Position at which resource was picked up. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a85944b1b4477b463938ea33d49c69e13}\label{classrobogen_1_1EDQDRobot_a85944b1b4477b463938ea33d49c69e13} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!possibleTotalNumberOfSensors\_@{possibleTotalNumberOfSensors\_}}
+\index{possibleTotalNumberOfSensors\_@{possibleTotalNumberOfSensors\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{possibleTotalNumberOfSensors\_}{possibleTotalNumberOfSensors\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::possible\+Total\+Number\+Of\+Sensors\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Keeps total number of sensors (inactive + active) 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a3490ae52813fecedb481e02bb5e4d08d}\label{classrobogen_1_1EDQDRobot_a3490ae52813fecedb481e02bb5e4d08d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resourceCounters\_@{resourceCounters\_}}
+\index{resourceCounters\_@{resourceCounters\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resourceCounters\_}{resourceCounters\_}}
+{\footnotesize\ttfamily std\+::map$<$int,int$>$ robogen\+::\+EDQDRobot\+::resource\+Counters\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Map resource size (in terms of the number of robots required to push it) to number collected. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a0ab7dec6bf50930fedb55440559b1695}\label{classrobogen_1_1EDQDRobot_a0ab7dec6bf50930fedb55440559b1695} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resourceLogFile@{resourceLogFile}}
+\index{resourceLogFile@{resourceLogFile}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resourceLogFile}{resourceLogFile}}
+{\footnotesize\ttfamily std\+::ofstream robogen\+::\+EDQDRobot\+::resource\+Log\+File\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Resource log ofstream. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a1d8180c4c9bb10cd0df8bd65bb4e3fe9}\label{classrobogen_1_1EDQDRobot_a1d8180c4c9bb10cd0df8bd65bb4e3fe9} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resourceLogFilename@{resourceLogFilename}}
+\index{resourceLogFilename@{resourceLogFilename}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resourceLogFilename}{resourceLogFilename}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+EDQDRobot\+::resource\+Log\+Filename\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Name of resource log file. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a82d6923335d9626cf5a02e12f8846e52}\label{classrobogen_1_1EDQDRobot_a82d6923335d9626cf5a02e12f8846e52} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!resourceLogger@{resourceLogger}}
+\index{resourceLogger@{resourceLogger}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{resourceLogger}{resourceLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}$\ast$ robogen\+::\+EDQDRobot\+::resource\+Logger\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Resource logger. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad6448e554f299157b365e78828199b9f}\label{classrobogen_1_1EDQDRobot_ad6448e554f299157b365e78828199b9f} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!scenario\_@{scenario\_}}
+\index{scenario\_@{scenario\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{scenario\_}{scenario\_}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}}$>$ robogen\+::\+EDQDRobot\+::scenario\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+\doxylink{classrobogen_1_1Scenario}{Scenario}. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_ad2f5d1ee8011e628406a10c170f999f1}\label{classrobogen_1_1EDQDRobot_ad2f5d1ee8011e628406a10c170f999f1} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sensorLogFile@{sensorLogFile}}
+\index{sensorLogFile@{sensorLogFile}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sensorLogFile}{sensorLogFile}}
+{\footnotesize\ttfamily std\+::ofstream robogen\+::\+EDQDRobot\+::sensor\+Log\+File\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sensor log ofstream. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_adf646241dbae934c5834798cc90e6aad}\label{classrobogen_1_1EDQDRobot_adf646241dbae934c5834798cc90e6aad} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sensorLogFilename@{sensorLogFilename}}
+\index{sensorLogFilename@{sensorLogFilename}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sensorLogFilename}{sensorLogFilename}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+EDQDRobot\+::sensor\+Log\+Filename\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sensor log file name \Hypertarget{classrobogen_1_1EDQDRobot_a104b896680a39894d47993b7caf4ee66}\label{classrobogen_1_1EDQDRobot_a104b896680a39894d47993b7caf4ee66} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sensorLogger@{sensorLogger}}
+\index{sensorLogger@{sensorLogger}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sensorLogger}{sensorLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}$\ast$ robogen\+::\+EDQDRobot\+::sensor\+Logger\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sensor logger. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a69f27fe964610f8e1de9d43efea886d0}\label{classrobogen_1_1EDQDRobot_a69f27fe964610f8e1de9d43efea886d0} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sensorMaxValue\_@{sensorMaxValue\_}}
+\index{sensorMaxValue\_@{sensorMaxValue\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sensorMaxValue\_}{sensorMaxValue\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::sensor\+Max\+Value\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+Sensor maximum value \Hypertarget{classrobogen_1_1EDQDRobot_a40ee08a5d84e51b2ebb2db22e1c2f8ba}\label{classrobogen_1_1EDQDRobot_a40ee08a5d84e51b2ebb2db22e1c2f8ba} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sensorMinValue\_@{sensorMinValue\_}}
+\index{sensorMinValue\_@{sensorMinValue\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sensorMinValue\_}{sensorMinValue\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::sensor\+Min\+Value\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Sensor minimum value. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af7577be839fcceb4c16a2e296cdb1c4d}\label{classrobogen_1_1EDQDRobot_af7577be839fcceb4c16a2e296cdb1c4d} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!sigmaList\_@{sigmaList\_}}
+\index{sigmaList\_@{sigmaList\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{sigmaList\_}{sigmaList\_}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::pair$<$int,int$>$, float $>$ robogen\+::\+EDQDRobot\+::sigma\+List\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+List of sigma values. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a152190f9cf81420d4cac63176a70fd41}\label{classrobogen_1_1EDQDRobot_a152190f9cf81420d4cac63176a70fd41} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!step\_@{step\_}}
+\index{step\_@{step\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{step\_}{step\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::step\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Step size. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a0c160e5f85652480d4c184ac7e4b775a}\label{classrobogen_1_1EDQDRobot_a0c160e5f85652480d4c184ac7e4b775a} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!targetArea\_@{targetArea\_}}
+\index{targetArea\_@{targetArea\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{targetArea\_}{targetArea\_}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+EDQDRobot\+::target\+Area\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Target area location. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a5377f14a8d03f8b534bc2c4fd7297971}\label{classrobogen_1_1EDQDRobot_a5377f14a8d03f8b534bc2c4fd7297971} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!timeResourceBound\_@{timeResourceBound\_}}
+\index{timeResourceBound\_@{timeResourceBound\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{timeResourceBound\_}{timeResourceBound\_}}
+{\footnotesize\ttfamily int robogen\+::\+EDQDRobot\+::time\+Resource\+Bound\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The number of iterations that have passed while this agent is attached to a specific resource. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a8f463396ad169846e9283a92bca9d8dc}\label{classrobogen_1_1EDQDRobot_a8f463396ad169846e9283a92bca9d8dc} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!uniformDistribution@{uniformDistribution}}
+\index{uniformDistribution@{uniformDistribution}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{uniformDistribution}{uniformDistribution}}
+{\footnotesize\ttfamily boost\+::random\+::uniform\+\_\+01$<$float$>$ robogen\+::\+EDQDRobot\+::uniform\+Distribution\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Uniform distribution. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_af24ba1cd94879435cdd103df4633c556}\label{classrobogen_1_1EDQDRobot_af24ba1cd94879435cdd103df4633c556} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!Xinit\_@{Xinit\_}}
+\index{Xinit\_@{Xinit\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{Xinit\_}{Xinit\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::\+Xinit\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log robot initial x position. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a07750c7f3664605a90f06f9b34c1ddf8}\label{classrobogen_1_1EDQDRobot_a07750c7f3664605a90f06f9b34c1ddf8} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!Xlast\_@{Xlast\_}}
+\index{Xlast\_@{Xlast\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{Xlast\_}{Xlast\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::\+Xlast\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log robot last x position. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a95944cd7c2f679d929ea741688f5be36}\label{classrobogen_1_1EDQDRobot_a95944cd7c2f679d929ea741688f5be36} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!Yinit\_@{Yinit\_}}
+\index{Yinit\_@{Yinit\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{Yinit\_}{Yinit\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::\+Yinit\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log robot initial y position. 
+
+\Hypertarget{classrobogen_1_1EDQDRobot_a02320e71827d25f4b08e9cdefd19d392}\label{classrobogen_1_1EDQDRobot_a02320e71827d25f4b08e9cdefd19d392} 
+\index{robogen::EDQDRobot@{robogen::EDQDRobot}!Ylast\_@{Ylast\_}}
+\index{Ylast\_@{Ylast\_}!robogen::EDQDRobot@{robogen::EDQDRobot}}
+\doxysubsubsection{\texorpdfstring{Ylast\_}{Ylast\_}}
+{\footnotesize\ttfamily double robogen\+::\+EDQDRobot\+::\+Ylast\+\_\+\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Log robot last y position. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{EDQDRobot_8h}{EDQDRobot.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{EDQDRobot_8cpp}{EDQDRobot.\+cpp}}\end{DoxyCompactItemize}

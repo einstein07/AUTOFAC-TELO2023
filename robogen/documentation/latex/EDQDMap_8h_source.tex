@@ -1,0 +1,342 @@
+\hypertarget{EDQDMap_8h_source}{}\doxysection{EDQDMap.\+h}
+\label{EDQDMap_8h_source}\index{src/EDQD/EDQDMap.h@{src/EDQD/EDQDMap.h}}
+\mbox{\hyperlink{EDQDMap_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Map.h\ \ \ 1.0\ \ \ Sep\ 01,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ MAP\_ELITES\_MAP\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ MAP\_ELITES\_MAP\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <boost/multi\_array.hpp>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <boost/optional.hpp>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <boost/serialization/vector.hpp>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <boost/serialization/utility.hpp>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <boost/serialization/array.hpp>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <boost/serialization/split\_member.hpp>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <boost/archive/binary\_oarchive.hpp>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <boost/archive/binary\_iarchive.hpp>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <math.h>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{EDQDRobot_8h}{EDQD/EDQDRobot.h}}"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Parameters_8h}{EDQD/Parameters.h}}"{}}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00028\ \textcolor{keyword}{class\ }EDQDRobot;}
+\DoxyCodeLine{00029\ \textcolor{comment}{//================================================================================================}}
+\DoxyCodeLine{00031\ \textcolor{comment}{}\textcolor{comment}{//================================================================================================}}
+\DoxyCodeLine{00032\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{comment}{//========================================================================================}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{comment}{//========================================================================================}}
+\DoxyCodeLine{00040\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_adc283545048a3fe5c6b6ab47f6d91fad}{Elite}}()\{\}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Elite(Elite*\ o)\ \{}}
+\DoxyCodeLine{00043\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ fitness\_\ =\ o-\/>fitness\_;}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ genome\_.clear();}}
+\DoxyCodeLine{00045\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ genome\_\ =\ o-\/>genome\_;}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ id\_\ =\ o-\/>id\_;}}
+\DoxyCodeLine{00047\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ sigma\_\ =\ o-\/>sigma\_;}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ pos\_.clear();}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ pos\_\ =\ o-\/>pos\_;}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_ae30546ebc855ebea4b9955db756942bd}{Elite}}(\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}*\ o)\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}}.clear();}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\_}};}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\_}};}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}}.clear();}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}};}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}}.clear();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}}\ =\ o-\/>\mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*Elite(double\ fitness,\ std::vector<double>\ genome,\ std::pair<int,\ int>\ id,\ float\ sigma,\ std::vector<double>\ pos)\ \{}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ fitness\_\ =\ fitness;}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ genome\_.clear();}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ genome\_\ =\ genome;}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ id\_\ =\ id;}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ sigma\_\ =\ sigma;}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ pos\_.clear();}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ pos\_\ =\ pos;}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}*/}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a281c0ed1fd168862bf1e552fa138699d}{Elite}}(\textcolor{keywordtype}{double}\ fitness,\ std::vector<double>\ genome,\ std::pair<int,\ int>\ \textcolor{keywordtype}{id},\ \textcolor{keywordtype}{float}\ sigma,\ std::vector<double>\ pos,\ std::map<int,double>\ perSensorTypeRange)\ \{}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ =\ fitness;}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}}.clear();}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}}\ =\ genome;}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\_}}\ =\ id;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\_}}\ =\ sigma;}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}}.clear();}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}}\ =\ pos;}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}}.clear();}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}}\ =\ perSensorTypeRange;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1Elite_a4398fc3b18e23b50e04719ef73add414}{operator<\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ rhs)\{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ this-\/>\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ <\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ||}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ==\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ \&\&\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ >\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ )\ ;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1Elite_ab72fd0dbf56f68cafef87014f0c94bc4}{operator>\ }}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ rhs)\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ <\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ||}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ==\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ \&\&\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ >\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(\ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ );}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1Elite_ab306ed3f13df1eef80f52eb88d95f3e5}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ rhs)\{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ <\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ||}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ==\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ \&\&\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ >\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(\ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ ));}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1Elite_acffbbc96e71fd2b4fc3fc67707aea889}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ rhs)\{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !(\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ <\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ||}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ ==\ rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ \&\&\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(\ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ >\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(rhs.\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}})\ ));}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{structrobogen_1_1Elite_a04355e796cb1d4b7779f10b197c0a89a}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ obj)\{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ obj.\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structrobogen_1_1Elite_a2003906ea6de4e0da0af08639e7cc542}{serialize}}(Archive\&\ ar,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ version)\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}});}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}});}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\_}});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\_}});}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}});}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6}{counter\_}});}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\_dist\_center}}(\textcolor{keyword}{const}\ std::vector<double>\&\ pos)\ \{}
+\DoxyCodeLine{00142\ }
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ 0.0;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ pos.size();\ ++i)\ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\ +=\ pow(pos[i]\ -\/\ (\textcolor{keywordtype}{float})round(pos[i]\ *\ (\textcolor{keywordtype}{float})(\mbox{\hyperlink{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a}{EDQD::Parameters::nbOfIntervals}}\ -\/\ 1))/(\textcolor{keywordtype}{float})(\mbox{\hyperlink{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a}{EDQD::Parameters::nbOfIntervals}}\ -\/\ 1),\ 2);}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ dist=sqrt(dist);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dist;}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{structrobogen_1_1Elite_a232a728bcc10abaabbddd1c8065f2bbf}{incCounter}}()\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6}{counter\_}}++;}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Members}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00160\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\_}}\ =\ -\/1.0;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\_}};}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ std::pair<int,\ int>\ \mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\_}};}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\_}}\ =\ \mbox{\hyperlink{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}{EDQD::Parameters::sigmaRef}};}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\_}};}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6}{counter\_}}\ =\ 0;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ std::map<int,double>\ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{perSensorTypeRange\_}};}
+\DoxyCodeLine{00189\ }
+\DoxyCodeLine{00190\ \};}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{keyword}{typedef}\ boost::multi\_array<Elite,\ EDQD::Parameters::nbOfDimensions>\ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\_t}};}
+\DoxyCodeLine{00193\ \textcolor{keyword}{typedef}\ map\_t::index\ \mbox{\hyperlink{namespacerobogen_a182591e97fd2cf35bcdbdff384f3aefb}{map\_index\_t}};}
+\DoxyCodeLine{00194\ \textcolor{keyword}{typedef}\ boost::array<map\_index\_t,\ EDQD::Parameters::nbOfDimensions>\ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}};}
+\DoxyCodeLine{00195\ \textcolor{comment}{//===============================================================================================}}
+\DoxyCodeLine{00197\ \textcolor{comment}{}\textcolor{comment}{//===============================================================================================}}
+\DoxyCodeLine{00198\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}\ \{}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1EDQDMap_a4305f269960e8ccc92b19b2f0480b16d}{boost::serialization::access}};}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{comment}{//========================================================================================}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \textcolor{comment}{//========================================================================================}}
+\DoxyCodeLine{00210\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_ab3e16d80ae580112da45e1c14cf53f38}{setMapHasEntry}}(\textcolor{keywordtype}{bool}\ mapHasEntry)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{mapHasEntry\_}}\ =\ mapHasEntry;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6e7ceeb3e6dcf73741ff19e165b84818}{\_dist\_center}}(\textcolor{keyword}{const}\ std::vector<double>\&\ pos)\ \{}
+\DoxyCodeLine{00219\ }
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ dist\ =\ 0.0;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}};\ ++i)\ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dist\ +=\ pow(pos[i]\ -\/\ (\textcolor{keywordtype}{float})round(pos[i]\ *\ (\textcolor{keywordtype}{float})(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.shape()[i]\ -\/\ 1))}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ /(\textcolor{keywordtype}{float})(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.shape()[i]\ -\/\ 1),\ 2);}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ dist=sqrt(dist);}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ dist;}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Members}}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00233\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\_t}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}};}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}};}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}{map\_shape\_}};}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{mapHasEntry\_}};}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}{num\_filled\_cells\_}};}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=======================================================================================}}
+\DoxyCodeLine{00250\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a208fda2edade7b5f970b20f604dbf8b5}{EDQDMap}}();}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a03d91909361e23a8865e318331518c75}{\string~EDQDMap}}();}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a84c9f9602fb4f1c53976cb9d8875e85d}{computeIndex}}(}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::map<int,\ int>\&\ oc,}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{Util_8cpp_a94d663bff0c9b842fd3a8c6364c169ce}{distance}},}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ maxDistance,}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>*\ pos\ =\ NULL}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a4ef8117d8c623b403886acd2582bddbd}{computeMorphIndex}}(\textcolor{keyword}{const}\ std::map<int,\ int>\&\ sensorTypes,\ \textcolor{keywordtype}{int}\ totalNumOfSensors,\ \textcolor{keywordtype}{double}\ averageRange,\ \textcolor{keywordtype}{double}\ maxRange,\ std::vector<double>*\ pos);}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\&\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a3555ac4a4adcf557a44ddc9e5bb6bc6a}{operator()}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\ \{}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}[i][j];}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_acdaac255a15538af852c0e3e7785436a}{operator()}}(\textcolor{keywordtype}{int}\ i,\ \textcolor{keywordtype}{int}\ j)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}[i][j];}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{friend}\ std::ostream\&\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a0347ab56376d0596ec5721f86cc488e7}{operator<<}}(std::ostream\&\ os,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}\&\ obj)\ \{}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dim1\ =\ obj.\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.shape()[0];}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dim2\ =\ obj.\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.shape()[2];}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespacerobogen_a182591e97fd2cf35bcdbdff384f3aefb}{map\_index\_t}}\ i\ =\ 0;\ i\ <\ dim1;\ i++)\{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ i;}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{namespacerobogen_a182591e97fd2cf35bcdbdff384f3aefb}{map\_index\_t}}\ j\ =\ 0;\ j\ <\ dim2;\ j++)\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ (obj.\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}[i][j]);}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\ i\ <\ dim1\ -\/\ 1\ )\{}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ os\ <<\ std::endl;}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ os;}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00311\ }
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }boost::serialization::access;}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ BOOST\_SERIALIZATION\_SPLIT\_MEMBER()}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ template\ <class\ Archive>}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a29f671973bffd4cbcc3b7fd9017665da}{load}}(Archive\&\ ar,\ const\ \textcolor{keywordtype}{int}\ version)\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{mapHasEntry\_}});}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}});}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}};\ i++)\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}{map\_shape\_}}[i]);}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.resize(\mbox{\hyperlink{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}{map\_shape\_}});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ ar\ \&\ boost::serialization::make\_array(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.data(),\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.num\_elements());}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ Archive>}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_aa9c89539920f55722d45205503e59ab1}{save}}(Archive\&\ ar,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ version)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{mapHasEntry\_}});}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}});}
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a6b89fc071aee053fe6e7e2ec9648be45}{map\_dim\_}};\ i++)\ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ar\&\ BOOST\_SERIALIZATION\_NVP(\mbox{\hyperlink{classrobogen_1_1EDQDMap_acfcc2fae81c3d6a2b4bdb8b5e5293635}{map\_shape\_}}[i]);}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ ar\ \&\ boost::serialization::make\_array(\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.data(),\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.num\_elements());}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a99d82a057b1a31bf916412e57e8ccb07}{add}}(}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}}*\ ctrl,}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ genome,}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sigma}
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a270cbc32dd37bed70945fc34c5b58e8e}{morphAdd}}(}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \textcolor{keywordtype}{id},}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDRobot}{EDQDRobot}}*\ robot,}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ genome,}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ sigma,}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::map<int,double>\ perSensorTypeRange}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}*\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_af31f97cf366fdd3e6a8fa1ab1a989f57}{get}}(\mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ index)\ \{}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}(index);}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a9e6c7c898bc12a1082f9bf9036eddbab}{getRandomIndex}}();}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a32e542898d06640d5b863467eb4d6546}{hasEntry}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_af90b7de38bcee674b2bee85c93a5a88b}{mapHasEntry\_}};}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\_t}}\&\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_aa9afa3e390beb01b4db89ef74eab13b1}{getMap}}()\ \{}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}};}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_ae0f9b7c4bc00e4b0822d8f6078d0c6b8}{getNumFilledCells}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00415\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}{num\_filled\_cells\_}};}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a386fae4127de3e05950f294238f3df61}{mergeInto}}(\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}}\&\ m);}
+\DoxyCodeLine{00424\ }
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_afd63685bef0afa883ed30ba23b2ecea1}{updateNumFilledCells}}()\ \{}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}{num\_filled\_cells\_}}\ =\ 0;}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.num\_elements();\ i++)\ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classrobogen_1_1EDQDMap_a11446635196f102d3df7f9f0fbfab457}{map\_}}.data()[i].fitness\_\ >\ -\/1.0)\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_a17e029435d9a012667789ab83811c504}{num\_filled\_cells\_}}++;}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1EDQDMap_ab3e16d80ae580112da45e1c14cf53f38}{setMapHasEntry}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00437\ \ \ \ \ \};}
+\DoxyCodeLine{00438\ \ \ \ \ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00439\ \ \ \ \ \textcolor{comment}{//*************************STATIC\ METHODS*************************}}
+\DoxyCodeLine{00440\ \ \ \ \ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00446\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ writeMapBin(\textcolor{keyword}{const}\ EDQDMap\&\ m,\ \textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ std::ofstream\ ofs(filename.c\_str());}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ assert(ofs.good());}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}writing\ :\ "{}\ <<\ filename\ <<\ std::endl;}}
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ boost::archive::binary\_oarchive\ oa(ofs);}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ oa\&\ BOOST\_SERIALIZATION\_NVP(m);}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}done"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00453\ \ \ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00459\ \ \ \ \ \textcolor{keyword}{static}\ EDQDMap\ loadMap(\textcolor{keyword}{const}\ std::string\&\ filename)\ \{}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ std::ifstream\ ifs(filename.c\_str());}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ assert(ifs.good());}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ boost::archive::binary\_iarchive\ ia(ifs);}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ EDQDMap\ data;}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ ia\&\ BOOST\_SERIALIZATION\_NVP(data);}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data;}
+\DoxyCodeLine{00466\ \ \ \ \ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00474\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ mapToString(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\_t}}\&\ m,\ \textcolor{keyword}{const}\ std::string\&\ prefix\ =\ std::string(\textcolor{stringliteral}{"{}"{}}))\ \{}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ std::stringstream\ ofs;}
+\DoxyCodeLine{00476\ }
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ behav\_dim\ =\ m.dimensionality;}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{size\_t}\ offset\ =\ 0;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ Elite*\ i\ =\ m.data();\ i\ <\ (m.data()\ +\ m.num\_elements());\ ++i)\ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i)\ \{}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{behav\_index\_t}}\ index;}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ dim\ =\ 0;\ dim\ <\ behav\_dim;\ dim++\ )\ \{}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index[dim]\ =\ (offset\ /\ m.strides()[dim]\ \%\ m.shape()[dim]\ +\ \ m.index\_bases()[dim]);}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00485\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ assert(m(index).fitness\_\ ==\ (i)-\/>fitness\_);}
+\DoxyCodeLine{00487\ }
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ prefix\ <<\ offset\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ dim\ =\ 0;\ dim\ <\ behav\_dim;\ ++dim)\ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ index[dim]\ /\ (float)m.shape()[dim]\ <<\ \textcolor{stringliteral}{"{},"{}};}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ m(index).fitness\_;}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ofs\ <<\ std::endl;}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ ++offset;}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00497\ }
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ofs.str();}
+\DoxyCodeLine{00499\ \ \ \ \ \}}
+\DoxyCodeLine{00507\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ writeMapToFile(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{map\_t}}\&\ m,\ \textcolor{keyword}{const}\ std::string\&\ filename,}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\&\ note\ =\ \textcolor{stringliteral}{"{}"{}})}
+\DoxyCodeLine{00509\ \ \ \ \ \{}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \textcolor{comment}{//std::cout\ <<\ "{}writing\ "{}\ <<\ note\ <<\ "{}\ "{}\ <<\ filename\ <<\ std::endl;}}
+\DoxyCodeLine{00511\ }
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ std::ofstream\ ofs(filename.c\_str());}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ ofs\ <<\ mapToString(m);}
+\DoxyCodeLine{00515\ \ \ \ \ \}}
+\DoxyCodeLine{00516\ \}}
+\DoxyCodeLine{00517\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*MAP\_ELITES\_MAP\_H\_*/}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,110 @@
+\hypertarget{classrobogen_1_1ResourcesConfig}{}\doxysection{robogen\+::Resources\+Config Class Reference}
+\label{classrobogen_1_1ResourcesConfig}\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+
+
+Resources configuration parameters.  
+
+
+
+
+{\ttfamily \#include $<$Resources\+Config.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a9d6cceaeed9ad7e7b51d8f694b473b15}{Resources\+Config}} ()
+\item 
+\mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a645dd2ca99c6c0a0e04afe52e7faf1fa}{Resources\+Config}} (const std\+::vector$<$ osg\+::\+Vec3 $>$ \&coordinates, const std\+::vector$<$ osg\+::\+Vec3 $>$ \&sizes, const std\+::vector$<$ float $>$ \&densities, const std\+::vector$<$ int $>$ \&types)
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a694a427373db02579e2bc529598bf6c7}{$\sim$\+Resources\+Config}} ()
+\item 
+const std\+::vector$<$ osg\+::\+Vec3 $>$ \& \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a4746e22b41b7a7e70418e0422840c3e1}{get\+Coordinates}} () const
+\item 
+const std\+::vector$<$ osg\+::\+Vec3 $>$ \& \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a32c6e384b257efdb1a4d41fdf1aeb45d}{get\+Sizes}} () const
+\item 
+const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_ae947ea1e98f9dfef941ba69c245921cd}{get\+Densities}} () const
+\item 
+const std\+::vector$<$ int $>$ \& \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_aa0cf1f17ebd1bc1f35a7d336ca608e77}{get\+Types}} () const
+\item 
+void \mbox{\hyperlink{classrobogen_1_1ResourcesConfig_a9c207ca61f8171d216d1979b4be49cd9}{serialize}} (robogen\+Message\+::\+Simulator\+Conf \&message)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Resources configuration parameters. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1ResourcesConfig_a9d6cceaeed9ad7e7b51d8f694b473b15}\label{classrobogen_1_1ResourcesConfig_a9d6cceaeed9ad7e7b51d8f694b473b15} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!ResourcesConfig@{ResourcesConfig}}
+\index{ResourcesConfig@{ResourcesConfig}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{ResourcesConfig()}{ResourcesConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Resources\+Config\+::\+Resources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Default Constructor.~\newline
+Initializes resources configuration \Hypertarget{classrobogen_1_1ResourcesConfig_a645dd2ca99c6c0a0e04afe52e7faf1fa}\label{classrobogen_1_1ResourcesConfig_a645dd2ca99c6c0a0e04afe52e7faf1fa} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!ResourcesConfig@{ResourcesConfig}}
+\index{ResourcesConfig@{ResourcesConfig}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{ResourcesConfig()}{ResourcesConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Resources\+Config\+::\+Resources\+Config (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ osg\+::\+Vec3 $>$ \&}]{coordinates,  }\item[{const std\+::vector$<$ osg\+::\+Vec3 $>$ \&}]{sizes,  }\item[{const std\+::vector$<$ float $>$ \&}]{densities,  }\item[{const std\+::vector$<$ int $>$ \&}]{types }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor.~\newline
+Initializes resources configuration \Hypertarget{classrobogen_1_1ResourcesConfig_a694a427373db02579e2bc529598bf6c7}\label{classrobogen_1_1ResourcesConfig_a694a427373db02579e2bc529598bf6c7} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!````~ResourcesConfig@{$\sim$ResourcesConfig}}
+\index{````~ResourcesConfig@{$\sim$ResourcesConfig}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{$\sim$ResourcesConfig()}{~ResourcesConfig()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Resources\+Config\+::$\sim$\+Resources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1ResourcesConfig_a4746e22b41b7a7e70418e0422840c3e1}\label{classrobogen_1_1ResourcesConfig_a4746e22b41b7a7e70418e0422840c3e1} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!getCoordinates@{getCoordinates}}
+\index{getCoordinates@{getCoordinates}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getCoordinates()}{getCoordinates()}}
+{\footnotesize\ttfamily const std\+::vector$<$ osg\+::\+Vec3 $>$ \& robogen\+::\+Resources\+Config\+::get\+Coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Return resource coordinates.~\newline
+\begin{DoxyReturn}{Returns}
+the coordinates of the resources 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1ResourcesConfig_ae947ea1e98f9dfef941ba69c245921cd}\label{classrobogen_1_1ResourcesConfig_ae947ea1e98f9dfef941ba69c245921cd} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!getDensities@{getDensities}}
+\index{getDensities@{getDensities}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getDensities()}{getDensities()}}
+{\footnotesize\ttfamily const std\+::vector$<$ float $>$ \& robogen\+::\+Resources\+Config\+::get\+Densities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns resource densities.~\newline
+\begin{DoxyReturn}{Returns}
+the densities of the resources 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1ResourcesConfig_a32c6e384b257efdb1a4d41fdf1aeb45d}\label{classrobogen_1_1ResourcesConfig_a32c6e384b257efdb1a4d41fdf1aeb45d} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!getSizes@{getSizes}}
+\index{getSizes@{getSizes}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getSizes()}{getSizes()}}
+{\footnotesize\ttfamily const std\+::vector$<$ osg\+::\+Vec3 $>$ \& robogen\+::\+Resources\+Config\+::get\+Sizes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns resource sizes.~\newline
+\begin{DoxyReturn}{Returns}
+the size of the resources 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1ResourcesConfig_aa0cf1f17ebd1bc1f35a7d336ca608e77}\label{classrobogen_1_1ResourcesConfig_aa0cf1f17ebd1bc1f35a7d336ca608e77} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!getTypes@{getTypes}}
+\index{getTypes@{getTypes}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getTypes()}{getTypes()}}
+{\footnotesize\ttfamily const std\+::vector$<$ int $>$ \& robogen\+::\+Resources\+Config\+::get\+Types (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns resource types.~\newline
+\begin{DoxyReturn}{Returns}
+the types of the resources 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1ResourcesConfig_a9c207ca61f8171d216d1979b4be49cd9}\label{classrobogen_1_1ResourcesConfig_a9c207ca61f8171d216d1979b4be49cd9} 
+\index{robogen::ResourcesConfig@{robogen::ResourcesConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::ResourcesConfig@{robogen::ResourcesConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void robogen\+::\+Resources\+Config\+::serialize (\begin{DoxyParamCaption}\item[{robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Serializes resources into a Simulator\+Conf message 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{ResourcesConfig_8h}{Resources\+Config.\+h}}\end{DoxyCompactItemize}

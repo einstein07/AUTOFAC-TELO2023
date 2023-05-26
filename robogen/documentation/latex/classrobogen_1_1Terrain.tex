@@ -1,0 +1,201 @@
+\hypertarget{classrobogen_1_1Terrain}{}\doxysection{robogen\+::Terrain Class Reference}
+\label{classrobogen_1_1Terrain}\index{robogen::Terrain@{robogen::Terrain}}
+
+
+Class to describe \doxylink{classrobogen_1_1Terrain}{Terrain} model.  
+
+
+
+
+{\ttfamily \#include $<$Terrain.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Terrain_afc7888aa0cfd15083e381f768eeaf983}{Terrain}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Terrain_aa5231f204463d162752943d0a6788ba3}{$\sim$\+Terrain}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{Terrain\+Config\+::\+Terrain\+Type}} \mbox{\hyperlink{classrobogen_1_1Terrain_a7f639a76926014b98a14933da23a4ce1}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Terrain}{Terrain} type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Terrain_ad13a0052714852aa60d24b9380c5e6bf}{init\+Flat}} (float width, float depth)
+\begin{DoxyCompactList}\small\item\em Initializes a flat terrain. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Terrain_a84f1e3c824bbebef5ccca89ef8c2411e}{init\+Rough}} (const std\+::string \&height\+Map\+File\+Name, float width, float depth, float height)
+\begin{DoxyCompactList}\small\item\em Initializes a rough terrain. \end{DoxyCompactList}\item 
+osg\+::ref\+\_\+ptr$<$ osg\+::\+Image $>$ \mbox{\hyperlink{classrobogen_1_1Terrain_a8b03b7630220cceaf225e1df86b906f3}{get\+Height\+Field\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Returns heightfield data. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Terrain_a19792127138684642e6f7d68ef709c7a}{get\+Width}} () const
+\begin{DoxyCompactList}\small\item\em Returns terrain width. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Terrain_ab5f62df38fc6cf512375fa723f49a173}{get\+Depth}} () const
+\begin{DoxyCompactList}\small\item\em Returns heightfield depth. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Terrain_a8f761d358f3c9d25c5ea170f536f11ca}{get\+Height\+Field\+Height}} () const
+\begin{DoxyCompactList}\small\item\em Returns heightfield height. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Terrain_a4e925898773e1f77da961eebbac16813}{get\+BB}} (double \&minX, double \&maxX, double \&minY, double \&maxY, double \&minZ, double \&maxZ)
+\begin{DoxyCompactList}\small\item\em Returns Axis-\/\+Bounding-\/\+Box. \end{DoxyCompactList}\item 
+const d\+Geom\+ID \& \mbox{\hyperlink{classrobogen_1_1Terrain_a867f6084dbc9f8c79262c91872486264}{get\+Geom}} ()
+\begin{DoxyCompactList}\small\item\em Returns Geom -\/ SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe \doxylink{classrobogen_1_1Terrain}{Terrain} model. 
+
+The terrain can be either a flat surface or defined by an height map that is tiled infinitely or totally empty. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Terrain_afc7888aa0cfd15083e381f768eeaf983}\label{classrobogen_1_1Terrain_afc7888aa0cfd15083e381f768eeaf983} 
+\index{robogen::Terrain@{robogen::Terrain}!Terrain@{Terrain}}
+\index{Terrain@{Terrain}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{Terrain()}{Terrain()}}
+{\footnotesize\ttfamily robogen\+::\+Terrain\+::\+Terrain (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Initializes the model for terrain \Hypertarget{classrobogen_1_1Terrain_aa5231f204463d162752943d0a6788ba3}\label{classrobogen_1_1Terrain_aa5231f204463d162752943d0a6788ba3} 
+\index{robogen::Terrain@{robogen::Terrain}!````~Terrain@{$\sim$Terrain}}
+\index{````~Terrain@{$\sim$Terrain}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{$\sim$Terrain()}{~Terrain()}}
+{\footnotesize\ttfamily robogen\+::\+Terrain\+::$\sim$\+Terrain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Terrain_a4e925898773e1f77da961eebbac16813}\label{classrobogen_1_1Terrain_a4e925898773e1f77da961eebbac16813} 
+\index{robogen::Terrain@{robogen::Terrain}!getBB@{getBB}}
+\index{getBB@{getBB}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getBB()}{getBB()}}
+{\footnotesize\ttfamily void robogen\+::\+Terrain\+::get\+BB (\begin{DoxyParamCaption}\item[{double \&}]{minX,  }\item[{double \&}]{maxX,  }\item[{double \&}]{minY,  }\item[{double \&}]{maxY,  }\item[{double \&}]{minZ,  }\item[{double \&}]{maxZ }\end{DoxyParamCaption})}
+
+
+
+Returns Axis-\/\+Bounding-\/\+Box. 
+
+\begin{DoxyReturn}{Returns}
+the AABB for the terrain (useful if the terrain is an heightfield) 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_ab5f62df38fc6cf512375fa723f49a173}\label{classrobogen_1_1Terrain_ab5f62df38fc6cf512375fa723f49a173} 
+\index{robogen::Terrain@{robogen::Terrain}!getDepth@{getDepth}}
+\index{getDepth@{getDepth}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getDepth()}{getDepth()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+::get\+Depth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns heightfield depth. 
+
+\begin{DoxyReturn}{Returns}
+heightfield depth 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_a867f6084dbc9f8c79262c91872486264}\label{classrobogen_1_1Terrain_a867f6084dbc9f8c79262c91872486264} 
+\index{robogen::Terrain@{robogen::Terrain}!getGeom@{getGeom}}
+\index{getGeom@{getGeom}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getGeom()}{getGeom()}}
+{\footnotesize\ttfamily const d\+Geom\+ID \& robogen\+::\+Terrain\+::get\+Geom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Geom -\/ SM. 
+
+\Hypertarget{classrobogen_1_1Terrain_a8b03b7630220cceaf225e1df86b906f3}\label{classrobogen_1_1Terrain_a8b03b7630220cceaf225e1df86b906f3} 
+\index{robogen::Terrain@{robogen::Terrain}!getHeightFieldData@{getHeightFieldData}}
+\index{getHeightFieldData@{getHeightFieldData}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getHeightFieldData()}{getHeightFieldData()}}
+{\footnotesize\ttfamily osg\+::ref\+\_\+ptr$<$ osg\+::\+Image $>$ robogen\+::\+Terrain\+::get\+Height\+Field\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns heightfield data. 
+
+\begin{DoxyReturn}{Returns}
+the heightfield data 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_a8f761d358f3c9d25c5ea170f536f11ca}\label{classrobogen_1_1Terrain_a8f761d358f3c9d25c5ea170f536f11ca} 
+\index{robogen::Terrain@{robogen::Terrain}!getHeightFieldHeight@{getHeightFieldHeight}}
+\index{getHeightFieldHeight@{getHeightFieldHeight}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getHeightFieldHeight()}{getHeightFieldHeight()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+::get\+Height\+Field\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns heightfield height. 
+
+\begin{DoxyReturn}{Returns}
+heightfield height 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_a7f639a76926014b98a14933da23a4ce1}\label{classrobogen_1_1Terrain_a7f639a76926014b98a14933da23a4ce1} 
+\index{robogen::Terrain@{robogen::Terrain}!getType@{getType}}
+\index{getType@{getType}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{Terrain\+Config\+::\+Terrain\+Type}} robogen\+::\+Terrain\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns \doxylink{classrobogen_1_1Terrain}{Terrain} type. 
+
+\begin{DoxyReturn}{Returns}
+type of terrain 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_a19792127138684642e6f7d68ef709c7a}\label{classrobogen_1_1Terrain_a19792127138684642e6f7d68ef709c7a} 
+\index{robogen::Terrain@{robogen::Terrain}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns terrain width. 
+
+\begin{DoxyReturn}{Returns}
+width 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Terrain_ad13a0052714852aa60d24b9380c5e6bf}\label{classrobogen_1_1Terrain_ad13a0052714852aa60d24b9380c5e6bf} 
+\index{robogen::Terrain@{robogen::Terrain}!initFlat@{initFlat}}
+\index{initFlat@{initFlat}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{initFlat()}{initFlat()}}
+{\footnotesize\ttfamily bool robogen\+::\+Terrain\+::init\+Flat (\begin{DoxyParamCaption}\item[{float}]{width,  }\item[{float}]{depth }\end{DoxyParamCaption})}
+
+
+
+Initializes a flat terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em width} & \\
+\hline
+{\em depth} & \\
+\hline
+\end{DoxyParams}
+SM added -\/ debug
+
+std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}\+Terrain ID\+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} t\+ID \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl;\Hypertarget{classrobogen_1_1Terrain_a84f1e3c824bbebef5ccca89ef8c2411e}\label{classrobogen_1_1Terrain_a84f1e3c824bbebef5ccca89ef8c2411e} 
+\index{robogen::Terrain@{robogen::Terrain}!initRough@{initRough}}
+\index{initRough@{initRough}!robogen::Terrain@{robogen::Terrain}}
+\doxysubsubsection{\texorpdfstring{initRough()}{initRough()}}
+{\footnotesize\ttfamily bool robogen\+::\+Terrain\+::init\+Rough (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{height\+Map\+File\+Name,  }\item[{float}]{width,  }\item[{float}]{depth,  }\item[{float}]{height }\end{DoxyParamCaption})}
+
+
+
+Initializes a rough terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height\+Map\+File\+Name} & the height map file defining terrain elevation contains a nxm matrix of byte values (0-\/255). 0 Corresponds to the lower elevation, 1 to the maximum elevation \\
+\hline
+{\em width} & \\
+\hline
+{\em depth} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/scenario/\mbox{\hyperlink{Terrain_8h}{Terrain.\+h}}\item 
+src/scenario/\mbox{\hyperlink{Terrain_8cpp}{Terrain.\+cpp}}\end{DoxyCompactItemize}

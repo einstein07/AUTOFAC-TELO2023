@@ -1,0 +1,82 @@
+\hypertarget{classrobogen_1_1StartPositionConfig}{}\doxysection{robogen\+::Start\+Position\+Config Class Reference}
+\label{classrobogen_1_1StartPositionConfig}\index{robogen::StartPositionConfig@{robogen::StartPositionConfig}}
+
+
+Contains the list of allowed starting positions for the robots.  
+
+
+
+
+{\ttfamily \#include $<$Start\+Position\+Config.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1StartPositionConfig_a8fcc0676c7bd0cc3279c0438a0814a60}{Start\+Position\+Config}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ $>$ start\+Position)
+\begin{DoxyCompactList}\small\item\em Starting positions and azimuths. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ $>$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig_a4578e2fb3b68374d07f0e76b7c7b06a9}{get\+Start\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns starting positions. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig_a616022e979a4f1edfca8ccde22e854f1}{get\+Start\+Position}} (int i)
+\begin{DoxyCompactList}\small\item\em Returns starting position at position \textquotesingle{}i\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1StartPositionConfig_a2631882a45e2613f3c580aba11b1ab5a}{serialize}} (robogen\+Message\+::\+Simulator\+Conf \&message)
+\begin{DoxyCompactList}\small\item\em Serializes starting positions into a Simulator\+Conf message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Contains the list of allowed starting positions for the robots. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1StartPositionConfig_a8fcc0676c7bd0cc3279c0438a0814a60}\label{classrobogen_1_1StartPositionConfig_a8fcc0676c7bd0cc3279c0438a0814a60} 
+\index{robogen::StartPositionConfig@{robogen::StartPositionConfig}!StartPositionConfig@{StartPositionConfig}}
+\index{StartPositionConfig@{StartPositionConfig}!robogen::StartPositionConfig@{robogen::StartPositionConfig}}
+\doxysubsubsection{\texorpdfstring{StartPositionConfig()}{StartPositionConfig()}}
+{\footnotesize\ttfamily robogen\+::\+Start\+Position\+Config\+::\+Start\+Position\+Config (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ $>$}]{start\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Starting positions and azimuths. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1StartPositionConfig_a4578e2fb3b68374d07f0e76b7c7b06a9}\label{classrobogen_1_1StartPositionConfig_a4578e2fb3b68374d07f0e76b7c7b06a9} 
+\index{robogen::StartPositionConfig@{robogen::StartPositionConfig}!getStartPosition@{getStartPosition}}
+\index{getStartPosition@{getStartPosition}!robogen::StartPositionConfig@{robogen::StartPositionConfig}}
+\doxysubsubsection{\texorpdfstring{getStartPosition()}{getStartPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ $>$ robogen\+::\+Start\+Position\+Config\+::get\+Start\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns starting positions. 
+
+\begin{DoxyReturn}{Returns}
+the starting positions 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1StartPositionConfig_a616022e979a4f1edfca8ccde22e854f1}\label{classrobogen_1_1StartPositionConfig_a616022e979a4f1edfca8ccde22e854f1} 
+\index{robogen::StartPositionConfig@{robogen::StartPositionConfig}!getStartPosition@{getStartPosition}}
+\index{getStartPosition@{getStartPosition}!robogen::StartPositionConfig@{robogen::StartPositionConfig}}
+\doxysubsubsection{\texorpdfstring{getStartPosition()}{getStartPosition()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPosition}{Start\+Position}} $>$ robogen\+::\+Start\+Position\+Config\+::get\+Start\+Position (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns starting position at position \textquotesingle{}i\textquotesingle{}. 
+
+\begin{DoxyReturn}{Returns}
+the starting position at index i 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1StartPositionConfig_a2631882a45e2613f3c580aba11b1ab5a}\label{classrobogen_1_1StartPositionConfig_a2631882a45e2613f3c580aba11b1ab5a} 
+\index{robogen::StartPositionConfig@{robogen::StartPositionConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::StartPositionConfig@{robogen::StartPositionConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void robogen\+::\+Start\+Position\+Config\+::serialize (\begin{DoxyParamCaption}\item[{robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serializes starting positions into a Simulator\+Conf message. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{StartPositionConfig_8h}{Start\+Position\+Config.\+h}}\end{DoxyCompactItemize}

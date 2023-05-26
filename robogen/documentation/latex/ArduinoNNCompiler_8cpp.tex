@@ -1,0 +1,67 @@
+\hypertarget{ArduinoNNCompiler_8cpp}{}\doxysection{src/arduino/\+Arduino\+NNCompiler.cpp File Reference}
+\label{ArduinoNNCompiler_8cpp}\index{src/arduino/ArduinoNNCompiler.cpp@{src/arduino/ArduinoNNCompiler.cpp}}
+{\ttfamily \#include \char`\"{}arduino/\+Arduino\+NNCompiler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}arduino/\+Arduino\+NNConfiguration.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$boost/shared\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/math/special\+\_\+functions/round.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}model/\+Actuated\+Component.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/\+Perceptive\+Component.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/motors/\+Servo\+Motor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/motors/\+Rotation\+Motor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Light\+Sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Touch\+Sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Ir\+Sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Imu\+Sensor.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/representation/\+Neural\+Network\+Representation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/\+Robogen\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}brain/\+Neural\+Network.\+template\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ArduinoNNCompiler_8cpp_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)~\#x
+\item 
+\#define \mbox{\hyperlink{ArduinoNNCompiler_8cpp_a9063e80f8777300c93afde6e6f4c9cea}{TOSTRING}}(x)~\mbox{\hyperlink{ArduinoNNCompiler_8cpp_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespacerobogen_a96b9da7323d2eb38221fe5acf1533e4e}{robogen\+::get\+Pin}} (std\+::vector$<$ std\+::string $>$ \&available\+Digital\+Pins, std\+::vector$<$ std\+::string $>$ \&available\+Analog\+Pins, std\+::vector$<$ std\+::string $>$ \&available\+Pwm\+Pins, bool is\+Analog, bool is\+Pwm)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{ArduinoNNCompiler_8cpp_a153ed9468961748d522bc9e69b233380}{NEURAL\+\_\+\+NETWORK\+\_\+\+STRING}} =
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ArduinoNNCompiler_8cpp_a6df1d22fb5f09eccc23b9f399670cfd7}\label{ArduinoNNCompiler_8cpp_a6df1d22fb5f09eccc23b9f399670cfd7} 
+\index{ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}!STRINGIFY@{STRINGIFY}}
+\index{STRINGIFY@{STRINGIFY}!ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{STRINGIFY}{STRINGIFY}}
+{\footnotesize\ttfamily \#define STRINGIFY(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\#x}
+
+\Hypertarget{ArduinoNNCompiler_8cpp_a9063e80f8777300c93afde6e6f4c9cea}\label{ArduinoNNCompiler_8cpp_a9063e80f8777300c93afde6e6f4c9cea} 
+\index{ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}!TOSTRING@{TOSTRING}}
+\index{TOSTRING@{TOSTRING}!ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{TOSTRING}{TOSTRING}}
+{\footnotesize\ttfamily \#define TOSTRING(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~\mbox{\hyperlink{ArduinoNNCompiler_8cpp_a6df1d22fb5f09eccc23b9f399670cfd7}{STRINGIFY}}(x)}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{ArduinoNNCompiler_8cpp_a153ed9468961748d522bc9e69b233380}\label{ArduinoNNCompiler_8cpp_a153ed9468961748d522bc9e69b233380} 
+\index{ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}!NEURAL\_NETWORK\_STRING@{NEURAL\_NETWORK\_STRING}}
+\index{NEURAL\_NETWORK\_STRING@{NEURAL\_NETWORK\_STRING}!ArduinoNNCompiler.cpp@{ArduinoNNCompiler.cpp}}
+\doxysubsubsection{\texorpdfstring{NEURAL\_NETWORK\_STRING}{NEURAL\_NETWORK\_STRING}}
+{\footnotesize\ttfamily const std\+::string NEURAL\+\_\+\+NETWORK\+\_\+\+STRING =}
+

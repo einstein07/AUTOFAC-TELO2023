@@ -1,0 +1,37 @@
+\hypertarget{EDQDMap_8h}{}\doxysection{src/\+EDQD/\+EDQDMap.h File Reference}
+\label{EDQDMap_8h}\index{src/EDQD/EDQDMap.h@{src/EDQD/EDQDMap.h}}
+{\ttfamily \#include $<$boost/multi\+\_\+array.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/optional.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/serialization/vector.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/serialization/utility.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/serialization/array.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/serialization/split\+\_\+member.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/archive/binary\+\_\+oarchive.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/archive/binary\+\_\+iarchive.\+hpp$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+EDQDRobot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Parameters.\+h\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrobogen_1_1Elite}{robogen\+::\+Elite}}
+\begin{DoxyCompactList}\small\item\em A struct that represents an elite stored in the behavior map. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classrobogen_1_1EDQDMap}{robogen\+::\+EDQDMap}}
+\begin{DoxyCompactList}\small\item\em Class describing diversity maintenance maps. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef boost\+::multi\+\_\+array$<$ \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}}, \mbox{\hyperlink{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767}{EDQD\+::\+Parameters\+::nb\+Of\+Dimensions}} $>$ \mbox{\hyperlink{namespacerobogen_a8946ca7bd1423f90455d0745029730ed}{robogen\+::map\+\_\+t}}
+\item 
+typedef map\+\_\+t\+::index \mbox{\hyperlink{namespacerobogen_a182591e97fd2cf35bcdbdff384f3aefb}{robogen\+::map\+\_\+index\+\_\+t}}
+\item 
+typedef boost\+::array$<$ \mbox{\hyperlink{namespacerobogen_a182591e97fd2cf35bcdbdff384f3aefb}{map\+\_\+index\+\_\+t}}, \mbox{\hyperlink{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767}{EDQD\+::\+Parameters\+::nb\+Of\+Dimensions}} $>$ \mbox{\hyperlink{namespacerobogen_a507e1b8c25458dd2e81294c702303873}{robogen\+::behav\+\_\+index\+\_\+t}}
+\end{DoxyCompactItemize}

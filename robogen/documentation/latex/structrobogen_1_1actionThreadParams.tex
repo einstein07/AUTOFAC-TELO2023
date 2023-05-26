@@ -1,0 +1,105 @@
+\hypertarget{structrobogen_1_1actionThreadParams}{}\doxysection{robogen\+::action\+Thread\+Params Struct Reference}
+\label{structrobogen_1_1actionThreadParams}\index{robogen::actionThreadParams@{robogen::actionThreadParams}}
+
+
+Values passed into each robot thread in a swarm.  
+
+
+
+
+{\ttfamily \#include $<$Simulator.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+d\+Real $\ast$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a0279d953598f33ab8d61d828ce2faa2c}{previous\+Ang\+Vel}}
+\item 
+d\+Real $\ast$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a2e0f57dedfa55cf1a53ebd440018c847}{previous\+Lin\+Vel}}
+\item 
+double \mbox{\hyperlink{structrobogen_1_1actionThreadParams_aa88d5bc5585cffbae004a2ac44fca95c}{step}}
+\item 
+double \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a801c6565c4d79bf3eec5a69f586253c3}{t}}
+\item 
+int \mbox{\hyperlink{structrobogen_1_1actionThreadParams_aed3e2203cf610108b55bbe9a6a7feb2b}{count}}
+\item 
+bool $\ast$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_ac9d02799236bb419dc4b6a71a18f09ef}{constraint\+Violated}}
+\item 
+bool $\ast$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a7a2b8d5352386faa3198e5ab74f95329}{motor\+Burnt\+Out}}
+\item 
+boost\+::random\+::mt19937 \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a90491dd7dc5129d69260e17158a0c066}{rng}}
+\item 
+boost\+::random\+::normal\+\_\+distribution$<$ float $>$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_ab790d4fbaea7d9d236a46a094d1fe8f3}{normal\+Distribution}}
+\item 
+boost\+::random\+::uniform\+\_\+01$<$ float $>$ \mbox{\hyperlink{structrobogen_1_1actionThreadParams_a3d2e2525f0c29bfb6a0acc9e7ea1621a}{uniform\+Distribution}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Values passed into each robot thread in a swarm. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structrobogen_1_1actionThreadParams_ac9d02799236bb419dc4b6a71a18f09ef}\label{structrobogen_1_1actionThreadParams_ac9d02799236bb419dc4b6a71a18f09ef} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!constraintViolated@{constraintViolated}}
+\index{constraintViolated@{constraintViolated}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{constraintViolated}{constraintViolated}}
+{\footnotesize\ttfamily bool$\ast$ robogen\+::action\+Thread\+Params\+::constraint\+Violated}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_aed3e2203cf610108b55bbe9a6a7feb2b}\label{structrobogen_1_1actionThreadParams_aed3e2203cf610108b55bbe9a6a7feb2b} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!count@{count}}
+\index{count@{count}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily int robogen\+::action\+Thread\+Params\+::count}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a7a2b8d5352386faa3198e5ab74f95329}\label{structrobogen_1_1actionThreadParams_a7a2b8d5352386faa3198e5ab74f95329} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!motorBurntOut@{motorBurntOut}}
+\index{motorBurntOut@{motorBurntOut}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{motorBurntOut}{motorBurntOut}}
+{\footnotesize\ttfamily bool$\ast$ robogen\+::action\+Thread\+Params\+::motor\+Burnt\+Out}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_ab790d4fbaea7d9d236a46a094d1fe8f3}\label{structrobogen_1_1actionThreadParams_ab790d4fbaea7d9d236a46a094d1fe8f3} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!normalDistribution@{normalDistribution}}
+\index{normalDistribution@{normalDistribution}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{normalDistribution}{normalDistribution}}
+{\footnotesize\ttfamily boost\+::random\+::normal\+\_\+distribution$<$float$>$ robogen\+::action\+Thread\+Params\+::normal\+Distribution}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a0279d953598f33ab8d61d828ce2faa2c}\label{structrobogen_1_1actionThreadParams_a0279d953598f33ab8d61d828ce2faa2c} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!previousAngVel@{previousAngVel}}
+\index{previousAngVel@{previousAngVel}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{previousAngVel}{previousAngVel}}
+{\footnotesize\ttfamily d\+Real$\ast$ robogen\+::action\+Thread\+Params\+::previous\+Ang\+Vel}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a2e0f57dedfa55cf1a53ebd440018c847}\label{structrobogen_1_1actionThreadParams_a2e0f57dedfa55cf1a53ebd440018c847} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!previousLinVel@{previousLinVel}}
+\index{previousLinVel@{previousLinVel}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{previousLinVel}{previousLinVel}}
+{\footnotesize\ttfamily d\+Real$\ast$ robogen\+::action\+Thread\+Params\+::previous\+Lin\+Vel}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a90491dd7dc5129d69260e17158a0c066}\label{structrobogen_1_1actionThreadParams_a90491dd7dc5129d69260e17158a0c066} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!rng@{rng}}
+\index{rng@{rng}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{rng}{rng}}
+{\footnotesize\ttfamily boost\+::random\+::mt19937 robogen\+::action\+Thread\+Params\+::rng}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_aa88d5bc5585cffbae004a2ac44fca95c}\label{structrobogen_1_1actionThreadParams_aa88d5bc5585cffbae004a2ac44fca95c} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!step@{step}}
+\index{step@{step}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{step}{step}}
+{\footnotesize\ttfamily double robogen\+::action\+Thread\+Params\+::step}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a801c6565c4d79bf3eec5a69f586253c3}\label{structrobogen_1_1actionThreadParams_a801c6565c4d79bf3eec5a69f586253c3} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!t@{t}}
+\index{t@{t}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily double robogen\+::action\+Thread\+Params\+::t}
+
+\Hypertarget{structrobogen_1_1actionThreadParams_a3d2e2525f0c29bfb6a0acc9e7ea1621a}\label{structrobogen_1_1actionThreadParams_a3d2e2525f0c29bfb6a0acc9e7ea1621a} 
+\index{robogen::actionThreadParams@{robogen::actionThreadParams}!uniformDistribution@{uniformDistribution}}
+\index{uniformDistribution@{uniformDistribution}!robogen::actionThreadParams@{robogen::actionThreadParams}}
+\doxysubsubsection{\texorpdfstring{uniformDistribution}{uniformDistribution}}
+{\footnotesize\ttfamily boost\+::random\+::uniform\+\_\+01$<$float$>$ robogen\+::action\+Thread\+Params\+::uniform\+Distribution}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{Simulator_8h}{Simulator.\+h}}\end{DoxyCompactItemize}

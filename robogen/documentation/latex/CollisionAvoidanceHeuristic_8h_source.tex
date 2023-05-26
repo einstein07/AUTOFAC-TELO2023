@@ -1,0 +1,51 @@
+\hypertarget{CollisionAvoidanceHeuristic_8h_source}{}\doxysection{Collision\+Avoidance\+Heuristic.\+h}
+\label{CollisionAvoidanceHeuristic_8h_source}\index{src/EDQD/CollisionAvoidanceHeuristic.h@{src/EDQD/CollisionAvoidanceHeuristic.h}}
+\mbox{\hyperlink{CollisionAvoidanceHeuristic_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ CollisionAvoidanceHeuristic.h\ \ \ 1.0\ \ \ Sep\ 28,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ EDQD\_COLLISIONAVOIDANCEHEURISTIC\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EDQD\_COLLISIONAVOIDANCEHEURISTIC\_H\_}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Heuristic_8h}{Heuristic.h}}"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Scenario_8h}{scenario/Scenario.h}}"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Util_8h}{Util.h}}"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}model/components/perceptive/SensorMorphologyModel.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}model/components/perceptive/TargetAreaDetectorModel.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00029\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic}{CollisionAvoidanceHeuristic}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrobogen_1_1Heuristic}{Heuristic}}\{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ staticObject;}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ avoidCounter;}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ osg::Vec2d\ signal;}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic}{CollisionAvoidanceHeuristic}}(boost::shared\_ptr<Robot>\ robot,\ boost::shared\_ptr<Scenario>\ scenario);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a6ef75ebde122523ebaf8c824ffa3973d}{\string~CollisionAvoidanceHeuristic}}();}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec2d\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_aaac3f47db99205599e9fe1d2809c456a}{step}}(boost::mutex\&\ queueMutex);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ osg::Vec2d\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_ae102cf96041cf1f8096d911c8b03938f}{stepStatic}}();}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a5918560fea0f15ee51c2c6a6d7518cba}{decrement}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a374f2c93004b95616887450e0e0f0ec1}{isStaticObject}}()\{\textcolor{keywordflow}{return}\ staticObject;\}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_aea78a1b2b4f4c39fcb29ae64dd0a802a}{setStaticObject}}(\textcolor{keywordtype}{bool}\ value)\{staticObject\ =\ value;\}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_adae688d2259619e50fa1c202e8294033}{resetCounter}}(\textcolor{keywordtype}{int}\ value)\{avoidCounter\ =\ value;\}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a2c3ef5a2ea7830c32d51ceacc10f3c92}{getCounter}}()\{\textcolor{keywordflow}{return}\ avoidCounter;\}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ osg::Vec2d\ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic_a1497a1dba8a3098767d59f4ab3638ea2}{getSignal}}()\{\textcolor{keywordflow}{return}\ signal;\}}
+\DoxyCodeLine{00087\ \};}
+\DoxyCodeLine{00088\ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EDQD\_COLLISIONAVOIDANCEHEURISTIC\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

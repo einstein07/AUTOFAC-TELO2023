@@ -1,0 +1,111 @@
+\hypertarget{classrobogen_1_1LightSourcesConfig}{}\doxysection{robogen\+::Light\+Sources\+Config Class Reference}
+\label{classrobogen_1_1LightSourcesConfig}\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+
+
+Obstacles configuration parameters.  
+
+
+
+
+{\ttfamily \#include $<$Light\+Sources\+Config.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a50914aa1479485cf47c5861df1093a77}{Light\+Sources\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor.~\newline
+Initializes light sources configuration.~\newline
+No light sources. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_ae2c2fa5d207c0e63ee96c1865faa6767}{Light\+Sources\+Config}} (const std\+::vector$<$ osg\+::\+Vec3 $>$ \&coordinates, const std\+::vector$<$ float $>$ \&intensities)
+\begin{DoxyCompactList}\small\item\em Default Constructor~\newline
+Initializes light sources configuration. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a3d7e38668ea1d5e9f143d66ba94620b0}{$\sim$\+Light\+Sources\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+const std\+::vector$<$ osg\+::\+Vec3 $>$ \& \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a7149f588f9b252f9099a31c008476702}{get\+Coordinates}} () const
+\begin{DoxyCompactList}\small\item\em Returns location of light sources.~\newline
+. \end{DoxyCompactList}\item 
+const std\+::vector$<$ float $>$ \& \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_acd4c109a82296bc2a5628dfbcc02eb74}{get\+Intensities}} () const
+\item 
+void \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig_a2afc919d1e1f34f4e6c50a3c29944ca3}{serialize}} (robogen\+Message\+::\+Simulator\+Conf \&message)
+\begin{DoxyCompactList}\small\item\em Serialize obstacles into a Simulator\+Conf message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Obstacles configuration parameters. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1LightSourcesConfig_a50914aa1479485cf47c5861df1093a77}\label{classrobogen_1_1LightSourcesConfig_a50914aa1479485cf47c5861df1093a77} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!LightSourcesConfig@{LightSourcesConfig}}
+\index{LightSourcesConfig@{LightSourcesConfig}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{LightSourcesConfig()}{LightSourcesConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Light\+Sources\+Config\+::\+Light\+Sources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default constructor.~\newline
+Initializes light sources configuration.~\newline
+No light sources. 
+
+\Hypertarget{classrobogen_1_1LightSourcesConfig_ae2c2fa5d207c0e63ee96c1865faa6767}\label{classrobogen_1_1LightSourcesConfig_ae2c2fa5d207c0e63ee96c1865faa6767} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!LightSourcesConfig@{LightSourcesConfig}}
+\index{LightSourcesConfig@{LightSourcesConfig}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{LightSourcesConfig()}{LightSourcesConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Light\+Sources\+Config\+::\+Light\+Sources\+Config (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ osg\+::\+Vec3 $>$ \&}]{coordinates,  }\item[{const std\+::vector$<$ float $>$ \&}]{intensities }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default Constructor~\newline
+Initializes light sources configuration. 
+
+\Hypertarget{classrobogen_1_1LightSourcesConfig_a3d7e38668ea1d5e9f143d66ba94620b0}\label{classrobogen_1_1LightSourcesConfig_a3d7e38668ea1d5e9f143d66ba94620b0} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!````~LightSourcesConfig@{$\sim$LightSourcesConfig}}
+\index{````~LightSourcesConfig@{$\sim$LightSourcesConfig}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{$\sim$LightSourcesConfig()}{~LightSourcesConfig()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Light\+Sources\+Config\+::$\sim$\+Light\+Sources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1LightSourcesConfig_a7149f588f9b252f9099a31c008476702}\label{classrobogen_1_1LightSourcesConfig_a7149f588f9b252f9099a31c008476702} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!getCoordinates@{getCoordinates}}
+\index{getCoordinates@{getCoordinates}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getCoordinates()}{getCoordinates()}}
+{\footnotesize\ttfamily const std\+::vector$<$ osg\+::\+Vec3 $>$ \& robogen\+::\+Light\+Sources\+Config\+::get\+Coordinates (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns location of light sources.~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the coordinates of the light sources 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1LightSourcesConfig_acd4c109a82296bc2a5628dfbcc02eb74}\label{classrobogen_1_1LightSourcesConfig_acd4c109a82296bc2a5628dfbcc02eb74} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!getIntensities@{getIntensities}}
+\index{getIntensities@{getIntensities}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{getIntensities()}{getIntensities()}}
+{\footnotesize\ttfamily const std\+::vector$<$ float $>$ \& robogen\+::\+Light\+Sources\+Config\+::get\+Intensities (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns intensities of ligt sources.~\newline
+\begin{DoxyReturn}{Returns}
+the light source intensities 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1LightSourcesConfig_a2afc919d1e1f34f4e6c50a3c29944ca3}\label{classrobogen_1_1LightSourcesConfig_a2afc919d1e1f34f4e6c50a3c29944ca3} 
+\index{robogen::LightSourcesConfig@{robogen::LightSourcesConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::LightSourcesConfig@{robogen::LightSourcesConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void robogen\+::\+Light\+Sources\+Config\+::serialize (\begin{DoxyParamCaption}\item[{robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serialize obstacles into a Simulator\+Conf message. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{LightSourcesConfig_8h}{Light\+Sources\+Config.\+h}}\end{DoxyCompactItemize}

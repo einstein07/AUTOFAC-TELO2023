@@ -1,0 +1,574 @@
+\hypertarget{classrobogen_1_1RobogenConfig}{}\doxysection{robogen\+::Robogen\+Config Class Reference}
+\label{classrobogen_1_1RobogenConfig}\index{robogen::RobogenConfig@{robogen::RobogenConfig}}
+
+
+Parameters for experimental scenarios supported by the simulator.  
+
+
+
+
+{\ttfamily \#include $<$Robogen\+Config.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0}{Obstacle\+Overlap\+Policies}} \{ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a773102805ce551be9934b3c80eaa25a9}{REMOVE\+\_\+\+OBSTACLES}}
+, \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a18e3ef4a25112823b08910652a144379}{CONSTRAINT\+\_\+\+VIOLATION}}
+, \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0aeab6added055f1402f328c1447673a6f}{ELEVATE\+\_\+\+ROBOT}}
+ \}
+\begin{DoxyCompactList}\small\item\em Describes how to handle overlaps with obstacles. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12cc3ea34c2c103125ab4a3101934924}{Robogen\+Config}} (std\+::string scenario, std\+::string scenario\+File, unsigned int time\+Steps, float time\+Step\+Length, int actuation\+Period, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1TerrainConfig}{Terrain\+Config}} $>$ terrain, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig}{Obstacles\+Config}} $>$ obstacles, std\+::string obstacle\+File, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig}{Start\+Position\+Config}} $>$ start\+Positions, std\+::string start\+Pos\+File, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig}{Resources\+Config}} $>$ resources, std\+::string resource\+File, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig}{Light\+Sources\+Config}} $>$ light\+Sources, std\+::string light\+Source\+File, float sensor\+Noise\+Level, float motor\+Noise\+Level, bool cap\+Acceleration, float max\+Linear\+Acceleration, float max\+Angular\+Acceleration, int max\+Direction\+Shifts\+Per\+Second, osg\+::\+Vec3 gravity, bool disallow\+Obstacle\+Collisions, unsigned int obstacle\+Overlap\+Policy, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig}{Gathering\+Zone\+Config}} $>$ gathering\+Zone, int swarm\+Size, std\+::string mode, bool complexity\+Cost=false)
+\begin{DoxyCompactList}\small\item\em Constructor.~\newline
+Initializes a robogen config object from configuration parameters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1RobogenConfig_a212eae93a586fb897223ee5a2161411e}{Robogen\+Config}} (const robogen\+Message\+::\+Simulator\+Conf \&message)
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a73578b9984b7d79ad80a8676f9fc024c}{$\sim$\+Robogen\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a85d89a0f60fee7ded7f1c756368894f5}{get\+Scenario}} () const
+\begin{DoxyCompactList}\small\item\em Returns simulation scenario.~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a766fc9845d4d9ada762ddf9fb312f05c}{get\+Scenario\+File}} () const
+\begin{DoxyCompactList}\small\item\em Returns scenario file.~\newline
+. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1TerrainConfig}{Terrain\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aabb5630b2a3db0f23a8eed379a1550b7}{get\+Terrain\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns terrain config~\newline
+. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig}{Obstacles\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aa113811335e773455b81f597feabfae2}{get\+Obstacles\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns obstacles config~\newline
+. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig}{Light\+Sources\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac70969089160a942960e14580bd32f34}{get\+Light\+Sources\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns light sources config~\newline
+. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1RobogenConfig_abc386a04625030facc442b6abe1b4d1c}{get\+Time\+Steps}} () const
+\begin{DoxyCompactList}\small\item\em Returns timesteps~\newline
+. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a5cfa0fe65de951de2eb594360a8f03ec}{get\+Simulation\+Time}} () const
+\begin{DoxyCompactList}\small\item\em Returns simulation time~\newline
+. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_aeb9a6a1e6fdefc2c24310d06fafe7f6f}{get\+Time\+Step\+Length}} () const
+\begin{DoxyCompactList}\small\item\em Returns time step length~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ae75ba92d833a71221f0cb9275b686a55}{get\+Actuation\+Period}} () const
+\begin{DoxyCompactList}\small\item\em Returns actuation period~\newline
+. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig}{Start\+Position\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a59f0cd5e42138be064068961f54ddef2}{get\+Starting\+Pos}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot starting positions~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12bf4bd71336879b61f45b23ce498881}{get\+Start\+Pos\+File}} ()
+\begin{DoxyCompactList}\small\item\em Returns starting positions file~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a7f3f5494d4330dc0fbd815ee16f167f3}{get\+Obstacle\+File}} ()
+\begin{DoxyCompactList}\small\item\em Returns obstacle config file~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a4fadbf38eb1a9ae68e4998897f6f76fb}{get\+Light\+Source\+File}} ()
+\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a5e5ede42a32598490f583a4f28503238}{get\+Sensor\+Noise\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Returns sensors noise level~\newline
+Sensor noise is Gaussian with std dev of sensor\+Noise\+Level $\ast$ actual\+Value i.\+e. value given to Neural Network is N(a, a $\ast$ s)~\newline
+where a is actual value and s is sensor\+Noise\+Level. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ad4e7520b1693711f1c0b10210ff62d65}{get\+Motor\+Noise\+Level}} ()
+\begin{DoxyCompactList}\small\item\em Return smotor noise level~\newline
+Motor noise is uniform in range +/-\/ motor\+Noise\+Level $\ast$ actual\+Value. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac2960ffca8a884615f7a688cb7b63360}{is\+Cap\+Alleration}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether acceleration is capped or not~\newline
+. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a952d284a5a582041ea79b2746e428e48}{get\+Max\+Linear\+Acceleration}} ()
+\begin{DoxyCompactList}\small\item\em Returns max linear acceleration~\newline
+. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1RobogenConfig_adcbabca25d932a0412b9c4c270ff070d}{get\+Max\+Angular\+Acceleration}} ()
+\begin{DoxyCompactList}\small\item\em Returns max angular acceleration.~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a4a434b66ef527b50c4e943e80803ae15}{get\+Max\+Direction\+Shifts\+Per\+Second}} ()
+\begin{DoxyCompactList}\small\item\em Returns max direction shift per second~\newline
+. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a92edb2cdadb560f4abdd0868ec1f5c8e}{get\+Gravity}} ()
+\begin{DoxyCompactList}\small\item\em Returns the value of gravity in each dimension~\newline
+. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a3498f5f385ee71ce02b52fc228ddc7c8}{is\+Disallow\+Obstacle\+Collisions}} ()
+\begin{DoxyCompactList}\small\item\em Returns whether obstacle collisions are allowed or not~\newline
+return if should disallow obstacle collisions. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a12601218088a04633940eda0e93af766}{get\+Obstacle\+Overlap\+Policy}} ()
+\begin{DoxyCompactList}\small\item\em Returns method for handling obstacle overlaps.~\newline
+. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a18fac1eae4bffbd681e323647a7d2e02}{get\+Complexity\+Cost}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig}{Gathering\+Zone\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a042398034339a84c41f20ec1ba8c11d0}{get\+Gathering\+Zone\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns Gathering\+Zone -\/ SM~\newline
+. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig}{Resources\+Config}} $>$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac52cffd7571e29ced337aae3e36b9d3b}{get\+Resources\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Returns Resources config -\/ SM~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac2d0389135cfae58b237f6e17b7f860a}{get\+Resource\+File}} ()
+\begin{DoxyCompactList}\small\item\em Returns config file -\/ SM~\newline
+. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1RobogenConfig_ac8c14d49716f8b2bc27aa3009582175c}{get\+Swarm\+Size}} ()
+\begin{DoxyCompactList}\small\item\em Returns swarm size -\/SM~\newline
+. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1RobogenConfig_accf99e724b7d848ce97e32fdd9279e8c}{get\+Mode}} ()
+\begin{DoxyCompactList}\small\item\em Returns swarm size -\/ SM~\newline
+. \end{DoxyCompactList}\item 
+robogen\+Message\+::\+Simulator\+Conf \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a44fb178c13d98c52397dc5d79a67dba2}{serialize}} () const
+\begin{DoxyCompactList}\small\item\em Convert configuration into configuration message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Parameters for experimental scenarios supported by the simulator. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0}\label{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!ObstacleOverlapPolicies@{ObstacleOverlapPolicies}}
+\index{ObstacleOverlapPolicies@{ObstacleOverlapPolicies}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{ObstacleOverlapPolicies}{ObstacleOverlapPolicies}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0}{robogen\+::\+Robogen\+Config\+::\+Obstacle\+Overlap\+Policies}}}
+
+
+
+Describes how to handle overlaps with obstacles. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{REMOVE\_OBSTACLES@{REMOVE\_OBSTACLES}!robogen::RobogenConfig@{robogen::RobogenConfig}}\index{robogen::RobogenConfig@{robogen::RobogenConfig}!REMOVE\_OBSTACLES@{REMOVE\_OBSTACLES}}}\Hypertarget{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a773102805ce551be9934b3c80eaa25a9}\label{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a773102805ce551be9934b3c80eaa25a9} 
+REMOVE\+\_\+\+OBSTACLES&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONSTRAINT\_VIOLATION@{CONSTRAINT\_VIOLATION}!robogen::RobogenConfig@{robogen::RobogenConfig}}\index{robogen::RobogenConfig@{robogen::RobogenConfig}!CONSTRAINT\_VIOLATION@{CONSTRAINT\_VIOLATION}}}\Hypertarget{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a18e3ef4a25112823b08910652a144379}\label{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0a18e3ef4a25112823b08910652a144379} 
+CONSTRAINT\+\_\+\+VIOLATION&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ELEVATE\_ROBOT@{ELEVATE\_ROBOT}!robogen::RobogenConfig@{robogen::RobogenConfig}}\index{robogen::RobogenConfig@{robogen::RobogenConfig}!ELEVATE\_ROBOT@{ELEVATE\_ROBOT}}}\Hypertarget{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0aeab6added055f1402f328c1447673a6f}\label{classrobogen_1_1RobogenConfig_a298483a6c0ee56b8ec6f0508c1517bc0aeab6added055f1402f328c1447673a6f} 
+ELEVATE\+\_\+\+ROBOT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1RobogenConfig_a12cc3ea34c2c103125ab4a3101934924}\label{classrobogen_1_1RobogenConfig_a12cc3ea34c2c103125ab4a3101934924} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!RobogenConfig@{RobogenConfig}}
+\index{RobogenConfig@{RobogenConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{RobogenConfig()}{RobogenConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Robogen\+Config\+::\+Robogen\+Config (\begin{DoxyParamCaption}\item[{std\+::string}]{scenario,  }\item[{std\+::string}]{scenario\+File,  }\item[{unsigned int}]{time\+Steps,  }\item[{float}]{time\+Step\+Length,  }\item[{int}]{actuation\+Period,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1TerrainConfig}{Terrain\+Config}} $>$}]{terrain,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig}{Obstacles\+Config}} $>$}]{obstacles,  }\item[{std\+::string}]{obstacle\+File,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig}{Start\+Position\+Config}} $>$}]{start\+Positions,  }\item[{std\+::string}]{start\+Pos\+File,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig}{Resources\+Config}} $>$}]{resources,  }\item[{std\+::string}]{resource\+File,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig}{Light\+Sources\+Config}} $>$}]{light\+Sources,  }\item[{std\+::string}]{light\+Source\+File,  }\item[{float}]{sensor\+Noise\+Level,  }\item[{float}]{motor\+Noise\+Level,  }\item[{bool}]{cap\+Acceleration,  }\item[{float}]{max\+Linear\+Acceleration,  }\item[{float}]{max\+Angular\+Acceleration,  }\item[{int}]{max\+Direction\+Shifts\+Per\+Second,  }\item[{osg\+::\+Vec3}]{gravity,  }\item[{bool}]{disallow\+Obstacle\+Collisions,  }\item[{unsigned int}]{obstacle\+Overlap\+Policy,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig}{Gathering\+Zone\+Config}} $>$}]{gathering\+Zone,  }\item[{int}]{swarm\+Size,  }\item[{std\+::string}]{mode,  }\item[{bool}]{complexity\+Cost = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor.~\newline
+Initializes a robogen config object from configuration parameters. 
+
+\Hypertarget{classrobogen_1_1RobogenConfig_a212eae93a586fb897223ee5a2161411e}\label{classrobogen_1_1RobogenConfig_a212eae93a586fb897223ee5a2161411e} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!RobogenConfig@{RobogenConfig}}
+\index{RobogenConfig@{RobogenConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{RobogenConfig()}{RobogenConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Robogen\+Config\+::\+Robogen\+Config (\begin{DoxyParamCaption}\item[{const robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})}
+
+Constructor~\newline
+Initializes a robogen config object from a message \Hypertarget{classrobogen_1_1RobogenConfig_a73578b9984b7d79ad80a8676f9fc024c}\label{classrobogen_1_1RobogenConfig_a73578b9984b7d79ad80a8676f9fc024c} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!````~RobogenConfig@{$\sim$RobogenConfig}}
+\index{````~RobogenConfig@{$\sim$RobogenConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{$\sim$RobogenConfig()}{~RobogenConfig()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Robogen\+Config\+::$\sim$\+Robogen\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1RobogenConfig_ae75ba92d833a71221f0cb9275b686a55}\label{classrobogen_1_1RobogenConfig_ae75ba92d833a71221f0cb9275b686a55} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getActuationPeriod@{getActuationPeriod}}
+\index{getActuationPeriod@{getActuationPeriod}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getActuationPeriod()}{getActuationPeriod()}}
+{\footnotesize\ttfamily int robogen\+::\+Robogen\+Config\+::get\+Actuation\+Period (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns actuation period~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the actuation period 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a18fac1eae4bffbd681e323647a7d2e02}\label{classrobogen_1_1RobogenConfig_a18fac1eae4bffbd681e323647a7d2e02} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getComplexityCost@{getComplexityCost}}
+\index{getComplexityCost@{getComplexityCost}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getComplexityCost()}{getComplexityCost()}}
+{\footnotesize\ttfamily bool robogen\+::\+Robogen\+Config\+::get\+Complexity\+Cost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+CH -\/ Returns the complexity cost flag (1==true, 0==false)~\newline
+\begin{DoxyReturn}{Returns}
+the complexity cost flag 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a042398034339a84c41f20ec1ba8c11d0}\label{classrobogen_1_1RobogenConfig_a042398034339a84c41f20ec1ba8c11d0} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getGatheringZoneConfig@{getGatheringZoneConfig}}
+\index{getGatheringZoneConfig@{getGatheringZoneConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getGatheringZoneConfig()}{getGatheringZoneConfig()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1GatheringZoneConfig}{Gathering\+Zone\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Gathering\+Zone\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Gathering\+Zone -\/ SM~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the gathering zone configuration 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a92edb2cdadb560f4abdd0868ec1f5c8e}\label{classrobogen_1_1RobogenConfig_a92edb2cdadb560f4abdd0868ec1f5c8e} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getGravity@{getGravity}}
+\index{getGravity@{getGravity}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getGravity()}{getGravity()}}
+{\footnotesize\ttfamily osg\+::\+Vec3 robogen\+::\+Robogen\+Config\+::get\+Gravity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the value of gravity in each dimension~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+gravity vector 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a4fadbf38eb1a9ae68e4998897f6f76fb}\label{classrobogen_1_1RobogenConfig_a4fadbf38eb1a9ae68e4998897f6f76fb} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getLightSourceFile@{getLightSourceFile}}
+\index{getLightSourceFile@{getLightSourceFile}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getLightSourceFile()}{getLightSourceFile()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Light\+Source\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\begin{DoxyReturn}{Returns}
+the light source configuration file 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ac70969089160a942960e14580bd32f34}\label{classrobogen_1_1RobogenConfig_ac70969089160a942960e14580bd32f34} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getLightSourcesConfig@{getLightSourcesConfig}}
+\index{getLightSourcesConfig@{getLightSourcesConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getLightSourcesConfig()}{getLightSourcesConfig()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1LightSourcesConfig}{Light\+Sources\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Light\+Sources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns light sources config~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the light sources configuration 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_adcbabca25d932a0412b9c4c270ff070d}\label{classrobogen_1_1RobogenConfig_adcbabca25d932a0412b9c4c270ff070d} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getMaxAngularAcceleration@{getMaxAngularAcceleration}}
+\index{getMaxAngularAcceleration@{getMaxAngularAcceleration}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getMaxAngularAcceleration()}{getMaxAngularAcceleration()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Max\+Angular\+Acceleration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns max angular acceleration.~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+max angular acceleration (if capped) 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a4a434b66ef527b50c4e943e80803ae15}\label{classrobogen_1_1RobogenConfig_a4a434b66ef527b50c4e943e80803ae15} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getMaxDirectionShiftsPerSecond@{getMaxDirectionShiftsPerSecond}}
+\index{getMaxDirectionShiftsPerSecond@{getMaxDirectionShiftsPerSecond}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getMaxDirectionShiftsPerSecond()}{getMaxDirectionShiftsPerSecond()}}
+{\footnotesize\ttfamily int robogen\+::\+Robogen\+Config\+::get\+Max\+Direction\+Shifts\+Per\+Second (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns max direction shift per second~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+max direction shifts per second for testing motor burnout if -\/1, then do not check burnout 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a952d284a5a582041ea79b2746e428e48}\label{classrobogen_1_1RobogenConfig_a952d284a5a582041ea79b2746e428e48} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getMaxLinearAcceleration@{getMaxLinearAcceleration}}
+\index{getMaxLinearAcceleration@{getMaxLinearAcceleration}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getMaxLinearAcceleration()}{getMaxLinearAcceleration()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Max\+Linear\+Acceleration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns max linear acceleration~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+max linear acceleration (if capped) 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_accf99e724b7d848ce97e32fdd9279e8c}\label{classrobogen_1_1RobogenConfig_accf99e724b7d848ce97e32fdd9279e8c} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getMode@{getMode}}
+\index{getMode@{getMode}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getMode()}{getMode()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns swarm size -\/ SM~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the swarm size 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ad4e7520b1693711f1c0b10210ff62d65}\label{classrobogen_1_1RobogenConfig_ad4e7520b1693711f1c0b10210ff62d65} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getMotorNoiseLevel@{getMotorNoiseLevel}}
+\index{getMotorNoiseLevel@{getMotorNoiseLevel}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getMotorNoiseLevel()}{getMotorNoiseLevel()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Motor\+Noise\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Return smotor noise level~\newline
+Motor noise is uniform in range +/-\/ motor\+Noise\+Level $\ast$ actual\+Value. 
+
+\begin{DoxyReturn}{Returns}
+motor noise level 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a7f3f5494d4330dc0fbd815ee16f167f3}\label{classrobogen_1_1RobogenConfig_a7f3f5494d4330dc0fbd815ee16f167f3} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getObstacleFile@{getObstacleFile}}
+\index{getObstacleFile@{getObstacleFile}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getObstacleFile()}{getObstacleFile()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Obstacle\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns obstacle config file~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the obstacle configuration file 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a12601218088a04633940eda0e93af766}\label{classrobogen_1_1RobogenConfig_a12601218088a04633940eda0e93af766} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getObstacleOverlapPolicy@{getObstacleOverlapPolicy}}
+\index{getObstacleOverlapPolicy@{getObstacleOverlapPolicy}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getObstacleOverlapPolicy()}{getObstacleOverlapPolicy()}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Robogen\+Config\+::get\+Obstacle\+Overlap\+Policy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns method for handling obstacle overlaps.~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+how to handle obstacle overlaps 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_aa113811335e773455b81f597feabfae2}\label{classrobogen_1_1RobogenConfig_aa113811335e773455b81f597feabfae2} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getObstaclesConfig@{getObstaclesConfig}}
+\index{getObstaclesConfig@{getObstaclesConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getObstaclesConfig()}{getObstaclesConfig()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ObstaclesConfig}{Obstacles\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Obstacles\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns obstacles config~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the obstacles configuration 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ac2d0389135cfae58b237f6e17b7f860a}\label{classrobogen_1_1RobogenConfig_ac2d0389135cfae58b237f6e17b7f860a} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getResourceFile@{getResourceFile}}
+\index{getResourceFile@{getResourceFile}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getResourceFile()}{getResourceFile()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Resource\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns config file -\/ SM~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the resource configuration file 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ac52cffd7571e29ced337aae3e36b9d3b}\label{classrobogen_1_1RobogenConfig_ac52cffd7571e29ced337aae3e36b9d3b} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getResourcesConfig@{getResourcesConfig}}
+\index{getResourcesConfig@{getResourcesConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getResourcesConfig()}{getResourcesConfig()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1ResourcesConfig}{Resources\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Resources\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Resources config -\/ SM~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the resources configuration 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a85d89a0f60fee7ded7f1c756368894f5}\label{classrobogen_1_1RobogenConfig_a85d89a0f60fee7ded7f1c756368894f5} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getScenario@{getScenario}}
+\index{getScenario@{getScenario}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getScenario()}{getScenario()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Scenario (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns simulation scenario.~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the simulation scenario 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a766fc9845d4d9ada762ddf9fb312f05c}\label{classrobogen_1_1RobogenConfig_a766fc9845d4d9ada762ddf9fb312f05c} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getScenarioFile@{getScenarioFile}}
+\index{getScenarioFile@{getScenarioFile}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getScenarioFile()}{getScenarioFile()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Scenario\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns scenario file.~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the simulation scenario file (for scripted scenario) 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a5e5ede42a32598490f583a4f28503238}\label{classrobogen_1_1RobogenConfig_a5e5ede42a32598490f583a4f28503238} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getSensorNoiseLevel@{getSensorNoiseLevel}}
+\index{getSensorNoiseLevel@{getSensorNoiseLevel}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getSensorNoiseLevel()}{getSensorNoiseLevel()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Sensor\+Noise\+Level (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sensors noise level~\newline
+Sensor noise is Gaussian with std dev of sensor\+Noise\+Level $\ast$ actual\+Value i.\+e. value given to Neural Network is N(a, a $\ast$ s)~\newline
+where a is actual value and s is sensor\+Noise\+Level. 
+
+\begin{DoxyReturn}{Returns}
+sensor noise level 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a5cfa0fe65de951de2eb594360a8f03ec}\label{classrobogen_1_1RobogenConfig_a5cfa0fe65de951de2eb594360a8f03ec} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getSimulationTime@{getSimulationTime}}
+\index{getSimulationTime@{getSimulationTime}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getSimulationTime()}{getSimulationTime()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Simulation\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns simulation time~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the total simulation time 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a59f0cd5e42138be064068961f54ddef2}\label{classrobogen_1_1RobogenConfig_a59f0cd5e42138be064068961f54ddef2} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getStartingPos@{getStartingPos}}
+\index{getStartingPos@{getStartingPos}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getStartingPos()}{getStartingPos()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1StartPositionConfig}{Start\+Position\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Starting\+Pos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns robot starting positions~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the robot starting positions 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a12bf4bd71336879b61f45b23ce498881}\label{classrobogen_1_1RobogenConfig_a12bf4bd71336879b61f45b23ce498881} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getStartPosFile@{getStartPosFile}}
+\index{getStartPosFile@{getStartPosFile}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getStartPosFile()}{getStartPosFile()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Robogen\+Config\+::get\+Start\+Pos\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns starting positions file~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the starting position configuration file 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ac8c14d49716f8b2bc27aa3009582175c}\label{classrobogen_1_1RobogenConfig_ac8c14d49716f8b2bc27aa3009582175c} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getSwarmSize@{getSwarmSize}}
+\index{getSwarmSize@{getSwarmSize}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getSwarmSize()}{getSwarmSize()}}
+{\footnotesize\ttfamily int robogen\+::\+Robogen\+Config\+::get\+Swarm\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns swarm size -\/SM~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the swarm size 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_aabb5630b2a3db0f23a8eed379a1550b7}\label{classrobogen_1_1RobogenConfig_aabb5630b2a3db0f23a8eed379a1550b7} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getTerrainConfig@{getTerrainConfig}}
+\index{getTerrainConfig@{getTerrainConfig}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getTerrainConfig()}{getTerrainConfig()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1TerrainConfig}{Terrain\+Config}} $>$ robogen\+::\+Robogen\+Config\+::get\+Terrain\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns terrain config~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the terrain configuration 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_aeb9a6a1e6fdefc2c24310d06fafe7f6f}\label{classrobogen_1_1RobogenConfig_aeb9a6a1e6fdefc2c24310d06fafe7f6f} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getTimeStepLength@{getTimeStepLength}}
+\index{getTimeStepLength@{getTimeStepLength}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getTimeStepLength()}{getTimeStepLength()}}
+{\footnotesize\ttfamily float robogen\+::\+Robogen\+Config\+::get\+Time\+Step\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns time step length~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the time step length 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_abc386a04625030facc442b6abe1b4d1c}\label{classrobogen_1_1RobogenConfig_abc386a04625030facc442b6abe1b4d1c} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!getTimeSteps@{getTimeSteps}}
+\index{getTimeSteps@{getTimeSteps}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{getTimeSteps()}{getTimeSteps()}}
+{\footnotesize\ttfamily unsigned int robogen\+::\+Robogen\+Config\+::get\+Time\+Steps (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns timesteps~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+the number of timesteps 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_ac2960ffca8a884615f7a688cb7b63360}\label{classrobogen_1_1RobogenConfig_ac2960ffca8a884615f7a688cb7b63360} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!isCapAlleration@{isCapAlleration}}
+\index{isCapAlleration@{isCapAlleration}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{isCapAlleration()}{isCapAlleration()}}
+{\footnotesize\ttfamily bool robogen\+::\+Robogen\+Config\+::is\+Cap\+Alleration (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether acceleration is capped or not~\newline
+. 
+
+\begin{DoxyReturn}{Returns}
+if acceleration is capped 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1RobogenConfig_a3498f5f385ee71ce02b52fc228ddc7c8}\label{classrobogen_1_1RobogenConfig_a3498f5f385ee71ce02b52fc228ddc7c8} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!isDisallowObstacleCollisions@{isDisallowObstacleCollisions}}
+\index{isDisallowObstacleCollisions@{isDisallowObstacleCollisions}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{isDisallowObstacleCollisions()}{isDisallowObstacleCollisions()}}
+{\footnotesize\ttfamily bool robogen\+::\+Robogen\+Config\+::is\+Disallow\+Obstacle\+Collisions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether obstacle collisions are allowed or not~\newline
+return if should disallow obstacle collisions. 
+
+\Hypertarget{classrobogen_1_1RobogenConfig_a44fb178c13d98c52397dc5d79a67dba2}\label{classrobogen_1_1RobogenConfig_a44fb178c13d98c52397dc5d79a67dba2} 
+\index{robogen::RobogenConfig@{robogen::RobogenConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::RobogenConfig@{robogen::RobogenConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily robogen\+Message\+::\+Simulator\+Conf robogen\+::\+Robogen\+Config\+::serialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Convert configuration into configuration message. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{RobogenConfig_8h}{Robogen\+Config.\+h}}\end{DoxyCompactItemize}

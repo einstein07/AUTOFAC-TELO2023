@@ -1,0 +1,100 @@
+\hypertarget{FileViewerLog_8h_source}{}\doxysection{File\+Viewer\+Log.\+h}
+\label{FileViewerLog_8h_source}\index{src/viewer/FileViewerLog.h@{src/viewer/FileViewerLog.h}}
+\mbox{\hyperlink{FileViewerLog_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ FileViewerLog.h\ \ \ 1.0\ \ \ Aug\ 20,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Guillaume\ Leclerc}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Titus\ Cieslweski,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ FILEVIEWERLOG\_H\_}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ FILEVIEWERLOG\_H\_}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <osg/Vec3>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <boost/timer/timer.hpp>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robot_8h}{Robot.h}}"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RobogenConfig_8h}{config/RobogenConfig.h}}"{}}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00055\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1FileViewerLog}{FileViewerLog}}\{}
+\DoxyCodeLine{00056\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1FileViewerLog}{FileViewerLog}}(std::string\ robotFile,}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::string\ confFile,}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ std::string\ obstacleFile,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ std::string\ startPosFile,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ std::string\ lightSourceFile,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ std::string\ scenarioFile,}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ std::string\ logFolder,}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ overwrite\ =\ \textcolor{keyword}{false},}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ writeWebGL\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a496cfce4476a9c2327f33e01da3f1b3d}{init}}(boost::shared\_ptr<Robot>\ robot,}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<RobogenConfig>\ config);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a2d2779e0c2e0c436e8b7b0f89e650a01}{\string~FileViewerLog}}();}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_ac857f32b843adfe447829275d6862913}{logPosition}}(osg::Vec3);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_afcd7880b4ced7076d5e3a8cca5f7440c}{logSensors}}(\textcolor{keywordtype}{float}\ sensorValues[],\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a7c1dde6e2984feaeab270e733f43a03a}{logMotors}}(\textcolor{keywordtype}{float}\ motorValues[],\ \textcolor{keywordtype}{int}\ n);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_ac4d43c453c584cee87d4896e1a15b395}{isWriteWebGL}}()\ \{\ \textcolor{keywordflow}{return}\ writeWebGL\_;\ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1FileViewerLog_a7a4bf6bc07a84130e292ef98f36e1065}{getWebGLFileName}}();}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00101\ \ \ \ \ std::ofstream\ trajectoryLog\_;}
+\DoxyCodeLine{00102\ \ \ \ \ std::ofstream\ sensorLog\_;}
+\DoxyCodeLine{00103\ \ \ \ \ std::ofstream\ motorLog\_;}
+\DoxyCodeLine{00107\ \ \ \ \ std::string\ logPath\_;}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ std::string\ robotFile\_;}
+\DoxyCodeLine{00110\ \ \ \ \ std::string\ confFile\_;}
+\DoxyCodeLine{00111\ \ \ \ \ std::string\ obstacleFile\_;}
+\DoxyCodeLine{00112\ \ \ \ \ std::string\ startPosFile\_;}
+\DoxyCodeLine{00113\ \ \ \ \ std::string\ lightSourceFile\_;}
+\DoxyCodeLine{00114\ \ \ \ \ std::string\ scenarioFile\_;}
+\DoxyCodeLine{00115\ \ \ \ \ std::string\ logFolder\_;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ overwrite\_;}
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ writeWebGL\_;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \};}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ FILEVIEWERLOG\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

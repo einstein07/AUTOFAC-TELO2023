@@ -1,0 +1,238 @@
+\hypertarget{classrobogen_1_1TerrainConfig}{}\doxysection{robogen\+::Terrain\+Config Class Reference}
+\label{classrobogen_1_1TerrainConfig}\index{robogen::TerrainConfig@{robogen::TerrainConfig}}
+
+
+\doxylink{classrobogen_1_1Terrain}{Terrain} configuration parameters.  
+
+
+
+
+{\ttfamily \#include $<$Terrain\+Config.\+h$>$}
+
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{Terrain\+Type}} \{ \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a3d192cde5ae82b3838903eb902d1f0fc}{EMPTY}}
+, \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a17b364b912a5f6aa838e83b139667a1a}{FLAT}}
+, \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a15bf5efd42d6b9bad46b43ae1208ee9e}{ROUGH}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1TerrainConfig_a82f4459859064c554acf36eb1bc8c8ce}{Terrain\+Config}} (float friction)
+\begin{DoxyCompactList}\small\item\em Constructor.\textbackslash{}n\+Initializes an empty terrain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1TerrainConfig_af1f96c3527d5825a04808869a73e7409}{Terrain\+Config}} (float length, float width, float friction)
+\begin{DoxyCompactList}\small\item\em Constructor~\newline
+Initializes a flat terrain. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1TerrainConfig_a94ebd5b019d59e78ba34bc662114c908}{Terrain\+Config}} (const std\+::string \&height\+Field\+File\+Name, float length, float width, float height, float friction)
+\begin{DoxyCompactList}\small\item\em Constructor~\newline
+Initializes a rough terrain. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a9f97a9cbd41a7ff4efa760798b046aaa}{$\sim$\+Terrain\+Config}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{Terrain\+Type}} \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a42c3784ed389e9dcb7b4b47a3321ed51}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Returns terrain type. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a20b0e7590094e15363766193711fdde5}{get\+Height\+Field\+File\+Name}} () const
+\begin{DoxyCompactList}\small\item\em Returns heightfield file. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a102ac48a6ac9e7772e7336b9195fbd7f}{get\+Length}} ()
+\begin{DoxyCompactList}\small\item\em Returns terrain length. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a9d16f37794c5c75b9d3dd1c0921d83a0}{get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em Returns terrain width. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a391ff83860003a2b778ca09cfafaae89}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em Returns terrain height. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a95a25265910e2caff0f941d6ef32f8d2}{get\+Friction}} ()
+\begin{DoxyCompactList}\small\item\em Returns frisction coefficient TODO\+: make this be more configurable than just global friction coefficient. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1TerrainConfig_a04e5a6cd94c68d92a8f066df7255e0d0}{serialize}} (robogen\+Message\+::\+Simulator\+Conf \&message)
+\begin{DoxyCompactList}\small\item\em Serializes terrain details into a Simulator\+Conf message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{classrobogen_1_1Terrain}{Terrain} configuration parameters. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}\label{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!TerrainType@{TerrainType}}
+\index{TerrainType@{TerrainType}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{TerrainType}{TerrainType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{robogen\+::\+Terrain\+Config\+::\+Terrain\+Type}}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!robogen::TerrainConfig@{robogen::TerrainConfig}}\index{robogen::TerrainConfig@{robogen::TerrainConfig}!EMPTY@{EMPTY}}}\Hypertarget{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a3d192cde5ae82b3838903eb902d1f0fc}\label{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a3d192cde5ae82b3838903eb902d1f0fc} 
+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FLAT@{FLAT}!robogen::TerrainConfig@{robogen::TerrainConfig}}\index{robogen::TerrainConfig@{robogen::TerrainConfig}!FLAT@{FLAT}}}\Hypertarget{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a17b364b912a5f6aa838e83b139667a1a}\label{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a17b364b912a5f6aa838e83b139667a1a} 
+FLAT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ROUGH@{ROUGH}!robogen::TerrainConfig@{robogen::TerrainConfig}}\index{robogen::TerrainConfig@{robogen::TerrainConfig}!ROUGH@{ROUGH}}}\Hypertarget{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a15bf5efd42d6b9bad46b43ae1208ee9e}\label{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420a15bf5efd42d6b9bad46b43ae1208ee9e} 
+ROUGH&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1TerrainConfig_a82f4459859064c554acf36eb1bc8c8ce}\label{classrobogen_1_1TerrainConfig_a82f4459859064c554acf36eb1bc8c8ce} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!TerrainConfig@{TerrainConfig}}
+\index{TerrainConfig@{TerrainConfig}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{TerrainConfig()}{TerrainConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily robogen\+::\+Terrain\+Config\+::\+Terrain\+Config (\begin{DoxyParamCaption}\item[{float}]{friction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor.\textbackslash{}n\+Initializes an empty terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em friction} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1TerrainConfig_af1f96c3527d5825a04808869a73e7409}\label{classrobogen_1_1TerrainConfig_af1f96c3527d5825a04808869a73e7409} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!TerrainConfig@{TerrainConfig}}
+\index{TerrainConfig@{TerrainConfig}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{TerrainConfig()}{TerrainConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily robogen\+::\+Terrain\+Config\+::\+Terrain\+Config (\begin{DoxyParamCaption}\item[{float}]{length,  }\item[{float}]{width,  }\item[{float}]{friction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor~\newline
+Initializes a flat terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em length} & \\
+\hline
+{\em width} & \\
+\hline
+{\em friction} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1TerrainConfig_a94ebd5b019d59e78ba34bc662114c908}\label{classrobogen_1_1TerrainConfig_a94ebd5b019d59e78ba34bc662114c908} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!TerrainConfig@{TerrainConfig}}
+\index{TerrainConfig@{TerrainConfig}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{TerrainConfig()}{TerrainConfig()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily robogen\+::\+Terrain\+Config\+::\+Terrain\+Config (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{height\+Field\+File\+Name,  }\item[{float}]{length,  }\item[{float}]{width,  }\item[{float}]{height,  }\item[{float}]{friction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor~\newline
+Initializes a rough terrain. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height\+Field\+File\+Name} & \\
+\hline
+{\em length} & \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1TerrainConfig_a9f97a9cbd41a7ff4efa760798b046aaa}\label{classrobogen_1_1TerrainConfig_a9f97a9cbd41a7ff4efa760798b046aaa} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!````~TerrainConfig@{$\sim$TerrainConfig}}
+\index{````~TerrainConfig@{$\sim$TerrainConfig}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{$\sim$TerrainConfig()}{~TerrainConfig()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Terrain\+Config\+::$\sim$\+Terrain\+Config (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1TerrainConfig_a95a25265910e2caff0f941d6ef32f8d2}\label{classrobogen_1_1TerrainConfig_a95a25265910e2caff0f941d6ef32f8d2} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getFriction@{getFriction}}
+\index{getFriction@{getFriction}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getFriction()}{getFriction()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+Config\+::get\+Friction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns frisction coefficient TODO\+: make this be more configurable than just global friction coefficient. 
+
+\begin{DoxyReturn}{Returns}
+the friction coefficient of the terrain 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a391ff83860003a2b778ca09cfafaae89}\label{classrobogen_1_1TerrainConfig_a391ff83860003a2b778ca09cfafaae89} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+Config\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns terrain height. 
+
+\begin{DoxyReturn}{Returns}
+the height of the terrain 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a20b0e7590094e15363766193711fdde5}\label{classrobogen_1_1TerrainConfig_a20b0e7590094e15363766193711fdde5} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getHeightFieldFileName@{getHeightFieldFileName}}
+\index{getHeightFieldFileName@{getHeightFieldFileName}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getHeightFieldFileName()}{getHeightFieldFileName()}}
+{\footnotesize\ttfamily const std\+::string \& robogen\+::\+Terrain\+Config\+::get\+Height\+Field\+File\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns heightfield file. 
+
+\begin{DoxyReturn}{Returns}
+the heightfield file name 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a102ac48a6ac9e7772e7336b9195fbd7f}\label{classrobogen_1_1TerrainConfig_a102ac48a6ac9e7772e7336b9195fbd7f} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getLength@{getLength}}
+\index{getLength@{getLength}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getLength()}{getLength()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+Config\+::get\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns terrain length. 
+
+\begin{DoxyReturn}{Returns}
+the length of the terrain 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a42c3784ed389e9dcb7b4b47a3321ed51}\label{classrobogen_1_1TerrainConfig_a42c3784ed389e9dcb7b4b47a3321ed51} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getType@{getType}}
+\index{getType@{getType}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1TerrainConfig_af5f59f9394b72667e4bbe5f8bca7f420}{Terrain\+Type}} robogen\+::\+Terrain\+Config\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns terrain type. 
+
+\begin{DoxyReturn}{Returns}
+true if the terrain is flat, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a9d16f37794c5c75b9d3dd1c0921d83a0}\label{classrobogen_1_1TerrainConfig_a9d16f37794c5c75b9d3dd1c0921d83a0} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily float robogen\+::\+Terrain\+Config\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns terrain width. 
+
+\begin{DoxyReturn}{Returns}
+the width of the terrain 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1TerrainConfig_a04e5a6cd94c68d92a8f066df7255e0d0}\label{classrobogen_1_1TerrainConfig_a04e5a6cd94c68d92a8f066df7255e0d0} 
+\index{robogen::TerrainConfig@{robogen::TerrainConfig}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::TerrainConfig@{robogen::TerrainConfig}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily void robogen\+::\+Terrain\+Config\+::serialize (\begin{DoxyParamCaption}\item[{robogen\+Message\+::\+Simulator\+Conf \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serializes terrain details into a Simulator\+Conf message. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/config/\mbox{\hyperlink{TerrainConfig_8h}{Terrain\+Config.\+h}}\end{DoxyCompactItemize}

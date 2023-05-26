@@ -1,0 +1,114 @@
+\hypertarget{Viewer_8h_source}{}\doxysection{Viewer.\+h}
+\label{Viewer_8h_source}\index{src/viewer/Viewer.h@{src/viewer/Viewer.h}}
+\mbox{\hyperlink{Viewer_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Viewer.h\ \ \ 1.0\ \ \ Nov\ 27,\ 2014}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2014\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ VIEWER\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ VIEWER\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <osgGA/TrackballManipulator>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <osgViewer/Viewer>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KeyboardHandler_8h}{viewer/KeyboardHandler.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{IViewer_8h}{viewer/IViewer.h}}"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Scenario_8h}{scenario/Scenario.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Model_8h}{model/Model.h}}"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}boost/date\_time/posix\_time/posix\_time.hpp"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{RenderModels_8h}{RenderModels.h}}"{}}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ MAX\_TIME\_BETWEEN\_FRAMES\ 0.05}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Viewer}{Viewer}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrobogen_1_1IViewer}{robogen::IViewer}}\{}
+\DoxyCodeLine{00057\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Viewer}{Viewer}}(\textcolor{keywordtype}{bool}\ startPaused);}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Viewer}{Viewer}}(\textcolor{keywordtype}{bool}\ startPaused,\ \textcolor{keywordtype}{bool}\ debugActive);}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Viewer}{Viewer}}(\textcolor{keywordtype}{bool}\ startPaused,\ \textcolor{keywordtype}{bool}\ debugActive,\ \textcolor{keywordtype}{double}\ speedFactor);}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Viewer}{Viewer}}(\textcolor{keywordtype}{bool}\ startPaused,\ \textcolor{keywordtype}{bool}\ debugActive,\ \textcolor{keywordtype}{double}\ speedFactor,}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ recording,}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ recordFrequency,\ std::string\ recordDirectoryName);}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Viewer_ad086ad1924d20ab54062700a01e649fb}{\string~Viewer}}();}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Viewer_ab0d07ce8875c12b8dcc281a884b03c3e}{configureScene}}(std::vector<boost::shared\_ptr<Model>\ >\ bodyParts,}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<Scenario>\ scenario);}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Viewer_ab0d07ce8875c12b8dcc281a884b03c3e}{configureScene}}(std::vector<std::vector<boost::shared\_ptr<Model>\ >\ >\ swarmBodyParts,}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<Scenario>\ scenario);}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Viewer_a5956be3e3ae53830e0083797b3164c4d}{done}}();}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ /***}}
+\DoxyCodeLine{00076\ \textcolor{comment}{\ \ \ \ \ *\ frame:\ \ updates\ frame\ if\ it\ should\ be\ updated}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ *\ params:}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ simulatedTime:\ the\ amount\ of\ time\ simulated\ so\ far\ (in\ seconds)}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ numTimeSteps:\ the\ number\ of\ time\ steps\ simulated\ so\ far}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ \ *\ returns:}}
+\DoxyCodeLine{00081\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ false\ if\ paused\ or\ going\ to\ fast}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ \ \ \ \ (so\ simulator\ should\ continue\ without\ stepping\ physics)}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ \ *\ \ \ \ \ \ true\ otherwise}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \ */}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Viewer_a4d90d2d869143d4a4f3c78ea41024201}{frame}}(\textcolor{keywordtype}{double}\ simulatedTime,\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ numTimeSteps);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1Viewer_a32a8f57e0a76caac33c84f6c1829f0cf}{isPaused}}();}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ init(\textcolor{keywordtype}{bool}\ startPaused,\ \textcolor{keywordtype}{bool}\ debugActive,\ \textcolor{keywordtype}{double}\ speedFactor,}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ recording,}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ recordFrequency,\ std::string\ recordDirectoryName);}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ record();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ osgViewer::Viewer\ *viewer;}
+\DoxyCodeLine{00098\ \ \ \ \ osg::ref\_ptr<osg::Camera>\ camera;}
+\DoxyCodeLine{00099\ \ \ \ \ osg::ref\_ptr<osg::Group>\ root;}
+\DoxyCodeLine{00100\ \ \ \ \ osg::ref\_ptr<KeyboardHandler>\ keyboardEvent;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordtype}{bool}\ recording;}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ frameCount;}
+\DoxyCodeLine{00104\ \ \ \ \ std::string\ recordDirectoryName;}
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ recordFrequency;}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ boost::posix\_time::ptime\ tick1,\ tick2;}
+\DoxyCodeLine{00108\ \ \ \ \ \textcolor{keywordtype}{double}\ elapsedWallTime;}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordtype}{double}\ speedFactor;}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{double}\ timeSinceLastFrame;}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{bool}\ debugActive;}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00114\ \ \ \ \ std::vector<boost::shared\_ptr<RenderModel>\ >\ renderModels;}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{comment}{//SM\ added}}
+\DoxyCodeLine{00116\ \ \ \ \ std::vector<std::vector<boost::shared\_ptr<RenderModel>\ >\ >\ swarmRenderModels\_;}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ VIEWER\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,93 @@
+\hypertarget{FileViewer_8cpp}{}\doxysection{src/viewer/\+File\+Viewer.cpp File Reference}
+\label{FileViewer_8cpp}\index{src/viewer/FileViewer.cpp@{src/viewer/FileViewer.cpp}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$boost/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/algorithm/string/predicate.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}config/\+Configuration\+Reader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Robogen\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}evolution/representation/\+Robot\+Representation.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scenario/\+Scenario.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}scenario/\+Scenario\+Factory.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/network/\+Protobuf\+Packet.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/network/\+Tcp\+Socket.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/\+Robogen\+Collision.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/\+Robogen\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/\+File\+Viewer\+Log.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Models.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Render\+Models.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Robogen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Robot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}robogen.\+pb.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/\+IViewer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Simulator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/\+Viewer.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{FileViewer_8cpp_a4f58addb59c36d26e16aa87521dcc9c4}{fixed\+\_\+is\+\_\+directory}} (std\+::string path)
+\item 
+void \mbox{\hyperlink{FileViewer_8cpp_a572c06b045241f091eac70325e0e823e}{print\+Usage}} (char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \mbox{\hyperlink{FileViewer_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}{print\+Help}} ()
+\item 
+int \mbox{\hyperlink{FileViewer_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+d\+World\+ID \mbox{\hyperlink{FileViewer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}
+\item 
+d\+Joint\+Group\+ID \mbox{\hyperlink{FileViewer_8cpp_ab3240c6ce5918cce05d193e622c30d7c}{ode\+Contact\+Group}}
+\item 
+bool \mbox{\hyperlink{FileViewer_8cpp_afa667bd8e9260916f79cf2818d523028}{interrupted}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{FileViewer_8cpp_a4f58addb59c36d26e16aa87521dcc9c4}\label{FileViewer_8cpp_a4f58addb59c36d26e16aa87521dcc9c4} 
+\index{FileViewer.cpp@{FileViewer.cpp}!fixed\_is\_directory@{fixed\_is\_directory}}
+\index{fixed\_is\_directory@{fixed\_is\_directory}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{fixed\_is\_directory()}{fixed\_is\_directory()}}
+{\footnotesize\ttfamily bool fixed\+\_\+is\+\_\+directory (\begin{DoxyParamCaption}\item[{std\+::string}]{path }\end{DoxyParamCaption})}
+
+\Hypertarget{FileViewer_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{FileViewer_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{FileViewer.cpp@{FileViewer.cpp}!main@{main}}
+\index{main@{main}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Decodes a robot saved on file and visualize it std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} \char`\"{}\+Fitness for the current solution\+: \char`\"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} fitness \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl;\Hypertarget{FileViewer_8cpp_a0d20b69b0ad703df78459e1033d5c1d4}\label{FileViewer_8cpp_a0d20b69b0ad703df78459e1033d5c1d4} 
+\index{FileViewer.cpp@{FileViewer.cpp}!printHelp@{printHelp}}
+\index{printHelp@{printHelp}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{printHelp()}{printHelp()}}
+{\footnotesize\ttfamily void print\+Help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{FileViewer_8cpp_a572c06b045241f091eac70325e0e823e}\label{FileViewer_8cpp_a572c06b045241f091eac70325e0e823e} 
+\index{FileViewer.cpp@{FileViewer.cpp}!printUsage@{printUsage}}
+\index{printUsage@{printUsage}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{printUsage()}{printUsage()}}
+{\footnotesize\ttfamily void print\+Usage (\begin{DoxyParamCaption}\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{FileViewer_8cpp_afa667bd8e9260916f79cf2818d523028}\label{FileViewer_8cpp_afa667bd8e9260916f79cf2818d523028} 
+\index{FileViewer.cpp@{FileViewer.cpp}!interrupted@{interrupted}}
+\index{interrupted@{interrupted}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{interrupted}{interrupted}}
+{\footnotesize\ttfamily bool interrupted}
+
+\Hypertarget{FileViewer_8cpp_ab3240c6ce5918cce05d193e622c30d7c}\label{FileViewer_8cpp_ab3240c6ce5918cce05d193e622c30d7c} 
+\index{FileViewer.cpp@{FileViewer.cpp}!odeContactGroup@{odeContactGroup}}
+\index{odeContactGroup@{odeContactGroup}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{odeContactGroup}{odeContactGroup}}
+{\footnotesize\ttfamily d\+Joint\+Group\+ID ode\+Contact\+Group}
+
+\Hypertarget{FileViewer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}\label{FileViewer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718} 
+\index{FileViewer.cpp@{FileViewer.cpp}!odeWorld@{odeWorld}}
+\index{odeWorld@{odeWorld}!FileViewer.cpp@{FileViewer.cpp}}
+\doxysubsubsection{\texorpdfstring{odeWorld}{odeWorld}}
+{\footnotesize\ttfamily d\+World\+ID ode\+World}
+

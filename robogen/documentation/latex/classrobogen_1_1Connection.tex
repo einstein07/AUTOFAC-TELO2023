@@ -1,0 +1,116 @@
+\hypertarget{classrobogen_1_1Connection}{}\doxysection{robogen\+::Connection Class Reference}
+\label{classrobogen_1_1Connection}\index{robogen::Connection@{robogen::Connection}}
+
+
+Representation of connection between two parts.  
+
+
+
+
+{\ttfamily \#include $<$Connection.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Connection_aa3ee44cf92ecf1ae8bbe548c47ab00ec}{Connection}} ()
+\begin{DoxyCompactList}\small\item\em Error-\/less contructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1Connection_a616196caff22ed279b18b8468da912a8}{Connection}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ from, int from\+Slot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ to, int to\+Slot)
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1Connection_a2402f220689f1e4f957e0ac5b221e177}{init}} (const robogen\+Message\+::\+Body\+Connection \&c, std\+::map$<$ std\+::string, unsigned int $>$ \&map, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \&vec)
+\begin{DoxyCompactList}\small\item\em Creates a connection from the specified connection message. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Connection_aada2ccd22f222e4b9a3015316304cec1}{get\+From}} ()
+\item 
+int \mbox{\hyperlink{classrobogen_1_1Connection_a8c37fa7b554dcd1cc83dffa75f4597dc}{get\+From\+Slot}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Connection_a22f8d9148420f03f337b461a2b65541d}{get\+To}} ()
+\item 
+int \mbox{\hyperlink{classrobogen_1_1Connection_a13871ec5d87c6559ba612d74468ebfa7}{get\+To\+Slot}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Representation of connection between two parts. 
+
+This class serves to explicitly represent a connection between two parts of the robot. Thus, the robot representation in the simulator is independent of whatever compact representation has been used before. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Connection_aa3ee44cf92ecf1ae8bbe548c47ab00ec}\label{classrobogen_1_1Connection_aa3ee44cf92ecf1ae8bbe548c47ab00ec} 
+\index{robogen::Connection@{robogen::Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily robogen\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Error-\/less contructor. 
+
+\Hypertarget{classrobogen_1_1Connection_a616196caff22ed279b18b8468da912a8}\label{classrobogen_1_1Connection_a616196caff22ed279b18b8468da912a8} 
+\index{robogen::Connection@{robogen::Connection}!Connection@{Connection}}
+\index{Connection@{Connection}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{Connection()}{Connection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily robogen\+::\+Connection\+::\+Connection (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$}]{from,  }\item[{int}]{from\+Slot,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$}]{to,  }\item[{int}]{to\+Slot }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Connection_aada2ccd22f222e4b9a3015316304cec1}\label{classrobogen_1_1Connection_aada2ccd22f222e4b9a3015316304cec1} 
+\index{robogen::Connection@{robogen::Connection}!getFrom@{getFrom}}
+\index{getFrom@{getFrom}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{getFrom()}{getFrom()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ robogen\+::\+Connection\+::get\+From (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+TODO remove once to\+Ode is in place \begin{DoxyReturn}{Returns}
+from body part 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Connection_a8c37fa7b554dcd1cc83dffa75f4597dc}\label{classrobogen_1_1Connection_a8c37fa7b554dcd1cc83dffa75f4597dc} 
+\index{robogen::Connection@{robogen::Connection}!getFromSlot@{getFromSlot}}
+\index{getFromSlot@{getFromSlot}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{getFromSlot()}{getFromSlot()}}
+{\footnotesize\ttfamily int robogen\+::\+Connection\+::get\+From\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+TODO remove once to\+Ode is in place \begin{DoxyReturn}{Returns}
+from slot id 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Connection_a22f8d9148420f03f337b461a2b65541d}\label{classrobogen_1_1Connection_a22f8d9148420f03f337b461a2b65541d} 
+\index{robogen::Connection@{robogen::Connection}!getTo@{getTo}}
+\index{getTo@{getTo}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{getTo()}{getTo()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ robogen\+::\+Connection\+::get\+To (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+TODO remove once to\+Ode is in place \begin{DoxyReturn}{Returns}
+to body part 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Connection_a13871ec5d87c6559ba612d74468ebfa7}\label{classrobogen_1_1Connection_a13871ec5d87c6559ba612d74468ebfa7} 
+\index{robogen::Connection@{robogen::Connection}!getToSlot@{getToSlot}}
+\index{getToSlot@{getToSlot}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{getToSlot()}{getToSlot()}}
+{\footnotesize\ttfamily int robogen\+::\+Connection\+::get\+To\+Slot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+TODO remove once to\+Ode is in place \begin{DoxyReturn}{Returns}
+to slot id 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Connection_a2402f220689f1e4f957e0ac5b221e177}\label{classrobogen_1_1Connection_a2402f220689f1e4f957e0ac5b221e177} 
+\index{robogen::Connection@{robogen::Connection}!init@{init}}
+\index{init@{init}!robogen::Connection@{robogen::Connection}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool robogen\+::\+Connection\+::init (\begin{DoxyParamCaption}\item[{const robogen\+Message\+::\+Body\+Connection \&}]{c,  }\item[{std\+::map$<$ std\+::string, unsigned int $>$ \&}]{map,  }\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \&}]{vec }\end{DoxyParamCaption})}
+
+
+
+Creates a connection from the specified connection message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & \doxylink{classrobogen_1_1Connection}{Connection} message to be used (uses string id\textquotesingle{}s) \\
+\hline
+{\em map} & mapping from string id to index in vector of body part \\
+\hline
+{\em vec} & std\+::vector containing the body part shared pointers \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{Connection_8h}{Connection.\+h}}\item 
+src/model/\mbox{\hyperlink{Connection_8cpp}{Connection.\+cpp}}\end{DoxyCompactItemize}

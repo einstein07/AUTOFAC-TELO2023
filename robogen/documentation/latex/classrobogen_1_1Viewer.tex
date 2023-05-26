@@ -1,0 +1,169 @@
+\hypertarget{classrobogen_1_1Viewer}{}\doxysection{robogen\+::Viewer Class Reference}
+\label{classrobogen_1_1Viewer}\index{robogen::Viewer@{robogen::Viewer}}
+
+
+Class for viewing a simulation.  
+
+
+
+
+{\ttfamily \#include $<$Viewer.\+h$>$}
+
+Inheritance diagram for robogen\+::Viewer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1Viewer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Viewer_aa33e49b7c288fe32832e036565b5082a}{Viewer}} (bool start\+Paused)
+\item 
+\mbox{\hyperlink{classrobogen_1_1Viewer_a2d4628d7eb35d7e58f33e7ec21b5156c}{Viewer}} (bool start\+Paused, bool debug\+Active)
+\item 
+\mbox{\hyperlink{classrobogen_1_1Viewer_a741a22071c870977b175a81f571bdc30}{Viewer}} (bool start\+Paused, bool debug\+Active, double speed\+Factor)
+\item 
+\mbox{\hyperlink{classrobogen_1_1Viewer_a13466fe97c00b7f5e2e06df6d6de7dbd}{Viewer}} (bool start\+Paused, bool debug\+Active, double speed\+Factor, bool recording, unsigned int record\+Frequency, std\+::string record\+Directory\+Name)
+\item 
+\mbox{\hyperlink{classrobogen_1_1Viewer_ad086ad1924d20ab54062700a01e649fb}{$\sim$\+Viewer}} ()
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1Viewer_ab0d07ce8875c12b8dcc281a884b03c3e}{configure\+Scene}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Configure scene. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Viewer_a1cc3a730202ff73d11befe94c9c6ee90}{configure\+Scene}} (std\+::vector$<$ std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ $>$ swarm\+Body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1Viewer_a5956be3e3ae53830e0083797b3164c4d}{done}} ()
+\item 
+bool \mbox{\hyperlink{classrobogen_1_1Viewer_a4d90d2d869143d4a4f3c78ea41024201}{frame}} (double simulated\+Time, unsigned int num\+Time\+Steps)
+\begin{DoxyCompactList}\small\item\em Step frame. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Viewer_a32a8f57e0a76caac33c84f6c1829f0cf}{is\+Paused}} ()
+\begin{DoxyCompactList}\small\item\em Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1IViewer}{robogen\+::\+IViewer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1IViewer_ab9ea757b2563b9456a291013abbe6077}{$\sim$\+IViewer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a2f9ca6a3eeb1ed51dd4104b20bbf6fe3}{configure\+Scene}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)=0
+\begin{DoxyCompactList}\small\item\em Configure scene. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a8354c3016bcbc94fd7728ec2ab9d3b43}{configure\+Scene}} (std\+::vector$<$ std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ $>$ swarm\+Body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)=0
+\begin{DoxyCompactList}\small\item\em Configure scene with swarm. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_aa310632d88f8510adb20d70605299dbe}{done}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a061d1bba87c3a1b2d9a73c824645651e}{frame}} (double simulated\+Time, unsigned int num\+Time\+Steps)=0
+\begin{DoxyCompactList}\small\item\em Step frame. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a2fcee7e9b5186b4cb9a04eda5aac02ac}{is\+Paused}} ()=0
+\begin{DoxyCompactList}\small\item\em Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for viewing a simulation. 
+
+\doxylink{classrobogen_1_1Viewer}{Viewer} wraps the Open\+Scene\+Graph code, and should be used by other classes that wish to visualize a simulation.
+
+Previously we had separate executables for Server, Server\+Viewer, and File\+Viewer. This involved a lot of duplicate code, so this class aims to be a plugin to enable visualization or not. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Viewer_aa33e49b7c288fe32832e036565b5082a}\label{classrobogen_1_1Viewer_aa33e49b7c288fe32832e036565b5082a} 
+\index{robogen::Viewer@{robogen::Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily robogen\+::\+Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{bool}]{start\+Paused }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1Viewer_a2d4628d7eb35d7e58f33e7ec21b5156c}\label{classrobogen_1_1Viewer_a2d4628d7eb35d7e58f33e7ec21b5156c} 
+\index{robogen::Viewer@{robogen::Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily robogen\+::\+Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{bool}]{start\+Paused,  }\item[{bool}]{debug\+Active }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1Viewer_a741a22071c870977b175a81f571bdc30}\label{classrobogen_1_1Viewer_a741a22071c870977b175a81f571bdc30} 
+\index{robogen::Viewer@{robogen::Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily robogen\+::\+Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{bool}]{start\+Paused,  }\item[{bool}]{debug\+Active,  }\item[{double}]{speed\+Factor }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1Viewer_a13466fe97c00b7f5e2e06df6d6de7dbd}\label{classrobogen_1_1Viewer_a13466fe97c00b7f5e2e06df6d6de7dbd} 
+\index{robogen::Viewer@{robogen::Viewer}!Viewer@{Viewer}}
+\index{Viewer@{Viewer}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{Viewer()}{Viewer()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily robogen\+::\+Viewer\+::\+Viewer (\begin{DoxyParamCaption}\item[{bool}]{start\+Paused,  }\item[{bool}]{debug\+Active,  }\item[{double}]{speed\+Factor,  }\item[{bool}]{recording,  }\item[{unsigned int}]{record\+Frequency,  }\item[{std\+::string}]{record\+Directory\+Name }\end{DoxyParamCaption})}
+
+\Hypertarget{classrobogen_1_1Viewer_ad086ad1924d20ab54062700a01e649fb}\label{classrobogen_1_1Viewer_ad086ad1924d20ab54062700a01e649fb} 
+\index{robogen::Viewer@{robogen::Viewer}!````~Viewer@{$\sim$Viewer}}
+\index{````~Viewer@{$\sim$Viewer}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{$\sim$Viewer()}{~Viewer()}}
+{\footnotesize\ttfamily robogen\+::\+Viewer\+::$\sim$\+Viewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Viewer_ab0d07ce8875c12b8dcc281a884b03c3e}\label{classrobogen_1_1Viewer_ab0d07ce8875c12b8dcc281a884b03c3e} 
+\index{robogen::Viewer@{robogen::Viewer}!configureScene@{configureScene}}
+\index{configureScene@{configureScene}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{configureScene()}{configureScene()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool robogen\+::\+Viewer\+::configure\+Scene (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$}]{body\+Parts,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Configure scene. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a2f9ca6a3eeb1ed51dd4104b20bbf6fe3}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1Viewer_a1cc3a730202ff73d11befe94c9c6ee90}\label{classrobogen_1_1Viewer_a1cc3a730202ff73d11befe94c9c6ee90} 
+\index{robogen::Viewer@{robogen::Viewer}!configureScene@{configureScene}}
+\index{configureScene@{configureScene}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{configureScene()}{configureScene()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool robogen\+::\+Viewer\+::configure\+Scene (\begin{DoxyParamCaption}\item[{std\+::vector$<$ std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ $>$}]{swarm\+Body\+Parts,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+SM added -\/ visualize swarm \begin{DoxyReturn}{Returns}
+true if scene was configured correctly, false otherwise 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a8354c3016bcbc94fd7728ec2ab9d3b43}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1Viewer_a5956be3e3ae53830e0083797b3164c4d}\label{classrobogen_1_1Viewer_a5956be3e3ae53830e0083797b3164c4d} 
+\index{robogen::Viewer@{robogen::Viewer}!done@{done}}
+\index{done@{done}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{done()}{done()}}
+{\footnotesize\ttfamily bool robogen\+::\+Viewer\+::done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_aa310632d88f8510adb20d70605299dbe}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1Viewer_a4d90d2d869143d4a4f3c78ea41024201}\label{classrobogen_1_1Viewer_a4d90d2d869143d4a4f3c78ea41024201} 
+\index{robogen::Viewer@{robogen::Viewer}!frame@{frame}}
+\index{frame@{frame}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{frame()}{frame()}}
+{\footnotesize\ttfamily bool robogen\+::\+Viewer\+::frame (\begin{DoxyParamCaption}\item[{double}]{simulated\+Time,  }\item[{unsigned int}]{num\+Time\+Steps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Step frame. 
+
+frame\+: updates frame if it should be updated params\+: simulated\+Time\+: the amount of time simulated so far (in seconds) num\+Time\+Steps\+: the number of time steps simulated so far returns\+: false if paused or going to fast (so simulator should continue without stepping physics) true otherwise 
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a061d1bba87c3a1b2d9a73c824645651e}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1Viewer_a32a8f57e0a76caac33c84f6c1829f0cf}\label{classrobogen_1_1Viewer_a32a8f57e0a76caac33c84f6c1829f0cf} 
+\index{robogen::Viewer@{robogen::Viewer}!isPaused@{isPaused}}
+\index{isPaused@{isPaused}!robogen::Viewer@{robogen::Viewer}}
+\doxysubsubsection{\texorpdfstring{isPaused()}{isPaused()}}
+{\footnotesize\ttfamily bool robogen\+::\+Viewer\+::is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a2fcee7e9b5186b4cb9a04eda5aac02ac}{robogen\+::\+IViewer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/viewer/\mbox{\hyperlink{Viewer_8h}{Viewer.\+h}}\item 
+src/viewer/\mbox{\hyperlink{Viewer_8cpp}{Viewer.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,37 @@
+\hypertarget{MutatePerturbSensorState_8h_source}{}\doxysection{Mutate\+Perturb\+Sensor\+State.\+h}
+\label{MutatePerturbSensorState_8h_source}\index{src/EDQD/MutatePerturbSensorState.h@{src/EDQD/MutatePerturbSensorState.h}}
+\mbox{\hyperlink{MutatePerturbSensorState_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ MutatePerturbSensorState.h\ \ \ 1.0\ \ \ Jun\ 14,\ 2022}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ EDQD\_MUTATEPERTURBSENSORSTATE\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EDQD\_MUTATEPERTURBSENSORSTATE\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robot_8h}{Robot.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Parameters_8h}{EDQD/Parameters.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1MutatePerturbSensorState}{MutatePerturbSensorState}}\{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{double}\ sigma\_;}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{double}\ minValue\_;}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{double}\ maxValue\_;}
+\DoxyCodeLine{00029\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1MutatePerturbSensorState}{MutatePerturbSensorState}}(\textcolor{keywordtype}{double}\ sigma);}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1MutatePerturbSensorState_a288bd466f9744341abb3b46f12a4237c}{\string~MutatePerturbSensorState}}();}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1MutatePerturbSensorState_ab7e423f0c5c64650bcc0f7b7cc7a4c54}{mutateSigmaValue}}();}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1MutatePerturbSensorState_a220a1c110239024da25743a721beb834}{mutateSensorGroup}}(std::vector<\ boost::shared\_ptr<Robot>\ >\ robots);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ \}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*EDQD\_MUTATEPERTURBSENSORSTATE\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

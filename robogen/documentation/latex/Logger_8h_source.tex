@@ -1,0 +1,76 @@
+\hypertarget{Logger_8h_source}{}\doxysection{Logger.\+h}
+\label{Logger_8h_source}\index{src/EDQD/Logger.h@{src/EDQD/Logger.h}}
+\mbox{\hyperlink{Logger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Log.h\ \ \ 1.0\ \ \ May\ 18,\ 2022}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifndef\ EDQD\_LOG\_H\_}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ EDQD\_LOG\_H\_}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ How\ to\ use\ Log?}}
+\DoxyCodeLine{00019\ \textcolor{comment}{}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ OPTION\ 1:}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ with\ any\ new\ instance\ of\ roborobo,\ a\ gLogManager\ is\ created\ and\ available.\ You\ just\ have\ to\ use\ the\ two\ following\ commands:}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ (1)\ gLogManager.write()}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ (2)\ optionally:\ gLogManager.flush()\ -\/-\/\ note\ that\ this\ command\ is\ called\ automatically\ after\ each\ evaluation.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ OPTION\ 2:}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ \ \ \ You\ can\ create\ as\ many\ new\ LogManager\ as\ you\ want.\ By\ default\ they\ will\ write\ in\ the\ same\ file\ as\ gLogManager.\ Here\ is\ how\ to\ change\ this:}}
+\DoxyCodeLine{00027\ \textcolor{comment}{}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::string\ filename\ =\ "{}logs/test.txt"{};}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ \ \ \ \ \ \ \ std::ofstream\ file;}}
+\DoxyCodeLine{00030\ \textcolor{comment}{}}
+\DoxyCodeLine{00031\ \textcolor{comment}{\ \ \ \ \ \ \ \ file.open(filename.c\_str());}}
+\DoxyCodeLine{00032\ \textcolor{comment}{}}
+\DoxyCodeLine{00033\ \textcolor{comment}{\ \ \ \ \ \ \ \ if(!file)\ \{}}
+\DoxyCodeLine{00034\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ "{}[error]\ Cannot\ open\ log\ file\ "{}\ <<\ std::endl;}}
+\DoxyCodeLine{00035\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ exit\ (-\/1);}}
+\DoxyCodeLine{00036\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00037\ \textcolor{comment}{}}
+\DoxyCodeLine{00038\ \textcolor{comment}{\ \ \ \ \ \ \ \ LogManager\ *lm\ =\ new\ LogManager();}}
+\DoxyCodeLine{00039\ \textcolor{comment}{}}
+\DoxyCodeLine{00040\ \textcolor{comment}{\ \ \ \ \ \ \ \ lm-\/>setLogFile(file);}}
+\DoxyCodeLine{00041\ \textcolor{comment}{}}
+\DoxyCodeLine{00042\ \textcolor{comment}{\ \ \ \ \ \ \ \ lm-\/>write("{}all\ work\ and\ no\ play\ makes\ Jack\ a\ dull\ boy\ "{});}}
+\DoxyCodeLine{00043\ \textcolor{comment}{}}
+\DoxyCodeLine{00044\ \textcolor{comment}{\ \ \ \ \ \ \ \ lm-\/>flush();}}
+\DoxyCodeLine{00045\ \textcolor{comment}{}}
+\DoxyCodeLine{00046\ \textcolor{comment}{\ \ \ \ \ \ \ \ file.close();}}
+\DoxyCodeLine{00047\ \textcolor{comment}{}}
+\DoxyCodeLine{00048\ \textcolor{comment}{\ \ \ \ Some\ remarks\ on\ option\ 2:}}
+\DoxyCodeLine{00049\ \textcolor{comment}{\ \ \ \ \ \ \ \ (1)\ dont\ forget\ to\ reassign\ file\ target\ (cf.\ lm-\/>setLogFile(...)\ )}}
+\DoxyCodeLine{00050\ \textcolor{comment}{\ \ \ \ \ \ \ \ (2)\ dont\ forget\ to\ flush\ once\ in\ a\ while\ (no\ flush\ means\ information\ is\ not\ written\ on\ disk)}}
+\DoxyCodeLine{00051\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLogger}{Logger}}\ \{}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ buffer;}
+\DoxyCodeLine{00061\ \ \ \ \ std::ofstream\ *logFile;\ \ \textcolor{comment}{//\ LogManager\ does\ not\ open/close.\ Assume\ it\ is\ handled\ elsewhere.}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}();}
+\DoxyCodeLine{00071\ \ \ \ \ \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}(std::ofstream\ \_\_logFile);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classLogger_acb668a9e186a25fbaad2e4af6d1ed00a}{\string~Logger}}();}
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classLogger_a72d4c5c7fb67c1b91d4ed32af2c204dc}{make\_DefaultLogger}}();\ \textcolor{comment}{//(std::ofstream\ \_\_logFile);}}
+\DoxyCodeLine{00083\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a2f4f1caa14d0394ee2b07dc78a5dd26e}{setLoggerFile}}\ (\ std::ofstream\ \&\_\_logFile\ );}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a06a824e0756fba342fa4602911c1408a}{write}}(std::string\ str);}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLogger_a5cc08473729523bb4bde48459f2ac468}{flush}}();}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

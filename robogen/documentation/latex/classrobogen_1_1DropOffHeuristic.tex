@@ -1,0 +1,114 @@
+\hypertarget{classrobogen_1_1DropOffHeuristic}{}\doxysection{robogen\+::Drop\+Off\+Heuristic Class Reference}
+\label{classrobogen_1_1DropOffHeuristic}\index{robogen::DropOffHeuristic@{robogen::DropOffHeuristic}}
+
+
+Class for describing a resource drop-\/off heuristic.  
+
+
+
+
+{\ttfamily \#include $<$Drop\+Off\+Heuristic.\+h$>$}
+
+Inheritance diagram for robogen\+::Drop\+Off\+Heuristic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1DropOffHeuristic}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1DropOffHeuristic_ae02a22097db29f4b5a08f65a2c1e403d}{Drop\+Off\+Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\item 
+\mbox{\hyperlink{classrobogen_1_1DropOffHeuristic_afdaddd9563c7cc28df69b1367fd905e5}{$\sim$\+Drop\+Off\+Heuristic}} ()
+\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1DropOffHeuristic_a1edfff0698bbcf2b14ad1d846745d097}{step}} (boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Heuristic_afc9ea35e2ea361eae3bbbaf44d5e079f}{Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Heuristic_ab7a6234416549be4b598255cea4a6894}{$\sim$\+Heuristic}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Heuristic_a0696c12521a965fa5b286b79e64feaf7}{set\+Priority}} (int priority)
+\begin{DoxyCompactList}\small\item\em Sets the priority of this heuristic. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{step}} (boost\+::mutex \&queue\+Mutex)=0
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6cb108a375d429c356ee99f56c07a81e}{drive\+To\+Target\+Position}} (osg\+::\+Vec2d target\+Position)
+\begin{DoxyCompactList}\small\item\em Returns motor signals that will drive the agent towards the desired target position. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Heuristic_a8c8076593f7cb64633903bee003c0209}{get\+Local\+Point}} (osg\+::\+Vec3 global\+Point)
+\begin{DoxyCompactList}\small\item\em Converts global coordinates to local coordinates, relative to the robotic agent. \end{DoxyCompactList}\item 
+osg\+::\+Vec3d \mbox{\hyperlink{classrobogen_1_1Heuristic_a36e7e5f068b7110309420078a1ebc2af}{get\+Global\+Point}} (osg\+::\+Vec3d local\+Point)
+\begin{DoxyCompactList}\small\item\em Converts local coordinates (relative to the robotic agent) to global coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double \mbox{\hyperlink{classrobogen_1_1Heuristic_a661b93334147b666e3d634f3f5146ea0}{HALF\+\_\+\+PI}} = M\+\_\+\+PI / 2
+\begin{DoxyCompactList}\small\item\em Value of half PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_a0ee1d742376365bdfde4871efc935373}{robot\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The agent currently utilizing this heuristic. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_ad20757e76823d7ca6124baf19d2a8747}{scenario\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The scenario in which the task is being carried out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing a resource drop-\/off heuristic. 
+
+\doxylink{classrobogen_1_1DropOffHeuristic}{Drop\+Off\+Heuristic} inherits from \doxylink{classrobogen_1_1Heuristic}{Heuristic} to describe a heuristic for dropping off collected resources once agents are within the gathering zone. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1DropOffHeuristic_ae02a22097db29f4b5a08f65a2c1e403d}\label{classrobogen_1_1DropOffHeuristic_ae02a22097db29f4b5a08f65a2c1e403d} 
+\index{robogen::DropOffHeuristic@{robogen::DropOffHeuristic}!DropOffHeuristic@{DropOffHeuristic}}
+\index{DropOffHeuristic@{DropOffHeuristic}!robogen::DropOffHeuristic@{robogen::DropOffHeuristic}}
+\doxysubsubsection{\texorpdfstring{DropOffHeuristic()}{DropOffHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Drop\+Off\+Heuristic\+::\+Drop\+Off\+Heuristic (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$}]{robot,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})}
+
+Class constructor 
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{classrobogen_1_1Robot}{Robot}} & The agent to utilize this heuristic \\
+\hline
+{\em \doxylink{classrobogen_1_1Scenario}{Scenario}} & The scenario in which this task is being carried out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a heuristic object 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1DropOffHeuristic_afdaddd9563c7cc28df69b1367fd905e5}\label{classrobogen_1_1DropOffHeuristic_afdaddd9563c7cc28df69b1367fd905e5} 
+\index{robogen::DropOffHeuristic@{robogen::DropOffHeuristic}!````~DropOffHeuristic@{$\sim$DropOffHeuristic}}
+\index{````~DropOffHeuristic@{$\sim$DropOffHeuristic}!robogen::DropOffHeuristic@{robogen::DropOffHeuristic}}
+\doxysubsubsection{\texorpdfstring{$\sim$DropOffHeuristic()}{~DropOffHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Drop\+Off\+Heuristic\+::$\sim$\+Drop\+Off\+Heuristic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1DropOffHeuristic_a1edfff0698bbcf2b14ad1d846745d097}\label{classrobogen_1_1DropOffHeuristic_a1edfff0698bbcf2b14ad1d846745d097} 
+\index{robogen::DropOffHeuristic@{robogen::DropOffHeuristic}!step@{step}}
+\index{step@{step}!robogen::DropOffHeuristic@{robogen::DropOffHeuristic}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+Drop\+Off\+Heuristic\+::step (\begin{DoxyParamCaption}\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the heuristic at this iteration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em boost\+::mutex} & a lock to avoid race conditions \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{robogen\+::\+Heuristic}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{DropOffHeuristic_8h}{Drop\+Off\+Heuristic.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{DropOffHeuristic_8cpp}{Drop\+Off\+Heuristic.\+cpp}}\end{DoxyCompactItemize}

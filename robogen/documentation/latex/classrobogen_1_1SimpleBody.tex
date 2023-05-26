@@ -1,0 +1,302 @@
+\hypertarget{classrobogen_1_1SimpleBody}{}\doxysection{robogen\+::Simple\+Body Class Reference}
+\label{classrobogen_1_1SimpleBody}\index{robogen::SimpleBody@{robogen::SimpleBody}}
+
+
+Class to describe a \doxylink{classrobogen_1_1SimpleBody}{Simple\+Body}.  
+
+
+
+
+{\ttfamily \#include $<$Simple\+Body.\+h$>$}
+
+Inheritance diagram for robogen\+::Simple\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classrobogen_1_1SimpleBody}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1SimpleBody_abe4c3c60d9358c5134b0b7ea124b1b6d}{Simple\+Body}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ model, d\+Mass mass, d\+Geom\+ID geom, const osg\+::\+Vec3 \&pos, const osg\+::\+Quat \&attitude=osg\+::\+Quat())
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1SimpleBody_a8253ef6db4fb4130d82de2f673a1ae66}{$\sim$\+Simple\+Body}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_abc4097ecc10c13bb68f1d283eb8b3286}{add\+Joint}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ joint)
+\begin{DoxyCompactList}\small\item\em Adds a \doxylink{classrobogen_1_1Joint}{Joint}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_a0ffa391eca76e96d301ced0796fe312c}{clear\+Joints}} ()
+\begin{DoxyCompactList}\small\item\em Clears Joints. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_a68e5f9f3af754cc70fd51713b2a6a02c}{remove\+Joint}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ joint)
+\begin{DoxyCompactList}\small\item\em Removes specified \doxylink{classrobogen_1_1Joint}{Joint}. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_aa8eeec1bc71cf7ec4cd795962eb42173}{get\+Joints}} ()
+\begin{DoxyCompactList}\small\item\em Returns Joints. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1SimpleBody_aba004eb7c0ec0b772eeab05c2daa5028}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns position. \end{DoxyCompactList}\item 
+osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1SimpleBody_a59b6f096e8358f114b6e4b3f2662febb}{get\+Attitude}} ()
+\begin{DoxyCompactList}\small\item\em Returns attitude. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1SimpleBody_adf3d90bddfb1e00713ea4efa0e0b6620}{get\+Local\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns local position. \end{DoxyCompactList}\item 
+osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1SimpleBody_a7e01784e08c42536bc8a5854ca29f96b}{get\+Local\+Attitude}} ()
+\begin{DoxyCompactList}\small\item\em Returns local attitude. \end{DoxyCompactList}\item 
+const d\+Geom\+ID \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_a22e7c4d3921c4e96111c5af909d0efac}{get\+Geom}} ()
+\begin{DoxyCompactList}\small\item\em Returns Geom. \end{DoxyCompactList}\item 
+const d\+Mass \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_ac3c737ee37d601a24d5b314aa89c220e}{get\+Mass}} ()
+\begin{DoxyCompactList}\small\item\em Returns mass. \end{DoxyCompactList}\item 
+const boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_a86d6f7e11dc707705fac725405d1460f}{get\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Returns Mass. \end{DoxyCompactList}\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_aef13c349b6a81c2437ef444a76cf824e}{get\+Specified\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns specified position. \end{DoxyCompactList}\item 
+const osg\+::\+Quat \& \mbox{\hyperlink{classrobogen_1_1SimpleBody_a30625cf19eecce904f60ca42d6b5d33a}{get\+Specified\+Attitude}} ()
+\begin{DoxyCompactList}\small\item\em Returns specified attitude. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_aaa45eaa1aeb82fabb23e38adc0282bd8}{set\+Specified\+Position}} (osg\+::\+Vec3 specified\+Position)
+\begin{DoxyCompactList}\small\item\em Sets specified position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_a41f30b3679746ff794c953f87d01edcc}{set\+Specified\+Attitude}} (osg\+::\+Quat specified\+Attitude)
+\begin{DoxyCompactList}\small\item\em Sets specified attitude. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_ac18eb1323552d98a112605e6c8122632}{set\+Position}} (osg\+::\+Vec3 position)
+\begin{DoxyCompactList}\small\item\em overwrite parent methods to also update specified position / attitude \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1SimpleBody_a000c5ae4bd479e8e6bf4620e76b87dc9}{set\+Attitude}} (osg\+::\+Quat attitude)
+\begin{DoxyCompactList}\small\item\em Sets attitude. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1AbstractBody}{robogen\+::\+Abstract\+Body}}}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244}{get\+Body}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0}{set\+Body}} (d\+Body\+ID body)
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab}{$\sim$\+Abstract\+Body}} ()
+\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{get\+Position}} ()=0
+\item 
+virtual osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{get\+Attitude}} ()=0
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051}{set\+Position}} (osg\+::\+Vec3 position)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a}{set\+Attitude}} (osg\+::\+Quat attitude)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd}{set\+Parent}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ parent)
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d}{get\+Parent}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1}{get\+Root}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrobogen_1_1AbstractBody}{robogen\+::\+Abstract\+Body}}}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\+\_\+}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe a \doxylink{classrobogen_1_1SimpleBody}{Simple\+Body}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1SimpleBody_abe4c3c60d9358c5134b0b7ea124b1b6d}\label{classrobogen_1_1SimpleBody_abe4c3c60d9358c5134b0b7ea124b1b6d} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!SimpleBody@{SimpleBody}}
+\index{SimpleBody@{SimpleBody}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{SimpleBody()}{SimpleBody()}}
+{\footnotesize\ttfamily robogen\+::\+Simple\+Body\+::\+Simple\+Body (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$}]{model,  }\item[{d\+Mass}]{mass,  }\item[{d\+Geom\+ID}]{geom,  }\item[{const osg\+::\+Vec3 \&}]{pos,  }\item[{const osg\+::\+Quat \&}]{attitude = {\ttfamily osg\+:\+:Quat()} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a8253ef6db4fb4130d82de2f673a1ae66}\label{classrobogen_1_1SimpleBody_a8253ef6db4fb4130d82de2f673a1ae66} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!````~SimpleBody@{$\sim$SimpleBody}}
+\index{````~SimpleBody@{$\sim$SimpleBody}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{$\sim$SimpleBody()}{~SimpleBody()}}
+{\footnotesize\ttfamily robogen\+::\+Simple\+Body\+::$\sim$\+Simple\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1SimpleBody_abc4097ecc10c13bb68f1d283eb8b3286}\label{classrobogen_1_1SimpleBody_abc4097ecc10c13bb68f1d283eb8b3286} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!addJoint@{addJoint}}
+\index{addJoint@{addJoint}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{addJoint()}{addJoint()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::add\+Joint (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$}]{joint }\end{DoxyParamCaption})}
+
+
+
+Adds a \doxylink{classrobogen_1_1Joint}{Joint}. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a0ffa391eca76e96d301ced0796fe312c}\label{classrobogen_1_1SimpleBody_a0ffa391eca76e96d301ced0796fe312c} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!clearJoints@{clearJoints}}
+\index{clearJoints@{clearJoints}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{clearJoints()}{clearJoints()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::clear\+Joints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Clears Joints. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a59b6f096e8358f114b6e4b3f2662febb}\label{classrobogen_1_1SimpleBody_a59b6f096e8358f114b6e4b3f2662febb} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getAttitude@{getAttitude}}
+\index{getAttitude@{getAttitude}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getAttitude()}{getAttitude()}}
+{\footnotesize\ttfamily osg\+::\+Quat robogen\+::\+Simple\+Body\+::get\+Attitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns attitude. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{robogen\+::\+Abstract\+Body}}.
+
+\Hypertarget{classrobogen_1_1SimpleBody_a22e7c4d3921c4e96111c5af909d0efac}\label{classrobogen_1_1SimpleBody_a22e7c4d3921c4e96111c5af909d0efac} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getGeom@{getGeom}}
+\index{getGeom@{getGeom}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getGeom()}{getGeom()}}
+{\footnotesize\ttfamily const d\+Geom\+ID \& robogen\+::\+Simple\+Body\+::get\+Geom (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Geom. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_aa8eeec1bc71cf7ec4cd795962eb42173}\label{classrobogen_1_1SimpleBody_aa8eeec1bc71cf7ec4cd795962eb42173} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getJoints@{getJoints}}
+\index{getJoints@{getJoints}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getJoints()}{getJoints()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ $>$ \& robogen\+::\+Simple\+Body\+::get\+Joints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns Joints. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a7e01784e08c42536bc8a5854ca29f96b}\label{classrobogen_1_1SimpleBody_a7e01784e08c42536bc8a5854ca29f96b} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getLocalAttitude@{getLocalAttitude}}
+\index{getLocalAttitude@{getLocalAttitude}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getLocalAttitude()}{getLocalAttitude()}}
+{\footnotesize\ttfamily osg\+::\+Quat robogen\+::\+Simple\+Body\+::get\+Local\+Attitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns local attitude. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_adf3d90bddfb1e00713ea4efa0e0b6620}\label{classrobogen_1_1SimpleBody_adf3d90bddfb1e00713ea4efa0e0b6620} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getLocalPosition@{getLocalPosition}}
+\index{getLocalPosition@{getLocalPosition}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getLocalPosition()}{getLocalPosition()}}
+{\footnotesize\ttfamily osg\+::\+Vec3 robogen\+::\+Simple\+Body\+::get\+Local\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns local position. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_ac3c737ee37d601a24d5b314aa89c220e}\label{classrobogen_1_1SimpleBody_ac3c737ee37d601a24d5b314aa89c220e} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getMass@{getMass}}
+\index{getMass@{getMass}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getMass()}{getMass()}}
+{\footnotesize\ttfamily const d\+Mass \& robogen\+::\+Simple\+Body\+::get\+Mass (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns mass. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a86d6f7e11dc707705fac725405d1460f}\label{classrobogen_1_1SimpleBody_a86d6f7e11dc707705fac725405d1460f} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getModel@{getModel}}
+\index{getModel@{getModel}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getModel()}{getModel()}}
+{\footnotesize\ttfamily const boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \& robogen\+::\+Simple\+Body\+::get\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns Mass. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_aba004eb7c0ec0b772eeab05c2daa5028}\label{classrobogen_1_1SimpleBody_aba004eb7c0ec0b772eeab05c2daa5028} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily osg\+::\+Vec3 robogen\+::\+Simple\+Body\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns position. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{robogen\+::\+Abstract\+Body}}.
+
+\Hypertarget{classrobogen_1_1SimpleBody_a30625cf19eecce904f60ca42d6b5d33a}\label{classrobogen_1_1SimpleBody_a30625cf19eecce904f60ca42d6b5d33a} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getSpecifiedAttitude@{getSpecifiedAttitude}}
+\index{getSpecifiedAttitude@{getSpecifiedAttitude}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getSpecifiedAttitude()}{getSpecifiedAttitude()}}
+{\footnotesize\ttfamily const osg\+::\+Quat \& robogen\+::\+Simple\+Body\+::get\+Specified\+Attitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns specified attitude. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_aef13c349b6a81c2437ef444a76cf824e}\label{classrobogen_1_1SimpleBody_aef13c349b6a81c2437ef444a76cf824e} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!getSpecifiedPosition@{getSpecifiedPosition}}
+\index{getSpecifiedPosition@{getSpecifiedPosition}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{getSpecifiedPosition()}{getSpecifiedPosition()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Simple\+Body\+::get\+Specified\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns specified position. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a68e5f9f3af754cc70fd51713b2a6a02c}\label{classrobogen_1_1SimpleBody_a68e5f9f3af754cc70fd51713b2a6a02c} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!removeJoint@{removeJoint}}
+\index{removeJoint@{removeJoint}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{removeJoint()}{removeJoint()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::remove\+Joint (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$}]{joint }\end{DoxyParamCaption})}
+
+
+
+Removes specified \doxylink{classrobogen_1_1Joint}{Joint}. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a000c5ae4bd479e8e6bf4620e76b87dc9}\label{classrobogen_1_1SimpleBody_a000c5ae4bd479e8e6bf4620e76b87dc9} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!setAttitude@{setAttitude}}
+\index{setAttitude@{setAttitude}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{setAttitude()}{setAttitude()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::set\+Attitude (\begin{DoxyParamCaption}\item[{osg\+::\+Quat}]{attitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets attitude. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_ac18eb1323552d98a112605e6c8122632}\label{classrobogen_1_1SimpleBody_ac18eb1323552d98a112605e6c8122632} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!setPosition@{setPosition}}
+\index{setPosition@{setPosition}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{setPosition()}{setPosition()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::set\+Position (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3}]{position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+overwrite parent methods to also update specified position / attitude 
+
+\Hypertarget{classrobogen_1_1SimpleBody_a41f30b3679746ff794c953f87d01edcc}\label{classrobogen_1_1SimpleBody_a41f30b3679746ff794c953f87d01edcc} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!setSpecifiedAttitude@{setSpecifiedAttitude}}
+\index{setSpecifiedAttitude@{setSpecifiedAttitude}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{setSpecifiedAttitude()}{setSpecifiedAttitude()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::set\+Specified\+Attitude (\begin{DoxyParamCaption}\item[{osg\+::\+Quat}]{specified\+Attitude }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets specified attitude. 
+
+\Hypertarget{classrobogen_1_1SimpleBody_aaa45eaa1aeb82fabb23e38adc0282bd8}\label{classrobogen_1_1SimpleBody_aaa45eaa1aeb82fabb23e38adc0282bd8} 
+\index{robogen::SimpleBody@{robogen::SimpleBody}!setSpecifiedPosition@{setSpecifiedPosition}}
+\index{setSpecifiedPosition@{setSpecifiedPosition}!robogen::SimpleBody@{robogen::SimpleBody}}
+\doxysubsubsection{\texorpdfstring{setSpecifiedPosition()}{setSpecifiedPosition()}}
+{\footnotesize\ttfamily void robogen\+::\+Simple\+Body\+::set\+Specified\+Position (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3}]{specified\+Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets specified position. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{SimpleBody_8h}{Simple\+Body.\+h}}\item 
+src/model/\mbox{\hyperlink{SimpleBody_8cpp}{Simple\+Body.\+cpp}}\end{DoxyCompactItemize}

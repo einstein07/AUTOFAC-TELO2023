@@ -1,0 +1,128 @@
+\hypertarget{FileViewerLog_8cpp}{}\doxysection{src/viewer/\+File\+Viewer\+Log.cpp File Reference}
+\label{FileViewerLog_8cpp}\index{src/viewer/FileViewerLog.cpp@{src/viewer/FileViewerLog.cpp}}
+{\ttfamily \#include \char`\"{}viewer/\+File\+Viewer\+Log.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$boost/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/date\+\_\+time/posix\+\_\+time/posix\+\_\+time.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/date\+\_\+time/posix\+\_\+time/posix\+\_\+time\+\_\+io.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/timer/timer.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/shared\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}arduino/\+Arduino\+NNCompiler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}printing/\+Body\+Compiler.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}model/sensors/\+Sensor.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a1c13e1c5e5f8172c1cea7d5830431849}{BOOST\+\_\+\+NO\+\_\+\+CXX11\+\_\+\+SCOPED\+\_\+\+ENUMS}}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a95bb4f0f30bb6d9eb739cf29bab42c7f}{LOG\+\_\+\+DIRECTORY\+\_\+\+PREFIX}}~\char`\"{}results/File\+Viewer\+\_\+\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a8a21b33424ff454c28ab0bc789a63fbe}{LOG\+\_\+\+DIRECTORY\+\_\+\+FACET}}~\char`\"{}\%Y\%m\%d-\/\%H\%M\%S\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a460741617dc1ab9b1bbe6e9186ff4dcb}{TRAJECTORY\+\_\+\+LOG\+\_\+\+FILE}}~\char`\"{}trajectory\+Log.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a8f4108e96c84d3cc908d03cf2503089b}{SENSOR\+\_\+\+LABEL\+\_\+\+FILE}}~\char`\"{}sensor\+Labels.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_ad26f2e7ebc5ca37e348cfa566355d4a8}{SENSOR\+\_\+\+LOG\+\_\+\+FILE}}~\char`\"{}sensor\+Log.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a8147e432d50c1424e3b1e6e55e8354ad}{MOTOR\+\_\+\+LOG\+\_\+\+FILE}}~\char`\"{}motor\+Log.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a28fe4ad02c0a496baa21eec5b4689e9b}{TIME\+\_\+\+LOG\+\_\+\+FILE}}~\char`\"{}time\+Log.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a088d6767a0caace7c7fd1c835ec75737}{ARDUINO\+\_\+\+NN\+\_\+\+FILE}}~\char`\"{}Neural\+Network.\+h\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_acdb9f359b50e3423178840f14412a0d8}{BODY\+\_\+\+FILE}}~\char`\"{}body\+Representation.\+txt\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_ae131fe22ce6a7f5b9221b2f78c8b566f}{LOG\+\_\+\+COL\+\_\+\+WIDTH}}~12
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_a6d62b88ae24b203a05b5e9512749dec2}{OCTAVE\+\_\+\+SCRIPT}}~\char`\"{}robogen\+Plot.\+m\char`\"{}
+\item 
+\#define \mbox{\hyperlink{FileViewerLog_8cpp_af85f8d5ae3530c65a58aac03ba713d71}{WEBGL\+\_\+\+FILE}}~\char`\"{}web\+GL.\+json\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{FileViewerLog_8cpp_a088d6767a0caace7c7fd1c835ec75737}\label{FileViewerLog_8cpp_a088d6767a0caace7c7fd1c835ec75737} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!ARDUINO\_NN\_FILE@{ARDUINO\_NN\_FILE}}
+\index{ARDUINO\_NN\_FILE@{ARDUINO\_NN\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{ARDUINO\_NN\_FILE}{ARDUINO\_NN\_FILE}}
+{\footnotesize\ttfamily \#define ARDUINO\+\_\+\+NN\+\_\+\+FILE~\char`\"{}Neural\+Network.\+h\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_acdb9f359b50e3423178840f14412a0d8}\label{FileViewerLog_8cpp_acdb9f359b50e3423178840f14412a0d8} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!BODY\_FILE@{BODY\_FILE}}
+\index{BODY\_FILE@{BODY\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{BODY\_FILE}{BODY\_FILE}}
+{\footnotesize\ttfamily \#define BODY\+\_\+\+FILE~\char`\"{}body\+Representation.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a1c13e1c5e5f8172c1cea7d5830431849}\label{FileViewerLog_8cpp_a1c13e1c5e5f8172c1cea7d5830431849} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!BOOST\_NO\_CXX11\_SCOPED\_ENUMS@{BOOST\_NO\_CXX11\_SCOPED\_ENUMS}}
+\index{BOOST\_NO\_CXX11\_SCOPED\_ENUMS@{BOOST\_NO\_CXX11\_SCOPED\_ENUMS}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{BOOST\_NO\_CXX11\_SCOPED\_ENUMS}{BOOST\_NO\_CXX11\_SCOPED\_ENUMS}}
+{\footnotesize\ttfamily \#define BOOST\+\_\+\+NO\+\_\+\+CXX11\+\_\+\+SCOPED\+\_\+\+ENUMS}
+
+\Hypertarget{FileViewerLog_8cpp_ae131fe22ce6a7f5b9221b2f78c8b566f}\label{FileViewerLog_8cpp_ae131fe22ce6a7f5b9221b2f78c8b566f} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!LOG\_COL\_WIDTH@{LOG\_COL\_WIDTH}}
+\index{LOG\_COL\_WIDTH@{LOG\_COL\_WIDTH}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_COL\_WIDTH}{LOG\_COL\_WIDTH}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+COL\+\_\+\+WIDTH~12}
+
+\Hypertarget{FileViewerLog_8cpp_a8a21b33424ff454c28ab0bc789a63fbe}\label{FileViewerLog_8cpp_a8a21b33424ff454c28ab0bc789a63fbe} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!LOG\_DIRECTORY\_FACET@{LOG\_DIRECTORY\_FACET}}
+\index{LOG\_DIRECTORY\_FACET@{LOG\_DIRECTORY\_FACET}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_DIRECTORY\_FACET}{LOG\_DIRECTORY\_FACET}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+DIRECTORY\+\_\+\+FACET~\char`\"{}\%Y\%m\%d-\/\%H\%M\%S\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a95bb4f0f30bb6d9eb739cf29bab42c7f}\label{FileViewerLog_8cpp_a95bb4f0f30bb6d9eb739cf29bab42c7f} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!LOG\_DIRECTORY\_PREFIX@{LOG\_DIRECTORY\_PREFIX}}
+\index{LOG\_DIRECTORY\_PREFIX@{LOG\_DIRECTORY\_PREFIX}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{LOG\_DIRECTORY\_PREFIX}{LOG\_DIRECTORY\_PREFIX}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+DIRECTORY\+\_\+\+PREFIX~\char`\"{}results/File\+Viewer\+\_\+\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a8147e432d50c1424e3b1e6e55e8354ad}\label{FileViewerLog_8cpp_a8147e432d50c1424e3b1e6e55e8354ad} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!MOTOR\_LOG\_FILE@{MOTOR\_LOG\_FILE}}
+\index{MOTOR\_LOG\_FILE@{MOTOR\_LOG\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{MOTOR\_LOG\_FILE}{MOTOR\_LOG\_FILE}}
+{\footnotesize\ttfamily \#define MOTOR\+\_\+\+LOG\+\_\+\+FILE~\char`\"{}motor\+Log.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a6d62b88ae24b203a05b5e9512749dec2}\label{FileViewerLog_8cpp_a6d62b88ae24b203a05b5e9512749dec2} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!OCTAVE\_SCRIPT@{OCTAVE\_SCRIPT}}
+\index{OCTAVE\_SCRIPT@{OCTAVE\_SCRIPT}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{OCTAVE\_SCRIPT}{OCTAVE\_SCRIPT}}
+{\footnotesize\ttfamily \#define OCTAVE\+\_\+\+SCRIPT~\char`\"{}robogen\+Plot.\+m\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a8f4108e96c84d3cc908d03cf2503089b}\label{FileViewerLog_8cpp_a8f4108e96c84d3cc908d03cf2503089b} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!SENSOR\_LABEL\_FILE@{SENSOR\_LABEL\_FILE}}
+\index{SENSOR\_LABEL\_FILE@{SENSOR\_LABEL\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_LABEL\_FILE}{SENSOR\_LABEL\_FILE}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+LABEL\+\_\+\+FILE~\char`\"{}sensor\+Labels.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_ad26f2e7ebc5ca37e348cfa566355d4a8}\label{FileViewerLog_8cpp_ad26f2e7ebc5ca37e348cfa566355d4a8} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!SENSOR\_LOG\_FILE@{SENSOR\_LOG\_FILE}}
+\index{SENSOR\_LOG\_FILE@{SENSOR\_LOG\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_LOG\_FILE}{SENSOR\_LOG\_FILE}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+LOG\+\_\+\+FILE~\char`\"{}sensor\+Log.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a28fe4ad02c0a496baa21eec5b4689e9b}\label{FileViewerLog_8cpp_a28fe4ad02c0a496baa21eec5b4689e9b} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!TIME\_LOG\_FILE@{TIME\_LOG\_FILE}}
+\index{TIME\_LOG\_FILE@{TIME\_LOG\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{TIME\_LOG\_FILE}{TIME\_LOG\_FILE}}
+{\footnotesize\ttfamily \#define TIME\+\_\+\+LOG\+\_\+\+FILE~\char`\"{}time\+Log.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_a460741617dc1ab9b1bbe6e9186ff4dcb}\label{FileViewerLog_8cpp_a460741617dc1ab9b1bbe6e9186ff4dcb} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!TRAJECTORY\_LOG\_FILE@{TRAJECTORY\_LOG\_FILE}}
+\index{TRAJECTORY\_LOG\_FILE@{TRAJECTORY\_LOG\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{TRAJECTORY\_LOG\_FILE}{TRAJECTORY\_LOG\_FILE}}
+{\footnotesize\ttfamily \#define TRAJECTORY\+\_\+\+LOG\+\_\+\+FILE~\char`\"{}trajectory\+Log.\+txt\char`\"{}}
+
+\Hypertarget{FileViewerLog_8cpp_af85f8d5ae3530c65a58aac03ba713d71}\label{FileViewerLog_8cpp_af85f8d5ae3530c65a58aac03ba713d71} 
+\index{FileViewerLog.cpp@{FileViewerLog.cpp}!WEBGL\_FILE@{WEBGL\_FILE}}
+\index{WEBGL\_FILE@{WEBGL\_FILE}!FileViewerLog.cpp@{FileViewerLog.cpp}}
+\doxysubsubsection{\texorpdfstring{WEBGL\_FILE}{WEBGL\_FILE}}
+{\footnotesize\ttfamily \#define WEBGL\+\_\+\+FILE~\char`\"{}web\+GL.\+json\char`\"{}}
+

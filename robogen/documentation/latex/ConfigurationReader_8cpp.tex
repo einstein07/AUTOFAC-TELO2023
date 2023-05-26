@@ -1,0 +1,73 @@
+\hypertarget{ConfigurationReader_8cpp}{}\doxysection{src/config/\+Configuration\+Reader.cpp File Reference}
+\label{ConfigurationReader_8cpp}\index{src/config/ConfigurationReader.cpp@{src/config/ConfigurationReader.cpp}}
+{\ttfamily \#include $<$boost/program\+\_\+options.\+hpp$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$boost/filesystem.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/regex.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/math/special\+\_\+functions/round.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/algorithm/string.\+hpp$>$}\newline
+{\ttfamily \#include $<$osg/\+Vec3$>$}\newline
+{\ttfamily \#include \char`\"{}config/\+Configuration\+Reader.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Obstacles\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Robogen\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Start\+Position.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Start\+Position\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Terrain\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Light\+Sources\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Gathering\+Zone\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}config/\+Resources\+Config.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/\+Robogen\+Utils.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Parameters.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ConfigurationReader_8cpp_a7b0d6c5dfa094312d194ffff03883aa8}{DEFAULT\+\_\+\+LIGHT\+\_\+\+SOURCE\+\_\+\+HEIGHT}}~(0.\+1)
+\item 
+\#define \mbox{\hyperlink{ConfigurationReader_8cpp_a98802d2137c341dd92479bf71c741ae0}{DEFAULT\+\_\+\+OBSTACLE\+\_\+\+DENSITY}}~(0.)
+\item 
+\#define \mbox{\hyperlink{ConfigurationReader_8cpp_a4d975be60df9b10c5cc20f23b800bc10}{DEFAULT\+\_\+\+MAX\+\_\+\+LINEAR\+\_\+\+ACCELERATION}}~(15.\+0)
+\item 
+\#define \mbox{\hyperlink{ConfigurationReader_8cpp_a662ec166168df47a3d8011680b20d0cb}{DEFAULT\+\_\+\+MAX\+\_\+\+ANGULAR\+\_\+\+ACCELERATION}}~(25.\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacerobogen_a3a477509198fd7b2dfbbd0a835bbdda0}{robogen\+::make\+Absolute}} (std\+::string \&file\+Name, const boost\+::filesystem\+::path \&file\+Path)
+\item 
+const std\+::string \mbox{\hyperlink{namespacerobogen_ad946452b5a8585851b7826bb588f7542}{robogen\+::get\+Match\+NFloat\+Pattern}} (unsigned int n)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ConfigurationReader_8cpp_a7b0d6c5dfa094312d194ffff03883aa8}\label{ConfigurationReader_8cpp_a7b0d6c5dfa094312d194ffff03883aa8} 
+\index{ConfigurationReader.cpp@{ConfigurationReader.cpp}!DEFAULT\_LIGHT\_SOURCE\_HEIGHT@{DEFAULT\_LIGHT\_SOURCE\_HEIGHT}}
+\index{DEFAULT\_LIGHT\_SOURCE\_HEIGHT@{DEFAULT\_LIGHT\_SOURCE\_HEIGHT}!ConfigurationReader.cpp@{ConfigurationReader.cpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_LIGHT\_SOURCE\_HEIGHT}{DEFAULT\_LIGHT\_SOURCE\_HEIGHT}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+LIGHT\+\_\+\+SOURCE\+\_\+\+HEIGHT~(0.\+1)}
+
+\Hypertarget{ConfigurationReader_8cpp_a662ec166168df47a3d8011680b20d0cb}\label{ConfigurationReader_8cpp_a662ec166168df47a3d8011680b20d0cb} 
+\index{ConfigurationReader.cpp@{ConfigurationReader.cpp}!DEFAULT\_MAX\_ANGULAR\_ACCELERATION@{DEFAULT\_MAX\_ANGULAR\_ACCELERATION}}
+\index{DEFAULT\_MAX\_ANGULAR\_ACCELERATION@{DEFAULT\_MAX\_ANGULAR\_ACCELERATION}!ConfigurationReader.cpp@{ConfigurationReader.cpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_MAX\_ANGULAR\_ACCELERATION}{DEFAULT\_MAX\_ANGULAR\_ACCELERATION}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+MAX\+\_\+\+ANGULAR\+\_\+\+ACCELERATION~(25.\+0)}
+
+\Hypertarget{ConfigurationReader_8cpp_a4d975be60df9b10c5cc20f23b800bc10}\label{ConfigurationReader_8cpp_a4d975be60df9b10c5cc20f23b800bc10} 
+\index{ConfigurationReader.cpp@{ConfigurationReader.cpp}!DEFAULT\_MAX\_LINEAR\_ACCELERATION@{DEFAULT\_MAX\_LINEAR\_ACCELERATION}}
+\index{DEFAULT\_MAX\_LINEAR\_ACCELERATION@{DEFAULT\_MAX\_LINEAR\_ACCELERATION}!ConfigurationReader.cpp@{ConfigurationReader.cpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_MAX\_LINEAR\_ACCELERATION}{DEFAULT\_MAX\_LINEAR\_ACCELERATION}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+MAX\+\_\+\+LINEAR\+\_\+\+ACCELERATION~(15.\+0)}
+
+\Hypertarget{ConfigurationReader_8cpp_a98802d2137c341dd92479bf71c741ae0}\label{ConfigurationReader_8cpp_a98802d2137c341dd92479bf71c741ae0} 
+\index{ConfigurationReader.cpp@{ConfigurationReader.cpp}!DEFAULT\_OBSTACLE\_DENSITY@{DEFAULT\_OBSTACLE\_DENSITY}}
+\index{DEFAULT\_OBSTACLE\_DENSITY@{DEFAULT\_OBSTACLE\_DENSITY}!ConfigurationReader.cpp@{ConfigurationReader.cpp}}
+\doxysubsubsection{\texorpdfstring{DEFAULT\_OBSTACLE\_DENSITY}{DEFAULT\_OBSTACLE\_DENSITY}}
+{\footnotesize\ttfamily \#define DEFAULT\+\_\+\+OBSTACLE\+\_\+\+DENSITY~(0.)}
+

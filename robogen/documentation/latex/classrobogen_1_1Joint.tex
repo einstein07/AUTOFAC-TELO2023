@@ -1,0 +1,294 @@
+\hypertarget{classrobogen_1_1Joint}{}\doxysection{robogen\+::Joint Class Reference}
+\label{classrobogen_1_1Joint}\index{robogen::Joint@{robogen::Joint}}
+
+
+Class to describe a \doxylink{classrobogen_1_1Joint}{Joint}.  
+
+
+
+
+{\ttfamily \#include $<$Joint.\+h$>$}
+
+Inheritance diagram for robogen\+::Joint\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1Joint}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{Joint\+Type}} \{ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aab4892b97aa382939cd0f75203747e95}{FIXED}} = 0
+, \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aa7bfa0db91872688a033a75a4f2c0b67}{HINGE}}
+, \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2a01db6c503ada5346f7dc2350efc53c1b}{UNIVERSAL}}
+ \}
+\begin{DoxyCompactList}\small\item\em \doxylink{classrobogen_1_1Joint}{Joint} type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Joint_a2f265aee465dd296d81424d232c63b54}{Joint}} ()
+\begin{DoxyCompactList}\small\item\em Error free constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_ad9e157158e678e342b9496a5fbfcae0a}{create\+Hinge}} (d\+World\+ID world, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyA, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyB, osg\+::\+Vec3 axis, osg\+::\+Vec3 anchor, d\+Joint\+Group\+ID joint\+Group=0)
+\begin{DoxyCompactList}\small\item\em Creates a hinge. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_abba7f81c02ecba3c4b82a561406226bd}{create\+Fixed}} (d\+World\+ID world, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyA, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyB, d\+Joint\+Group\+ID joint\+Group=0)
+\begin{DoxyCompactList}\small\item\em Creates a fixed \doxylink{classrobogen_1_1Joint}{Joint}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_aab256f1f5a1a8389c9e4f9d4923d2656}{create\+Universal}} (d\+World\+ID world, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyA, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ bodyB, osg\+::\+Vec3 axis1, osg\+::\+Vec3 axis2, osg\+::\+Vec3 anchor, d\+Joint\+Group\+ID joint\+Group=0)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_a24fcad09347e897630bb0dd81d3cd0e3}{reconnect}} ()
+\begin{DoxyCompactList}\small\item\em Reconnects \doxylink{classrobogen_1_1Joint}{Joint} connection. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_aeb495eef5fc503b701e8a1286f3c9260}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets \doxylink{classrobogen_1_1Joint}{Joint} connection. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1Joint_af37f26296c6f2e16b4d560605129e10f}{$\sim$\+Joint}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+d\+Joint\+ID \mbox{\hyperlink{classrobogen_1_1Joint_aff28aa11568f8da0260be995f691fa30}{get\+Joint}} ()
+\begin{DoxyCompactList}\small\item\em Returns \doxylink{classrobogen_1_1Joint}{Joint}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{Joint\+Type}} \mbox{\hyperlink{classrobogen_1_1Joint_a8903496a69aaab2194a6a8a0b65acbd8}{get\+Type}} ()
+\begin{DoxyCompactList}\small\item\em Returns type. \end{DoxyCompactList}\item 
+boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Joint_a97e585675f3dffbdff53efd0ea5f5eda}{get\+BodyA}} ()
+\begin{DoxyCompactList}\small\item\em Returns body A. \end{DoxyCompactList}\item 
+boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Joint_a42044b381796841fc8df8a584ca497d5}{get\+BodyB}} ()
+\begin{DoxyCompactList}\small\item\em Returns body B. \end{DoxyCompactList}\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1Joint_a6ceab3eec797abab48afb3443f811296}{get\+Anchor}} ()
+\begin{DoxyCompactList}\small\item\em Returns anchor. \end{DoxyCompactList}\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1Joint_a968dcc88abafe6fe951917c3aa31277e}{get\+Hinge\+Axis}} ()
+\begin{DoxyCompactList}\small\item\em Returns hinge axis. \end{DoxyCompactList}\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1Joint_a13d23f39210703db2825007f68c6d28e}{get\+Universal\+Axis1}} ()
+\begin{DoxyCompactList}\small\item\em Returns universal axis a. \end{DoxyCompactList}\item 
+const osg\+::\+Vec3 \& \mbox{\hyperlink{classrobogen_1_1Joint_a5e4521ec8f13eaf35e87551451bf4c17}{get\+Universal\+Axis2}} ()
+\begin{DoxyCompactList}\small\item\em Returns universal axis 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_a38abf24bfcc935a942a54252b99f3326}{update\+Axis\+And\+Angle}} ()
+\begin{DoxyCompactList}\small\item\em UPdates axis and angle. \end{DoxyCompactList}\item 
+d\+World\+ID \mbox{\hyperlink{classrobogen_1_1Joint_a0141be8a8294513b8ca6dfd86157e154}{get\+World}} ()
+\begin{DoxyCompactList}\small\item\em Returns world. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_abe15a06ed7a7849e00a9fe3e3bfff8c8}{set\+Param}} (unsigned int param, double value)
+\begin{DoxyCompactList}\small\item\em Sets parameters. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Joint_a69b5ace317577378a73955d6ffe24fc7}{set\+Feedback}} (d\+Joint\+Feedback $\ast$fback)
+\begin{DoxyCompactList}\small\item\em Sets feedback. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe a \doxylink{classrobogen_1_1Joint}{Joint}. 
+
+\doxysubsection{Member Enumeration Documentation}
+\Hypertarget{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}\label{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2} 
+\index{robogen::Joint@{robogen::Joint}!JointType@{JointType}}
+\index{JointType@{JointType}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{JointType}{JointType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{robogen\+::\+Joint\+::\+Joint\+Type}}}
+
+
+
+\doxylink{classrobogen_1_1Joint}{Joint} type. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIXED@{FIXED}!robogen::Joint@{robogen::Joint}}\index{robogen::Joint@{robogen::Joint}!FIXED@{FIXED}}}\Hypertarget{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aab4892b97aa382939cd0f75203747e95}\label{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aab4892b97aa382939cd0f75203747e95} 
+FIXED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HINGE@{HINGE}!robogen::Joint@{robogen::Joint}}\index{robogen::Joint@{robogen::Joint}!HINGE@{HINGE}}}\Hypertarget{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aa7bfa0db91872688a033a75a4f2c0b67}\label{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aa7bfa0db91872688a033a75a4f2c0b67} 
+HINGE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UNIVERSAL@{UNIVERSAL}!robogen::Joint@{robogen::Joint}}\index{robogen::Joint@{robogen::Joint}!UNIVERSAL@{UNIVERSAL}}}\Hypertarget{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2a01db6c503ada5346f7dc2350efc53c1b}\label{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2a01db6c503ada5346f7dc2350efc53c1b} 
+UNIVERSAL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Joint_a2f265aee465dd296d81424d232c63b54}\label{classrobogen_1_1Joint_a2f265aee465dd296d81424d232c63b54} 
+\index{robogen::Joint@{robogen::Joint}!Joint@{Joint}}
+\index{Joint@{Joint}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{Joint()}{Joint()}}
+{\footnotesize\ttfamily robogen\+::\+Joint\+::\+Joint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Error free constructor. 
+
+\Hypertarget{classrobogen_1_1Joint_af37f26296c6f2e16b4d560605129e10f}\label{classrobogen_1_1Joint_af37f26296c6f2e16b4d560605129e10f} 
+\index{robogen::Joint@{robogen::Joint}!````~Joint@{$\sim$Joint}}
+\index{````~Joint@{$\sim$Joint}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{$\sim$Joint()}{~Joint()}}
+{\footnotesize\ttfamily robogen\+::\+Joint\+::$\sim$\+Joint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Joint_abba7f81c02ecba3c4b82a561406226bd}\label{classrobogen_1_1Joint_abba7f81c02ecba3c4b82a561406226bd} 
+\index{robogen::Joint@{robogen::Joint}!createFixed@{createFixed}}
+\index{createFixed@{createFixed}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{createFixed()}{createFixed()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::create\+Fixed (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{world,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyA,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyB,  }\item[{d\+Joint\+Group\+ID}]{joint\+Group = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Creates a fixed \doxylink{classrobogen_1_1Joint}{Joint}. 
+
+\Hypertarget{classrobogen_1_1Joint_ad9e157158e678e342b9496a5fbfcae0a}\label{classrobogen_1_1Joint_ad9e157158e678e342b9496a5fbfcae0a} 
+\index{robogen::Joint@{robogen::Joint}!createHinge@{createHinge}}
+\index{createHinge@{createHinge}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{createHinge()}{createHinge()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::create\+Hinge (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{world,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyA,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyB,  }\item[{osg\+::\+Vec3}]{axis,  }\item[{osg\+::\+Vec3}]{anchor,  }\item[{d\+Joint\+Group\+ID}]{joint\+Group = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Creates a hinge. 
+
+\Hypertarget{classrobogen_1_1Joint_aab256f1f5a1a8389c9e4f9d4923d2656}\label{classrobogen_1_1Joint_aab256f1f5a1a8389c9e4f9d4923d2656} 
+\index{robogen::Joint@{robogen::Joint}!createUniversal@{createUniversal}}
+\index{createUniversal@{createUniversal}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{createUniversal()}{createUniversal()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::create\+Universal (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{world,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyA,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$}]{bodyB,  }\item[{osg\+::\+Vec3}]{axis1,  }\item[{osg\+::\+Vec3}]{axis2,  }\item[{osg\+::\+Vec3}]{anchor,  }\item[{d\+Joint\+Group\+ID}]{joint\+Group = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+Creates universal \doxylink{classrobogen_1_1Joint}{Joint} \Hypertarget{classrobogen_1_1Joint_a6ceab3eec797abab48afb3443f811296}\label{classrobogen_1_1Joint_a6ceab3eec797abab48afb3443f811296} 
+\index{robogen::Joint@{robogen::Joint}!getAnchor@{getAnchor}}
+\index{getAnchor@{getAnchor}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getAnchor()}{getAnchor()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Joint\+::get\+Anchor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns anchor. 
+
+\Hypertarget{classrobogen_1_1Joint_a97e585675f3dffbdff53efd0ea5f5eda}\label{classrobogen_1_1Joint_a97e585675f3dffbdff53efd0ea5f5eda} 
+\index{robogen::Joint@{robogen::Joint}!getBodyA@{getBodyA}}
+\index{getBodyA@{getBodyA}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getBodyA()}{getBodyA()}}
+{\footnotesize\ttfamily boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ robogen\+::\+Joint\+::get\+BodyA (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns body A. 
+
+\Hypertarget{classrobogen_1_1Joint_a42044b381796841fc8df8a584ca497d5}\label{classrobogen_1_1Joint_a42044b381796841fc8df8a584ca497d5} 
+\index{robogen::Joint@{robogen::Joint}!getBodyB@{getBodyB}}
+\index{getBodyB@{getBodyB}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getBodyB()}{getBodyB()}}
+{\footnotesize\ttfamily boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ robogen\+::\+Joint\+::get\+BodyB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns body B. 
+
+\Hypertarget{classrobogen_1_1Joint_a968dcc88abafe6fe951917c3aa31277e}\label{classrobogen_1_1Joint_a968dcc88abafe6fe951917c3aa31277e} 
+\index{robogen::Joint@{robogen::Joint}!getHingeAxis@{getHingeAxis}}
+\index{getHingeAxis@{getHingeAxis}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getHingeAxis()}{getHingeAxis()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Joint\+::get\+Hinge\+Axis (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns hinge axis. 
+
+\Hypertarget{classrobogen_1_1Joint_aff28aa11568f8da0260be995f691fa30}\label{classrobogen_1_1Joint_aff28aa11568f8da0260be995f691fa30} 
+\index{robogen::Joint@{robogen::Joint}!getJoint@{getJoint}}
+\index{getJoint@{getJoint}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getJoint()}{getJoint()}}
+{\footnotesize\ttfamily d\+Joint\+ID robogen\+::\+Joint\+::get\+Joint (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns \doxylink{classrobogen_1_1Joint}{Joint}. 
+
+\Hypertarget{classrobogen_1_1Joint_a8903496a69aaab2194a6a8a0b65acbd8}\label{classrobogen_1_1Joint_a8903496a69aaab2194a6a8a0b65acbd8} 
+\index{robogen::Joint@{robogen::Joint}!getType@{getType}}
+\index{getType@{getType}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{Joint\+Type}} robogen\+::\+Joint\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns type. 
+
+\Hypertarget{classrobogen_1_1Joint_a13d23f39210703db2825007f68c6d28e}\label{classrobogen_1_1Joint_a13d23f39210703db2825007f68c6d28e} 
+\index{robogen::Joint@{robogen::Joint}!getUniversalAxis1@{getUniversalAxis1}}
+\index{getUniversalAxis1@{getUniversalAxis1}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getUniversalAxis1()}{getUniversalAxis1()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Joint\+::get\+Universal\+Axis1 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns universal axis a. 
+
+\Hypertarget{classrobogen_1_1Joint_a5e4521ec8f13eaf35e87551451bf4c17}\label{classrobogen_1_1Joint_a5e4521ec8f13eaf35e87551451bf4c17} 
+\index{robogen::Joint@{robogen::Joint}!getUniversalAxis2@{getUniversalAxis2}}
+\index{getUniversalAxis2@{getUniversalAxis2}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getUniversalAxis2()}{getUniversalAxis2()}}
+{\footnotesize\ttfamily const osg\+::\+Vec3 \& robogen\+::\+Joint\+::get\+Universal\+Axis2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns universal axis 2. 
+
+\Hypertarget{classrobogen_1_1Joint_a0141be8a8294513b8ca6dfd86157e154}\label{classrobogen_1_1Joint_a0141be8a8294513b8ca6dfd86157e154} 
+\index{robogen::Joint@{robogen::Joint}!getWorld@{getWorld}}
+\index{getWorld@{getWorld}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{getWorld()}{getWorld()}}
+{\footnotesize\ttfamily d\+World\+ID robogen\+::\+Joint\+::get\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns world. 
+
+\Hypertarget{classrobogen_1_1Joint_a24fcad09347e897630bb0dd81d3cd0e3}\label{classrobogen_1_1Joint_a24fcad09347e897630bb0dd81d3cd0e3} 
+\index{robogen::Joint@{robogen::Joint}!reconnect@{reconnect}}
+\index{reconnect@{reconnect}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{reconnect()}{reconnect()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::reconnect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reconnects \doxylink{classrobogen_1_1Joint}{Joint} connection. 
+
+\Hypertarget{classrobogen_1_1Joint_aeb495eef5fc503b701e8a1286f3c9260}\label{classrobogen_1_1Joint_aeb495eef5fc503b701e8a1286f3c9260} 
+\index{robogen::Joint@{robogen::Joint}!reset@{reset}}
+\index{reset@{reset}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets \doxylink{classrobogen_1_1Joint}{Joint} connection. 
+
+\Hypertarget{classrobogen_1_1Joint_a69b5ace317577378a73955d6ffe24fc7}\label{classrobogen_1_1Joint_a69b5ace317577378a73955d6ffe24fc7} 
+\index{robogen::Joint@{robogen::Joint}!setFeedback@{setFeedback}}
+\index{setFeedback@{setFeedback}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{setFeedback()}{setFeedback()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::set\+Feedback (\begin{DoxyParamCaption}\item[{d\+Joint\+Feedback $\ast$}]{fback }\end{DoxyParamCaption})}
+
+
+
+Sets feedback. 
+
+\Hypertarget{classrobogen_1_1Joint_abe15a06ed7a7849e00a9fe3e3bfff8c8}\label{classrobogen_1_1Joint_abe15a06ed7a7849e00a9fe3e3bfff8c8} 
+\index{robogen::Joint@{robogen::Joint}!setParam@{setParam}}
+\index{setParam@{setParam}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{setParam()}{setParam()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::set\+Param (\begin{DoxyParamCaption}\item[{unsigned int}]{param,  }\item[{double}]{value }\end{DoxyParamCaption})}
+
+
+
+Sets parameters. 
+
+\Hypertarget{classrobogen_1_1Joint_a38abf24bfcc935a942a54252b99f3326}\label{classrobogen_1_1Joint_a38abf24bfcc935a942a54252b99f3326} 
+\index{robogen::Joint@{robogen::Joint}!updateAxisAndAngle@{updateAxisAndAngle}}
+\index{updateAxisAndAngle@{updateAxisAndAngle}!robogen::Joint@{robogen::Joint}}
+\doxysubsubsection{\texorpdfstring{updateAxisAndAngle()}{updateAxisAndAngle()}}
+{\footnotesize\ttfamily void robogen\+::\+Joint\+::update\+Axis\+And\+Angle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+UPdates axis and angle. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{Joint_8h}{Joint.\+h}}\item 
+src/model/\mbox{\hyperlink{Joint_8cpp}{Joint.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,487 @@
+\hypertarget{Util_8h}{}\doxysection{src/\+EDQD/\+Util.h File Reference}
+\label{Util_8h}\index{src/EDQD/Util.h@{src/EDQD/Util.h}}
+{\ttfamily \#include $<$cstdlib$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+{\ttfamily \#include $<$boost/multi\+\_\+array.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/lexical\+\_\+cast.\+hpp$>$}\newline
+{\ttfamily \#include \char`\"{}Robogen.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Logger.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Util_8h_a0902d9138db58e31574316589f0d4bfc}{random}}()~\mbox{\hyperlink{Util_8h_a768d65592dc5217ae395ef7560e810ff}{dis\+Random}}(\mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}})
+\item 
+\#define \mbox{\hyperlink{Util_8h_a2c8f405545bf82925da8d9fc751b4d16}{randgaussian}}()~\mbox{\hyperlink{Util_8h_a0cd97527b7581907968a0088ca2b4cc8}{dis\+Normal}}(\mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}})
+\begin{DoxyCompactList}\small\item\em Normal distribution mean=0 and stddev=1 (use\+: mean+rand$\ast$stddev) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{Util_8h_a0936f59402074a1c9ee0d3d09ef9ee30}{get\+Current\+Time\+As\+Readable\+String}} ()
+\begin{DoxyCompactList}\small\item\em Return current time in a string, with readable format -\/ e.\+g. 20100526-\/10h12m08s. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_a21065bd1a3ef9a8909b2051554ec0bad}{getpid\+As\+Readable\+String}} ()
+\begin{DoxyCompactList}\small\item\em Return PID as a string. Useful to desambiguate timestamps. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_aed679ea2c90771d849493c21ee7d9ad3}{convert\+To\+String}} (int \+\_\+\+\_\+value)
+\begin{DoxyCompactList}\small\item\em Convert integer to string. check\+: \href{http://notfaq.wordpress.com/2006/08/30/c-convert-int-to-string/}{\texttt{ http\+://notfaq.\+wordpress.\+com/2006/08/30/c-\/convert-\/int-\/to-\/string/}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Util_8h_a2780c1ee9fe506006932a6e870b9775f}{get\+Euclidean\+Distance}} (double x1, double y1, double x2, double y2)
+\begin{DoxyCompactList}\small\item\em Calculates and returns euclidean distance\+: two 2D points. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Util_8h_a72d72c80d795cb7c527752cc54cf025e}{is\+Overlap}} (double minX, double maxX, double minY, double maxY, double minZ, double maxZ, double o\+MinX, double o\+MaxX, double o\+MinY, double o\+MaxY, double o\+MinZ, double o\+MaxZ)
+\begin{DoxyCompactList}\small\item\em Checks if there is an overlap between two regions. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Util_8h_a94d663bff0c9b842fd3a8c6364c169ce}{distance}} (osg\+::\+Vec3d a, osg\+::\+Vec3d b)
+\begin{DoxyCompactList}\small\item\em Calculates and returns euclidean distance\+: two 3D points. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{Util_8h_ab409fa3590c58fe28ed5bd355be4c12a}{normalise\+Value}} (double new\+Value, double \+\_\+min\+Value, double \+\_\+max\+Value)
+\begin{DoxyCompactList}\small\item\em Normalize value within bounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{Util_8h_a7367c63f2c2b94086aedc0741248213b}{g\+Current\+Build\+Info}}
+\begin{DoxyCompactList}\small\item\em GLOBAL VARIABLES. \end{DoxyCompactList}\item 
+long int \mbox{\hyperlink{Util_8h_a18805ab02a9b7e83ae90cb734616cd6f}{g\+Version}}
+\begin{DoxyCompactList}\small\item\em version \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_a289fdc0c3ec759aadaf2534a8b8bb056}{g\+Start\+Time}}
+\begin{DoxyCompactList}\small\item\em a string containing a readable form of the time when the current program was started (useful for naming log files). \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_aca000554b51448f1b4779e1d3a2445c7}{g\+Stop\+Time}}
+\begin{DoxyCompactList}\small\item\em a string containing a readable form of the time when the current program was stopped. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{Util_8h_a146526ec9c46f35d898e0b5049f522ce}{g\+Start\+Time\+Raw\+Format}}
+\begin{DoxyCompactList}\small\item\em Start time -\/ raw format. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{Util_8h_abe949529d904dc8881558c88fc94ab9b}{g\+Stop\+Time\+Raw\+Format}}
+\begin{DoxyCompactList}\small\item\em Stop time -\/ raw format. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_a6c855082e714a86c9642ba1beb8900ab}{g\+Compile\+Time}}
+\begin{DoxyCompactList}\small\item\em Compile time. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_acf3156825a97be40dc6e1a36a1292d2c}{g\+Compile\+Date}}
+\begin{DoxyCompactList}\small\item\em Compile date. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_afcdc1f9ed4d52e83c6b0d09c1eac8f41}{g\+Log\+Comment\+Text}}
+\begin{DoxyCompactList}\small\item\em user comment that will be written in the log file (e.\+g. description of experimental setup) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Util_8h_a276d7569ad68c22d6cbfef0b449f3a5c}{g\+Verbose\+\_\+commandlineargument}}
+\begin{DoxyCompactList}\small\item\em Verbose cmd argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Util_8h_acb9d42274b02b165aee7942548554f2c}{g\+Log\+Directoryname\+\_\+commandlineargument}}
+\begin{DoxyCompactList}\small\item\em Log directory cmd argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Util_8h_afea9661025a65f7475f1d4dcbb013f49}{g\+Batch\+Mode\+\_\+commandlineargument}}
+\begin{DoxyCompactList}\small\item\em Batch mode flag. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_a12d5e03a01bd6ab67d017566841fbeb1}{g\+Log\+Directoryname}}
+\begin{DoxyCompactList}\small\item\em LOg directory name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_ae5706e48e9b0f375ae241a3866a68612}{g\+Log\+Filename}}
+\begin{DoxyCompactList}\small\item\em Log file name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Util_8h_afd788fad4742e9cd1f8c27892ca699fe}{g\+Log\+Full\+Filename}}
+\begin{DoxyCompactList}\small\item\em Log full filename -\/ directory. \end{DoxyCompactList}\item 
+std\+::ofstream \mbox{\hyperlink{Util_8h_acbf34a389aa24983bfcef089b5e827e9}{g\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Log file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{Util_8h_a01151e0c1f6c70353e0dd943b39c1833}{g\+Logger}}
+\begin{DoxyCompactList}\small\item\em \doxylink{classLogger}{Logger}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Util_8h_a7ada5cfc3a0deea65edc96c9ee3db551}{g\+Random\+Seed}}
+\begin{DoxyCompactList}\small\item\em Random seed. Default value (=\char`\"{}-\/1\char`\"{}) means time based. \end{DoxyCompactList}\item 
+std\+::random\+\_\+device \mbox{\hyperlink{Util_8h_afa066fe29070929c1b0a08338c20bc61}{rnd}}
+\item 
+std\+::minstd\+\_\+rand \mbox{\hyperlink{Util_8h_a7208437a4b4eda05486e64ae23e11dd0}{randint}}
+\begin{DoxyCompactList}\small\item\em Returns an int with value drawn uniformly in \mbox{[}0,max) \end{DoxyCompactList}\item 
+std\+::mt19937 \mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}}
+\begin{DoxyCompactList}\small\item\em Engine. \end{DoxyCompactList}\item 
+std\+::uniform\+\_\+real\+\_\+distribution$<$ double $>$ \mbox{\hyperlink{Util_8h_a768d65592dc5217ae395ef7560e810ff}{dis\+Random}}
+\begin{DoxyCompactList}\small\item\em Uniform real distribution. \end{DoxyCompactList}\item 
+std\+::normal\+\_\+distribution \mbox{\hyperlink{Util_8h_a0cd97527b7581907968a0088ca2b4cc8}{dis\+Normal}}
+\begin{DoxyCompactList}\small\item\em Normal distribution. \end{DoxyCompactList}\item 
+std\+::uniform\+\_\+int\+\_\+distribution$<$ int $>$ \mbox{\hyperlink{Util_8h_a3bf77c88bd1916188c91b0810a7b74cb}{random\+Sensor}}
+\begin{DoxyCompactList}\small\item\em Iniform, unbiased. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{Util_8h_a2c8f405545bf82925da8d9fc751b4d16}\label{Util_8h_a2c8f405545bf82925da8d9fc751b4d16} 
+\index{Util.h@{Util.h}!randgaussian@{randgaussian}}
+\index{randgaussian@{randgaussian}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{randgaussian}{randgaussian}}
+{\footnotesize\ttfamily \#define randgaussian(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{Util_8h_a0cd97527b7581907968a0088ca2b4cc8}{dis\+Normal}}(\mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}})}
+
+
+
+Normal distribution mean=0 and stddev=1 (use\+: mean+rand$\ast$stddev) 
+
+\Hypertarget{Util_8h_a0902d9138db58e31574316589f0d4bfc}\label{Util_8h_a0902d9138db58e31574316589f0d4bfc} 
+\index{Util.h@{Util.h}!random@{random}}
+\index{random@{random}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{random}{random}}
+{\footnotesize\ttfamily \#define random(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~\mbox{\hyperlink{Util_8h_a768d65592dc5217ae395ef7560e810ff}{dis\+Random}}(\mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}})}
+
+Uniform in \mbox{[}0,1), return double 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{Util_8h_aed679ea2c90771d849493c21ee7d9ad3}\label{Util_8h_aed679ea2c90771d849493c21ee7d9ad3} 
+\index{Util.h@{Util.h}!convertToString@{convertToString}}
+\index{convertToString@{convertToString}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{convertToString()}{convertToString()}}
+{\footnotesize\ttfamily std\+::string convert\+To\+String (\begin{DoxyParamCaption}\item[{int}]{\+\_\+\+\_\+value }\end{DoxyParamCaption})}
+
+
+
+Convert integer to string. check\+: \href{http://notfaq.wordpress.com/2006/08/30/c-convert-int-to-string/}{\texttt{ http\+://notfaq.\+wordpress.\+com/2006/08/30/c-\/convert-\/int-\/to-\/string/}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string string representation 
+\end{DoxyReturn}
+\Hypertarget{Util_8h_a94d663bff0c9b842fd3a8c6364c169ce}\label{Util_8h_a94d663bff0c9b842fd3a8c6364c169ce} 
+\index{Util.h@{Util.h}!distance@{distance}}
+\index{distance@{distance}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily double distance (\begin{DoxyParamCaption}\item[{osg\+::\+Vec3d}]{a,  }\item[{osg\+::\+Vec3d}]{b }\end{DoxyParamCaption})}
+
+
+
+Calculates and returns euclidean distance\+: two 3D points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em osg\+::\+Vec3d} & a \\
+\hline
+{\em osg\+::\+Vec3d} & b \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+euclidean distance 
+\end{DoxyReturn}
+\Hypertarget{Util_8h_a0936f59402074a1c9ee0d3d09ef9ee30}\label{Util_8h_a0936f59402074a1c9ee0d3d09ef9ee30} 
+\index{Util.h@{Util.h}!getCurrentTimeAsReadableString@{getCurrentTimeAsReadableString}}
+\index{getCurrentTimeAsReadableString@{getCurrentTimeAsReadableString}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{getCurrentTimeAsReadableString()}{getCurrentTimeAsReadableString()}}
+{\footnotesize\ttfamily std\+::string get\+Current\+Time\+As\+Readable\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return current time in a string, with readable format -\/ e.\+g. 20100526-\/10h12m08s. 
+
+check\+: \href{http://www.cplusplus.com/reference/clibrary/ctime/strftime/}{\texttt{ http\+://www.\+cplusplus.\+com/reference/clibrary/ctime/strftime/}} \Hypertarget{Util_8h_a2780c1ee9fe506006932a6e870b9775f}\label{Util_8h_a2780c1ee9fe506006932a6e870b9775f} 
+\index{Util.h@{Util.h}!getEuclideanDistance@{getEuclideanDistance}}
+\index{getEuclideanDistance@{getEuclideanDistance}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{getEuclideanDistance()}{getEuclideanDistance()}}
+{\footnotesize\ttfamily double get\+Euclidean\+Distance (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{y1,  }\item[{double}]{x2,  }\item[{double}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates and returns euclidean distance\+: two 2D points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & x1 \\
+\hline
+{\em double} & y1 \\
+\hline
+{\em double} & x2 \\
+\hline
+{\em double} & y2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+euclidean distance 
+\end{DoxyReturn}
+\Hypertarget{Util_8h_a21065bd1a3ef9a8909b2051554ec0bad}\label{Util_8h_a21065bd1a3ef9a8909b2051554ec0bad} 
+\index{Util.h@{Util.h}!getpidAsReadableString@{getpidAsReadableString}}
+\index{getpidAsReadableString@{getpidAsReadableString}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{getpidAsReadableString()}{getpidAsReadableString()}}
+{\footnotesize\ttfamily std\+::string getpid\+As\+Readable\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return PID as a string. Useful to desambiguate timestamps. 
+
+\Hypertarget{Util_8h_a72d72c80d795cb7c527752cc54cf025e}\label{Util_8h_a72d72c80d795cb7c527752cc54cf025e} 
+\index{Util.h@{Util.h}!isOverlap@{isOverlap}}
+\index{isOverlap@{isOverlap}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{isOverlap()}{isOverlap()}}
+{\footnotesize\ttfamily bool is\+Overlap (\begin{DoxyParamCaption}\item[{double}]{minX,  }\item[{double}]{maxX,  }\item[{double}]{minY,  }\item[{double}]{maxY,  }\item[{double}]{minZ,  }\item[{double}]{maxZ,  }\item[{double}]{o\+MinX,  }\item[{double}]{o\+MaxX,  }\item[{double}]{o\+MinY,  }\item[{double}]{o\+MaxY,  }\item[{double}]{o\+MinZ,  }\item[{double}]{o\+MaxZ }\end{DoxyParamCaption})}
+
+
+
+Checks if there is an overlap between two regions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & minX \\
+\hline
+{\em double} & maxX \\
+\hline
+{\em double} & minY \\
+\hline
+{\em double} & maxY \\
+\hline
+{\em double} & minZ \\
+\hline
+{\em double} & maxZ \\
+\hline
+{\em double} & other region minX \\
+\hline
+{\em double} & other region maxX \\
+\hline
+{\em double} & other region minY \\
+\hline
+{\em double} & other region maxY \\
+\hline
+{\em double} & other region minZ \\
+\hline
+{\em double} & other region maxZ \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if there is, otherwise false 
+\end{DoxyReturn}
+\Hypertarget{Util_8h_ab409fa3590c58fe28ed5bd355be4c12a}\label{Util_8h_ab409fa3590c58fe28ed5bd355be4c12a} 
+\index{Util.h@{Util.h}!normaliseValue@{normaliseValue}}
+\index{normaliseValue@{normaliseValue}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{normaliseValue()}{normaliseValue()}}
+{\footnotesize\ttfamily double normalise\+Value (\begin{DoxyParamCaption}\item[{double}]{new\+Value,  }\item[{double}]{\+\_\+min\+Value,  }\item[{double}]{\+\_\+max\+Value }\end{DoxyParamCaption})}
+
+
+
+Normalize value within bounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em double} & value to normalize \\
+\hline
+{\em double} & minimum \\
+\hline
+{\em double} & maximum @double normalized value \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Util_8h_a0cd97527b7581907968a0088ca2b4cc8}\label{Util_8h_a0cd97527b7581907968a0088ca2b4cc8} 
+\index{Util.h@{Util.h}!disNormal@{disNormal}}
+\index{disNormal@{disNormal}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{disNormal}{disNormal}}
+{\footnotesize\ttfamily std\+::normal\+\_\+distribution dis\+Normal\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Normal distribution. 
+
+\Hypertarget{Util_8h_a768d65592dc5217ae395ef7560e810ff}\label{Util_8h_a768d65592dc5217ae395ef7560e810ff} 
+\index{Util.h@{Util.h}!disRandom@{disRandom}}
+\index{disRandom@{disRandom}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{disRandom}{disRandom}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+real\+\_\+distribution$<$double$>$ dis\+Random\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Uniform real distribution. 
+
+\Hypertarget{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}\label{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f} 
+\index{Util.h@{Util.h}!engine@{engine}}
+\index{engine@{engine}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{engine}{engine}}
+{\footnotesize\ttfamily std\+::mt19937 engine\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Engine. 
+
+\Hypertarget{Util_8h_afea9661025a65f7475f1d4dcbb013f49}\label{Util_8h_afea9661025a65f7475f1d4dcbb013f49} 
+\index{Util.h@{Util.h}!gBatchMode\_commandlineargument@{gBatchMode\_commandlineargument}}
+\index{gBatchMode\_commandlineargument@{gBatchMode\_commandlineargument}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gBatchMode\_commandlineargument}{gBatchMode\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Batch\+Mode\+\_\+commandlineargument\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Batch mode flag. 
+
+\Hypertarget{Util_8h_acf3156825a97be40dc6e1a36a1292d2c}\label{Util_8h_acf3156825a97be40dc6e1a36a1292d2c} 
+\index{Util.h@{Util.h}!gCompileDate@{gCompileDate}}
+\index{gCompileDate@{gCompileDate}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gCompileDate}{gCompileDate}}
+{\footnotesize\ttfamily std\+::string g\+Compile\+Date\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Compile date. 
+
+\Hypertarget{Util_8h_a6c855082e714a86c9642ba1beb8900ab}\label{Util_8h_a6c855082e714a86c9642ba1beb8900ab} 
+\index{Util.h@{Util.h}!gCompileTime@{gCompileTime}}
+\index{gCompileTime@{gCompileTime}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gCompileTime}{gCompileTime}}
+{\footnotesize\ttfamily std\+::string g\+Compile\+Time\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Compile time. 
+
+\Hypertarget{Util_8h_a7367c63f2c2b94086aedc0741248213b}\label{Util_8h_a7367c63f2c2b94086aedc0741248213b} 
+\index{Util.h@{Util.h}!gCurrentBuildInfo@{gCurrentBuildInfo}}
+\index{gCurrentBuildInfo@{gCurrentBuildInfo}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gCurrentBuildInfo}{gCurrentBuildInfo}}
+{\footnotesize\ttfamily std\+::string g\+Current\+Build\+Info\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+GLOBAL VARIABLES. 
+
+display through \char`\"{}-\/v\mbox{[}ersion\mbox{]}\char`\"{} command line option -- check/set value in config.\+h \Hypertarget{Util_8h_afcdc1f9ed4d52e83c6b0d09c1eac8f41}\label{Util_8h_afcdc1f9ed4d52e83c6b0d09c1eac8f41} 
+\index{Util.h@{Util.h}!gLogCommentText@{gLogCommentText}}
+\index{gLogCommentText@{gLogCommentText}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogCommentText}{gLogCommentText}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Comment\+Text\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+user comment that will be written in the log file (e.\+g. description of experimental setup) 
+
+\Hypertarget{Util_8h_a12d5e03a01bd6ab67d017566841fbeb1}\label{Util_8h_a12d5e03a01bd6ab67d017566841fbeb1} 
+\index{Util.h@{Util.h}!gLogDirectoryname@{gLogDirectoryname}}
+\index{gLogDirectoryname@{gLogDirectoryname}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogDirectoryname}{gLogDirectoryname}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Directoryname\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+LOg directory name. 
+
+\Hypertarget{Util_8h_acb9d42274b02b165aee7942548554f2c}\label{Util_8h_acb9d42274b02b165aee7942548554f2c} 
+\index{Util.h@{Util.h}!gLogDirectoryname\_commandlineargument@{gLogDirectoryname\_commandlineargument}}
+\index{gLogDirectoryname\_commandlineargument@{gLogDirectoryname\_commandlineargument}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogDirectoryname\_commandlineargument}{gLogDirectoryname\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Log\+Directoryname\+\_\+commandlineargument\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Log directory cmd argument. 
+
+\Hypertarget{Util_8h_acbf34a389aa24983bfcef089b5e827e9}\label{Util_8h_acbf34a389aa24983bfcef089b5e827e9} 
+\index{Util.h@{Util.h}!gLogFile@{gLogFile}}
+\index{gLogFile@{gLogFile}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogFile}{gLogFile}}
+{\footnotesize\ttfamily std\+::ofstream g\+Log\+File\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Log file. 
+
+\Hypertarget{Util_8h_ae5706e48e9b0f375ae241a3866a68612}\label{Util_8h_ae5706e48e9b0f375ae241a3866a68612} 
+\index{Util.h@{Util.h}!gLogFilename@{gLogFilename}}
+\index{gLogFilename@{gLogFilename}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogFilename}{gLogFilename}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Filename\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Log file name. 
+
+\Hypertarget{Util_8h_afd788fad4742e9cd1f8c27892ca699fe}\label{Util_8h_afd788fad4742e9cd1f8c27892ca699fe} 
+\index{Util.h@{Util.h}!gLogFullFilename@{gLogFullFilename}}
+\index{gLogFullFilename@{gLogFullFilename}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogFullFilename}{gLogFullFilename}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Full\+Filename\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Log full filename -\/ directory. 
+
+\Hypertarget{Util_8h_a01151e0c1f6c70353e0dd943b39c1833}\label{Util_8h_a01151e0c1f6c70353e0dd943b39c1833} 
+\index{Util.h@{Util.h}!gLogger@{gLogger}}
+\index{gLogger@{gLogger}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gLogger}{gLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}$\ast$ g\+Logger\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+\doxylink{classLogger}{Logger}. 
+
+\Hypertarget{Util_8h_a7ada5cfc3a0deea65edc96c9ee3db551}\label{Util_8h_a7ada5cfc3a0deea65edc96c9ee3db551} 
+\index{Util.h@{Util.h}!gRandomSeed@{gRandomSeed}}
+\index{gRandomSeed@{gRandomSeed}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gRandomSeed}{gRandomSeed}}
+{\footnotesize\ttfamily int g\+Random\+Seed\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Random seed. Default value (=\char`\"{}-\/1\char`\"{}) means time based. 
+
+\char`\"{}\+Note that boost/c++11 random is slower (by one order of magnitude), but more precise,  than old classic rand()\char`\"{} \Hypertarget{Util_8h_a289fdc0c3ec759aadaf2534a8b8bb056}\label{Util_8h_a289fdc0c3ec759aadaf2534a8b8bb056} 
+\index{Util.h@{Util.h}!gStartTime@{gStartTime}}
+\index{gStartTime@{gStartTime}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gStartTime}{gStartTime}}
+{\footnotesize\ttfamily std\+::string g\+Start\+Time\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+a string containing a readable form of the time when the current program was started (useful for naming log files). 
+
+\Hypertarget{Util_8h_a146526ec9c46f35d898e0b5049f522ce}\label{Util_8h_a146526ec9c46f35d898e0b5049f522ce} 
+\index{Util.h@{Util.h}!gStartTimeRawFormat@{gStartTimeRawFormat}}
+\index{gStartTimeRawFormat@{gStartTimeRawFormat}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gStartTimeRawFormat}{gStartTimeRawFormat}}
+{\footnotesize\ttfamily time\+\_\+t g\+Start\+Time\+Raw\+Format\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Start time -\/ raw format. 
+
+\Hypertarget{Util_8h_aca000554b51448f1b4779e1d3a2445c7}\label{Util_8h_aca000554b51448f1b4779e1d3a2445c7} 
+\index{Util.h@{Util.h}!gStopTime@{gStopTime}}
+\index{gStopTime@{gStopTime}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gStopTime}{gStopTime}}
+{\footnotesize\ttfamily std\+::string g\+Stop\+Time\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+a string containing a readable form of the time when the current program was stopped. 
+
+\Hypertarget{Util_8h_abe949529d904dc8881558c88fc94ab9b}\label{Util_8h_abe949529d904dc8881558c88fc94ab9b} 
+\index{Util.h@{Util.h}!gStopTimeRawFormat@{gStopTimeRawFormat}}
+\index{gStopTimeRawFormat@{gStopTimeRawFormat}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gStopTimeRawFormat}{gStopTimeRawFormat}}
+{\footnotesize\ttfamily time\+\_\+t g\+Stop\+Time\+Raw\+Format\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Stop time -\/ raw format. 
+
+\Hypertarget{Util_8h_a276d7569ad68c22d6cbfef0b449f3a5c}\label{Util_8h_a276d7569ad68c22d6cbfef0b449f3a5c} 
+\index{Util.h@{Util.h}!gVerbose\_commandlineargument@{gVerbose\_commandlineargument}}
+\index{gVerbose\_commandlineargument@{gVerbose\_commandlineargument}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gVerbose\_commandlineargument}{gVerbose\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Verbose\+\_\+commandlineargument\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Verbose cmd argument. 
+
+\Hypertarget{Util_8h_a18805ab02a9b7e83ae90cb734616cd6f}\label{Util_8h_a18805ab02a9b7e83ae90cb734616cd6f} 
+\index{Util.h@{Util.h}!gVersion@{gVersion}}
+\index{gVersion@{gVersion}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{gVersion}{gVersion}}
+{\footnotesize\ttfamily long int g\+Version\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+version 
+
+\Hypertarget{Util_8h_a7208437a4b4eda05486e64ae23e11dd0}\label{Util_8h_a7208437a4b4eda05486e64ae23e11dd0} 
+\index{Util.h@{Util.h}!randint@{randint}}
+\index{randint@{randint}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{randint}{randint}}
+{\footnotesize\ttfamily std\+::minstd\+\_\+rand randint\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Returns an int with value drawn uniformly in \mbox{[}0,max) 
+
+\Hypertarget{Util_8h_a3bf77c88bd1916188c91b0810a7b74cb}\label{Util_8h_a3bf77c88bd1916188c91b0810a7b74cb} 
+\index{Util.h@{Util.h}!randomSensor@{randomSensor}}
+\index{randomSensor@{randomSensor}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{randomSensor}{randomSensor}}
+{\footnotesize\ttfamily std\+::uniform\+\_\+int\+\_\+distribution$<$int$>$ random\+Sensor\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Iniform, unbiased. 
+
+\Hypertarget{Util_8h_afa066fe29070929c1b0a08338c20bc61}\label{Util_8h_afa066fe29070929c1b0a08338c20bc61} 
+\index{Util.h@{Util.h}!rnd@{rnd}}
+\index{rnd@{rnd}!Util.h@{Util.h}}
+\doxysubsubsection{\texorpdfstring{rnd}{rnd}}
+{\footnotesize\ttfamily std\+::random\+\_\+device rnd\hspace{0.3cm}{\ttfamily [extern]}}
+

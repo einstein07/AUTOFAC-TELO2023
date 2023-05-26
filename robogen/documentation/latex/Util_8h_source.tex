@@ -1,0 +1,78 @@
+\hypertarget{Util_8h_source}{}\doxysection{Util.\+h}
+\label{Util_8h_source}\index{src/EDQD/Util.h@{src/EDQD/Util.h}}
+\mbox{\hyperlink{Util_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ EDQDController.h\ \ \ 1.0\ \ \ Sep\ 07,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ EDQD\_UTIL\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EDQD\_UTIL\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{comment}{/************************************************************************}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ INCLUDES}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ ***********************************************************************/}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <cstdlib>}\ \textcolor{comment}{//\ RAND\_MAX}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <sys/time.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <boost/multi\_array.hpp>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <boost/lexical\_cast.hpp>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Logger_8h}{Logger.h}}"{}}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00032\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_a7367c63f2c2b94086aedc0741248213b}{gCurrentBuildInfo}};}
+\DoxyCodeLine{00036\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Util_8h_a18805ab02a9b7e83ae90cb734616cd6f}{gVersion}};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_a289fdc0c3ec759aadaf2534a8b8bb056}{gStartTime}};}
+\DoxyCodeLine{00045\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_aca000554b51448f1b4779e1d3a2445c7}{gStopTime}};}
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ time\_t\ \mbox{\hyperlink{Util_8h_a146526ec9c46f35d898e0b5049f522ce}{gStartTimeRawFormat}};}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ time\_t\ \mbox{\hyperlink{Util_8h_abe949529d904dc8881558c88fc94ab9b}{gStopTimeRawFormat}};}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_a6c855082e714a86c9642ba1beb8900ab}{gCompileTime}};}
+\DoxyCodeLine{00061\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_acf3156825a97be40dc6e1a36a1292d2c}{gCompileDate}};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{comment}{//\ files}}
+\DoxyCodeLine{00067\ \textcolor{comment}{}\textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_afcdc1f9ed4d52e83c6b0d09c1eac8f41}{gLogCommentText}};}
+\DoxyCodeLine{00071\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Util_8h_a276d7569ad68c22d6cbfef0b449f3a5c}{gVerbose\_commandlineargument}};}
+\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Util_8h_acb9d42274b02b165aee7942548554f2c}{gLogDirectoryname\_commandlineargument}};}
+\DoxyCodeLine{00079\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Util_8h_afea9661025a65f7475f1d4dcbb013f49}{gBatchMode\_commandlineargument}};}
+\DoxyCodeLine{00083\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_a12d5e03a01bd6ab67d017566841fbeb1}{gLogDirectoryname}};}
+\DoxyCodeLine{00087\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_ae5706e48e9b0f375ae241a3866a68612}{gLogFilename}};}
+\DoxyCodeLine{00091\ \textcolor{keyword}{extern}\ std::string\ \mbox{\hyperlink{Util_8h_afd788fad4742e9cd1f8c27892ca699fe}{gLogFullFilename}};}
+\DoxyCodeLine{00095\ \textcolor{keyword}{extern}\ std::ofstream\ \mbox{\hyperlink{Util_8h_acbf34a389aa24983bfcef089b5e827e9}{gLogFile}};}
+\DoxyCodeLine{00099\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classLogger}{Logger}}\ *\mbox{\hyperlink{Util_8h_a01151e0c1f6c70353e0dd943b39c1833}{gLogger}};}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00108\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{Util_8h_a7ada5cfc3a0deea65edc96c9ee3db551}{gRandomSeed}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ std::random\_device\ \mbox{\hyperlink{Util_8h_afa066fe29070929c1b0a08338c20bc61}{rnd}};}
+\DoxyCodeLine{00114\ \textcolor{keyword}{extern}\ std::minstd\_rand\ \mbox{\hyperlink{Util_8h_a7208437a4b4eda05486e64ae23e11dd0}{randint}};}
+\DoxyCodeLine{00118\ \textcolor{keyword}{extern}\ std::mt19937\ \mbox{\hyperlink{Util_8h_a62b50e0c14bfc5c4cbbe2bd9ab1f165f}{engine}};}
+\DoxyCodeLine{00122\ \textcolor{keyword}{extern}\ std::uniform\_real\_distribution<double>\ \mbox{\hyperlink{Util_8h_a768d65592dc5217ae395ef7560e810ff}{disRandom}};}
+\DoxyCodeLine{00126\ \textcolor{keyword}{extern}\ std::normal\_distribution<>\ \mbox{\hyperlink{Util_8h_a0cd97527b7581907968a0088ca2b4cc8}{disNormal}};}
+\DoxyCodeLine{00130\ \textcolor{keyword}{extern}\ std::uniform\_int\_distribution<int>\ \mbox{\hyperlink{Util_8h_a3bf77c88bd1916188c91b0810a7b74cb}{randomSensor}};}
+\DoxyCodeLine{00134\ \textcolor{preprocessor}{\#define\ random()\ disRandom(engine)}}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#define\ randgaussian()\ disNormal(engine)}}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ std::string\ \mbox{\hyperlink{Util_8h_a0936f59402074a1c9ee0d3d09ef9ee30}{getCurrentTimeAsReadableString}}();}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00148\ std::string\ \mbox{\hyperlink{Util_8h_a21065bd1a3ef9a8909b2051554ec0bad}{getpidAsReadableString}}();}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00155\ std::string\ \mbox{\hyperlink{Util_8h_aed679ea2c90771d849493c21ee7d9ad3}{convertToString}}(\ \textcolor{keywordtype}{int}\ \_\_value\ );}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00165\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{Util_8h_a2780c1ee9fe506006932a6e870b9775f}{getEuclideanDistance}}(\textcolor{keywordtype}{double}\ x1,\ \textcolor{keywordtype}{double}\ y1,\ \textcolor{keywordtype}{double}\ x2,\ \textcolor{keywordtype}{double}\ y2)}
+\DoxyCodeLine{00166\ \{}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordflow}{return}\ sqrt(\ (\ x1\ -\/\ x2\ )\ *\ (\ x1\ -\/\ x2\ )\ +\ (\ y1\ -\/\ y2\ )\ *\ (\ y1\ -\/\ y2\ )\ );}
+\DoxyCodeLine{00168\ \}}
+\DoxyCodeLine{00185\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{Util_8h_a72d72c80d795cb7c527752cc54cf025e}{isOverlap}}(\textcolor{keywordtype}{double}\ minX,\ \textcolor{keywordtype}{double}\ maxX,\ \textcolor{keywordtype}{double}\ minY,\ \textcolor{keywordtype}{double}\ maxY,\ \textcolor{keywordtype}{double}\ minZ,\ \textcolor{keywordtype}{double}\ maxZ,\ \textcolor{keywordtype}{double}\ oMinX,\ \textcolor{keywordtype}{double}\ oMaxX,\ \textcolor{keywordtype}{double}\ oMinY,\ \textcolor{keywordtype}{double}\ oMaxY,\ \textcolor{keywordtype}{double}\ oMinZ,\ \textcolor{keywordtype}{double}\ oMaxZ);}
+\DoxyCodeLine{00192\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{Util_8h_a94d663bff0c9b842fd3a8c6364c169ce}{distance}}\ (osg::Vec3d\ a,\ osg::Vec3d\ b);}
+\DoxyCodeLine{00200\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{Util_8h_ab409fa3590c58fe28ed5bd355be4c12a}{normaliseValue}}(\textcolor{keywordtype}{double}\ newValue,\ \textcolor{keywordtype}{double}\ \_minValue,\ \textcolor{keywordtype}{double}\ \_maxValue);}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EDQD\_UTIL\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

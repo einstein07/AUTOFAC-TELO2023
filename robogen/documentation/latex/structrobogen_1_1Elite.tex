@@ -1,0 +1,253 @@
+\hypertarget{structrobogen_1_1Elite}{}\doxysection{robogen\+::Elite Struct Reference}
+\label{structrobogen_1_1Elite}\index{robogen::Elite@{robogen::Elite}}
+
+
+A struct that represents an elite stored in the behavior map.  
+
+
+
+
+{\ttfamily \#include $<$EDQDMap.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structrobogen_1_1Elite_adc283545048a3fe5c6b6ab47f6d91fad}{Elite}} ()
+\begin{DoxyCompactList}\small\item\em Default Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrobogen_1_1Elite_ae30546ebc855ebea4b9955db756942bd}{Elite}} (\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} $\ast$o)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structrobogen_1_1Elite_a281c0ed1fd168862bf1e552fa138699d}{Elite}} (double fitness, std\+::vector$<$ double $>$ genome, std\+::pair$<$ int, int $>$ id, float sigma, std\+::vector$<$ double $>$ pos, std\+::map$<$ int, double $>$ per\+Sensor\+Type\+Range)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1Elite_a4398fc3b18e23b50e04719ef73add414}{operator$<$}} (const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Less than definition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1Elite_ab72fd0dbf56f68cafef87014f0c94bc4}{operator$>$}} (const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Greater than definition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1Elite_ab306ed3f13df1eef80f52eb88d95f3e5}{operator$<$=}} (const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Less than or equal to definition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{structrobogen_1_1Elite_acffbbc96e71fd2b4fc3fc67707aea889}{operator$>$=}} (const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&rhs)
+\begin{DoxyCompactList}\small\item\em Greater or equal to definition. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Archive $>$ }\\void \mbox{\hyperlink{structrobogen_1_1Elite_a2003906ea6de4e0da0af08639e7cc542}{serialize}} (Archive \&ar, const unsigned int version)
+\begin{DoxyCompactList}\small\item\em Serializes map object. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}{\+\_\+dist\+\_\+center}} (const std\+::vector$<$ double $>$ \&pos)
+\begin{DoxyCompactList}\small\item\em Returns distance to center of behavior descriptor cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{structrobogen_1_1Elite_a232a728bcc10abaabbddd1c8065f2bbf}{inc\+Counter}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}{fitness\+\_\+}} = -\/1.\+0
+\begin{DoxyCompactList}\small\item\em Fitness. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}{genome\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Genome. \end{DoxyCompactList}\item 
+std\+::pair$<$ int, int $>$ \mbox{\hyperlink{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}{id\+\_\+}}
+\begin{DoxyCompactList}\small\item\em ID. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}{sigma\+\_\+}} = \mbox{\hyperlink{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}{EDQD\+::\+Parameters\+::sigma\+Ref}}
+\begin{DoxyCompactList}\small\item\em Reference sigma value. \end{DoxyCompactList}\item 
+std\+::vector$<$ double $>$ \mbox{\hyperlink{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}{pos\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Position. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6}{counter\+\_\+}} = 0
+\begin{DoxyCompactList}\small\item\em Counter. \end{DoxyCompactList}\item 
+std\+::map$<$ int, double $>$ \mbox{\hyperlink{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}{per\+Sensor\+Type\+Range\+\_\+}}
+\begin{DoxyCompactList}\small\item\em Double-\/\+Map \doxylink{namespaceEDQD}{EDQD}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+std\+::ostream \& \mbox{\hyperlink{structrobogen_1_1Elite_a04355e796cb1d4b7779f10b197c0a89a}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&obj)
+\begin{DoxyCompactList}\small\item\em Write \doxylink{structrobogen_1_1Elite}{Elite} object to standard output stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A struct that represents an elite stored in the behavior map. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{structrobogen_1_1Elite_adc283545048a3fe5c6b6ab47f6d91fad}\label{structrobogen_1_1Elite_adc283545048a3fe5c6b6ab47f6d91fad} 
+\index{robogen::Elite@{robogen::Elite}!Elite@{Elite}}
+\index{Elite@{Elite}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{Elite()}{Elite()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily robogen\+::\+Elite\+::\+Elite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default Constructor. 
+
+\Hypertarget{structrobogen_1_1Elite_ae30546ebc855ebea4b9955db756942bd}\label{structrobogen_1_1Elite_ae30546ebc855ebea4b9955db756942bd} 
+\index{robogen::Elite@{robogen::Elite}!Elite@{Elite}}
+\index{Elite@{Elite}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{Elite()}{Elite()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily robogen\+::\+Elite\+::\+Elite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} $\ast$}]{o }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+\Hypertarget{structrobogen_1_1Elite_a281c0ed1fd168862bf1e552fa138699d}\label{structrobogen_1_1Elite_a281c0ed1fd168862bf1e552fa138699d} 
+\index{robogen::Elite@{robogen::Elite}!Elite@{Elite}}
+\index{Elite@{Elite}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{Elite()}{Elite()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily robogen\+::\+Elite\+::\+Elite (\begin{DoxyParamCaption}\item[{double}]{fitness,  }\item[{std\+::vector$<$ double $>$}]{genome,  }\item[{std\+::pair$<$ int, int $>$}]{id,  }\item[{float}]{sigma,  }\item[{std\+::vector$<$ double $>$}]{pos,  }\item[{std\+::map$<$ int, double $>$}]{per\+Sensor\+Type\+Range }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd}\label{structrobogen_1_1Elite_a3d288d7dfb8da01a14604421d1cd47dd} 
+\index{robogen::Elite@{robogen::Elite}!\_dist\_center@{\_dist\_center}}
+\index{\_dist\_center@{\_dist\_center}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{\_dist\_center()}{\_dist\_center()}}
+{\footnotesize\ttfamily float robogen\+::\+Elite\+::\+\_\+dist\+\_\+center (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{pos }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns distance to center of behavior descriptor cell. 
+
+\Hypertarget{structrobogen_1_1Elite_a232a728bcc10abaabbddd1c8065f2bbf}\label{structrobogen_1_1Elite_a232a728bcc10abaabbddd1c8065f2bbf} 
+\index{robogen::Elite@{robogen::Elite}!incCounter@{incCounter}}
+\index{incCounter@{incCounter}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{incCounter()}{incCounter()}}
+{\footnotesize\ttfamily void robogen\+::\+Elite\+::inc\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{structrobogen_1_1Elite_a4398fc3b18e23b50e04719ef73add414}\label{structrobogen_1_1Elite_a4398fc3b18e23b50e04719ef73add414} 
+\index{robogen::Elite@{robogen::Elite}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}}
+{\footnotesize\ttfamily bool robogen\+::\+Elite\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Less than definition. 
+
+\Hypertarget{structrobogen_1_1Elite_ab306ed3f13df1eef80f52eb88d95f3e5}\label{structrobogen_1_1Elite_ab306ed3f13df1eef80f52eb88d95f3e5} 
+\index{robogen::Elite@{robogen::Elite}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}}
+{\footnotesize\ttfamily bool robogen\+::\+Elite\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Less than or equal to definition. 
+
+\Hypertarget{structrobogen_1_1Elite_ab72fd0dbf56f68cafef87014f0c94bc4}\label{structrobogen_1_1Elite_ab72fd0dbf56f68cafef87014f0c94bc4} 
+\index{robogen::Elite@{robogen::Elite}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}}
+{\footnotesize\ttfamily bool robogen\+::\+Elite\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Greater than definition. 
+
+\Hypertarget{structrobogen_1_1Elite_acffbbc96e71fd2b4fc3fc67707aea889}\label{structrobogen_1_1Elite_acffbbc96e71fd2b4fc3fc67707aea889} 
+\index{robogen::Elite@{robogen::Elite}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}}
+{\footnotesize\ttfamily bool robogen\+::\+Elite\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Greater or equal to definition. 
+
+\Hypertarget{structrobogen_1_1Elite_a2003906ea6de4e0da0af08639e7cc542}\label{structrobogen_1_1Elite_a2003906ea6de4e0da0af08639e7cc542} 
+\index{robogen::Elite@{robogen::Elite}!serialize@{serialize}}
+\index{serialize@{serialize}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{serialize()}{serialize()}}
+{\footnotesize\ttfamily template$<$class Archive $>$ \\
+void robogen\+::\+Elite\+::serialize (\begin{DoxyParamCaption}\item[{Archive \&}]{ar,  }\item[{const unsigned int}]{version }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serializes map object. 
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{structrobogen_1_1Elite_a04355e796cb1d4b7779f10b197c0a89a}\label{structrobogen_1_1Elite_a04355e796cb1d4b7779f10b197c0a89a} 
+\index{robogen::Elite@{robogen::Elite}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$}{operator<<}}
+{\footnotesize\ttfamily std\+::ostream \& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{structrobogen_1_1Elite}{Elite}} \&}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Write \doxylink{structrobogen_1_1Elite}{Elite} object to standard output stream. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6}\label{structrobogen_1_1Elite_a7e1ab6d3c9cdbed6f41daf818605f3b6} 
+\index{robogen::Elite@{robogen::Elite}!counter\_@{counter\_}}
+\index{counter\_@{counter\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{counter\_}{counter\_}}
+{\footnotesize\ttfamily int robogen\+::\+Elite\+::counter\+\_\+ = 0}
+
+
+
+Counter. 
+
+\Hypertarget{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d}\label{structrobogen_1_1Elite_a48694996703f453d56dbcdbf3843a95d} 
+\index{robogen::Elite@{robogen::Elite}!fitness\_@{fitness\_}}
+\index{fitness\_@{fitness\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{fitness\_}{fitness\_}}
+{\footnotesize\ttfamily double robogen\+::\+Elite\+::fitness\+\_\+ = -\/1.\+0}
+
+
+
+Fitness. 
+
+\Hypertarget{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9}\label{structrobogen_1_1Elite_acb6eaa892d87af5a6beb15f8fdce51a9} 
+\index{robogen::Elite@{robogen::Elite}!genome\_@{genome\_}}
+\index{genome\_@{genome\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{genome\_}{genome\_}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ robogen\+::\+Elite\+::genome\+\_\+}
+
+
+
+Genome. 
+
+\Hypertarget{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea}\label{structrobogen_1_1Elite_ab8591d39932fa1f2104f4348129f01ea} 
+\index{robogen::Elite@{robogen::Elite}!id\_@{id\_}}
+\index{id\_@{id\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{id\_}{id\_}}
+{\footnotesize\ttfamily std\+::pair$<$int, int$>$ robogen\+::\+Elite\+::id\+\_\+}
+
+
+
+ID. 
+
+\Hypertarget{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2}\label{structrobogen_1_1Elite_af7d6a02bdb31b706685321c5665caea2} 
+\index{robogen::Elite@{robogen::Elite}!perSensorTypeRange\_@{perSensorTypeRange\_}}
+\index{perSensorTypeRange\_@{perSensorTypeRange\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{perSensorTypeRange\_}{perSensorTypeRange\_}}
+{\footnotesize\ttfamily std\+::map$<$int,double$>$ robogen\+::\+Elite\+::per\+Sensor\+Type\+Range\+\_\+}
+
+
+
+Double-\/\+Map \doxylink{namespaceEDQD}{EDQD}. 
+
+All sensor types are subjected to the same variation ops, i.\+e. if one type-\/1 sensor is off, then all type 1 sensors should be off \Hypertarget{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601}\label{structrobogen_1_1Elite_a4da0448d6decd1e1ccccae98eda29601} 
+\index{robogen::Elite@{robogen::Elite}!pos\_@{pos\_}}
+\index{pos\_@{pos\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{pos\_}{pos\_}}
+{\footnotesize\ttfamily std\+::vector$<$double$>$ robogen\+::\+Elite\+::pos\+\_\+}
+
+
+
+Position. 
+
+\Hypertarget{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f}\label{structrobogen_1_1Elite_ad7ae6efe21278f35075e99540cf9c55f} 
+\index{robogen::Elite@{robogen::Elite}!sigma\_@{sigma\_}}
+\index{sigma\_@{sigma\_}!robogen::Elite@{robogen::Elite}}
+\doxysubsubsection{\texorpdfstring{sigma\_}{sigma\_}}
+{\footnotesize\ttfamily float robogen\+::\+Elite\+::sigma\+\_\+ = \mbox{\hyperlink{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}{EDQD\+::\+Parameters\+::sigma\+Ref}}}
+
+
+
+Reference sigma value. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{EDQDMap_8h}{EDQDMap.\+h}}\end{DoxyCompactItemize}

@@ -1,0 +1,145 @@
+\hypertarget{structNeuralNetwork}{}\doxysection{Neural\+Network Struct Reference}
+\label{structNeuralNetwork}\index{NeuralNetwork@{NeuralNetwork}}
+
+
+Struct to describe Neural Network representation.  
+
+
+
+
+{\ttfamily \#include $<$Neural\+Network.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{structNeuralNetwork_aae3f4df743d222d27593586c7a6fb40e}{weight}} \mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\+\_\+\+INPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}}) $\ast$(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}
+\item 
+float \mbox{\hyperlink{structNeuralNetwork_a2f826ed203237dd3ee63702ae8f8e758}{params}} \mbox{[}\mbox{\hyperlink{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d}{MAX\+\_\+\+PARAMS}} $\ast$(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Params for hidden and output neurons, quantity depends on the type of neuron. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structNeuralNetwork_a403f12c3c163fa262cbd3769512ee568}{state}} \mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em One state for each output and hidden neuron activations will be used to temporarily store summed inputs before updating states. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structNeuralNetwork_a68b9f9a5459ee034ff5ce62caca44e98}{activations}} \mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}
+\item 
+float \mbox{\hyperlink{structNeuralNetwork_a8b1760bc7de3e94a3cdd9d9724e3708b}{input}} \mbox{[}\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\+\_\+\+INPUT\+\_\+\+NEURONS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em One input state for each input neuron. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structNeuralNetwork_a48f4f5dd197af522500cc6cdf8e9229e}{types}} \mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}
+\begin{DoxyCompactList}\small\item\em Type of each non-\/input neuron. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structNeuralNetwork_afcb1edb7cf454c792ed06e027b7a59a1}{n\+Inputs}}
+\begin{DoxyCompactList}\small\item\em The number of inputs. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structNeuralNetwork_a8aac7bba7bd95500a94ba580ac6b1053}{n\+Outputs}}
+\begin{DoxyCompactList}\small\item\em The number of outputs. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structNeuralNetwork_a8c340fd4f8c896c20c0ebb569808e554}{n\+Hidden}}
+\begin{DoxyCompactList}\small\item\em The number of hidden units. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{structNeuralNetwork_a75115e95adff020f5d57bfc97f8852e9}{n\+Non\+Inputs}}
+\begin{DoxyCompactList}\small\item\em The number of non-\/inputs (i.\+e. n\+Outputs + n\+Hidden) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct to describe Neural Network representation. 
+
+Given m input neurons and n output neurons m \texorpdfstring{$<$}{<}= MAX\+\_\+\+INPUT\+\_\+\+NEURONS n \texorpdfstring{$<$}{<}= MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS
+
+One weight for each input-\/output connection (w\+\_\+ij, input neuron i, 0 \texorpdfstring{$<$}{<}= i \texorpdfstring{$<$}{<}= m, output neuron j, 0 \texorpdfstring{$<$}{<}= j \texorpdfstring{$<$}{<}= n One weight for each output-\/output connection (wr\+\_\+ij, output neuron i,j, 0 \texorpdfstring{$<$}{<}= i,j \texorpdfstring{$<$}{<}= n )
+
+The weights are saved as the concatenation by row of the following\+: w\+\_\+00 w\+\_\+01 ... w\+\_\+0n w\+\_\+10 w\+\_\+11 ... w\+\_\+1n ... ... ... ... w\+\_\+m0 w\+\_\+m1 ... w\+\_\+mn
+
+wo\+\_\+00 wo\+\_\+01 ... wo\+\_\+0n wo\+\_\+10 wo\+\_\+11 ... wo\+\_\+1n ... ... ... .... wo\+\_\+n0 wo\+\_\+n1 ... wo\+\_\+nn 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structNeuralNetwork_a68b9f9a5459ee034ff5ce62caca44e98}\label{structNeuralNetwork_a68b9f9a5459ee034ff5ce62caca44e98} 
+\index{NeuralNetwork@{NeuralNetwork}!activations@{activations}}
+\index{activations@{activations}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{activations}{activations}}
+{\footnotesize\ttfamily float Neural\+Network\+::activations\mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}}
+
+\Hypertarget{structNeuralNetwork_a8b1760bc7de3e94a3cdd9d9724e3708b}\label{structNeuralNetwork_a8b1760bc7de3e94a3cdd9d9724e3708b} 
+\index{NeuralNetwork@{NeuralNetwork}!input@{input}}
+\index{input@{input}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{input}{input}}
+{\footnotesize\ttfamily float Neural\+Network\+::input\mbox{[}\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\+\_\+\+INPUT\+\_\+\+NEURONS}}\mbox{]}}
+
+
+
+One input state for each input neuron. 
+
+\Hypertarget{structNeuralNetwork_a8c340fd4f8c896c20c0ebb569808e554}\label{structNeuralNetwork_a8c340fd4f8c896c20c0ebb569808e554} 
+\index{NeuralNetwork@{NeuralNetwork}!nHidden@{nHidden}}
+\index{nHidden@{nHidden}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{nHidden}{nHidden}}
+{\footnotesize\ttfamily unsigned int Neural\+Network\+::n\+Hidden}
+
+
+
+The number of hidden units. 
+
+\Hypertarget{structNeuralNetwork_afcb1edb7cf454c792ed06e027b7a59a1}\label{structNeuralNetwork_afcb1edb7cf454c792ed06e027b7a59a1} 
+\index{NeuralNetwork@{NeuralNetwork}!nInputs@{nInputs}}
+\index{nInputs@{nInputs}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{nInputs}{nInputs}}
+{\footnotesize\ttfamily unsigned int Neural\+Network\+::n\+Inputs}
+
+
+
+The number of inputs. 
+
+\Hypertarget{structNeuralNetwork_a75115e95adff020f5d57bfc97f8852e9}\label{structNeuralNetwork_a75115e95adff020f5d57bfc97f8852e9} 
+\index{NeuralNetwork@{NeuralNetwork}!nNonInputs@{nNonInputs}}
+\index{nNonInputs@{nNonInputs}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{nNonInputs}{nNonInputs}}
+{\footnotesize\ttfamily unsigned int Neural\+Network\+::n\+Non\+Inputs}
+
+
+
+The number of non-\/inputs (i.\+e. n\+Outputs + n\+Hidden) 
+
+\Hypertarget{structNeuralNetwork_a8aac7bba7bd95500a94ba580ac6b1053}\label{structNeuralNetwork_a8aac7bba7bd95500a94ba580ac6b1053} 
+\index{NeuralNetwork@{NeuralNetwork}!nOutputs@{nOutputs}}
+\index{nOutputs@{nOutputs}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{nOutputs}{nOutputs}}
+{\footnotesize\ttfamily unsigned int Neural\+Network\+::n\+Outputs}
+
+
+
+The number of outputs. 
+
+\Hypertarget{structNeuralNetwork_a2f826ed203237dd3ee63702ae8f8e758}\label{structNeuralNetwork_a2f826ed203237dd3ee63702ae8f8e758} 
+\index{NeuralNetwork@{NeuralNetwork}!params@{params}}
+\index{params@{params}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{params}{params}}
+{\footnotesize\ttfamily float Neural\+Network\+::params\mbox{[}\mbox{\hyperlink{NeuralNetwork_8h_a885a6481fc6d474d0be18bc0facf648d}{MAX\+\_\+\+PARAMS}} $\ast$(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}}
+
+
+
+Params for hidden and output neurons, quantity depends on the type of neuron. 
+
+\Hypertarget{structNeuralNetwork_a403f12c3c163fa262cbd3769512ee568}\label{structNeuralNetwork_a403f12c3c163fa262cbd3769512ee568} 
+\index{NeuralNetwork@{NeuralNetwork}!state@{state}}
+\index{state@{state}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily float Neural\+Network\+::state\mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}}
+
+
+
+One state for each output and hidden neuron activations will be used to temporarily store summed inputs before updating states. 
+
+\Hypertarget{structNeuralNetwork_a48f4f5dd197af522500cc6cdf8e9229e}\label{structNeuralNetwork_a48f4f5dd197af522500cc6cdf8e9229e} 
+\index{NeuralNetwork@{NeuralNetwork}!types@{types}}
+\index{types@{types}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{types}{types}}
+{\footnotesize\ttfamily unsigned int Neural\+Network\+::types\mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}}
+
+
+
+Type of each non-\/input neuron. 
+
+\Hypertarget{structNeuralNetwork_aae3f4df743d222d27593586c7a6fb40e}\label{structNeuralNetwork_aae3f4df743d222d27593586c7a6fb40e} 
+\index{NeuralNetwork@{NeuralNetwork}!weight@{weight}}
+\index{weight@{weight}!NeuralNetwork@{NeuralNetwork}}
+\doxysubsubsection{\texorpdfstring{weight}{weight}}
+{\footnotesize\ttfamily float Neural\+Network\+::weight\mbox{[}(\mbox{\hyperlink{NeuralNetwork_8h_a5df409be0d749e094284ecf45bc3d043}{MAX\+\_\+\+INPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}}) $\ast$(\mbox{\hyperlink{NeuralNetwork_8h_a9b1d1bda6880c93476c3ec81ce269efe}{MAX\+\_\+\+OUTPUT\+\_\+\+NEURONS}}+\mbox{\hyperlink{NeuralNetwork_8h_a7484f2f92b2e8cf3ca46495439bab376}{MAX\+\_\+\+HIDDEN\+\_\+\+NEURONS}})\mbox{]}}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/brain/\mbox{\hyperlink{NeuralNetwork_8h}{Neural\+Network.\+h}}\end{DoxyCompactItemize}

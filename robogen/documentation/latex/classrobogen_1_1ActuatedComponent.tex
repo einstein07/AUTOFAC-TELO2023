@@ -1,0 +1,154 @@
+\hypertarget{classrobogen_1_1ActuatedComponent}{}\doxysection{robogen\+::Actuated\+Component Class Reference}
+\label{classrobogen_1_1ActuatedComponent}\index{robogen::ActuatedComponent@{robogen::ActuatedComponent}}
+
+
+Class to describe \doxylink{classrobogen_1_1ActuatedComponent}{Actuated\+Component}.  
+
+
+
+
+{\ttfamily \#include $<$Actuated\+Component.\+h$>$}
+
+Inheritance diagram for robogen\+::Actuated\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classrobogen_1_1ActuatedComponent}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1ActuatedComponent_aceae4f765e45e24e7cd0985b40eab380}{Actuated\+Component}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, std\+::string id)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1ActuatedComponent_a198359cfa508538a3a447d34dc7cd9ed}{$\sim$\+Actuated\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classrobogen_1_1ActuatedComponent_a995c352d9f6de7c345b1a8ce2ff8f6ac}{get\+Motors}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \&motors)=0
+\begin{DoxyCompactList}\small\item\em Returns available motors. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Model}{robogen\+::\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Model_a8b530e7246c5f83cc9ec05df32ccac10}{Model}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, std\+::string id)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1Model_a4fb92d21f4cf89158206d2f7ff8986bf}{Model}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID robot\+Space, std\+::string id)
+\begin{DoxyCompactList}\small\item\em Constructor takes both an individual robot\textquotesingle{}s space and the whole world space. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Model_a44e307b717c9708f4742b840ab5731c6}{$\sim$\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1Model_a9f975bb15344d66ab57bec333306fa63}{init\+Model}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns true if the model initialization completed successfully. \end{DoxyCompactList}\item 
+const std\+::string \& \mbox{\hyperlink{classrobogen_1_1Model_a58c9b816eb0306aa8417f9c1312d235b}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Returns id string of the part. \end{DoxyCompactList}\item 
+virtual boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a5fe089a0cfa71ddb462a849e23e0672c}{get\+Slot}} (unsigned int i)=0
+\begin{DoxyCompactList}\small\item\em Returns body corresponding to the selected slot. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Model_aede61ab612937f5faa04fc6517c342fe}{get\+Slot\+Position}} (unsigned int i)=0
+\begin{DoxyCompactList}\small\item\em Returns slot position, in world coordinates. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Model_af1d088a4c5ff3c1903659df4b8527f1a}{get\+Slot\+Axis}} (unsigned int i)=0
+\begin{DoxyCompactList}\small\item\em Returns slot axis (normal to the slot) \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Model_aabc7dadd69ae708a8974f941fda0de21}{get\+Slot\+Orientation}} (unsigned int i)=0
+\begin{DoxyCompactList}\small\item\em Returns tangent to the slot surface, defines the zero rotation orientation on that slot. \end{DoxyCompactList}\item 
+virtual boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a10178076e7468fb09df99eaa592785e3}{get\+Root}} ()=0
+\begin{DoxyCompactList}\small\item\em Returns root body. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Model_a9d12eceac34f9a3177a68893569cedf8}{get\+Root\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns position of the root part. \end{DoxyCompactList}\item 
+osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1Model_af03c22782fa961b69cf0e7ddb2a6265c}{get\+Root\+Attitude}} ()
+\begin{DoxyCompactList}\small\item\em Returns attitude of the root part (a quaternion) \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Model_aed9ca2aba477363da886f76eba41f1c8}{get\+Body\+Position}} (int id)
+\begin{DoxyCompactList}\small\item\em Returns position of the specified body. \end{DoxyCompactList}\item 
+osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1Model_a1300d092adf1b53ae77bdae813d9bbb9}{get\+Body\+Attitude}} (int id)
+\begin{DoxyCompactList}\small\item\em Returns attitude of the specified body. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a9f29b07929d82619371f9e9d8c47ef83}{set\+Root\+Position}} (const osg\+::\+Vec3 \&pos)
+\begin{DoxyCompactList}\small\item\em Sets the position of the root part. Will force all the other bodies to translate accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a09182900ca9b941cf1b53096283e14e3}{translate\+Root\+Position}} (const osg\+::\+Vec3 \&translation)
+\begin{DoxyCompactList}\small\item\em Translate the root part of the specified amount Will force all the other bodies to translate accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_aea94b6feed793bfd8b1ccdfa0315a70b}{set\+Root\+Attitude}} (const osg\+::\+Quat \&quat)
+\begin{DoxyCompactList}\small\item\em Sets the attitude of the root part (a quaternion). Will force all the other bodies to rotate accordingly. \end{DoxyCompactList}\item 
+d\+World\+ID \mbox{\hyperlink{classrobogen_1_1Model_ae3e913a2fc8373e5b40dfc6aacb3ccc9}{get\+Physics\+World}} ()
+\begin{DoxyCompactList}\small\item\em Returns the physics world. \end{DoxyCompactList}\item 
+d\+Space\+ID \mbox{\hyperlink{classrobogen_1_1Model_a95e985bd9f28eeeeb445f51417aa5ff0}{get\+ODECollision\+Space}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot collision space -\/ SM. \end{DoxyCompactList}\item 
+d\+Space\+ID \mbox{\hyperlink{classrobogen_1_1Model_a429bdf0be8198d2d0b364d857eead6a6}{get\+Robot\+Collision\+Space}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot collision space -\/ SM. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_aa4ee83ab4fcafb88493a3f58ea2037c1}{get\+Body}} (int id)
+\begin{DoxyCompactList}\small\item\em Returns specified body. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ $>$ \mbox{\hyperlink{classrobogen_1_1Model_aceb9e95f5b3763db89d7e99a4b185162}{get\+Bodies}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the bodies belonging to this model. \end{DoxyCompactList}\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{classrobogen_1_1Model_a76c225adc940c9784150c6ef57ea58be}{get\+IDs}} ()
+\begin{DoxyCompactList}\small\item\em Returns all the ids belonging to this model. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a0c09e1ea50a6d457e5dcb8fa7f48e77f}{add\+Box}} (float mass, const osg\+::\+Vec3 \&pos, float lengthX, float lengthY, float lengthZ, int label=-\/1)
+\begin{DoxyCompactList}\small\item\em Create a box geometry for the body. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a5080085adcb11c7606f4e88e4d6acc7c}{add\+Capsule}} (float mass, const osg\+::\+Vec3 \&pos, int direction, float radius, float height, int label=-\/1)
+\begin{DoxyCompactList}\small\item\em Create a capsule geometry for the body. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a7db3a9acb98a615543175ef54b4d8686}{add\+Cylinder}} (float mass, const osg\+::\+Vec3 \&pos, int direction, float radius, float height, int label=-\/1)
+\begin{DoxyCompactList}\small\item\em Create a cylinder geometry for the body. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a92cc6213e3d3d9845834a51e3a7edf97}{fix\+Bodies}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b1, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b2)
+\begin{DoxyCompactList}\small\item\em Fix bodies together. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a65034ffcdc5a68f345948263d9b38860}{fix\+Bodies}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ $>$bodies)
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a8d2778a938d47f9efd9ce16f32702f3f}{attach\+With\+Hinge}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b1, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b2, osg\+::\+Vec3 axis, osg\+::\+Vec3 anchor)
+\begin{DoxyCompactList}\small\item\em Attach with hinge. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ \mbox{\hyperlink{classrobogen_1_1Model_a884746deb1f75f12f9e1b9b841ae2a95}{attach\+With\+Universal}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b1, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$ b2, osg\+::\+Vec3 axis, osg\+::\+Vec3 axis2, osg\+::\+Vec3 anchor)
+\begin{DoxyCompactList}\small\item\em Attach with universal joint. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Model_acf047df8e51e81719d16fc07d11f1bc0}{set\+Orientation\+To\+Parent\+Slot}} (int orientation)
+\begin{DoxyCompactList}\small\item\em Set orientation to parent slot with increments of 90 degrees. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Model_a6fb9a7643e044cf5e1db5512f73aa0a1}{get\+Orientation\+To\+Parent\+Slot}} ()
+\begin{DoxyCompactList}\small\item\em Get orientation to parent slot. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Model_a569bd73db86d3ea0b96a2c8197ba8af8}{set\+Parent\+Orientation}} (int orientation)
+\begin{DoxyCompactList}\small\item\em Specify parent\textquotesingle{}s orientation relative to root (increments of 90 degrees) \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Model_a73980148efe547f4eac1cd91b2643726}{get\+Orientation\+To\+Root}} ()
+\begin{DoxyCompactList}\small\item\em Returns orientation to root. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Model_a08e7cc53eaefab0fe0854709bd1936d4}{get\+Joints}} ()
+\begin{DoxyCompactList}\small\item\em Get the internal joints of the model. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a6b818659905c9a9bd91fbaf98377e89d}{remove\+Joint}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ joint)
+\begin{DoxyCompactList}\small\item\em Removes specified \doxylink{classrobogen_1_1Joint}{Joint}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Model}{robogen\+::\+Model}}}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Model_a2c02b1b34b87efe2b2e4e44c551458ad}{add\+Body}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1SimpleBody}{Simple\+Body}} $>$, int id)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe \doxylink{classrobogen_1_1ActuatedComponent}{Actuated\+Component}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1ActuatedComponent_aceae4f765e45e24e7cd0985b40eab380}\label{classrobogen_1_1ActuatedComponent_aceae4f765e45e24e7cd0985b40eab380} 
+\index{robogen::ActuatedComponent@{robogen::ActuatedComponent}!ActuatedComponent@{ActuatedComponent}}
+\index{ActuatedComponent@{ActuatedComponent}!robogen::ActuatedComponent@{robogen::ActuatedComponent}}
+\doxysubsubsection{\texorpdfstring{ActuatedComponent()}{ActuatedComponent()}}
+{\footnotesize\ttfamily robogen\+::\+Actuated\+Component\+::\+Actuated\+Component (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{std\+::string}]{id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classrobogen_1_1Model}{Model} 
+\end{DoxySeeAlso}
+\Hypertarget{classrobogen_1_1ActuatedComponent_a198359cfa508538a3a447d34dc7cd9ed}\label{classrobogen_1_1ActuatedComponent_a198359cfa508538a3a447d34dc7cd9ed} 
+\index{robogen::ActuatedComponent@{robogen::ActuatedComponent}!````~ActuatedComponent@{$\sim$ActuatedComponent}}
+\index{````~ActuatedComponent@{$\sim$ActuatedComponent}!robogen::ActuatedComponent@{robogen::ActuatedComponent}}
+\doxysubsubsection{\texorpdfstring{$\sim$ActuatedComponent()}{~ActuatedComponent()}}
+{\footnotesize\ttfamily virtual robogen\+::\+Actuated\+Component\+::$\sim$\+Actuated\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1ActuatedComponent_a995c352d9f6de7c345b1a8ce2ff8f6ac}\label{classrobogen_1_1ActuatedComponent_a995c352d9f6de7c345b1a8ce2ff8f6ac} 
+\index{robogen::ActuatedComponent@{robogen::ActuatedComponent}!getMotors@{getMotors}}
+\index{getMotors@{getMotors}!robogen::ActuatedComponent@{robogen::ActuatedComponent}}
+\doxysubsubsection{\texorpdfstring{getMotors()}{getMotors()}}
+{\footnotesize\ttfamily virtual void robogen\+::\+Actuated\+Component\+::get\+Motors (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \&}]{motors }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Returns available motors. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{ActuatedComponent_8h}{Actuated\+Component.\+h}}\end{DoxyCompactItemize}

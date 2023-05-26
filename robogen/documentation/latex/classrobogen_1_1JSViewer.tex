@@ -1,0 +1,134 @@
+\hypertarget{classrobogen_1_1JSViewer}{}\doxysection{robogen\+::JSViewer Class Reference}
+\label{classrobogen_1_1JSViewer}\index{robogen::JSViewer@{robogen::JSViewer}}
+
+
+Class to describe \doxylink{classrobogen_1_1JSViewer}{JSViewer}.  
+
+
+
+
+{\ttfamily \#include $<$JSViewer.\+h$>$}
+
+Inheritance diagram for robogen\+::JSViewer\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1JSViewer}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1JSViewer_acaf1e88600ba399ba5a0b801c1179180}{JSViewer}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1JSViewer_a04a422722eb3494e77e11bea6fba8f94}{$\sim$\+JSViewer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1JSViewer_ad3f12940077e9275b09cf49624288383}{configure\+Scene}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Configure scene. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1JSViewer_aef130cddb9e10a84f75c589479d72b55}{done}} ()
+\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1JSViewer_a5a71ec6054f288a25bd9148ee67ca073}{frame}} (double simulated\+Time, unsigned int num\+Time\+Steps)
+\begin{DoxyCompactList}\small\item\em Step frame. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1JSViewer_a4473fedd3fabb2f2ff950de36691bffd}{is\+Paused}} ()
+\begin{DoxyCompactList}\small\item\em Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1IViewer}{robogen\+::\+IViewer}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1IViewer_ab9ea757b2563b9456a291013abbe6077}{$\sim$\+IViewer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a2f9ca6a3eeb1ed51dd4104b20bbf6fe3}{configure\+Scene}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)=0
+\begin{DoxyCompactList}\small\item\em Configure scene. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a8354c3016bcbc94fd7728ec2ab9d3b43}{configure\+Scene}} (std\+::vector$<$ std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ $>$ swarm\+Body\+Parts, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)=0
+\begin{DoxyCompactList}\small\item\em Configure scene with swarm. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_aa310632d88f8510adb20d70605299dbe}{done}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a061d1bba87c3a1b2d9a73c824645651e}{frame}} (double simulated\+Time, unsigned int num\+Time\+Steps)=0
+\begin{DoxyCompactList}\small\item\em Step frame. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classrobogen_1_1IViewer_a2fcee7e9b5186b4cb9a04eda5aac02ac}{is\+Paused}} ()=0
+\begin{DoxyCompactList}\small\item\em Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe \doxylink{classrobogen_1_1JSViewer}{JSViewer}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1JSViewer_acaf1e88600ba399ba5a0b801c1179180}\label{classrobogen_1_1JSViewer_acaf1e88600ba399ba5a0b801c1179180} 
+\index{robogen::JSViewer@{robogen::JSViewer}!JSViewer@{JSViewer}}
+\index{JSViewer@{JSViewer}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{JSViewer()}{JSViewer()}}
+{\footnotesize\ttfamily robogen\+::\+JSViewer\+::\+JSViewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classrobogen_1_1JSViewer_a04a422722eb3494e77e11bea6fba8f94}\label{classrobogen_1_1JSViewer_a04a422722eb3494e77e11bea6fba8f94} 
+\index{robogen::JSViewer@{robogen::JSViewer}!````~JSViewer@{$\sim$JSViewer}}
+\index{````~JSViewer@{$\sim$JSViewer}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{$\sim$JSViewer()}{~JSViewer()}}
+{\footnotesize\ttfamily robogen\+::\+JSViewer\+::$\sim$\+JSViewer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1JSViewer_ad3f12940077e9275b09cf49624288383}\label{classrobogen_1_1JSViewer_ad3f12940077e9275b09cf49624288383} 
+\index{robogen::JSViewer@{robogen::JSViewer}!configureScene@{configureScene}}
+\index{configureScene@{configureScene}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{configureScene()}{configureScene()}}
+{\footnotesize\ttfamily bool robogen\+::\+JSViewer\+::configure\+Scene (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$}]{body\+Parts,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Configure scene. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a2f9ca6a3eeb1ed51dd4104b20bbf6fe3}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1JSViewer_aef130cddb9e10a84f75c589479d72b55}\label{classrobogen_1_1JSViewer_aef130cddb9e10a84f75c589479d72b55} 
+\index{robogen::JSViewer@{robogen::JSViewer}!done@{done}}
+\index{done@{done}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{done()}{done()}}
+{\footnotesize\ttfamily bool robogen\+::\+JSViewer\+::done (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_aa310632d88f8510adb20d70605299dbe}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1JSViewer_a5a71ec6054f288a25bd9148ee67ca073}\label{classrobogen_1_1JSViewer_a5a71ec6054f288a25bd9148ee67ca073} 
+\index{robogen::JSViewer@{robogen::JSViewer}!frame@{frame}}
+\index{frame@{frame}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{frame()}{frame()}}
+{\footnotesize\ttfamily bool robogen\+::\+JSViewer\+::frame (\begin{DoxyParamCaption}\item[{double}]{simulated\+Time,  }\item[{unsigned int}]{num\+Time\+Steps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Step frame. 
+
+frame\+: updates frame if it should be updated params\+: simulated\+Time\+: the amount of time simulated so far (in seconds) num\+Time\+Steps\+: the number of time steps simulated so far returns\+: false if paused or going to fast (so simulator should continue without stepping physics) true otherwise 
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a061d1bba87c3a1b2d9a73c824645651e}{robogen\+::\+IViewer}}.
+
+\Hypertarget{classrobogen_1_1JSViewer_a4473fedd3fabb2f2ff950de36691bffd}\label{classrobogen_1_1JSViewer_a4473fedd3fabb2f2ff950de36691bffd} 
+\index{robogen::JSViewer@{robogen::JSViewer}!isPaused@{isPaused}}
+\index{isPaused@{isPaused}!robogen::JSViewer@{robogen::JSViewer}}
+\doxysubsubsection{\texorpdfstring{isPaused()}{isPaused()}}
+{\footnotesize\ttfamily bool robogen\+::\+JSViewer\+::is\+Paused (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Flags \doxylink{classrobogen_1_1IViewer}{IViewer} activity. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1IViewer_a2fcee7e9b5186b4cb9a04eda5aac02ac}{robogen\+::\+IViewer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/viewer/\mbox{\hyperlink{JSViewer_8h}{JSViewer.\+h}}\item 
+src/viewer/\mbox{\hyperlink{JSViewer_8cpp}{JSViewer.\+cpp}}\end{DoxyCompactItemize}

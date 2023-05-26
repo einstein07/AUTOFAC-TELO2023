@@ -1,0 +1,131 @@
+\hypertarget{PartList_8h_source}{}\doxysection{Part\+List.\+h}
+\label{PartList_8h_source}\index{src/PartList.h@{src/PartList.h}}
+\mbox{\hyperlink{PartList_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ PartList.h\ \ \ 1.0\ \ \ Nov\ 5,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Andrea\ Maesani\ (andrea.maesani@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2016\ Andrea\ Maesani,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_PARTLIST\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ ROBOGEN\_PARTLIST\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ ALLOW\_ROTATIONAL\_COMPONENTS}}
+\DoxyCodeLine{00038\ \textcolor{comment}{//\#define\ ALLOW\_CARDANS}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ ENFORCE\_PLANAR}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ IR\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ COLOR\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SENSOR\_MORPHOLOGY\_ENABLED}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ TARGET\_AREA\_DETECTOR\_ENABLED}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifndef\ IR\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\ \ \ \ \#define\ TOUCH\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifdef\ ALLOW\_CARDANS}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_ACTIVE\_CARDAN\ \ \ \ \ "{}ActiveCardan"{}}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_ACTIVE\_HINGE\ \ \ \ \ \ "{}ActiveHinge"{}}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#ifdef\ ALLOW\_ROTATIONAL\_COMPONENTS}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_ACTIVE\_WHEEL\ \ \ \ \ \ "{}ActiveWheel"{}}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_ACTIVE\_WHEG\ \ \ \ \ \ \ "{}ActiveWheg"{}}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_CORE\_COMPONENT\ \ \ \ "{}CoreComponent"{}}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU\ \ \ \ \ "{}CoreComponentNoIMU"{}}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_FIXED\_BRICK\ \ \ \ \ \ \ "{}FixedBrick"{}}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_LIGHT\_SENSOR\ \ \ \ \ \ "{}LightSensor"{}}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_PARAM\_JOINT\ \ \ \ \ \ \ "{}ParametricJoint"{}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT\ \ "{}ImuSensorElement"{}}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ SENSOR\_TYPE\_LIGHT\_SENSOR\ \ \ \ \ \ \ \ "{}LightSensor"{}}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#ifdef\ ALLOW\_CARDANS}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_PASSIVE\_CARDAN\ \ \ \ "{}PassiveCardan"{}}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\#define\ PART\_TYPE\_PASSIVE\_HINGE\ \ \ \ \ "{}PassiveHinge"{}}}
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifdef\ ALLOW\_ROTATIONAL\_COMPONENTS}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_PASSIVE\_WHEEL\ \ \ \ \ "{}PassiveWheel"{}}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_ROTATOR\ \ \ \ \ \ \ \ \ \ \ "{}Rotator"{}}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifdef\ IR\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_IR\_SENSOR\ \ \ \ \ \ \ \ \ "{}IrSensor"{}}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#define\ SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT\ \ \ "{}IrSensor"{}}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#ifdef\ COLOR\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ SM\ added}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_COLOR\_SENSOR\ \ \ \ \ \ \ \ \ \ "{}ColorSensor"{}}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \#define\ SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT\ \ \ \ "{}ColorSensor"{}}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#ifdef\ SENSOR\_MORPHOLOGY\_ENABLED}}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{comment}{//\ SM\ added}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_SENSOR\_MORPHOLOGY\ \ \ \ \ \ \ \ \ "{}SensorMorphology"{}}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \#define\ SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT\ \ \ "{}SensorMorphology"{}}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#ifdef\ TARGET\_AREA\_DETECTOR\_ENABLED}}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{comment}{//\ SM\ added}}
+\DoxyCodeLine{00101\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_TARGET\_AREA\_DETECTOR\ \ \ \ \ \ \ \ \ \ "{}TargetAreaDetector"{}}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\ \ \ \ \#define\ SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT\ \ \ \ "{}TargetAreaDetector"{}}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#ifdef\ TOUCH\_SENSORS\_ENABLED}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\ \ \ \ \#define\ PART\_TYPE\_TOUCH\_SENSOR\ \ \ \ \ \ "{}TouchSensor"{}}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\ \ \ \ \#define\ SENSOR\_TYPE\_TOUCH\_SENSOR\ \ \ \ \ \ \ \ "{}TouchSensor"{}}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<char,\ std::string>\ \mbox{\hyperlink{namespacerobogen_a068f2f00eeb7843c4cc615e16ce30ab4}{LEGACY\_PART\_TYPE\_MAP}};}
+\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<char,\ std::string>\ \mbox{\hyperlink{namespacerobogen_a82fa31f59c64b9f33da81826c08fb517}{PART\_TYPE\_MAP}};}
+\DoxyCodeLine{00111\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::string,\ char>\ \mbox{\hyperlink{namespacerobogen_af6eafe83baf4b1def102c1b3423093e7}{INVERSE\_PART\_TYPE\_MAP}};}
+\DoxyCodeLine{00112\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::string,\ unsigned\ int>\ \mbox{\hyperlink{namespacerobogen_a4dc88f9d6ad12e8767fb53264558ee33}{PART\_TYPE\_ARITY\_MAP}};}
+\DoxyCodeLine{00113\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::string,\ unsigned\ int>\ \mbox{\hyperlink{namespacerobogen_ad09df1d414ff6a87408a0b164e555af3}{PART\_TYPE\_PARAM\_COUNT\_MAP}};}
+\DoxyCodeLine{00114\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::pair<std::string,\ unsigned\ int>,}
+\DoxyCodeLine{00115\ \ \ \ \ std::pair<double,\ double>\ >\ \mbox{\hyperlink{namespacerobogen_a8a0932f3acbc8babb1021016a244a244}{PART\_TYPE\_PARAM\_RANGE\_MAP}};}
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::string,\ std::vector<std::string>\ >}
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a1b9cce5213e592cac648613a5b9269fd}{PART\_TYPE\_MOTORS\_MAP}};}
+\DoxyCodeLine{00118\ \textcolor{keyword}{extern}\ \textcolor{keyword}{const}\ std::map<std::string,\ std::vector<std::string>\ >}
+\DoxyCodeLine{00119\ \ \ \ \ \mbox{\hyperlink{namespacerobogen_a92c2451492d799ce1bab6edf63795858}{PART\_TYPE\_SENSORS\_MAP}};}
+\DoxyCodeLine{00123\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacerobogen_a504fc7da08ae60be09f30f5495161f97}{isCore}}(\textcolor{keywordtype}{char}\ partType);}
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespacerobogen_a504fc7da08ae60be09f30f5495161f97}{isCore}}(std::string\ partType);}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \}\ \textcolor{comment}{/*\ namespace\ robogen\ */}}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_PARTLIST\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

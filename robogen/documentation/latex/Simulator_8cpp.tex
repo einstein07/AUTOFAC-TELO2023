@@ -1,0 +1,321 @@
+\hypertarget{Simulator_8cpp}{}\doxysection{src/\+Simulator.cpp File Reference}
+\label{Simulator_8cpp}\index{src/Simulator.cpp@{src/Simulator.cpp}}
+{\ttfamily \#include \char`\"{}Simulator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utils/\+Robogen\+Collision.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Models.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Robot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}viewer/\+Web\+GLLogger.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$boost/thread.\+hpp$>$}\newline
+{\ttfamily \#include $<$boost/thread/mutex.\+hpp$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Util.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+EDQDRobot.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Parameters.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Pick\+Up\+Heuristic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Drop\+Off\+Heuristic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Mutate\+Perturb\+Sensor\+State.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}EDQD/\+Collision\+Avoidance\+Heuristic.\+h\char`\"{}}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{namespacerobogen_af6218bda3a407f40f5caf058733c5c04}{robogen\+::init\+Logging}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_aba4100574a9d967f4994b0d14238be29}{robogen\+::stop\+Logging}} ()
+\item 
+void \mbox{\hyperlink{namespacerobogen_a9dc70ccfa8b00e2c2cae4f14869682e8}{robogen\+::action\+Thread}} (\mbox{\hyperlink{structrobogen_1_1actionThreadParams}{action\+Thread\+Params}} \&atp, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \&robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $>$ \&neural\+Network, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \&body\+Parts, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Sensor $>$ $>$ \&sensors, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \&motors, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ configuration, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$ \&env, boost\+::mutex \&queue\+Mutex)
+\item 
+void \mbox{\hyperlink{namespacerobogen_ab64e41e9f2198dbb5a702cb14a6992b0}{robogen\+::step\+Embodied}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \&robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CollisionAvoidanceHeuristic}{Collision\+Avoidance\+Heuristic}} $>$ \&heuristicC, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1PickUpHeuristic}{Pick\+Up\+Heuristic}} $>$ \&heuristicP, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1DropOffHeuristic}{Drop\+Off\+Heuristic}} $>$ \&heuristicD, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ \&scene, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ \&configuration, \mbox{\hyperlink{structrobogen_1_1actionThreadParams}{action\+Thread\+Params}} \&atp, boost\+::mutex \&queue\+Mutex)
+\item 
+void \mbox{\hyperlink{namespacerobogen_a6d3e0bcef28d144f64dcb06eabaab31d}{robogen\+::step\+Gathering\+Zone}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ \&robots, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$ \&env, boost\+::mutex \&queue\+Mutex)
+\item 
+void \mbox{\hyperlink{namespacerobogen_ac3d0e2d3c1ff83e2d33729e6c09e4d26}{robogen\+::monitor\+Population}} (bool local\+Verbose, std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Environment}{Environment}} $>$ env)
+\item 
+void \mbox{\hyperlink{namespacerobogen_a61afdedf0aadeea0a15d291f445512d5}{robogen\+::step\+Post}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots)
+\item 
+void \mbox{\hyperlink{namespacerobogen_a8e0d7d5296b24d2ccd54f1c04a03fb9b}{robogen\+::exchange\+Maps\+Within\+Population}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots)
+\item 
+void \mbox{\hyperlink{namespacerobogen_a367c4a9b33863be28bd4cee1b1259353}{robogen\+::exchange\+Genomes\+Within\+Population}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ $>$ robots)
+\item 
+unsigned int \mbox{\hyperlink{namespacerobogen_a510e240e290d9506c2c8e7311d684bef}{robogen\+::run\+Simulations}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ configuration, const robogen\+Message\+::\+Robot \&robot\+Message, \mbox{\hyperlink{classrobogen_1_1IViewer}{IViewer}} $\ast$viewer, boost\+::random\+::mt19937 \&\mbox{\hyperlink{namespacerobogen_a515ff4a1d97df243d8dd870af14a8291}{rng}})
+\begin{DoxyCompactList}\small\item\em Runs the simulations Relies on two extern variables. See .cpp. \end{DoxyCompactList}\item 
+unsigned int \mbox{\hyperlink{namespacerobogen_a01c42b81fce031d3cfa98643aad63d56}{robogen\+::run\+Simulations}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1RobogenConfig}{Robogen\+Config}} $>$ configuration, const robogen\+Message\+::\+Robot \&robot\+Message, \mbox{\hyperlink{classrobogen_1_1IViewer}{IViewer}} $\ast$viewer, boost\+::random\+::mt19937 \&\mbox{\hyperlink{namespacerobogen_a515ff4a1d97df243d8dd870af14a8291}{rng}}, bool only\+Once, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1FileViewerLog}{File\+Viewer\+Log}} $>$ \mbox{\hyperlink{namespacerobogen_aa474e453f4a3a3d2305d58fcb99d4762}{log}})
+\begin{DoxyCompactList}\small\item\em Runs the simulations. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+d\+World\+ID \mbox{\hyperlink{Simulator_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}
+\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{robogen\+::\+EDQDMap}} \mbox{\hyperlink{Simulator_8cpp_a3a4606adc56539bcfd766bf97a5d1f9a}{best\+Map\+\_\+}}
+\item 
+d\+Joint\+Group\+ID \mbox{\hyperlink{Simulator_8cpp_ab3240c6ce5918cce05d193e622c30d7c}{ode\+Contact\+Group}}
+\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_a7367c63f2c2b94086aedc0741248213b}{g\+Current\+Build\+Info}} = \char`\"{}Robot logging testing\char`\"{}
+\begin{DoxyCompactList}\small\item\em GLOBAL VARIABLES. \end{DoxyCompactList}\item 
+long int \mbox{\hyperlink{Simulator_8cpp_a18805ab02a9b7e83ae90cb734616cd6f}{g\+Version}} = 20220518
+\begin{DoxyCompactList}\small\item\em version \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_afcdc1f9ed4d52e83c6b0d09c1eac8f41}{g\+Log\+Comment\+Text}} = \char`\"{}(under development)\char`\"{}
+\begin{DoxyCompactList}\small\item\em user comment that will be written in the log file (e.\+g. description of experimental setup) \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_a289fdc0c3ec759aadaf2534a8b8bb056}{g\+Start\+Time}} = \mbox{\hyperlink{Util_8cpp_a0936f59402074a1c9ee0d3d09ef9ee30}{get\+Current\+Time\+As\+Readable\+String}}()
+\begin{DoxyCompactList}\small\item\em a string containing a readable form of the time when the current program was started (useful for naming log files). \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{Simulator_8cpp_a146526ec9c46f35d898e0b5049f522ce}{g\+Start\+Time\+Raw\+Format}} = time(0)
+\begin{DoxyCompactList}\small\item\em Start time -\/ raw format. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_aca000554b51448f1b4779e1d3a2445c7}{g\+Stop\+Time}}
+\begin{DoxyCompactList}\small\item\em a string containing a readable form of the time when the current program was stopped. \end{DoxyCompactList}\item 
+time\+\_\+t \mbox{\hyperlink{Simulator_8cpp_abe949529d904dc8881558c88fc94ab9b}{g\+Stop\+Time\+Raw\+Format}} = time(0)
+\begin{DoxyCompactList}\small\item\em Stop time -\/ raw format. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_a6c855082e714a86c9642ba1beb8900ab}{g\+Compile\+Time}} = \+\_\+\+\_\+\+TIME\+\_\+\+\_\+
+\begin{DoxyCompactList}\small\item\em Compile time. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_acf3156825a97be40dc6e1a36a1292d2c}{g\+Compile\+Date}} = \+\_\+\+\_\+\+DATE\+\_\+\+\_\+
+\begin{DoxyCompactList}\small\item\em Compile date. \end{DoxyCompactList}\item 
+std\+::ofstream \mbox{\hyperlink{Simulator_8cpp_acbf34a389aa24983bfcef089b5e827e9}{g\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Log file. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{Simulator_8cpp_a01151e0c1f6c70353e0dd943b39c1833}{g\+Logger}} = NULL
+\begin{DoxyCompactList}\small\item\em \doxylink{classLogger}{Logger}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Simulator_8cpp_a276d7569ad68c22d6cbfef0b449f3a5c}{g\+Verbose\+\_\+commandlineargument}} = false
+\begin{DoxyCompactList}\small\item\em Verbose cmd argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Simulator_8cpp_acb9d42274b02b165aee7942548554f2c}{g\+Log\+Directoryname\+\_\+commandlineargument}} = false
+\begin{DoxyCompactList}\small\item\em Log directory cmd argument. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{Simulator_8cpp_afea9661025a65f7475f1d4dcbb013f49}{g\+Batch\+Mode\+\_\+commandlineargument}} = false
+\begin{DoxyCompactList}\small\item\em Batch mode flag. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_a12d5e03a01bd6ab67d017566841fbeb1}{g\+Log\+Directoryname}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em LOg directory name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_ae5706e48e9b0f375ae241a3866a68612}{g\+Log\+Filename}} = \char`\"{}datalog\+\_\+\char`\"{} + \mbox{\hyperlink{Simulator_8cpp_a289fdc0c3ec759aadaf2534a8b8bb056}{g\+Start\+Time}} + \char`\"{}\+\_\+\char`\"{} + \mbox{\hyperlink{Util_8cpp_a21065bd1a3ef9a8909b2051554ec0bad}{getpid\+As\+Readable\+String}}() + \char`\"{}.txt\char`\"{}
+\begin{DoxyCompactList}\small\item\em Log file name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{Simulator_8cpp_afd788fad4742e9cd1f8c27892ca699fe}{g\+Log\+Full\+Filename}} = \char`\"{}\char`\"{}
+\begin{DoxyCompactList}\small\item\em Log full filename -\/ directory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Simulator_8cpp_a7ada5cfc3a0deea65edc96c9ee3db551}{g\+Random\+Seed}} = -\/1
+\begin{DoxyCompactList}\small\item\em Random seed. Default value (=\char`\"{}-\/1\char`\"{}) means time based. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{Simulator_8cpp_a7918ae981161f4ce155de8c92d1c143f}{g\+Nb\+Of\+Robots}} = 0
+\item 
+std\+::vector$<$ osg\+::\+Vec3d $>$ \mbox{\hyperlink{Simulator_8cpp_acabc1484692e60720b18d0d526174b82}{resource\+Pos}}
+\item 
+\mbox{\hyperlink{classEDQD_1_1Parameters}{EDQD\+::\+Parameters}} \mbox{\hyperlink{Simulator_8cpp_a6822f5d03cd8515e1c4626bdc54ae6ca}{EDQD\+\_\+params\+\_\+obj}}
+\item 
+unsigned int \mbox{\hyperlink{namespacerobogen_a626e3dfa39895792ea5cafc331a8c6d9}{robogen\+::iterations}} = 0
+\begin{DoxyCompactList}\small\item\em Simulation iterations -\/ SM. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1EDQDMap}{EDQDMap}} $\ast$ \mbox{\hyperlink{namespacerobogen_af0c721e66a7881077dd5a6c304305d87}{robogen\+::morph\+Map\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Simulator_8cpp_a3a4606adc56539bcfd766bf97a5d1f9a}\label{Simulator_8cpp_a3a4606adc56539bcfd766bf97a5d1f9a} 
+\index{Simulator.cpp@{Simulator.cpp}!bestMap\_@{bestMap\_}}
+\index{bestMap\_@{bestMap\_}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{bestMap\_}{bestMap\_}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classrobogen_1_1EDQDMap}{robogen\+::\+EDQDMap}} best\+Map\+\_\+}
+
+\Hypertarget{Simulator_8cpp_a6822f5d03cd8515e1c4626bdc54ae6ca}\label{Simulator_8cpp_a6822f5d03cd8515e1c4626bdc54ae6ca} 
+\index{Simulator.cpp@{Simulator.cpp}!EDQD\_params\_obj@{EDQD\_params\_obj}}
+\index{EDQD\_params\_obj@{EDQD\_params\_obj}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{EDQD\_params\_obj}{EDQD\_params\_obj}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEDQD_1_1Parameters}{EDQD\+::\+Parameters}} EDQD\+\_\+params\+\_\+obj}
+
+\Hypertarget{Simulator_8cpp_afea9661025a65f7475f1d4dcbb013f49}\label{Simulator_8cpp_afea9661025a65f7475f1d4dcbb013f49} 
+\index{Simulator.cpp@{Simulator.cpp}!gBatchMode\_commandlineargument@{gBatchMode\_commandlineargument}}
+\index{gBatchMode\_commandlineargument@{gBatchMode\_commandlineargument}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gBatchMode\_commandlineargument}{gBatchMode\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Batch\+Mode\+\_\+commandlineargument = false}
+
+
+
+Batch mode flag. 
+
+\Hypertarget{Simulator_8cpp_acf3156825a97be40dc6e1a36a1292d2c}\label{Simulator_8cpp_acf3156825a97be40dc6e1a36a1292d2c} 
+\index{Simulator.cpp@{Simulator.cpp}!gCompileDate@{gCompileDate}}
+\index{gCompileDate@{gCompileDate}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gCompileDate}{gCompileDate}}
+{\footnotesize\ttfamily std\+::string g\+Compile\+Date = \+\_\+\+\_\+\+DATE\+\_\+\+\_\+}
+
+
+
+Compile date. 
+
+\Hypertarget{Simulator_8cpp_a6c855082e714a86c9642ba1beb8900ab}\label{Simulator_8cpp_a6c855082e714a86c9642ba1beb8900ab} 
+\index{Simulator.cpp@{Simulator.cpp}!gCompileTime@{gCompileTime}}
+\index{gCompileTime@{gCompileTime}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gCompileTime}{gCompileTime}}
+{\footnotesize\ttfamily std\+::string g\+Compile\+Time = \+\_\+\+\_\+\+TIME\+\_\+\+\_\+}
+
+
+
+Compile time. 
+
+\Hypertarget{Simulator_8cpp_a7367c63f2c2b94086aedc0741248213b}\label{Simulator_8cpp_a7367c63f2c2b94086aedc0741248213b} 
+\index{Simulator.cpp@{Simulator.cpp}!gCurrentBuildInfo@{gCurrentBuildInfo}}
+\index{gCurrentBuildInfo@{gCurrentBuildInfo}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gCurrentBuildInfo}{gCurrentBuildInfo}}
+{\footnotesize\ttfamily std\+::string g\+Current\+Build\+Info = \char`\"{}Robot logging testing\char`\"{}}
+
+
+
+GLOBAL VARIABLES. 
+
+display through \char`\"{}-\/v\mbox{[}ersion\mbox{]}\char`\"{} command line option -- check/set value in config.\+h \Hypertarget{Simulator_8cpp_afcdc1f9ed4d52e83c6b0d09c1eac8f41}\label{Simulator_8cpp_afcdc1f9ed4d52e83c6b0d09c1eac8f41} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogCommentText@{gLogCommentText}}
+\index{gLogCommentText@{gLogCommentText}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogCommentText}{gLogCommentText}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Comment\+Text = \char`\"{}(under development)\char`\"{}}
+
+
+
+user comment that will be written in the log file (e.\+g. description of experimental setup) 
+
+\Hypertarget{Simulator_8cpp_a12d5e03a01bd6ab67d017566841fbeb1}\label{Simulator_8cpp_a12d5e03a01bd6ab67d017566841fbeb1} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogDirectoryname@{gLogDirectoryname}}
+\index{gLogDirectoryname@{gLogDirectoryname}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogDirectoryname}{gLogDirectoryname}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Directoryname = \char`\"{}\char`\"{}}
+
+
+
+LOg directory name. 
+
+\Hypertarget{Simulator_8cpp_acb9d42274b02b165aee7942548554f2c}\label{Simulator_8cpp_acb9d42274b02b165aee7942548554f2c} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogDirectoryname\_commandlineargument@{gLogDirectoryname\_commandlineargument}}
+\index{gLogDirectoryname\_commandlineargument@{gLogDirectoryname\_commandlineargument}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogDirectoryname\_commandlineargument}{gLogDirectoryname\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Log\+Directoryname\+\_\+commandlineargument = false}
+
+
+
+Log directory cmd argument. 
+
+\Hypertarget{Simulator_8cpp_acbf34a389aa24983bfcef089b5e827e9}\label{Simulator_8cpp_acbf34a389aa24983bfcef089b5e827e9} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogFile@{gLogFile}}
+\index{gLogFile@{gLogFile}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogFile}{gLogFile}}
+{\footnotesize\ttfamily std\+::ofstream g\+Log\+File}
+
+
+
+Log file. 
+
+\Hypertarget{Simulator_8cpp_ae5706e48e9b0f375ae241a3866a68612}\label{Simulator_8cpp_ae5706e48e9b0f375ae241a3866a68612} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogFilename@{gLogFilename}}
+\index{gLogFilename@{gLogFilename}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogFilename}{gLogFilename}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Filename = \char`\"{}datalog\+\_\+\char`\"{} + \mbox{\hyperlink{Simulator_8cpp_a289fdc0c3ec759aadaf2534a8b8bb056}{g\+Start\+Time}} + \char`\"{}\+\_\+\char`\"{} + \mbox{\hyperlink{Util_8cpp_a21065bd1a3ef9a8909b2051554ec0bad}{getpid\+As\+Readable\+String}}() + \char`\"{}.txt\char`\"{}}
+
+
+
+Log file name. 
+
+\Hypertarget{Simulator_8cpp_afd788fad4742e9cd1f8c27892ca699fe}\label{Simulator_8cpp_afd788fad4742e9cd1f8c27892ca699fe} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogFullFilename@{gLogFullFilename}}
+\index{gLogFullFilename@{gLogFullFilename}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogFullFilename}{gLogFullFilename}}
+{\footnotesize\ttfamily std\+::string g\+Log\+Full\+Filename = \char`\"{}\char`\"{}}
+
+
+
+Log full filename -\/ directory. 
+
+\Hypertarget{Simulator_8cpp_a01151e0c1f6c70353e0dd943b39c1833}\label{Simulator_8cpp_a01151e0c1f6c70353e0dd943b39c1833} 
+\index{Simulator.cpp@{Simulator.cpp}!gLogger@{gLogger}}
+\index{gLogger@{gLogger}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gLogger}{gLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}}$\ast$ g\+Logger = NULL}
+
+
+
+\doxylink{classLogger}{Logger}. 
+
+\Hypertarget{Simulator_8cpp_a7918ae981161f4ce155de8c92d1c143f}\label{Simulator_8cpp_a7918ae981161f4ce155de8c92d1c143f} 
+\index{Simulator.cpp@{Simulator.cpp}!gNbOfRobots@{gNbOfRobots}}
+\index{gNbOfRobots@{gNbOfRobots}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gNbOfRobots}{gNbOfRobots}}
+{\footnotesize\ttfamily int g\+Nb\+Of\+Robots = 0}
+
+\Hypertarget{Simulator_8cpp_a7ada5cfc3a0deea65edc96c9ee3db551}\label{Simulator_8cpp_a7ada5cfc3a0deea65edc96c9ee3db551} 
+\index{Simulator.cpp@{Simulator.cpp}!gRandomSeed@{gRandomSeed}}
+\index{gRandomSeed@{gRandomSeed}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gRandomSeed}{gRandomSeed}}
+{\footnotesize\ttfamily int g\+Random\+Seed = -\/1}
+
+
+
+Random seed. Default value (=\char`\"{}-\/1\char`\"{}) means time based. 
+
+\char`\"{}\+Note that boost/c++11 random is slower (by one order of magnitude), but more precise,  than old classic rand()\char`\"{} \Hypertarget{Simulator_8cpp_a289fdc0c3ec759aadaf2534a8b8bb056}\label{Simulator_8cpp_a289fdc0c3ec759aadaf2534a8b8bb056} 
+\index{Simulator.cpp@{Simulator.cpp}!gStartTime@{gStartTime}}
+\index{gStartTime@{gStartTime}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gStartTime}{gStartTime}}
+{\footnotesize\ttfamily std\+::string g\+Start\+Time = \mbox{\hyperlink{Util_8cpp_a0936f59402074a1c9ee0d3d09ef9ee30}{get\+Current\+Time\+As\+Readable\+String}}()}
+
+
+
+a string containing a readable form of the time when the current program was started (useful for naming log files). 
+
+\Hypertarget{Simulator_8cpp_a146526ec9c46f35d898e0b5049f522ce}\label{Simulator_8cpp_a146526ec9c46f35d898e0b5049f522ce} 
+\index{Simulator.cpp@{Simulator.cpp}!gStartTimeRawFormat@{gStartTimeRawFormat}}
+\index{gStartTimeRawFormat@{gStartTimeRawFormat}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gStartTimeRawFormat}{gStartTimeRawFormat}}
+{\footnotesize\ttfamily time\+\_\+t g\+Start\+Time\+Raw\+Format = time(0)}
+
+
+
+Start time -\/ raw format. 
+
+\Hypertarget{Simulator_8cpp_aca000554b51448f1b4779e1d3a2445c7}\label{Simulator_8cpp_aca000554b51448f1b4779e1d3a2445c7} 
+\index{Simulator.cpp@{Simulator.cpp}!gStopTime@{gStopTime}}
+\index{gStopTime@{gStopTime}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gStopTime}{gStopTime}}
+{\footnotesize\ttfamily std\+::string g\+Stop\+Time}
+
+
+
+a string containing a readable form of the time when the current program was stopped. 
+
+\Hypertarget{Simulator_8cpp_abe949529d904dc8881558c88fc94ab9b}\label{Simulator_8cpp_abe949529d904dc8881558c88fc94ab9b} 
+\index{Simulator.cpp@{Simulator.cpp}!gStopTimeRawFormat@{gStopTimeRawFormat}}
+\index{gStopTimeRawFormat@{gStopTimeRawFormat}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gStopTimeRawFormat}{gStopTimeRawFormat}}
+{\footnotesize\ttfamily time\+\_\+t g\+Stop\+Time\+Raw\+Format = time(0)}
+
+
+
+Stop time -\/ raw format. 
+
+\Hypertarget{Simulator_8cpp_a276d7569ad68c22d6cbfef0b449f3a5c}\label{Simulator_8cpp_a276d7569ad68c22d6cbfef0b449f3a5c} 
+\index{Simulator.cpp@{Simulator.cpp}!gVerbose\_commandlineargument@{gVerbose\_commandlineargument}}
+\index{gVerbose\_commandlineargument@{gVerbose\_commandlineargument}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gVerbose\_commandlineargument}{gVerbose\_commandlineargument}}
+{\footnotesize\ttfamily bool g\+Verbose\+\_\+commandlineargument = false}
+
+
+
+Verbose cmd argument. 
+
+\Hypertarget{Simulator_8cpp_a18805ab02a9b7e83ae90cb734616cd6f}\label{Simulator_8cpp_a18805ab02a9b7e83ae90cb734616cd6f} 
+\index{Simulator.cpp@{Simulator.cpp}!gVersion@{gVersion}}
+\index{gVersion@{gVersion}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{gVersion}{gVersion}}
+{\footnotesize\ttfamily long int g\+Version = 20220518}
+
+
+
+version 
+
+\Hypertarget{Simulator_8cpp_ab3240c6ce5918cce05d193e622c30d7c}\label{Simulator_8cpp_ab3240c6ce5918cce05d193e622c30d7c} 
+\index{Simulator.cpp@{Simulator.cpp}!odeContactGroup@{odeContactGroup}}
+\index{odeContactGroup@{odeContactGroup}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{odeContactGroup}{odeContactGroup}}
+{\footnotesize\ttfamily d\+Joint\+Group\+ID ode\+Contact\+Group\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Simulator_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}\label{Simulator_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718} 
+\index{Simulator.cpp@{Simulator.cpp}!odeWorld@{odeWorld}}
+\index{odeWorld@{odeWorld}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{odeWorld}{odeWorld}}
+{\footnotesize\ttfamily d\+World\+ID ode\+World\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{Simulator_8cpp_acabc1484692e60720b18d0d526174b82}\label{Simulator_8cpp_acabc1484692e60720b18d0d526174b82} 
+\index{Simulator.cpp@{Simulator.cpp}!resourcePos@{resourcePos}}
+\index{resourcePos@{resourcePos}!Simulator.cpp@{Simulator.cpp}}
+\doxysubsubsection{\texorpdfstring{resourcePos}{resourcePos}}
+{\footnotesize\ttfamily std\+::vector$<$osg\+::\+Vec3d$>$ resource\+Pos}
+

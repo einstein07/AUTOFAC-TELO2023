@@ -1,0 +1,116 @@
+\hypertarget{WebGLLogger_8h_source}{}\doxysection{Web\+GLLogger.\+h}
+\label{WebGLLogger_8h_source}\index{src/viewer/WebGLLogger.h@{src/viewer/WebGLLogger.h}}
+\mbox{\hyperlink{WebGLLogger_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ FileViewerLog.h\ \ \ 1.0\ \ \ Aug\ 20,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Guillaume\ Leclerc\ (guillaume.leclerc@epfl.ch)}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2014\ Titus\ Cieslweski,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00029\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ WEBGLLOGGER\_H\_}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ WEBGLLOGGER\_H\_}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ JSON\_TAGS\ JSON\_REAL\_PRECISION(10)\ |\ JSON\_COMPACT}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robot_8h}{Robot.h}}"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ <\mbox{\hyperlink{Scenario_8h}{scenario/Scenario.h}}>}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ <jansson.h>}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ <model/components/ParametricBrickModel.h>}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00048\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1BodyDescriptor}{BodyDescriptor}}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ boost::shared\_ptr<Model>\ \mbox{\hyperlink{structrobogen_1_1BodyDescriptor_a4439e375e83b000b2876f46fef8fec40}{model}};}
+\DoxyCodeLine{00056\ \ \ \ \ std::string\ \mbox{\hyperlink{structrobogen_1_1BodyDescriptor_a64a34b044492d1ffa76ba6a8179fe137}{meshName}};}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1BodyDescriptor_a5c3b87aba2f62edd04ee1c1210d4fd29}{bodyId}};}
+\DoxyCodeLine{00061\ \};}
+\DoxyCodeLine{00065\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}\ \{}
+\DoxyCodeLine{00066\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}(std::string\ inFileName,\ boost::shared\_ptr<Scenario>\ in\_scenario,}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ targetFramerate\ =\ 120.0);}
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespacerobogen_aa474e453f4a3a3d2305d58fcb99d4762}{log}}(\textcolor{keywordtype}{double}\ dt);}
+\DoxyCodeLine{00079\ \ \ \ \ \string~\ WebGLLogger();}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_ac6b348b4babf728c51b221bba394d17e}{STRUCTURE\_TAG}};}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a829392f70ac062da99a5010025057dfd}{LOG\_TAG}};}
+\DoxyCodeLine{00091\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a41c57c0bff8957067be9b671570bd6cb}{ATTITUDE\_TAG}};}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a19925559e7babb04e377c176dcc6b682}{POSITION\_TAG}};}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a21e72eb5ea3f62d0681623e6a5a8b083}{REL\_POS\_TAG}};}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_afe9e3b7b8b2fe6d6d4ec6554625f8d7f}{REL\_ATT\_TAG}};}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_acd883bfe9bd2e88fca92453a09c90d0b}{MAP\_TAG}};}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_afbf0e76ac634e66cfd64a82fad9b9315}{MESH\_PATH}};}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a7a4f369c5fef360977f4fd2785445c04}{MAP\_DIM\_TAG}};}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a553d21a355a8412a3ba6bdf1c13b2150}{MAP\_DATA\_TAG}};}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a49814ef80ace4f07291db0f1357aad1a}{OBSTACLE\_TAGS}};}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a264a98b975ab533a09d5e42caca1f1e0}{OBSTACLE\_DEF\_TAG}};}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_aa05b90a5ab15667488751032a732d672}{OBSTACLE\_LOG\_TAG}};}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_ae3aabc1609afd6fb3865a2b7abacffec}{LIGHT\_TAGS}};}
+\DoxyCodeLine{00139\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_af99529f7528c918c88f5a66c5cd55318}{getStructureJSON}}();}
+\DoxyCodeLine{00143\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_aef1fd23bf0756ca8c481d4355851f772}{getObstaclesDefinitionJSON}}();}
+\DoxyCodeLine{00147\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a593b242830ce6896db90fdc7209ee8d3}{getLightsJSON}}();}
+\DoxyCodeLine{00151\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_acb036c68c37150186002e4ff0c73dde2}{getLastLogJSON}}();}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{double}\ frameRate;}
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{double}\ lastFrame;}
+\DoxyCodeLine{00156\ \ \ \ \ boost::shared\_ptr<Robot>\ robot;}
+\DoxyCodeLine{00157\ \ \ \ \ boost::shared\_ptr<Scenario>\ scenario;}
+\DoxyCodeLine{00158\ \ \ \ \ std::string\ fileName;}
+\DoxyCodeLine{00159\ \ \ \ \ json\_t\ *jsonMap;}
+\DoxyCodeLine{00160\ \ \ \ \ json\_t\ *jsonRoot;}
+\DoxyCodeLine{00161\ \ \ \ \ json\_t\ *jsonStructure;}
+\DoxyCodeLine{00162\ \ \ \ \ json\_t\ *jsonLog;}
+\DoxyCodeLine{00163\ \ \ \ \ json\_t\ *jsonObstacles;}
+\DoxyCodeLine{00164\ \ \ \ \ json\_t\ *jsonObstaclesDefinition;}
+\DoxyCodeLine{00165\ \ \ \ \ json\_t\ *jsonObstaclesLog;}
+\DoxyCodeLine{00166\ \ \ \ \ json\_t\ *jsonLights;}
+\DoxyCodeLine{00167\ }
+\DoxyCodeLine{00168\ \ \ \ \ std::vector<struct\ BodyDescriptor>\ bodies;}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00170\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ getFormatedStringForCuboid(\textcolor{keywordtype}{double}\ width,\ \textcolor{keywordtype}{double}\ height,}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ thickness);}
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keyword}{static}\ std::string\ getFormatedStringForCylinder(\textcolor{keywordtype}{double}\ radius,}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ height);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{comment}{//disable\ copy\ constructor;}}
+\DoxyCodeLine{00176\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}\&\ that);}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{comment}{//disable\ copy\ constructor}}
+\DoxyCodeLine{00178\ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}\&\ operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classrobogen_1_1WebGLLogger}{WebGLLogger}}\&\ that);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{void}\ generateBodyCollection();}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ generateMapInfo();}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ writeJSONHeaders();}
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ writeRobotStructure();}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{void}\ writeObstaclesDefinition();}
+\DoxyCodeLine{00184\ \};}
+\DoxyCodeLine{00185\ \}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00188\ }
+
+\end{DoxyCode}

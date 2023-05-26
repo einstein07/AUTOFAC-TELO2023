@@ -1,0 +1,93 @@
+\hypertarget{CompositeBody_8h_source}{}\doxysection{Composite\+Body.\+h}
+\label{CompositeBody_8h_source}\index{src/model/CompositeBody.h@{src/model/CompositeBody.h}}
+\mbox{\hyperlink{CompositeBody_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ CompositeBody.h\ \ \ 1.0\ \ \ September\ 16,\ 2015}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_COMPOSITEBODY\_H\_}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ ROBOGEN\_COMPOSITEBODY\_H\_}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ <set>}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ <boost/shared\_ptr.hpp>}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{AbstractBody_8h}{AbstractBody.h}}"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{SimpleBody_8h}{SimpleBody.h}}"{}}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1CompositeBody}{CompositeBody}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{AbstractBody}}\ \{}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1CompositeBody_afef8489ce5acba217f637476d94392a9}{CompositeBody}}()\ \{\ \}}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a385f1bf55c6e7e104b78e81ae3ac670e}{init}}(std::vector<boost::shared\_ptr<AbstractBody>\ >\ subBodies,}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ dWorldID\ world,\ \textcolor{keywordtype}{bool}\ multiModel\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a98824fe475e485abf55e442725d47834}{\string~CompositeBody}}();}
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Vec3\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a1610e0e1595c7e95e8cf04d99d62d8ce}{getPosition}}();}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{virtual}\ osg::Quat\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a0a9beadb0c215eb34700ca954b631cbe}{getAttitude}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ std::vector<boost::weak\_ptr<AbstractBody>\ >\ \&\mbox{\hyperlink{classrobogen_1_1CompositeBody_a3e5b92408288a729717294fa8b76b44e}{getSubBodies}}()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ subBodies\_;}
+\DoxyCodeLine{00079\ \ \ \ \ \}}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a43d1ea8c4676db37efc28cc2b881ca9b}{isMultiModel}}()\ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ multiModel\_;}
+\DoxyCodeLine{00085\ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ std::vector<boost::shared\_ptr<Joint>\ >\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a92129f4f518f82db1996bdd8db9d6bf9}{getAllJoints}}();}
+\DoxyCodeLine{00093\ \ \ \ \ std::string\ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a27aac4d47f841a6091e33712a0d2d31e}{str}}(\textcolor{keywordtype}{int}\ indent=0);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \ \ \ \ \textcolor{keywordtype}{void}\ addSubBody(boost::shared\_ptr<AbstractBody>\ subBody,}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ directDescendant\ =\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{void}\ updateDescendantBodies();}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ std::vector<boost::weak\_ptr<SimpleBody>\ >\ flattenSubBodies();}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \ \ \ \ dMass\ compositeMass\_;}
+\DoxyCodeLine{00105\ \ \ \ \ std::vector<boost::weak\_ptr<AbstractBody>\ >\ subBodies\_;}
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{bool}\ multiModel\_;}
+\DoxyCodeLine{00107\ \ \ \ \ std::set<dBodyID>\ bodiesToDestroy\_;}
+\DoxyCodeLine{00108\ \ \ \ \ std::map<dGeomID,\ osg::Quat>\ rotations\_;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_COMPOSITEBODY\_H\_\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+
+\end{DoxyCode}

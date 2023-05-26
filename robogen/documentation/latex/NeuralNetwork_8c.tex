@@ -1,0 +1,128 @@
+\hypertarget{NeuralNetwork_8c}{}\doxysection{src/brain/\+Neural\+Network.c File Reference}
+\label{NeuralNetwork_8c}\index{src/brain/NeuralNetwork.c@{src/brain/NeuralNetwork.c}}
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}brain/\+Neural\+Network.\+h\char`\"{}}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{NeuralNetwork_8c_a598a3330b3c21701223ee0ca14316eca}{PI}}~3.\+14159265358979323846
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{NeuralNetwork_8c_a35392862192b6908016afbdc5700de3b}{init\+Network}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, unsigned int n\+Inputs, unsigned int n\+Outputs, unsigned int n\+Hidden, const float $\ast$weights, const float $\ast$params, const unsigned int $\ast$types)
+\begin{DoxyCompactList}\small\item\em Initializes a \doxylink{structNeuralNetwork}{Neural\+Network} data structure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8c_a42c1a714446f274bbd33ecfe29419062}{feed}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, const float $\ast$input)
+\begin{DoxyCompactList}\small\item\em Feed the neural network with input values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8c_acbb18e1b014c76d19ae75ec07ad7977c}{step}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, float time)
+\begin{DoxyCompactList}\small\item\em Step the neural network of 1 timestep. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8c_adc4df3b0a35f861873a2e725394d83be}{fetch}} (const \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, float $\ast$output)
+\begin{DoxyCompactList}\small\item\em Read the output of the neural network. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{NeuralNetwork_8c_a2b4d7c250e5018b3257e0749f8427c5a}{set\+Weights}} (\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$network, const float $\ast$weights)
+\begin{DoxyCompactList}\small\item\em Set the weights of the neural network with new/updated values -\/SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{NeuralNetwork_8c_a598a3330b3c21701223ee0ca14316eca}\label{NeuralNetwork_8c_a598a3330b3c21701223ee0ca14316eca} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!PI@{PI}}
+\index{PI@{PI}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~3.\+14159265358979323846}
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{NeuralNetwork_8c_a42c1a714446f274bbd33ecfe29419062}\label{NeuralNetwork_8c_a42c1a714446f274bbd33ecfe29419062} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!feed@{feed}}
+\index{feed@{feed}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{feed()}{feed()}}
+{\footnotesize\ttfamily void feed (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{const float $\ast$}]{input }\end{DoxyParamCaption})}
+
+
+
+Feed the neural network with input values. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em input} & the input values, must be an array of m inputs \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8c_adc4df3b0a35f861873a2e725394d83be}\label{NeuralNetwork_8c_adc4df3b0a35f861873a2e725394d83be} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!fetch@{fetch}}
+\index{fetch@{fetch}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{fetch()}{fetch()}}
+{\footnotesize\ttfamily void fetch (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{float $\ast$}]{output }\end{DoxyParamCaption})}
+
+
+
+Read the output of the neural network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em output} & the output of the neural network, must point to an area of memory of at least size n \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8c_a35392862192b6908016afbdc5700de3b}\label{NeuralNetwork_8c_a35392862192b6908016afbdc5700de3b} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!initNetwork@{initNetwork}}
+\index{initNetwork@{initNetwork}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{initNetwork()}{initNetwork()}}
+{\footnotesize\ttfamily void init\+Network (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{unsigned int}]{n\+Inputs,  }\item[{unsigned int}]{n\+Outputs,  }\item[{unsigned int}]{n\+Hidden,  }\item[{const float $\ast$}]{weights,  }\item[{const float $\ast$}]{params,  }\item[{const unsigned int $\ast$}]{types }\end{DoxyParamCaption})}
+
+
+
+Initializes a \doxylink{structNeuralNetwork}{Neural\+Network} data structure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em n\+Inputs} & the number of inputs of the neural network \\
+\hline
+{\em n\+Outputs} & the number of outputs of the neural network \\
+\hline
+{\em weight} & weights of the neural network. Weights must be provided in the same order as specified in the \doxylink{structNeuralNetwork}{Neural\+Network} structure \\
+\hline
+{\em bias} & the bias of each output neuron \\
+\hline
+{\em gain} & the gain of each output neuron \\
+\hline
+\end{DoxyParams}
+\Hypertarget{NeuralNetwork_8c_a2b4d7c250e5018b3257e0749f8427c5a}\label{NeuralNetwork_8c_a2b4d7c250e5018b3257e0749f8427c5a} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!setWeights@{setWeights}}
+\index{setWeights@{setWeights}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{setWeights()}{setWeights()}}
+{\footnotesize\ttfamily void set\+Weights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{const float $\ast$}]{weights }\end{DoxyParamCaption})}
+
+
+
+Set the weights of the neural network with new/updated values -\/SM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em weights} & the weight values, must be an array \\
+\hline
+\end{DoxyParams}
+Lazy approach to get number of weights TODO\+: Change it to something more efficient\Hypertarget{NeuralNetwork_8c_acbb18e1b014c76d19ae75ec07ad7977c}\label{NeuralNetwork_8c_acbb18e1b014c76d19ae75ec07ad7977c} 
+\index{NeuralNetwork.c@{NeuralNetwork.c}!step@{step}}
+\index{step@{step}!NeuralNetwork.c@{NeuralNetwork.c}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily void step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $\ast$}]{network,  }\item[{float}]{time }\end{DoxyParamCaption})}
+
+
+
+Step the neural network of 1 timestep. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em network} & the neural network \\
+\hline
+{\em time,amount} & of time elapsed since brain turned on (needed for oscillators) \\
+\hline
+\end{DoxyParams}

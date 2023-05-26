@@ -1,0 +1,287 @@
+\hypertarget{classrobogen_1_1WebGLLogger}{}\doxysection{robogen\+::Web\+GLLogger Class Reference}
+\label{classrobogen_1_1WebGLLogger}\index{robogen::WebGLLogger@{robogen::WebGLLogger}}
+
+
+Class to describe \doxylink{classrobogen_1_1WebGLLogger}{Web\+GLLogger}.  
+
+
+
+
+{\ttfamily \#include $<$Web\+GLLogger.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1WebGLLogger_aa8947810b9469e2c89f6dfb5564d8f1b}{Web\+GLLogger}} (std\+::string in\+File\+Name, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ in\+\_\+scenario, double target\+Framerate=120.\+0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1WebGLLogger_af3a77be8b74ef3c5b5570f4812c1e427}{log}} (double dt)
+\begin{DoxyCompactList}\small\item\em Log. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1WebGLLogger_a32e3172b4764252fc040710bd3a534e6}{$\sim$\+Web\+GLLogger}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1WebGLLogger_af99529f7528c918c88f5a66c5cd55318}{get\+Structure\+JSON}} ()
+\begin{DoxyCompactList}\small\item\em Returns structure JSON. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1WebGLLogger_aef1fd23bf0756ca8c481d4355851f772}{get\+Obstacles\+Definition\+JSON}} ()
+\begin{DoxyCompactList}\small\item\em Returns obstacle definition JSON. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a593b242830ce6896db90fdc7209ee8d3}{get\+Lights\+JSON}} ()
+\begin{DoxyCompactList}\small\item\em Returns lights JSON. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1WebGLLogger_acb036c68c37150186002e4ff0c73dde2}{get\+Last\+Log\+JSON}} ()
+\begin{DoxyCompactList}\small\item\em Returns last log JSON. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_ac6b348b4babf728c51b221bba394d17e}{STRUCTURE\+\_\+\+TAG}} = \char`\"{}structure\char`\"{}
+\begin{DoxyCompactList}\small\item\em Structure tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a829392f70ac062da99a5010025057dfd}{LOG\+\_\+\+TAG}} = \char`\"{}log\char`\"{}
+\begin{DoxyCompactList}\small\item\em Log tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a41c57c0bff8957067be9b671570bd6cb}{ATTITUDE\+\_\+\+TAG}} = \char`\"{}attitude\char`\"{}
+\begin{DoxyCompactList}\small\item\em Attitude tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a19925559e7babb04e377c176dcc6b682}{POSITION\+\_\+\+TAG}} = \char`\"{}position\char`\"{}
+\begin{DoxyCompactList}\small\item\em Position tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a21e72eb5ea3f62d0681623e6a5a8b083}{REL\+\_\+\+POS\+\_\+\+TAG}} = \char`\"{}rel\+\_\+position\char`\"{}
+\begin{DoxyCompactList}\small\item\em REL Position tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_afe9e3b7b8b2fe6d6d4ec6554625f8d7f}{REL\+\_\+\+ATT\+\_\+\+TAG}} = \char`\"{}rel\+\_\+attitude\char`\"{}
+\begin{DoxyCompactList}\small\item\em REL attitude tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_acd883bfe9bd2e88fca92453a09c90d0b}{MAP\+\_\+\+TAG}} = \char`\"{}map\char`\"{}
+\begin{DoxyCompactList}\small\item\em Map tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_afbf0e76ac634e66cfd64a82fad9b9315}{MESH\+\_\+\+PATH}} = \char`\"{}filename\char`\"{}
+\begin{DoxyCompactList}\small\item\em \doxylink{classrobogen_1_1Mesh}{Mesh} path. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a7a4f369c5fef360977f4fd2785445c04}{MAP\+\_\+\+DIM\+\_\+\+TAG}} = \char`\"{}size\char`\"{}
+\begin{DoxyCompactList}\small\item\em Map dimension tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a553d21a355a8412a3ba6bdf1c13b2150}{MAP\+\_\+\+DATA\+\_\+\+TAG}} = \char`\"{}data\char`\"{}
+\begin{DoxyCompactList}\small\item\em Map data tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a49814ef80ace4f07291db0f1357aad1a}{OBSTACLE\+\_\+\+TAGS}} = \char`\"{}obstacles\char`\"{}
+\begin{DoxyCompactList}\small\item\em Obstacle tags. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_a264a98b975ab533a09d5e42caca1f1e0}{OBSTACLE\+\_\+\+DEF\+\_\+\+TAG}} = \char`\"{}definition\char`\"{}
+\begin{DoxyCompactList}\small\item\em Obstacle DEF tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_aa05b90a5ab15667488751032a732d672}{OBSTACLE\+\_\+\+LOG\+\_\+\+TAG}} = \char`\"{}log\char`\"{}
+\begin{DoxyCompactList}\small\item\em Obstacle LOG tag. \end{DoxyCompactList}\item 
+static const char $\ast$ \mbox{\hyperlink{classrobogen_1_1WebGLLogger_ae3aabc1609afd6fb3865a2b7abacffec}{LIGHT\+\_\+\+TAGS}} = \char`\"{}lights\char`\"{}
+\begin{DoxyCompactList}\small\item\em Light tags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe \doxylink{classrobogen_1_1WebGLLogger}{Web\+GLLogger}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1WebGLLogger_aa8947810b9469e2c89f6dfb5564d8f1b}\label{classrobogen_1_1WebGLLogger_aa8947810b9469e2c89f6dfb5564d8f1b} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!WebGLLogger@{WebGLLogger}}
+\index{WebGLLogger@{WebGLLogger}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{WebGLLogger()}{WebGLLogger()}}
+{\footnotesize\ttfamily robogen\+::\+Web\+GLLogger\+::\+Web\+GLLogger (\begin{DoxyParamCaption}\item[{std\+::string}]{in\+File\+Name,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{in\+\_\+scenario,  }\item[{double}]{target\+Framerate = {\ttfamily 120.0} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a32e3172b4764252fc040710bd3a534e6}\label{classrobogen_1_1WebGLLogger_a32e3172b4764252fc040710bd3a534e6} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!````~WebGLLogger@{$\sim$WebGLLogger}}
+\index{````~WebGLLogger@{$\sim$WebGLLogger}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{$\sim$WebGLLogger()}{~WebGLLogger()}}
+{\footnotesize\ttfamily robogen\+::\+Web\+GLLogger\+::$\sim$\+Web\+GLLogger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1WebGLLogger_acb036c68c37150186002e4ff0c73dde2}\label{classrobogen_1_1WebGLLogger_acb036c68c37150186002e4ff0c73dde2} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!getLastLogJSON@{getLastLogJSON}}
+\index{getLastLogJSON@{getLastLogJSON}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{getLastLogJSON()}{getLastLogJSON()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Web\+GLLogger\+::get\+Last\+Log\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns last log JSON. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a593b242830ce6896db90fdc7209ee8d3}\label{classrobogen_1_1WebGLLogger_a593b242830ce6896db90fdc7209ee8d3} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!getLightsJSON@{getLightsJSON}}
+\index{getLightsJSON@{getLightsJSON}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{getLightsJSON()}{getLightsJSON()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Web\+GLLogger\+::get\+Lights\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns lights JSON. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_aef1fd23bf0756ca8c481d4355851f772}\label{classrobogen_1_1WebGLLogger_aef1fd23bf0756ca8c481d4355851f772} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!getObstaclesDefinitionJSON@{getObstaclesDefinitionJSON}}
+\index{getObstaclesDefinitionJSON@{getObstaclesDefinitionJSON}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{getObstaclesDefinitionJSON()}{getObstaclesDefinitionJSON()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Web\+GLLogger\+::get\+Obstacles\+Definition\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns obstacle definition JSON. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_af99529f7528c918c88f5a66c5cd55318}\label{classrobogen_1_1WebGLLogger_af99529f7528c918c88f5a66c5cd55318} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!getStructureJSON@{getStructureJSON}}
+\index{getStructureJSON@{getStructureJSON}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{getStructureJSON()}{getStructureJSON()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Web\+GLLogger\+::get\+Structure\+JSON (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns structure JSON. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_af3a77be8b74ef3c5b5570f4812c1e427}\label{classrobogen_1_1WebGLLogger_af3a77be8b74ef3c5b5570f4812c1e427} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!log@{log}}
+\index{log@{log}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{log()}{log()}}
+{\footnotesize\ttfamily void robogen\+::\+Web\+GLLogger\+::log (\begin{DoxyParamCaption}\item[{double}]{dt }\end{DoxyParamCaption})}
+
+
+
+Log. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrobogen_1_1WebGLLogger_a41c57c0bff8957067be9b671570bd6cb}\label{classrobogen_1_1WebGLLogger_a41c57c0bff8957067be9b671570bd6cb} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!ATTITUDE\_TAG@{ATTITUDE\_TAG}}
+\index{ATTITUDE\_TAG@{ATTITUDE\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{ATTITUDE\_TAG}{ATTITUDE\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+ATTITUDE\+\_\+\+TAG = \char`\"{}attitude\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Attitude tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_ae3aabc1609afd6fb3865a2b7abacffec}\label{classrobogen_1_1WebGLLogger_ae3aabc1609afd6fb3865a2b7abacffec} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!LIGHT\_TAGS@{LIGHT\_TAGS}}
+\index{LIGHT\_TAGS@{LIGHT\_TAGS}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{LIGHT\_TAGS}{LIGHT\_TAGS}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+LIGHT\+\_\+\+TAGS = \char`\"{}lights\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Light tags. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a829392f70ac062da99a5010025057dfd}\label{classrobogen_1_1WebGLLogger_a829392f70ac062da99a5010025057dfd} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!LOG\_TAG@{LOG\_TAG}}
+\index{LOG\_TAG@{LOG\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{LOG\_TAG}{LOG\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+LOG\+\_\+\+TAG = \char`\"{}log\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Log tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a553d21a355a8412a3ba6bdf1c13b2150}\label{classrobogen_1_1WebGLLogger_a553d21a355a8412a3ba6bdf1c13b2150} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!MAP\_DATA\_TAG@{MAP\_DATA\_TAG}}
+\index{MAP\_DATA\_TAG@{MAP\_DATA\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{MAP\_DATA\_TAG}{MAP\_DATA\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+MAP\+\_\+\+DATA\+\_\+\+TAG = \char`\"{}data\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Map data tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a7a4f369c5fef360977f4fd2785445c04}\label{classrobogen_1_1WebGLLogger_a7a4f369c5fef360977f4fd2785445c04} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!MAP\_DIM\_TAG@{MAP\_DIM\_TAG}}
+\index{MAP\_DIM\_TAG@{MAP\_DIM\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{MAP\_DIM\_TAG}{MAP\_DIM\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+MAP\+\_\+\+DIM\+\_\+\+TAG = \char`\"{}size\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Map dimension tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_acd883bfe9bd2e88fca92453a09c90d0b}\label{classrobogen_1_1WebGLLogger_acd883bfe9bd2e88fca92453a09c90d0b} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!MAP\_TAG@{MAP\_TAG}}
+\index{MAP\_TAG@{MAP\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{MAP\_TAG}{MAP\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+MAP\+\_\+\+TAG = \char`\"{}map\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Map tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_afbf0e76ac634e66cfd64a82fad9b9315}\label{classrobogen_1_1WebGLLogger_afbf0e76ac634e66cfd64a82fad9b9315} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!MESH\_PATH@{MESH\_PATH}}
+\index{MESH\_PATH@{MESH\_PATH}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{MESH\_PATH}{MESH\_PATH}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+MESH\+\_\+\+PATH = \char`\"{}filename\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+\doxylink{classrobogen_1_1Mesh}{Mesh} path. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a264a98b975ab533a09d5e42caca1f1e0}\label{classrobogen_1_1WebGLLogger_a264a98b975ab533a09d5e42caca1f1e0} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!OBSTACLE\_DEF\_TAG@{OBSTACLE\_DEF\_TAG}}
+\index{OBSTACLE\_DEF\_TAG@{OBSTACLE\_DEF\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{OBSTACLE\_DEF\_TAG}{OBSTACLE\_DEF\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+OBSTACLE\+\_\+\+DEF\+\_\+\+TAG = \char`\"{}definition\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obstacle DEF tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_aa05b90a5ab15667488751032a732d672}\label{classrobogen_1_1WebGLLogger_aa05b90a5ab15667488751032a732d672} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!OBSTACLE\_LOG\_TAG@{OBSTACLE\_LOG\_TAG}}
+\index{OBSTACLE\_LOG\_TAG@{OBSTACLE\_LOG\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{OBSTACLE\_LOG\_TAG}{OBSTACLE\_LOG\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+OBSTACLE\+\_\+\+LOG\+\_\+\+TAG = \char`\"{}log\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obstacle LOG tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a49814ef80ace4f07291db0f1357aad1a}\label{classrobogen_1_1WebGLLogger_a49814ef80ace4f07291db0f1357aad1a} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!OBSTACLE\_TAGS@{OBSTACLE\_TAGS}}
+\index{OBSTACLE\_TAGS@{OBSTACLE\_TAGS}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{OBSTACLE\_TAGS}{OBSTACLE\_TAGS}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+OBSTACLE\+\_\+\+TAGS = \char`\"{}obstacles\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Obstacle tags. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a19925559e7babb04e377c176dcc6b682}\label{classrobogen_1_1WebGLLogger_a19925559e7babb04e377c176dcc6b682} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!POSITION\_TAG@{POSITION\_TAG}}
+\index{POSITION\_TAG@{POSITION\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{POSITION\_TAG}{POSITION\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+POSITION\+\_\+\+TAG = \char`\"{}position\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Position tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_afe9e3b7b8b2fe6d6d4ec6554625f8d7f}\label{classrobogen_1_1WebGLLogger_afe9e3b7b8b2fe6d6d4ec6554625f8d7f} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!REL\_ATT\_TAG@{REL\_ATT\_TAG}}
+\index{REL\_ATT\_TAG@{REL\_ATT\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{REL\_ATT\_TAG}{REL\_ATT\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+REL\+\_\+\+ATT\+\_\+\+TAG = \char`\"{}rel\+\_\+attitude\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+REL attitude tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_a21e72eb5ea3f62d0681623e6a5a8b083}\label{classrobogen_1_1WebGLLogger_a21e72eb5ea3f62d0681623e6a5a8b083} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!REL\_POS\_TAG@{REL\_POS\_TAG}}
+\index{REL\_POS\_TAG@{REL\_POS\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{REL\_POS\_TAG}{REL\_POS\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+REL\+\_\+\+POS\+\_\+\+TAG = \char`\"{}rel\+\_\+position\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+REL Position tag. 
+
+\Hypertarget{classrobogen_1_1WebGLLogger_ac6b348b4babf728c51b221bba394d17e}\label{classrobogen_1_1WebGLLogger_ac6b348b4babf728c51b221bba394d17e} 
+\index{robogen::WebGLLogger@{robogen::WebGLLogger}!STRUCTURE\_TAG@{STRUCTURE\_TAG}}
+\index{STRUCTURE\_TAG@{STRUCTURE\_TAG}!robogen::WebGLLogger@{robogen::WebGLLogger}}
+\doxysubsubsection{\texorpdfstring{STRUCTURE\_TAG}{STRUCTURE\_TAG}}
+{\footnotesize\ttfamily const char $\ast$ robogen\+::\+Web\+GLLogger\+::\+STRUCTURE\+\_\+\+TAG = \char`\"{}structure\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Structure tag. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/viewer/\mbox{\hyperlink{WebGLLogger_8h}{Web\+GLLogger.\+h}}\item 
+src/viewer/\mbox{\hyperlink{WebGLLogger_8cpp}{Web\+GLLogger.\+cpp}}\end{DoxyCompactItemize}

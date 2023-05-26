@@ -1,0 +1,623 @@
+\hypertarget{classEDQD_1_1Parameters}{}\doxysection{EDQD\+::Parameters Class Reference}
+\label{classEDQD_1_1Parameters}\index{EDQD::Parameters@{EDQD::Parameters}}
+
+
+Class for describing experiment parameters.  
+
+
+
+
+{\ttfamily \#include $<$Parameters.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEDQD_1_1Parameters_abef4e2f9c95bf11353f7fd67aebfc017}{Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classEDQD_1_1Parameters_ae947e46c705edb34c4030bc23038af39}{$\sim$\+Parameters}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEDQD_1_1Parameters_a078450c6186741aaa41ca7611488894f}{Load}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Load the parameters from a file. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classEDQD_1_1Parameters_abc402f8acaedb3e65203dd46ee4158d9}{Load}} (std\+::ifstream \&a\+\_\+\+Data\+File)
+\begin{DoxyCompactList}\small\item\em Load the parameters from an already opened file for reading. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEDQD_1_1Parameters_aaa74ec3684a8bffb76d473434b1cad35}{Save}} (const char $\ast$filename)
+\begin{DoxyCompactList}\small\item\em Save to a file. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEDQD_1_1Parameters_ac51180574e1597ab5558594d79dc1394}{Save}} (FILE $\ast$a\+\_\+fstream)
+\begin{DoxyCompactList}\small\item\em Saves the parameters to an already opened file for writing. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEDQD_1_1Parameters_a5b85045ef58949225565da5ad8cf2b58}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the parameters to built-\/in defaults. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_ad19e5a901e57f5b05649f1df328d5b8a}{sigma\+Min}} = 0.\+001
+\begin{DoxyCompactList}\small\item\em Used with g\+Dynamic\+Sigma defined to true. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a774e72e5b0e2e361afdf561815b944c2}{sigma\+Max}} = 0.\+5
+\begin{DoxyCompactList}\small\item\em Maximal value of sigma. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a67d2616980ee4c58b6187f8549c2f5aa}{nb\+Hidden\+Layers}} = 1
+\begin{DoxyCompactList}\small\item\em Number of hidden layers. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_aae787537d6e98a10c1a9958cb8bf51aa}{nb\+Neurons\+Per\+Hidden\+Layer}} = 20
+\begin{DoxyCompactList}\small\item\em Number of neurons per hidden layer. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_ac5041a9d98fe2d6cae8736024fdc9ab8}{weight\+Range}} = 800
+\begin{DoxyCompactList}\small\item\em Bounds of brain weights. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_aff37f665c96b0512d878be42dcdecddd}{nb\+Of\+Physical\+Object\+Groups}} = 5
+\begin{DoxyCompactList}\small\item\em Number of resource types in the enviornment. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a7c1460663bab378bb004fc501ed44782}{update\+Sigma\+Step}} = 0.\+35
+\begin{DoxyCompactList}\small\item\em Step used in the decrease or increase of the value of sigma. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}{sigma\+Ref}} = 0.\+1
+\begin{DoxyCompactList}\small\item\em Step used in the decrease or increase of the value of sigma. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a7d6dd7da5d358dad4f041ab42ae80c5d}{p\+Mutation}} = 0.\+34
+\begin{DoxyCompactList}\small\item\em Probability of transmitting the current genome mutated with sigma ref. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a5e166ddda8c7201c4d08c4b50a685851}{p\+Mutate\+Sensor\+State}} = 0.\+34
+\begin{DoxyCompactList}\small\item\em Probability of mutating sensor state. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a6052837376ba91b9c55d90364ef78bd2}{sensor\+State}}
+\begin{DoxyCompactList}\small\item\em Switch sensor on/off. \end{DoxyCompactList}\item 
+static unsigned int \mbox{\hyperlink{classEDQD_1_1Parameters_a779409c868b22900033ab9fac23da5ad}{evaluation\+Time}} = 100
+\begin{DoxyCompactList}\small\item\em Theoretical duration of a generation (ie. maximum time a controller will be evaluated on a robot) \end{DoxyCompactList}\item 
+static unsigned int \mbox{\hyperlink{classEDQD_1_1Parameters_a4d4bcdd3ae077930285337fecb79252a}{max\+Iterations}} = 2000
+\begin{DoxyCompactList}\small\item\em Maximum number of iterations. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_aa7705e739b9ab5666bfbb30f3c4ecdcc}{synchronization}} = true
+\begin{DoxyCompactList}\small\item\em Sync flag. \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767}{nb\+Of\+Dimensions}} = 2
+\begin{DoxyCompactList}\small\item\em Defines the number of dimensions of a map. \end{DoxyCompactList}\item 
+static const int \mbox{\hyperlink{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a}{nb\+Of\+Intervals}} = 10
+\begin{DoxyCompactList}\small\item\em Defines the number of intervals per dimension of a map. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a803d2d683b17c62af478c1470e26230c}{fit\+Epsilon}} = 1.\+0
+\begin{DoxyCompactList}\small\item\em Used to decide whether to discard or keep an elite in the map. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a31a5b967a948167aab264c40fd4a24e7}{controller\+Type}} = 1
+\begin{DoxyCompactList}\small\item\em Controller type (0\+: MLP, 1\+: Perceptron, 2\+: Elman) \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a4ecb25cfd11b828e07310a4f355b7c42}{max\+Nb\+Genome\+Transmission}} = 65535
+\begin{DoxyCompactList}\small\item\em Max. nb of genome transmission per individual per lifetime. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_aa88dd640f7c093fe6c959aec851978db}{limit\+Genome\+Transmission}} = false
+\begin{DoxyCompactList}\small\item\em Enable/disable limiting transmission. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a26da176f3da500dc631df85fbcbc3c24}{not\+Listening\+State\+Delay}} = 0
+\begin{DoxyCompactList}\small\item\em Not listening state delay. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_ac1a26f5a213a7c71f2d92e97cc8511a0}{listening\+State\+Delay}} = -\/1
+\begin{DoxyCompactList}\small\item\em Listening state delay. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a4a49e2763b0b514f34c07e3fb36ecea4}{individual\+Mutation\+Rate}} = 1.\+0
+\begin{DoxyCompactList}\small\item\em Individual mutation rate. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a40ee78af7baa3495bdd6d26e6211c8fd}{mutation\+Operator}} = 1
+\begin{DoxyCompactList}\small\item\em Mutation operator. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classEDQD_1_1Parameters_a94149f91acaa560d79fede4aa2505015}{sigma}} = 0.\+01
+\begin{DoxyCompactList}\small\item\em Value of sigma. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_acbdf1e0a483ecc90b080fa08f9bbf227}{only\+Keep\+Maps\+For\+Generation}} = true
+\begin{DoxyCompactList}\small\item\em Keep maps for only one generation. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_a9e4724cfc7ea322755a16f5884228ffc}{EDQDMap\+Selection}} = false
+\begin{DoxyCompactList}\small\item\em Flags map selection usage. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_a9914ae95de3b450a5cfd2793711367fe}{EDQDMulti\+BCMap}} = false
+\begin{DoxyCompactList}\small\item\em Flags maintenance of two behavioral maps. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_a3c4f793a4115119d64258648039c510b}{selection\+Method}} = 2
+\begin{DoxyCompactList}\small\item\em Selection method for medea. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classEDQD_1_1Parameters_ac81b8c2c4bd16839c641535286613877}{evolve\+Sensors}} = true
+\begin{DoxyCompactList}\small\item\em Flags evolution of sensors. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classEDQD_1_1Parameters_aa70dfd61a21787d2348d95716deffaf4}{max\+Time\+Resource\+Bound}} = 8000
+\begin{DoxyCompactList}\small\item\em Maximum time a robot can stay attached to a resource before eventually getting forced to drop it off for other robots to pick it up. \end{DoxyCompactList}\item 
+static std\+::string \mbox{\hyperlink{classEDQD_1_1Parameters_a576805bbf5d0b8d8b2b4347799325089}{log\+Directoryname}} = \char`\"{}logs\char`\"{}
+\begin{DoxyCompactList}\small\item\em Base directory for logs. \end{DoxyCompactList}\item 
+static std\+::ofstream \mbox{\hyperlink{classEDQD_1_1Parameters_a6c628cf1517d8508ccba0a0cf96687d7}{g\+EOGLog\+File}}
+\begin{DoxyCompactList}\small\item\em End of generation log file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classEDQD_1_1Parameters_a1bd65ba4361049ef6613c1af53169156}{g\+EOGLogger}} = NULL
+\begin{DoxyCompactList}\small\item\em End of generation logger. \end{DoxyCompactList}\item 
+static std\+::ofstream \mbox{\hyperlink{classEDQD_1_1Parameters_ab566a682df937a87a58eb82086591166}{g\+Maps\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Behavior map log file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classEDQD_1_1Parameters_ae23139bca39b05f952ea7a47d2bf7389}{g\+Maps\+Logger}} = NULL
+\begin{DoxyCompactList}\small\item\em Behavior map logger. \end{DoxyCompactList}\item 
+static std\+::ofstream \mbox{\hyperlink{classEDQD_1_1Parameters_a56dcdee47d26850b8153eb35f1f7dcae}{g\+Morph\+Maps\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Morphology map log file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classEDQD_1_1Parameters_a7f67402946c2366b71decc1c66f5f2c4}{g\+Morph\+Maps\+Logger}} = NULL
+\begin{DoxyCompactList}\small\item\em Morphology map logger. \end{DoxyCompactList}\item 
+static std\+::ofstream \mbox{\hyperlink{classEDQD_1_1Parameters_ad55b019268c648453ccce918f9591370}{g\+Resources\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Resources log file. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classEDQD_1_1Parameters_ac3ba1e59902c934b30d8a40eaf788677}{g\+Resources\+Logger}} = NULL
+\begin{DoxyCompactList}\small\item\em Resources logger. \end{DoxyCompactList}\item 
+static std\+::ofstream \mbox{\hyperlink{classEDQD_1_1Parameters_a55c949e0252e255d838a977beb2daddd}{g\+Morph\+Log\+File}}
+\begin{DoxyCompactList}\small\item\em Morphology log file ofstream. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLogger}{Logger}} $\ast$ \mbox{\hyperlink{classEDQD_1_1Parameters_a7a4f84beac040759b35d80beff915642}{g\+Morph\+Logger}} = NULL
+\begin{DoxyCompactList}\small\item\em Morphology logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing experiment parameters. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classEDQD_1_1Parameters_abef4e2f9c95bf11353f7fd67aebfc017}\label{classEDQD_1_1Parameters_abef4e2f9c95bf11353f7fd67aebfc017} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Parameters@{Parameters}}
+\index{Parameters@{Parameters}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Parameters()}{Parameters()}}
+{\footnotesize\ttfamily EDQD\+::\+Parameters\+::\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default constructor. 
+
+\Hypertarget{classEDQD_1_1Parameters_ae947e46c705edb34c4030bc23038af39}\label{classEDQD_1_1Parameters_ae947e46c705edb34c4030bc23038af39} 
+\index{EDQD::Parameters@{EDQD::Parameters}!````~Parameters@{$\sim$Parameters}}
+\index{````~Parameters@{$\sim$Parameters}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{$\sim$Parameters()}{~Parameters()}}
+{\footnotesize\ttfamily EDQD\+::\+Parameters\+::$\sim$\+Parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEDQD_1_1Parameters_a078450c6186741aaa41ca7611488894f}\label{classEDQD_1_1Parameters_a078450c6186741aaa41ca7611488894f} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Load@{Load}}
+\index{Load@{Load}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::\+Load (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Load the parameters from a file. 
+
+returns 0 on success \Hypertarget{classEDQD_1_1Parameters_abc402f8acaedb3e65203dd46ee4158d9}\label{classEDQD_1_1Parameters_abc402f8acaedb3e65203dd46ee4158d9} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Load@{Load}}
+\index{Load@{Load}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::\+Load (\begin{DoxyParamCaption}\item[{std\+::ifstream \&}]{a\+\_\+\+Data\+File }\end{DoxyParamCaption})}
+
+
+
+Load the parameters from an already opened file for reading. 
+
+\Hypertarget{classEDQD_1_1Parameters_a5b85045ef58949225565da5ad8cf2b58}\label{classEDQD_1_1Parameters_a5b85045ef58949225565da5ad8cf2b58} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Reset@{Reset}}
+\index{Reset@{Reset}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void EDQD\+::\+Parameters\+::\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the parameters to built-\/in defaults. 
+
+\Hypertarget{classEDQD_1_1Parameters_aaa74ec3684a8bffb76d473434b1cad35}\label{classEDQD_1_1Parameters_aaa74ec3684a8bffb76d473434b1cad35} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Save@{Save}}
+\index{Save@{Save}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void EDQD\+::\+Parameters\+::\+Save (\begin{DoxyParamCaption}\item[{const char $\ast$}]{filename }\end{DoxyParamCaption})}
+
+
+
+Save to a file. 
+
+\Hypertarget{classEDQD_1_1Parameters_ac51180574e1597ab5558594d79dc1394}\label{classEDQD_1_1Parameters_ac51180574e1597ab5558594d79dc1394} 
+\index{EDQD::Parameters@{EDQD::Parameters}!Save@{Save}}
+\index{Save@{Save}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void EDQD\+::\+Parameters\+::\+Save (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{a\+\_\+fstream }\end{DoxyParamCaption})}
+
+
+
+Saves the parameters to an already opened file for writing. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classEDQD_1_1Parameters_a31a5b967a948167aab264c40fd4a24e7}\label{classEDQD_1_1Parameters_a31a5b967a948167aab264c40fd4a24e7} 
+\index{EDQD::Parameters@{EDQD::Parameters}!controllerType@{controllerType}}
+\index{controllerType@{controllerType}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{controllerType}{controllerType}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::controller\+Type = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Controller type (0\+: MLP, 1\+: Perceptron, 2\+: Elman) 
+
+\Hypertarget{classEDQD_1_1Parameters_a9e4724cfc7ea322755a16f5884228ffc}\label{classEDQD_1_1Parameters_a9e4724cfc7ea322755a16f5884228ffc} 
+\index{EDQD::Parameters@{EDQD::Parameters}!EDQDMapSelection@{EDQDMapSelection}}
+\index{EDQDMapSelection@{EDQDMapSelection}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{EDQDMapSelection}{EDQDMapSelection}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::\+EDQDMap\+Selection = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Flags map selection usage. 
+
+If true \doxylink{namespaceEDQD}{EDQD} is used instead of m\+EDEA \Hypertarget{classEDQD_1_1Parameters_a9914ae95de3b450a5cfd2793711367fe}\label{classEDQD_1_1Parameters_a9914ae95de3b450a5cfd2793711367fe} 
+\index{EDQD::Parameters@{EDQD::Parameters}!EDQDMultiBCMap@{EDQDMultiBCMap}}
+\index{EDQDMultiBCMap@{EDQDMultiBCMap}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{EDQDMultiBCMap}{EDQDMultiBCMap}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::\+EDQDMulti\+BCMap = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Flags maintenance of two behavioral maps. 
+
+If true behavior and morphology diversity maps are maintained \Hypertarget{classEDQD_1_1Parameters_a779409c868b22900033ab9fac23da5ad}\label{classEDQD_1_1Parameters_a779409c868b22900033ab9fac23da5ad} 
+\index{EDQD::Parameters@{EDQD::Parameters}!evaluationTime@{evaluationTime}}
+\index{evaluationTime@{evaluationTime}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{evaluationTime}{evaluationTime}}
+{\footnotesize\ttfamily unsigned int EDQD\+::\+Parameters\+::evaluation\+Time = 100\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Theoretical duration of a generation (ie. maximum time a controller will be evaluated on a robot) 
+
+\Hypertarget{classEDQD_1_1Parameters_ac81b8c2c4bd16839c641535286613877}\label{classEDQD_1_1Parameters_ac81b8c2c4bd16839c641535286613877} 
+\index{EDQD::Parameters@{EDQD::Parameters}!evolveSensors@{evolveSensors}}
+\index{evolveSensors@{evolveSensors}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{evolveSensors}{evolveSensors}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::evolve\+Sensors = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Flags evolution of sensors. 
+
+\Hypertarget{classEDQD_1_1Parameters_a803d2d683b17c62af478c1470e26230c}\label{classEDQD_1_1Parameters_a803d2d683b17c62af478c1470e26230c} 
+\index{EDQD::Parameters@{EDQD::Parameters}!fitEpsilon@{fitEpsilon}}
+\index{fitEpsilon@{fitEpsilon}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{fitEpsilon}{fitEpsilon}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::fit\+Epsilon = 1.\+0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used to decide whether to discard or keep an elite in the map. 
+
+\Hypertarget{classEDQD_1_1Parameters_a6c628cf1517d8508ccba0a0cf96687d7}\label{classEDQD_1_1Parameters_a6c628cf1517d8508ccba0a0cf96687d7} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gEOGLogFile@{gEOGLogFile}}
+\index{gEOGLogFile@{gEOGLogFile}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gEOGLogFile}{gEOGLogFile}}
+{\footnotesize\ttfamily std\+::ofstream EDQD\+::\+Parameters\+::g\+EOGLog\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+End of generation log file. 
+
+\Hypertarget{classEDQD_1_1Parameters_a1bd65ba4361049ef6613c1af53169156}\label{classEDQD_1_1Parameters_a1bd65ba4361049ef6613c1af53169156} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gEOGLogger@{gEOGLogger}}
+\index{gEOGLogger@{gEOGLogger}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gEOGLogger}{gEOGLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ EDQD\+::\+Parameters\+::g\+EOGLogger = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+End of generation logger. 
+
+\Hypertarget{classEDQD_1_1Parameters_ab566a682df937a87a58eb82086591166}\label{classEDQD_1_1Parameters_ab566a682df937a87a58eb82086591166} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMapsLogFile@{gMapsLogFile}}
+\index{gMapsLogFile@{gMapsLogFile}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMapsLogFile}{gMapsLogFile}}
+{\footnotesize\ttfamily std\+::ofstream EDQD\+::\+Parameters\+::g\+Maps\+Log\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Behavior map log file. 
+
+\Hypertarget{classEDQD_1_1Parameters_ae23139bca39b05f952ea7a47d2bf7389}\label{classEDQD_1_1Parameters_ae23139bca39b05f952ea7a47d2bf7389} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMapsLogger@{gMapsLogger}}
+\index{gMapsLogger@{gMapsLogger}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMapsLogger}{gMapsLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ EDQD\+::\+Parameters\+::g\+Maps\+Logger = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Behavior map logger. 
+
+\Hypertarget{classEDQD_1_1Parameters_a55c949e0252e255d838a977beb2daddd}\label{classEDQD_1_1Parameters_a55c949e0252e255d838a977beb2daddd} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMorphLogFile@{gMorphLogFile}}
+\index{gMorphLogFile@{gMorphLogFile}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMorphLogFile}{gMorphLogFile}}
+{\footnotesize\ttfamily std\+::ofstream EDQD\+::\+Parameters\+::g\+Morph\+Log\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Morphology log file ofstream. 
+
+\Hypertarget{classEDQD_1_1Parameters_a7a4f84beac040759b35d80beff915642}\label{classEDQD_1_1Parameters_a7a4f84beac040759b35d80beff915642} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMorphLogger@{gMorphLogger}}
+\index{gMorphLogger@{gMorphLogger}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMorphLogger}{gMorphLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ EDQD\+::\+Parameters\+::g\+Morph\+Logger = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Morphology logger. 
+
+\Hypertarget{classEDQD_1_1Parameters_a56dcdee47d26850b8153eb35f1f7dcae}\label{classEDQD_1_1Parameters_a56dcdee47d26850b8153eb35f1f7dcae} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMorphMapsLogFile@{gMorphMapsLogFile}}
+\index{gMorphMapsLogFile@{gMorphMapsLogFile}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMorphMapsLogFile}{gMorphMapsLogFile}}
+{\footnotesize\ttfamily std\+::ofstream EDQD\+::\+Parameters\+::g\+Morph\+Maps\+Log\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Morphology map log file. 
+
+\Hypertarget{classEDQD_1_1Parameters_a7f67402946c2366b71decc1c66f5f2c4}\label{classEDQD_1_1Parameters_a7f67402946c2366b71decc1c66f5f2c4} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gMorphMapsLogger@{gMorphMapsLogger}}
+\index{gMorphMapsLogger@{gMorphMapsLogger}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gMorphMapsLogger}{gMorphMapsLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ EDQD\+::\+Parameters\+::g\+Morph\+Maps\+Logger = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Morphology map logger. 
+
+\Hypertarget{classEDQD_1_1Parameters_ad55b019268c648453ccce918f9591370}\label{classEDQD_1_1Parameters_ad55b019268c648453ccce918f9591370} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gResourcesLogFile@{gResourcesLogFile}}
+\index{gResourcesLogFile@{gResourcesLogFile}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gResourcesLogFile}{gResourcesLogFile}}
+{\footnotesize\ttfamily std\+::ofstream EDQD\+::\+Parameters\+::g\+Resources\+Log\+File\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Resources log file. 
+
+\Hypertarget{classEDQD_1_1Parameters_ac3ba1e59902c934b30d8a40eaf788677}\label{classEDQD_1_1Parameters_ac3ba1e59902c934b30d8a40eaf788677} 
+\index{EDQD::Parameters@{EDQD::Parameters}!gResourcesLogger@{gResourcesLogger}}
+\index{gResourcesLogger@{gResourcesLogger}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{gResourcesLogger}{gResourcesLogger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} $\ast$ EDQD\+::\+Parameters\+::g\+Resources\+Logger = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Resources logger. 
+
+\Hypertarget{classEDQD_1_1Parameters_a4a49e2763b0b514f34c07e3fb36ecea4}\label{classEDQD_1_1Parameters_a4a49e2763b0b514f34c07e3fb36ecea4} 
+\index{EDQD::Parameters@{EDQD::Parameters}!individualMutationRate@{individualMutationRate}}
+\index{individualMutationRate@{individualMutationRate}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{individualMutationRate}{individualMutationRate}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::individual\+Mutation\+Rate = 1.\+0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Individual mutation rate. 
+
+\Hypertarget{classEDQD_1_1Parameters_aa88dd640f7c093fe6c959aec851978db}\label{classEDQD_1_1Parameters_aa88dd640f7c093fe6c959aec851978db} 
+\index{EDQD::Parameters@{EDQD::Parameters}!limitGenomeTransmission@{limitGenomeTransmission}}
+\index{limitGenomeTransmission@{limitGenomeTransmission}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{limitGenomeTransmission}{limitGenomeTransmission}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::limit\+Genome\+Transmission = false\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Enable/disable limiting transmission. 
+
+\Hypertarget{classEDQD_1_1Parameters_ac1a26f5a213a7c71f2d92e97cc8511a0}\label{classEDQD_1_1Parameters_ac1a26f5a213a7c71f2d92e97cc8511a0} 
+\index{EDQD::Parameters@{EDQD::Parameters}!listeningStateDelay@{listeningStateDelay}}
+\index{listeningStateDelay@{listeningStateDelay}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{listeningStateDelay}{listeningStateDelay}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::listening\+State\+Delay = -\/1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Listening state delay. 
+
+-\/1\+: infinite ; 0\+: no delay ; \texorpdfstring{$>$}{>}0\+: delay (ignored if g\+Not\+Listening\+State\+Delay=-\/1) \Hypertarget{classEDQD_1_1Parameters_a576805bbf5d0b8d8b2b4347799325089}\label{classEDQD_1_1Parameters_a576805bbf5d0b8d8b2b4347799325089} 
+\index{EDQD::Parameters@{EDQD::Parameters}!logDirectoryname@{logDirectoryname}}
+\index{logDirectoryname@{logDirectoryname}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{logDirectoryname}{logDirectoryname}}
+{\footnotesize\ttfamily std\+::string EDQD\+::\+Parameters\+::log\+Directoryname = \char`\"{}logs\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Base directory for logs. 
+
+\Hypertarget{classEDQD_1_1Parameters_a4d4bcdd3ae077930285337fecb79252a}\label{classEDQD_1_1Parameters_a4d4bcdd3ae077930285337fecb79252a} 
+\index{EDQD::Parameters@{EDQD::Parameters}!maxIterations@{maxIterations}}
+\index{maxIterations@{maxIterations}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{maxIterations}{maxIterations}}
+{\footnotesize\ttfamily unsigned int EDQD\+::\+Parameters\+::max\+Iterations = 2000\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Maximum number of iterations. 
+
+\Hypertarget{classEDQD_1_1Parameters_a4ecb25cfd11b828e07310a4f355b7c42}\label{classEDQD_1_1Parameters_a4ecb25cfd11b828e07310a4f355b7c42} 
+\index{EDQD::Parameters@{EDQD::Parameters}!maxNbGenomeTransmission@{maxNbGenomeTransmission}}
+\index{maxNbGenomeTransmission@{maxNbGenomeTransmission}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{maxNbGenomeTransmission}{maxNbGenomeTransmission}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::max\+Nb\+Genome\+Transmission = 65535\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Max. nb of genome transmission per individual per lifetime. 
+
+\Hypertarget{classEDQD_1_1Parameters_aa70dfd61a21787d2348d95716deffaf4}\label{classEDQD_1_1Parameters_aa70dfd61a21787d2348d95716deffaf4} 
+\index{EDQD::Parameters@{EDQD::Parameters}!maxTimeResourceBound@{maxTimeResourceBound}}
+\index{maxTimeResourceBound@{maxTimeResourceBound}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{maxTimeResourceBound}{maxTimeResourceBound}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::max\+Time\+Resource\+Bound = 8000\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Maximum time a robot can stay attached to a resource before eventually getting forced to drop it off for other robots to pick it up. 
+
+\Hypertarget{classEDQD_1_1Parameters_a40ee78af7baa3495bdd6d26e6211c8fd}\label{classEDQD_1_1Parameters_a40ee78af7baa3495bdd6d26e6211c8fd} 
+\index{EDQD::Parameters@{EDQD::Parameters}!mutationOperator@{mutationOperator}}
+\index{mutationOperator@{mutationOperator}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{mutationOperator}{mutationOperator}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::mutation\+Operator = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Mutation operator. 
+
+0\+: uniform, 1\+: gaussian with evolved sigma, 2\+: gaussian with fixed sigma \Hypertarget{classEDQD_1_1Parameters_a67d2616980ee4c58b6187f8549c2f5aa}\label{classEDQD_1_1Parameters_a67d2616980ee4c58b6187f8549c2f5aa} 
+\index{EDQD::Parameters@{EDQD::Parameters}!nbHiddenLayers@{nbHiddenLayers}}
+\index{nbHiddenLayers@{nbHiddenLayers}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{nbHiddenLayers}{nbHiddenLayers}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::nb\+Hidden\+Layers = 1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Number of hidden layers. 
+
+\Hypertarget{classEDQD_1_1Parameters_aae787537d6e98a10c1a9958cb8bf51aa}\label{classEDQD_1_1Parameters_aae787537d6e98a10c1a9958cb8bf51aa} 
+\index{EDQD::Parameters@{EDQD::Parameters}!nbNeuronsPerHiddenLayer@{nbNeuronsPerHiddenLayer}}
+\index{nbNeuronsPerHiddenLayer@{nbNeuronsPerHiddenLayer}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{nbNeuronsPerHiddenLayer}{nbNeuronsPerHiddenLayer}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::nb\+Neurons\+Per\+Hidden\+Layer = 20\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Number of neurons per hidden layer. 
+
+\Hypertarget{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767}\label{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767} 
+\index{EDQD::Parameters@{EDQD::Parameters}!nbOfDimensions@{nbOfDimensions}}
+\index{nbOfDimensions@{nbOfDimensions}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{nbOfDimensions}{nbOfDimensions}}
+{\footnotesize\ttfamily const int EDQD\+::\+Parameters\+::nb\+Of\+Dimensions = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Defines the number of dimensions of a map. 
+
+NB\+: needs to be set at compile time \Hypertarget{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a}\label{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a} 
+\index{EDQD::Parameters@{EDQD::Parameters}!nbOfIntervals@{nbOfIntervals}}
+\index{nbOfIntervals@{nbOfIntervals}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{nbOfIntervals}{nbOfIntervals}}
+{\footnotesize\ttfamily const int EDQD\+::\+Parameters\+::nb\+Of\+Intervals = 10\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Defines the number of intervals per dimension of a map. 
+
+NB\+: needs to be set at compile time \Hypertarget{classEDQD_1_1Parameters_aff37f665c96b0512d878be42dcdecddd}\label{classEDQD_1_1Parameters_aff37f665c96b0512d878be42dcdecddd} 
+\index{EDQD::Parameters@{EDQD::Parameters}!nbOfPhysicalObjectGroups@{nbOfPhysicalObjectGroups}}
+\index{nbOfPhysicalObjectGroups@{nbOfPhysicalObjectGroups}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{nbOfPhysicalObjectGroups}{nbOfPhysicalObjectGroups}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::nb\+Of\+Physical\+Object\+Groups = 5\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Number of resource types in the enviornment. 
+
+\Hypertarget{classEDQD_1_1Parameters_a26da176f3da500dc631df85fbcbc3c24}\label{classEDQD_1_1Parameters_a26da176f3da500dc631df85fbcbc3c24} 
+\index{EDQD::Parameters@{EDQD::Parameters}!notListeningStateDelay@{notListeningStateDelay}}
+\index{notListeningStateDelay@{notListeningStateDelay}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{notListeningStateDelay}{notListeningStateDelay}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::not\+Listening\+State\+Delay = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Not listening state delay. 
+
+-\/1\+: infinite ; 0\+: no delay ; \texorpdfstring{$>$}{>}0\+: delay \Hypertarget{classEDQD_1_1Parameters_acbdf1e0a483ecc90b080fa08f9bbf227}\label{classEDQD_1_1Parameters_acbdf1e0a483ecc90b080fa08f9bbf227} 
+\index{EDQD::Parameters@{EDQD::Parameters}!onlyKeepMapsForGeneration@{onlyKeepMapsForGeneration}}
+\index{onlyKeepMapsForGeneration@{onlyKeepMapsForGeneration}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{onlyKeepMapsForGeneration}{onlyKeepMapsForGeneration}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::only\+Keep\+Maps\+For\+Generation = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Keep maps for only one generation. 
+
+\Hypertarget{classEDQD_1_1Parameters_a5e166ddda8c7201c4d08c4b50a685851}\label{classEDQD_1_1Parameters_a5e166ddda8c7201c4d08c4b50a685851} 
+\index{EDQD::Parameters@{EDQD::Parameters}!pMutateSensorState@{pMutateSensorState}}
+\index{pMutateSensorState@{pMutateSensorState}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{pMutateSensorState}{pMutateSensorState}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::p\+Mutate\+Sensor\+State = 0.\+34\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Probability of mutating sensor state. 
+
+\Hypertarget{classEDQD_1_1Parameters_a7d6dd7da5d358dad4f041ab42ae80c5d}\label{classEDQD_1_1Parameters_a7d6dd7da5d358dad4f041ab42ae80c5d} 
+\index{EDQD::Parameters@{EDQD::Parameters}!pMutation@{pMutation}}
+\index{pMutation@{pMutation}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{pMutation}{pMutation}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::p\+Mutation = 0.\+34\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Probability of transmitting the current genome mutated with sigma ref. 
+
+\Hypertarget{classEDQD_1_1Parameters_a3c4f793a4115119d64258648039c510b}\label{classEDQD_1_1Parameters_a3c4f793a4115119d64258648039c510b} 
+\index{EDQD::Parameters@{EDQD::Parameters}!selectionMethod@{selectionMethod}}
+\index{selectionMethod@{selectionMethod}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{selectionMethod}{selectionMethod}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::selection\+Method = 2\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Selection method for medea. 
+
+\Hypertarget{classEDQD_1_1Parameters_a6052837376ba91b9c55d90364ef78bd2}\label{classEDQD_1_1Parameters_a6052837376ba91b9c55d90364ef78bd2} 
+\index{EDQD::Parameters@{EDQD::Parameters}!sensorState@{sensorState}}
+\index{sensorState@{sensorState}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{sensorState}{sensorState}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::sensor\+State\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Switch sensor on/off. 
+
+\Hypertarget{classEDQD_1_1Parameters_a94149f91acaa560d79fede4aa2505015}\label{classEDQD_1_1Parameters_a94149f91acaa560d79fede4aa2505015} 
+\index{EDQD::Parameters@{EDQD::Parameters}!sigma@{sigma}}
+\index{sigma@{sigma}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{sigma}{sigma}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::sigma = 0.\+01\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Value of sigma. 
+
+\Hypertarget{classEDQD_1_1Parameters_a774e72e5b0e2e361afdf561815b944c2}\label{classEDQD_1_1Parameters_a774e72e5b0e2e361afdf561815b944c2} 
+\index{EDQD::Parameters@{EDQD::Parameters}!sigmaMax@{sigmaMax}}
+\index{sigmaMax@{sigmaMax}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{sigmaMax}{sigmaMax}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::sigma\+Max = 0.\+5\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Maximal value of sigma. 
+
+\Hypertarget{classEDQD_1_1Parameters_ad19e5a901e57f5b05649f1df328d5b8a}\label{classEDQD_1_1Parameters_ad19e5a901e57f5b05649f1df328d5b8a} 
+\index{EDQD::Parameters@{EDQD::Parameters}!sigmaMin@{sigmaMin}}
+\index{sigmaMin@{sigmaMin}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{sigmaMin}{sigmaMin}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::sigma\+Min = 0.\+001\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used with g\+Dynamic\+Sigma defined to true. 
+
+\Hypertarget{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}\label{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1} 
+\index{EDQD::Parameters@{EDQD::Parameters}!sigmaRef@{sigmaRef}}
+\index{sigmaRef@{sigmaRef}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{sigmaRef}{sigmaRef}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::sigma\+Ref = 0.\+1\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Step used in the decrease or increase of the value of sigma. 
+
+\Hypertarget{classEDQD_1_1Parameters_aa7705e739b9ab5666bfbb30f3c4ecdcc}\label{classEDQD_1_1Parameters_aa7705e739b9ab5666bfbb30f3c4ecdcc} 
+\index{EDQD::Parameters@{EDQD::Parameters}!synchronization@{synchronization}}
+\index{synchronization@{synchronization}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{synchronization}{synchronization}}
+{\footnotesize\ttfamily bool EDQD\+::\+Parameters\+::synchronization = true\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Sync flag. 
+
+If set to false, a robot will restart its controller as soon as it has no more energy. If set to true, the robot without energy will wait and reload its controller at the same time as every other robots. \Hypertarget{classEDQD_1_1Parameters_a7c1460663bab378bb004fc501ed44782}\label{classEDQD_1_1Parameters_a7c1460663bab378bb004fc501ed44782} 
+\index{EDQD::Parameters@{EDQD::Parameters}!updateSigmaStep@{updateSigmaStep}}
+\index{updateSigmaStep@{updateSigmaStep}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{updateSigmaStep}{updateSigmaStep}}
+{\footnotesize\ttfamily double EDQD\+::\+Parameters\+::update\+Sigma\+Step = 0.\+35\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Step used in the decrease or increase of the value of sigma. 
+
+\Hypertarget{classEDQD_1_1Parameters_ac5041a9d98fe2d6cae8736024fdc9ab8}\label{classEDQD_1_1Parameters_ac5041a9d98fe2d6cae8736024fdc9ab8} 
+\index{EDQD::Parameters@{EDQD::Parameters}!weightRange@{weightRange}}
+\index{weightRange@{weightRange}!EDQD::Parameters@{EDQD::Parameters}}
+\doxysubsubsection{\texorpdfstring{weightRange}{weightRange}}
+{\footnotesize\ttfamily int EDQD\+::\+Parameters\+::weight\+Range = 800\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Bounds of brain weights. 
+
+Default this to 800 (i.\+e. weights are in \mbox{[}-\/400,+400\mbox{]} as done in previous work) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{Parameters_8h}{Parameters.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{Parameters_8cpp}{Parameters.\+cpp}}\end{DoxyCompactItemize}

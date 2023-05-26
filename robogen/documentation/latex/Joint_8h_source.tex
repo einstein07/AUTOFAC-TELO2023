@@ -1,0 +1,103 @@
+\hypertarget{Joint_8h_source}{}\doxysection{Joint.\+h}
+\label{Joint_8h_source}\index{src/model/Joint.h@{src/model/Joint.h}}
+\mbox{\hyperlink{Joint_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Joint.h\ \ \ 1.0\ \ \ September\ 16,\ 2015}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ Copyright\ ©\ 2012-\/2015\ Joshua\ Auerbach}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#ifndef\ ROBOGEN\_JOINT\_H\_}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ ROBOGEN\_JOINT\_H\_}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Robogen_8h}{Robogen.h}}"{}}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <boost/enable\_shared\_from\_this.hpp>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{class\ }SimpleBody;}
+\DoxyCodeLine{00043\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classrobogen_1_1Joint}{Joint}}\ :\ \textcolor{keyword}{public}\ boost::enable\_shared\_from\_this<Joint>\ \{}
+\DoxyCodeLine{00044\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{JointType}}\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aab4892b97aa382939cd0f75203747e95}{FIXED}}\ =\ 0,}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2aa7bfa0db91872688a033a75a4f2c0b67}{HINGE}},}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2a01db6c503ada5346f7dc2350efc53c1b}{UNIVERSAL}}}
+\DoxyCodeLine{00052\ \ \ \ \ \};}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classrobogen_1_1Joint_a2f265aee465dd296d81424d232c63b54}{Joint}}()\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ joint\_\ =\ NULL;}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ fback\_\ =\ NULL;}
+\DoxyCodeLine{00061\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_ad9e157158e678e342b9496a5fbfcae0a}{createHinge}}(dWorldID\ world,\ boost::shared\_ptr<SimpleBody>\ bodyA,}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ bodyB,}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ osg::Vec3\ axis,\ osg::Vec3\ anchor,\ dJointGroupID\ jointGroup=0);}
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_abba7f81c02ecba3c4b82a561406226bd}{createFixed}}(dWorldID\ world,\ boost::shared\_ptr<SimpleBody>\ bodyA,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ bodyB,\ dJointGroupID\ jointGroup=0);}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_aab256f1f5a1a8389c9e4f9d4923d2656}{createUniversal}}(dWorldID\ world,\ boost::shared\_ptr<SimpleBody>\ bodyA,}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ boost::shared\_ptr<SimpleBody>\ bodyB,\ osg::Vec3\ axis1,}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ osg::Vec3\ axis2,\ osg::Vec3\ anchor,\ dJointGroupID\ jointGroup=0);}
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_a24fcad09347e897630bb0dd81d3cd0e3}{reconnect}}();}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_aeb495eef5fc503b701e8a1286f3c9260}{reset}}();}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Joint_af37f26296c6f2e16b4d560605129e10f}{\string~Joint}}();}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keyword}{inline}\ dJointID\ \mbox{\hyperlink{classrobogen_1_1Joint_aff28aa11568f8da0260be995f691fa30}{getJoint}}()\ \{\ \textcolor{keywordflow}{return}\ joint\_;\ \}}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{JointType}}\ \mbox{\hyperlink{classrobogen_1_1Joint_a8903496a69aaab2194a6a8a0b65acbd8}{getType}}()\ \{\ \textcolor{keywordflow}{return}\ type\_;\ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keyword}{inline}\ boost::weak\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Joint_a97e585675f3dffbdff53efd0ea5f5eda}{getBodyA}}()\ \{\ \textcolor{keywordflow}{return}\ bodyA\_;\ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{inline}\ boost::weak\_ptr<SimpleBody>\ \mbox{\hyperlink{classrobogen_1_1Joint_a42044b381796841fc8df8a584ca497d5}{getBodyB}}()\ \{\ \textcolor{keywordflow}{return}\ bodyB\_;\ \}}
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ osg::Vec3\ \&\mbox{\hyperlink{classrobogen_1_1Joint_a6ceab3eec797abab48afb3443f811296}{getAnchor}}()\ \{\ \textcolor{keywordflow}{return}\ anchor\_;\ \}}
+\DoxyCodeLine{00115\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ osg::Vec3\ \&\mbox{\hyperlink{classrobogen_1_1Joint_a968dcc88abafe6fe951917c3aa31277e}{getHingeAxis}}()\ \{\ \textcolor{keywordflow}{return}\ hingeAxis\_;\ \}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ osg::Vec3\ \&\mbox{\hyperlink{classrobogen_1_1Joint_a13d23f39210703db2825007f68c6d28e}{getUniversalAxis1}}()\ \{\ \textcolor{keywordflow}{return}\ universalAxis1\_;\ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ osg::Vec3\ \&\mbox{\hyperlink{classrobogen_1_1Joint_a5e4521ec8f13eaf35e87551451bf4c17}{getUniversalAxis2}}()\ \{\ \textcolor{keywordflow}{return}\ universalAxis2\_;\ \}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_a38abf24bfcc935a942a54252b99f3326}{updateAxisAndAngle}}();}
+\DoxyCodeLine{00131\ \ \ \ \ \textcolor{keyword}{inline}\ dWorldID\ \mbox{\hyperlink{classrobogen_1_1Joint_a0141be8a8294513b8ca6dfd86157e154}{getWorld}}()\ \{\ \textcolor{keywordflow}{return}\ world\_;\ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_abe15a06ed7a7849e00a9fe3e3bfff8c8}{setParam}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ param,\ \textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classrobogen_1_1Joint_a69b5ace317577378a73955d6ffe24fc7}{setFeedback}}(dJointFeedback\ *fback);}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ private\ :}
+\DoxyCodeLine{00142\ \ \ \ \ \textcolor{keywordtype}{void}\ updateJointParams();}
+\DoxyCodeLine{00143\ }
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ dJointID\ joint\_;}
+\DoxyCodeLine{00146\ \ \ \ \ boost::weak\_ptr<SimpleBody>\ bodyA\_,\ bodyB\_;}
+\DoxyCodeLine{00147\ \ \ \ \ dJointGroupID\ jointGroup\_;}
+\DoxyCodeLine{00148\ \ \ \ \ \mbox{\hyperlink{classrobogen_1_1Joint_aeeb1dc7bacba8c0f0f6cd5c4ef286fb2}{JointType}}\ type\_;}
+\DoxyCodeLine{00149\ \ \ \ \ osg::Vec3\ anchor\_,\ hingeAxis\_,\ universalAxis1\_,\ universalAxis2\_;}
+\DoxyCodeLine{00150\ \ \ \ \ dWorldID\ world\_;}
+\DoxyCodeLine{00151\ \ \ \ \ std::map<unsigned\ int,\ double>\ params\_;}
+\DoxyCodeLine{00152\ \ \ \ \ dJointFeedback\ *fback\_;}
+\DoxyCodeLine{00153\ }
+\DoxyCodeLine{00154\ \};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ ROBOGEN\_JOINT\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

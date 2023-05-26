@@ -1,0 +1,65 @@
+\hypertarget{Robogen_8h}{}\doxysection{src/\+Robogen.h File Reference}
+\label{Robogen_8h}\index{src/Robogen.h@{src/Robogen.h}}
+{\ttfamily \#include $<$limits$>$}\newline
+{\ttfamily \#include $<$ode/ode.\+h$>$}\newline
+{\ttfamily \#include $<$osg/\+Vec3$>$}\newline
+{\ttfamily \#include $<$osg/\+Quat$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structrobogen_1_1ObjectData}{robogen\+::\+Object\+Data}}
+\begin{DoxyCompactList}\small\item\em Useful data for sensing mechanism -\/ SM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Robogen_8h_aa036922b1299ba81a9e42631235f43c7}{d\+DOUBLE}}
+\item 
+\#define \mbox{\hyperlink{Robogen_8h_a6e133a0a1fee31080055692a93f709d6}{in\+Mm}}(x)~((x)/1000.\+0)
+\item 
+\#define \mbox{\hyperlink{Robogen_8h_ae57b556e368ca9cff7354adb02c78b85}{in\+Grams}}(x)~((x)/1000.\+0)
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{namespacerobogen_a8c1ee35a014845f765897977e64d15b1}{robogen\+::from\+Ode}} (float x)
+\begin{DoxyCompactList}\small\item\em ODE ops. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{namespacerobogen_ab8675447962e46eaeace7b859463ad0f}{robogen\+::from\+Ode}} (double x)
+\begin{DoxyCompactList}\small\item\em ODE ops. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{namespacerobogen_adef9dceae84d22b5d2cee6a951293f43}{robogen\+::from\+Ode}} (osg\+::\+Vec3 x)
+\begin{DoxyCompactList}\small\item\em ODE ops. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerobogen_a1a18b67671c835e8f0765df60b14e0b8}{robogen\+::get\+Rotation\+Matrix\+Ode}} (osg\+::\+Quat quat, d\+Quaternion rotation\+Matrix\+Ode)
+\begin{DoxyCompactList}\small\item\em build rotation\+Matrix\+Ode and put it in rotation\+Matrix\+Ode \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{namespacerobogen_ac99995edfc1b5e53da880bef4bd3ce58}{robogen\+::get\+RPYfrom\+Quat}} (osg\+::\+Quat quat)
+\begin{DoxyCompactList}\small\item\em Returns RPY from Quat. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacerobogen_a09c7ed2080183d82386d7776853efc5f}{robogen\+::modulo}} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Perform modulo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerobogen_a97d46e6b79d9d9b9115773646f8c4bf6}{robogen\+::start\+Robogen}} ()
+\begin{DoxyCompactList}\small\item\em Start robogen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{namespacerobogen_a923744e9f55485ae2143916296b7d389}{robogen\+::exit\+Robogen}} (int exit\+Code)
+\begin{DoxyCompactList}\small\item\em Exit robogen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{Robogen_8h_aa036922b1299ba81a9e42631235f43c7}\label{Robogen_8h_aa036922b1299ba81a9e42631235f43c7} 
+\index{Robogen.h@{Robogen.h}!dDOUBLE@{dDOUBLE}}
+\index{dDOUBLE@{dDOUBLE}!Robogen.h@{Robogen.h}}
+\doxysubsubsection{\texorpdfstring{dDOUBLE}{dDOUBLE}}
+{\footnotesize\ttfamily \#define d\+DOUBLE}
+
+\Hypertarget{Robogen_8h_ae57b556e368ca9cff7354adb02c78b85}\label{Robogen_8h_ae57b556e368ca9cff7354adb02c78b85} 
+\index{Robogen.h@{Robogen.h}!inGrams@{inGrams}}
+\index{inGrams@{inGrams}!Robogen.h@{Robogen.h}}
+\doxysubsubsection{\texorpdfstring{inGrams}{inGrams}}
+{\footnotesize\ttfamily \#define in\+Grams(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)/1000.\+0)}
+
+\Hypertarget{Robogen_8h_a6e133a0a1fee31080055692a93f709d6}\label{Robogen_8h_a6e133a0a1fee31080055692a93f709d6} 
+\index{Robogen.h@{Robogen.h}!inMm@{inMm}}
+\index{inMm@{inMm}!Robogen.h@{Robogen.h}}
+\doxysubsubsection{\texorpdfstring{inMm}{inMm}}
+{\footnotesize\ttfamily \#define in\+Mm(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})~((x)/1000.\+0)}
+

@@ -1,0 +1,239 @@
+\hypertarget{PartList_8h}{}\doxysection{src/\+Part\+List.h File Reference}
+\label{PartList_8h}\index{src/PartList.h@{src/PartList.h}}
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a10a2513b9a06036eb77b5d89a8722b47}{ALLOW\+\_\+\+ROTATIONAL\+\_\+\+COMPONENTS}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a33a9d051c375dce7b122e26b8695f5a4}{ENFORCE\+\_\+\+PLANAR}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a4729108d3804951c45f3e0d823d9637e}{IR\+\_\+\+SENSORS\+\_\+\+ENABLED}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a4bfa4a29f41535761203bd7c061c71c0}{COLOR\+\_\+\+SENSORS\+\_\+\+ENABLED}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_ad298c4696e95f2a6416778b990449a6c}{SENSOR\+\_\+\+MORPHOLOGY\+\_\+\+ENABLED}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a3b6cb84bdb67708927322bf8633c731c}{TARGET\+\_\+\+AREA\+\_\+\+DETECTOR\+\_\+\+ENABLED}}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_aee5f004bc8bc226cd659288c5971f635}{PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+HINGE}}~\char`\"{}Active\+Hinge\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a2170bfd549f99f1a35f6ac9ba15e5090}{PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+WHEEL}}~\char`\"{}Active\+Wheel\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a3d7abe0c57a7e210d460d896afa4c95d}{PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+WHEG}}~\char`\"{}Active\+Wheg\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_aaabf71f68a559d6c9f7d797cf557c000}{PART\+\_\+\+TYPE\+\_\+\+CORE\+\_\+\+COMPONENT}}~\char`\"{}Core\+Component\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a46e3027a199de6c53dbe0e14584a214a}{PART\+\_\+\+TYPE\+\_\+\+CORE\+\_\+\+COMPONENT\+\_\+\+NO\+\_\+\+IMU}}~\char`\"{}Core\+Component\+No\+IMU\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_ae36222987aaba139554f191548a1fe95}{PART\+\_\+\+TYPE\+\_\+\+FIXED\+\_\+\+BRICK}}~\char`\"{}Fixed\+Brick\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a0633c1218b0efb87d89e1656abf3caae}{PART\+\_\+\+TYPE\+\_\+\+LIGHT\+\_\+\+SENSOR}}~\char`\"{}Light\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a99c5efa88a003db7d67b1533e7083e54}{PART\+\_\+\+TYPE\+\_\+\+PARAM\+\_\+\+JOINT}}~\char`\"{}Parametric\+Joint\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a1decfd08ac76f585386fea1eaba8a2a4}{SENSOR\+\_\+\+TYPE\+\_\+\+IMU\+\_\+\+SENSOR\+\_\+\+ELEMENT}}~\char`\"{}Imu\+Sensor\+Element\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a73dc37b8722d064287e70ee98d17102f}{SENSOR\+\_\+\+TYPE\+\_\+\+LIGHT\+\_\+\+SENSOR}}~\char`\"{}Light\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a3a73a9a9bb356b9ff0cc79ed484f5217}{PART\+\_\+\+TYPE\+\_\+\+PASSIVE\+\_\+\+HINGE}}~\char`\"{}Passive\+Hinge\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_ab53a9a4200ea464c7be50a7fdc806138}{PART\+\_\+\+TYPE\+\_\+\+PASSIVE\+\_\+\+WHEEL}}~\char`\"{}Passive\+Wheel\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_ad45cb5b1347539c724443ff3b5ea73ab}{PART\+\_\+\+TYPE\+\_\+\+ROTATOR}}~\char`\"{}Rotator\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a5ebd5cc6f48a0e234bdc80289a9729d7}{PART\+\_\+\+TYPE\+\_\+\+IR\+\_\+\+SENSOR}}~\char`\"{}Ir\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a5f5c86d7d1eed7f9628a3c38aae9547f}{SENSOR\+\_\+\+TYPE\+\_\+\+IR\+\_\+\+SENSOR\+\_\+\+ELEMENT}}~\char`\"{}Ir\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a778edc4c481321ffe27e8a5a670b5c7d}{PART\+\_\+\+TYPE\+\_\+\+COLOR\+\_\+\+SENSOR}}~\char`\"{}Color\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a537a817253de19e75c9d0a246cde1829}{SENSOR\+\_\+\+TYPE\+\_\+\+COLOR\+\_\+\+SENSOR\+\_\+\+ELEMENT}}~\char`\"{}Color\+Sensor\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a07cc898d5caeba2c79638d0a70d5e5e9}{PART\+\_\+\+TYPE\+\_\+\+SENSOR\+\_\+\+MORPHOLOGY}}~\char`\"{}Sensor\+Morphology\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a4c521b6a20d5a28079b84faa3dc8a308}{SENSOR\+\_\+\+TYPE\+\_\+\+MORPHOLODY\+\_\+\+SENSOR\+\_\+\+ELEMENT}}~\char`\"{}Sensor\+Morphology\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a4d921602d7e7444e3bb9502cefc2d80b}{PART\+\_\+\+TYPE\+\_\+\+TARGET\+\_\+\+AREA\+\_\+\+DETECTOR}}~\char`\"{}Target\+Area\+Detector\char`\"{}
+\item 
+\#define \mbox{\hyperlink{PartList_8h_a2520625433041ed4d61e176557939f3c}{SENSOR\+\_\+\+TYPE\+\_\+\+TARGET\+\_\+\+AREA\+\_\+\+DETECTOR\+\_\+\+ELEMENT}}~\char`\"{}Target\+Area\+Detector\char`\"{}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespacerobogen_a504fc7da08ae60be09f30f5495161f97}{robogen\+::is\+Core}} (char part\+Type)
+\begin{DoxyCompactList}\small\item\em Returns whether this part is a core or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespacerobogen_a377dc34e75b153c0132b6b67c4fdff44}{robogen\+::is\+Core}} (std\+::string part\+Type)
+\begin{DoxyCompactList}\small\item\em Returns whether this part is a core or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{PartList_8h_a10a2513b9a06036eb77b5d89a8722b47}\label{PartList_8h_a10a2513b9a06036eb77b5d89a8722b47} 
+\index{PartList.h@{PartList.h}!ALLOW\_ROTATIONAL\_COMPONENTS@{ALLOW\_ROTATIONAL\_COMPONENTS}}
+\index{ALLOW\_ROTATIONAL\_COMPONENTS@{ALLOW\_ROTATIONAL\_COMPONENTS}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{ALLOW\_ROTATIONAL\_COMPONENTS}{ALLOW\_ROTATIONAL\_COMPONENTS}}
+{\footnotesize\ttfamily \#define ALLOW\+\_\+\+ROTATIONAL\+\_\+\+COMPONENTS}
+
+\Hypertarget{PartList_8h_a4bfa4a29f41535761203bd7c061c71c0}\label{PartList_8h_a4bfa4a29f41535761203bd7c061c71c0} 
+\index{PartList.h@{PartList.h}!COLOR\_SENSORS\_ENABLED@{COLOR\_SENSORS\_ENABLED}}
+\index{COLOR\_SENSORS\_ENABLED@{COLOR\_SENSORS\_ENABLED}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{COLOR\_SENSORS\_ENABLED}{COLOR\_SENSORS\_ENABLED}}
+{\footnotesize\ttfamily \#define COLOR\+\_\+\+SENSORS\+\_\+\+ENABLED}
+
+\Hypertarget{PartList_8h_a33a9d051c375dce7b122e26b8695f5a4}\label{PartList_8h_a33a9d051c375dce7b122e26b8695f5a4} 
+\index{PartList.h@{PartList.h}!ENFORCE\_PLANAR@{ENFORCE\_PLANAR}}
+\index{ENFORCE\_PLANAR@{ENFORCE\_PLANAR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{ENFORCE\_PLANAR}{ENFORCE\_PLANAR}}
+{\footnotesize\ttfamily \#define ENFORCE\+\_\+\+PLANAR}
+
+\Hypertarget{PartList_8h_a4729108d3804951c45f3e0d823d9637e}\label{PartList_8h_a4729108d3804951c45f3e0d823d9637e} 
+\index{PartList.h@{PartList.h}!IR\_SENSORS\_ENABLED@{IR\_SENSORS\_ENABLED}}
+\index{IR\_SENSORS\_ENABLED@{IR\_SENSORS\_ENABLED}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{IR\_SENSORS\_ENABLED}{IR\_SENSORS\_ENABLED}}
+{\footnotesize\ttfamily \#define IR\+\_\+\+SENSORS\+\_\+\+ENABLED}
+
+\Hypertarget{PartList_8h_aee5f004bc8bc226cd659288c5971f635}\label{PartList_8h_aee5f004bc8bc226cd659288c5971f635} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_ACTIVE\_HINGE@{PART\_TYPE\_ACTIVE\_HINGE}}
+\index{PART\_TYPE\_ACTIVE\_HINGE@{PART\_TYPE\_ACTIVE\_HINGE}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_ACTIVE\_HINGE}{PART\_TYPE\_ACTIVE\_HINGE}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+HINGE~\char`\"{}Active\+Hinge\char`\"{}}
+
+\Hypertarget{PartList_8h_a2170bfd549f99f1a35f6ac9ba15e5090}\label{PartList_8h_a2170bfd549f99f1a35f6ac9ba15e5090} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_ACTIVE\_WHEEL@{PART\_TYPE\_ACTIVE\_WHEEL}}
+\index{PART\_TYPE\_ACTIVE\_WHEEL@{PART\_TYPE\_ACTIVE\_WHEEL}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_ACTIVE\_WHEEL}{PART\_TYPE\_ACTIVE\_WHEEL}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+WHEEL~\char`\"{}Active\+Wheel\char`\"{}}
+
+\Hypertarget{PartList_8h_a3d7abe0c57a7e210d460d896afa4c95d}\label{PartList_8h_a3d7abe0c57a7e210d460d896afa4c95d} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_ACTIVE\_WHEG@{PART\_TYPE\_ACTIVE\_WHEG}}
+\index{PART\_TYPE\_ACTIVE\_WHEG@{PART\_TYPE\_ACTIVE\_WHEG}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_ACTIVE\_WHEG}{PART\_TYPE\_ACTIVE\_WHEG}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+ACTIVE\+\_\+\+WHEG~\char`\"{}Active\+Wheg\char`\"{}}
+
+\Hypertarget{PartList_8h_a778edc4c481321ffe27e8a5a670b5c7d}\label{PartList_8h_a778edc4c481321ffe27e8a5a670b5c7d} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_COLOR\_SENSOR@{PART\_TYPE\_COLOR\_SENSOR}}
+\index{PART\_TYPE\_COLOR\_SENSOR@{PART\_TYPE\_COLOR\_SENSOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_COLOR\_SENSOR}{PART\_TYPE\_COLOR\_SENSOR}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+COLOR\+\_\+\+SENSOR~\char`\"{}Color\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_aaabf71f68a559d6c9f7d797cf557c000}\label{PartList_8h_aaabf71f68a559d6c9f7d797cf557c000} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_CORE\_COMPONENT@{PART\_TYPE\_CORE\_COMPONENT}}
+\index{PART\_TYPE\_CORE\_COMPONENT@{PART\_TYPE\_CORE\_COMPONENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_CORE\_COMPONENT}{PART\_TYPE\_CORE\_COMPONENT}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+CORE\+\_\+\+COMPONENT~\char`\"{}Core\+Component\char`\"{}}
+
+\Hypertarget{PartList_8h_a46e3027a199de6c53dbe0e14584a214a}\label{PartList_8h_a46e3027a199de6c53dbe0e14584a214a} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU@{PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU}}
+\index{PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU@{PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU}{PART\_TYPE\_CORE\_COMPONENT\_NO\_IMU}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+CORE\+\_\+\+COMPONENT\+\_\+\+NO\+\_\+\+IMU~\char`\"{}Core\+Component\+No\+IMU\char`\"{}}
+
+\Hypertarget{PartList_8h_ae36222987aaba139554f191548a1fe95}\label{PartList_8h_ae36222987aaba139554f191548a1fe95} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_FIXED\_BRICK@{PART\_TYPE\_FIXED\_BRICK}}
+\index{PART\_TYPE\_FIXED\_BRICK@{PART\_TYPE\_FIXED\_BRICK}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_FIXED\_BRICK}{PART\_TYPE\_FIXED\_BRICK}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+FIXED\+\_\+\+BRICK~\char`\"{}Fixed\+Brick\char`\"{}}
+
+\Hypertarget{PartList_8h_a5ebd5cc6f48a0e234bdc80289a9729d7}\label{PartList_8h_a5ebd5cc6f48a0e234bdc80289a9729d7} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_IR\_SENSOR@{PART\_TYPE\_IR\_SENSOR}}
+\index{PART\_TYPE\_IR\_SENSOR@{PART\_TYPE\_IR\_SENSOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_IR\_SENSOR}{PART\_TYPE\_IR\_SENSOR}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+IR\+\_\+\+SENSOR~\char`\"{}Ir\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_a0633c1218b0efb87d89e1656abf3caae}\label{PartList_8h_a0633c1218b0efb87d89e1656abf3caae} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_LIGHT\_SENSOR@{PART\_TYPE\_LIGHT\_SENSOR}}
+\index{PART\_TYPE\_LIGHT\_SENSOR@{PART\_TYPE\_LIGHT\_SENSOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_LIGHT\_SENSOR}{PART\_TYPE\_LIGHT\_SENSOR}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+LIGHT\+\_\+\+SENSOR~\char`\"{}Light\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_a99c5efa88a003db7d67b1533e7083e54}\label{PartList_8h_a99c5efa88a003db7d67b1533e7083e54} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_PARAM\_JOINT@{PART\_TYPE\_PARAM\_JOINT}}
+\index{PART\_TYPE\_PARAM\_JOINT@{PART\_TYPE\_PARAM\_JOINT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_PARAM\_JOINT}{PART\_TYPE\_PARAM\_JOINT}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+PARAM\+\_\+\+JOINT~\char`\"{}Parametric\+Joint\char`\"{}}
+
+\Hypertarget{PartList_8h_a3a73a9a9bb356b9ff0cc79ed484f5217}\label{PartList_8h_a3a73a9a9bb356b9ff0cc79ed484f5217} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_PASSIVE\_HINGE@{PART\_TYPE\_PASSIVE\_HINGE}}
+\index{PART\_TYPE\_PASSIVE\_HINGE@{PART\_TYPE\_PASSIVE\_HINGE}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_PASSIVE\_HINGE}{PART\_TYPE\_PASSIVE\_HINGE}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+PASSIVE\+\_\+\+HINGE~\char`\"{}Passive\+Hinge\char`\"{}}
+
+\Hypertarget{PartList_8h_ab53a9a4200ea464c7be50a7fdc806138}\label{PartList_8h_ab53a9a4200ea464c7be50a7fdc806138} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_PASSIVE\_WHEEL@{PART\_TYPE\_PASSIVE\_WHEEL}}
+\index{PART\_TYPE\_PASSIVE\_WHEEL@{PART\_TYPE\_PASSIVE\_WHEEL}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_PASSIVE\_WHEEL}{PART\_TYPE\_PASSIVE\_WHEEL}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+PASSIVE\+\_\+\+WHEEL~\char`\"{}Passive\+Wheel\char`\"{}}
+
+\Hypertarget{PartList_8h_ad45cb5b1347539c724443ff3b5ea73ab}\label{PartList_8h_ad45cb5b1347539c724443ff3b5ea73ab} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_ROTATOR@{PART\_TYPE\_ROTATOR}}
+\index{PART\_TYPE\_ROTATOR@{PART\_TYPE\_ROTATOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_ROTATOR}{PART\_TYPE\_ROTATOR}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+ROTATOR~\char`\"{}Rotator\char`\"{}}
+
+\Hypertarget{PartList_8h_a07cc898d5caeba2c79638d0a70d5e5e9}\label{PartList_8h_a07cc898d5caeba2c79638d0a70d5e5e9} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_SENSOR\_MORPHOLOGY@{PART\_TYPE\_SENSOR\_MORPHOLOGY}}
+\index{PART\_TYPE\_SENSOR\_MORPHOLOGY@{PART\_TYPE\_SENSOR\_MORPHOLOGY}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_SENSOR\_MORPHOLOGY}{PART\_TYPE\_SENSOR\_MORPHOLOGY}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+SENSOR\+\_\+\+MORPHOLOGY~\char`\"{}Sensor\+Morphology\char`\"{}}
+
+\Hypertarget{PartList_8h_a4d921602d7e7444e3bb9502cefc2d80b}\label{PartList_8h_a4d921602d7e7444e3bb9502cefc2d80b} 
+\index{PartList.h@{PartList.h}!PART\_TYPE\_TARGET\_AREA\_DETECTOR@{PART\_TYPE\_TARGET\_AREA\_DETECTOR}}
+\index{PART\_TYPE\_TARGET\_AREA\_DETECTOR@{PART\_TYPE\_TARGET\_AREA\_DETECTOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{PART\_TYPE\_TARGET\_AREA\_DETECTOR}{PART\_TYPE\_TARGET\_AREA\_DETECTOR}}
+{\footnotesize\ttfamily \#define PART\+\_\+\+TYPE\+\_\+\+TARGET\+\_\+\+AREA\+\_\+\+DETECTOR~\char`\"{}Target\+Area\+Detector\char`\"{}}
+
+\Hypertarget{PartList_8h_ad298c4696e95f2a6416778b990449a6c}\label{PartList_8h_ad298c4696e95f2a6416778b990449a6c} 
+\index{PartList.h@{PartList.h}!SENSOR\_MORPHOLOGY\_ENABLED@{SENSOR\_MORPHOLOGY\_ENABLED}}
+\index{SENSOR\_MORPHOLOGY\_ENABLED@{SENSOR\_MORPHOLOGY\_ENABLED}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_MORPHOLOGY\_ENABLED}{SENSOR\_MORPHOLOGY\_ENABLED}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+MORPHOLOGY\+\_\+\+ENABLED}
+
+\Hypertarget{PartList_8h_a537a817253de19e75c9d0a246cde1829}\label{PartList_8h_a537a817253de19e75c9d0a246cde1829} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT}}
+\index{SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT}{SENSOR\_TYPE\_COLOR\_SENSOR\_ELEMENT}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+COLOR\+\_\+\+SENSOR\+\_\+\+ELEMENT~\char`\"{}Color\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_a1decfd08ac76f585386fea1eaba8a2a4}\label{PartList_8h_a1decfd08ac76f585386fea1eaba8a2a4} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT}}
+\index{SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT}{SENSOR\_TYPE\_IMU\_SENSOR\_ELEMENT}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+IMU\+\_\+\+SENSOR\+\_\+\+ELEMENT~\char`\"{}Imu\+Sensor\+Element\char`\"{}}
+
+\Hypertarget{PartList_8h_a5f5c86d7d1eed7f9628a3c38aae9547f}\label{PartList_8h_a5f5c86d7d1eed7f9628a3c38aae9547f} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT}}
+\index{SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT}{SENSOR\_TYPE\_IR\_SENSOR\_ELEMENT}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+IR\+\_\+\+SENSOR\+\_\+\+ELEMENT~\char`\"{}Ir\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_a73dc37b8722d064287e70ee98d17102f}\label{PartList_8h_a73dc37b8722d064287e70ee98d17102f} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_LIGHT\_SENSOR@{SENSOR\_TYPE\_LIGHT\_SENSOR}}
+\index{SENSOR\_TYPE\_LIGHT\_SENSOR@{SENSOR\_TYPE\_LIGHT\_SENSOR}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_LIGHT\_SENSOR}{SENSOR\_TYPE\_LIGHT\_SENSOR}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+LIGHT\+\_\+\+SENSOR~\char`\"{}Light\+Sensor\char`\"{}}
+
+\Hypertarget{PartList_8h_a4c521b6a20d5a28079b84faa3dc8a308}\label{PartList_8h_a4c521b6a20d5a28079b84faa3dc8a308} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT}}
+\index{SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT@{SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT}{SENSOR\_TYPE\_MORPHOLODY\_SENSOR\_ELEMENT}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+MORPHOLODY\+\_\+\+SENSOR\+\_\+\+ELEMENT~\char`\"{}Sensor\+Morphology\char`\"{}}
+
+\Hypertarget{PartList_8h_a2520625433041ed4d61e176557939f3c}\label{PartList_8h_a2520625433041ed4d61e176557939f3c} 
+\index{PartList.h@{PartList.h}!SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT@{SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT}}
+\index{SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT@{SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT}{SENSOR\_TYPE\_TARGET\_AREA\_DETECTOR\_ELEMENT}}
+{\footnotesize\ttfamily \#define SENSOR\+\_\+\+TYPE\+\_\+\+TARGET\+\_\+\+AREA\+\_\+\+DETECTOR\+\_\+\+ELEMENT~\char`\"{}Target\+Area\+Detector\char`\"{}}
+
+\Hypertarget{PartList_8h_a3b6cb84bdb67708927322bf8633c731c}\label{PartList_8h_a3b6cb84bdb67708927322bf8633c731c} 
+\index{PartList.h@{PartList.h}!TARGET\_AREA\_DETECTOR\_ENABLED@{TARGET\_AREA\_DETECTOR\_ENABLED}}
+\index{TARGET\_AREA\_DETECTOR\_ENABLED@{TARGET\_AREA\_DETECTOR\_ENABLED}!PartList.h@{PartList.h}}
+\doxysubsubsection{\texorpdfstring{TARGET\_AREA\_DETECTOR\_ENABLED}{TARGET\_AREA\_DETECTOR\_ENABLED}}
+{\footnotesize\ttfamily \#define TARGET\+\_\+\+AREA\+\_\+\+DETECTOR\+\_\+\+ENABLED}
+

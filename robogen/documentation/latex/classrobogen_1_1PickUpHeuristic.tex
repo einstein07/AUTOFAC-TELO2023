@@ -1,0 +1,122 @@
+\hypertarget{classrobogen_1_1PickUpHeuristic}{}\doxysection{robogen\+::Pick\+Up\+Heuristic Class Reference}
+\label{classrobogen_1_1PickUpHeuristic}\index{robogen::PickUpHeuristic@{robogen::PickUpHeuristic}}
+
+
+Class for describing a resource pick-\/up heuristic.  
+
+
+
+
+{\ttfamily \#include $<$Pick\+Up\+Heuristic.\+h$>$}
+
+Inheritance diagram for robogen\+::Pick\+Up\+Heuristic\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1PickUpHeuristic}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1PickUpHeuristic_a41dea48ad0af9fb0e4e7f771dd809270}{Pick\+Up\+Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classrobogen_1_1PickUpHeuristic_ad6047cb0c106b4f02387caa176ca30e6}{$\sim$\+Pick\+Up\+Heuristic}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1PickUpHeuristic_a0a8399193822797ae2536d4cfa404b81}{step}} (boost\+::mutex \&queue\+Mutex)
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Heuristic_afc9ea35e2ea361eae3bbbaf44d5e079f}{Heuristic}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ robot, boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ scenario)
+\begin{DoxyCompactList}\small\item\em Class constructor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Heuristic_ab7a6234416549be4b598255cea4a6894}{$\sim$\+Heuristic}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1Heuristic_a0696c12521a965fa5b286b79e64feaf7}{set\+Priority}} (int priority)
+\begin{DoxyCompactList}\small\item\em Sets the priority of this heuristic. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{step}} (boost\+::mutex \&queue\+Mutex)=0
+\begin{DoxyCompactList}\small\item\em Update the heuristic at this iteration. \end{DoxyCompactList}\item 
+osg\+::\+Vec2d \mbox{\hyperlink{classrobogen_1_1Heuristic_a6cb108a375d429c356ee99f56c07a81e}{drive\+To\+Target\+Position}} (osg\+::\+Vec2d target\+Position)
+\begin{DoxyCompactList}\small\item\em Returns motor signals that will drive the agent towards the desired target position. \end{DoxyCompactList}\item 
+osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1Heuristic_a8c8076593f7cb64633903bee003c0209}{get\+Local\+Point}} (osg\+::\+Vec3 global\+Point)
+\begin{DoxyCompactList}\small\item\em Converts global coordinates to local coordinates, relative to the robotic agent. \end{DoxyCompactList}\item 
+osg\+::\+Vec3d \mbox{\hyperlink{classrobogen_1_1Heuristic_a36e7e5f068b7110309420078a1ebc2af}{get\+Global\+Point}} (osg\+::\+Vec3d local\+Point)
+\begin{DoxyCompactList}\small\item\em Converts local coordinates (relative to the robotic agent) to global coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double \mbox{\hyperlink{classrobogen_1_1Heuristic_a661b93334147b666e3d634f3f5146ea0}{HALF\+\_\+\+PI}} = M\+\_\+\+PI / 2
+\begin{DoxyCompactList}\small\item\em Value of half PI. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrobogen_1_1Heuristic}{robogen\+::\+Heuristic}}}
+\begin{DoxyCompactItemize}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_a0ee1d742376365bdfde4871efc935373}{robot\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The agent currently utilizing this heuristic. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$ \mbox{\hyperlink{classrobogen_1_1Heuristic_ad20757e76823d7ca6124baf19d2a8747}{scenario\+\_\+}}
+\begin{DoxyCompactList}\small\item\em The scenario in which the task is being carried out. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for describing a resource pick-\/up heuristic. 
+
+\doxylink{classrobogen_1_1PickUpHeuristic}{Pick\+Up\+Heuristic} inherits from \doxylink{classrobogen_1_1Heuristic}{Heuristic} to describe a heuristic for picking up resources once agents are within a certain distance to said resources located outside the gathering zone. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1PickUpHeuristic_a41dea48ad0af9fb0e4e7f771dd809270}\label{classrobogen_1_1PickUpHeuristic_a41dea48ad0af9fb0e4e7f771dd809270} 
+\index{robogen::PickUpHeuristic@{robogen::PickUpHeuristic}!PickUpHeuristic@{PickUpHeuristic}}
+\index{PickUpHeuristic@{PickUpHeuristic}!robogen::PickUpHeuristic@{robogen::PickUpHeuristic}}
+\doxysubsubsection{\texorpdfstring{PickUpHeuristic()}{PickUpHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Pick\+Up\+Heuristic\+::\+Pick\+Up\+Heuristic (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Robot}{Robot}} $>$}]{robot,  }\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Scenario}{Scenario}} $>$}]{scenario }\end{DoxyParamCaption})}
+
+
+
+Class constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \doxylink{classrobogen_1_1Robot}{Robot}} & The agent to utilize this heuristic \\
+\hline
+{\em \doxylink{classrobogen_1_1Scenario}{Scenario}} & The scenario in which this task is being carried out \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a heuristic object 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1PickUpHeuristic_ad6047cb0c106b4f02387caa176ca30e6}\label{classrobogen_1_1PickUpHeuristic_ad6047cb0c106b4f02387caa176ca30e6} 
+\index{robogen::PickUpHeuristic@{robogen::PickUpHeuristic}!````~PickUpHeuristic@{$\sim$PickUpHeuristic}}
+\index{````~PickUpHeuristic@{$\sim$PickUpHeuristic}!robogen::PickUpHeuristic@{robogen::PickUpHeuristic}}
+\doxysubsubsection{\texorpdfstring{$\sim$PickUpHeuristic()}{~PickUpHeuristic()}}
+{\footnotesize\ttfamily robogen\+::\+Pick\+Up\+Heuristic\+::$\sim$\+Pick\+Up\+Heuristic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1PickUpHeuristic_a0a8399193822797ae2536d4cfa404b81}\label{classrobogen_1_1PickUpHeuristic_a0a8399193822797ae2536d4cfa404b81} 
+\index{robogen::PickUpHeuristic@{robogen::PickUpHeuristic}!step@{step}}
+\index{step@{step}!robogen::PickUpHeuristic@{robogen::PickUpHeuristic}}
+\doxysubsubsection{\texorpdfstring{step()}{step()}}
+{\footnotesize\ttfamily osg\+::\+Vec2d robogen\+::\+Pick\+Up\+Heuristic\+::step (\begin{DoxyParamCaption}\item[{boost\+::mutex \&}]{queue\+Mutex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Update the heuristic at this iteration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em boost\+::mutex} & a lock to avoid race conditions \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1Heuristic_a6c0e2bcf1433c2d72b66ee025378899f}{robogen\+::\+Heuristic}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\+EDQD/\mbox{\hyperlink{PickUpHeuristic_8h}{Pick\+Up\+Heuristic.\+h}}\item 
+src/\+EDQD/\mbox{\hyperlink{PickUpHeuristic_8cpp}{Pick\+Up\+Heuristic.\+cpp}}\end{DoxyCompactItemize}

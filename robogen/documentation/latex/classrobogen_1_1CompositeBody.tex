@@ -1,0 +1,182 @@
+\hypertarget{classrobogen_1_1CompositeBody}{}\doxysection{robogen\+::Composite\+Body Class Reference}
+\label{classrobogen_1_1CompositeBody}\index{robogen::CompositeBody@{robogen::CompositeBody}}
+
+
+Class to describe \doxylink{classrobogen_1_1CompositeBody}{Composite\+Body}.  
+
+
+
+
+{\ttfamily \#include $<$Composite\+Body.\+h$>$}
+
+Inheritance diagram for robogen\+::Composite\+Body\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{classrobogen_1_1CompositeBody}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1CompositeBody_afef8489ce5acba217f637476d94392a9}{Composite\+Body}} ()
+\begin{DoxyCompactList}\small\item\em Errorless constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1CompositeBody_a385f1bf55c6e7e104b78e81ae3ac670e}{init}} (std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ $>$ sub\+Bodies, d\+World\+ID world, bool multi\+Model=false)
+\begin{DoxyCompactList}\small\item\em Initializes \doxylink{classrobogen_1_1CompositeBody}{Composite\+Body}. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1CompositeBody_a98824fe475e485abf55e442725d47834}{$\sim$\+Composite\+Body}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1CompositeBody_a1610e0e1595c7e95e8cf04d99d62d8ce}{get\+Position}} ()
+\begin{DoxyCompactList}\small\item\em Returns position. \end{DoxyCompactList}\item 
+virtual osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1CompositeBody_a0a9beadb0c215eb34700ca954b631cbe}{get\+Attitude}} ()
+\begin{DoxyCompactList}\small\item\em Returns attitude. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1CompositeBody_a3e5b92408288a729717294fa8b76b44e}{get\+Sub\+Bodies}} ()
+\begin{DoxyCompactList}\small\item\em Returns sub-\/bodies. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1CompositeBody_a43d1ea8c4676db37efc28cc2b881ca9b}{is\+Multi\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Flags multi model status. \end{DoxyCompactList}\item 
+std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ $>$ \mbox{\hyperlink{classrobogen_1_1CompositeBody_a92129f4f518f82db1996bdd8db9d6bf9}{get\+All\+Joints}} ()
+\begin{DoxyCompactList}\small\item\em Returns all joints. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classrobogen_1_1CompositeBody_a27aac4d47f841a6091e33712a0d2d31e}{str}} (int indent=0)
+\begin{DoxyCompactList}\small\item\em Returns string detailing composition of body. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classrobogen_1_1AbstractBody}{robogen\+::\+Abstract\+Body}}}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a958cc46213d00390e8a91bc93c529244}{get\+Body}} ()
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1645a201f41a742a91ce09ad65d75da0}{set\+Body}} (d\+Body\+ID body)
+\item 
+virtual \mbox{\hyperlink{classrobogen_1_1AbstractBody_af78548520e13e6fd9a384ce830af99ab}{$\sim$\+Abstract\+Body}} ()
+\item 
+virtual osg\+::\+Vec3 \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{get\+Position}} ()=0
+\item 
+virtual osg\+::\+Quat \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{get\+Attitude}} ()=0
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a1308af73f87aad56b32b9a2e6eaa6051}{set\+Position}} (osg\+::\+Vec3 position)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_aba5ff5ead755e882a4f383b6edc0692a}{set\+Attitude}} (osg\+::\+Quat attitude)
+\item 
+void \mbox{\hyperlink{classrobogen_1_1AbstractBody_a714829093562cdb1a1ec100f72e8c2bd}{set\+Parent}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ parent)
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_aec9088ebbe95f329db99bbf35a50470d}{get\+Parent}} ()
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a776cf1449582c5444538f62c6a4336c1}{get\+Root}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classrobogen_1_1AbstractBody}{robogen\+::\+Abstract\+Body}}}
+\begin{DoxyCompactItemize}
+\item 
+d\+Body\+ID \mbox{\hyperlink{classrobogen_1_1AbstractBody_a182a6fbe9564db8dd16ebebad3104c42}{body\+\_\+}}
+\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1CompositeBody}{Composite\+Body}} $>$ \mbox{\hyperlink{classrobogen_1_1AbstractBody_a3b86105adc647964c8ba9dc9a09063a7}{parent\+\_\+}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to describe \doxylink{classrobogen_1_1CompositeBody}{Composite\+Body}. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1CompositeBody_afef8489ce5acba217f637476d94392a9}\label{classrobogen_1_1CompositeBody_afef8489ce5acba217f637476d94392a9} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!CompositeBody@{CompositeBody}}
+\index{CompositeBody@{CompositeBody}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{CompositeBody()}{CompositeBody()}}
+{\footnotesize\ttfamily robogen\+::\+Composite\+Body\+::\+Composite\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Errorless constructor. 
+
+\Hypertarget{classrobogen_1_1CompositeBody_a98824fe475e485abf55e442725d47834}\label{classrobogen_1_1CompositeBody_a98824fe475e485abf55e442725d47834} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!````~CompositeBody@{$\sim$CompositeBody}}
+\index{````~CompositeBody@{$\sim$CompositeBody}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{$\sim$CompositeBody()}{~CompositeBody()}}
+{\footnotesize\ttfamily robogen\+::\+Composite\+Body\+::$\sim$\+Composite\+Body (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1CompositeBody_a92129f4f518f82db1996bdd8db9d6bf9}\label{classrobogen_1_1CompositeBody_a92129f4f518f82db1996bdd8db9d6bf9} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!getAllJoints@{getAllJoints}}
+\index{getAllJoints@{getAllJoints}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{getAllJoints()}{getAllJoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ $>$ robogen\+::\+Composite\+Body\+::get\+All\+Joints (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns all joints. 
+
+\Hypertarget{classrobogen_1_1CompositeBody_a0a9beadb0c215eb34700ca954b631cbe}\label{classrobogen_1_1CompositeBody_a0a9beadb0c215eb34700ca954b631cbe} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!getAttitude@{getAttitude}}
+\index{getAttitude@{getAttitude}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{getAttitude()}{getAttitude()}}
+{\footnotesize\ttfamily osg\+::\+Quat robogen\+::\+Composite\+Body\+::get\+Attitude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns attitude. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1AbstractBody_a0bcb2e9d8f1510e97d42755f59f7d5bc}{robogen\+::\+Abstract\+Body}}.
+
+\Hypertarget{classrobogen_1_1CompositeBody_a1610e0e1595c7e95e8cf04d99d62d8ce}\label{classrobogen_1_1CompositeBody_a1610e0e1595c7e95e8cf04d99d62d8ce} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!getPosition@{getPosition}}
+\index{getPosition@{getPosition}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{getPosition()}{getPosition()}}
+{\footnotesize\ttfamily osg\+::\+Vec3 robogen\+::\+Composite\+Body\+::get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Returns position. 
+
+
+
+Implements \mbox{\hyperlink{classrobogen_1_1AbstractBody_a13d3fa5b67deb843b9f38090a779978f}{robogen\+::\+Abstract\+Body}}.
+
+\Hypertarget{classrobogen_1_1CompositeBody_a3e5b92408288a729717294fa8b76b44e}\label{classrobogen_1_1CompositeBody_a3e5b92408288a729717294fa8b76b44e} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!getSubBodies@{getSubBodies}}
+\index{getSubBodies@{getSubBodies}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{getSubBodies()}{getSubBodies()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ $>$ \& robogen\+::\+Composite\+Body\+::get\+Sub\+Bodies (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns sub-\/bodies. 
+
+\Hypertarget{classrobogen_1_1CompositeBody_a385f1bf55c6e7e104b78e81ae3ac670e}\label{classrobogen_1_1CompositeBody_a385f1bf55c6e7e104b78e81ae3ac670e} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!init@{init}}
+\index{init@{init}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void robogen\+::\+Composite\+Body\+::init (\begin{DoxyParamCaption}\item[{std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1AbstractBody}{Abstract\+Body}} $>$ $>$}]{sub\+Bodies,  }\item[{d\+World\+ID}]{world,  }\item[{bool}]{multi\+Model = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Initializes \doxylink{classrobogen_1_1CompositeBody}{Composite\+Body}. 
+
+\Hypertarget{classrobogen_1_1CompositeBody_a43d1ea8c4676db37efc28cc2b881ca9b}\label{classrobogen_1_1CompositeBody_a43d1ea8c4676db37efc28cc2b881ca9b} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!isMultiModel@{isMultiModel}}
+\index{isMultiModel@{isMultiModel}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{isMultiModel()}{isMultiModel()}}
+{\footnotesize\ttfamily bool robogen\+::\+Composite\+Body\+::is\+Multi\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Flags multi model status. 
+
+\Hypertarget{classrobogen_1_1CompositeBody_a27aac4d47f841a6091e33712a0d2d31e}\label{classrobogen_1_1CompositeBody_a27aac4d47f841a6091e33712a0d2d31e} 
+\index{robogen::CompositeBody@{robogen::CompositeBody}!str@{str}}
+\index{str@{str}!robogen::CompositeBody@{robogen::CompositeBody}}
+\doxysubsubsection{\texorpdfstring{str()}{str()}}
+{\footnotesize\ttfamily std\+::string robogen\+::\+Composite\+Body\+::str (\begin{DoxyParamCaption}\item[{int}]{indent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Returns string detailing composition of body. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/model/\mbox{\hyperlink{CompositeBody_8h}{Composite\+Body.\+h}}\item 
+src/model/\mbox{\hyperlink{CompositeBody_8cpp}{Composite\+Body.\+cpp}}\end{DoxyCompactItemize}

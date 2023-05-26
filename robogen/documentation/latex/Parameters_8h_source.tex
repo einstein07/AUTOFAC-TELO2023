@@ -1,0 +1,127 @@
+\hypertarget{Parameters_8h_source}{}\doxysection{Parameters.\+h}
+\label{Parameters_8h_source}\index{src/EDQD/Parameters.h@{src/EDQD/Parameters.h}}
+\mbox{\hyperlink{Parameters_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ Parameters.h\ \ \ 1.0\ \ \ Sep\ 05,\ 2021}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Sindiso\ Mkhatshwa\ (mkhsin035@myuct.ac.za)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ Nitschke\ Laboratory,\ UCT}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ EDQD\_PARAMETERS\_H\_}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ EDQD\_PARAMETERS\_H\_}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Logger_8h}{Logger.h}}"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{extern}\ std::ofstream\ \mbox{\hyperlink{Parameters_8h_a134e4e9755c3c632fcde1f8d44d19fce}{gLitelogFile}};}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{classLogger}{Logger}}\ *\mbox{\hyperlink{Parameters_8h_ae073ba5a165590290346dde39ea36f62}{gLiteLogger}};}
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceEDQD}{EDQD}}\{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{comment}{//=============================================================================================}}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Embodied\ Evolution\ Parameters}}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//=============================================================================================}}
+\DoxyCodeLine{00025\ \textcolor{comment}{}\ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classEDQD_1_1Parameters}{Parameters}}\{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Members}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{comment}{//=========================================================================================}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_ad19e5a901e57f5b05649f1df328d5b8a}{sigmaMin}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a774e72e5b0e2e361afdf561815b944c2}{sigmaMax}};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a67d2616980ee4c58b6187f8549c2f5aa}{nbHiddenLayers}};\ \textcolor{comment}{//\ default:\ 1}}
+\DoxyCodeLine{00048\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aae787537d6e98a10c1a9958cb8bf51aa}{nbNeuronsPerHiddenLayer}};\ \textcolor{comment}{//\ default:\ 5}}
+\DoxyCodeLine{00054\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_ac5041a9d98fe2d6cae8736024fdc9ab8}{weightRange}};}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aff37f665c96b0512d878be42dcdecddd}{nbOfPhysicalObjectGroups}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a7c1460663bab378bb004fc501ed44782}{updateSigmaStep}};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a69146ab8d62bac1ed7bf933f46a549a1}{sigmaRef}};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a7d6dd7da5d358dad4f041ab42ae80c5d}{pMutation}};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a5e166ddda8c7201c4d08c4b50a685851}{pMutateSensorState}};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a6052837376ba91b9c55d90364ef78bd2}{sensorState}};}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a779409c868b22900033ab9fac23da5ad}{evaluationTime}};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a4d4bcdd3ae077930285337fecb79252a}{maxIterations}};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aa7705e739b9ab5666bfbb30f3c4ecdcc}{synchronization}};}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a4808babc82d38c3972f4d8d1ef131767}{nbOfDimensions}}\ =\ 2;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_afc4b4ee6a68eef242a4e4aa14f90883a}{nbOfIntervals}}\ =\ 10;\textcolor{comment}{//2;///*15*/5;}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a803d2d683b17c62af478c1470e26230c}{fitEpsilon}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a31a5b967a948167aab264c40fd4a24e7}{controllerType}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a4ecb25cfd11b828e07310a4f355b7c42}{maxNbGenomeTransmission}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aa88dd640f7c093fe6c959aec851978db}{limitGenomeTransmission}};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a26da176f3da500dc631df85fbcbc3c24}{notListeningStateDelay}};}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_ac1a26f5a213a7c71f2d92e97cc8511a0}{listeningStateDelay}};}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a4a49e2763b0b514f34c07e3fb36ecea4}{individualMutationRate}};}
+\DoxyCodeLine{00157\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a40ee78af7baa3495bdd6d26e6211c8fd}{mutationOperator}};}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a94149f91acaa560d79fede4aa2505015}{sigma}};}
+\DoxyCodeLine{00169\ }
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_acbdf1e0a483ecc90b080fa08f9bbf227}{onlyKeepMapsForGeneration}};}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a9e4724cfc7ea322755a16f5884228ffc}{EDQDMapSelection}};}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a9914ae95de3b450a5cfd2793711367fe}{EDQDMultiBCMap}};}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a3c4f793a4115119d64258648039c510b}{selectionMethod}};}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classEDQD_1_1Parameters_ac81b8c2c4bd16839c641535286613877}{evolveSensors}};}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aa70dfd61a21787d2348d95716deffaf4}{maxTimeResourceBound}};}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::string\ \mbox{\hyperlink{classEDQD_1_1Parameters_a576805bbf5d0b8d8b2b4347799325089}{logDirectoryname}};}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::ofstream\ \mbox{\hyperlink{classEDQD_1_1Parameters_a6c628cf1517d8508ccba0a0cf96687d7}{gEOGLogFile}};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classEDQD_1_1Parameters_a1bd65ba4361049ef6613c1af53169156}{gEOGLogger}};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::ofstream\ \mbox{\hyperlink{classEDQD_1_1Parameters_ab566a682df937a87a58eb82086591166}{gMapsLogFile}};}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classEDQD_1_1Parameters_ae23139bca39b05f952ea7a47d2bf7389}{gMapsLogger}};}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::ofstream\ \mbox{\hyperlink{classEDQD_1_1Parameters_a56dcdee47d26850b8153eb35f1f7dcae}{gMorphMapsLogFile}};}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classEDQD_1_1Parameters_a7f67402946c2366b71decc1c66f5f2c4}{gMorphMapsLogger}};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::ofstream\ \mbox{\hyperlink{classEDQD_1_1Parameters_ad55b019268c648453ccce918f9591370}{gResourcesLogFile}};}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classEDQD_1_1Parameters_ac3ba1e59902c934b30d8a40eaf788677}{gResourcesLogger}};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::ofstream\ \mbox{\hyperlink{classEDQD_1_1Parameters_a55c949e0252e255d838a977beb2daddd}{gMorphLogFile}};}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLogger}{Logger}}*\ \mbox{\hyperlink{classEDQD_1_1Parameters_a7a4f84beac040759b35d80beff915642}{gMorphLogger}};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================================================================}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================================================================}}
+\DoxyCodeLine{00252\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classEDQD_1_1Parameters_abef4e2f9c95bf11353f7fd67aebfc017}{Parameters}}();}
+\DoxyCodeLine{00253\ }
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================================================================}}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Destructor}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ =========================================================================================}}
+\DoxyCodeLine{00260\ \textcolor{comment}{}\ \ \ \ \ \ \ \ \mbox{\hyperlink{classEDQD_1_1Parameters_ae947e46c705edb34c4030bc23038af39}{\string~Parameters}}();}
+\DoxyCodeLine{00261\ }
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \textcolor{comment}{//==========================================================================================}}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Methods}}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \textcolor{comment}{//==========================================================================================}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a078450c6186741aaa41ca7611488894f}{Load}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a078450c6186741aaa41ca7611488894f}{Load}}(std::ifstream\&\ a\_DataFile);}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aaa74ec3684a8bffb76d473434b1cad35}{Save}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ filename);}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEDQD_1_1Parameters_aaa74ec3684a8bffb76d473434b1cad35}{Save}}(FILE*\ a\_fstream);}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classEDQD_1_1Parameters_a5b85045ef58949225565da5ad8cf2b58}{Reset}}();}
+\DoxyCodeLine{00288\ \ \ \ \ \};}
+\DoxyCodeLine{00289\ \}}
+\DoxyCodeLine{00290\ }
+\DoxyCodeLine{00291\ }
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EDQD\_PARAMETERS\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

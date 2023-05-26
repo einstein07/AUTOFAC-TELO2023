@@ -1,0 +1,449 @@
+\hypertarget{classrobogen_1_1Robot}{}\doxysection{robogen\+::Robot Class Reference}
+\label{classrobogen_1_1Robot}\index{robogen::Robot@{robogen::Robot}}
+
+
+Class that describes a ROBOGEN robot.  
+
+
+
+
+{\ttfamily \#include $<$Robot.\+h$>$}
+
+Inheritance diagram for robogen\+::Robot\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classrobogen_1_1Robot}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classrobogen_1_1Robot_a2c126b183e2dbeacd445189ac7d1946f}{Robot}} ()
+\begin{DoxyCompactList}\small\item\em Error-\/less constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, const robogen\+Message\+::\+Robot \&robot\+Spec, bool print\+Info=false, bool print\+Init\+Errors=true)
+\begin{DoxyCompactList}\small\item\em Initializes a Robogen robot from a robogen message. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_ab032e45d81189ee666078414a89aafd8}{init}} (d\+World\+ID \mbox{\hyperlink{RobogenServer_8cpp_ade398a485f7bfd9b9561bfe6dbcd2718}{ode\+World}}, d\+Space\+ID ode\+Space, d\+Space\+ID robot\+Space, int \&nb\+Alive, const robogen\+Message\+::\+Robot \&robot\+Spec, bool print\+Info=false, bool print\+Init\+Errors=true)
+\begin{DoxyCompactList}\small\item\em Modified -\/ to allow constructor initialization with two collision spaces -\/ one for the whole word and the other specific to this robot -\/ SM. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{classrobogen_1_1Robot_a627dd89e627527f46cedbca757d07e12}{$\sim$\+Robot}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a6eadb94ee1c6c831e1c046d62d48563e}{get\+Body\+Parts}} ()
+\begin{DoxyCompactList}\small\item\em Returns body parts. \end{DoxyCompactList}\item 
+const boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_aa5a62a6067860cae1c33697493798eaa}{get\+Brain}} () const
+\begin{DoxyCompactList}\small\item\em Returns ANN. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Sensor $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a4c10457e67f68eb9f3c48a42bbcae7c6}{get\+Sensors}} () const
+\begin{DoxyCompactList}\small\item\em Returns sensors. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_a07a19ec43df0eea8f77bfadfda25003c}{get\+Motors}} ()
+\begin{DoxyCompactList}\small\item\em Returns motors. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Robot_a8ade4c311ad5cbca90669e6630850927}{get\+Core\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Returns core component. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a5f576fd460a5fb6bc88414bed7ee3448}{translate\+Robot}} (const osg\+::\+Vec3 \&translation)
+\begin{DoxyCompactList}\small\item\em Translate the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a0cb9b2124cee51b27b3ebf500936c880}{rotate\+Robot}} (const osg\+::\+Quat \&rot)
+\begin{DoxyCompactList}\small\item\em Rotate the robot. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a2bc3ae1d7086975bfcd60721c4edf4ca}{get\+AABB}} (double \&minX, double \&maxX, double \&minY, double \&maxY, double \&minZ, double \&maxZ)
+\begin{DoxyCompactList}\small\item\em Returns the robot axis-\/aligned bounding box. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a2d0b022ee6d7a84241d4e07008c335c5}{get\+Id}} () const
+\begin{DoxyCompactList}\small\item\em Returns robot id. \end{DoxyCompactList}\item 
+boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ \mbox{\hyperlink{classrobogen_1_1Robot_a50b476312a6502bb10ba5b40441ffe7d}{get\+Body\+Part}} (std\+::string id)
+\begin{DoxyCompactList}\small\item\em Returns specified body part. \end{DoxyCompactList}\item 
+const robogen\+Message\+::\+Robot \& \mbox{\hyperlink{classrobogen_1_1Robot_a3c4959bf89d2224e507b50688291d9c4}{get\+Message}} ()
+\begin{DoxyCompactList}\small\item\em Returns robogen message. \end{DoxyCompactList}\item 
+const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$ \& \mbox{\hyperlink{classrobogen_1_1Robot_aab5ca5b6b650d2f37771de841b701dc0}{get\+Body\+Connections}} () const
+\begin{DoxyCompactList}\small\item\em Returns body connections. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a937af10cf8b0b8abdfcc02c4d1137d82}{traverse\+Body}} (const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$, const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$)
+\begin{DoxyCompactList}\small\item\em Traverse body. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a723d9b99c7a79c9558c3ea3bbc6dd478}{get\+Root}} ()
+\begin{DoxyCompactList}\small\item\em Returns root. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a0f11893534830a52c92e983beb6ee6ee}{add\+Joint}} (boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$ joint)
+\begin{DoxyCompactList}\small\item\em Add joint. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_ab21e39faacd47842d008bdbdfe9a45ad}{optimize\+Physics}} ()
+\begin{DoxyCompactList}\small\item\em Merges bodies connected with fixed joints into complex bodies. \end{DoxyCompactList}\item 
+const bool \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{is\+Bound\+To\+Resource}} ()
+\begin{DoxyCompactList}\small\item\em Returns the status of this robot vis-\/a-\/vis resources -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a3dbfad54e8bd5a78ae406561bc6a733f}{set\+Bound\+To\+Resource}} (bool \mbox{\hyperlink{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}{is\+Bound\+To\+Resource}})
+\begin{DoxyCompactList}\small\item\em Sets the status of this robot vis-\/a-\/vis resources in the environment -\/ SM. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_aeb5585a3dc467f92ade5e1eeb5e454eb}{set\+Bound\+Resource\+Id}} (int resource\+Id)
+\begin{DoxyCompactList}\small\item\em Sets the id of the resource bound to this robot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a9b1111302f6005113baec269447e6fc8}{get\+Bound\+Resource\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the id of the resource this robot is bound to. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classrobogen_1_1Robot_a44a7f6fe0fa13bd01699bbde08f52ca6}{set\+Alive}} (bool value)
+\begin{DoxyCompactList}\small\item\em Set robot state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classrobogen_1_1Robot_a0be0945c05a8c9739d1524b45734f7e4}{is\+Alive}} ()
+\begin{DoxyCompactList}\small\item\em Returns robot status. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_ac1b3a60620db50c9e994b15630f40647}{complexity\+\_\+}}
+\begin{DoxyCompactList}\small\item\em CH -\/ Brain-\/body complexity of robot. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classrobogen_1_1Robot_a2a3b9e691a2217b4f69229fac43eab6c}{complexity\+Cost\+\_\+}}
+\begin{DoxyCompactList}\small\item\em CH -\/ Flag to indicate if complexity cost should be imposed or not. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_a0aa145138fab8f9930f533caf857429d}{end\+Pos\+X\+\_\+}}
+\begin{DoxyCompactList}\small\item\em BK -\/ for novelty score, to record end position achieved during evaluation. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classrobogen_1_1Robot_a9fe3f2f6ded4c25d08297fd5bfba7806}{end\+Pos\+Y\+\_\+}}
+\begin{DoxyCompactList}\small\item\em BK -\/ for novelty score, to record end position achieved during evaluation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that describes a ROBOGEN robot. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classrobogen_1_1Robot_a2c126b183e2dbeacd445189ac7d1946f}\label{classrobogen_1_1Robot_a2c126b183e2dbeacd445189ac7d1946f} 
+\index{robogen::Robot@{robogen::Robot}!Robot@{Robot}}
+\index{Robot@{Robot}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{Robot()}{Robot()}}
+{\footnotesize\ttfamily robogen\+::\+Robot\+::\+Robot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Error-\/less constructor. 
+
+\Hypertarget{classrobogen_1_1Robot_a627dd89e627527f46cedbca757d07e12}\label{classrobogen_1_1Robot_a627dd89e627527f46cedbca757d07e12} 
+\index{robogen::Robot@{robogen::Robot}!````~Robot@{$\sim$Robot}}
+\index{````~Robot@{$\sim$Robot}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{$\sim$Robot()}{~Robot()}}
+{\footnotesize\ttfamily robogen\+::\+Robot\+::$\sim$\+Robot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Destructor. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classrobogen_1_1Robot_a0f11893534830a52c92e983beb6ee6ee}\label{classrobogen_1_1Robot_a0f11893534830a52c92e983beb6ee6ee} 
+\index{robogen::Robot@{robogen::Robot}!addJoint@{addJoint}}
+\index{addJoint@{addJoint}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{addJoint()}{addJoint()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::add\+Joint (\begin{DoxyParamCaption}\item[{boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Joint}{Joint}} $>$}]{joint }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Add joint. 
+
+\Hypertarget{classrobogen_1_1Robot_a2bc3ae1d7086975bfcd60721c4edf4ca}\label{classrobogen_1_1Robot_a2bc3ae1d7086975bfcd60721c4edf4ca} 
+\index{robogen::Robot@{robogen::Robot}!getAABB@{getAABB}}
+\index{getAABB@{getAABB}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getAABB()}{getAABB()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::get\+AABB (\begin{DoxyParamCaption}\item[{double \&}]{minX,  }\item[{double \&}]{maxX,  }\item[{double \&}]{minY,  }\item[{double \&}]{maxY,  }\item[{double \&}]{minZ,  }\item[{double \&}]{maxZ }\end{DoxyParamCaption})}
+
+
+
+Returns the robot axis-\/aligned bounding box. 
+
+\Hypertarget{classrobogen_1_1Robot_aab5ca5b6b650d2f37771de841b701dc0}\label{classrobogen_1_1Robot_aab5ca5b6b650d2f37771de841b701dc0} 
+\index{robogen::Robot@{robogen::Robot}!getBodyConnections@{getBodyConnections}}
+\index{getBodyConnections@{getBodyConnections}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getBodyConnections()}{getBodyConnections()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$ \& robogen\+::\+Robot\+::get\+Body\+Connections (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns body connections. 
+
+\Hypertarget{classrobogen_1_1Robot_a50b476312a6502bb10ba5b40441ffe7d}\label{classrobogen_1_1Robot_a50b476312a6502bb10ba5b40441ffe7d} 
+\index{robogen::Robot@{robogen::Robot}!getBodyPart@{getBodyPart}}
+\index{getBodyPart@{getBodyPart}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getBodyPart()}{getBodyPart()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ robogen\+::\+Robot\+::get\+Body\+Part (\begin{DoxyParamCaption}\item[{std\+::string}]{id }\end{DoxyParamCaption})}
+
+
+
+Returns specified body part. 
+
+\Hypertarget{classrobogen_1_1Robot_a6eadb94ee1c6c831e1c046d62d48563e}\label{classrobogen_1_1Robot_a6eadb94ee1c6c831e1c046d62d48563e} 
+\index{robogen::Robot@{robogen::Robot}!getBodyParts@{getBodyParts}}
+\index{getBodyParts@{getBodyParts}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getBodyParts()}{getBodyParts()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$ \& robogen\+::\+Robot\+::get\+Body\+Parts (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns body parts. 
+
+\begin{DoxyReturn}{Returns}
+the body parts of which the robot is composed of 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a9b1111302f6005113baec269447e6fc8}\label{classrobogen_1_1Robot_a9b1111302f6005113baec269447e6fc8} 
+\index{robogen::Robot@{robogen::Robot}!getBoundResourceId@{getBoundResourceId}}
+\index{getBoundResourceId@{getBoundResourceId}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getBoundResourceId()}{getBoundResourceId()}}
+{\footnotesize\ttfamily int robogen\+::\+Robot\+::get\+Bound\+Resource\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the id of the resource this robot is bound to. 
+
+\Hypertarget{classrobogen_1_1Robot_aa5a62a6067860cae1c33697493798eaa}\label{classrobogen_1_1Robot_aa5a62a6067860cae1c33697493798eaa} 
+\index{robogen::Robot@{robogen::Robot}!getBrain@{getBrain}}
+\index{getBrain@{getBrain}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getBrain()}{getBrain()}}
+{\footnotesize\ttfamily const boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{structNeuralNetwork}{Neural\+Network}} $>$ \& robogen\+::\+Robot\+::get\+Brain (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns ANN. 
+
+\begin{DoxyReturn}{Returns}
+the neural network that controls the robot 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a8ade4c311ad5cbca90669e6630850927}\label{classrobogen_1_1Robot_a8ade4c311ad5cbca90669e6630850927} 
+\index{robogen::Robot@{robogen::Robot}!getCoreComponent@{getCoreComponent}}
+\index{getCoreComponent@{getCoreComponent}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getCoreComponent()}{getCoreComponent()}}
+{\footnotesize\ttfamily boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ robogen\+::\+Robot\+::get\+Core\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns core component. 
+
+\begin{DoxyReturn}{Returns}
+the core component of the robot 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a2d0b022ee6d7a84241d4e07008c335c5}\label{classrobogen_1_1Robot_a2d0b022ee6d7a84241d4e07008c335c5} 
+\index{robogen::Robot@{robogen::Robot}!getId@{getId}}
+\index{getId@{getId}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily int robogen\+::\+Robot\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns robot id. 
+
+\begin{DoxyReturn}{Returns}
+the robot ID 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a3c4959bf89d2224e507b50688291d9c4}\label{classrobogen_1_1Robot_a3c4959bf89d2224e507b50688291d9c4} 
+\index{robogen::Robot@{robogen::Robot}!getMessage@{getMessage}}
+\index{getMessage@{getMessage}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getMessage()}{getMessage()}}
+{\footnotesize\ttfamily const robogen\+Message\+::\+Robot \& robogen\+::\+Robot\+::get\+Message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns robogen message. 
+
+\begin{DoxyReturn}{Returns}
+message that generated the robot 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a07a19ec43df0eea8f77bfadfda25003c}\label{classrobogen_1_1Robot_a07a19ec43df0eea8f77bfadfda25003c} 
+\index{robogen::Robot@{robogen::Robot}!getMotors@{getMotors}}
+\index{getMotors@{getMotors}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getMotors()}{getMotors()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Motor $>$ $>$ \& robogen\+::\+Robot\+::get\+Motors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns motors. 
+
+\begin{DoxyReturn}{Returns}
+the motors of the robot 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a723d9b99c7a79c9558c3ea3bbc6dd478}\label{classrobogen_1_1Robot_a723d9b99c7a79c9558c3ea3bbc6dd478} 
+\index{robogen::Robot@{robogen::Robot}!getRoot@{getRoot}}
+\index{getRoot@{getRoot}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getRoot()}{getRoot()}}
+{\footnotesize\ttfamily int robogen\+::\+Robot\+::get\+Root (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns root. 
+
+\Hypertarget{classrobogen_1_1Robot_a4c10457e67f68eb9f3c48a42bbcae7c6}\label{classrobogen_1_1Robot_a4c10457e67f68eb9f3c48a42bbcae7c6} 
+\index{robogen::Robot@{robogen::Robot}!getSensors@{getSensors}}
+\index{getSensors@{getSensors}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{getSensors()}{getSensors()}}
+{\footnotesize\ttfamily const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ Sensor $>$ $>$ \& robogen\+::\+Robot\+::get\+Sensors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns sensors. 
+
+\begin{DoxyReturn}{Returns}
+the sensors of the robot 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb}\label{classrobogen_1_1Robot_a4244b5ab2138e88c9419866e525f13bb} 
+\index{robogen::Robot@{robogen::Robot}!init@{init}}
+\index{init@{init}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool robogen\+::\+Robot\+::init (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{const robogen\+Message\+::\+Robot \&}]{robot\+Spec,  }\item[{bool}]{print\+Info = {\ttfamily false},  }\item[{bool}]{print\+Init\+Errors = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Initializes a Robogen robot from a robogen message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ode\+World} & \\
+\hline
+{\em ode\+Space} & \\
+\hline
+{\em robot\+Spec} & \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1Robot_ab032e45d81189ee666078414a89aafd8}\label{classrobogen_1_1Robot_ab032e45d81189ee666078414a89aafd8} 
+\index{robogen::Robot@{robogen::Robot}!init@{init}}
+\index{init@{init}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool robogen\+::\+Robot\+::init (\begin{DoxyParamCaption}\item[{d\+World\+ID}]{ode\+World,  }\item[{d\+Space\+ID}]{ode\+Space,  }\item[{d\+Space\+ID}]{robot\+Space,  }\item[{int \&}]{nb\+Alive,  }\item[{const robogen\+Message\+::\+Robot \&}]{robot\+Spec,  }\item[{bool}]{print\+Info = {\ttfamily false},  }\item[{bool}]{print\+Init\+Errors = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Modified -\/ to allow constructor initialization with two collision spaces -\/ one for the whole word and the other specific to this robot -\/ SM. 
+
+\Hypertarget{classrobogen_1_1Robot_a0be0945c05a8c9739d1524b45734f7e4}\label{classrobogen_1_1Robot_a0be0945c05a8c9739d1524b45734f7e4} 
+\index{robogen::Robot@{robogen::Robot}!isAlive@{isAlive}}
+\index{isAlive@{isAlive}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{isAlive()}{isAlive()}}
+{\footnotesize\ttfamily bool robogen\+::\+Robot\+::is\+Alive (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns robot status. 
+
+\Hypertarget{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1}\label{classrobogen_1_1Robot_aebba011542f4a14b3132af841d36e4b1} 
+\index{robogen::Robot@{robogen::Robot}!isBoundToResource@{isBoundToResource}}
+\index{isBoundToResource@{isBoundToResource}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{isBoundToResource()}{isBoundToResource()}}
+{\footnotesize\ttfamily const bool robogen\+::\+Robot\+::is\+Bound\+To\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Returns the status of this robot vis-\/a-\/vis resources -\/ SM. 
+
+\begin{DoxyReturn}{Returns}
+returns the status of this robot with regard to resources in the environment 
+\end{DoxyReturn}
+\Hypertarget{classrobogen_1_1Robot_ab21e39faacd47842d008bdbdfe9a45ad}\label{classrobogen_1_1Robot_ab21e39faacd47842d008bdbdfe9a45ad} 
+\index{robogen::Robot@{robogen::Robot}!optimizePhysics@{optimizePhysics}}
+\index{optimizePhysics@{optimizePhysics}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{optimizePhysics()}{optimizePhysics()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::optimize\+Physics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Merges bodies connected with fixed joints into complex bodies. 
+
+\Hypertarget{classrobogen_1_1Robot_a0cb9b2124cee51b27b3ebf500936c880}\label{classrobogen_1_1Robot_a0cb9b2124cee51b27b3ebf500936c880} 
+\index{robogen::Robot@{robogen::Robot}!rotateRobot@{rotateRobot}}
+\index{rotateRobot@{rotateRobot}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{rotateRobot()}{rotateRobot()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::rotate\+Robot (\begin{DoxyParamCaption}\item[{const osg\+::\+Quat \&}]{rot }\end{DoxyParamCaption})}
+
+
+
+Rotate the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rot} & rotation Quaternion \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1Robot_a44a7f6fe0fa13bd01699bbde08f52ca6}\label{classrobogen_1_1Robot_a44a7f6fe0fa13bd01699bbde08f52ca6} 
+\index{robogen::Robot@{robogen::Robot}!setAlive@{setAlive}}
+\index{setAlive@{setAlive}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{setAlive()}{setAlive()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::set\+Alive (\begin{DoxyParamCaption}\item[{bool}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set robot state. 
+
+\Hypertarget{classrobogen_1_1Robot_aeb5585a3dc467f92ade5e1eeb5e454eb}\label{classrobogen_1_1Robot_aeb5585a3dc467f92ade5e1eeb5e454eb} 
+\index{robogen::Robot@{robogen::Robot}!setBoundResourceId@{setBoundResourceId}}
+\index{setBoundResourceId@{setBoundResourceId}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{setBoundResourceId()}{setBoundResourceId()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::set\+Bound\+Resource\+Id (\begin{DoxyParamCaption}\item[{int}]{resource\+Id }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the id of the resource bound to this robot. 
+
+\Hypertarget{classrobogen_1_1Robot_a3dbfad54e8bd5a78ae406561bc6a733f}\label{classrobogen_1_1Robot_a3dbfad54e8bd5a78ae406561bc6a733f} 
+\index{robogen::Robot@{robogen::Robot}!setBoundToResource@{setBoundToResource}}
+\index{setBoundToResource@{setBoundToResource}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{setBoundToResource()}{setBoundToResource()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::set\+Bound\+To\+Resource (\begin{DoxyParamCaption}\item[{bool}]{is\+Bound\+To\+Resource }\end{DoxyParamCaption})}
+
+
+
+Sets the status of this robot vis-\/a-\/vis resources in the environment -\/ SM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em is\+Bound\+To\+Resource} & sets the status of this robot with regard to resources in the environment \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1Robot_a5f576fd460a5fb6bc88414bed7ee3448}\label{classrobogen_1_1Robot_a5f576fd460a5fb6bc88414bed7ee3448} 
+\index{robogen::Robot@{robogen::Robot}!translateRobot@{translateRobot}}
+\index{translateRobot@{translateRobot}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{translateRobot()}{translateRobot()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::translate\+Robot (\begin{DoxyParamCaption}\item[{const osg\+::\+Vec3 \&}]{translation }\end{DoxyParamCaption})}
+
+
+
+Translate the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pos} & Amount of translation \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classrobogen_1_1Robot_a937af10cf8b0b8abdfcc02c4d1137d82}\label{classrobogen_1_1Robot_a937af10cf8b0b8abdfcc02c4d1137d82} 
+\index{robogen::Robot@{robogen::Robot}!traverseBody@{traverseBody}}
+\index{traverseBody@{traverseBody}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{traverseBody()}{traverseBody()}}
+{\footnotesize\ttfamily void robogen\+::\+Robot\+::traverse\+Body (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Model}{Model}} $>$ $>$}]{,  }\item[{const std\+::vector$<$ boost\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classrobogen_1_1Connection}{Connection}} $>$ $>$}]{ }\end{DoxyParamCaption})}
+
+
+
+Traverse body. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classrobogen_1_1Robot_ac1b3a60620db50c9e994b15630f40647}\label{classrobogen_1_1Robot_ac1b3a60620db50c9e994b15630f40647} 
+\index{robogen::Robot@{robogen::Robot}!complexity\_@{complexity\_}}
+\index{complexity\_@{complexity\_}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{complexity\_}{complexity\_}}
+{\footnotesize\ttfamily float robogen\+::\+Robot\+::complexity\+\_\+}
+
+
+
+CH -\/ Brain-\/body complexity of robot. 
+
+\Hypertarget{classrobogen_1_1Robot_a2a3b9e691a2217b4f69229fac43eab6c}\label{classrobogen_1_1Robot_a2a3b9e691a2217b4f69229fac43eab6c} 
+\index{robogen::Robot@{robogen::Robot}!complexityCost\_@{complexityCost\_}}
+\index{complexityCost\_@{complexityCost\_}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{complexityCost\_}{complexityCost\_}}
+{\footnotesize\ttfamily int robogen\+::\+Robot\+::complexity\+Cost\+\_\+}
+
+
+
+CH -\/ Flag to indicate if complexity cost should be imposed or not. 
+
+\Hypertarget{classrobogen_1_1Robot_a0aa145138fab8f9930f533caf857429d}\label{classrobogen_1_1Robot_a0aa145138fab8f9930f533caf857429d} 
+\index{robogen::Robot@{robogen::Robot}!endPosX\_@{endPosX\_}}
+\index{endPosX\_@{endPosX\_}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{endPosX\_}{endPosX\_}}
+{\footnotesize\ttfamily float robogen\+::\+Robot\+::end\+Pos\+X\+\_\+}
+
+
+
+BK -\/ for novelty score, to record end position achieved during evaluation. 
+
+\Hypertarget{classrobogen_1_1Robot_a9fe3f2f6ded4c25d08297fd5bfba7806}\label{classrobogen_1_1Robot_a9fe3f2f6ded4c25d08297fd5bfba7806} 
+\index{robogen::Robot@{robogen::Robot}!endPosY\_@{endPosY\_}}
+\index{endPosY\_@{endPosY\_}!robogen::Robot@{robogen::Robot}}
+\doxysubsubsection{\texorpdfstring{endPosY\_}{endPosY\_}}
+{\footnotesize\ttfamily float robogen\+::\+Robot\+::end\+Pos\+Y\+\_\+}
+
+
+
+BK -\/ for novelty score, to record end position achieved during evaluation. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{Robot_8h}{Robot.\+h}}\item 
+src/\mbox{\hyperlink{Robot_8cpp}{Robot.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,62 @@
+\hypertarget{ArduinoNNConfiguration_8h}{}\doxysection{src/arduino/\+Arduino\+NNConfiguration.h File Reference}
+\label{ArduinoNNConfiguration_8h}\index{src/arduino/ArduinoNNConfiguration.h@{src/arduino/ArduinoNNConfiguration.h}}
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen}{robogen}}
+\item 
+namespace \mbox{\hyperlink{namespacerobogen_1_1arduino}{robogen\+::arduino}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ArduinoNNConfiguration_8h_accc8cde4a1fed2f4511d8a28ae302872}{MAX\+\_\+\+DIGITAL\+\_\+\+PINS}}~12
+\item 
+\#define \mbox{\hyperlink{ArduinoNNConfiguration_8h_a456875cb3f4116b4731acf544919a945}{MAX\+\_\+\+ANALOG\+\_\+\+PINS}}~/$\ast$$\ast$4$\ast$/12
+\item 
+\#define \mbox{\hyperlink{ArduinoNNConfiguration_8h_aad931c01b804ed534ee71867ea3c421b}{MAX\+\_\+\+PWM\+\_\+\+PINS}}~/$\ast$$\ast$4$\ast$/12
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51a}{robogen\+::arduino\+::input\+Type}} \{ \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa55a404a3a3c601d2ee4764f702ae86c5}{robogen\+::arduino\+::\+LIGHT\+\_\+\+SENSOR}}
+, \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa80d57a945fc418500507f57661dbbf42}{robogen\+::arduino\+::\+TOUCH\+\_\+\+SENSOR}}
+, \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aab6c76c7ae045160a00055d0c4120e9e6}{robogen\+::arduino\+::\+IMU}}
+, \mbox{\hyperlink{namespacerobogen_1_1arduino_a176057df00a820ef5ce335bce72ce51aa9febef7f80fda7b430faac6da83ee83f}{robogen\+::arduino\+::\+IR\+\_\+\+SENSOR}}
+ \}
+\item 
+enum \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461e}{robogen\+::arduino\+::motor\+Type}} \{ \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461ea1dab0a5d9fdc1dd0aeadd2edbf71bfbd}{robogen\+::arduino\+::\+POSITION\+\_\+\+CONTROL}}
+, \mbox{\hyperlink{namespacerobogen_1_1arduino_accaf7c14e47a8499e94b97e2b0de461eab813359d25c174ce26f63eb3b524bcb9}{robogen\+::arduino\+::\+VELOCITY\+\_\+\+CONTROL}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const std\+::string \mbox{\hyperlink{namespacerobogen_1_1arduino_a990d1614a95841648dbc36755c13c71f}{robogen\+::arduino\+::digital\+Order}} \mbox{[}$\,$\mbox{]}
+\item 
+const std\+::string \mbox{\hyperlink{namespacerobogen_1_1arduino_a6f91183351de4ccb98f8accd5a7abf10}{robogen\+::arduino\+::analog\+Order}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}A0\char`\"{}, \char`\"{}A1\char`\"{}, \char`\"{}A2\char`\"{}, \char`\"{}A3\char`\"{}\}
+\item 
+const std\+::string \mbox{\hyperlink{namespacerobogen_1_1arduino_a5770637797a7fa0edb4e4acfd491ec1a}{robogen\+::arduino\+::pwm\+Order}} \mbox{[}$\,$\mbox{]} = \{\char`\"{}D11\char`\"{}, \char`\"{}D5\char`\"{}, \char`\"{}D6\char`\"{}, \char`\"{}D13\char`\"{}\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{ArduinoNNConfiguration_8h_a456875cb3f4116b4731acf544919a945}\label{ArduinoNNConfiguration_8h_a456875cb3f4116b4731acf544919a945} 
+\index{ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}!MAX\_ANALOG\_PINS@{MAX\_ANALOG\_PINS}}
+\index{MAX\_ANALOG\_PINS@{MAX\_ANALOG\_PINS}!ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_ANALOG\_PINS}{MAX\_ANALOG\_PINS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+ANALOG\+\_\+\+PINS~/$\ast$$\ast$4$\ast$/12}
+
+\Hypertarget{ArduinoNNConfiguration_8h_accc8cde4a1fed2f4511d8a28ae302872}\label{ArduinoNNConfiguration_8h_accc8cde4a1fed2f4511d8a28ae302872} 
+\index{ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}!MAX\_DIGITAL\_PINS@{MAX\_DIGITAL\_PINS}}
+\index{MAX\_DIGITAL\_PINS@{MAX\_DIGITAL\_PINS}!ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_DIGITAL\_PINS}{MAX\_DIGITAL\_PINS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+DIGITAL\+\_\+\+PINS~12}
+
+\Hypertarget{ArduinoNNConfiguration_8h_aad931c01b804ed534ee71867ea3c421b}\label{ArduinoNNConfiguration_8h_aad931c01b804ed534ee71867ea3c421b} 
+\index{ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}!MAX\_PWM\_PINS@{MAX\_PWM\_PINS}}
+\index{MAX\_PWM\_PINS@{MAX\_PWM\_PINS}!ArduinoNNConfiguration.h@{ArduinoNNConfiguration.h}}
+\doxysubsubsection{\texorpdfstring{MAX\_PWM\_PINS}{MAX\_PWM\_PINS}}
+{\footnotesize\ttfamily \#define MAX\+\_\+\+PWM\+\_\+\+PINS~/$\ast$$\ast$4$\ast$/12}
+

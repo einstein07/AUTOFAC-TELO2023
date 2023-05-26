@@ -1,0 +1,168 @@
+\hypertarget{EvolverConfiguration_8h_source}{}\doxysection{Evolver\+Configuration.\+h}
+\label{EvolverConfiguration_8h_source}\index{src/config/EvolverConfiguration.h@{src/config/EvolverConfiguration.h}}
+\mbox{\hyperlink{EvolverConfiguration_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ @(\#)\ EvolverConfiguration.h\ 1.0\ \ \ Sep\ 2,\ 2013}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ Titus\ Cieslewski\ (dev@titus-\/c.ch)}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ Joshua\ Auerbach\ (joshua.auerbach@epfl.ch)}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ Copyright\ ©\ 2013-\/2016\ Titus\ Cieslewski,\ Joshua\ Auerbach}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ *\ Laboratory\ of\ Intelligent\ Systems,\ EPFL}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ *\ This\ file\ is\ part\ of\ the\ ROBOGEN\ Framework.}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00014\ \textcolor{comment}{\ *\ The\ ROBOGEN\ Framework\ is\ free\ software:\ you\ can\ redistribute\ it\ and/or\ modify}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ *\ it\ under\ the\ terms\ of\ the\ GNU\ General\ Public\ License\ (GPL)}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ *\ as\ published\ by\ the\ Free\ Software\ Foundation,\ either\ version\ 3\ of\ the\ License,\ or}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ *\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ *\ This\ program\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ *\ but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ *\ MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ *\ GNU\ Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ *\ You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ General\ Public\ License}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ *\ along\ with\ this\ program.\ \ If\ not,\ see\ <http://www.gnu.org/licenses/>.}}
+\DoxyCodeLine{00026\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{00027\ \textcolor{comment}{\ *\ @(\#)\ \$Id\$}}
+\DoxyCodeLine{00028\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifndef\ EVOLVERCONFIGURATION\_H\_}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#define\ EVOLVERCONFIGURATION\_H\_}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}evolution/neat/Parameters.h"{}}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacerobogen}{robogen}}\ \{}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration}{EvolverConfiguration}}\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48}{ReplacementTypes}}\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48a6e4d16e1e315ce394e579e85eea62646}{PLUS\_REPLACEMENT}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a678c951376ae188a75bfb5bf7e70df48aeb3725d2ef28cc78c29240e7ea0ff119}{COMMA\_REPLACEMENT}}}
+\DoxyCodeLine{00054\ \ \ \ \ \};}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338}{SelectionTypes}}\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afcb4becabcb88fdd0759909beacdc338ae26eafce861ddd555c1f0f2a0a5962c0}{DETERMINISTIC\_TOURNAMENT}}}
+\DoxyCodeLine{00061\ \ \ \ \ \};}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409}{EvolutionModes}}\ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409ab060543fdaa43f69a183efb8903b4a58}{BRAIN\_EVOLVER}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409af98b83773c778bfa2647567d893fa251}{FULL\_EVOLVER}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a41109d05e7c3abe7bf91a09e1e9409a9732c30dc6f824cb4affef57361fd4c4}{EMBODIED}}}
+\DoxyCodeLine{00068\ \ \ \ \ \};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4d}{EvolutionaryAlgorithms}}\ \{}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4daddf76d148582f1b4a847a5b87efe44f8}{BASIC}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afa9a7eb0cc31d1c323fd36df40557e4dace1553b4191165be785c4226c416b550}{HYPER\_NEAT}},\ \mbox{\hyperlink{namespaceEDQD}{EDQD}}}
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keyword}{enum}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723f}{BodyMutationOperators}}\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa6f72757128bc7560325a1e0972a7c9d4}{SUBTREE\_REMOVAL}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6769a59ca4aef2402c7ea515c906e17}{SUBTREE\_DUPLICATION}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa620bd67f9edf331a693f2b2e01f9b0c9}{SUBTREE\_SWAPPING}},}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa70b16109cdf33f1d834e0020eb666dd2}{NODE\_INSERTION}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fae6f5a82d1ff394785960613d71ae9ae8}{NODE\_REMOVAL}},\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fa3a54dae8978f6b850ac9ff09faed2df6}{PARAMETER\_MODIFICATION}},}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}{NUM\_BODY\_OPERATORS}}}
+\DoxyCodeLine{00088\ \ \ \ \ \};}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae5e8e7061835cbf31a6f343a1d08ee8a}{BodyMutationOperatorsProbabilityCodes}}[];}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \ \ \ \ std::string\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a58780a8b7b131fd48275821f9a8bba31}{confFileName}};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a934513dad3c42684ea692eac71bf4017}{init}}(std::string\ configFileName);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{comment}{//\ GENERAL\ EVOLUTION\ PARAMS}}
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{comment}{//\ ========================================================================}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00108\ \ \ \ \ std::string\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a9c0c27f0bcf23f9b6d4c3388935c68dc}{referenceRobotFile}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00113\ \ \ \ \ std::string\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a34fe3fdf5dc05d34c0550077771c408f}{simulatorConfFile}};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00118\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1f39a7b355def627931eb6701127acb9}{mu}};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a19c513a6d82220085742105fd3bb7b3e}{lambda}};}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaa3cfd4905f1d1b2ceed76854285a818}{numGenerations}};}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5e013855bd02485cb342c3aef54f0161}{selection}};}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7d450e439d450fb6b508b579ba27bc4b}{tournamentSize}};}
+\DoxyCodeLine{00139\ }
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a88c770d3744097107462b8e11a5945ea}{replacement}};}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1bc006e173b445e5b779e6bd22be9064}{evolutionMode}};}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaf373ec4cc8da81a83ec92cb848f879e}{useBrainSeed}};}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00159\ \ \ \ \ std::vector<std::pair<std::string,\ int>\ >\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a3c88a0d167757d8d5dc96017cabd082f}{sockets}};}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{comment}{//\ BRAIN\ EVOLUTION\ PARAMS}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//\ ========================================================================}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7f4f2d7256c70814f0c0610063a1cd80}{pBrainMutate}};}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00172\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a3db554b9690aa8dc6b704c68f9ea72b0}{brainWeightSigma}};}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a1e18427c265104a1cf15e24ca270a333}{brainBiasSigma}};}
+\DoxyCodeLine{00178\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a82a34a96488a6d07b6f5fdd3ec6187bf}{minBrainWeight}};}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a5a6a3dccc6a70c803f80ad36ca290d24}{maxBrainWeight}};}
+\DoxyCodeLine{00188\ }
+\DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afe02281d2d387a80e38543f365bdfda7}{minBrainBias}};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00197\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a62653d2b7f36fa8aaecd8a4748f29262}{maxBrainBias}};}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00204\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_afc741cc6cd867a9c51fbe8b0044438f2}{brainTauSigma}};}
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ad05283158c64b95260bb8e5e4fbd2baf}{brainPeriodSigma}};}
+\DoxyCodeLine{00214\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_abfe6a0cf5ef805f1fce2cbb516858f65}{brainPhaseOffsetSigma}};}
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae4d19c18025a655eac838655bb57e88c}{brainAmplitudeSigma}};}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a2dfbc235c01e0fef6bde20b59fb54788}{minBrainTau}};}
+\DoxyCodeLine{00229\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a489ca8e4eae85c7a2896b0ff55a02d2a}{maxBrainTau}};}
+\DoxyCodeLine{00234\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ab4cf0c3195d87c6c9ad87629c22dcc30}{minBrainPeriod}};}
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a329736274c1fb9144970fcd79d3b0f48}{maxBrainPeriod}};}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00246\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a112fc670227ebcb122cc88a7129c4b8c}{minBrainPhaseOffset}};}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ae180b0cf60432e96516a4282106fd2d0}{maxBrainPhaseOffset}};}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a938f29ff799b279c3a4da36b86ef6b62}{minBrainAmplitude}};}
+\DoxyCodeLine{00264\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ab09b9a7d3d8e467468e5ce1ef3f8b397}{maxBrainAmplitude}};}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ }
+\DoxyCodeLine{00270\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a604d0427baa6b5dbac2c888228c46959}{pBrainCrossover}};}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{comment}{//\ BODY\ EVOLUTION\ PARAMS}}
+\DoxyCodeLine{00273\ \ \ \ \ \textcolor{comment}{//\ ========================================================================}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00278\ \ \ \ \ std::vector<char>\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a238971cc452f1452a1b98a3cdff80dd9}{allowedBodyPartTypes}};}
+\DoxyCodeLine{00279\ }
+\DoxyCodeLine{00283\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a18228b0b43c8bfb97ca51ea8c126d70a}{bodyOperatorProbability}}[\mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a681f95e4de6d6f0c9ee27f0c0d3d723fadce874d963221172d6dffd322777b098}{NUM\_BODY\_OPERATORS}}];}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aaad55c104a6c7439c90cf5c1b19d5e6a}{maxBodyMutationAttempts}};}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a7e47317ad54f5ccea0d99e8389a55a69}{maxBodyParts}};}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00301\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ada6c579a62e2e3a3bf11edd62262f5ce}{minNumInitialParts}};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00306\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ac479049df00dc207b9b0af829d397811}{maxNumInitialParts}};}
+\DoxyCodeLine{00307\ }
+\DoxyCodeLine{00311\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_ad3c33d944920cbad69139b964d443724}{bodyParamSigma}};}
+\DoxyCodeLine{00312\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a0500d91af241c325840f4113f855a71b}{evolutionaryAlgorithm}};}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \ \ \ \ NEAT::Parameters\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a42e1d92ddb1743164181d9ad4bb37106}{neatParams}};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00326\ \ \ \ \ std::string\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a93bbeda596df3ce1ef97294de3657a5d}{neatParamsFile}};}
+\DoxyCodeLine{00330\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a92f4b6df36d4347fe854424697ab948c}{pOscillatorNeuron}};}
+\DoxyCodeLine{00334\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_aa22796228052f6fb5df6320c7fc5f7c8}{pAddHiddenNeuron}};}
+\DoxyCodeLine{00335\ }
+\DoxyCodeLine{00339\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{structrobogen_1_1EvolverConfiguration_a4b68209f93e7b3386a22a64533260579}{noveltySearch}};}
+\DoxyCodeLine{00340\ }
+\DoxyCodeLine{00341\ \}\ EvolverConfiguration;}
+\DoxyCodeLine{00342\ }
+\DoxyCodeLine{00343\ \}\ \textcolor{comment}{/*\ namespace\ robogen\ */}}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ EVOLVERCONFIGURATION\_H\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}
