@@ -1,0 +1,26 @@
+EDQD_ParametersStart
+sigmaMin 0.00100000000000000002
+sigmaMax 0.50000000000000000000
+weightRange 800
+updateSigmaStep 0.35
+sigmaRef 0.10000000000000000555
+pMutation 0.34000000000000002442
+evaluationTime 10000
+maxIterations 1000000
+synchronization true
+nbOfDimensions 2
+nbOfIntervals 10
+fitEpsilon 1.00000000000000000000
+maxNbGenomeTransmission 65535
+limitGenomeTransmission false
+notListeningStateDelay 0
+listeningStateDelay -1
+mutationOperator 1
+sigma 0.01000000000000000021
+logDirectoryname TELO/medea-m
+selectionMethod 2
+onlyKeepMapsForGeneration true
+EDQDMapSelection false
+EDQDMultiBCMap false
+evolveSensors true
+EDQD_ParametersEnd
