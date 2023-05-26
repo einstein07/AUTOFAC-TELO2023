@@ -96,7 +96,7 @@ namespace robogen{
 						}
 					}
 					// If it is a large resource and attached to resource, move around
-					if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) ||
+					/*if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET2]) ||
 						boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET3]) ||
 						boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET4]) ||
 						boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::RESOURCET5])    ) {
@@ -182,66 +182,7 @@ namespace robogen{
 										}
 									}
 								}
-								/*else{
-									setStaticObject(true);
-																		resetCounter(250);
-									pos.set(-resource -> getPosition().x(), -resource -> getPosition().y());
-								}*/
 							}
-						}
-					}
-					/*if (boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])) {
-						if ( boost::dynamic_pointer_cast< SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])->read()){
-							int targetIndex = boost::dynamic_pointer_cast<SensorElement>(robot_->getSensors()[i + SensorElement::ROBOT])->getObjectId();
-							boost::shared_ptr<Robot> otherRobot = scenario_->getRobot(targetIndex);
-							if ( !robot_ -> isBoundToResource() && otherRobot -> isBoundToResource()){
-								int resourceId = otherRobot -> getBoundResourceId();
-								boost::shared_ptr<BoxResource> resource = scenario_->getEnvironment() -> getResources()[resourceId];
-
-								double otherRobotMinX, otherRobotMaxX, otherRobotMinY, otherRobotMaxY, otherRobotMinZ, otherRobotMaxZ;
-								double robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ;
-								robot_ -> getAABB(robotminX, robotmaxX, robotminY, robotmaxY, robotminZ, robotmaxZ);
-
-								if (resource -> getType() == 1){
-
-									otherRobot -> getAABB( otherRobotMinX,  otherRobotMaxX,  otherRobotMinY,  otherRobotMaxY,  otherRobotMinZ,  otherRobotMaxZ);
-
-									if ((robotminX <  otherRobotMinX && robotmaxX >  otherRobotMaxX) || (robotminX >  otherRobotMinX && robotminX <  otherRobotMaxX)
-												|| (robotmaxX >  otherRobotMinX && robotmaxX <  otherRobotMaxX)) {
-
-										osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
-										if (distance(robotPos, osg::Vec3d( otherRobotMinX,  otherRobotMaxY, 0)) < distance(robotPos, osg::Vec3d( otherRobotMaxX,  otherRobotMaxY, 0))){
-											pos = osg::Vec2d( otherRobotMinX - 1,  otherRobotMaxY);
-										}else{
-											pos = osg::Vec2d( otherRobotMaxX + 1,  otherRobotMaxY);
-										}
-									}
-									else if (((robotminY <  otherRobotMinY && robotmaxY >  otherRobotMaxY) || (robotminY >  otherRobotMinY && robotminY <  otherRobotMaxY)
-											|| (robotmaxY >  otherRobotMinY && robotmaxY <  otherRobotMaxY)) && (robotminY >  otherRobotMaxY) ) {
-
-										osg::Vec3d otherRobotPos = otherRobot -> getCoreComponent() -> getRootPosition();
-										pos = osg::Vec2d( -otherRobotPos.x(), otherRobotPos.y());
-									}
-
-								}
-								else{
-									double resourceMinX, resourceMaxX, resourceMinY, resourceMaxY, resourceMinZ, resourceMaxZ;
-									resource -> getAABB(resourceMinX, resourceMaxX, resourceMinY, resourceMaxY, resourceMinZ, resourceMaxZ);
-									if (((robotminX < resourceMinX && robotmaxX > resourceMaxX) || (robotminX > resourceMinX && robotminX < resourceMaxX)
-												|| (robotmaxX > resourceMinX && robotmaxX < resourceMaxX)) && (robotminY > resourceMaxY)) {
-										setStaticObject(true);
-										resetCounter(200);
-
-										osg::Vec3d robotPos = robot_ -> getCoreComponent() -> getRootPosition();
-										if (distance(robotPos, osg::Vec3d(resourceMinX, resourceMaxY, 0)) < distance(robotPos, osg::Vec3d(resourceMaxX, resourceMaxY, 0))){
-											pos = osg::Vec2d(resourceMinX - 1, resourceMaxY);
-										}else{
-											pos = osg::Vec2d(resourceMaxX + 1, resourceMaxY);
-										}
-									}
-								}
-							}
-
 						}
 					}*/
 				}
