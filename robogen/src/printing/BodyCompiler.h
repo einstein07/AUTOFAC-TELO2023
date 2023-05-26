@@ -40,16 +40,22 @@
 namespace robogen {
 
 /**
- * Class to encapsulate a routine that can write to file the body
+ * \brief Class to encapsulate a routine that can write to file the body
  * representation of a given robot in a way that can be used by the 3D printing suite
  *  */
 class BodyCompiler {
 public:
+	/**
+	 * \brief Default constructor
+	 */
 	BodyCompiler();
+	/**
+	 * \brief Destructor
+	 */
 	virtual ~BodyCompiler();
 
 	/**
-	 * Compiles the given Robot's Neural Network to the given file stream
+	 * \brief Compiles the given Robot's Neural Network to the given file stream
 	 */
 	static void compile(Robot &robot, std::ofstream &file);
 };
