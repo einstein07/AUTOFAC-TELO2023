@@ -1,7 +1,7 @@
 #!/bin/bash
 #PBS -l select=1:ncpus=3
-#PBS -q serial
-#PBS -l walltime=48:00:00
+#PBS -q seriallong
+#PBS -l walltime=144:00:00
 #PBS -P CSCI1142
 #PBS -o /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC-TELO2023/robogen/build/TELO/medea-m/output/autofac_14session.out
 #PBS -e /mnt/lustre/users/smkhatshwa/Masters/AUTOFAC-TELO2023/robogen/build/TELO/medea-m/output/autofac_14session.err
