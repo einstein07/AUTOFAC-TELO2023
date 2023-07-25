@@ -36,6 +36,7 @@
 #include "Robot.h"
 #include "Environment.h"
 #include "model/objects/BoxResource.h"
+#include "utils/RobogenUtils.h"
 
 namespace robogen {
 
@@ -73,7 +74,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace,
 	double maxZ = 0;
 
 	// Starting position and orientation
-	osg::Vec2 startingPosition =
+	osg::Vec3 startingPosition =
 			robogenConfig_->getStartingPos()->getStartPosition(
 					startPositionId_)->getPosition();
 	float startingAzimuth = robogenConfig_->getStartingPos()->getStartPosition(
@@ -261,7 +262,10 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 						odeWorld,
 						areaSpace,
 						robogenConfig_->getGatheringZoneConfig() -> getPosition(),
-						robogenConfig_->getGatheringZoneConfig() -> getSize()));
+						robogenConfig_->getGatheringZoneConfig() -> getSize(),
+						robogenConfig_->getGatheringZoneConfig() -> getRotationAxis(),
+						robogenConfig_->getGatheringZoneConfig() -> getRotationAngle()
+						));
 	environment_ -> setGatheringZone(gatheringZone);
         /**---------------------------------------------------------------------
          * Setup robot positions - inner vector contains: 
@@ -269,7 +273,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
          * ---------------------------------------------------------------------
          */
         std::vector<std::vector<double> > robots_position;
-        std::vector<osg::Vec2 > starting_positions;
+        std::vector<osg::Vec3 > starting_positions;
         std::vector<float > starting_azimuths;
         for (int i = 0; i < robots.size(); ++i){
             std::vector<double> robot_position; //inner vector - temporary
@@ -307,7 +311,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
             robots[i]->translateRobot(
                             osg::Vec3(starting_positions[i].x(),
                                             starting_positions[i].y(),
-                                            robogenConfig_->getTerrainConfig()->getHeight()
+                                            robogenConfig_->getTerrainConfig()->getHeight() + starting_positions[i].z() //0.69
                                                     + inMm(2) - robots_position[i][4]));
             robots[i]->getAABB(
                 robots_position[i][0], //minX
@@ -330,19 +334,18 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
     int obstacleId = 0;
 	const std::vector<osg::Vec3>& obstacleCoordinates = obstacles->getCoordinates();
 	const std::vector<osg::Vec3>& obstacleSizes = obstacles->getSizes();
-	const std::vector<float>& d = obstacles->getDensities();
-	const std::vector<osg::Vec3>& rotationAxis = obstacles->getRotationAxes();
-	const std::vector<float>& rotationAngles = obstacles->getRotationAngles();
+	const std::vector<float>& obstacleDesnties = obstacles->getDensities();
+	const std::vector<osg::Vec3>& obstacleRotationAxis = obstacles->getRotationAxes();
+	const std::vector<float>& obstacleRotationAngles = obstacles->getRotationAngles();
 
 	obstaclesRemoved_ = false;
 
         double overlapMaxZ = 0;//minZ;
 	for (unsigned int i = 0; i < obstacleCoordinates.size(); ++i) {
 		boost::shared_ptr<BoxObstacle> obstacle(
-									new BoxObstacle(odeWorld, odeSpace,
-											obstacleCoordinates[i],
-											obstacleSizes[i], d[i], rotationAxis[i],
-											rotationAngles[i], obstacleId));
+									new BoxObstacle(odeWorld, odeSpace,	obstacleCoordinates[i],
+											obstacleSizes[i], obstacleDesnties[i], obstacleRotationAxis[i],
+											obstacleRotationAngles[i], obstacleId));
 		double oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ;
 		obstacle->getAABB(oMinX, oMaxX, oMinY, oMaxY, oMinZ, oMaxZ);
                 // Do not insert the obstacle if it is in the robot range
@@ -372,7 +375,7 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                 }
 
 		// Do not insert obstacles in the robot range
-		if (!(inRangeX && inRangeY && inRangeZ)) {
+		if (!(inRangeX && inRangeY && inRangeZ) || obstacleRotationAngles[i] >= RobogenUtils::EPSILON_2) {
 			environment_->addObstacle(obstacle);
 		} else {
 			if (robogenConfig_->getObstacleOverlapPolicy() ==
@@ -401,7 +404,9 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
 	int resourceId = 0;
 	const std::vector<osg::Vec3>& resourceCoordinates = resources->getCoordinates();
 	const std::vector<osg::Vec3>& resourceSizes = resources->getSizes();
-	const std::vector<float>& densities = resources->getDensities();
+	const std::vector<float>& resourceDensities = resources->getDensities();
+	const std::vector<osg::Vec3>& resourceRotationAxis = resources->getRotationAxes();
+	const std::vector<float>& resourceRotationAngles = resources->getRotationAngles();
 	const std::vector<int>& types = resources->getTypes();
 
 	resourcesRemoved_ = false;
@@ -417,7 +422,9 @@ bool Scenario::init(dWorldID odeWorld, dSpaceID odeSpace, dSpaceID areaSpace,
                                                             odeSpace,
 															resourceCoordinates[i],
                                                             resourceSizes[i], 
-                                                            densities[i], 
+															resourceDensities[i],
+															resourceRotationAxis[i],
+															resourceRotationAngles[i],
                                                             types[i],
 															resourceId
                                                             )

@@ -27,7 +27,7 @@
  */
 #ifndef ROBOGEN_RACING_SCENARIO_H_
 #define ROBOGEN_RACING_SCENARIO_H_
-
+#include <osg/Vec2>
 #include <osg/Vec3>
 #include "scenario/Scenario.h"
 #include <vector>
@@ -87,10 +87,10 @@ public:
 
 private:
 
-	std::vector<osg::Vec2> startPosition_;
+	std::vector<osg::Vec3> startPosition_;
 	//added by Brooke
-	osg::Vec2 endPosition_;
-	std::vector<osg::Vec2> endPositions_;
+	osg::Vec3 endPosition_;
+	std::vector<osg::Vec3> endPositions_;
 	std::vector<double> distances_;
 	unsigned int curTrial_;
 
