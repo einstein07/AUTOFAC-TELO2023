@@ -31,6 +31,7 @@
 #include "model/objects/BoxObstacle.h"
 #include "render/callback/PositionObservableCallback.h"
 #include "render/objects/BoxObstacleRender.h"
+#include "utils/RobogenUtils.h"
 
 namespace robogen {
 
@@ -44,7 +45,14 @@ BoxObstacleRender::BoxObstacleRender(boost::shared_ptr<BoxObstacle> obstacle) {
 
 	osg::ref_ptr<osg::ShapeDrawable> boxDrawable(
 			new osg::ShapeDrawable(box.get()));
-	boxDrawable->setColor(osg::Vec4(1, 0, 0, 1));
+	// Assumes the terrain is tilted, color it white
+	if (obstacle -> getRotationAngle() >= RobogenUtils::EPSILON_2){
+		boxDrawable->setColor(osg::Vec4(1, 1, 1, 1));
+	}
+	else{
+		boxDrawable->setColor(osg::Vec4(1, 0, 0, 1));
+	}
+
 	osg::ref_ptr<osg::Geode> geode(new osg::Geode());
 	geode->addDrawable(boxDrawable.get());
 	rootNode_->addChild(geode);
