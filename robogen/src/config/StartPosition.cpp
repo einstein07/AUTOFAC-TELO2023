@@ -27,7 +27,7 @@
  */
 
 #include "config/StartPosition.h"
-#include <osg/Vec2>
+
 #include <iostream>
 
 namespace robogen{
@@ -35,7 +35,7 @@ namespace robogen{
 StartPosition::StartPosition(){
 }
 
-bool StartPosition::init(osg::Vec2 position, float azimuth){
+bool StartPosition::init(osg::Vec3 position, float azimuth){
 	position_ = position;
 	azimuth_ = azimuth;
 	if(azimuth_<0. || azimuth>360.){
@@ -46,9 +46,10 @@ bool StartPosition::init(osg::Vec2 position, float azimuth){
 	return true;
 }
 
-osg::Vec2 StartPosition::getPosition(){
+osg::Vec3 StartPosition::getPosition(){
 	return position_;
 }
+
 
 float StartPosition::getAzimuth(){
 	return azimuth_;

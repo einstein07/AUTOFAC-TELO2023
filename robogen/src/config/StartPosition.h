@@ -28,7 +28,7 @@
 #ifndef STARTPOSITION_H_
 #define STARTPOSITION_H_
 
-#include<osg/Vec2>
+#include<osg/Vec3>
 
 namespace robogen{
 
@@ -43,13 +43,13 @@ public:
 	/**
 	 * \brief Initializes start position to given position and azimuth
 	 */
-	bool init(osg::Vec2 position, float azimuth);
+	bool init(osg::Vec3 position, float azimuth);
 
 	/**
 	 * \brief Returns starting position.
 	 * @return starting position
 	 */
-	osg::Vec2 getPosition();
+	osg::Vec3 getPosition();
 
 	/**
 	 * Returns starting azimuth\n
@@ -59,7 +59,7 @@ public:
 
 private:
 
-	osg::Vec2 position_;
+	osg::Vec3 position_;
 
 	float azimuth_;
 
