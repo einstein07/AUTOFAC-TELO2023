@@ -30,8 +30,10 @@ public:
 	 * \brief Constructor
 	 * Initializes gethering zone configuration
 	 */
-	GatheringZoneConfig(const osg::Vec3& position, const osg::Vec3& size) :
-			position_(position), size_(size) {}
+	GatheringZoneConfig(const osg::Vec3& position, const osg::Vec3& size,
+			const osg::Vec3& rotationAxis, const float& rotationAngle) :
+			position_(position), size_(size), rotationAxis_(rotationAxis),
+			rotationAngle_(rotationAngle) {}
 
 	/**
 	 * Destructor
@@ -56,6 +58,22 @@ public:
 	}
 
 	/**
+	 * Returns rotation axes.\n
+	 * @return the rotation axes
+	 */
+	const osg::Vec3& getRotationAxis() const{
+		return rotationAxis_;
+	}
+
+	/**
+	 * Returns the densities of obstacles.\n
+	 * @return the obstacle densities
+	 */
+	const float& getRotationAngle() const{
+		return rotationAngle_;
+	}
+
+	/**
 	 * Serializes gathering zone into a SimulatorConf message
 	 */
 	void serialize(robogenMessage::SimulatorConf &message){
@@ -65,6 +83,10 @@ public:
             message.set_gatheringzonesizex(size_.x());
             message.set_gatheringzonesizey(size_.y());
             message.set_gatheringzonesizez(size_.z());
+            message.set_gatheringzonerotationx(rotationAxis_.x());
+            message.set_gatheringzonerotationy(rotationAxis_.y());
+            message.set_gatheringzonerotationz(rotationAxis_.z());
+            message.set_gatheringzonerotationangle(rotationAngle_);
 	}
 
 private:
@@ -78,6 +100,16 @@ private:
 	 * Gathering zone size
 	 */
 	osg::Vec3 size_;
+
+	/**
+	 * Obstacle rotationAxes
+	 */
+	osg::Vec3 rotationAxis_;
+
+	/**
+	 * Obstacle rotationAngles
+	 */
+	float rotationAngle_;
 };
 
 }
