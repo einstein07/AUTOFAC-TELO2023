@@ -28,10 +28,12 @@ class BoxResource : public Resource {
 
 
 		/**
+		 * \brief Constructor\n
 		 * Initializes a resource object
 		 */
 		BoxResource(dWorldID odeWorld, dSpaceID odeSpace, const osg::Vec3& pos,
-				const osg::Vec3& size, float density, int type, int& resourceId);
+				const osg::Vec3& size, float density, const osg::Vec3& rotationAxis, float rotationAngle,
+				int type, int& resourceId);
 
 		/**
 		 * Remove from world

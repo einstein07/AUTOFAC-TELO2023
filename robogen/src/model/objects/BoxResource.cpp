@@ -12,10 +12,11 @@
 namespace robogen {
 
 BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
-		const osg::Vec3& pos, const osg::Vec3& size, float density, 
-                    int type, int& resourceId) : odeWorld_(odeWorld),
-                    odeSpace_(odeSpace), size_(size), density_(density), isCollected_(false),
-                    type_(type), stickyFace_(Face::NONE) {
+						const osg::Vec3& pos, const osg::Vec3& size, float density,
+						const osg::Vec3& rotationAxis, float rotationAngle,
+						int type, int& resourceId) : odeWorld_(odeWorld),
+						odeSpace_(odeSpace), size_(size), density_(density), isCollected_(false),
+						type_(type), stickyFace_(Face::NONE) {
 
 
     // since resource is not fixed, create body
@@ -31,6 +32,18 @@ BoxResource::BoxResource(dWorldID odeWorld, dSpaceID odeSpace,
     // the position on non-stationary bodies
     dBodySetPosition(box_, pos.x(), pos.y(), pos.z());
     
+    if (rotationAngle >= RobogenUtils::EPSILON_2){
+		osg::Quat rotation;
+		rotation.makeRotate(osg::DegreesToRadians(rotationAngle),rotationAxis);
+		dQuaternion quatOde;
+		quatOde[0] = rotation.w();
+		quatOde[1] = rotation.x();
+		quatOde[2] = rotation.y();
+		quatOde[3] = rotation.z();
+		dGeomSetQuaternion(boxGeom_, quatOde);
+
+	}
+
     jointGroup_ = dJointGroupCreate(0);
     /*
      * No cooperation.
