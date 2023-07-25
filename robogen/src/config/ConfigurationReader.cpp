@@ -308,7 +308,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 		std::vector<boost::shared_ptr<StartPosition> > startPositionVector;
 
 		boost::shared_ptr<StartPosition> startPosition(new StartPosition());
-		if (!startPosition->init(osg::Vec2(0,0), 0)) {
+		if (!startPosition->init(osg::Vec3(0, 0, 0), 0)) {
 			std::cerr << "Problem initializing start position!" << std::endl;
 			return boost::shared_ptr<RobogenConfig>();
 		}
@@ -541,20 +541,36 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 
 	// SM added - Read gathering zone position configuration
 	osg::Vec3 zonePosition(-1000, -1000, -1000);
+	osg::Vec3 rotationAxis(0,0,0);
+	float rotationAngle = 0.0;
 	if(vm.count("gatheringZonePosition")) {
-
+		float xRotation, yRotation,	zRotation, rotAngle;
 		std::string zoneString = vm["gatheringZonePosition"].as<std::string>();
 		std::vector<std::string> zoneOpts;
 		boost::split(zoneOpts, zoneString, boost::is_any_of(","));
-		if (zoneOpts.size() == 3) {
+		if (zoneOpts.size() == 7){
 			for(unsigned int i=0; i<3; ++i) {
 				zonePosition[i] = std::atof(zoneOpts[i].c_str());
 			}
-		} else {
-			std::cerr << "'gatheringZonePosition' must be x,y,z (comma separated)." <<
-					std::endl;
-			return boost::shared_ptr<RobogenConfig>();
+			xRotation = std::atof(zoneOpts[3].c_str());
+			yRotation = std::atof(zoneOpts[4].c_str());
+			zRotation = std::atof(zoneOpts[5].c_str());
+			rotAngle = std::atof(zoneOpts[6].c_str());
 		}
+		else{
+			xRotation = yRotation = zRotation = rotationAngle = 0.0;
+			if (zoneOpts.size() == 3) {
+				for(unsigned int i=0; i<3; ++i) {
+					zonePosition[i] = std::atof(zoneOpts[i].c_str());
+				}
+			} else {
+				std::cerr << "'gatheringZonePosition' must be x,y,z (comma separated)." <<
+						std::endl;
+				return boost::shared_ptr<RobogenConfig>();
+			}
+		}
+		rotationAxis = osg::Vec3(xRotation, yRotation, zRotation);
+		rotationAngle = rotAngle;
 	}
 	// SM added - Read gathering zone configuration
 	osg::Vec3 zoneSize(0, 0, 0);
@@ -617,7 +633,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseConfigurationFile(
 
 
 	boost::shared_ptr<GatheringZoneConfig> gatheringZone;
-	gatheringZone.reset(new GatheringZoneConfig(zonePosition, zoneSize));
+	gatheringZone.reset(new GatheringZoneConfig(zonePosition, zoneSize, rotationAxis, rotationAngle));
 
 	return boost::shared_ptr<RobogenConfig>(
 			new RobogenConfig(scenario, scenarioFile, nTimeSteps,
@@ -784,14 +800,14 @@ boost::shared_ptr<LightSourcesConfig> ConfigurationReader::parseLightSourcesFile
 boost::shared_ptr<StartPositionConfig> ConfigurationReader::parseStartPositionFile(
 		const std::string& fileName) {
 
-	std::ifstream startPosFile(fileName.c_str());
-	if (!startPosFile.is_open()) {
-		std::cout << "Cannot find start position file: '" << fileName << "'"
+	std::ifstream startPositionsFile(fileName.c_str());
+	if (!startPositionsFile.is_open()) {
+		std::cout << "Cannot find start positions file: '" << fileName << "'"
 				<< std::endl;
 		return boost::shared_ptr<StartPositionConfig>();
 	}
 	std::vector<boost::shared_ptr<StartPosition> > startPositions;
-	float x, y, azimuth;
+	/*float x, y, z, azimuth;
 	while (startPosFile >> x) {
 		if (!(startPosFile >> y)) {
 			std::cout << "Malformed start position file: '" << fileName << "'"
@@ -809,12 +825,55 @@ boost::shared_ptr<StartPositionConfig> ConfigurationReader::parseStartPositionFi
 			std::cout << "Problem initializing start position!" << std::endl;
 			return boost::shared_ptr<StartPositionConfig>();
 		}
+	}*/
+
+
+	// x y azimuth
+	static const boost::regex positionsRegex(getMatchNFloatPattern(3));
+
+	// full (w/ z position)
+	// x y z azimuth
+	static const boost::regex fullPositionsRegex(getMatchNFloatPattern(4));
+
+	std::string line;
+	int lineNum = 0;
+	while (!RobogenUtils::safeGetline(startPositionsFile, line).eof()) {
+		lineNum++;
+		boost::cmatch match;
+		float x, y, z, azimuth;
+		int type;
+		if(boost::regex_match(line.c_str(), match,fullPositionsRegex)){
+			x = std::atof(match[1].str().c_str());
+			y = std::atof(match[2].str().c_str());
+			z = std::atof(match[3].str().c_str());
+			azimuth = std::atof(match[4].str().c_str());
+		}
+		else if(boost::regex_match(line.c_str(), match, positionsRegex)){
+			z = 0.0;
+			x = std::atof(match[1].str().c_str());
+			y = std::atof(match[2].str().c_str());
+			azimuth = std::atof(match[3].str().c_str());
+		}
+		else {
+			std::cerr << "Error parsing line " << lineNum <<
+							" of resources file: '" << fileName << "'"
+							<< std::endl;
+			std::cerr << line.c_str() << std::endl;
+			return boost::shared_ptr<StartPositionConfig>();
+		}
+		startPositions.push_back(
+				boost::shared_ptr<StartPosition>(new StartPosition()));
+		if (!startPositions.back()->init(osg::Vec3(x, y, z), azimuth)) {
+			std::cout << "Problem initializing start position!" << std::endl;
+			return boost::shared_ptr<StartPositionConfig>();
+		}
 	}
 
 	return boost::shared_ptr<StartPositionConfig>(
 			new StartPositionConfig(startPositions));
 
 }
+
 boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
                                                 const std::string& fileName){
     std::ifstream resourcesFile(fileName.c_str());
@@ -828,9 +887,16 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 	static const boost::regex resourceRegex(
 			getMatchNFloatPattern(8));
 
+	// full (w/ axis+angle rotation)
+	// x y z xLength yLength zLength density xRot yRot zRot rotAngle resource-type: 1 - red, 2 - green,  3 - blue, 4 - yellow, 5 - brown
+	static const boost::regex fullResourceRegex(
+				getMatchNFloatPattern(12));
+
 	std::vector<osg::Vec3> coordinates;
 	std::vector<osg::Vec3> sizes;
 	std::vector<float> densities;
+	std::vector<osg::Vec3> rotationAxes;
+	std::vector<float> rotationAngles;
 	std::vector<int> types;
 
 	std::string line;
@@ -838,34 +904,54 @@ boost::shared_ptr<ResourcesConfig> ConfigurationReader::parseResourcesFile(
 	while (!RobogenUtils::safeGetline(resourcesFile, line).eof()) {
 		lineNum++;
 		boost::cmatch match;
-		float x, y, z, xSize, ySize, zSize, density;
+		float x, y, z, xSize, ySize, zSize, density, xRotation, yRotation,
+		zRotation, rotationAngle;;
 		int type;
-		if(boost::regex_match(line.c_str(), match, resourceRegex)){
-				x = std::atof(match[1].str().c_str());
-				y = std::atof(match[2].str().c_str());
-				z = std::atof(match[3].str().c_str());
-				xSize = std::atof(match[4].str().c_str());
-				ySize = std::atof(match[5].str().c_str());
-				zSize = std::atof(match[6].str().c_str());
-				density = std::atof(match[7].str().c_str());
-				type = std::atoi(match[8].str().c_str());
-                } else {
-                        std::cerr << "Error parsing line " << lineNum <<
-                                        " of resources file: '" << fileName << "'"
-                                        << std::endl;
-                        std::cerr << line.c_str() << std::endl;
-                        return boost::shared_ptr<ResourcesConfig>();
-                }
+		if(boost::regex_match(line.c_str(), match,fullResourceRegex)){
+			x = std::atof(match[1].str().c_str());
+			y = std::atof(match[2].str().c_str());
+			z = std::atof(match[3].str().c_str());
+			xSize = std::atof(match[4].str().c_str());
+			ySize = std::atof(match[5].str().c_str());
+			zSize = std::atof(match[6].str().c_str());
+			density = std::atof(match[7].str().c_str());
+			xRotation = std::atof(match[8].str().c_str());
+			yRotation = std::atof(match[9].str().c_str());
+			zRotation = std::atof(match[10].str().c_str());
+			rotationAngle = std::atof(match[11].str().c_str());
+			type = std::atoi(match[12].str().c_str());
+		}
+		else if(boost::regex_match(line.c_str(), match, resourceRegex)){
+			xRotation = yRotation = zRotation = rotationAngle = 0.0;
+			x = std::atof(match[1].str().c_str());
+			y = std::atof(match[2].str().c_str());
+			z = std::atof(match[3].str().c_str());
+			xSize = std::atof(match[4].str().c_str());
+			ySize = std::atof(match[5].str().c_str());
+			zSize = std::atof(match[6].str().c_str());
+			density = std::atof(match[7].str().c_str());
+			type = std::atoi(match[8].str().c_str());
+		}
+		else {
+				std::cerr << "Error parsing line " << lineNum <<
+								" of resources file: '" << fileName << "'"
+								<< std::endl;
+				std::cerr << line.c_str() << std::endl;
+				return boost::shared_ptr<ResourcesConfig>();
+		}
 		coordinates.push_back(osg::Vec3(x, y, z));
 		sizes.push_back(osg::Vec3(xSize, ySize, zSize));
 		densities.push_back(density);
+		rotationAxes.push_back(osg::Vec3(xRotation, yRotation, zRotation));
+		rotationAngles.push_back(rotationAngle);
 		types.push_back(type);
 	}
 
 	return boost::shared_ptr<ResourcesConfig>(
 			new ResourcesConfig(coordinates, sizes, densities,
-					types));
+					rotationAxes, rotationAngles,types));
 }
+
 boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 		const robogenMessage::SimulatorConf& simulatorConf) {
 
@@ -899,6 +985,8 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 	std::vector<osg::Vec3> resourcesCoord;
 	std::vector<osg::Vec3> resourcesSize;
 	std::vector<float> resourcesDensity;
+	std::vector<osg::Vec3> resourcesRotationAxis;
+	std::vector<float> resourcesRotationAngle;
 	std::vector<int> resourcesPushingRobots;
 	for (int i = 0; i < simulatorConf.resources_size(); ++i) {
 
@@ -906,12 +994,15 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 		resourcesCoord.push_back(osg::Vec3(r.x(), r.y(), r.z()));
 		resourcesSize.push_back(osg::Vec3(r.xsize(), r.ysize(), r.zsize()));
 		resourcesDensity.push_back(r.density());
+		resourcesRotationAxis.push_back(osg::Vec3(r.xrotation(),
+						r.yrotation(), r.zrotation()));
+		obstaclesRotationAngle.push_back(r.rotationangle());
 		resourcesPushingRobots.push_back(r.type());
 
 	}
 	boost::shared_ptr<ResourcesConfig> resources(
-			new ResourcesConfig(resourcesCoord, resourcesSize,
-					resourcesDensity, resourcesPushingRobots));
+			new ResourcesConfig(resourcesCoord, resourcesSize, resourcesDensity,
+								resourcesRotationAxis, resourcesRotationAngle, resourcesPushingRobots));
         
 	// Decode light sources
 	std::vector<osg::Vec3> lightSourcesCoords;
@@ -932,7 +1023,7 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
 		const robogenMessage::StartPosition& s = simulatorConf.startpositions(
 				i);
 		boost::shared_ptr<StartPosition> newStartPos(new StartPosition());
-		newStartPos->init(osg::Vec2(s.x(), s.y()), s.azimuth());
+		newStartPos->init(osg::Vec3(s.x(), s.y(), s.z()), s.azimuth());
 		startPositions.push_back(newStartPos);
 	}
 
@@ -969,9 +1060,17 @@ boost::shared_ptr<RobogenConfig> ConfigurationReader::parseRobogenMessage(
                                     simulatorConf.gatheringzonesizey(),
                                     simulatorConf.gatheringzonesizez()
                                     );
+	osg::Vec3 rotationAxis = osg::Vec3(
+									simulatorConf.gatheringzonerotationx(),
+									simulatorConf.gatheringzonerotationy(),
+									simulatorConf.gatheringzonerotationz()
+									);
+	float rotationAngle = simulatorConf.gatheringzonerotationangle();
 	gatheringZone.reset(new GatheringZoneConfig(
                                                     position,
-                                                    size
+                                                    size,
+													rotationAxis,
+													rotationAngle
                                                 ));
 	//SM added - decode swarm size
 	int swarmSize = simulatorConf.swarmsize();
