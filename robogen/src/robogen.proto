@@ -83,7 +83,8 @@ message LightSource {
 message StartPosition {
   required float x = 1;
   required float y = 2;
-  required float azimuth = 3;
+  required float z = 3;
+  required float azimuth = 4;
 }
 
 message Resource {
@@ -94,7 +95,11 @@ message Resource {
   required float ySize = 5;
   required float zSize = 6;
   required float density = 7;
-  required float type = 8;
+  required float xRotation = 8;
+  required float yRotation = 9;
+  required float zRotation = 10;
+  required float rotationAngle = 11;
+  required float type = 12;
 }
 
 message SimulatorConf {
@@ -125,12 +130,16 @@ message SimulatorConf {
   required float gatheringZoneX = 25;
   required float gatheringZoneY = 26;
   required float gatheringZoneZ = 27;
-  required float gatheringZoneSizeX = 28;
-  required float gatheringZoneSizeY = 29;
-  required float gatheringZoneSizeZ = 30;
-  repeated Resource resources = 31;
-  required int32 swarmSize = 32;
-  required string mode = 33;
+  required float gatheringZoneRotationX = 28;
+  required float gatheringZoneRotationY = 29;
+  required float gatheringZoneRotationZ = 30;
+  required float gatheringZoneRotationAngle = 31;
+  required float gatheringZoneSizeX = 32;
+  required float gatheringZoneSizeY = 33;
+  required float gatheringZoneSizeZ = 34;
+  repeated Resource resources = 35;
+  required int32 swarmSize = 36;
+  required string mode = 37;
 }
 
 message EvaluationRequest {
