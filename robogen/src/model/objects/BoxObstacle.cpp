@@ -33,7 +33,7 @@ namespace robogen {
 BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size, float density,
 		const osg::Vec3& rotationAxis, float rotationAngle) :
-		size_(size) {
+		size_(size), rotationAngle_(rotationAngle) {
 
 
 	if (density >= RobogenUtils::EPSILON_2){
@@ -82,7 +82,7 @@ BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
 BoxObstacle::BoxObstacle(dWorldID odeWorld, dSpaceID odeSpace,
 		const osg::Vec3& pos, const osg::Vec3& size, float density,
 		const osg::Vec3& rotationAxis, float rotationAngle, int &obstacleId) :
-		size_(size) {
+		size_(size), rotationAngle_(rotationAngle) {
 
 
 	if (density >= RobogenUtils::EPSILON_2){
@@ -174,6 +174,9 @@ void BoxObstacle::getAABB(double& minX, double& maxX, double& minY,
 	maxY = aabb[3];
 	minZ = aabb[4];
 	maxZ = aabb[5];
+}
+float BoxObstacle::getRotationAngle(){
+	return rotationAngle_;
 }
 
 }

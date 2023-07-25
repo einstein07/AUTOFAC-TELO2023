@@ -82,6 +82,12 @@ public:
 	void getAABB(double& minX, double& maxX, double& minY,
 			double& maxY, double& minZ, double& maxZ);
 
+	/**
+	 * @return the box rotation angle
+	 */
+	float getRotationAngle();
+
+
 private:
 
 	/**
@@ -98,6 +104,10 @@ private:
 	 * The box size
 	 */
 	osg::Vec3 size_;
+	/**
+	 * Rotation angle
+	 */
+	float rotationAngle_;
 	/**
 	 * Object information used by sensor to identify the nature of this object
 	 */
