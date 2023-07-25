@@ -35,7 +35,9 @@ class GatheringZone : public Obstacle {
                     dWorldID odeWorld, 
                     dSpaceID odeSpace, 
                     const osg::Vec3& pos,
-                    const osg::Vec3& size
+                    const osg::Vec3& size,
+					const osg::Vec3& rotationAxis,
+					float rotationAngle
                 );
 
         /**

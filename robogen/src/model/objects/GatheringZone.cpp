@@ -11,7 +11,8 @@
 namespace robogen {
 
 GatheringZone::GatheringZone(dWorldID odeWorld, dSpaceID odeSpace,
-		const osg::Vec3& pos, const osg::Vec3& size) : size_(size) {
+							const osg::Vec3& pos, const osg::Vec3& size,
+							const osg::Vec3& rotationAxis, float rotationAngle) : size_(size) {
 	/**areaSpace_ = dHashSpaceCreate(odeSpace);
 	dSpaceSetSublevel (areaSpace_, 2);*/
     // make body 0
@@ -19,6 +20,17 @@ GatheringZone::GatheringZone(dWorldID odeWorld, dSpaceID odeSpace,
     boxGeom_ = dCreateBox(odeSpace, size.x(), size.y(), size.z());
     dGeomSetBody(boxGeom_, box_);
     dGeomSetPosition(boxGeom_, pos.x(), pos.y(), pos.z());
+    if (rotationAngle >= RobogenUtils::EPSILON_2){
+		osg::Quat rotation;
+		rotation.makeRotate(osg::DegreesToRadians(rotationAngle),rotationAxis);
+		dQuaternion quatOde;
+		quatOde[0] = rotation.w();
+		quatOde[1] = rotation.x();
+		quatOde[2] = rotation.y();
+		quatOde[3] = rotation.z();
+		dGeomSetQuaternion(boxGeom_, quatOde);
+
+	}
 
     data_.objectId = 0;// Placeholder id - TODO: will we require a unique ide in future
 	data_.isRobot = false;
