@@ -1,4 +1,4 @@
-# Robot Factories for Tailor-made Robots
+# Body-Brain Quality-Diversity in Robot Swarms
 
 This project is part of an ongoing thesis that investigates novel artificial life methodologies for demonstrating various swarm robotic systems as autonomous and adaptive collective behaviour systems. The research goal is to produce in situ robot factories that automate the automated design and production of self-replicating robot populations capable of exhibiting a broad range of collective behaviors. Potential collective construction manifestations include construction of novel, customized and dynamic functional structures (equipment) that contributes to task discovery, fitness function shaping and thus overall mission accomplishment -- for example, automated decentralized collective construction by cooperating robots, built on-the-fly given site-specific environmental conditions and constraints.
 
